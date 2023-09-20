@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import { IDefaultProps } from '@/components'
 import { ProgressBar } from '../ProgressBar'
 import { Button } from '../Button/Button'
-import { QuizRegistrationForm } from '../QuizRegistrationForm'
+import { RegistrationForm } from '../RegistrationForm'
 // config
 import {
   QUIZ_DETAILED_QUESTIONS as detailedQuestions,
@@ -265,7 +265,7 @@ const FormSection = ({
           </h3>
 
           {/* QUIZ COMPLETION FORM */}
-          <QuizRegistrationForm
+          <RegistrationForm
             clientTag={getClientTag({
               quiz_traffic_source,
               userStyle,

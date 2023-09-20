@@ -21,7 +21,7 @@ import Mixpanel from '@/modules/Mixpanel'
 import Storage from '@/modules/Storage'
 import { TStyle } from '@/utils'
 
-interface IQuizRegistrationFormProps {
+interface IRegistrationFormProps {
   /** Function to run after form submission */
   onAfterSubmit?(): void
   /** String or function that retuirns a string for generating client tags */
@@ -34,13 +34,13 @@ interface IQuizRegistrationFormProps {
   submitButtonLabel?: string
 }
 
-export const QuizRegistrationForm = ({
+export const RegistrationForm = ({
   onAfterSubmit,
   clientTag,
   userInfo,
   userStyle,
   submitButtonLabel,
-}: IQuizRegistrationFormProps) => {
+}: IRegistrationFormProps) => {
   // =========== Hooks =========
   const searchParams = useSearchParams()
 

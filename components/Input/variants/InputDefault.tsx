@@ -6,7 +6,6 @@ import React, { ReactNode } from 'react'
 import { IDefaultProps } from '@/components'
 import { Icon, TIconName } from '@/components/Icon'
 import { Tooltip, ITooltipProps } from '@/components/Tooltip'
-// import { getTranslation } from 'components/Translation/Translation'
 // libraries
 import cx from 'classnames'
 

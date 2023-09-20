@@ -16,12 +16,95 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+html,
+body,
+h5,
+h6 {
+  font-family: "Effra", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "SourceSerifProBold";
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 26px;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+
+a {
+  @apply hover:text-primary hover:underline transition-all
+}
+
+.section-inner-wrapper {
+  @apply w-full max-w-lg mx-auto text-center lg:max-w-screen-lg;
+}
+
+.default-padding {
+  @apply px-2 py-4 xxs:px-3 xs:px-4 lg:py-12; 
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* ======================================== */
+
+/*                   FONTS                  */
+
+/* ======================================== */
+@font-face {
+  font-family: 'Effra';
+  src: local('Effra'), url(/fonts/Effra-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EffraBold';
+  src: local('EffraBold'), url(/fonts/Effra-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SourceSerifPro';
+  src: local('SourceSerifPro'), url(/fonts/SourceSerifPro-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'SourceSerifPro-Bold';
+  src: local('SourceSerifPro-Bold'), url(/fonts/SourceSerifPro-Bold.ttf) format('truetype');
+}
+
+@layer components {
+  input {
+    background-color: #fff;
+    border-color: #6b7280;
+    border-radius: 0;
+    border-width: 1px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0.5rem 0.75rem;
+  }
 }

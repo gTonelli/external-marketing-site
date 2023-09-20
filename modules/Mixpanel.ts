@@ -1,0 +1,217 @@
+'use client'
+// libraries
+import mixpanel, { Dict, OverridedMixpanel } from 'mixpanel-browser'
+
+/* Collection of all Mixpanel event names tracked throughout the app */
+type Events =
+  | 'Button Clicked'
+  | 'Course Filterd'
+  | 'Course Banner Clicked'
+  | 'Course Landing Page'
+  | 'Course Searched'
+  | 'Course Started'
+  | 'Enrollment: Complete'
+  | '$experiment_started'
+  | 'Invoice Paid'
+  | 'Lesson Finished'
+  | 'Lesson Started'
+  | 'Logs In'
+  | 'Log Out'
+  | 'Masterclass Quiz Submit'
+  | 'Masterclass Results Quiz Submit'
+  | 'Membership Ended'
+  | 'Membership Started'
+  | 'Page Exit'
+  | 'Page Scrolled'
+  | 'Page Viewed'
+  | 'Quiz Finished'
+  | 'Quiz Started'
+  | 'Quiz Progress'
+  | '$signup'
+  | 'Segment User'
+  | 'Trial Ended'
+  | 'Trial Started'
+  | 'Video Started'
+
+/* Collection of all page names tracked throughout the app */
+export type Pages =
+  | `7 Day Free Trial Headspace`
+  | `7 Day Free Trial Masterclass`
+  | `7 Day Trial + 50% off first month`
+  | `7 Days Trial Page Funnel - FA`
+  | `7-Day Trial Page (Variant)`
+  | `Attachment Style Quiz`
+  | `Attachment Styles Email Page - ${string} ${string}`
+  | `Black Friday`
+  | `External IAT Page`
+  | `Find My Courses`
+  | `Intent Project - FA`
+  | `Learn - 30% OFF`
+  | `Lifetime`
+  | `Limited Offer - ${string}`
+  | `Main Funnel Quiz`
+  | `Masterclass Quiz`
+  | `mha-month`
+  | `Secondary Sales - ${string}`
+  | `Straight to Offer ${string}`
+  | `vsl-${string}`
+  | `VSL Royal Rumble Results - ${string}`
+
+export type ExperimentVariant = 'Control' | 'Variant 1'
+
+class Mixpanel {
+  /**
+   * Tracks a specific event with given name and props
+   *
+   * @param event Name of the event to track
+   * @param props Additional props to track
+   */
+  private event(event: Events, props?: any) {
+    this.checkInitialization()
+    mixpanel.track(event, props)
+  }
+
+  private checkInitialization() {
+    if (!(window as any)?.mixpanel) {
+      mixpanel.init(
+        process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
+        {
+          // config override goes here
+          api_host: 'https://api.personaldevelopmentschool.com',
+        }
+      )
+    }
+  }
+
+  /**
+   * Starts tracking time until the same event is called.
+   *
+   * Time tracking stops when `mixpanel.track(event)` is called with the same event
+   *
+   * Same thing as `console.time()` and `console.timeEnd()`
+   */
+  eventTime(event: Events) {
+    this.checkInitialization()
+    mixpanel.time_event(event)
+  }
+
+  /**
+   * Store user properties on a user's profile
+   * Overrides data if it is already set
+   */
+
+  setPeople(props: Dict) {
+    this.checkInitialization()
+    mixpanel.people.set(props)
+  }
+
+  /**
+   * Store user properties on a user's profile
+   * Does not override them if they are already set
+   */
+  setPeopleOnce(props: Dict) {
+    this.checkInitialization()
+    mixpanel.people.set_once(props)
+  }
+
+  /**
+   * Identify a user to track their activity across device
+   * @param userId Unique ID of a currently logged in user
+   */
+  setUser(userId?: string | null) {
+    if (!userId) return
+    this.checkInitialization()
+
+    mixpanel.identify(String(userId))
+  }
+
+  track = {
+    ButtonClicked: (props: {
+      button_label?: string
+      page_name?: Pages
+      redirection?: string
+      plan_type?: string
+    }) => {
+      this.event('Button Clicked', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    CourseBannerClicked: (props: { page_name?: Pages; course_name: string }) => {
+      this.event('Course Banner Clicked', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    ExperimentStarted: (props: {
+      'Experiment name': string
+      'Variant name': ExperimentVariant
+    }) => {
+      this.event('$experiment_started', props)
+    },
+
+    MasterclassQuizSubmit: (props: {
+      page_name?: Pages
+      option1?: boolean
+      option2?: boolean
+      option3?: boolean
+      option4?: boolean
+      option5?: boolean
+    }) => {
+      this.event('Masterclass Quiz Submit', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    MasterclassResultsQuiz: (props: { selected_option?: string }) => {
+      this.event('Masterclass Results Quiz Submit', props)
+    },
+
+    PageExited: (props: { page_name?: Pages }) => {
+      this.event('Page Exit', { page_name: props.page_name || window.location.pathname })
+    },
+
+    PageScrolled: (props: { page_name?: Pages; scroll_depth: number }) => {
+      this.event('Page Scrolled', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    PageViewed: (props: { page_name?: Pages }) => {
+      this.event('Page Viewed', { page_name: props.page_name || window.location.pathname })
+    },
+
+    QuizFinished: (props: { quiz_name: string }) => {
+      this.event('Quiz Finished', props)
+    },
+
+    QuizProgress: (props: { quiz_name: string; progress: string }) => {
+      this.event('Quiz Progress', props)
+    },
+
+    QuizStarted: (props: { quiz_name: string }) => {
+      this.event('Quiz Started', props)
+    },
+
+    SegmentUser: (props: { segment_type: string }) => {
+      this.event('Segment User', props)
+    },
+
+    SignUp: (props: { distinct_id: string; $insert_id: string }) => {
+      this.event('$signup', props)
+    },
+
+    VideoStarted: (props: { video_type: string; page_name?: Pages }) => {
+      this.event('Video Started', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+  }
+}
+
+export default new Mixpanel()

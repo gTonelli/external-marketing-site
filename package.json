@@ -38,6 +38,7 @@
     "@types/crypto-js": "^4.1.2",
     "@types/lodash": "^4.14.198",
     "@types/mixpanel-browser": "^2.47.1",
-    "@types/react-google-recaptcha": "^2.1.5"
+    "@types/react-google-recaptcha": "^2.1.5",
+    "eslint-plugin-import": "^2.28.1"
   }
 }

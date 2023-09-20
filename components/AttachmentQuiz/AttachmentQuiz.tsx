@@ -4,7 +4,10 @@
 import { useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 // components
-import { IDefaultProps, Button, ProgressBar, QuizRegistrationForm } from '@/components'
+import { IDefaultProps } from '@/components'
+import { ProgressBar } from '../ProgressBar'
+import { Button } from '../Button/Button'
+import { QuizRegistrationForm } from '../QuizRegistrationForm'
 // config
 import {
   QUIZ_DETAILED_QUESTIONS as detailedQuestions,

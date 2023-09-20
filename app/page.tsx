@@ -1,4 +1,4 @@
-import { Button, Page } from '@/components'
+import { Page } from '@/components/Page'
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import Image from 'next/image'
 

@@ -4,12 +4,14 @@
 import React from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
-import { Button, Input, Captcha } from '@/components'
+import { Button } from './Button/Button'
+import { Captcha } from './Captcha'
+import { IUserInfo } from './AttachmentQuiz/AttachmentQuiz'
+import { Input } from './Input/Input'
 import { MD5 } from 'crypto-js'
 // libraries
 import { Form, Formik } from 'formik'
 import * as yup from 'yup'
-import { IUserInfo } from '@/components/AttachmentQuiz/AttachmentQuiz'
 // modules
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 // import { FBQ, gam, gamUserTracking, Mixpanel } from 'modules/analytics'

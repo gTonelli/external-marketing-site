@@ -1,6 +1,7 @@
 'use client'
 
-import { Page, QuizRegistrationForm } from '@/components'
+import { Page } from '@/components/Page'
+import { QuizRegistrationForm } from '@/components/QuizRegistrationForm'
 
 export default function Home() {
   return (

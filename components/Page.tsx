@@ -9,12 +9,19 @@ import cx from 'classnames'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { isMobile } from 'react-device-detect'
+import { ScrollContext, ViewportContext } from '@/utils/contexts'
+import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/utils/hooks'
 
 interface IPageProps extends IDefaultWrapperProps {
   page_name: Pages
 }
 
 export const Page = ({ children, className, page_name }: IPageProps) => {
+  // ==================== Hooks ====================
+  const viewportValues = useWindowWidth()
+  const [scrollRef, scrollPercentage] = useScrollPercentage()
+  usePageScrolledEvent(scrollPercentage, page_name)
+
   useEffect(() => {
     Mixpanel.track.PageViewed({ page_name })
 
@@ -39,5 +46,13 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
     }
   })
 
-  return <main className={cx('default-padding', className)}>{children}</main>
+  return (
+    <ViewportContext.Provider value={viewportValues}>
+      <ScrollContext.Provider value={{ scrollPercentage }}>
+        <main ref={scrollRef} className={className}>
+          {children}
+        </main>
+      </ScrollContext.Provider>
+    </ViewportContext.Provider>
+  )
 }

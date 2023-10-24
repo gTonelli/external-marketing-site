@@ -1,0 +1,19 @@
+.bg-learning-love-header {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(230, 230, 230, 1) 25%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+  
+  .bg-learning-love-parallax {
+    background-image: url('/images/LearningLovePage/magazine-mockup-desktop.jpg');
+    min-height: 50vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

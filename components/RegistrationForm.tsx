@@ -18,7 +18,7 @@ import * as yup from 'yup'
 import FBQ from '@/modules/FacebookPixel'
 import { gam, gamUserTracking } from '@/modules/GAM'
 import Mixpanel from '@/modules/Mixpanel'
-import Storage from '@/modules/Storage'
+import { Storage } from '@/modules/Storage'
 import { TStyle } from '@/utils'
 
 interface IRegistrationFormProps {
@@ -108,7 +108,7 @@ export const RegistrationForm = ({
     }
 
     fetch(
-      process.env.REACT_APP_AC_LEAD_URL ||
+      process.env.NEXT_PUBLIC_AC_LEAD_URL ||
         'https://pds-marketing-api.herokuapp.com/api/post/contact',
       {
         method: 'POST',
@@ -156,7 +156,7 @@ export const RegistrationForm = ({
             />
           </div>
 
-          <div>
+          <div className="text-center">
             <Button.Submit
               className="font-bold text-base self-start text-center rounded-full bg-primary-old tracking-widest mt-4 py-4 px-12 lg:text-xl"
               label={submitButtonLabel || 'SUBMIT'}

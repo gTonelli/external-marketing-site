@@ -6,11 +6,31 @@ import { IDefaultProps } from '@/components'
 // libraries
 import cx from 'classnames'
 
+export type TButtonColor =
+  | 'primary'
+  | 'secondary'
+  | 'blue'
+  | 'teal'
+  | 'orange'
+  | 'pink'
+  | 'danger'
+  | 'success'
+  | 'warning'
+  | 'grey'
+  | 'black'
+  | 'white'
+
 export interface IButtonDefaultProps extends IDefaultProps {
+  /**
+   * Whether to allow click event and its propagation
+   *
+   * @default false
+   */
+  allowEventPropagation?: boolean
   disabled?: boolean
-  label: string
+  label?: string
   link?: string
-  onClick?: () => void
+  onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void
 
   /**
    * Theme representing various TW classes
@@ -29,8 +49,8 @@ export const ButtonDefault = ({
   theme = 'primary',
   type,
 }: IButtonDefaultProps) => {
-  const _onClick = () => {
-    onClick?.()
+  const _onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    onClick?.(event)
     Mixpanel.track.ButtonClicked({ button_label: label })
   }
 

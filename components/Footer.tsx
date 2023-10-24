@@ -1,4 +1,4 @@
-import { ELinks } from '@/utils/constants'
+import { ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,13 +13,13 @@ export const Footer = () => (
           <Image
             alt="PDS Logo - Tree of Life"
             className="mb-5 lg:ml-[30px]"
-            src="/img/pds-logo-dark.png"
+            src="/images/pds-logo-dark.png"
             height={107}
             width={107}
           />
 
           <div className="flex px-4">
-            <Link className="mx-[15px] mb-5" href={ELinks.YOUTUBE_CHANNEL}>
+            <Link className="mx-[15px] mb-5" href={ERoutes.YOUTUBE}>
               <Image
                 alt="Youtube's play icon"
                 src="/icons/footer-youtube.svg"
@@ -28,7 +28,7 @@ export const Footer = () => (
               />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ELinks.TIKTOK_CHANNEL}>
+            <Link className="mx-[15px] mb-5" href={ERoutes.TIKTOK}>
               <Image
                 alt="Tiktoks's musical note icon"
                 src="/icons/footer-tiktok.svg"
@@ -37,11 +37,11 @@ export const Footer = () => (
               />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ELinks.FACEBOOK_CHANNEL}>
+            <Link className="mx-[15px] mb-5" href={ERoutes.FACEBOOK}>
               <Image alt="Facebook icon" src="/icons/footer-facebook.svg" width={24} height={24} />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ELinks.INSTAGRAM_CHANNEL}>
+            <Link className="mx-[15px] mb-5" href={ERoutes.INSTAGRAM}>
               <Image
                 alt="Instagram's icon"
                 src="/icons/footer-instagram.svg"
@@ -50,7 +50,7 @@ export const Footer = () => (
               />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ELinks.PODCAST_CHANNEL}>
+            <Link className="mx-[15px] mb-5" href={ERoutes.PODCASTS}>
               <Image
                 alt="Web podcast icon"
                 src="/icons/footer-podcast.svg"
@@ -66,19 +66,19 @@ export const Footer = () => (
         <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
           <p className="text-xl leading-5 mb-[18px] font-bold">What we offer</p>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.VIEW_COURSES_PAGE}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.PDS_COURSES}>
             Courses
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.MEMBERSHIPS_PAGE}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.COLLECTIONS}>
             Memberships
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.ATTACHMENT_QUIZ}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.ATTACHMENT_QUIZ}>
             Attachment Quiz
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.GIFT_CARDS}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.GIFT_CARDS}>
             Gift Cards
           </Link>
         </div>
@@ -86,19 +86,19 @@ export const Footer = () => (
         <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start pl-1">
           <p className="text-xl leading-5 mb-[18px] font-bold">About</p>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.ABOUT_PAGE}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.ABOUT}>
             About Us
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.BLOG}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.BLOG}>
             Blog
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.FAQ}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.FAQ}>
             FAQ
           </Link>
 
-          <Link className="hover:no-underline mb-3 lg:max-w-[200px]" href={ELinks.IAT_PAGE}>
+          <Link className="hover:no-underline mb-3 lg:max-w-[200px]" href={ERoutes.IAT_SALES_PAGE}>
             Integrated Attachment Theory<sup>TM</sup> Certification
           </Link>
         </div>
@@ -106,15 +106,15 @@ export const Footer = () => (
         <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
           <p className="text-xl leading-5 mb-[18px] font-bold">Company</p>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.CONTACT_US}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.CONTACT_US}>
             Contact Us
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.PRIVACY_POLICY}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.PRIVACY}>
             Provacy Policy
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ELinks.TERMS_CONDITIONS}>
+          <Link className="hover:no-underline mb-3" href={ERoutes.TERMS}>
             Terms & Conditions
           </Link>
         </div>

@@ -3,7 +3,6 @@
 // libraries
 import sha3 from 'crypto-js/sha256'
 import ReactPixel from 'react-facebook-pixel'
-// import Cookies from 'universal-cookie'
 import Cookies from 'universal-cookie'
 
 interface IFBQLead {
@@ -13,7 +12,9 @@ interface IFBQLead {
 
 class FacebookPixel {
   constructor() {
-    ReactPixel.init(process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1256706227835831')
+    if (typeof window !== 'undefined') {
+      ReactPixel.init(process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1256706227835831')
+    }
   }
 
   /**

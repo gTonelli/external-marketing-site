@@ -17,8 +17,9 @@ import {
 import _ from 'lodash'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import Storage from '@/modules/Storage'
-import { ELinks } from '@/utils'
+import { Storage } from '@/modules/Storage'
+// utils
+import { ERoutes } from '@/utils/constants'
 
 let modifiedQuestions = [...questions]
 
@@ -174,7 +175,7 @@ export const AttachmentQuiz = ({ quiz_traffic_source }: IQuizSection) => {
             percentage={Number(((100 / modifiedQuestions.length || 1) * currentIndex).toFixed(0))}
           />
 
-          <p className="font-bold text-2xl lg:text-2xl">{`${currentIndex + 1}) ${
+          <p className="font-bold text-lg lg:text-lg">{`${currentIndex + 1}) ${
             modifiedQuestions[currentIndex].question
           }`}</p>
 
@@ -248,7 +249,7 @@ const FormSection = ({
     if (quiz_traffic_source === 'organic') {
       setShowResults(!showResults)
     } else if (quiz_traffic_source === 'intent_segment' && userStyle === 'fa') {
-      router.push(ELinks.INTENT_PAGE)
+      router.push(ERoutes.INTENT_PAGE)
     } else if (userStyle === 'fa') {
       router.push('/quiz/results/fa')
     } else {
@@ -300,7 +301,7 @@ const ResultSection = ({ ap, da, fa, sa }: IResultProps) => {
       redirection: 'Memberships page',
     })
 
-    router.push(ELinks.MEMBERSHIPS_PAGE)
+    router.push(ERoutes.COLLECTIONS)
   }
 
   const calcPercentage = () => {
@@ -324,7 +325,7 @@ const ResultSection = ({ ap, da, fa, sa }: IResultProps) => {
   return (
     <>
       {Object.entries(calcPercentage()).map((style, index) => (
-        <div className="mt-6">
+        <div key={`result_${index}`} className="mt-6">
           <div className="w-3/4 font-bold text-left mx-auto lg:w-1/2">
             {style[0]} {style[1]}%
           </div>
@@ -333,18 +334,20 @@ const ResultSection = ({ ap, da, fa, sa }: IResultProps) => {
           <div className="w-3/4 mx-auto lg:w-1/2">
             <div className="progressbar">
               <div
-                className="progressbar-fill anim-progress-fil bg-primary-old"
+                className="progressbar-fill anim-progress-fil bg-primary"
                 style={{ maxWidth: `${style[1]}%` }}
               />
             </div>
           </div>
         </div>
       ))}
-      <Button
-        className="rounded bg-primary-old mt-6"
-        label="Start My Journey Today"
-        onClick={goToMembershipsPage}
-      />
+      <div className="text-center">
+        <Button
+          className="rounded bg-primary-old mt-6"
+          label="Start My Journey Today"
+          onClick={goToMembershipsPage}
+        />
+      </div>
     </>
   )
 }

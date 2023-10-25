@@ -248,8 +248,6 @@ const FormSection = ({
 
     if (quiz_traffic_source === 'organic') {
       setShowResults(!showResults)
-    } else if (quiz_traffic_source === 'intent_segment' && userStyle === 'fa') {
-      router.push(ERoutes.INTENT_PAGE)
     } else if (userStyle === 'fa') {
       router.push('/quiz/results/fa')
     } else {

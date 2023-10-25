@@ -1,12 +1,19 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useEffect, useRef } from 'react'
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { LIMITED_OFFER } from './config'
 import { IconName } from '@fortawesome/fontawesome-common-types'
-import { ScrollContext } from '@/utils/contexts'
+import { Button } from '@/components/Button/Button'
+import { CountdownTimer } from '@/components/CountDownTimer'
+import { Faq } from '@/components/Faq/Faq'
+import { Icon } from '@/components/Icon'
+import { Video } from '@/components/Video/Video'
+import { Image } from '@/components/Image'
+import { Text } from '@/components/Text/Text'
+import { Page } from '@/components/Page'
 // libraries
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -20,14 +27,6 @@ import { TRIAL_PAGE } from '@/app/7-day-trial/config'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Button } from '@/components/Button/Button'
-import { CountdownTimer } from '@/components/CountDownTimer'
-import { Faq } from '@/components/Faq/Faq'
-import { Icon } from '@/components/Icon'
-import { Video } from '@/components/Video/Video'
-import { Image } from '@/components/Image'
-import { Text } from '@/components/Text/Text'
-import { Page } from '@/components/Page'
 
 export interface ILimitedOfferPageParams {
   style: TStyle
@@ -35,15 +34,17 @@ export interface ILimitedOfferPageParams {
 
 export default function LimitedOfferPage({ params }: { params: { style: TStyle } }) {
   const style = params.style
-  // ==================== Context ====================
-  const { scrollPercentage } = useContext(ScrollContext)
-
   // ==================== Hook ====================
   const router = useRouter()
   const page_name = `Limited Offer - ${style}` as Pages
 
   // ==================== State ====================
   const pageCopy = LIMITED_OFFER[style]
+  const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
+
+  useEffect(() => {
+    setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
+  })
 
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, seq_no: number) => {
@@ -58,15 +59,12 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
     []
   )
 
-  //countdown timer endDate
-  const offerEndDate = getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1)
-
   return (
     <Page page_name={`Limited Offer - ${style}`}>
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">
-          <CountdownTimer date={offerEndDate} theme="dark" />
+          {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
         </div>
       </section>
       {/* HERO SECTION */}
@@ -442,7 +440,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
               <div className="w-full flex flex-col items-center justify-evenly mt-8 lg:mt-0 md:w-1/2 lg:pl-16">
                 <div className="mb-10">
-                  <CountdownTimer date={offerEndDate} theme="light" />
+                  {offerEndDate && <CountdownTimer date={offerEndDate} theme="light" />}
                 </div>
 
                 <Image className="max-w-md w-full mb-8" src="LimitedOfferPage/course-mock-up.png" />
@@ -592,7 +590,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               <Text.Heading className="text-white text-2xl mt-2" content="Claim Your Offer Now." />
 
               {/* <div className="text-center px-0 mt-2"> */}
-              <CountdownTimer date={offerEndDate} theme="dark" />
+              {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
               {/* </div> */}
 
               <div className="pt-4">

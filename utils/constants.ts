@@ -78,7 +78,7 @@ export enum ERoutes {
   BLACK_FRIDAY = '/black-friday', // #TODO for Nov 2023
   CORPORATE_LANDING_PAGE = '/corporate-quiz',
   CORPORATE_QUIZ_QUESTIONS = '/corporate-quiz/questions',
-  CORPORATE_QUIZ_RESULTS = '/corporate-quiz/questions/results/:result/:ap/:da/:fa/:sa',
+  CORPORATE_QUIZ_RESULTS = '/corporate-quiz/results',
   DREAM_LIFE_PAGE = '/dream-life',
   FLASH_SALE_PAGE = '/membership-discount',
   HOLIDAY_GIVEAWAY = '/holiday-giveaway', // Remove?
@@ -96,11 +96,6 @@ export enum ERoutes {
 
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
-
-  // end split test
-  ATTACHMENT_STYLES_NEEDS_BELIEFS_OLD_VARIANT = '/new/:seriesParam/:styleParam', // Remove?
-  ROYAL_RUMBLE_RESULTS_PAGE_OLD_VARIANT = '/quiz/results/new/:style', // Remove?
-  TRIAL_PAGE_7_DAY_FUNNEL_OLD_VARIANT = '/7-day-free-trial/fa', // Remove?
 
   // External
   ABOUT = 'https://university.personaldevelopmentschool.com/pages/about',

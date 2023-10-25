@@ -779,7 +779,7 @@ const IATPriceCard = ({
     }
 
     fetch(
-      process.env.REACT_APP_AC_LEAD_URL ||
+      process.env.NEXT_PUBLIC_AC_LEAD_URL ||
         'https://pds-marketing-api.herokuapp.com/api/post/contact',
       {
         method: 'POST',

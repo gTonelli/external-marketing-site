@@ -45,6 +45,9 @@ export type Pages =
   | `Attachment Style Quiz`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
+  | `Corporate Quiz Landing Page`
+  | `Corporate Quiz Questions Page`
+  | `Corporate Quiz Results Page`
   | `External IAT Page`
   | `Find My Courses`
   | `IAT Attachment Quiz`

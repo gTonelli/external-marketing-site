@@ -76,6 +76,14 @@ a {
   outline-offset: 2px;
 }
 
+.anim-question {
+  animation: question 500ms;
+  animation-fill-mode: forwards;
+}
+.anim-question-reverse {
+  animation-direction: reverse !important;
+}
+
 /* ======================================== */
 
 /*                   FONTS                  */
@@ -398,4 +406,335 @@ a {
   min-height: 355px;
   max-width: 18.75rem;
   padding-top: 3.25rem;
+}
+
+/* ======================================== */
+
+/*            CORPORATE QUIZ                */
+
+/* ======================================== */
+
+@layer components {
+  .card {
+    @apply w-full flex items-center justify-center rounded-2xl bg-white shadow-lg border-primary-light border-2;
+  }
+  .card-md {
+    @apply card px-4 py-5
+        lg:px-8 lg:py-14
+        xl:w-1/2;
+  }
+  .card-sm {
+    @apply card h-full flex-col pt-3 pb-5 px-3
+        md:justify-around 
+        lg:w-1/4 lg:flex-1
+        3xl:px-6;
+  }
+  .card-sm-row {
+    @apply w-full flex flex-wrap items-center justify-center space-y-3 mb-8
+        lg:space-x-2 lg:space-y-0 
+        xl:px-24
+        2xl:px-36;
+  }
+
+  .section-intro {
+    @apply relative flex flex-col justify-center items-center pt-12 px-7 pb-32 
+        md:px-page-xs 
+        lg:pt-11 lg:pb-48
+        laptop:px-page-md
+        2xl:px-page;
+  }
+
+  .section-steps {
+    @apply flex flex-col items-center justify-center text-center px-6 pb-28
+        md:px-page-xs
+        lg:pb-44
+        laptop:px-page-md 
+        2xl:px-page;
+  }
+
+  .section-theory {
+    @apply relative flex flex-col items-center justify-center px-7 pb-11
+        md:px-page-xs
+        laptop:px-page-md
+        2xl:px-page;
+  }
+
+  /* ========== INTRO BACKGROUND ========== */
+  .section-intro-bg {
+    @apply w-full absolute top-0 opacity-50;
+
+    height: 1078px;
+    z-index: 5;
+  }
+
+  /* ========== INTRO POINTS ========== */
+  .attachment-style-image-row {
+    @apply flex flex-col space-y-14 
+        lg:flex-row lg:justify-evenly lg:space-y-0;
+  }
+  .attachment-style-image {
+    @apply flex flex-col items-center text-xs
+        sm:text-base
+        md:text-xl
+        lg:w-1/5
+        xl:text-base;
+  }
+
+  .bg-mobile {
+    @apply w-full absolute z-5
+            lg:hidden;
+  }
+  .bg-desktop {
+    @apply hidden w-full absolute z-5
+            lg:block;
+  }
+  .bg-top {
+    @apply absolute top-0;
+    z-index: 5;
+  }
+  .bg-bottom {
+    @apply absolute bottom-0;
+    z-index: 5;
+  }
+
+  .card-md-col {
+    @apply w-full flex flex-col flex-wrap space-y-6
+        xl:space-y-0;
+  }
+  .card-md-row {
+    @apply flex flex-col space-y-6
+        xl:flex-row xl:space-x-10 xl:space-y-0 xl:px-20
+        2xl:space-x-12
+        3xl:space-x-14;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .section-intro-bg {
+      height: unset;
+      max-height: 658px;
+    }
+
+    .card-sm-row {
+      height: 263px;
+    }
+
+    .chart {
+      max-height: 392px;
+    }
+    .footer-content {
+      border-bottom: solid 1px #5d5d5d;
+    }
+  }
+  @media only screen and (min-width: 1280px) {
+    .card-md-mb {
+      margin-bottom: 52px !important;
+    }
+
+    .card-md-mt {
+      margin-top: 52px !important;
+    }
+  }
+  @media only screen and (min-width: 1440px) {
+  }
+  @media only screen and (min-width: 1536px) {
+  }
+  @media only screen and (min-width: 1920px) {
+    /* had to make this workaround due to TW being buggy */
+    .footer,
+    .section-intro,
+    .section-steps,
+    .section-theory {
+      padding-left: 17.5rem !important;
+      padding-right: 17.5rem !important;
+    }
+
+    .section-about-styles {
+      padding-left: 19rem !important;
+      padding-right: 19rem !important;
+    }
+  }
+
+  /* ========================================== */
+  /* ==========    QUESTIONS PAGE    ========== */
+  /* ========================================== */
+  .question-page {
+    @apply relative
+        lg:min-h-screen;
+  }
+  .question-page-content {
+    @apply flex flex-col items-center px-6 pt-28
+        sm:px-page-xs
+        laptop:px-page-md
+        2xl:px-page;
+  }
+
+  .question {
+    @apply h-full flex flex-col lg:w-1/2;
+
+    /* max-width: 580px; */
+  }
+
+  .button {
+    @apply w-full font-bold rounded-full text-center transform transition ease-in-out py-6
+        focus:outline-none
+        lg:hover:scale-105 lg:hover:shadow-lg;
+
+    max-width: 240px;
+    font-family: 'Effra';
+  }
+
+  .button-answer-row {
+    @apply flex space-x-3 justify-center mb-5
+        lg:space-x-5 lg:mb-8;
+  }
+  .button-answer {
+    @apply text-base py-3 px-6 text-primary bg-white border-2 border-primary 
+        md:!px-12;
+
+    max-width: 194px;
+  }
+  .button-answer::hover {
+    @apply !bg-primary !text-white;
+  }
+  .button-answer-active {
+    @apply lg:bg-primary lg:text-white lg:scale-105 lg:shadow-lg;
+  }
+  .button-back {
+    @apply button w-8 h-8 flex !items-center !justify-center rounded-full bg-white shadow-lg p-0;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: #8a50a0;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    font-size: 12px;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  /* ============================================ */
+  /* ==========    EMAIL ENTRY PAGE    ========== */
+  /* ============================================ */
+  .email-page {
+    @apply relative w-full flex items-center justify-between flex-col pt-14 px-6 pb-9 
+        sm:px-page-xs
+        md:px-page-md
+        lg:flex-row lg:justify-around lg:space-x-10 lg:pt-20 lg:pb-24
+        laptop:px-page-md
+        2xl:px-page;
+  }
+
+  .form {
+    @apply w-full flex flex-col bg-white rounded-2xl shadow-xl px-3 py-10
+    sm:px-8;
+
+    max-width: 520px;
+  }
+
+  .input {
+    @apply rounded-full border border-primary py-3 px-10 mb-5 text-black placeholder-black
+        focus:outline-none focus:ring-2 focus:ring-primary;
+  }
+
+  .button-form {
+    @apply mt-7 mx-auto border border-primary bg-white text-primary shadow-lg
+        hover:bg-primary hover:text-white;
+  }
+
+  /* ======================================== */
+  /* ==========    RESULTS PAGE    ========== */
+  /* ======================================== */
+
+  .results-page {
+    @apply w-full flex flex-col items-center justify-center relative px-5 
+      lg:px-0;
+  }
+  .section-about-you {
+    @apply pt-24 mb-14
+        md:px-4
+        lg:w-2/3 lg:pt-16 lg:px-0 lg:mb-28
+        laptop:w-1/2;
+  }
+
+  .section-about-styles {
+    @apply flex flex-col space-y-14 pb-5
+        md:px-4
+        lg:flex-row lg:space-x-16 lg:space-y-0 lg:pb-24
+        laptop:px-4
+        2xl:px-8;
+  }
+
+  .strengths-and-improvements {
+    @apply flex flex-col space-y-10 mb-9 
+        lg:flex-row lg:space-y-0 lg:space-x-10 lg:mb-8;
+  }
+
+  .chart {
+    @apply w-full flex flex-col shadow-lg rounded-2xl border-gray-500 bg-white pt-8 px-7 pb-14;
+
+    border-width: 1px;
+  }
+
+  .style-stat {
+    @apply flex flex-col mb-6 
+        lg:flex-row lg:mb-12;
+  }
+
+  .progressbar {
+    @apply h-6 flex flex-1 items-center justify-end font-bold relative rounded-xl overflow-hidden text-right border-black;
+
+    border-width: 1px;
+  }
+  .progressbar-fill {
+    @apply w-full h-full absolute bg-primary rounded-xl left-0;
+  }
+}
+
+/* ====================================== */
+/* ==========    ANIMATIONS    ========== */
+/* ====================================== */
+@keyframes question {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  25% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  75% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }

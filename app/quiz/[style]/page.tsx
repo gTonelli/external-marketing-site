@@ -61,17 +61,6 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
     document.title = page_name
 
     setTitleStart(getTitleStart() + `${style === 'ap' ? 'an' : 'a'}`)
-
-    window.$crisp = []
-    window.CRISP_WEBSITE_ID = process.env.REACT_APP_CRISP_CHAT_ID
-    ;(function () {
-      const d = document
-      const s = d.createElement('script')
-
-      s.src = 'https://client.crisp.chat/l.js'
-      s.async = true
-      d.getElementsByTagName('head')[0].appendChild(s)
-    })()
   }, [])
 
   useEffect(() => {

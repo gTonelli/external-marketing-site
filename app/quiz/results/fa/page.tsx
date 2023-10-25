@@ -28,9 +28,6 @@ export interface IAttachmentStyleResultsParams {
   style: TResultsPagePossibleStyles
 }
 
-//countdown timer endDate
-const offerEndDate = getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1)
-
 export default function RoyalRumbleResultsPage() {
   const style = 'fa'
   // ==================== Hooks ====================
@@ -41,6 +38,7 @@ export default function RoyalRumbleResultsPage() {
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const userFirstName = Storage.get('userFirstName')
   const [titleStart, setTitleStart] = useState('')
+  const [offerEndDate, setOfferEndDate] = useState<undefined | Date>()
 
   const onVideoStarted = (type: string) => {
     if (!watchedVideos.has(type)) {
@@ -55,6 +53,7 @@ export default function RoyalRumbleResultsPage() {
 
   useEffect(() => {
     setTitleStart(userFirstName ? userFirstName.toUpperCase() + ', ' : '')
+    setOfferEndDate(getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1))
   }, [])
 
   // ================== Events =====================
@@ -357,7 +356,7 @@ export default function RoyalRumbleResultsPage() {
         <div className="default-padding pt-4 lg:pt-8">
           <div>
             <div className="my-8">
-              <CountdownTimer date={offerEndDate} theme="light" />
+              {offerEndDate && <CountdownTimer date={offerEndDate} theme="light" />}
             </div>
           </div>
         </div>

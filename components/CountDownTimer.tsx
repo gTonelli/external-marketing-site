@@ -1,6 +1,4 @@
-﻿'use client'
-
-// core
+﻿// core
 import React, { FC, forwardRef, useEffect, useState } from 'react'
 // components
 import { Text } from './Text/Text'

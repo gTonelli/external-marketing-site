@@ -10,6 +10,7 @@ import { Button } from './Button/Button'
 import { SocialMediaLinks } from '@/components/SocialMediaLinks'
 import { ERoutes } from '@/utils/constants'
 import { Link } from './Link'
+import { Page } from './Page'
 
 export const NotFound = () => {
   // ==================== Hooks ====================
@@ -20,7 +21,7 @@ export const NotFound = () => {
   }, [])
 
   return (
-    <div className="w-full flex flex-auto justify-center items-center">
+    <Page className="w-full flex flex-auto justify-center items-center" page_name="Not Found Page">
       <div className="flex-grow-1 my-8 lg:my-24 2xl:my-28">
         <div className="flex flex-col md:flex-row">
           <div className="p-6 md:p-2">
@@ -56,6 +57,6 @@ export const NotFound = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Page>
   )
 }

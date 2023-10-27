@@ -80,6 +80,8 @@ export enum ERoutes {
   CORPORATE_QUIZ_QUESTIONS = '/corporate-quiz/questions',
   CORPORATE_QUIZ_RESULTS = '/corporate-quiz/results',
   DREAM_LIFE_PAGE = '/dream-life',
+  DREAM_LIFE_RESULTS_PAGE = '/dream-life-results',
+  EXPLORE_COURSES_PAGE = '/explore-courses',
   FLASH_SALE_PAGE = '/membership-discount',
   HOLIDAY_GIVEAWAY = '/holiday-giveaway', // Remove?
   HOLIDAY_GIVEAWAY_TERMS = '/holiday-giveaway/terms', // Remove?
@@ -93,9 +95,9 @@ export enum ERoutes {
   MENTAL_HEALTH_AWARENESS_PAGE = '/mha-month',
   ROYAL_RUMBLE = '/quiz/:style',
   ROYAL_RUMBLE_RESULTS_PAGE = '/quiz/results/:style',
-
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
+  WELLNESS_PAGE = '/wellness',
 
   // External
   ABOUT = 'https://university.personaldevelopmentschool.com/pages/about',

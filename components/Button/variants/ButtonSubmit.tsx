@@ -18,14 +18,13 @@ interface IButtonSubmitProps extends IButtonDefaultProps {}
  * It uses custom `useFormikContext()` hook which looks for parent Formik
  * and throws an error if it doesn't find one
  */
-export const ButtonSubmit = ({ label, ...otherProps }: IButtonSubmitProps) => {
+export const ButtonSubmit = ({ label, isLoading, ...otherProps }: IButtonSubmitProps) => {
   const { errors, isSubmitting, isValid, submitForm, submitCount } = useFormikContext()
+
   return (
     <ButtonDefault
-      // color="primary"
-      // isDisabled={submitCount > 0 && !isValid}
-      // isLoading={isSubmitting || isLoading}
-      //   icon="save"
+      isDisabled={submitCount > 0 && !isValid}
+      isLoading={isSubmitting || isLoading}
       label={label}
       type="submit"
       onClick={submitForm}

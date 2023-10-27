@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
 // libraries
@@ -21,9 +21,18 @@ export const Expandable = ({
   transitionTime = 200,
   ...otherProps
 }: IExpandableProps) => {
-  return (
-    <Collapsible className={cx('', className)} transitionTime={transitionTime} {...otherProps}>
-      {children}
-    </Collapsible>
-  )
+  // Effectively disable SSR
+  const [shouldRender, setShouldRender] = useState(false)
+  useEffect(() => {
+    setShouldRender(true)
+  })
+
+  if (!shouldRender) return null
+  else {
+    return (
+      <Collapsible className={cx('', className)} transitionTime={transitionTime} {...otherProps}>
+        {children}
+      </Collapsible>
+    )
+  }
 }

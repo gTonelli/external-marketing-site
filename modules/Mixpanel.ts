@@ -48,22 +48,27 @@ export type Pages =
   | `Corporate Quiz Landing Page`
   | `Corporate Quiz Questions Page`
   | `Corporate Quiz Results Page`
+  | `Dreamlife Results Page FA`
   | `External IAT Page`
+  | `Explore Courses Page`
   | `Find My Courses`
   | `IAT Attachment Quiz`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
+  | `Not Found Page`
   | `Main Funnel Quiz`
+  | `Main Funnel Quiz Variant`
   | `Masterclass Quiz`
   | `mha-month`
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`
   | `vsl-${string}`
   | `VSL Royal Rumble Results - ${string}`
+  | `Wellness Page`
 
-export type ExperimentVariant = 'Control' | 'Variant 1'
+export type ExperimentVariant = 'Control' | 'Variant 1' | 'Variant 2'
 
 class Mixpanel {
   constructor() {

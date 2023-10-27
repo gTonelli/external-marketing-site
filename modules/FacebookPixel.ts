@@ -2,6 +2,7 @@
 
 // libraries
 import sha3 from 'crypto-js/sha256'
+import { useState, useEffect } from 'react'
 import ReactPixel from 'react-facebook-pixel'
 import Cookies from 'universal-cookie'
 
@@ -10,46 +11,57 @@ interface IFBQLead {
   phone?: string
 }
 
-class FacebookPixel {
-  constructor() {
-    if (typeof window !== 'undefined') {
-      ReactPixel.init(process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1256706227835831')
-    }
-  }
+export function useFacebookPixel() {
+  const [facebookPixel, setFacebookPixel] = useState<any>()
 
-  /**
-   * Tracks a specific event with given category, action and props
-   *
-   * @param args Event config
-   */
-  event(title: string, args?: any) {
-    ReactPixel.track(title, args)
-  }
+  useEffect(() => {
+    import('react-facebook-pixel')
+      .then((x) => x.default)
+      .then((ReactPixel) => {
+        class FacebookPixel {
+          constructor() {
+            ReactPixel.init(process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1256706227835831')
+          }
 
-  async trackLead(args: IFBQLead) {
-    const eventId = String(sha3(args.email))
-    const cookies = new Cookies()
+          /**
+           * Tracks a specific event with given category, action and props
+           *
+           * @param args Event config
+           */
+          event(title: string, args?: any) {
+            ReactPixel.track(title, args)
+          }
 
-    this.event('Lead', { eventId: eventId })
-    await fetch(
-      process.env.NEXT_PUBLIC_CAPI_URL || 'https://pds-marketing-api.herokuapp.com/fb-capi/lead',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: args.email,
-          phone: args.phone,
-          fbp: cookies.get('_fbp'),
-          fbc: cookies.get('_fbc'),
-          event_id: eventId,
-        }),
-      }
-    ).catch((err) => {
-      console.error(err)
-    })
-  }
+          async trackLead(args: IFBQLead) {
+            const eventId = String(sha3(args.email))
+            const cookies = new Cookies()
+
+            this.event('Lead', { eventId: eventId })
+            await fetch(
+              process.env.NEXT_PUBLIC_CAPI_URL ||
+                'https://pds-marketing-api.herokuapp.com/fb-capi/lead',
+              {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  email: args.email,
+                  phone: args.phone,
+                  fbp: cookies.get('_fbp'),
+                  fbc: cookies.get('_fbc'),
+                  event_id: eventId,
+                }),
+              }
+            ).catch((err) => {
+              console.error(err)
+            })
+          }
+        }
+
+        setFacebookPixel(new FacebookPixel())
+      })
+  }, [])
+
+  return facebookPixel
 }
-
-export default new FacebookPixel()

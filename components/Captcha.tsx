@@ -1,5 +1,3 @@
-'use client'
-
 // core
 import React, { useCallback } from 'react'
 // components

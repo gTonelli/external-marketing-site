@@ -112,7 +112,6 @@ export const CarouselTestimonial = forwardRef(
     const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
     const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
 
-    const headingAnimationDelay = 250
     const isPrimary = testimonialType === 'primary'
 
     const noOfslides = isPrimary

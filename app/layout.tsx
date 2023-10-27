@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="https://use.typekit.net/qbi7dud.css" />
       </head>
       <body className="relative">
-        <main className="relative bg-white overflow-x-hidden lg:overflow-x-visible">
+        <main className="relative bg-white overflow-x-hidden base-typography lg:overflow-x-visible">
           <Header />
 
           {children}

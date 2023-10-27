@@ -136,7 +136,7 @@ export default function CorporateQuizQuestionsPage() {
   return (
     <Page className="question-page w-full" page_name="Corporate Quiz Results Page">
       {/* QUESTION  */}
-      <div className="question-page-content">
+      <div className="question-page-content relative z-10">
         <div className="question">
           <Text.Heading
             className="text-left mb-5"
@@ -185,8 +185,6 @@ export default function CorporateQuizQuestionsPage() {
         className="w-full bg-desktop bg-bottom"
         src="CorporatePage/corporate_bg_question.png"
       />
-
-      <Image className="w-full bg-mobile" src="CorporatePage/corporate_bg_question_mobile.png" />
     </Page>
   )
 }

@@ -1,5 +1,3 @@
-'use client'
-
 // core
 import React from 'react'
 // components
@@ -71,11 +69,23 @@ interface ILinkIconProps extends IIconProps {
    * Target value for a tag
    */
   target?: '_blank' | '_self' | '_parent' | '_top'
+  /**
+   * Label prop for the link text
+   */
+  label?: string
 }
 
-export const LinkIcon = ({ className, url, onClick, target, ...iconProps }: ILinkIconProps) => {
+export const LinkIcon = ({
+  className,
+  url,
+  onClick,
+  target,
+  label,
+  ...iconProps
+}: ILinkIconProps) => {
   return (
     <a
+      aria-label={label}
       className={cx('cursor-pointer transform transition ease-in-out hover:scale-110', className)}
       href={url}
       target={target}

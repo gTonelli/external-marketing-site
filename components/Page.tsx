@@ -11,6 +11,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { isMobile } from 'react-device-detect'
 import { ScrollContext, ViewportContext } from '@/utils/contexts'
 import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/utils/hooks'
+import { useGamAnalytics } from '@/modules/GAM'
 
 interface IPageProps extends IDefaultWrapperProps {
   page_name: Pages
@@ -21,6 +22,7 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
   const viewportValues = useWindowWidth()
   const [scrollRef, scrollPercentage] = useScrollPercentage()
   usePageScrolledEvent(scrollPercentage, page_name)
+  const gamUserTracking = useGamAnalytics()
 
   useEffect(() => {
     Mixpanel.track.PageViewed({ page_name })

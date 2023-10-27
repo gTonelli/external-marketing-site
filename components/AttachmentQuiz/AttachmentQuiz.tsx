@@ -13,13 +13,17 @@ import {
   QUIZ_DETAILED_QUESTIONS as detailedQuestions,
   EXTERNALQUIZQUESTIONS as questions,
 } from './config'
+import { REGULAR_COPY } from '@/app/config'
 // libraries
 import _ from 'lodash'
+import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
+import { GTM } from '@/modules/GTM'
 // utils
 import { ERoutes } from '@/utils/constants'
+import { Text } from '../Text/Text'
 
 let modifiedQuestions = [...questions]
 
@@ -48,13 +52,23 @@ interface IQuizFormProps extends IResultProps {
   quiz_traffic_source: TQuizTrafficSources
 }
 
-interface IQuizSection {
+interface IQuizSection extends IDefaultProps {
+  newQuiz?: boolean
   quiz_traffic_source: TQuizTrafficSources
+  quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz'
+  showStartButton?: boolean
 }
 
-export const AttachmentQuiz = ({ quiz_traffic_source }: IQuizSection) => {
+export const AttachmentQuiz = ({
+  className,
+  newQuiz,
+  quiz_traffic_source,
+  quizName = 'Main Funnel Quiz',
+  showStartButton = true,
+}: IQuizSection) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [viewQuiz, setViewQuiz] = useState(showStartButton)
   const [apPoints, setApPoints] = useState(0)
   const [daPoints, setDaPoints] = useState(0)
   const [faPoints, setFaPoints] = useState(0)
@@ -82,6 +96,13 @@ export const AttachmentQuiz = ({ quiz_traffic_source }: IQuizSection) => {
     return _style
   }
 
+  const onStartQuiz = useCallback(() => {
+    Mixpanel.track.QuizStarted({
+      quiz_name: quizName,
+    })
+    setViewQuiz(true)
+  }, [viewQuiz, quizName])
+
   const onQuestionAnswer = useCallback(
     (answer: string) => () => {
       const threshold = [25, 50, 75]
@@ -91,7 +112,7 @@ export const AttachmentQuiz = ({ quiz_traffic_source }: IQuizSection) => {
       let _sa = saPoints
 
       if (currentIndex === 0) {
-        if (answer === 'yes') {
+        if (answer === 'Yes') {
           Mixpanel.track.SegmentUser({
             segment_type: 'in a relationship',
           })
@@ -114,7 +135,7 @@ export const AttachmentQuiz = ({ quiz_traffic_source }: IQuizSection) => {
 
         setIndex((prev) => prev + 1)
       }
-      if (answer === 'true') {
+      if (answer === 'True') {
         // Save the score based on association and move to the next one
         if (currentIndex >= 0) {
           const question = modifiedQuestions[currentIndex]
@@ -149,6 +170,12 @@ export const AttachmentQuiz = ({ quiz_traffic_source }: IQuizSection) => {
           quiz_name: 'Attachment Style Quiz',
         })
 
+        GTM?.event({
+          event: 'quiz_tracking',
+          eventCategory: 'Quiz',
+          eventAction: 'Finished',
+        })
+
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }
       setCurrentIndex(currentIndex + 1)
@@ -160,49 +187,91 @@ export const AttachmentQuiz = ({ quiz_traffic_source }: IQuizSection) => {
   if (currentIndex <= modifiedQuestions.length - 1) {
     options = modifiedQuestions[currentIndex].hasOwnProperty('options')
       ? modifiedQuestions[currentIndex]['options']
-      : ['true', 'false']
+      : ['True', 'False']
   }
-  return (
-    <section className="w-full mx-auto lg:mt-16 lg:max-w-3xl">
-      {/* QUIZ SECTION */}
-      {currentIndex !== modifiedQuestions.length ? (
-        <div className="text-center">
-          {/* PROGRESS BAR */}
-          <ProgressBar
-            showPercentage
-            className="p-1 mb-8 mx-auto lg:mb-10 w-3/4 lg:w-2/3"
-            color="primary"
-            percentage={Number(((100 / modifiedQuestions.length || 1) * currentIndex).toFixed(0))}
-          />
 
-          <p className="font-bold text-lg lg:text-lg">{`${currentIndex + 1}) ${
-            modifiedQuestions[currentIndex].question
-          }`}</p>
-
-          <div className={`flex flex-col flex-center space-y-4 mt-6 mx-auto lg:w-3/4 `}>
-            {options!.map((obj, index) => (
-              <Button
-                key={`option_${index}`}
-                className="w-3/4 rounded bg-primary-old lg:w-full lg:py-4"
-                label={obj}
-                onClick={onQuestionAnswer(obj)}
-              />
-            ))}
-          </div>
-        </div>
-      ) : (
-        <FormSection
-          ap={apPoints}
-          da={daPoints}
-          fa={faPoints}
-          sa={saPoints}
-          quiz_traffic_source={quiz_traffic_source}
-          userInfo={userInfo}
-          userStyle={style as TUserStyle}
+  if (!viewQuiz) {
+    return (
+      <div className={className}>
+        <Text.Paragraph
+          useMD
+          className="max-w-3xl text-center mt-[30px] mx-10 lg:mx-0 lg:mt-4"
+          content={REGULAR_COPY.copy}
         />
-      )}
-    </section>
-  )
+        <Button
+          className="mt-7 bg-primary-old px-20 py-4 lg:mt-8"
+          label={REGULAR_COPY.button_label}
+          onClick={onStartQuiz}
+        />
+      </div>
+    )
+  } else {
+    return (
+      <section className={cx('w-full default-padding mx-auto lg:mt-16 lg:max-w-3xl', className)}>
+        {/* QUIZ SECTION */}
+        {currentIndex !== modifiedQuestions.length ? (
+          <div className="text-center">
+            {/* PROGRESS BAR */}
+            <ProgressBar
+              showPercentage
+              className="p-1 mb-8 mx-auto lg:mb-10 w-3/4 lg:w-2/3"
+              color="primary"
+              percentage={Number(((100 / modifiedQuestions.length || 1) * currentIndex).toFixed(0))}
+            />
+
+            {newQuiz ? (
+              <div>
+                <Text
+                  className="font-sspb text-3xl text-center mb-4 lg:text-3xl"
+                  content={`Question ${currentIndex + 1}`}
+                />
+
+                <Text
+                  className="text-lg text-center lg:w-3/4 lg:mx-auto"
+                  content={modifiedQuestions[currentIndex].question}
+                />
+              </div>
+            ) : (
+              <Text
+                className="font-bold text-lg lg:text-lg"
+                content={`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
+              />
+            )}
+
+            <div className={`flex flex-col flex-center space-y-4 mt-6 mx-auto lg:w-3/4`}>
+              {options!.map((obj, index) =>
+                newQuiz ? (
+                  <Button
+                    key={`option_${index}`}
+                    className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light !min-w-min text-black uppercase lg:py-4 sm:!w-full"
+                    label={obj}
+                    onClick={onQuestionAnswer(obj)}
+                  />
+                ) : (
+                  <Button
+                    key={`option_${index}`}
+                    className="w-3/4 rounded bg-primary-old lg:w-full lg:py-4"
+                    label={obj}
+                    onClick={onQuestionAnswer(obj)}
+                  />
+                )
+              )}
+            </div>
+          </div>
+        ) : (
+          <FormSection
+            ap={apPoints}
+            da={daPoints}
+            fa={faPoints}
+            sa={saPoints}
+            quiz_traffic_source={quiz_traffic_source}
+            userInfo={userInfo}
+            userStyle={style as TUserStyle}
+          />
+        )}
+      </section>
+    )
+  }
 }
 
 ///////////////////////////////////////////
@@ -231,13 +300,6 @@ const FormSection = ({
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
-    if (quiz_traffic_source !== 'organic' && userStyle == 'fa') {
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'Intent Project',
-        'Variant name': quiz_traffic_source === 'intent_segment' ? 'Variant 1' : 'Control',
-      })
-    }
-
     if (quiz_traffic_source !== 'organic') {
       Storage.set('gm-716-pricing-test', emailSeriesTest)
       Mixpanel.track.ExperimentStarted({
@@ -251,7 +313,7 @@ const FormSection = ({
     } else if (userStyle === 'fa') {
       router.push('/quiz/results/fa')
     } else {
-      router.push('quiz/' + userStyle)
+      router.push('/quiz/' + userStyle)
     }
   }
 
@@ -259,9 +321,9 @@ const FormSection = ({
     <section className="flex justify-center">
       {showResults ? (
         <div className="max-w-5xl w-full rounded-2xl py-12 mt-6 mx-2 xxs:shadow-centered md:mx-4">
-          <h3 className="font-bold font-sspb mx-4">
+          <h2 className="font-bold font-sspb mx-4">
             Fill Out the Form Below to View Your Free Results!
-          </h3>
+          </h2>
 
           {/* QUIZ COMPLETION FORM */}
           <RegistrationForm
@@ -350,7 +412,7 @@ const ResultSection = ({ ap, da, fa, sa }: IResultProps) => {
   )
 }
 
-type TQuizTrafficSources = 'organic' | 'paid' | 'intent_segment'
+type TQuizTrafficSources = 'organic' | 'paid'
 
 interface IPossibleSplitTests {
   emailSeriesTest: boolean
@@ -374,8 +436,7 @@ const getClientTag = ({ quiz_traffic_source, userStyle, splitTests }: IGetClient
         if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-da-5.1`
         break
       case 'fa':
-        if (quiz_traffic_source === 'intent_segment') clientTag += `,attachment-quiz-intent-fa`
-        else if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-fa-5.1`
+        if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-fa-5.1`
         break
       case 'sa':
         if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-sa-5.1`

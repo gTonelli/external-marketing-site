@@ -357,6 +357,11 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-gtm-module@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-gtm-module/-/react-gtm-module-2.0.2.tgz#fa3967659e28d5609914a1dd8b7f742e34f6f3d8"
+  integrity sha512-1BwWKEtpbUB3lojX6SlQOH32CKEc/F4kKxUToSYuraeN9I0tgqtcoLC1TGDHB3X6dSmyUyOz5ZHADtucpUeyzw==
+
 "@types/react-helmet@^6.1.8":
   version "6.1.8"
   resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-6.1.8.tgz#92942afbf620435602de1f500cd9b47d3c09a218"
@@ -2564,6 +2569,11 @@ react-google-recaptcha@^3.1.0:
   dependencies:
     prop-types "^15.5.0"
     react-async-script "^1.2.0"
+
+react-gtm-module@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/react-gtm-module/-/react-gtm-module-2.0.11.tgz#14484dac8257acd93614e347c32da9c5ac524206"
+  integrity sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==
 
 react-helmet@^6.1.0:
   version "6.1.0"

@@ -218,7 +218,7 @@ export default function DreamLifePage() {
                   } text-white rounded-10 cursor-pointer px-2 py-2 lg:w-[204px] lg:py-4`}
                   onClick={() => setVideoIndex(index)}>
                   <Text.Paragraph
-                    className="font-bold text-[12px] lg:text-base"
+                    className="font-bold !text-[12px] lg:text-base"
                     content={category.name}
                   />
                 </div>
@@ -623,7 +623,7 @@ const PaymentOptions = ({
   )
 }
 
-const TestimonialSection = () => {
+export const TestimonialSection = () => {
   // ==================== State ====================
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
@@ -639,7 +639,7 @@ const TestimonialSection = () => {
         modules={[Autoplay, Navigation, Pagination]}
         navigation={{ prevEl, nextEl }}
         pagination={{
-          bulletActiveClass: 'bg-black',
+          bulletActiveClass: '!bg-black',
           bulletClass:
             'inline-block w-4 h-4 mx-1 bg-white border-2 rounded-full border-black cursor-pointer',
           clickable: true,

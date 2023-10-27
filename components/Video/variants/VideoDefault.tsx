@@ -45,6 +45,11 @@ export interface IVideoDefaultProps extends IDefaultProps {
    */
   srcUrl?: string
   /**
+   * alt of the thumbnail asset
+   * @default undefined
+   */
+  thumbnailAlt?: string
+  /**
    * URL of the thumbnail asset
    * @default undefined
    */
@@ -64,6 +69,7 @@ export const VideoDefault = ({
   playInline,
   srcUrl,
   style,
+  thumbnailAlt,
   thumbnailUrl,
   onClick,
   onPlay,
@@ -111,7 +117,7 @@ export const VideoDefault = ({
         style={style}
         onClick={onClick}>
         {/* THUMBNAIL */}
-        {thumbnailUrl && <Image src={thumbnailUrl} />}
+        {thumbnailUrl && <Image alt={thumbnailAlt} src={thumbnailUrl} />}
 
         {/* VIDEO */}
 
@@ -175,36 +181,6 @@ export const VideoPlayer = forwardRef(
         src={isSrcLink ? src : `../../../public/${src || ''}`}
         // type="video/mp4"
       />
-
-      // <video ref={ref} className={classNameVideo} {...otherProps} controlsList="nodownload">
-      //   {/* @ts-ignore */}
-      //   <source src={isSrcLink ? src : `../../../public/${src || ''}`} type="video/mp4" />
-      // </video>
     )
   }
 )
-
-// export const VideoPlayer = forwardRef(
-//   (
-//     { src = '', classNameVideo = '', ...otherProps }: IVideoPlayer,
-//     ref: React.Ref<HTMLVideoElement>
-//   ) => {
-//     // Checks whether the src is an actual URL or a local asset
-//     const isSrcLink = new RegExp(Regexes.url).test(src)
-//     return (
-//       <video
-//         ref={ref}
-//         className={classNameVideo}
-//         {...otherProps}
-//         controlsList="nodownload"
-//         src={isSrcLink ? src : require(`../../../public/${src || ''}`)}
-//         // type="video/mp4"
-//       />
-
-//       //     <video ref={ref} {...otherProps} controlsList="nodownload">
-//       //     {/* @ts-ignore */}
-//       //     <source src={isSrcLink ? src : require(`../../../assets/${src || ''}`)} type="video/mp4" />
-//       //   </video>
-//     )
-//   }
-// )

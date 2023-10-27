@@ -130,6 +130,10 @@ const config: Config = {
         text: 'text !important',
         wait: 'wait !important',
       },
+      fontFamily: {
+        effra: 'effra, sans-serif',
+        sspb: 'SourceSerifProBold, serif',
+      },
       fontSize: {
         h1: '2.5rem', // 40px
         h2: '2rem', // 32px

@@ -41,7 +41,7 @@ export const InputField = ({
         <div className={cx('relative m-4 rounded-xl group text-left', className)}>
           <input
             {...fieldProps.field}
-            className="w-full outline-none border-none focus:ring-transparent peer"
+            className="w-full outline-none border-none focus:ring-transparent peer py-2 px-4"
             placeholder=" "
             type="text"
           />

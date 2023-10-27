@@ -1,25 +1,25 @@
 // core
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 // component
 import { IDefaultProps } from '@/components'
 import { Link } from './Link'
-// import { ViewportContext } from 'App'
 // libraries
 import cx from 'classnames'
 // util
-import { ERoutes } from '@/utils/constants'
-// import { EWindowWidth } from '@/utils/'
+import { ViewportContext } from '@/utils/contexts'
+import { ERoutes, EWindowWidth } from '@/utils/constants'
 
 export const SocialMediaLinks = ({ className }: IDefaultProps) => {
   // ==================== Context ====================
-  // const { windowWidth } = useContext(ViewportContext)
+  const { windowWidth } = useContext(ViewportContext)
 
   return (
     <>
       <Link.Icon
         className={cx(className)}
+        label="The Personal Development School on YouTube"
         name="youtube"
-        // size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
+        size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
         url={ERoutes.YOUTUBE}
@@ -27,8 +27,9 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
 
       <Link.Icon
         className={cx(className)}
+        label="The Personal Development School on TikTok"
         name="tiktok"
-        // size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
+        size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
         url={ERoutes.TIKTOK}
@@ -36,8 +37,9 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
 
       <Link.Icon
         className={cx(className)}
+        label="The Personal Development School on Facebook"
         name="facebook"
-        // size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
+        size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
         url={ERoutes.FACEBOOK}
@@ -45,8 +47,9 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
 
       <Link.Icon
         className={cx(className)}
+        label="The Personal Development School on Instagram"
         name="instagram"
-        // size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
+        size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
         url={ERoutes.INSTAGRAM}
@@ -54,8 +57,9 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
 
       <Link.Icon
         className={cx(className)}
+        label="The Personal Development School Podcast"
         name="podcast"
-        // size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
+        size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         url={ERoutes.PODCASTS}
       />

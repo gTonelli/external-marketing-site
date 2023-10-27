@@ -1,7 +1,8 @@
 // core
 import React from 'react'
 // components
-import { Icon, IDefaultWrapperProps, TIconName } from '@/components'
+import { IDefaultWrapperProps } from '.'
+import { Icon, TIconName } from './Icon'
 // libraries
 import cx from 'classnames'
 

@@ -1,0 +1,15 @@
+.bg-attachment-quiz-variant {
+  width: 100%;
+  border-radius: 0 0 50px 50px;
+  background-image: url('/images/MarketingQuizVariantPage/relationship-bg.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media screen and (min-width: 1024px) {
+  .bg-attachment-quiz-variant {
+    border-radius: 0 0 100px 100px;
+  }
+}

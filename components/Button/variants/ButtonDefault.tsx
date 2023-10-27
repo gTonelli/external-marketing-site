@@ -6,11 +6,43 @@ import { IDefaultProps } from '@/components'
 // libraries
 import cx from 'classnames'
 
+export type TButtonColor =
+  | 'primary'
+  | 'secondary'
+  | 'blue'
+  | 'teal'
+  | 'orange'
+  | 'pink'
+  | 'danger'
+  | 'success'
+  | 'warning'
+  | 'grey'
+  | 'black'
+  | 'white'
+
 export interface IButtonDefaultProps extends IDefaultProps {
+  /**
+   * Whether to allow click event and its propagation
+   *
+   * @default false
+   */
+  allowEventPropagation?: boolean
+  /**
+   * Whether the button is clickable
+   *
+   * @default false
+   */
+  isDisabled?: boolean
+  /**
+   * Whether the button should display a spinner and be disabled while process is being executed
+   *
+   * @default false
+   */
+  isLoading?: boolean
   disabled?: boolean
-  label: string
+  label?: string
   link?: string
-  onClick?: () => void
+  onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void
 
   /**
    * Theme representing various TW classes
@@ -22,6 +54,8 @@ export interface IButtonDefaultProps extends IDefaultProps {
 
 export const ButtonDefault = ({
   className,
+  isLoading = false,
+  isDisabled = false,
   disabled,
   label,
   link,
@@ -29,27 +63,28 @@ export const ButtonDefault = ({
   theme = 'primary',
   type,
 }: IButtonDefaultProps) => {
-  const _onClick = () => {
-    onClick?.()
+  const _onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (isDisabled || isLoading) return
+    onClick?.(event)
     Mixpanel.track.ButtonClicked({ button_label: label })
   }
-
-  return (
-    <a href={link}>
-      <button
-        className={cx(
-          'border-2 rounded-full tracking-10 px-4 py-2 hover:text-white hover:shadow-md transition-colors',
-          theme === 'secondary'
-            ? 'text-primary bg-white border-primary hover:!bg-primary'
-            : `bg-${theme} border-${theme} text-white hover:bg-opacity-50`,
-          disabled && 'bg-opacity-25 border-opacity-25',
-          className
-        )}
-        disabled={disabled}
-        type={type}
-        onClick={_onClick}>
-        {label}
-      </button>
-    </a>
+  const button = (
+    <button
+      className={cx(
+        'border-2 rounded-full tracking-10 px-4 py-2 hover:text-white hover:shadow-md transition-colors',
+        theme === 'secondary'
+          ? 'text-primary bg-white border-primary hover:!bg-primary'
+          : `bg-${theme} border-${theme} text-white hover:bg-opacity-50`,
+        disabled && 'bg-opacity-25 border-opacity-25',
+        className
+      )}
+      disabled={disabled}
+      type={type}
+      onClick={_onClick}>
+      {label}
+    </button>
   )
+
+  if (link) return <a href={link}>{button}</a>
+  else return button
 }

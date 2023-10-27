@@ -1,7 +1,8 @@
 // core
 import React, { forwardRef } from 'react'
 // components
-import { Button, IDefaultProps } from '@/components'
+import { IDefaultProps } from '@/components'
+import { Button } from './Button/Button'
 // libraries
 import { IconName } from '@fortawesome/fontawesome-common-types'
 import cx from 'classnames'

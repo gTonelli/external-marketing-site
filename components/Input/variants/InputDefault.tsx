@@ -3,8 +3,9 @@
 // core
 import React, { ReactNode } from 'react'
 // components
-import { IDefaultProps, TIconName, Icon, ITooltipProps, Tooltip } from '@/components'
-// import { getTranslation } from 'components/Translation/Translation'
+import { IDefaultProps } from '@/components'
+import { Icon, TIconName } from '@/components/Icon'
+import { Tooltip, ITooltipProps } from '@/components/Tooltip'
 // libraries
 import cx from 'classnames'
 

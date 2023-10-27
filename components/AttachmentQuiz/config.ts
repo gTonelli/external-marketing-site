@@ -3,7 +3,7 @@ export const EXTERNALQUIZQUESTIONS = [
   {
     question: 'Are you in a relationship?',
     association: 'relationshipStatus',
-    options: ['yes', 'no'],
+    options: ['Yes', 'No'],
   },
   {
     question:

@@ -1,0 +1,54 @@
+@media only screen and (min-width: 375px) {
+  .section-attachment-styles {
+    padding-top: 140px !important;
+  }
+}
+@media only screen and (min-width: 425px) {
+}
+@media only screen and (min-width: 768px) {
+  .section-attachment-styles {
+    padding-top: 190px !important;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .section-attachment-style,
+  .attachment-tabs-section {
+    padding-left: 140px !important;
+    padding-right: 140px !important;
+  }
+
+  .section-attachment-styles {
+    padding-left: 220px !important;
+    padding-right: 220px !important;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .section-attachment-styles {
+    padding-top: 240px !important;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  .section-attachment-styles {
+    padding-top: 300px !important;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .section-attachment-styles,
+  .attachment-tabs-section {
+    padding-left: 300px !important;
+    padding-right: 300px !important;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .attachment-tabs-section {
+    @apply w-full flex items-center justify-center flex-wrap mb-10 gap-3 lg:mb-16 px-page-xxs
+          lg:px-page-md 
+          3xl:px-page;
+  }
+}

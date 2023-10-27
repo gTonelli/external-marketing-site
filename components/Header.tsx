@@ -1,6 +1,6 @@
 'use client'
 
-import { ELinks } from '@/utils/constants'
+import { ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import { IDefaultProps } from '.'
 import cx from 'classnames'
@@ -19,7 +19,7 @@ export const Header = () => {
             <Image
               alt="PDS Logo, the Tree of Life"
               className="w-[40px] h-[40px] ml-0 lg:w-[70px] lg:h-[70px] lg:mx-auto"
-              src="/img/pds-logo.png"
+              src="/images/pds-logo.png"
               height={70}
               width={70}
             />
@@ -27,15 +27,15 @@ export const Header = () => {
         </div>
 
         <nav className="hidden lg:flex flex-wrap px-4 items-center justify-center mx-auto lg:flex-1 xl:px-8">
-          <NavLink link={ELinks.ATTACHMENT_QUIZ} text="Attachment Quiz" />
+          <NavLink link={ERoutes.ATTACHMENT_QUIZ} text="Attachment Quiz" />
 
-          <NavLink link={ELinks.VIEW_COURSES_PAGE} text="View Courses" />
+          <NavLink link={ERoutes.PDS_COURSES} text="View Courses" />
 
-          <NavLink link={ELinks.MEMBERSHIPS_PAGE} text="Memberships" />
+          <NavLink link={ERoutes.COLLECTIONS} text="Memberships" />
 
-          <NavLink link={ELinks.ABOUT_PAGE} text="About" />
+          <NavLink link={ERoutes.ABOUT} text="About" />
 
-          <NavLink className="!pr-0" link={ELinks.BLOG} text="Blog" />
+          <NavLink className="!pr-0" link={ERoutes.BLOG} text="Blog" />
         </nav>
 
         <div className="min-w-[108px] ml-auto text-right">
@@ -67,7 +67,7 @@ export const Header = () => {
           <Image
             alt="PDS Logo, the Tree of Life"
             className="w-[40px] h-[40px] ml-0 mr-auto cursor-pointer"
-            src="/img/pds-logo.png"
+            src="/images/pds-logo.png"
             height={40}
             width={40}
           />
@@ -75,8 +75,8 @@ export const Header = () => {
           <Image
             alt="Close"
             src="/icons/times.svg"
-            height={14}
-            width={14}
+            height={30}
+            width={30}
             onClick={() => setSideMenuIsOpen(false)}
           />
         </div>
@@ -135,25 +135,25 @@ const SideMenuLink = ({ imgAlt, link, imgSrc, text }: ISideMenuLinkProps) => (
 const SideMenuLinks = [
   {
     imgAlt: 'Quiz',
-    link: ELinks.ATTACHMENT_QUIZ,
+    link: ERoutes.ATTACHMENT_QUIZ,
     imgSrc: '/icons/sidemenu-quiz.svg',
     text: 'Attachment Quiz',
   },
   {
     imgAlt: 'Courses',
-    link: ELinks.VIEW_COURSES_PAGE,
+    link: ERoutes.PDS_COURSES,
     imgSrc: '/icons/sidemenu-courses.svg',
     text: 'View Courses',
   },
   {
     imgAlt: 'Memberships',
-    link: ELinks.MEMBERSHIPS_PAGE,
+    link: ERoutes.COLLECTIONS,
     imgSrc: '/icons/sidemenu-membership.svg',
     text: 'Memberships',
   },
   {
     imgAlt: 'About',
-    link: ELinks.ABOUT_PAGE,
+    link: ERoutes.ABOUT,
     imgSrc: '/icons/sidemenu-about.svg',
     text: 'About',
   },
@@ -165,13 +165,13 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'Help',
-    link: ELinks.FAQ,
+    link: ERoutes.FAQ,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',
   },
   {
     imgAlt: 'Sign In',
-    link: ELinks.SIGN_IN,
+    link: ERoutes.SIGN_IN,
     imgSrc: '/icons/sidemenu-sign-in.svg',
     text: 'Sign In',
   },

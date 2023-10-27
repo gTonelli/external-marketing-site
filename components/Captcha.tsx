@@ -1,5 +1,3 @@
-'use client'
-
 // core
 import React, { useCallback } from 'react'
 // components
@@ -26,7 +24,7 @@ interface ICaptchaProps extends IDefaultProps {
  */
 export const Captcha = ({ className, onError, onSuccess }: ICaptchaProps) => {
   if (!process.env.NEXT_PUBLIC_GOOGLE_CAPTCHA_SITE_KEY) {
-    throw new Error('Missing REACT_APP_GOOGLE_CAPTCHA_SITE_KEY value in .env !')
+    throw new Error('Missing NEXT_PUBLIC_GOOGLE_CAPTCHA_SITE_KEY value in .env !')
   }
 
   // ==================== Events ====================

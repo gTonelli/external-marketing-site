@@ -35,31 +35,51 @@ type Events =
 
 /* Collection of all page names tracked throughout the app */
 export type Pages =
+  | `7 Day Free Trial Page`
   | `7 Day Free Trial Headspace`
   | `7 Day Free Trial Masterclass`
   | `7 Day Trial + 50% off first month`
   | `7 Days Trial Page Funnel - FA`
   | `7-Day Trial Page (Variant)`
+  | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
+  | `Corporate Quiz Landing Page`
+  | `Corporate Quiz Questions Page`
+  | `Corporate Quiz Results Page`
+  | `Dreamlife Results Page FA`
   | `External IAT Page`
+  | `Explore Courses Page`
   | `Find My Courses`
+  | `IAT Attachment Quiz`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
+  | `Not Found Page`
   | `Main Funnel Quiz`
+  | `Main Funnel Quiz Variant`
   | `Masterclass Quiz`
   | `mha-month`
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`
   | `vsl-${string}`
   | `VSL Royal Rumble Results - ${string}`
+  | `Wellness Page`
 
-export type ExperimentVariant = 'Control' | 'Variant 1'
+export type ExperimentVariant = 'Control' | 'Variant 1' | 'Variant 2'
 
 class Mixpanel {
+  constructor() {
+    mixpanel.init(
+      process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
+      {
+        // config override goes here
+        api_host: 'https://api.personaldevelopmentschool.com',
+      }
+    )
+  }
   /**
    * Tracks a specific event with given name and props
    *
@@ -67,20 +87,7 @@ class Mixpanel {
    * @param props Additional props to track
    */
   private event(event: Events, props?: any) {
-    this.checkInitialization()
     mixpanel.track(event, props)
-  }
-
-  private checkInitialization() {
-    if (!(window as any)?.mixpanel) {
-      mixpanel.init(
-        process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
-        {
-          // config override goes here
-          api_host: 'https://api.personaldevelopmentschool.com',
-        }
-      )
-    }
   }
 
   /**
@@ -91,7 +98,6 @@ class Mixpanel {
    * Same thing as `console.time()` and `console.timeEnd()`
    */
   eventTime(event: Events) {
-    this.checkInitialization()
     mixpanel.time_event(event)
   }
 
@@ -101,7 +107,6 @@ class Mixpanel {
    */
 
   setPeople(props: Dict) {
-    this.checkInitialization()
     mixpanel.people.set(props)
   }
 
@@ -110,7 +115,6 @@ class Mixpanel {
    * Does not override them if they are already set
    */
   setPeopleOnce(props: Dict) {
-    this.checkInitialization()
     mixpanel.people.set_once(props)
   }
 
@@ -120,8 +124,6 @@ class Mixpanel {
    */
   setUser(userId?: string | null) {
     if (!userId) return
-    this.checkInitialization()
-
     mixpanel.identify(String(userId))
   }
 
@@ -131,6 +133,7 @@ class Mixpanel {
       page_name?: Pages
       redirection?: string
       plan_type?: string
+      seq_no?: number
     }) => {
       this.event('Button Clicked', {
         ...props,

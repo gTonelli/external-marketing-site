@@ -1,3 +1,5 @@
+'use client'
+
 /* Collection of all keys used to store data in localStorage */
 export type TStorageKeys =
   | 'token'
@@ -6,30 +8,33 @@ export type TStorageKeys =
   | 'ftTest'
   | 'userFirstName'
   | 'gm-716-pricing-test'
+  | 'gm-772-copy-changes'
   | 'gm-755-headspace-split'
 
-class Storage {
-  get(key: TStorageKeys): string | null {
-    const value = localStorage.getItem(key)
+export const Storage = {
+  get: (key: TStorageKeys): string | null => {
+    if (typeof window === 'undefined') return null
+    const value = window.localStorage.getItem(key)
 
     try {
       return JSON.parse(value || 'null')
     } catch {
       return value
     }
-  }
+  },
 
-  set(key: TStorageKeys, value: any) {
-    localStorage.setItem(key, typeof value === 'string' ? value : JSON.stringify(value))
-  }
+  set: (key: TStorageKeys, value: any) => {
+    if (typeof window === 'undefined') return null
+    window.localStorage.setItem(key, typeof value === 'string' ? value : JSON.stringify(value))
+  },
 
-  remove(key: TStorageKeys) {
-    localStorage.removeItem(key)
-  }
+  remove: (key: TStorageKeys) => {
+    if (typeof window === 'undefined') return null
+    return window.localStorage.removeItem(key)
+  },
 
-  clear() {
-    localStorage.clear()
-  }
+  clear: () => {
+    if (typeof window === 'undefined') return null
+    return window.localStorage.clear()
+  },
 }
-
-export default new Storage()

@@ -623,7 +623,7 @@ const PaymentOptions = ({
   )
 }
 
-export const TestimonialSection = () => {
+const TestimonialSection = () => {
   // ==================== State ====================
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null)

@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { ATTACHMENT_QUIZ_VARIANT } from './config'

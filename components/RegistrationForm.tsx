@@ -112,8 +112,6 @@ export const RegistrationForm = ({
       signup_insert_id,
     }
 
-    console.log('Submitting')
-
     fetch(
       process.env.NEXT_PUBLIC_AC_LEAD_URL ||
         'https://pds-marketing-api.herokuapp.com/api/post/contact',

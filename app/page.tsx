@@ -103,7 +103,7 @@ const BREAKTHROUGH_SEGMENTS = [
   },
 ]
 
-export const BreakThroughSectionDesktop = () => {
+const BreakThroughSectionDesktop = () => {
   return (
     <div className="hidden mt-4 lg:flex max-w-[926px]">
       {/* FLEX SECTION */}
@@ -124,7 +124,7 @@ export const BreakThroughSectionDesktop = () => {
   )
 }
 
-export const BreakThroughSectionMobile = () => {
+const BreakThroughSectionMobile = () => {
   return (
     <div className="max-w-[250px] -mt-12 md:max-w-[798px] lg:hidden">
       <Swiper

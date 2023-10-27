@@ -12,7 +12,7 @@ import { Video } from '@/components/Video/Video'
 import { List } from '@/components/List'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
-import { TestimonialSection } from '@/app/dream-life/page'
+import { TestimonialSection } from '@/components/TestimonialSection'
 // modules
 import { ERoutes } from '@/utils/constants'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'

@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <link rel="stylesheet" href="https://use.typekit.net/qbi7dud.css" />
+        <link rel="preload" href="https://use.typekit.net/qbi7dud.css" as="style" />
       </head>
       <body className="relative">
         <main className="relative bg-white overflow-x-hidden base-typography lg:overflow-x-visible">

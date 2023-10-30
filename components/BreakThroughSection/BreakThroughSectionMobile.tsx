@@ -25,6 +25,7 @@ export const BreakThroughSectionMobile = () => {
           <SwiperSlide key={`breakthrough_${index}`}>
             <div className="py-10">
               <Image
+                priority
                 alt={breakthrough.alt}
                 className="w-40 mx-auto"
                 src={breakthrough.image}

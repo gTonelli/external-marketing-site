@@ -10,15 +10,14 @@ import { Button } from '@/components/Button/Button'
 import { AttachmentStylesTabs } from '@/components/AttachmentStylesTabs/AttachmentStylesTabs'
 import { IResultProps } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { ProgressBar } from '@/components/ProgressBar'
+import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
+import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
 // libraries
 import { Helmet } from 'react-helmet'
-import { Autoplay, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { EXTERNALQUIZQUESTIONS } from '@/components/AttachmentQuiz/config'
-import { BREAKTHROUGH_SEGMENTS } from './config'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -293,52 +292,5 @@ const QuizSection = () => {
         <ResultSection ap={apPoints} da={daPoints} fa={faPoints} sa={saPoints} />
       )}
     </section>
-  )
-}
-
-const BreakThroughSectionDesktop = () => {
-  return (
-    <div className="hidden mt-4 lg:flex max-w-[926px]">
-      {/* FLEX SECTION */}
-      {BREAKTHROUGH_SEGMENTS.map((breakThroughs, index) => (
-        <div key={`card_${index}`} className="flex flex-col basis-1/3">
-          <div className="mx-auto">
-            <Image className="w-40" src={breakThroughs.image} />
-          </div>
-
-          <div>
-            <Text className="uppercase" content={breakThroughs.title} spacing="tracking-0.325" />
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
-const BreakThroughSectionMobile = () => {
-  return (
-    <div className="max-w-[250px] -mt-12 md:max-w-[798px] lg:hidden">
-      <Swiper
-        loop
-        autoplay={{ delay: 3000 }}
-        modules={[Autoplay, Pagination]}
-        pagination={{
-          clickable: true,
-        }}>
-        {BREAKTHROUGH_SEGMENTS.map((breakthrough, index) => (
-          <SwiperSlide key={`breakthrough_${index}`}>
-            <div className="py-10">
-              <Image className="w-40 mx-auto" src={breakthrough.image} />
-
-              <Text
-                className="uppercase px-8"
-                content={breakthrough.title}
-                spacing="tracking-0.325"
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
   )
 }

@@ -26,7 +26,7 @@ interface IGTMEvent extends DataLayerArgs {
 
 export const GTM = {
   /** Retrieves the API key from the .env file */
-  getKey: (): string | undefined | null => process.env.REACT_APP_GTM_ID,
+  getKey: (): string | undefined | null => process.env.NEXT_PUBLIC_GTM_ID,
 
   /** Initializes a new instance of the Google Tag Manager object */
   init: () => {

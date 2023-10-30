@@ -7,6 +7,8 @@ import { Button } from './Button/Button'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 import cx from 'classnames'
 
+import '@fortawesome/fontawesome-free/css/all.min.css'
+
 export type TIconName = IconName
 
 /**

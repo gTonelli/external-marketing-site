@@ -20,7 +20,7 @@ import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
-import { GTM } from '@/modules/GTM'
+import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { ERoutes } from '@/utils/constants'
 import { Text } from '../Text/Text'
@@ -83,6 +83,8 @@ export const AttachmentQuiz = ({
     relationshipSatisfaction: '',
   })
   const [index, setIndex] = useState(0)
+  // ======================== Hooks ====================
+  const tagManager = useGoogleTagManager()
 
   const calculateResult = ({ fa, ap, da, sa }: Omit<IResultProps, 'quizName'>) => {
     const attachmentStyleScores = [
@@ -170,7 +172,7 @@ export const AttachmentQuiz = ({
           quiz_name: 'Attachment Style Quiz',
         })
 
-        GTM?.event({
+        tagManager?.track({
           event: 'quiz_tracking',
           eventCategory: 'Quiz',
           eventAction: 'Finished',
@@ -289,6 +291,8 @@ const FormSection = ({
 }: IQuizFormProps) => {
   // =================== State ======================
   const [showResults, setShowResults] = useState(true)
+  // =================== Hooks ======================
+  const tagManager = useGoogleTagManager()
 
   const router = useRouter()
 
@@ -300,7 +304,7 @@ const FormSection = ({
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
-    GTM?.event({
+    tagManager?.track({
       event: 'form_tracking',
       eventCategory: 'Attachment Quiz',
       eventAction: 'Form',

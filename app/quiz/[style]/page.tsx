@@ -29,6 +29,7 @@ import { getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 export interface IAttachmentStylePageParams {
   style: TStyle
@@ -54,6 +55,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')
+  const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
 
   const userFirstName = Storage.get('userFirstName')
 
@@ -61,6 +63,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
     document.title = page_name
 
     setTitleStart(getTitleStart() + `${style === 'ap' ? 'an' : 'a'}`)
+    setOfferEndDate(getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1))
   }, [])
 
   useEffect(() => {
@@ -96,8 +99,6 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
     return `${userFirstName}, you have `
   }
 
-  const offerEndDate = getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1)
-
   return (
     <Page className="w-full text-center z-10" page_name={`vsl-${style}`}>
       {/* BANNER SECTION */}
@@ -106,7 +107,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           {/* INTRO BACKGROUND */}
           <div className="bg-grey opacity-10 inset-0 rounded-20 absolute w-full"> </div>
           {/* TITLE + VIDEO */}
-          <div className="text-left flex flex-center col md:row justify-between">
+          <div className="text-left flex flex-center flex-col md:flex-row justify-between">
             <div className="my-auto">
               <Text.Heading className="capitalize" content={titleStart} size={1} />
 
@@ -180,7 +181,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.traits.map((object, index) => (
               <div
                 key={`segment_${index}`}
-                className="flex col md:row justify-between md:space-x-5 px-4 md:px-0 mb-4 md:mb-6">
+                className="flex flex-col md:flex-row justify-between md:space-x-5 px-4 md:px-0 mb-4 md:mb-6">
                 {object.map((content, index) => {
                   const MARGIN = index % 2 === 0 ? 'mb-4' : ''
 
@@ -252,7 +253,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             content="So where does your attachment style come from?"
           />
 
-          <div className="mt-8 md:mt-10 flex flex-center col md:row md:space-x-9">
+          <div className="mt-8 md:mt-10 flex flex-center flex-col md:flex-row md:space-x-9">
             <Text.Paragraph
               useMD
               className="md:text-lg font-effra"
@@ -299,7 +300,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           content="Offer Ends Soon!"
         />
 
-        <CountdownTimer date={offerEndDate} theme="dark" />
+        {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
       </section>
       {/* THAIS SECTION */}
       <div>
@@ -334,7 +335,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
       {/*GAIN ACCESS SECTION */}
       <section className="w-full bg-black-secondary pb-10 pt-10 md:pt-[68px]">
         <div className="max-w-[850px] mx-4 md:mx-auto inset-0">
-          <div className="flex col md:row -space-y-2 md:space-y-0 space-x-2 justify-center">
+          <div className="flex flex-col md:flex-row -space-y-2 md:space-y-0 space-x-2 justify-center">
             <Text.Heading
               className="capitalize text-2xl text-white"
               content="Gain access to your"
@@ -399,7 +400,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               content={ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.copy}
             />
 
-            <ul className="mt-4 ml-6 fa-ul text-white font-effra md:text-lg">
+            <ul className="mt-4 !ml-6 fa-ul text-white font-effra md:text-lg">
               {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.bullets.map((copy, index) => (
                 <li key={`programcover_${index}`}>
                   <Icon
@@ -474,8 +475,8 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                 content="Use the 3 Step Formula to Create Deep Attachment Style Healing in 30 Days AND Get Access to These Exclusive Bonuses:                "
               />
 
-              <div className="mt-8 md:mt-10 flex col md:row text-left justify-between">
-                <ul className="font-effra fa-ul max-w-[415px]">
+              <div className="mt-8 md:mt-10 flex flex-col md:flex-row text-left justify-between">
+                <ul className="font-effra !ml-6 fa-ul max-w-[415px]">
                   {ROYAL_RUMBLE[style].EXCLUSIVEBONUS_SEGMENT.map((copy, index) => (
                     <li key={`bonus_${index}`} className="mb-6">
                       <Icon
@@ -488,7 +489,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                   ))}
                 </ul>
 
-                <ul className="font-effra md:text-lg fa-ul max-w-[415px]">
+                <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-[415px]">
                   <li className="font-bold text-primary">
                     <Icon
                       className="text-primary mr-2 my-auto w-4 h-4 fa-li"
@@ -525,7 +526,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               content="Still not sure if our programs are right for you?"
             />
 
-            <div className="mt-6 md:mt-10 flex flex-center col md:row md:space-x-9">
+            <div className="mt-6 md:mt-10 flex flex-center flex-col md:flex-row md:space-x-9">
               <Text.Paragraph
                 useMD
                 className="md:text-lg font-effra"
@@ -619,7 +620,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
       {/*BEST SELF SECTION */}
       <section className="w-full mt-12 md:mt-32 bg-black pt-10 pb-8 md:pb-10">
         <div className="max-w-[1024px] mx-4 md:mx-auto mt-10 inset-0">
-          <div className="flex flex-center col md:row md:space-x-[85px]">
+          <div className="flex flex-center flex-col md:flex-row md:space-x-[85px]">
             <div className="my-auto text-left">
               <Text.Heading
                 className="capitalize text-2xl text-primary-light"
@@ -642,7 +643,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             {ROYAL_RUMBLE[style].BESTSELF_SEGMENT.bullets.map((element, index) => (
               <div
                 key={`bestSelf_${index}`}
-                className="flex col md:row mb-6 md:mb-8 md:space-x-10 justify-between">
+                className="flex flex-col md:flex-row mb-6 md:mb-8 md:space-x-10 justify-between">
                 {element.map((content, index) => {
                   const MARGIN = index % 2 === 0 ? 'mb-6' : ''
                   return (
@@ -686,7 +687,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             content={ROYAL_RUMBLE[style].MYQUESTION_SEGMENT.subheading1}
           />
 
-          <div className="flex flex-center col md:row md:space-x-11 mt-6">
+          <div className="flex flex-center flex-col md:flex-row md:space-x-11 mt-6">
             <div className="my-auto">
               <Text.Paragraph
                 className="text-primary font-bold"
@@ -732,8 +733,8 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               }
             />
             <div
-              className="flex flex-center col  py-10 text-left space-y-10 
-                        lg:row lg:space-x-5 lg:space-y-0">
+              className="flex flex-center flex-col  py-10 text-left space-y-10 
+                        lg:flex-row lg:space-x-5 lg:space-y-0">
               <div className="max-w-[502px]">
                 <Text.Paragraph
                   className="font-effra font-bold md:text-lg"
@@ -765,7 +766,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                       content="All-access pass to The Personal Development School’s offering, granting you access to:"
                     />
                   </li>
-                  <ul className="font-effra fa-ul">
+                  <ul className="font-effra !ml-4 fa-ul">
                     {ROYAL_RUMBLE[style].OFFER_SEGMENT.bullets.map((copy, index) => (
                       <li key={`offer_${index}`}>
                         <Icon
@@ -832,7 +833,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                 </div>
               </div>
             </div>
-            <div className="flex flex-center col md:row justify-between space-y-10 md:space-y-0">
+            <div className="flex flex-center flex-col md:flex-row justify-between space-y-10 md:space-y-0">
               <div className="max-w-[502px]">
                 <Image src="RoyalRumblePage/rr-offer.png" />
               </div>

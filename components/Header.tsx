@@ -134,43 +134,43 @@ const SideMenuLink = ({ imgAlt, link, imgSrc, text }: ISideMenuLinkProps) => (
 
 const SideMenuLinks = [
   {
-    imgAlt: 'Quiz',
+    imgAlt: 'The Attachment Quiz Icon, a hand prerssing a checkmark button',
     link: ERoutes.ATTACHMENT_QUIZ,
     imgSrc: '/icons/sidemenu-quiz.svg',
     text: 'Attachment Quiz',
   },
   {
-    imgAlt: 'Courses',
+    imgAlt: 'PDS Courses Icon, a vector image of a person on a computer',
     link: ERoutes.PDS_COURSES,
     imgSrc: '/icons/sidemenu-courses.svg',
     text: 'View Courses',
   },
   {
-    imgAlt: 'Memberships',
+    imgAlt: 'Memberships Icon: a vector image of 3 pamphlet leafs',
     link: ERoutes.COLLECTIONS,
     imgSrc: '/icons/sidemenu-membership.svg',
     text: 'Memberships',
   },
   {
-    imgAlt: 'About',
+    imgAlt: 'About Icon: An information icon over a vector image of a person',
     link: ERoutes.ABOUT,
     imgSrc: '/icons/sidemenu-about.svg',
     text: 'About',
   },
   {
-    imgAlt: 'Blog',
+    imgAlt: 'Blog Icon: a plain folder',
     link: '/',
     imgSrc: '/icons/sidemenu-blog.svg',
     text: 'Blog',
   },
   {
-    imgAlt: 'Help',
+    imgAlt: 'Help Icon: a question makr in a circle',
     link: ERoutes.FAQ,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',
   },
   {
-    imgAlt: 'Sign In',
+    imgAlt: 'Sign In Icon: an arrow pointing to an overlaid door.',
     link: ERoutes.SIGN_IN,
     imgSrc: '/icons/sidemenu-sign-in.svg',
     text: 'Sign In',

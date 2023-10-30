@@ -129,7 +129,7 @@ export default function DreamLifePage() {
               className="flex row items-center space-x-4 mb-1 mx-auto md:justify-center lg:justify-start lg:space-x-14 lg:mb-12">
               <Image className="w-[150px] h-[150px]" src={`TrialHeadspace/${benefit.image}`} />
 
-              <div className="flex col space-y-1 lg:row lg:space-x-20">
+              <div className="flex flex-col space-y-1 lg:flex-row lg:space-x-20">
                 <Text.Heading className="lg:w-56" content={benefit.title} size={3} />
 
                 <Text.Paragraph
@@ -140,7 +140,7 @@ export default function DreamLifePage() {
             </div>
           ))}
 
-          <div className="flex col items-center space-y-14 mx-4 mt-20 md:text-center lg:row lg:space-x-20 lg:space-y-0 lg:text-left">
+          <div className="flex flex-col items-center space-y-14 mx-4 mt-20 md:text-center lg:flex-row lg:space-x-20 lg:space-y-0 lg:text-left">
             <div>
               <Text.Heading content={TH.DREAM_LIFE.heading} />
 
@@ -262,7 +262,7 @@ export default function DreamLifePage() {
           />
 
           <div className="mt-5 lg:mt-14">
-            <div className="flex col items-center space-y-5 md:justify-center md:space-x-5 md:space-y-0 md:row">
+            <div className="flex flex-col items-center space-y-5 md:justify-center md:space-x-5 md:space-y-0 md:flex-row">
               <div className="relative">
                 <Image className="lg:hidden" src="TrialHeadspace/article-mockup-mobile-1.png" />
 
@@ -386,7 +386,7 @@ export default function DreamLifePage() {
             size={1}
           />
 
-          <div className="flex col items-center justify-between mt-12 lg:row">
+          <div className="flex flex-col items-center justify-between mt-12 lg:flex-row">
             <div className="lg:text-left">
               <Text.Heading content="Attachment Styles" size={3} />
 
@@ -463,7 +463,7 @@ export default function DreamLifePage() {
               size={1}
             />
 
-            <div className="flex col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:row md:mt-20">
+            <div className="flex flex-col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:flex-row md:mt-20">
               <div>
                 <div className="flex row items-center space-x-6 lg:space-x-10">
                   <Icon name="check" size="2x" />

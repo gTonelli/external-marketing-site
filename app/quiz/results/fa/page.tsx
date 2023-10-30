@@ -532,9 +532,7 @@ export default function RoyalRumbleResultsPage() {
           <div className="w-full flex flex-col justify-center mt-8 lg:mt-12">
             <div className="mx-auto">
               <Video.Youtube
-                className="!max-w-4xl gray-bg-primary rounded-10 p-2"
-                iframeClassName="!max-w-4xl rounded-10"
-                maxHeight={500}
+                maxHeight={512}
                 videoId={RESULTS[style].TESTIMONIAL_VIDEO_URL}
                 onPlay={() => onVideoStarted('testimonial')}
               />

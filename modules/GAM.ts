@@ -3,7 +3,7 @@
 //
 // Documentation: https://bitbucket.org/growtham/gam-user-analytics-v2/src/main/
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export const useGamAnalytics = () => {
   let gamUserTracking: undefined | any

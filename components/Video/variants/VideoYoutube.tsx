@@ -76,15 +76,15 @@ export const VideoYoutube = ({
     <>
       {/* POP-OUT DIALOG */}
       <Dialog
-        className={cx('overflow-hidden max-w-4xl bg-white !p-4', className)}
+        className={cx('w-min overflow-hidden max-w-4xl bg-white !p-4', className)}
         isShown={isDialogShown}
         onToggle={onToggleDialog}>
         <YouTube
           className={cx('w-full aspect-video', classNameYoutube)}
           iframeClassName={cx(classNameIframe)}
           opts={{
-            height: Math.min(((useWindowWidth().windowWidth - 64) * 9) / 16, maxHeight),
-            width: Math.min(useWindowWidth().windowWidth - 64, (maxHeight * 16) / 9),
+            height: Math.min(((useWindowWidth().windowWidth - 64) * 9) / 16, maxHeight - 32),
+            width: Math.min(useWindowWidth().windowWidth - 64, (maxHeight * 16) / 9 - 64),
             playerVars: {
               origin: 'https://attachment.personaldevelopmentschool.com',
             },

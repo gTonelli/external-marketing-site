@@ -68,7 +68,7 @@ export const AttachmentQuiz = ({
 }: IQuizSection) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [viewQuiz, setViewQuiz] = useState(showStartButton)
+  const [viewQuiz, setViewQuiz] = useState(!showStartButton)
   const [apPoints, setApPoints] = useState(0)
   const [daPoints, setDaPoints] = useState(0)
   const [faPoints, setFaPoints] = useState(0)
@@ -192,10 +192,10 @@ export const AttachmentQuiz = ({
 
   if (!viewQuiz) {
     return (
-      <div className={className}>
+      <div className={cx('text-center', className)}>
         <Text.Paragraph
           useMD
-          className="max-w-3xl text-center mt-[30px] mx-10 lg:mx-0 lg:mt-4"
+          className="max-w-3xl mt-4 mx-10 lg:mx-0"
           content={REGULAR_COPY.copy}
         />
         <Button
@@ -300,6 +300,13 @@ const FormSection = ({
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
+    GTM?.event({
+      event: 'form_tracking',
+      eventCategory: 'Attachment Quiz',
+      eventAction: 'Form',
+      eventLabel: 'Submit',
+    })
+
     if (quiz_traffic_source !== 'organic') {
       Storage.set('gm-716-pricing-test', emailSeriesTest)
       Mixpanel.track.ExperimentStarted({

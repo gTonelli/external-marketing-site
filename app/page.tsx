@@ -11,6 +11,13 @@ import _ from 'lodash'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import Image from 'next/image'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'The Attachment Style Quiz',
+  description: 'Take the leading Attachment Style Quiz by Thais Gibson for Free!',
+  robots: 'all',
+}
 
 export default function AttachmentQuizPage() {
   const quizCopy = REGULAR_COPY

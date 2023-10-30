@@ -4,7 +4,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Image } from '../Image'
+import Image from 'next/image'
 import { Text } from '../Text/Text'
 // libraries
 import cx from 'classnames'
@@ -20,28 +20,35 @@ export const ATTACHMENT_STYLES = [
     content: `Relationships can often make you feel anxious, unsafe or insecure because you likely have a subconscious fear of abandonment. 
           
           As a result, you seek more closeness in your relationships, and can feel afraid if you sense a loved one is pulling away. `,
-    assetUrl: 'attachment-style-ap.svg',
+    assetUrl: '/images/attachment-style-ap.svg',
+    altText:
+      'Vector image of a man standing behind a woman holdinmg her shoulders, copmforting her.',
   },
   {
     title: `Fearful \nAvoidant`,
     content: `Relationships can feel chaotic, confusing and overwhelming because you swing between being avoidant and anxious.
           
           Depending on the relationship, you can shift between being "hot and cold," often feeling confused about your feelings.`,
-    assetUrl: 'attachment-style-fa.svg',
+    assetUrl: '/images/attachment-style-fa.svg',
+    altText: 'A vector image of a man and woman walking away from each other.',
   },
   {
     title: `Dismissive \nAvoidant`,
     content: `Intense emotions can feel overwhelming and can cause you to pull away from others. You may find yourself withdrawing from arguments or triggering situations.
           
           This need for independence can cause challenges in your relationships and inner conflict for you, because deep down, you want to connect with others.`,
-    assetUrl: 'attachment-style-da.svg',
+    assetUrl: '/images/attachment-style-da.svg',
+    altText:
+      'A vector image of a man holding his hand up and facing away from a woman looking downward.',
   },
   {
     title: `Secure \nAttached`,
     content: `You often feel comfortable and at ease in relationships. You’re also good at communicating your needs and feelings, and feel open to vulnerability in your relationships.
           
           However, sometimes you can experience difficulty when relating to those who aren’t as secure in relationships.`,
-    assetUrl: 'attachment-style-sa.svg',
+    assetUrl: '/images/attachment-style-sa.svg',
+    altText:
+      'A vector image of a couple holding hands, walking together and looking at each other.',
   },
 ]
 
@@ -57,7 +64,6 @@ export const AttachmentStylesTabs = ({
   className,
   type = 'homepage',
 }: IAttachmentTabsSectionProps) => {
-  //   const [activeStyle, setActiveStyle] = useState<0 | 1 | 2 | 3 | null>(null)
   const [activeStyle, setActiveStyle] = useState<number>(0)
   const interval = useRef(null)
   const refCard = useRef<HTMLDivElement>(null)
@@ -119,10 +125,13 @@ export const AttachmentStylesTabs = ({
             lg:px-0 lg:mb-0">
         <div className="w-full flex-col-reverse lg:flex-row flex-center md:max-w-3/4 xl:max-w-1/2 flex md:space-x-5 lg:space-x-10 bg-white rounded-20 shadow-lg text-left px-5 lg:px-15 py-8 lg:py-10">
           <Image
+            alt={ATTACHMENT_STYLES[activeStyle].altText}
             className="w-full mt-10 
                 md:w-1/2 
                 lg:w-56 lg:mt-0"
-            src={ATTACHMENT_STYLES[activeStyle as any].assetUrl}
+            src={ATTACHMENT_STYLES[activeStyle].assetUrl}
+            width={256}
+            height={256}
           />
 
           <div className="flex flex-1 flex-col">

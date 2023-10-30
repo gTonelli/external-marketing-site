@@ -21,14 +21,14 @@
   body,
   h5,
   h6 {
-    font-family: var('--font-effra'), sans-serif;
+    @apply font-effra;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: var('--font-source-serif-pro-bold');
+    @apply font-sspb;
   }
 
   .base-typography h1 {

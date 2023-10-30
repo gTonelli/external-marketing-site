@@ -11,14 +11,19 @@ interface IFBQLead {
   phone?: string
 }
 
+interface IFacebookPixel {
+  event(title: string, args?: any): void
+  trackLead(args: IFBQLead): void
+}
+
 export function useFacebookPixel() {
-  const [facebookPixel, setFacebookPixel] = useState<any>()
+  const [facebookPixel, setFacebookPixel] = useState<IFacebookPixel>()
 
   useEffect(() => {
     import('react-facebook-pixel')
       .then((x) => x.default)
       .then((ReactPixel) => {
-        class FacebookPixel {
+        class FacebookPixel implements IFacebookPixel {
           constructor() {
             ReactPixel.init(process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1256706227835831')
           }

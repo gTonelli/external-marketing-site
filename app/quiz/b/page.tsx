@@ -37,7 +37,7 @@ export default function AttachmentQuizVariantPage() {
       })
       setViewQuiz((prev) => !prev)
     }
-    quizSectionRef.current?.scrollIntoView()
+    quizSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [viewQuiz])
 
   return (
@@ -84,6 +84,7 @@ export default function AttachmentQuizVariantPage() {
               className="!max-w-5xl"
               quizName="Attachment Style Quiz"
               quiz_traffic_source="paid"
+              showStartButton={false}
             />
           </div>
         )}

@@ -12,6 +12,7 @@ import { isMobile } from 'react-device-detect'
 import { ScrollContext, ViewportContext } from '@/utils/contexts'
 import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/utils/hooks'
 import { useGamAnalytics } from '@/modules/GAM'
+import { GTM } from '@/modules/GTM'
 
 interface IPageProps extends IDefaultWrapperProps {
   page_name: Pages
@@ -25,6 +26,7 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
   const gamUserTracking = useGamAnalytics()
 
   useEffect(() => {
+    GTM?.init()
     Mixpanel.track.PageViewed({ page_name })
 
     Mixpanel.eventTime('Page Exit')

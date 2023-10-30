@@ -8,7 +8,7 @@ import { ATTACHMENT_QUIZ_VARIANT } from './config'
 // libraries
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import Mixpanel from '@/modules/Mixpanel'
 import { Helmet } from 'react-helmet'
 import { Page } from '@/components/Page'
 import { Image } from '@/components/Image'

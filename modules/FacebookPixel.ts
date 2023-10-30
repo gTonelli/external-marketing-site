@@ -3,7 +3,6 @@
 // libraries
 import sha3 from 'crypto-js/sha256'
 import { useState, useEffect } from 'react'
-import ReactPixel from 'react-facebook-pixel'
 import Cookies from 'universal-cookie'
 
 interface IFBQLead {

@@ -1,6 +1,6 @@
 'use client'
 // libraries
-import mixpanel, { Dict, OverridedMixpanel } from 'mixpanel-browser'
+import mixpanel, { Dict } from 'mixpanel-browser'
 
 /* Collection of all Mixpanel event names tracked throughout the app */
 type Events =

@@ -40,6 +40,7 @@ export default function AttachmentQuizPage() {
         </div>
       </section>
       <Image
+        priority
         alt=""
         className="w-full hidden relative z-5 lg:block"
         src="/images/external-quiz-banner-bg.png"
@@ -48,6 +49,7 @@ export default function AttachmentQuizPage() {
         tabIndex={-1}
       />
       <Image
+        priority
         alt=""
         className="w-full relative z-5 lg:hidden"
         src="/images/external-quiz-banner-bg-mobile.png"

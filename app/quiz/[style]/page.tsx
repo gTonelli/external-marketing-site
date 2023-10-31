@@ -3,7 +3,6 @@
 //core
 // eslint-disable-next-line simple-import-sort/imports
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Page } from '@/components/Page'
 import { Text } from '@/components/Text/Text'
@@ -22,7 +21,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { ScrollContext } from '@/utils/contexts'
 import { TStyle } from '@/utils/types'
 import { getOfferEndDate } from '@/utils/functions'
@@ -49,7 +48,6 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
   const { scrollPercentage } = useContext(ScrollContext)
 
   // ==================== Hooks ====================
-  const router = useRouter()
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
 
   // ==================== State ====================
@@ -88,7 +86,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         page_name: page_name,
       })
 
-      router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
     [style, ROYAL_RUMBLE]
   )

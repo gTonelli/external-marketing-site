@@ -1,13 +1,23 @@
 'use client'
 
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import { IDefaultProps } from '.'
 import cx from 'classnames'
 import Link from 'next/link'
 import { useState } from 'react'
 
-export const Header = () => {
+interface IHeaderProps {
+  /**
+   * Is the header link clickable?
+   * @default true
+   */
+  clickableLogo?: boolean
+  /** Nav Links */
+  navLinks?: INavLinkProps[]
+}
+
+export const Header = ({ clickableLogo = true, navLinks = NavLinks }: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
 
   return (
@@ -15,27 +25,19 @@ export const Header = () => {
       {/* DESKTOP NAVIGATION */}
       <div className="py-3 px-5 flex items-center bg-[#f5f5f5] xl:px-24 2xl:px-48 3xl:px-72">
         <div className="min-w-[108px] text-center">
-          <a href="https://university.personaldevelopmentschool.com/collections">
-            <Image
-              alt="PDS Logo, the Tree of Life"
-              className="w-[40px] h-[40px] ml-0 lg:w-[70px] lg:h-[70px] lg:mx-auto"
-              src="/images/pds-logo.png"
-              height={70}
-              width={70}
-            />
-          </a>
+          {clickableLogo ? (
+            <a href="https://university.personaldevelopmentschool.com/collections">
+              <PDSLogo />
+            </a>
+          ) : (
+            <PDSLogo />
+          )}
         </div>
 
         <nav className="hidden lg:flex flex-wrap px-4 items-center justify-center mx-auto lg:flex-1 xl:px-8">
-          <NavLink link={ERoutes.ATTACHMENT_QUIZ} text="Attachment Quiz" />
-
-          <NavLink link={ERoutes.PDS_COURSES} text="View Courses" />
-
-          <NavLink link={ERoutes.COLLECTIONS} text="Memberships" />
-
-          <NavLink link={ERoutes.ABOUT} text="About" />
-
-          <NavLink className="!pr-0" link={ERoutes.BLOG} text="Blog" />
+          {navLinks.map((navLink, i) => (
+            <NavLink key={`nav_link_${i}`} {...navLink} />
+          ))}
         </nav>
 
         <div className="min-w-[108px] ml-auto text-right">
@@ -97,6 +99,16 @@ export const Header = () => {
   )
 }
 
+const PDSLogo = () => (
+  <Image
+    alt="PDS Logo, the Tree of Life"
+    className="w-[40px] h-[40px] ml-0 lg:w-[70px] lg:h-[70px] lg:mx-auto"
+    src="/images/pds-logo.png"
+    height={70}
+    width={70}
+  />
+)
+
 interface INavLinkProps extends IDefaultProps {
   link: string
   text: string
@@ -107,6 +119,30 @@ const NavLink = ({ className, link, text }: INavLinkProps) => (
     {text}
   </Link>
 )
+
+const NavLinks: INavLinkProps[] = [
+  {
+    link: ERoutes.ATTACHMENT_QUIZ,
+    text: 'Attachment Quiz',
+  },
+  {
+    link: EExternalRoutes.PDS_COURSES,
+    text: 'View Courses',
+  },
+  {
+    link: EExternalRoutes.COLLECTIONS,
+    text: 'Memberships',
+  },
+  {
+    link: EExternalRoutes.ABOUT,
+    text: 'About',
+  },
+  {
+    link: EExternalRoutes.BLOG,
+    text: 'Blog',
+    className: '!pr-0',
+  },
+]
 
 interface ISideMenuLinkProps {
   link: string
@@ -141,19 +177,19 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'PDS Courses Icon, a vector image of a person on a computer',
-    link: ERoutes.PDS_COURSES,
+    link: EExternalRoutes.PDS_COURSES,
     imgSrc: '/icons/sidemenu-courses.svg',
     text: 'View Courses',
   },
   {
     imgAlt: 'Memberships Icon: a vector image of 3 pamphlet leafs',
-    link: ERoutes.COLLECTIONS,
+    link: EExternalRoutes.COLLECTIONS,
     imgSrc: '/icons/sidemenu-membership.svg',
     text: 'Memberships',
   },
   {
     imgAlt: 'About Icon: An information icon over a vector image of a person',
-    link: ERoutes.ABOUT,
+    link: EExternalRoutes.ABOUT,
     imgSrc: '/icons/sidemenu-about.svg',
     text: 'About',
   },
@@ -165,13 +201,13 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'Help Icon: a question makr in a circle',
-    link: ERoutes.FAQ,
+    link: EExternalRoutes.FAQ,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',
   },
   {
     imgAlt: 'Sign In Icon: an arrow pointing to an overlaid door.',
-    link: ERoutes.SIGN_IN,
+    link: EExternalRoutes.SIGN_IN,
     imgSrc: '/icons/sidemenu-sign-in.svg',
     text: 'Sign In',
   },

@@ -15,13 +15,13 @@ import { Icon } from '@/components/Icon'
 import { Input } from '@/components/Input/Input'
 import { IDefaultProps } from '@/components'
 import { Video } from '@/components/Video/Video'
-import { TRIAL_HEADSPACE as TH, TRIAL_MASTERCLASS as TM } from './config'
+import { TRIAL_HEADSPACE as TH } from './config'
 //libraries
 import cx from 'classnames'
 import { Form, Formik, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 //modules
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import Mixpanel from '@/modules/Mixpanel'
 
 type ArticleKey = keyof typeof TH.ARTICLES
@@ -67,8 +67,8 @@ export default function DreamLifePage() {
 
     router.push(
       selectedOption.option1
-        ? ERoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
-        : ERoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
+        ? EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
+        : EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
     )
   }
 
@@ -528,8 +528,8 @@ const PaymentOptions = ({
 
     router.push(
       values.option1
-        ? ERoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
-        : ERoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
+        ? EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
+        : EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
     )
   }
 

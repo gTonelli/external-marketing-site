@@ -66,8 +66,8 @@ export const ButtonDefault = ({
   const _onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (isDisabled || isLoading) return
     onClick?.(event)
-    Mixpanel.track.ButtonClicked({ button_label: label })
   }
+
   const button = (
     <button
       className={cx(

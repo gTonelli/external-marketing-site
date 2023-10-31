@@ -12,7 +12,7 @@ import { FLASH_SALE_PAGE } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
@@ -27,7 +27,7 @@ export default function FlashSalePage() {
         page_name: page_name,
       })
 
-      router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
+      router.push(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
     },
     [page_name]
   )

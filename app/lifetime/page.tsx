@@ -1,23 +1,10 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 // components
 import { LIFETIME } from './config'
 import { ViewportContext } from '@/utils/contexts'
-//library
-import cx from 'classnames'
-import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-// modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import { ERoutes, EWindowWidth } from '@/utils/constants'
-// utils
-import { formatPrice, getOfferEndDate } from '@/utils/functions'
-
-import 'swiper/css'
-import 'swiper/css/pagination'
 import { Page } from '@/components/Page'
 import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
@@ -28,13 +15,26 @@ import { Carousel } from '@/components/Carousel/Carousel'
 import { Card } from '@/components/Card/Card'
 import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
+//library
+import cx from 'classnames'
+import { Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+// modules
+import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
+// utils
+import { formatPrice, getOfferEndDate } from '@/utils/functions'
+
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { useRouter } from 'next/navigation'
 
 interface IPricingPlan {
   title: string
   currentPrice: number
   originalPrice: number
   isRecommended: boolean
-  url: ERoutes
+  url: EExternalRoutes
   benefits: string[]
 }
 
@@ -53,7 +53,7 @@ const pricingPlan: IPricingPlan[] = [
     currentPrice: 1399,
     originalPrice: 2399,
     isRecommended: true,
-    url: ERoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
+    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
     benefits: pricingPlanbenefits,
   },
   {
@@ -61,7 +61,7 @@ const pricingPlan: IPricingPlan[] = [
     currentPrice: 269,
     originalPrice: 449,
     isRecommended: false,
-    url: ERoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
+    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
     benefits: pricingPlanbenefits,
   },
   {
@@ -69,7 +69,7 @@ const pricingPlan: IPricingPlan[] = [
     currentPrice: 149,
     originalPrice: 239,
     isRecommended: false,
-    url: ERoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,
+    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,
     benefits: pricingPlanbenefits,
   },
 ]
@@ -79,35 +79,30 @@ export default function LifeTimePage() {
   // ==================== Context ====================
   const { windowWidth } = useContext(ViewportContext)
   // ==================== Hook ====================
-  const router = useRouter()
   const pricingTableRef = useRef<null | HTMLDivElement>(null)
+  const router = useRouter()
   // ==================== State ====================
   const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-06-29T00:00:00`), 1))
-  })
-
-  //Mixpanel Button Clicks
-  const onGoToCheckout = useCallback(
-    (event: React.MouseEvent<Element, MouseEvent>, link: ERoutes) => {
-      Mixpanel.track.ButtonClicked({
-        button_label: (event.target as HTMLButtonElement).innerText,
-        page_name: page_name,
-      })
-
-      router.push(link)
-    },
-    []
-  )
-
-  //Mixpanel Time spent on page
-  useEffect(() => {
     Mixpanel.track.ExperimentStarted({
       'Variant name': 'Variant 1',
       'Experiment name': 'GM-634 Lifetime Page Split Test',
     })
   }, [])
+
+  // Mixpanel Button Clicks
+  const onGoToCheckout = (event: React.MouseEvent<HTMLButtonElement>, link: EExternalRoutes) => {
+    Mixpanel.track.ButtonClicked({
+      button_label: event.currentTarget.innerText,
+      page_name: page_name,
+    })
+
+    // TODO: Router is entering an infitie loop of cancelled network requests (there are hundreds)
+    // This is possibly a bug. Occasionally app router does not work.
+    window.location.assign(link)
+  }
 
   const onClickPurchase = () => {
     if (pricingTableRef.current) pricingTableRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -447,7 +442,9 @@ export default function LifeTimePage() {
                 <Button
                   className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                   label="SELECT"
-                  onClick={(e) => onGoToCheckout(e, ERoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT)}
+                  onClick={(e) =>
+                    onGoToCheckout(e, EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT)
+                  }
                 />
               </div>
               {/* 6 month payment */}
@@ -483,7 +480,7 @@ export default function LifeTimePage() {
                   className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                   label="SELECT"
                   onClick={(e) =>
-                    onGoToCheckout(e, ERoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN)
+                    onGoToCheckout(e, EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN)
                   }
                 />
               </div>
@@ -520,7 +517,7 @@ export default function LifeTimePage() {
                   className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                   label="SELECT"
                   onClick={(e) =>
-                    onGoToCheckout(e, ERoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN)
+                    onGoToCheckout(e, EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN)
                   }
                 />
               </div>

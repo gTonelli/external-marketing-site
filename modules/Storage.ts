@@ -10,6 +10,7 @@ export type TStorageKeys =
   | 'gm-716-pricing-test'
   | 'gm-772-copy-changes'
   | 'gm-755-headspace-split'
+  | 'gm-791-page-test'
 
 export const Storage = {
   get: (key: TStorageKeys): string | null => {

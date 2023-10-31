@@ -71,10 +71,12 @@ export const ButtonDefault = ({
   const button = (
     <button
       className={cx(
-        'border-2 rounded-full tracking-10 px-4 py-2 hover:text-white hover:shadow-md transition-colors',
+        `border-2 rounded-full tracking-10 px-4 py-2 transition-colors 
+        active:shadow-md active:text-white
+        lg:hover:text-white lg:hover:shadow-md`,
         theme === 'secondary'
-          ? 'text-primary bg-white border-primary hover:!bg-primary'
-          : `bg-${theme} border-${theme} text-white hover:bg-opacity-50`,
+          ? 'text-primary bg-white border-primary active:!bg-primary lg:hover:!bg-primary'
+          : `bg-${theme} border-${theme} text-white active:bg-opacity-50 lg:hover:bg-opacity-50`,
         disabled && 'bg-opacity-25 border-opacity-25',
         className
       )}

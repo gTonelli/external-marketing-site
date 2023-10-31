@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '../Button/Button'
+import { Text } from '../Text/Text'
+import { Loader } from '../Loader'
 // config
 import { REGULAR_COPY } from '@/app/config'
 // libraries
@@ -14,10 +16,12 @@ import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
-import { Text } from '../Text/Text'
 
-const AttachmentQuizQuestions = dynamic(() =>
-  import('./AttachmentQuizQuestions').then((mod) => mod.AttachmentQuizQuestions)
+const AttachmentQuizQuestions = dynamic(
+  () => import('./AttachmentQuizQuestions').then((mod) => mod.AttachmentQuizQuestions),
+  {
+    loading: () => <Loader />,
+  }
 )
 
 export interface IUserInfo {

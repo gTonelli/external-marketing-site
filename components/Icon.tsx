@@ -2,12 +2,15 @@
 import React, { forwardRef } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Button } from './Button/Button'
 // libraries
 import { IconName } from '@fortawesome/fontawesome-common-types'
 import cx from 'classnames'
 
-import '@fortawesome/fontawesome-free/css/all.min.css'
+import '@/public/icons/font-awesome/css/fontawesome.min.css'
+import '@/public/icons/font-awesome/css/brands.min.css'
+import '@/public/icons/font-awesome/css/light.min.css'
+import '@/public/icons/font-awesome/css/regular.min.css'
+import '@/public/icons/font-awesome/css/solid.min.css'
 
 export type TIconName = IconName
 
@@ -16,7 +19,7 @@ export type TIconName = IconName
  *
  * @reference https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use
  */
-export type TIcon = 'solid' | 'regular' | 'light' | 'duotone' | 'brands'
+export type TIcon = 'solid' | 'regular' | 'light' | 'brands'
 
 export type TIconSize = '2xs' | 'xs' | 'sm' | 'md' | 'lg' | '2x' | '3x' | '5x' | '7x' | '10x'
 

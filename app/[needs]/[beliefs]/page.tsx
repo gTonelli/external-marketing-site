@@ -2,7 +2,6 @@
 
 // core
 import { useCallback, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Button } from '@/components/Button/Button'
 import { Text } from '@/components/Text/Text'
@@ -13,9 +12,8 @@ import { EMAIL_RESULTS } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { useWindowWidth } from '@/utils/hooks'
 import { TStyle } from '@/utils/types'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { Page } from '@/components/Page'
 
 export type TSeriesParam = 'needs' | 'beliefs'
@@ -33,9 +31,6 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
   // ==================== State ====================
   const [watched, setWatched] = useState<boolean>(false)
-  // ==================== Hooks ====================
-  const windowWidth = useWindowWidth()?.windowWidth
-  const router = useRouter()
 
   const pageName = `Attachment Styles Email Page - ${seriesParam} ${styleParam}` as Pages
 
@@ -57,7 +52,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
       page_name: pageName,
     })
 
-    router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
   }, [])
 
   if (!EMAIL_RESULTS[seriesParam][styleParam]) return <NotFound />

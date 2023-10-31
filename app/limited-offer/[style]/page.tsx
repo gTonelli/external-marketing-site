@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { LIMITED_OFFER } from './config'

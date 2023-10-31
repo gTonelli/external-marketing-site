@@ -1,6 +1,6 @@
 'use client'
 
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import { IDefaultProps } from '.'
 import cx from 'classnames'
@@ -29,13 +29,13 @@ export const Header = () => {
         <nav className="hidden lg:flex flex-wrap px-4 items-center justify-center mx-auto lg:flex-1 xl:px-8">
           <NavLink link={ERoutes.ATTACHMENT_QUIZ} text="Attachment Quiz" />
 
-          <NavLink link={ERoutes.PDS_COURSES} text="View Courses" />
+          <NavLink link={EExternalRoutes.PDS_COURSES} text="View Courses" />
 
-          <NavLink link={ERoutes.COLLECTIONS} text="Memberships" />
+          <NavLink link={EExternalRoutes.COLLECTIONS} text="Memberships" />
 
-          <NavLink link={ERoutes.ABOUT} text="About" />
+          <NavLink link={EExternalRoutes.ABOUT} text="About" />
 
-          <NavLink className="!pr-0" link={ERoutes.BLOG} text="Blog" />
+          <NavLink className="!pr-0" link={EExternalRoutes.BLOG} text="Blog" />
         </nav>
 
         <div className="min-w-[108px] ml-auto text-right">
@@ -141,19 +141,19 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'PDS Courses Icon, a vector image of a person on a computer',
-    link: ERoutes.PDS_COURSES,
+    link: EExternalRoutes.PDS_COURSES,
     imgSrc: '/icons/sidemenu-courses.svg',
     text: 'View Courses',
   },
   {
     imgAlt: 'Memberships Icon: a vector image of 3 pamphlet leafs',
-    link: ERoutes.COLLECTIONS,
+    link: EExternalRoutes.COLLECTIONS,
     imgSrc: '/icons/sidemenu-membership.svg',
     text: 'Memberships',
   },
   {
     imgAlt: 'About Icon: An information icon over a vector image of a person',
-    link: ERoutes.ABOUT,
+    link: EExternalRoutes.ABOUT,
     imgSrc: '/icons/sidemenu-about.svg',
     text: 'About',
   },
@@ -165,13 +165,13 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'Help Icon: a question makr in a circle',
-    link: ERoutes.FAQ,
+    link: EExternalRoutes.FAQ,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',
   },
   {
     imgAlt: 'Sign In Icon: an arrow pointing to an overlaid door.',
-    link: ERoutes.SIGN_IN,
+    link: EExternalRoutes.SIGN_IN,
     imgSrc: '/icons/sidemenu-sign-in.svg',
     text: 'Sign In',
   },

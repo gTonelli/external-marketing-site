@@ -2,7 +2,6 @@
 
 // core
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
@@ -25,7 +24,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { useWindowWidth } from '@/utils/hooks'
 
 import 'swiper/css'
@@ -583,7 +582,6 @@ const MHAPageText = ({ className, content }: ITextDefaultProps) => (
 
 const MHAButton = ({ label }: IButtonDefaultProps) => {
   // ==================== Hooks ====================
-  const router = useRouter()
   const windowWidth = useWindowWidth().windowWidth
 
   const page_name = 'mha-month' as Pages
@@ -594,7 +592,7 @@ const MHAButton = ({ label }: IButtonDefaultProps) => {
       page_name: page_name,
     })
 
-    router.push(ERoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
   }
 
   return (

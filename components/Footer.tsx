@@ -1,4 +1,4 @@
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -19,7 +19,7 @@ export const Footer = () => (
           />
 
           <div className="flex px-4">
-            <Link className="mx-[15px] mb-5" href={ERoutes.YOUTUBE}>
+            <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
               <Image
                 alt="Youtube's play icon"
                 src="/icons/footer-youtube.svg"
@@ -28,7 +28,7 @@ export const Footer = () => (
               />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ERoutes.TIKTOK}>
+            <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
               <Image
                 alt="Tiktoks's musical note icon"
                 src="/icons/footer-tiktok.svg"
@@ -37,11 +37,11 @@ export const Footer = () => (
               />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ERoutes.FACEBOOK}>
+            <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
               <Image alt="Facebook icon" src="/icons/footer-facebook.svg" width={24} height={24} />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ERoutes.INSTAGRAM}>
+            <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
               <Image
                 alt="Instagram's icon"
                 src="/icons/footer-instagram.svg"
@@ -50,7 +50,7 @@ export const Footer = () => (
               />
             </Link>
 
-            <Link className="mx-[15px] mb-5" href={ERoutes.PODCASTS}>
+            <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
               <Image
                 alt="Web podcast icon"
                 src="/icons/footer-podcast.svg"
@@ -66,11 +66,11 @@ export const Footer = () => (
         <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
           <p className="text-xl leading-5 mb-[18px] font-bold">What we offer</p>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.PDS_COURSES}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.PDS_COURSES}>
             Courses
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.COLLECTIONS}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.COLLECTIONS}>
             Memberships
           </Link>
 
@@ -78,7 +78,7 @@ export const Footer = () => (
             Attachment Quiz
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.GIFT_CARDS}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.GIFT_CARDS}>
             Gift Cards
           </Link>
         </div>
@@ -86,15 +86,15 @@ export const Footer = () => (
         <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start pl-1">
           <p className="text-xl leading-5 mb-[18px] font-bold">About</p>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.ABOUT}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.ABOUT}>
             About Us
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.BLOG}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.BLOG}>
             Blog
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.FAQ}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.FAQ}>
             FAQ
           </Link>
 
@@ -106,15 +106,15 @@ export const Footer = () => (
         <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
           <p className="text-xl leading-5 mb-[18px] font-bold">Company</p>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.CONTACT_US}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.CONTACT_US}>
             Contact Us
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.PRIVACY}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.PRIVACY}>
             Provacy Policy
           </Link>
 
-          <Link className="hover:no-underline mb-3" href={ERoutes.TERMS}>
+          <Link className="hover:no-underline mb-3" href={EExternalRoutes.TERMS}>
             Terms & Conditions
           </Link>
         </div>

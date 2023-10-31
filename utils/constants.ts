@@ -98,7 +98,9 @@ export enum ERoutes {
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
+}
 
+export enum EExternalRoutes {
   // External
   ABOUT = 'https://university.personaldevelopmentschool.com/pages/about',
   BLOG = 'https://blog.personaldevelopmentschool.com/',

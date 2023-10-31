@@ -1,7 +1,7 @@
 'use client'
 
 //core
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 // components
@@ -73,7 +73,7 @@ export const AttachmentQuizForm = ({
     <section className="flex justify-center">
       {showResults ? (
         <div className="max-w-5xl w-full rounded-2xl py-12 mt-6 mx-2 xxs:shadow-centered md:mx-4">
-          <h2 className="font-bold font-sspb mx-4">
+          <h2 className="font-bold font-sspb mx-4 text-center">
             Fill Out the Form Below to View Your Free Results!
           </h2>
 

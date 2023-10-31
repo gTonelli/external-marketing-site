@@ -29,7 +29,6 @@ import { getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import '@fortawesome/fontawesome-free/css/all.min.css'
 
 export interface IAttachmentStylePageParams {
   style: TStyle

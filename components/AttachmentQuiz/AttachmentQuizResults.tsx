@@ -1,6 +1,6 @@
 import Mixpanel from '@/modules/Mixpanel'
 import { ERoutes } from '@/utils/constants'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { Button } from '../Button/Button'
 import { IResultProps } from './AttachmentQuiz'
 

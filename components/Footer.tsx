@@ -6,7 +6,7 @@ const todaysDate = new Date()
 const year = todaysDate.getFullYear()
 
 export const Footer = () => (
-  <footer className="bg-[#252334]">
+  <footer className="bg-[#252334] relative z-15">
     <div className="relative p-[19px] flex flex-col text-white pb-0 z-20 lg:flex-row lg:pt-14 lg:px-[170px] lg:pb-[75px]">
       <div className="flex flex-col lg:flex-row lg:flex-1">
         <div className="flex flex-col items-center mb-5 lg:items-start">

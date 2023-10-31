@@ -10,7 +10,7 @@ export const SITELINKS = {
       icon: 'SiteLinksPage/button-1-icon.png',
       label:
         'Take our quiz to Discover What Your Attachment Style is and How It Could Be Sabotaging Your Relationships',
-      url: 'https://attachment.personaldevelopmentschool.com/quiz',
+      url: '/quiz',
     },
     {
       icon: 'SiteLinksPage/button-2-icon.png',
@@ -21,7 +21,7 @@ export const SITELINKS = {
       icon: 'SiteLinksPage/button-3-icon.png',
       label:
         'Transform Lives as a Thriving Relationship Coach in Just 90 Days: Start Your Journey Today!',
-      url: 'https://attachment.personaldevelopmentschool.com/iat',
+      url: '/iat',
     },
   ],
 }

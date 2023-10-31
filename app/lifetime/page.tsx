@@ -27,6 +27,7 @@ import { formatPrice, getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { useRouter } from 'next/navigation'
 
 interface IPricingPlan {
   title: string
@@ -79,12 +80,17 @@ export default function LifeTimePage() {
   const { windowWidth } = useContext(ViewportContext)
   // ==================== Hook ====================
   const pricingTableRef = useRef<null | HTMLDivElement>(null)
+  const router = useRouter()
   // ==================== State ====================
   const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-06-29T00:00:00`), 1))
-  })
+    Mixpanel.track.ExperimentStarted({
+      'Variant name': 'Variant 1',
+      'Experiment name': 'GM-634 Lifetime Page Split Test',
+    })
+  }, [])
 
   // Mixpanel Button Clicks
   const onGoToCheckout = (event: React.MouseEvent<HTMLButtonElement>, link: EExternalRoutes) => {
@@ -93,16 +99,10 @@ export default function LifeTimePage() {
       page_name: page_name,
     })
 
+    // TODO: Router is entering an infitie loop of cancelled network requests (there are hundreds)
+    // This is possibly a bug. Occasionally app router does not work.
     window.location.assign(link)
   }
-
-  //Mixpanel Time spent on page
-  useEffect(() => {
-    Mixpanel.track.ExperimentStarted({
-      'Variant name': 'Variant 1',
-      'Experiment name': 'GM-634 Lifetime Page Split Test',
-    })
-  }, [])
 
   const onClickPurchase = () => {
     if (pricingTableRef.current) pricingTableRef.current.scrollIntoView({ behavior: 'smooth' })

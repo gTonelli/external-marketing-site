@@ -59,10 +59,10 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
   return (
     <Page page_name="Attachment Style Needs Beliefs Page">
-      <div className="flex flex-col h-full items-start px-4 lg:items-center lg:flex-row lg:px-8 lg:space-x-16 lg:my-16 ">
+      <div className="flex flex-col h-full items-start px-4 lg:flex-row lg:px-8 lg:space-x-16 lg:my-16 ">
         <section className="flex flex-col items-center my-6 mx-auto lg:w-1/2 lg:mt-0">
           <div className="max-w-lg">
-            <h2 className="text-center text-2xl font-sans font-bold mb-4 lg:text-left">
+            <h2 className="text-center !text-2xl font-sans font-bold mb-4 lg:text-left">
               {EMAIL_RESULTS[seriesParam][styleParam].title.text_start}
               <span className="text-purple-dark">
                 {EMAIL_RESULTS[seriesParam][styleParam].title.text_purple}
@@ -79,6 +79,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
             <Video.Youtube
               className="rounded-20 shadow-centered"
               iframeClassName="w-full aspect-video rounded-10"
+              maxHeight={498}
               videoId={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
               onPlay={onVideoStarted}
             />

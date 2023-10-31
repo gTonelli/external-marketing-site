@@ -21,7 +21,7 @@ import cx from 'classnames'
 import { Form, Formik, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 //modules
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import Mixpanel from '@/modules/Mixpanel'
 
 type ArticleKey = keyof typeof TH.ARTICLES

@@ -2,6 +2,7 @@
 
 // core
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 // components
 import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
@@ -583,6 +584,7 @@ const MHAPageText = ({ className, content }: ITextDefaultProps) => (
 const MHAButton = ({ label }: IButtonDefaultProps) => {
   // ==================== Hooks ====================
   const windowWidth = useWindowWidth().windowWidth
+  const router = useRouter()
 
   const page_name = 'mha-month' as Pages
 
@@ -592,7 +594,7 @@ const MHAButton = ({ label }: IButtonDefaultProps) => {
       page_name: page_name,
     })
 
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
+    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
   }
 
   return (

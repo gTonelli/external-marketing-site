@@ -7,7 +7,17 @@ import cx from 'classnames'
 import Link from 'next/link'
 import { useState } from 'react'
 
-export const Header = () => {
+interface IHeaderProps {
+  /**
+   * Is the header link clickable?
+   * @default true
+   */
+  clickableLogo?: boolean
+  /** Nav Links */
+  navLinks?: INavLinkProps[]
+}
+
+export const Header = ({ clickableLogo = true, navLinks = NavLinks }: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
 
   return (
@@ -15,27 +25,19 @@ export const Header = () => {
       {/* DESKTOP NAVIGATION */}
       <div className="py-3 px-5 flex items-center bg-[#f5f5f5] xl:px-24 2xl:px-48 3xl:px-72">
         <div className="min-w-[108px] text-center">
-          <a href="https://university.personaldevelopmentschool.com/collections">
-            <Image
-              alt="PDS Logo, the Tree of Life"
-              className="w-[40px] h-[40px] ml-0 lg:w-[70px] lg:h-[70px] lg:mx-auto"
-              src="/images/pds-logo.png"
-              height={70}
-              width={70}
-            />
-          </a>
+          {clickableLogo ? (
+            <a href="https://university.personaldevelopmentschool.com/collections">
+              <PDSLogo />
+            </a>
+          ) : (
+            <PDSLogo />
+          )}
         </div>
 
         <nav className="hidden lg:flex flex-wrap px-4 items-center justify-center mx-auto lg:flex-1 xl:px-8">
-          <NavLink link={ERoutes.ATTACHMENT_QUIZ} text="Attachment Quiz" />
-
-          <NavLink link={EExternalRoutes.PDS_COURSES} text="View Courses" />
-
-          <NavLink link={EExternalRoutes.COLLECTIONS} text="Memberships" />
-
-          <NavLink link={EExternalRoutes.ABOUT} text="About" />
-
-          <NavLink className="!pr-0" link={EExternalRoutes.BLOG} text="Blog" />
+          {navLinks.map((navLink, i) => (
+            <NavLink key={`nav_link_${i}`} {...navLink} />
+          ))}
         </nav>
 
         <div className="min-w-[108px] ml-auto text-right">
@@ -97,6 +99,16 @@ export const Header = () => {
   )
 }
 
+const PDSLogo = () => (
+  <Image
+    alt="PDS Logo, the Tree of Life"
+    className="w-[40px] h-[40px] ml-0 lg:w-[70px] lg:h-[70px] lg:mx-auto"
+    src="/images/pds-logo.png"
+    height={70}
+    width={70}
+  />
+)
+
 interface INavLinkProps extends IDefaultProps {
   link: string
   text: string
@@ -107,6 +119,30 @@ const NavLink = ({ className, link, text }: INavLinkProps) => (
     {text}
   </Link>
 )
+
+const NavLinks: INavLinkProps[] = [
+  {
+    link: ERoutes.ATTACHMENT_QUIZ,
+    text: 'Attachment Quiz',
+  },
+  {
+    link: EExternalRoutes.PDS_COURSES,
+    text: 'View Courses',
+  },
+  {
+    link: EExternalRoutes.COLLECTIONS,
+    text: 'Memberships',
+  },
+  {
+    link: EExternalRoutes.ABOUT,
+    text: 'About',
+  },
+  {
+    link: EExternalRoutes.BLOG,
+    text: 'Blog',
+    className: '!pr-0',
+  },
+]
 
 interface ISideMenuLinkProps {
   link: string

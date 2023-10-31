@@ -20,7 +20,7 @@ export const BreakThroughSectionDesktop = () => {
             </div>
 
             <div>
-              <span className="uppercase">{breakThroughs.title}</span>
+              <span className="uppercase tracking-33">{breakThroughs.title}</span>
             </div>
           </div>
         </div>

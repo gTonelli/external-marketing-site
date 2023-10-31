@@ -20,7 +20,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
 import { TRIAL_PAGE } from '@/app/7-day-trial/config'
@@ -44,7 +44,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
-  })
+  }, [])
 
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, seq_no: number) => {
@@ -54,7 +54,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         seq_no: seq_no,
       })
 
-      router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      // TODO: Router is entering an infitie loop of cancelled network requests (there are hundreds)
+      // This is possibly a bug. Occasionally app router does not work.
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
     []
   )
@@ -204,7 +206,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
           </div>
           <div className="mt-8">
             <Button
-              className="bg-blue text-black border-none drop-shadow-lg"
+              className="!bg-blue !text-black !border-none drop-shadow-lg"
               label="SIGN UP"
               onClick={(e) => onGoToCheckout(e, 2)}
             />
@@ -263,7 +265,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
           {/* desktop */}
           <div className="relative hidden md:block">
-            <div className="flex">
+            <div className="flex relative z-10">
               <ul className="px-4">
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-8 ml-12">
                   <div className="flex flex-col items-start px-4 py-8">
@@ -365,7 +367,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                 </li>
               </ul>
             </div>
-            <div className="absolute flex justify-center items-center inset-0 -z-10">
+            <div className="absolute flex justify-center items-center inset-0 z-5">
               <Image className="h-3/5" src="LimitedOfferPage/you-will-learn.png" />
             </div>
           </div>

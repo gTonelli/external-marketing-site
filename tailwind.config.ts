@@ -133,7 +133,6 @@ const config: Config = {
       fontFamily: {
         effra: ['var(--font-effra)'],
         ssp: ['var(--font-source-serif-pro)'],
-        sspb: ['var(--font-source-serif-pro-bold)'],
       },
       fontSize: {
         h1: '2.5rem', // 40px

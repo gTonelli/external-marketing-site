@@ -23,11 +23,6 @@ import * as yup from 'yup'
 //modules
 import { ERoutes } from '@/utils/constants'
 import Mixpanel from '@/modules/Mixpanel'
-// styles
-// styles
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
 
 type ArticleKey = keyof typeof TH.ARTICLES
 

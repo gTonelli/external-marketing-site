@@ -8,6 +8,11 @@ import { Text } from './Text/Text'
 import { Image } from './Image'
 import { TRIAL_MASTERCLASS as TM } from '@/app/dream-life/config'
 
+// styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+
 export const TestimonialSection = () => {
   // ==================== State ====================
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)

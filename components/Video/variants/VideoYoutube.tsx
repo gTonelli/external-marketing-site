@@ -76,7 +76,7 @@ export const VideoYoutube = ({
     <>
       {/* POP-OUT DIALOG */}
       <Dialog
-        className={cx('w-min overflow-hidden max-w-4xl bg-white !p-4', className)}
+        className={cx('w-min overflow-hidden max-w-4xl bg-white !p-3', className)}
         isShown={isDialogShown}
         onToggle={onToggleDialog}>
         <YouTube

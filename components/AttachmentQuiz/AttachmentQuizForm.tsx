@@ -2,20 +2,27 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 // components
 import { IResultProps, TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { Loader } from '../Loader'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
-import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
+import Mixpanel from '@/modules/Mixpanel'
 
-const AttachmentQuizResults = dynamic(() =>
-  import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults)
+const AttachmentQuizResults = dynamic(
+  () => import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults),
+  {
+    loading: () => <Loader />,
+  }
 )
-const RegistrationForm = dynamic(() =>
-  import('../RegistrationForm').then((mod) => mod.RegistrationForm)
+const RegistrationForm = dynamic(
+  () => import('../RegistrationForm').then((mod) => mod.RegistrationForm),
+  {
+    loading: () => <Loader />,
+  }
 )
 
 interface IAttachmentQuizFormProps extends IResultProps {
@@ -35,13 +42,29 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   // =================== State ======================
   const [showResults, setShowResults] = useState(true)
+  const [showFaVariant, setShowFaVariant] = useState(false)
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
 
   const router = useRouter()
 
-  // Storage var for a/b test on RR page
-  const emailSeriesTest = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+  useEffect(() => {
+    let showFaVariant: string | null | boolean = Storage.get('gm-791-page-test')
+
+    if (showFaVariant === null) {
+      showFaVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      Storage.set('gm-791-page-test', showFaVariant)
+
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': 'GM-755-headspace-split',
+        'Variant name': showFaVariant ? 'Variant 1' : 'Control',
+      })
+
+      setShowFaVariant(showFaVariant)
+    } else {
+      setShowFaVariant(showFaVariant === 'true')
+    }
+  })
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -52,18 +75,10 @@ export const AttachmentQuizForm = ({
       eventLabel: 'Submit',
     })
 
-    if (quiz_traffic_source !== 'organic') {
-      Storage.set('gm-716-pricing-test', emailSeriesTest)
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'GM-716-pricing-test',
-        'Variant name': emailSeriesTest ? 'Variant 1' : 'Control',
-      })
-    }
-
     if (quiz_traffic_source === 'organic') {
       setShowResults(!showResults)
     } else if (userStyle === 'fa') {
-      router.push('/quiz/results/fa')
+      showFaVariant ? router.push('/dream-life-results') : router.push('/quiz/results/fa')
     } else {
       router.push('/quiz/' + userStyle)
     }
@@ -82,7 +97,6 @@ export const AttachmentQuizForm = ({
             clientTag={getClientTag({
               quiz_traffic_source,
               userStyle,
-              splitTests: { emailSeriesTest },
             })}
             submitButtonLabel="SUBMIT NOW"
             userInfo={userInfo}
@@ -105,31 +119,10 @@ interface IPossibleSplitTests {
 
 interface IGetClientTagProps {
   userStyle: TUserStyle
-  quiz_traffic_source: TQuizTrafficSources
-  splitTests: IPossibleSplitTests
+  quiz_traffic_source?: TQuizTrafficSources
+  splitTests?: IPossibleSplitTests
 }
 
 const getClientTag = ({ quiz_traffic_source, userStyle, splitTests }: IGetClientTagProps) => {
-  let clientTag = `attachment-quiz-${userStyle}`
-
-  if (quiz_traffic_source !== 'organic') {
-    switch (userStyle) {
-      case 'ap':
-        if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-ap-5.1`
-        break
-      case 'da':
-        if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-da-5.1`
-        break
-      case 'fa':
-        if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-fa-5.1`
-        break
-      case 'sa':
-        if (splitTests.emailSeriesTest) clientTag = `attachment-quiz-sa-5.1`
-        break
-      default:
-        break
-    }
-  }
-
-  return clientTag
+  return `attachment-quiz-${userStyle}`
 }

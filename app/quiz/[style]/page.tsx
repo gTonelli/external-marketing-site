@@ -103,21 +103,29 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
     <Page className="w-full text-center z-10" page_name={`vsl-${style}`}>
       {/* BANNER SECTION */}
       <section className="w-full">
-        <div className="relative max-w-[1024px] mt-10 md:mt-20 mx-4 md:mx-auto px-9 md:px-22 py-10">
+        <div className="relative max-w-[1008px] mt-10 md:mt-20 mx-4 md:w-calc(100%-2rem) lg:mx-auto px-9 md:px-22 py-10">
           {/* INTRO BACKGROUND */}
           <div className="bg-grey opacity-10 inset-0 rounded-20 absolute w-full"> </div>
           {/* TITLE + VIDEO */}
-          <div className="text-left flex flex-center flex-col md:flex-row justify-between">
+          <div className="text-left flex flex-center flex-col md:grid md:grid-cols-2 md:gap-8">
             <div className="my-auto">
-              <Text.Heading className="capitalize" content={titleStart} size={1} />
-
               <Text.Heading
-                className="capitalize text-primary"
-                content={ROYAL_RUMBLE[style].TITLE}
-                size={1}
+                className="inline capitalize lg:block"
+                content={titleStart + ' '}
+                size={2}
               />
 
-              <Text.Heading className="capitalize" content="Attachment Style" size={1} />
+              <Text.Heading
+                className="inline capitalize text-primary lg:block"
+                content={ROYAL_RUMBLE[style].TITLE + ' '}
+                size={2}
+              />
+
+              <Text.Heading
+                className="inline capitalize lg:block"
+                content="Attachment Style"
+                size={2}
+              />
             </div>
 
             <div className="mt-10 md:mt-0">
@@ -137,7 +145,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           </div>
         </div>
 
-        <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto">
+        <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
           <div className="text-left">
             <Text.Paragraph
               className="font-effra font-bold uppercase md:text-lg"
@@ -172,7 +180,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         />
 
         <div className="w-full overflow-hidden bg-blue-lightest/60">
-          <div className="max-w-[850px] mx-4 md:mx-auto inset-0 mb-12 md:mb-20">
+          <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 inset-0 mb-12 md:mb-20">
             <Text.Heading
               className="capitalize mb-8 md:mb-10 text-2xl text-primary"
               content="Does any of this sound familiar?"
@@ -181,7 +189,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.traits.map((object, index) => (
               <div
                 key={`segment_${index}`}
-                className="flex flex-col md:flex-row justify-between md:space-x-5 px-4 md:px-0 mb-4 md:mb-6">
+                className="flex flex-col md:flex-row justify-between md:space-x-5 px-0 mb-4 md:mb-6">
                 {object.map((content, index) => {
                   const MARGIN = index % 2 === 0 ? 'mb-4' : ''
 
@@ -247,7 +255,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
       </section>
       {/* ATTACHMENT ORIGIN SECTION */}
       <section className="w-full relative">
-        <div className="max-w-[850px] mt-6 md:mt-32  mx-4 md:mx-auto text-left">
+        <div className="max-w-[850px] mt-6 md:mt-32  mx-4 md:mx-auto md:px-4 text-left">
           <Text.Heading
             className="capitalize mb-8 md:mb-10 text-2xl text-primary"
             content="So where does your attachment style come from?"
@@ -305,7 +313,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
       {/* THAIS SECTION */}
       <div>
         <section className="w-full pt-10 md:pt-20 bg-gradient-to-b from-primary-light-4 to-primary-light-4">
-          <div className="max-w-[850px] mx-4 md:mx-auto text-left inset-0">
+          <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 text-left inset-0">
             <Text.Heading
               className="mb-8 md:mb-10 text-2xl text-primary"
               content="Hi, I’m Thais!"
@@ -334,7 +342,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
       {/*GAIN ACCESS SECTION */}
       <section className="w-full bg-black-secondary pb-10 pt-10 md:pt-[68px]">
-        <div className="max-w-[850px] mx-4 md:mx-auto inset-0">
+        <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 inset-0">
           <div className="flex flex-col md:flex-row -space-y-2 md:space-y-0 space-x-2 justify-center">
             <Text.Heading
               className="capitalize text-2xl text-white"
@@ -567,7 +575,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                 className="!py-6 !px-2 lg:!px-18"
                 modules={[Autoplay, Pagination]}
                 pagination={{
-                  bulletActiveClass: 'bg-black',
+                  bulletActiveClass: '!bg-black',
                   bulletClass:
                     'inline-block w-4 h-4 mx-1 bg-white border-2 rounded-full border-black cursor-pointer',
                   clickable: true,
@@ -618,8 +626,8 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         </div>
       </section>
       {/*BEST SELF SECTION */}
-      <section className="w-full mt-12 md:mt-32 bg-black pt-10 pb-8 md:pb-10">
-        <div className="max-w-[1024px] mx-4 md:mx-auto mt-10 inset-0">
+      <section className="w-full mt-8 md:mt-16 bg-black pt-10 pb-8 md:pb-10">
+        <div className="max-w-[1024px] mx-4 md:mx-auto md:px-4 mt-10 inset-0">
           <div className="flex flex-center flex-col md:flex-row md:space-x-[85px]">
             <div className="my-auto text-left">
               <Text.Heading
@@ -643,7 +651,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             {ROYAL_RUMBLE[style].BESTSELF_SEGMENT.bullets.map((element, index) => (
               <div
                 key={`bestSelf_${index}`}
-                className="flex flex-col md:flex-row mb-6 md:mb-8 md:space-x-10 justify-between">
+                className="flex flex-col md:grid md:grid-cols-2 mb-6 md:mb-8 md:space-x-10 justify-between">
                 {element.map((content, index) => {
                   const MARGIN = index % 2 === 0 ? 'mb-6' : ''
                   return (
@@ -675,7 +683,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
       </section>
       {/* MY QUESTION SECTION */}
       <section className="w-full">
-        <div className="mt-6 md:mt-32 max-w-[1024px] mx-4 md:mx-auto text-left">
+        <div className="mt-6 md:mt-32 max-w-[1024px] mx-4 md:mx-auto md:px-4 text-left">
           <Text.Heading
             className="capitalize text-2xl text-primary"
             content="My question to you is: can you really afford to keep going the way that you are?"
@@ -833,7 +841,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                 </div>
               </div>
             </div>
-            <div className="flex flex-center flex-col md:flex-row justify-between space-y-10 md:space-y-0">
+            <div className="flex flex-center flex-col md:flex-row justify-between space-y-10 md:space-y-0 md:px-4">
               <div className="max-w-[502px]">
                 <Image src="RoyalRumblePage/rr-offer.png" />
               </div>
@@ -855,7 +863,7 @@ We’re happy to process a refund for you if that’s what you choose. No hard f
           </div>
         </div>
 
-        <div className="max-w-[850px] mt-6 md:mt-32 mx-4 md:mx-auto text-left">
+        <div className="max-w-[850px] mt-6 md:mt-32 mx-4 md:mx-auto md:px-4 text-left">
           <Text.Heading
             className="capitalize text-2xl text-primary"
             content="If you don’t make a change now, then when? And if you don’t show up for yourself … who will?"

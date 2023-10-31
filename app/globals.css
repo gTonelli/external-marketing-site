@@ -28,7 +28,7 @@
   h2,
   h3,
   h4 {
-    @apply font-sspb;
+    @apply font-ssp font-bold;
   }
 
   .base-typography h1 {
@@ -388,7 +388,7 @@ a {
 
 @layer components {
   .card {
-    @apply w-full flex items-center justify-center rounded-2xl bg-white shadow-lg border-primary-light border-2;
+    @apply w-full flex flex-col items-center justify-center rounded-2xl bg-white shadow-lg border-primary-light border-2 overflow-visible;
   }
   .card-md {
     @apply card px-4 py-5

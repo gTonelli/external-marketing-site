@@ -78,7 +78,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         <div className="relative max-w-5xl flex flex-row justify-between items-center mx-auto py-16 px-4 md:px-8 lg:space-x-10">
           <div className="flex flex-col md:w-1/2">
             <Text
-              className="font-bold text-4xl text-center md:text-left text-purple-dark px-4 md:px-0"
+              className="font-bold !text-4xl text-center md:text-left text-purple-dark px-4 md:px-0"
               content={pageCopy.HERO.headline}
             />
 

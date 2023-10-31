@@ -19,6 +19,10 @@ interface IFaqSecondaryProps extends IFAQsProps {
    */
   classNameSecondary?: string
   /**
+   * Classname for FAQ Exandable
+   */
+  classNameFAQ?: string
+  /**
    * Classname for FAQ answer
    */
   classNameAnswerFAQ?: string
@@ -86,6 +90,7 @@ export const DEFAULT_FAQs = [
 export const FaqSecondary = ({
   faq = DEFAULT_FAQs,
   className,
+  classNameFAQ,
   classNameSecondary,
   classNameAnswerFAQ,
   classNameIcon,
@@ -122,6 +127,7 @@ export const FaqSecondary = ({
           <FAQ
             key={`${index}`}
             answer={data.answer}
+            className={classNameFAQ}
             classNameAnswerFAQ={classNameAnswerFAQ}
             classNameIcon={classNameIcon}
             classNameQuestionFAQ={classNameQuestionFAQ}
@@ -136,6 +142,7 @@ export const FaqSecondary = ({
 const FAQ = ({
   question,
   answer,
+  className,
   classNameIcon,
   classNameQuestionFAQ,
   classNameAnswerFAQ,
@@ -143,7 +150,7 @@ const FAQ = ({
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="bg-white text-left rounded-lg mb-4 mx-4">
+    <div className={cx('bg-white text-left rounded-lg mb-4 mx-4', className)}>
       <Expandable
         trigger={
           <div

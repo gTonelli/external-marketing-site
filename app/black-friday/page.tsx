@@ -31,7 +31,7 @@ import { useWindowWidth } from '@/utils/hooks'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-export default function MentalHealthAwarenessPage() {
+export default function BlackFridayPage() {
   const page_name = 'Black Friday' as Pages
 
   // ==================== State ====================
@@ -264,7 +264,7 @@ export default function MentalHealthAwarenessPage() {
         />
 
         <Card
-          className="mobile-paddings text-left border-none my-4 
+          className="default-padding text-left border-none my-4 
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
           <div>
@@ -310,7 +310,7 @@ export default function MentalHealthAwarenessPage() {
         </Card>
 
         <Card
-          className="mobile-paddings text-left border-none my-4 
+          className="default-padding text-left border-none my-4 
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
           <div>
@@ -348,7 +348,7 @@ export default function MentalHealthAwarenessPage() {
         </Card>
 
         <Card
-          className="mobile-paddings text-left border-none my-4 
+          className="default-padding text-left border-none my-4 
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-center lg:my-12 
             xl:p-8">
           <div>
@@ -448,7 +448,7 @@ export default function MentalHealthAwarenessPage() {
           <div className="lg:grid lg:grid-cols-4 lg:gap-6">
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="eye" type="light" />
+                <Icon className="text-purple-dark text-4xl" name="eye" type="regular" />
               </div>
 
               <MHAPageText
@@ -459,7 +459,7 @@ export default function MentalHealthAwarenessPage() {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="heart-broken" type="light" />
+                <Icon className="text-purple-dark text-4xl" name="heart" type="regular" />
               </div>
 
               <MHAPageText
@@ -470,7 +470,7 @@ export default function MentalHealthAwarenessPage() {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="sad-tear" type="light" />
+                <Icon className="text-purple-dark text-4xl" name="sad-tear" type="regular" />
               </div>
 
               <MHAPageText
@@ -481,7 +481,7 @@ export default function MentalHealthAwarenessPage() {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="clock" type="light" />
+                <Icon className="text-purple-dark text-4xl" name="clock" type="regular" />
               </div>
 
               <MHAPageText
@@ -527,7 +527,7 @@ export default function MentalHealthAwarenessPage() {
               classNameIcon="text-success"
               classNameListItems="my-4"
               iconName="circle-check"
-              iconType="light"
+              iconType="regular"
               listItems={[
                 `Our complete library of video courses you can watch to manage emotions, learn new 
             coping mechanisms, and get to the bottom of your biggest challenges.`,

@@ -9,6 +9,7 @@ import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
 import { Text } from '../Text/Text'
 import { IResultProps, IUserInfo, TQuizTrafficSources, TUserStyle } from './AttachmentQuiz'
+import { Loader } from '../Loader'
 // config
 import {
   QUIZ_DETAILED_QUESTIONS as detailedQuestions,
@@ -21,8 +22,11 @@ import _ from 'lodash'
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
 
-const AttachmentQuizForm = dynamic(() =>
-  import('./AttachmentQuizForm').then((mod) => mod.AttachmentQuizForm)
+const AttachmentQuizForm = dynamic(
+  () => import('./AttachmentQuizForm').then((mod) => mod.AttachmentQuizForm),
+  {
+    loading: () => <Loader />,
+  }
 )
 
 let modifiedQuestions = [...questions]

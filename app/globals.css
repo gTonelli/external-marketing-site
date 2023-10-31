@@ -21,14 +21,14 @@
   body,
   h5,
   h6 {
-    font-family: "effra", sans-serif;
+    @apply font-effra;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    font-family: "SourceSerifProBold";
+    @apply font-sspb;
   }
 
   .base-typography h1 {
@@ -53,7 +53,7 @@
 }
 
 a {
-  @apply hover:text-primary hover:underline transition-all
+  @apply hover:text-primary hover:underline transition-all;
 }
 
 .section-inner-wrapper {
@@ -61,7 +61,7 @@ a {
 }
 
 .default-padding {
-  @apply px-2 py-4 xxs:px-3 xs:px-4 lg:py-12; 
+  @apply px-2 py-4 xxs:px-3 xs:px-4 lg:py-12;
 }
 
 .outline-none {
@@ -82,26 +82,6 @@ a {
 /*                   FONTS                  */
 
 /* ======================================== */
-
-@font-face {
-  font-family: 'SourceSerifPro';
-  src: local('SourceSerifPro'), url(/fonts/SourceSerifPro-Regular.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'SourceSerifPro-Bold';
-  src: local('SourceSerifPro-Bold'), url(/fonts/SourceSerifPro-Bold.ttf) format('truetype');
-}
-
-.font-effra {
-  font-family: 'effra';
-}
-
-.font-ssp {
-  font-family: 'SourceSerifPro';
-}
-.font-sspb {
-  font-family: 'SourceSerifPro-Bold';
-}
 
 @layer components {
   input {
@@ -164,7 +144,6 @@ a {
 /*                   FORMS                  */
 
 /* ======================================== */
-
 
 [type='checkbox'],
 [type='radio'] {
@@ -600,7 +579,7 @@ a {
     position: relative;
     display: inline-block;
   }
-  
+
   .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -616,7 +595,7 @@ a {
     left: 50%;
     margin-left: -60px;
   }
-  
+
   .tooltip .tooltiptext::after {
     content: '';
     position: absolute;
@@ -627,7 +606,7 @@ a {
     border-style: solid;
     border-color: transparent transparent white transparent;
   }
-  
+
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }

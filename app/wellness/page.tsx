@@ -59,7 +59,7 @@ export default function WellnessPage() {
           />
 
           <Text.Heading
-            className="heading-primary text-center !text-[60px] leading-50 mt-5 lg:text-left"
+            className="text-primary text-center !text-[60px] !leading-50 mt-5 lg:text-left"
             content={AP.HERO.attachmentStyle}
           />
 

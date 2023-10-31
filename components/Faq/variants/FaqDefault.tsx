@@ -76,7 +76,7 @@ export const FaqDefault = ({
   )
 }
 
-export interface IFAQProps {
+export interface IFAQProps extends IDefaultProps {
   question: string
   answer: string
   classNameAnswerFAQ?: string

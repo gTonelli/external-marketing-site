@@ -322,13 +322,13 @@ export default function LifeTimePage() {
         <div className="relative w-full max-w-[400px] flex mx-auto lg:hidden">
           <Swiper
             autoplay={{ delay: 6000 }}
-            className="pb-14"
+            className="!pb-14"
             initialSlide={pricingPlan.findIndex((i) => i.isRecommended)}
             modules={[Navigation, Pagination]}
             pagination={{
               clickable: true,
               renderBullet: (_, className) =>
-                '<div class="w-2 h-2 bg-primary rounded-full ' + className + '"/></div>',
+                '<div class="!w-2 !h-2 !bg-primary rounded-full ' + className + '"/></div>',
             }}
             slidesPerView={
               windowWidth <= EWindowWidth.lg ? 1 : 4 // </section>: windowWidth <= EWindowWidth.xl ? 4 : 3

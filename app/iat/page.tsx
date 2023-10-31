@@ -98,7 +98,7 @@ export default function IATSalesPage() {
 
         <Text.Paragraph
           useMD
-          className="max-w-[676px] mt-8 mx-7 font-bold lg:mx-auto lg:mt-11"
+          className="max-w-[676px] mt-8 font-bold lg:mx-auto lg:mt-11"
           content={IAT.hero_section.copy}
         />
 
@@ -132,7 +132,7 @@ export default function IATSalesPage() {
       </Section>
 
       {/* BECOME A RELATIONSHIP COACH SECTION */}
-      <Section className="pt-0 mx-4 lg:py-0" classNameInner="max-w-3xl">
+      <Section className="pt-0 lg:py-0" classNameInner="max-w-3xl">
         <div>
           <Text.Heading
             className="font-effra font-bold text-black text-[48px] leading-[50px]"
@@ -161,7 +161,7 @@ export default function IATSalesPage() {
           size={3}
         />
 
-        <div className="flex col mt-6 space-y-8 mx-5 lg:items-start lg:row lg:mt-9 lg:space-y-0 lg:space-x-14">
+        <div className="flex flex-col mt-6 space-y-8 lg:items-start lg:flex-row lg:mt-9 lg:space-y-0 lg:space-x-14">
           <Image className="w-full" src="IATPage/initial-weeks-mockup.png" />
 
           <div className="text-center lg:text-left">
@@ -189,7 +189,7 @@ export default function IATSalesPage() {
       <Section className="pt-11 pb-16 lg:py-12" classNameInner="lg:max-w-2xl">
         <Text.Paragraph
           useMD
-          className="font-bold text-[18px] mx-7"
+          className="font-bold text-[18px]"
           content={IAT.trainingProgramTools}
         />
 
@@ -217,7 +217,7 @@ export default function IATSalesPage() {
           content="Where and When is the Training?"
         />
 
-        <div className="mx-7 mb-8 lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center lg:mt-11">
+        <div className="mb-8 lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center lg:mt-11">
           <div className="text-left lg:col-span-7">
             <Text.Paragraph useMD className="my-8 lg:my-6" content={IAT.training.copy} />
           </div>
@@ -236,7 +236,7 @@ export default function IATSalesPage() {
           size={3}
         />
 
-        <div className="flex col text-left mt-11 mx-7 lg:row space-y-10 lg:space-y-0 lg:space-x-[60px] lg:mt-13">
+        <div className="flex flex-col text-left mt-11 lg:flex-row space-y-10 lg:space-y-0 lg:space-x-[60px] lg:mt-13">
           <div>
             <Text.Paragraph
               className="font-effra font-bold text-purple-dark"
@@ -350,12 +350,12 @@ export default function IATSalesPage() {
         <Icon className="text-black mt-13" name="book" size="3x" type="regular" />
 
         <Text.Heading
-          className="text-black !text-[26px] mt-4 mx-7"
+          className="text-black !text-[26px] mt-4"
           content="On-Demand Training Format"
           size={3}
         />
 
-        <div className="flex col text-left mt-11 mx-7 lg:row space-y-7 lg:space-y-0 lg:space-x-[60px] lg:mt-20">
+        <div className="flex flex-col text-left mt-11 lg:flex-row space-y-7 lg:space-y-0 lg:space-x-[60px] lg:mt-20">
           <div className="max-w-[498px]">
             <Text.Paragraph useMD content={IAT.training.on_demand_training.left_section} />
           </div>
@@ -401,7 +401,7 @@ export default function IATSalesPage() {
 
       {/* WHO IS THE CERTIFACTION FOR SECTION */}
       <Section className="pt-14 pb-8 lg:pb-18" classNameInner="xs:px-7">
-        <div className="flex col text-left space-y-6 lg:row lg:space-y-0 lg:space-x-14">
+        <div className="flex flex-col text-left space-y-6 lg:flex-row lg:space-y-0 lg:space-x-14">
           <div className="max-w-[502px]">
             <Text.Heading
               className="text-black"
@@ -460,7 +460,7 @@ export default function IATSalesPage() {
       <Section
         className="bg-black-secondary text-white px-7 py-8 lg:py-14"
         classNameInner="!text-left">
-        <div className="flex col lg:space-x-14 lg:row">
+        <div className="flex flex-col lg:space-x-14 lg:flex-row">
           <div className="max-w-[502px] mt-6">
             <Text.Heading content="What You'll Get" />
 
@@ -472,12 +472,12 @@ export default function IATSalesPage() {
           <div className="max-w-[502px]">
             {IAT.what_you_get.benefits.map((benefit, index) => (
               <div key={`benefit-${index}`}>
-                <div className="flex row mt-10 lg:mt-6">
+                <div className="flex flex-row mt-10 lg:mt-6">
                   <Icon
                     className="text-teal my-auto"
                     name={benefit.iconName as IconName}
                     size="lg"
-                    type={benefit.iconName === 'square-facebook' ? 'brands' : 'regular'}
+                    type={benefit.iconType || 'regular'}
                   />
 
                   <Text.Paragraph
@@ -494,7 +494,7 @@ export default function IATSalesPage() {
         <div className="mt-8 text-center lg:mt-28">
           <Text.Heading content="Is this certification for me?" />
 
-          <div className="flex col mt-8 lg:mt-13 lg:row lg:space-x-14">
+          <div className="flex flex-col mt-8 lg:mt-13 lg:flex-row lg:space-x-14">
             <div className="max-w-[502px] text-center lg:text-left">
               <Image className="w-full lg:hidden" src="IATPage/benefits-mockup.png" />
 
@@ -569,8 +569,8 @@ export default function IATSalesPage() {
       </Section>
 
       {/* HOW WILL YOU BE CERTIFIED SECTION */}
-      <Section classNameInner="lg:max-w-5xl px-5 lg:pt-4 lg:pb-10">
-        <div className="flex flex-center col space-y-6 lg:row lg:space-y-0 lg:space-x-14">
+      <Section classNameInner="lg:max-w-5xl lg:pt-4 lg:pb-10">
+        <div className="flex flex-center flex-col space-y-6 lg:flex-row lg:space-y-0 lg:space-x-14">
           <Image className="w-full" src="IATPage/iat-certfication.png" />
 
           <div className="lg:min-w-[502px]">
@@ -593,7 +593,7 @@ export default function IATSalesPage() {
           </div>
         </div>
 
-        <div className="flex flex-center col space-y-6 mt-12 lg:row lg:space-y-0 lg:space-x-14">
+        <div className="flex flex-center flex-col space-y-6 mt-12 lg:flex-row lg:space-y-0 lg:space-x-14">
           <div className="lg:min-w-[502px]">
             <Text.Heading className="text-black text-[32px] text-left" content="Thais Gibson" />
 
@@ -609,14 +609,14 @@ export default function IATSalesPage() {
       </Section>
 
       {/* IMPACT SECTION */}
-      <Section className="bg-primary-light-50" classNameInner="py-9 px-6 lg:pt-1 lg:pb-4">
+      <Section className="bg-primary-light-50" classNameInner="py-9 lg:pt-1 lg:pb-4">
         <Text.Heading
           className="text-black text-[26px] text-center"
           content={IAT.thais_section.subsection.heading}
           size={3}
         />
 
-        <div className="flex col space-y-6 mt-8 lg:row lg:space-y-0 lg:space-x-[72px] lg:mt-11">
+        <div className="flex flex-col space-y-6 mt-8 lg:flex-row lg:space-y-0 lg:space-x-[72px] lg:mt-11">
           <Image className="w-full" src="IATPage/iat-impact.png" />
 
           <div className="text-center lg:text-left">
@@ -664,6 +664,7 @@ export default function IATSalesPage() {
       <Section className="bg-blue-lightest py-0 lg:py-5">
         <Faq.Secondary
           className="bg-transparent py-0"
+          classNameFAQ="mx-0"
           faq={IAT.faq}
           headerText="Frequently Asked Questions"
           subheaderTextDesktop=""
@@ -829,7 +830,7 @@ const IATPriceCard = ({
               />
             )}
 
-            <div className="flex flex-center row mt-1">
+            <div className="flex flex-center flex-row mt-1">
               <Text.Paragraph
                 className="font-ssp font-bold !text-green-check !text-[26px]"
                 content="50% OFF:&nbsp;"
@@ -879,7 +880,7 @@ const IATPriceCard = ({
               />
             )}
 
-            <div className="flex flex-center row mt-1">
+            <div className="flex flex-center flex-row mt-1">
               <Text.Paragraph
                 className="font-ssp font-bold !text-green-check !text-[26px]"
                 content="50% OFF:&nbsp;"
@@ -983,13 +984,11 @@ const IATPriceCard = ({
                 }`}
                 onClick={() => setSelectedCardIndex(index)}>
                 <div className="flex items-start mb-2">
-                  <Icon
-                    className={`pt-[5px] ${
-                      selectedCardIndex === index ? 'text-white' : 'text-black'
-                    }`}
-                    name={`${selectedCardIndex === index ? 'check-circle' : 'circle'}`}
-                    type="light"
-                  />
+                  {selectedCardIndex === index ? (
+                    <Icon className="pt-[5px] text-white" name="check-circle" type="regular" />
+                  ) : (
+                    <Icon className="pt-[5px] text-black" name="circle" type="regular" />
+                  )}
 
                   <div className="flex items-end">
                     <Text
@@ -1209,7 +1208,9 @@ const IATTestimonialSection = () => {
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
 
   return (
-    <Section className="relative max-w-7xl mx-auto py-8" classNameInner="lg:max-w-7xl">
+    <Section
+      className="relative max-w-7xl mx-auto py-8 px-0 xxs:px-0 xs:px-0"
+      classNameInner="lg:max-w-7xl">
       <Swiper
         centeredSlides
         loop
@@ -1226,7 +1227,7 @@ const IATTestimonialSection = () => {
             spaceBetween: 24,
           },
         }}
-        className="px-4 mb-4"
+        className="!px-4 mb-4"
         modules={[Autoplay, Navigation]}
         navigation={{ prevEl, nextEl }}
         slidesPerView={1}
@@ -1237,7 +1238,7 @@ const IATTestimonialSection = () => {
               <div
                 className={`w-full self-stretch ${
                   !isActive && 'bg-gray-bg-primary opacity-50'
-                } rounded-3xl shadow-xl transition-colors my-2 p-8`}>
+                } rounded-3xl shadow-lg transition-colors my-2 p-8`}>
                 <Image
                   alt="Quotation Icon"
                   className="!w-16 h-auto rotate-180"

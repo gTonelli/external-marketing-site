@@ -2,24 +2,9 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import './globals.css'
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import Script from 'next/script'
 import { GoogleTagManager } from '@next/third-parties/google'
-
-const effra = localFont({
-  src: '../fonts/Effra-Regular.ttf',
-  variable: '--font-effra',
-})
-
-const sourceSerifPro = localFont({
-  src: '../fonts/SourceSerifPro-Regular.ttf',
-  variable: '--font-source-serif-pro',
-})
-
-const sourceSerifProBold = localFont({
-  src: '../fonts/SourceSerifPro-Bold.ttf',
-  variable: '--font-source-serif-pro-bold',
-})
+import { effra, sourceSerifPro } from '@/fonts'
 
 export const metadata: Metadata = {
   title: 'The Attachment Style Quiz',
@@ -29,9 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${effra.variable} ${sourceSerifPro.variable} ${sourceSerifProBold.variable}`}>
+    <html lang="en" className={`${effra.variable} ${sourceSerifPro.variable}`}>
       <head>
         {/* HYROS */}
         <Script
@@ -63,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
         </main>
       </body>
+
       <GoogleTagManager gtmId="GTM-T49JFVN" />
     </html>
   )

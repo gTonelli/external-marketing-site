@@ -230,7 +230,7 @@ export default function LearningLovePage() {
           initialSlide={1}
           modules={[Pagination]}
           pagination={{
-            bulletActiveClass: 'bg-blue-tertiary',
+            bulletActiveClass: '!bg-blue-tertiary',
             bulletClass:
               'inline-block w-4 h-4 mx-1 bg-white border-2 rounded-full border-blue-tertiary cursor-pointer',
             clickable: true,

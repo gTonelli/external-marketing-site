@@ -619,8 +619,8 @@ export default function RoyalRumbleResultsPage() {
 
           <Text.Heading className="capitalize" content={RESULTS[style].PROMOTION_4.title} />
           <div className="flex flex-col my-8  md:items-start md:px-8">
-            <div className="col items-center md:flex-row md:justify-around md:px-8 ">
-              <div className="max-w-sm md:max-w-md px-16">
+            <div className="flex-col items-center md:flex-row md:justify-around md:px-8 ">
+              <div className="max-w-sm mx-auto md:max-w-md px-16">
                 <Image alt="" src="RoyalRumbleResultsPage/mirror.png" />
               </div>
 

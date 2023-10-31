@@ -1,4 +1,6 @@
-﻿export const IAT_COPY = {
+﻿import { TIcon } from '@/components/Icon'
+
+export const IAT_COPY = {
   hero_section: {
     heading: `Become a Relationship Coach`,
 
@@ -238,6 +240,7 @@
         title: `PRIVATE FACEBOOK GROUP`,
         copy: `Join our private Facebook Group, where you’ll be able to discuss your learnings with other members in the same program. This also enables you to network with others, build referral systems, and practice tools with others from the group any time you wish!`,
         iconName: `square-facebook`,
+        iconType: 'brands' as TIcon,
       },
     ],
 

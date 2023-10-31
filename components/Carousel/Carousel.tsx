@@ -4,9 +4,12 @@ import React from 'react'
 import { CarouselCourses } from './variants/CarouselCourses'
 import { CarouselDefault, ICarouselDefaultProps } from './variants/CarouselDefault'
 import { CarouselPopularCourses } from './variants/CarouselPopularCourses'
-// import { CarouselQuiz } from './variants/CarouselQuiz'
 import { CarouselTestimonial } from './variants/CarouselTestimonial'
-// import { CarouselTestimonialSecondary } from './variants/CarouselTestimonialSecondary'
+
+// styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 export class Carousel extends React.Component<ICarouselDefaultProps> {
   static PopularCourses = CarouselPopularCourses

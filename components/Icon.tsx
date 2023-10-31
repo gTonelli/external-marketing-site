@@ -8,6 +8,7 @@ import { IconName } from '@fortawesome/fontawesome-common-types'
 import cx from 'classnames'
 
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import '@fortawesome/fontawesome-pro/css/all.min.css'
 
 export type TIconName = IconName
 

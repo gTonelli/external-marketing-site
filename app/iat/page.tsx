@@ -15,7 +15,7 @@ import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
@@ -78,7 +78,7 @@ export default function IATSalesPage() {
   }
 
   const onBookNow = () => {
-    router.push(ERoutes.CALENDLY_MELANIE)
+    router.push(EExternalRoutes.CALENDLY_MELANIE)
   }
 
   return (
@@ -680,25 +680,25 @@ const iatRecordedPrices: TIATPrice[] = [
     price: '$1,899.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT,
   },
   {
     price: '$645.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN,
   },
   {
     price: '$349.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN,
   },
   {
     price: '$189.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN,
   },
 ]
 
@@ -707,25 +707,25 @@ const iatLivePrices: TIATPrice[] = [
     price: '$2,999.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_UPFRONT,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_UPFRONT,
   },
   {
     price: '$1,025.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_3_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_3_MONTH_PLAN,
   },
   {
     price: '$525.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_6_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_6_MONTH_PLAN,
   },
   {
     price: '$275.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: ERoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_12_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2024_12_MONTH_PLAN,
   },
 ]
 
@@ -733,7 +733,7 @@ type TIATPrice = {
   price: string
   priceLabel?: string
   bottomText: string
-  link: ERoutes
+  link: EExternalRoutes | ERoutes
 }
 
 interface IIATPriceCard {

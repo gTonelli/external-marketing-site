@@ -33,7 +33,7 @@ export const BreakThroughSectionMobile = () => {
                 height={160}
               />
 
-              <span className="uppercase tracking-widest text-center">{breakthrough.title}</span>
+              <span className="uppercase tracking-33 text-center">{breakthrough.title}</span>
             </div>
           </SwiperSlide>
         ))}

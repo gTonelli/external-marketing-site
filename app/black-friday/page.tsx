@@ -25,7 +25,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { useWindowWidth } from '@/utils/hooks'
 
 import 'swiper/css'
@@ -583,8 +583,8 @@ const MHAPageText = ({ className, content }: ITextDefaultProps) => (
 
 const MHAButton = ({ label }: IButtonDefaultProps) => {
   // ==================== Hooks ====================
-  const router = useRouter()
   const windowWidth = useWindowWidth().windowWidth
+  const router = useRouter()
 
   const page_name = 'mha-month' as Pages
 
@@ -594,7 +594,7 @@ const MHAButton = ({ label }: IButtonDefaultProps) => {
       page_name: page_name,
     })
 
-    router.push(ERoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
+    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
   }
 
   return (

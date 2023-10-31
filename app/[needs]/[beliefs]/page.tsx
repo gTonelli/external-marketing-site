@@ -2,7 +2,6 @@
 
 // core
 import { useCallback, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Button } from '@/components/Button/Button'
 import { Text } from '@/components/Text/Text'
@@ -13,9 +12,8 @@ import { EMAIL_RESULTS } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { useWindowWidth } from '@/utils/hooks'
 import { TStyle } from '@/utils/types'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { Page } from '@/components/Page'
 
 export type TSeriesParam = 'needs' | 'beliefs'
@@ -33,9 +31,6 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
   // ==================== State ====================
   const [watched, setWatched] = useState<boolean>(false)
-  // ==================== Hooks ====================
-  const windowWidth = useWindowWidth()?.windowWidth
-  const router = useRouter()
 
   const pageName = `Attachment Styles Email Page - ${seriesParam} ${styleParam}` as Pages
 
@@ -57,17 +52,17 @@ export default function AttachmentStyleNeedsBeliefsPage({
       page_name: pageName,
     })
 
-    router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
   }, [])
 
   if (!EMAIL_RESULTS[seriesParam][styleParam]) return <NotFound />
 
   return (
     <Page page_name="Attachment Style Needs Beliefs Page">
-      <div className="flex flex-col h-full items-start px-4 lg:items-center lg:flex-row lg:px-8 lg:space-x-16 lg:my-16 ">
+      <div className="flex flex-col h-full items-start px-4 lg:flex-row lg:px-8 lg:space-x-16 lg:my-16 ">
         <section className="flex flex-col items-center my-6 mx-auto lg:w-1/2 lg:mt-0">
           <div className="max-w-lg">
-            <h2 className="text-center text-2xl font-sans font-bold mb-4 lg:text-left">
+            <h2 className="text-center !text-2xl font-sans font-bold mb-4 lg:text-left">
               {EMAIL_RESULTS[seriesParam][styleParam].title.text_start}
               <span className="text-purple-dark">
                 {EMAIL_RESULTS[seriesParam][styleParam].title.text_purple}
@@ -84,6 +79,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
             <Video.Youtube
               className="rounded-20 shadow-centered"
               iframeClassName="w-full aspect-video rounded-10"
+              maxHeight={498}
               videoId={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
               onPlay={onVideoStarted}
             />

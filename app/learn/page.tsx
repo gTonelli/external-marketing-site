@@ -18,7 +18,7 @@ import { LEARN_PAGE, SECONDARY_SALES_PAGE as SSP } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 //utils
-import { ERoutes, EWindowWidth } from '@/utils/constants'
+import { EExternalRoutes, ERoutes, EWindowWidth } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
 
@@ -114,14 +114,14 @@ export default function SecondarySalesPage() {
   }, [])
 
   //============================ Events ========================================
-  const onGoToCheckout = useCallback((event: React.MouseEvent<Element, MouseEvent>) => {
+  const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
     Mixpanel.track.ButtonClicked({
       button_label: (event.target as HTMLButtonElement).innerText,
       page_name: page_name,
     })
 
-    router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
-  }, [])
+    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+  }
 
   // Dynamic title
   const title = 'Learn'
@@ -130,7 +130,7 @@ export default function SecondarySalesPage() {
 
   return (
     <>
-      <div className="bg-black w-full h-[70px] z-65 left-0 xs:h-[90px] lg:!h-[110px]">
+      <div className="bg-black w-full z-65 left-0">
         {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
       </div>
 

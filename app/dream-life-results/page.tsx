@@ -14,7 +14,7 @@ import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { TestimonialSection } from '@/components/TestimonialSection'
 // modules
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Page } from '@/components/Page'
 
@@ -42,7 +42,7 @@ export default function DreamLifePage() {
       page_name: page_name,
     })
 
-    router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
   }
 
   return (

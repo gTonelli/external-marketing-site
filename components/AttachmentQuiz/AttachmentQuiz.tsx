@@ -75,7 +75,7 @@ export const AttachmentQuiz = ({
           content={REGULAR_COPY.copy}
         />
         <Button
-          className="mt-7 bg-primary-old px-20 py-4 lg:mt-8"
+          className="mt-7 px-20 py-4 lg:mt-8"
           label={REGULAR_COPY.button_label}
           onClick={onStartQuiz}
         />

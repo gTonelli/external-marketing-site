@@ -51,9 +51,6 @@ const TRUSTBAR = [
 export default function IATSalesPage() {
   const page_name = 'External IAT Page' as Pages
 
-  // ==================== Context ====================
-  const { scrollPercentage } = useContext(ScrollContext)
-
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
 
@@ -1005,7 +1002,7 @@ const IATPriceCard = ({
             ))}
 
             <Button
-              className="text-black border-purple-dark border-2 bg-white"
+              className="!text-black border-purple-dark border-2 bg-white"
               label="BACK"
               onClick={() => setIsExpanded(false)}
             />

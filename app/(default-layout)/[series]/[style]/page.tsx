@@ -25,9 +25,9 @@ export interface IAttachmentSeriesPageParams {
 export default function AttachmentStyleNeedsBeliefsPage({
   params,
 }: {
-  params: { needs: TSeriesParam; beliefs: TStyle }
+  params: { series: TSeriesParam; style: TStyle }
 }) {
-  const [seriesParam, styleParam] = [params.needs, params.beliefs]
+  const [seriesParam, styleParam] = [params.series, params.style]
 
   // ==================== State ====================
   const [watched, setWatched] = useState<boolean>(false)

@@ -1,7 +1,6 @@
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import type { Metadata } from 'next'
-import { LayoutWrapper } from '@/components/Layout/LayoutWrapper'
 import { ERoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
@@ -18,7 +17,7 @@ export default function ExploreCoursesLayout({ children }: { children: React.Rea
         navLinks={[
           {
             link: ERoutes.EXPLORE_COURSES_PAGE,
-            text: 'Explore Courses',
+            text: 'View Courses',
             className: '!mr-auto !ml-0',
           },
         ]}

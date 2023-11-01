@@ -32,7 +32,7 @@ export const Footer = () => (
               <Image
                 alt="Tiktoks's musical note icon"
                 src="/icons/footer-tiktok.svg"
-                width={24}
+                width={22}
                 height={24}
               />
             </Link>
@@ -111,7 +111,7 @@ export const Footer = () => (
           </Link>
 
           <Link className="hover:no-underline mb-3" href={EExternalRoutes.PRIVACY}>
-            Provacy Policy
+            Privacy Policy
           </Link>
 
           <Link className="hover:no-underline mb-3" href={EExternalRoutes.TERMS}>

@@ -63,7 +63,6 @@ export const AttachmentQuizQuestions = ({
 
   const onQuestionAnswer = useCallback(
     (answer: string) => () => {
-      console.log('Answer', answer)
       const threshold = [25, 50, 75]
       let _ap = apPoints
       let _fa = faPoints
@@ -134,8 +133,6 @@ export const AttachmentQuizQuestions = ({
           eventCategory: 'Quiz',
           eventAction: 'Finished',
         })
-
-        console.log('Points', { fa: _fa, ap: _ap, da: _da, sa: _sa })
 
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }

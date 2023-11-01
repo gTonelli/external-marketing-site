@@ -137,8 +137,6 @@ export const AttachmentQuizQuestions = ({
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }
       setCurrentIndex(currentIndex + 1)
-      // Reset questions
-      modifiedQuestions = [...questions]
     },
     [currentIndex, faPoints, apPoints, saPoints, daPoints, index]
   )

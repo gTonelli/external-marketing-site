@@ -31,7 +31,7 @@ export const DREAM_LIFE_RESULTS_PAGE = {
     heading: `Step Into Your Dream Life`,
     subheading: `SEE MAJOR BREAKTHROUGHS IN JUST 30 DAYS!`,
     copy: `Unlock unlimited access to attachment style courses, daily support groups and powerful reprogramming tools to experience profound healing. $67/month (30% off for a limited time). Cancel anytime.`,
-    cancelationPolicy: `You can cancel all your subscription anytime – no strings attached.`,
+    cancelationPolicy: `You can cancel any time, and we offer a 100% 7-day money back-guarantee if you aren't completely satisfied.`,
   },
   DREAM_LIFE: {
     benefits: [

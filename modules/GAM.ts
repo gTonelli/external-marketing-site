@@ -4,10 +4,9 @@
 // Documentation: https://bitbucket.org/growtham/gam-user-analytics-v2/src/main/
 
 import { useEffect } from 'react'
+var gamUserTracking: TGAM
 
-export const useGamAnalytics = () => {
-  let gamUserTracking: undefined | any
-
+export const useGamAnalytics = (): TGAM | undefined => {
   useEffect(() => {
     const gam = {
       internalConfig: {
@@ -118,7 +117,6 @@ export const useGamAnalytics = () => {
           }
           return cookieData
         }
-        // #NOTE: this entire statement is stupid and useless cuz both localStorageData & cookieData are pure strings so this is always false
         if (
           hasLocalStorage &&
           (typeof localStorageData?.first_visit_time === 'undefined' ||
@@ -152,7 +150,6 @@ export const useGamAnalytics = () => {
       storeUrlParams(gamUserTracking: any, referrer: any) {
         if (!referrer) {
           let hasParams = false
-          //   for (let i = 0; i < gam.config.urlParams.length; i++) { // #DEV: old ways
           for (const el of gam.config.urlParams) {
             if (typeof gam.getParameterByName(el) !== 'undefined') {
               hasParams = true
@@ -196,34 +193,6 @@ export const useGamAnalytics = () => {
         }
         return user_id
       },
-      buildUrl: function () {
-        const gamUserTracking = gam.getObjectFromStorage('gam_user_tracking'),
-          anchors = document.querySelectorAll('a[href]')
-        if (gamUserTracking) {
-          // #NOTE: dunno what this is supposed to be cuz `urls` does not exist in JS and nowhere in the original script is this referenced ¯\_(ツ)_/¯
-          //   for (const url of urls) {
-          for (const anchor in anchors) {
-            // @ts-ignore
-            if (anchor.href.indexOf(url) === -1) continue
-            const entries = Object.entries(JSON.parse(gamUserTracking))
-            // @ts-ignore
-            let queryString = anchor.href.indexOf('?') === -1 ? '?' : '&'
-            //   for (let k = 0; k < entries.length; k++) { // #DEV: old ways
-            for (const entry of entries) {
-              const key = entry[0],
-                value = entry[1]
-              if (key.startsWith('utm')) {
-                queryString += key + '=' + value + '&'
-              }
-            }
-            queryString = queryString.substring(0, queryString.length - 1)
-            // @ts-ignore
-            anchor.href += queryString
-          }
-          //   }
-        }
-        // incomplete
-      },
       decorateUrl(url: string) {
         let _url = url
         const collectedParams: string[] = []
@@ -259,16 +228,6 @@ export const useGamAnalytics = () => {
         if (_name) {
           return decodeURIComponent(_name[1])
         }
-      },
-      populateFormFields(form: any) {
-        form.find('input[name$="_gam"]').each(function () {
-          // @ts-ignore
-          const prop = jQuery(this).attr('name')?.replace(/_gam$/, '') || ''
-          if (typeof gamUserTracking[prop] !== 'undefined') {
-            // @ts-ignore
-            jQuery(this).val(gamUserTracking[prop])
-          }
-        })
       },
     }
     const gamExecInterval = setInterval(function () {
@@ -376,11 +335,6 @@ export const useGamAnalytics = () => {
       if (gam.config.urlDecorator.urlsToDecorate && gam.config.urlDecorator.urlsToDecorate.length) {
         const links = document.querySelectorAll('a[href]')
         if (links.length) {
-          //   for (
-          //     let domainIndex = 0;
-          //     domainIndex < gam.config.urlDecorator.urlsToDecorate.length;
-          //     domainIndex++
-          //   ) {      // #DEV: old ways
           for (const el of gam.config.urlDecorator.urlsToDecorate) {
             const urlToDecorate = el.replace(/^http(s|):\/\/|\/+$|(\/|)\?.*/gi, '')
             let urlToDecorateObj = new URL('https://' + urlToDecorate)
@@ -413,7 +367,31 @@ export const useGamAnalytics = () => {
       }
       gam.executed = true
     }, 100)
-  })
+  }, [])
 
   return gamUserTracking
+}
+
+type TGAM = {
+  city: string
+  country: string
+  first_visit_time: string
+  ga_cid: string
+  hasFirst: boolean
+  ip: string
+  landing_page_first: string
+  landing_page_last: string
+  lastGeo: number
+  last_page_seen: string
+  last_visit_time: string
+  pageviews: number
+  referrer: string
+  user_agent: string
+  utm_content_first: string
+  utm_content_last: string
+  utm_medium_first: string
+  utm_medium_last: string
+  utm_source_first: string
+  utm_source_last: string
+  [key: string]: any
 }

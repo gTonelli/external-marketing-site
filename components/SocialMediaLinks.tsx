@@ -1,5 +1,5 @@
 // core
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 // component
 import { IDefaultProps } from '@/components'
 import { Link } from './Link'
@@ -7,7 +7,7 @@ import { Link } from './Link'
 import cx from 'classnames'
 // util
 import { ViewportContext } from '@/utils/contexts'
-import { ERoutes, EWindowWidth } from '@/utils/constants'
+import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
 
 export const SocialMediaLinks = ({ className }: IDefaultProps) => {
   // ==================== Context ====================
@@ -22,7 +22,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
-        url={ERoutes.YOUTUBE}
+        url={EExternalRoutes.YOUTUBE}
       />
 
       <Link.Icon
@@ -32,7 +32,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
-        url={ERoutes.TIKTOK}
+        url={EExternalRoutes.TIKTOK}
       />
 
       <Link.Icon
@@ -42,7 +42,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
-        url={ERoutes.FACEBOOK}
+        url={EExternalRoutes.FACEBOOK}
       />
 
       <Link.Icon
@@ -52,7 +52,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
         type="brands"
-        url={ERoutes.INSTAGRAM}
+        url={EExternalRoutes.INSTAGRAM}
       />
 
       <Link.Icon
@@ -61,7 +61,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         name="podcast"
         size={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={ERoutes.PODCASTS}
+        url={EExternalRoutes.PODCASTS}
       />
     </>
   )

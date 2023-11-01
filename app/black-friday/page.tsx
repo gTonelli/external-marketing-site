@@ -2,7 +2,6 @@
 
 // core
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
@@ -163,19 +162,15 @@ export default function BlackFridayPage() {
         </div>
 
         <SocialProofBar
-          cardNumbers={[15000, 38000000, 15000]}
-          cardTexts={[
-            'Course enrolments',
-            'Views on Social Media',
-            'Members in over 113 countries worldwide',
-          ]}
+          cardNumbers={[4100000, 33000000, 113]}
+          cardTexts={['Attachment Styles Discovered', 'Youtube Views', 'Countries']}
           className="text-black"
           classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
           classNameIcon="!bg-white"
           iconImgs={[
-            'BlackFridayPage/calendar-check.svg',
-            'BlackFridayPage/youtube.svg',
-            'BlackFridayPage/people-plus.svg',
+            'BlackFridayPage/envelope-open-text.svg',
+            'BlackFridayPage/users.svg',
+            'BlackFridayPage/earth-americas.svg',
           ]}
         />
 
@@ -584,7 +579,6 @@ const MHAPageText = ({ className, content }: ITextDefaultProps) => (
 const MHAButton = ({ label }: IButtonDefaultProps) => {
   // ==================== Hooks ====================
   const windowWidth = useWindowWidth().windowWidth
-  const router = useRouter()
 
   const page_name = 'mha-month' as Pages
 
@@ -594,7 +588,7 @@ const MHAButton = ({ label }: IButtonDefaultProps) => {
       page_name: page_name,
     })
 
-    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
   }
 
   return (

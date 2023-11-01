@@ -5,7 +5,7 @@ import { IDefaultProps, IDefaultWrapperProps } from '@/components'
 import { Icon, IIconProps } from './Icon'
 // libraries
 import cx from 'classnames'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 // utils
 // import {} from 'utils'
 
@@ -64,7 +64,7 @@ export const LinkDefault = ({
 }
 
 interface ILinkIconProps extends IIconProps {
-  url: ERoutes
+  url: ERoutes | EExternalRoutes
   /**
    * Target value for a tag
    */

@@ -1,20 +1,19 @@
-import Mixpanel from '@/modules/Mixpanel'
-import { ERoutes } from '@/utils/constants'
-import { useRouter } from 'next/navigation'
+// components
 import { Button } from '../Button/Button'
 import { IResultProps } from './AttachmentQuiz'
+// modules
+import Mixpanel from '@/modules/Mixpanel'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 
 export const AttachmentQuizResults = ({ ap, da, fa, sa }: IResultProps) => {
-  // ==================== Hooks ====================
-  const router = useRouter()
-
   const goToMembershipsPage = () => {
     Mixpanel.track.ButtonClicked({
       page_name: 'Attachment Style Quiz',
       redirection: 'Memberships page',
     })
 
-    router.push(ERoutes.COLLECTIONS)
+    window.location.assign(EExternalRoutes.COLLECTIONS)
   }
 
   const calcPercentage = () => {

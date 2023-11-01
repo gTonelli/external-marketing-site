@@ -3,7 +3,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
 import React, { useCallback, useContext, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
@@ -57,7 +56,6 @@ export default function IATSalesPage() {
 
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
-  const router = useRouter()
 
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
@@ -78,7 +76,7 @@ export default function IATSalesPage() {
   }
 
   const onBookNow = () => {
-    router.push(EExternalRoutes.CALENDLY_MELANIE)
+    window.location.assign(EExternalRoutes.CALENDLY_MELANIE)
   }
 
   return (
@@ -757,9 +755,6 @@ const IATPriceCard = ({
   subheading,
   waitlist = false,
 }: IIATPriceCard) => {
-  // ================ Hooks ===============
-  const router = useRouter()
-
   // ================== State =============
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedCardIndex, setSelectedCardIndex] = useState(0)
@@ -1024,7 +1019,7 @@ const IATPriceCard = ({
                   page_name: 'External IAT Page',
                 })
 
-                router.push(prices[selectedCardIndex].link)
+                window.location.assign(prices[selectedCardIndex].link)
               }}
             />
           </div>

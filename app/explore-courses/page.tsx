@@ -2,7 +2,6 @@
 
 // core
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
@@ -23,7 +22,6 @@ import { useWindowWidth } from '@/utils/hooks'
 export default function ExploreCoursesPage() {
   const page_name = 'Explore Courses Page' as Pages
   // ==================== Hooks ====================
-  const router = useRouter()
   const windowWidth = useWindowWidth().windowWidth
   // ==================== State ====================
   const showFooterThreshold = windowWidth < EWindowWidth.lg ? 0.97 : 0.9
@@ -62,7 +60,7 @@ export default function ExploreCoursesPage() {
       page_name: page_name,
     })
 
-    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
   }
 
   return (

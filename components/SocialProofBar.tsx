@@ -97,7 +97,7 @@ const SocialProofCard = ({
   return (
     <div
       className={cx(
-        'py-4 px-2 my-4 rounded-3xl text-left shadow-center-light bg-white xxs:px-4 xs:px-7',
+        'flex flex-center py-4 px-2 my-4 rounded-3xl text-left shadow-center-light bg-white xxs:px-4 xs:px-7',
         className
       )}>
       <div className="grid grid-cols-12 gap-2 items-center">

@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
 import { Carousel } from '@/components/Carousel/Carousel'
@@ -14,6 +13,8 @@ import { List } from '@/components/List'
 import 'swiper/css/navigation'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
+import { Page } from '@/components/Page'
+// config
 import { LEARN_PAGE, SECONDARY_SALES_PAGE as SSP } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
@@ -93,10 +94,7 @@ export interface ISSPPageParams {
 
 export default function SecondarySalesPage() {
   //======================== Hooks ============================
-  const router = useRouter()
   const page_name = `Learn - 30% OFF` as Pages
-  //   usePageScrolledEvent(scrollPercentage, page_name)
-  //   usePageVisitedEvent(page_name)
 
   //======================== State ============================
   const [selectedTab, setSelectedTab] = useState<TSidePanelTabs>('you_will_learn')
@@ -120,7 +118,7 @@ export default function SecondarySalesPage() {
       page_name: page_name,
     })
 
-    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
   }
 
   // Dynamic title
@@ -129,7 +127,7 @@ export default function SecondarySalesPage() {
   const feature_list = LEARN_TABS
 
   return (
-    <>
+    <Page page_name={page_name}>
       <div className="bg-black w-full z-65 left-0">
         {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
       </div>
@@ -396,7 +394,7 @@ export default function SecondarySalesPage() {
           onGoToCheckout={onGoToCheckout}
         />
       </main>
-    </>
+    </Page>
   )
 }
 

@@ -25,7 +25,7 @@ export const TRIAL_HEADSPACE = {
       },
     ],
     copy7day: `After your free trial, your monthly subscription automatically renews at $67/month. Cancel before the trial ends and you won't be charged a penny.`,
-    copy14day: `After your free trial, your quarterly subscription automatically renews at $150/quarter. Cancel before the trial ends and you won't be charged a penny.`,
+    copy14day: `After your free trial, your quarterly subscription automatically renews at $169/quarter. Cancel before the trial ends and you won't be charged a penny.`,
     automaticRenewal: `After your free trial, your monthly subscription automatically renews at $67/month. Cancel before the trial ends and you won't be charged a penny.`,
   },
   DREAM_LIFE: {

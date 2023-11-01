@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 // components
 import { IResultProps, TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { Loader } from '../Loader'
+import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
 import { Storage } from '@/modules/Storage'
@@ -14,12 +15,6 @@ import Mixpanel from '@/modules/Mixpanel'
 
 const AttachmentQuizResults = dynamic(
   () => import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults),
-  {
-    loading: () => <Loader />,
-  }
-)
-const RegistrationForm = dynamic(
-  () => import('../RegistrationForm').then((mod) => mod.RegistrationForm),
   {
     loading: () => <Loader />,
   }

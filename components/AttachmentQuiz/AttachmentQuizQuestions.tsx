@@ -63,6 +63,7 @@ export const AttachmentQuizQuestions = ({
 
   const onQuestionAnswer = useCallback(
     (answer: string) => () => {
+      console.log('Answer', answer)
       const threshold = [25, 50, 75]
       let _ap = apPoints
       let _fa = faPoints
@@ -134,11 +135,11 @@ export const AttachmentQuizQuestions = ({
           eventAction: 'Finished',
         })
 
+        console.log('Points', { fa: _fa, ap: _ap, da: _da, sa: _sa })
+
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }
       setCurrentIndex(currentIndex + 1)
-      // Reset questions
-      modifiedQuestions = [...questions]
     },
     [currentIndex, faPoints, apPoints, saPoints, daPoints, index]
   )

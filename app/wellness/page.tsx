@@ -19,7 +19,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 //utils
-import { EWindowWidth, ERoutes } from '@/utils/constants'
+import { EWindowWidth, ERoutes, EExternalRoutes } from '@/utils/constants'
 import { ViewportContext } from '@/utils/contexts'
 
 import 'swiper/css'
@@ -37,9 +37,9 @@ export default function WellnessPage() {
       page_name: page_name,
     })
 
-    router.push(
-      gotoCheckout ? ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION : ERoutes.EXPLORE_COURSES_PAGE
-    )
+    gotoCheckout
+      ? window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      : router.push(ERoutes.EXPLORE_COURSES_PAGE)
   }
 
   return (

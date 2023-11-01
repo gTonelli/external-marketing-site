@@ -2,7 +2,6 @@
 
 // core
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Icon } from '@/components/Icon'
@@ -16,7 +15,7 @@ import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -408,8 +407,8 @@ interface IButtonProps extends IDefaultProps {
 }
 
 const Button = ({ className, label }: IButtonProps) => {
+  // =================== State ====================
   const [instanceNumber, setInstanceNumber] = useState(0)
-  const router = useRouter()
 
   useEffect(() => {
     setInstanceNumber(buttonInstance)
@@ -420,11 +419,11 @@ const Button = ({ className, label }: IButtonProps) => {
     Mixpanel.track.ButtonClicked({
       button_label: label,
       page_name,
-      redirection: ERoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE,
+      redirection: EExternalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE,
       seq_no: instanceNumber,
     })
 
-    router.push(ERoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE)
+    window.location.assign(EExternalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE)
   }
 
   return (

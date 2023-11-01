@@ -2,7 +2,6 @@
 
 // core
 import React, { useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
@@ -16,8 +15,6 @@ import { EExternalRoutes } from '@/utils/constants'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
-  // ================= Hooks =======================
-  const router = useRouter()
 
   // ================= Events =======================
   const onGoToCheckout = useCallback(
@@ -27,7 +24,7 @@ export default function FlashSalePage() {
         page_name: page_name,
       })
 
-      router.push(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
     },
     [page_name]
   )

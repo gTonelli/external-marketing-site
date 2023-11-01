@@ -2,7 +2,6 @@
 
 // core
 import React, { useCallback, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
@@ -13,14 +12,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { RESULTS } from '../../config'
-
-// export interface ICorporateQuizResultsPageParams {
-//   result: keyof typeof RESULTS
-//   ap: string
-//   da: string
-//   fa: string
-//   sa: string
-// }
+import { Page } from '@/components/Page'
 
 export interface ICorporateQuizResultsPageParams {
   params: { data: [keyof typeof RESULTS, string, string, string, string] }
@@ -28,14 +20,11 @@ export interface ICorporateQuizResultsPageParams {
 
 export default function CorporateQuizResultsPage({ params }: ICorporateQuizResultsPageParams) {
   const [result, ap, da, fa, sa] = params.data
-  console.log(result, ap, da, fa, sa)
   const [firstName, setFirstName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [captchaResponse, setCaptchaResponse] = useState<string>('')
   const [canViewResults, setCanViewResults] = useState<boolean>(false)
-
-  const page_name = 'Corporate Quiz Results Page' as Pages
 
   useEffect(() => {
     document.title = 'The Attachment Style Quiz'
@@ -89,7 +78,7 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
   }, [firstName, lastName, email, captchaResponse])
 
   return canViewResults ? (
-    <div className="results-page">
+    <Page className="results-page" page_name={'Corporate Quiz Results Page'}>
       {/* MOBILE BACKGROUNDS */}
       <Image
         className="w-full bg-mobile bg-top"
@@ -211,9 +200,9 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
           <Text.Paragraph content="After that, check out some of the courses we offer on your Secondary Attachment Styles! By understanding yourself and those around you, you can begin to create true and long-lasting change in your life." />
         </div>
       </section>
-    </div>
+    </Page>
   ) : (
-    <div className="email-page px-2 xs:px-4">
+    <Page className="email-page px-2 xs:px-4" page_name="Corporate Quiz Form Page">
       {/* LEFT PART - image */}
       <div className="px-10 lg:px-0 lg:w-auto flex pb-8 lg:pb-32">
         <Image src="CorporatePage/corporate_email.png" />
@@ -272,7 +261,7 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
         src="CorporatePage/corporate_bg_email.png"
         style={{ margin: 0 }}
       />
-    </div>
+    </Page>
   )
 }
 

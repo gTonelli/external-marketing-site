@@ -1,5 +1,7 @@
 'use client'
 
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
 import { NotFound } from '@/components/NotFound'
 
 export default function GlobalError({
@@ -10,10 +12,12 @@ export default function GlobalError({
   reset: () => void
 }) {
   return (
-    <html>
-      <body>
-        <NotFound />
-      </body>
-    </html>
+    <>
+      <Header />
+
+      <NotFound />
+
+      <Footer />
+    </>
   )
 }

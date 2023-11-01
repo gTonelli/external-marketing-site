@@ -47,6 +47,7 @@ export type Pages =
   | `Black Friday`
   | `Corporate Quiz Landing Page`
   | `Corporate Quiz Questions Page`
+  | `Corporate Quiz Form Page`
   | `Corporate Quiz Results Page`
   | `Dreamlife Results Page FA`
   | `External IAT Page`

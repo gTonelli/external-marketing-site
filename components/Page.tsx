@@ -44,7 +44,7 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
         window.removeEventListener('beforeunload', onEndSession, false)
       }
     }
-  })
+  }, [])
 
   return (
     <ViewportContext.Provider value={viewportValues}>

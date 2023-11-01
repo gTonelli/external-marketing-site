@@ -1,5 +1,15 @@
+import { Footer } from '@/components/Footer'
+import { Header } from '@/components/Header'
 import { NotFound } from '@/components/NotFound'
 
 export default function NotFoundPage() {
-  return <NotFound />
+  return (
+    <>
+      <Header />
+
+      <NotFound />
+
+      <Footer />
+    </>
+  )
 }

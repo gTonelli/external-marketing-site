@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Icon } from './Icon'
 import { Text } from './Text/Text'
 import { Image } from './Image'
-import { TRIAL_MASTERCLASS as TM } from '@/app/dream-life/config'
+import { TRIAL_MASTERCLASS as TM } from '@/app/(default-layout)/dream-life/config'
 
 // styles
 import 'swiper/css'

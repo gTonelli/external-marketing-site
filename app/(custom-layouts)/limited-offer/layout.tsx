@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 
 export default function ExploreCoursesLayout({ children }: { children: React.ReactNode }) {
   return (
-    <LayoutWrapper>
+    <>
       <Header
         clickableLogo={false}
         navLinks={[
           {
             link: ERoutes.EXPLORE_COURSES_PAGE,
-            text: 'EXPLORE COURSES',
+            text: 'Explore Courses',
             className: '!mr-auto !ml-0',
           },
         ]}
@@ -27,6 +27,6 @@ export default function ExploreCoursesLayout({ children }: { children: React.Rea
       {children}
 
       <Footer />
-    </LayoutWrapper>
+    </>
   )
 }

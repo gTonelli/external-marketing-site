@@ -11,10 +11,6 @@ import '../styles/animations.css'
 export interface ILoaderDefaultProps extends IDefaultProps {
   /**
    * Whether the loader is actually loading data
-   *
-   * ! NOTE ! - DONT USE WITH `LoaderDefault`
-   * this prop is used only for LoaderWrapper and LoaderLine since they're the only ones rendering loading indicator conditionaly
-   *
    * @default false
    */
   isLoading?: boolean
@@ -25,7 +21,7 @@ export interface ILoaderDefaultProps extends IDefaultProps {
  */
 export const Loader = ({ className }: ILoaderDefaultProps) => {
   return (
-    <div className={two(cx('default-padding flex justify-center md:py-16 lg:py-28', className))}>
+    <div className={two(cx('default-padding flex justify-center py-24 lg:py-28', className))}>
       <svg
         className="animate-spin h-4 w-4 text-primary"
         fill="none"

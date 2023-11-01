@@ -1,11 +1,12 @@
 import React, { useCallback, useContext } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
 import { Icon } from '@/components/Icon'
 import { ViewportContext } from '@/utils/contexts'
+import { Text } from '@/components/Text/Text'
+import { Image } from '@/components/Image'
 // libraries
 import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -14,9 +15,7 @@ import cx from 'classnames'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { ERoutes, EWindowWidth } from '@/utils/constants'
-import { Text } from '@/components/Text/Text'
-import { Image } from '@/components/Image'
+import { EExternalRoutes, ERoutes, EWindowWidth } from '@/utils/constants'
 
 interface ICourse {
   title: string
@@ -29,7 +28,7 @@ interface ICarouselCoursesProps extends IDefaultProps {
    * Checkout Link
    * @default THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
    */
-  checkoutLink?: ERoutes
+  checkoutLink?: ERoutes | EExternalRoutes
   /** Classname for the styled arrow*/
   classNameArrow?: string
   /** Classnames for the subheading */
@@ -56,7 +55,7 @@ interface ICarouselCoursesProps extends IDefaultProps {
 }
 
 export const CarouselCourses = ({
-  checkoutLink = ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+  checkoutLink = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
   className,
   classNameArrow,
   classNameSubheading,
@@ -68,7 +67,6 @@ export const CarouselCourses = ({
 }: ICarouselCoursesProps) => {
   //======================== Hooks ============================
   const { windowWidth } = useContext(ViewportContext)
-  const router = useRouter()
 
   //============================ Events ========================================
   const onGoToCheckout = useCallback((event: React.MouseEvent<Element, MouseEvent>) => {
@@ -77,7 +75,7 @@ export const CarouselCourses = ({
       page_name: pageName as Pages,
     })
 
-    router.push(checkoutLink)
+    window.location.assign(checkoutLink)
   }, [])
 
   return (

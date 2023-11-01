@@ -2,7 +2,6 @@
 
 // core
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 //components
 import { Button } from '@/components/Button/Button'
 import { Image } from '@/components/Image'
@@ -27,6 +26,11 @@ import Mixpanel from '@/modules/Mixpanel'
 type ArticleKey = keyof typeof TH.ARTICLES
 
 export default function DreamLifePage() {
+  const page_name = '7 Day Free Trial Headspace'
+
+  // ==================== State ====================
+  const [selectedOption, setSelectedOption] = useState({ option1: true, option2: false })
+  const [videoIndex, setVideoIndex] = useState(0)
   const [isVariant, setIsVariant] = useState<boolean>(false)
 
   useEffect(() => {
@@ -42,20 +46,13 @@ export default function DreamLifePage() {
     setIsVariant(_isVariant)
   }, [])
 
-  const page_name = '7 Day Free Trial Headspace'
-  // ==================== Hooks ====================
-  const router = useRouter()
-  // ==================== State ====================
-  const [selectedOption, setSelectedOption] = useState({ option1: true, option2: false })
-  const [videoIndex, setVideoIndex] = useState(0)
-
   const onGoToBlog = (blog: ArticleKey) => {
     Mixpanel.track.ButtonClicked({
       button_label: TH.ARTICLES[blog].name,
       page_name: page_name,
     })
 
-    router.push(TH.ARTICLES[blog].url)
+    window.location.assign(TH.ARTICLES[blog].url)
   }
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
@@ -65,7 +62,7 @@ export default function DreamLifePage() {
       redirection: selectedOption.option1 ? '7-day-trial' : '14-day-trial',
     })
 
-    router.push(
+    window.location.assign(
       selectedOption.option1
         ? EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
         : EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
@@ -514,9 +511,6 @@ const PaymentOptions = ({
   placement = 'top',
   onOptionSelected,
 }: IPaymentOptionsProps) => {
-  // ==================== Hooks ====================
-  const router = useRouter()
-
   const onSubmit = (values: any, formikHelpers: FormikHelpers<any>) => {
     formikHelpers.setSubmitting(false)
 
@@ -526,7 +520,7 @@ const PaymentOptions = ({
       redirection: values.option1 ? '7-day-trial' : '14-day-trial',
     })
 
-    router.push(
+    window.location.assign(
       values.option1
         ? EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
         : EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY

@@ -47,7 +47,7 @@ export default function TrialPage() {
           />
 
           <div className="lg:col-span-6 xl:col-span-6">
-            <Text
+            <Text.Heading
               className="lg:mb-12"
               content="Want To Heal Your Attachment Style… For Good? We Have A Tailored, Results-Driven Program Just For YOU"
             />

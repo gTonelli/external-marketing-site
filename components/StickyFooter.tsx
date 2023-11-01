@@ -1,15 +1,15 @@
 ﻿'use client'
 
 import React, { useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 //components
+import { Button } from './Button/Button'
+import { Text } from './Text/Text'
 //libraries
 import cx from 'classnames'
 //modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+// utils
 import { ScrollContext } from '@/utils/contexts'
-import { Button } from './Button/Button'
-import { Text } from './Text/Text'
 
 interface IStickyFooterProps {
   className?: string
@@ -28,8 +28,6 @@ export const StickyFooter = ({
 }: IStickyFooterProps) => {
   // ==================== Context ====================
   const { scrollPercentage } = useContext(ScrollContext)
-  // ==================== Hooks ====================
-  const router = useRouter()
   // ==================== State ====================
   const [showFooter, setShowFooter] = useState(false)
 
@@ -47,7 +45,7 @@ export const StickyFooter = ({
       page_name: page_name,
     })
 
-    router.push(redirectionURL)
+    window.location.assign(redirectionURL)
   }
   return (
     <>

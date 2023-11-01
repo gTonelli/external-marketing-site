@@ -2,7 +2,6 @@
 
 // core
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { DREAM_LIFE_RESULTS_PAGE as TH } from './config'
 // components
 import { Button } from '@/components/Button/Button'
@@ -22,8 +21,6 @@ type ArticleKey = keyof typeof TH.ARTICLES
 
 export default function DreamLifePage() {
   const page_name = '' as Pages
-  // ==================== Hooks ====================
-  const router = useRouter()
   // ==================== State ====================
   const [videoIndex, setVideoIndex] = useState(0)
 
@@ -33,7 +30,7 @@ export default function DreamLifePage() {
       page_name: page_name,
     })
 
-    router.push(TH.ARTICLES[blog].url)
+    window.location.assign(TH.ARTICLES[blog].url)
   }
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
@@ -42,7 +39,7 @@ export default function DreamLifePage() {
       page_name: page_name,
     })
 
-    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
   }
 
   return (

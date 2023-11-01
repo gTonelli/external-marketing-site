@@ -2,7 +2,6 @@
 
 // core
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { Page } from '@/components/Page'
 import { Text } from '@/components/Text/Text'
@@ -18,7 +17,7 @@ import { RESULTS } from './config'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { Image } from '@/components/Image'
 
@@ -31,7 +30,6 @@ export interface IAttachmentStyleResultsParams {
 export default function RoyalRumbleResultsPage() {
   const style = 'fa'
   // ==================== Hooks ====================
-  const router = useRouter()
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
 
   // ==================== State ====================
@@ -65,7 +63,7 @@ export default function RoyalRumbleResultsPage() {
         seq_no: seq_no,
       })
 
-      router.push(ERoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
     [style]
   )

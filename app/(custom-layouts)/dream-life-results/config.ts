@@ -27,7 +27,7 @@ export const DREAM_LIFE_RESULTS_PAGE = {
   PRICING: {
     definition: `A **fearful avoidant attachment style**, also known as disorganized attachment, is characterized by a combination of anxious and avoidant tendencies. As a fearful avoidant, **you likely desire close relationships, but are deeply afraid of getting hurt**, leading to conflicting behaviors of both seeking intimacy and pushing it away. This is what contributes to your **“hot and cold”** feelings in relationships.
       \nPut simply, **attachment styles control how people emotionally connect and relate to others** due to their childhood experiences. Your attachment style is one of the primary predictors of **whether a relationship will thrive or struggle**, regardless of whether you're already in one or are seeking a new partner.
-      \nBut you don't need to navigate this alone; **we are here to help you**. At The Personal Development School, **our membership includes tailored programs, tools, and ongoing support to assist you in changing these patterns in as little as 30 days**. This will allow you to **improve existing relationships, create lasting love and build new relationships** with emotionally available people.`,
+      \nBut you don't need to navigate this alone; **we are here to help you**. At The Personal Development School, **our membership includes tailored programs, tools, and ongoing support to assist you in changing these patterns in as little as 7 days**. This will allow you to **improve existing relationships, create lasting love and build new relationships** with emotionally available people.`,
     heading: `Step Into Your Dream Life`,
     subheading: `SEE MAJOR BREAKTHROUGHS IN JUST 7 DAYS!`,
     copy: `Unlock unlimited access to attachment style courses, daily support groups and powerful reprogramming tools to experience profound healing. $67/month (30% off for a limited time). Cancel anytime.`,
@@ -43,7 +43,7 @@ export const DREAM_LIFE_RESULTS_PAGE = {
       {
         image: `dreamlife-icon-2.png`,
         title: `Heal Your Relationships`,
-        copy: `Feel 88% happier in relationships in as little as 30 days.`,
+        copy: `Feel 88% happier in relationships in as little as 7 days.`,
       },
       {
         image: `dreamlife-icon-3.png`,

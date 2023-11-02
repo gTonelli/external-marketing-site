@@ -66,13 +66,13 @@ export default function ExploreCoursesPage() {
   return (
     <Page className="relative w-full" page_name={page_name}>
       <Section className="w-full lg:!pt-16">
-        <LinkWrapper className="text-left text-primary" url={ERoutes.WELLNESS_PAGE}>
+        <div className="text-left text-primary cursor-pointer" onClick={() => history.back()}>
           <div>
             <Icon className="inline" name="arrow-left" type="regular" />
 
             <Text.Paragraph className="inline font-bold ml-3" content="GO BACK" />
           </div>
-        </LinkWrapper>
+        </div>
 
         <Text.Heading content={EP.title} size={1} />
 

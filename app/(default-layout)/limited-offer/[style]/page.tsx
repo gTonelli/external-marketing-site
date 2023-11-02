@@ -14,6 +14,7 @@ import { Video } from '@/components/Video/Video'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Page } from '@/components/Page'
+import { Loader } from '@/components/Loader'
 // libraries
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -66,7 +67,11 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">
-          {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
+          {offerEndDate ? (
+            <CountdownTimer date={offerEndDate} theme="dark" />
+          ) : (
+            <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+          )}
         </div>
       </section>
       {/* HERO SECTION */}
@@ -442,7 +447,11 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
               <div className="w-full flex flex-col items-center justify-evenly mt-8 lg:mt-0 md:w-1/2 lg:pl-16">
                 <div className="mb-10">
-                  {offerEndDate && <CountdownTimer date={offerEndDate} theme="light" />}
+                  {offerEndDate ? (
+                    <CountdownTimer date={offerEndDate} theme="light" />
+                  ) : (
+                    <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+                  )}
                 </div>
 
                 <Image className="max-w-md w-full mb-8" src="LimitedOfferPage/course-mock-up.png" />
@@ -467,7 +476,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       </section>
 
       <section className="w-full">
-        <div className="max-w-5xl flex col mx-auto my-8 px-4 md:row md:items-center md:px-8">
+        <div className="max-w-5xl flex flex-col mx-auto my-8 px-4 md:row md:items-center md:px-8">
           {/* left col  */}
           <div className="text-left mt-4 md:w-1/2 md:mt-0 md:pl-8">
             {pageCopy.MONEY_BACK.copy.map((text, index) => (
@@ -592,7 +601,11 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               <Text.Heading className="text-white text-2xl mt-2" content="Claim Your Offer Now." />
 
               {/* <div className="text-center px-0 mt-2"> */}
-              {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
+              {offerEndDate ? (
+                <CountdownTimer date={offerEndDate} theme="dark" />
+              ) : (
+                <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+              )}
               {/* </div> */}
 
               <div className="pt-4">
@@ -611,7 +624,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       <Image alt="" className="w-full -mt-36 md:-mt-24" src="LimitedOfferPage/background2.png" />
       {/* INSTRUCTOR INTRO | "WHO TEACHES THIS COURSES SECTION" */}
       <section className="w-full bg-blue-lightest flex flex-col justify-center">
-        <div className="max-w-5xl flex col items-center mx-auto mt-8">
+        <div className="max-w-5xl flex flex-col items-center mx-auto mt-8">
           <div className="flex flex-col justify-between md:flex-row">
             <div className="flex flex-col items-center px-4 mt-8 md:items-start md:max-w-xl">
               <Text.Heading

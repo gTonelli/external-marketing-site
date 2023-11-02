@@ -25,12 +25,14 @@ let modifiedQuestions = [...questions]
 
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
+  quizName: string
   quiz_traffic_source: TQuizTrafficSources
 }
 
 export const AttachmentQuizQuestions = ({
   className,
   newQuiz,
+  quizName,
   quiz_traffic_source,
 }: IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
@@ -79,7 +81,7 @@ export const AttachmentQuizQuestions = ({
       const progress = (currentIndex / modifiedQuestions.length) * 100
       if (progress >= threshold[index]) {
         Mixpanel.track.QuizProgress({
-          quiz_name: 'Attachment Style Quiz',
+          quiz_name: quizName,
           progress: `${threshold[index]}%`,
         })
 
@@ -117,7 +119,7 @@ export const AttachmentQuizQuestions = ({
       // Check if the question was last - go to the ResultsPage
       if (currentIndex === modifiedQuestions.length - 1) {
         Mixpanel.track.QuizFinished({
-          quiz_name: 'Attachment Style Quiz',
+          quiz_name: quizName,
         })
 
         tagManager?.track({

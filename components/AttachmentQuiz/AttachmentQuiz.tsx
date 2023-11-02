@@ -46,7 +46,7 @@ export type TUserStyle = 'fa' | 'da' | 'sa' | 'ap'
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean
   quiz_traffic_source: TQuizTrafficSources
-  quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz'
+  quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz' | 'Main Funnel Quiz Variant'
   showStartButton?: boolean
 }
 
@@ -86,6 +86,7 @@ export const AttachmentQuiz = ({
       <AttachmentQuizQuestions
         className={className}
         quiz_traffic_source={quiz_traffic_source}
+        quizName={quizName}
         newQuiz={newQuiz}
       />
     )

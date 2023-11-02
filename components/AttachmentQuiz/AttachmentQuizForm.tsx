@@ -59,7 +59,7 @@ export const AttachmentQuizForm = ({
     } else {
       setShowFaVariant(showFaVariant === 'true')
     }
-  })
+  }, [])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {

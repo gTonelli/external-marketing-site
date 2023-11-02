@@ -29,7 +29,7 @@ export const DREAM_LIFE_RESULTS_PAGE = {
       \nPut simply, **attachment styles control how people emotionally connect and relate to others** due to their childhood experiences. Your attachment style is one of the primary predictors of **whether a relationship will thrive or struggle**, regardless of whether you're already in one or are seeking a new partner.
       \nBut you don't need to navigate this alone; **we are here to help you**. At The Personal Development School, **our membership includes tailored programs, tools, and ongoing support to assist you in changing these patterns in as little as 30 days**. This will allow you to **improve existing relationships, create lasting love and build new relationships** with emotionally available people.`,
     heading: `Step Into Your Dream Life`,
-    subheading: `SEE MAJOR BREAKTHROUGHS IN JUST 30 DAYS!`,
+    subheading: `SEE MAJOR BREAKTHROUGHS IN JUST 7 DAYS!`,
     copy: `Unlock unlimited access to attachment style courses, daily support groups and powerful reprogramming tools to experience profound healing. $67/month (30% off for a limited time). Cancel anytime.`,
     cancelationPolicy: `You can cancel any time, and we offer a 100% 7-day money back-guarantee if you aren't completely satisfied.`,
   },

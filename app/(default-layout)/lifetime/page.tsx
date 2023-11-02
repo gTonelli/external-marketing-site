@@ -15,6 +15,7 @@ import { Carousel } from '@/components/Carousel/Carousel'
 import { Card } from '@/components/Card/Card'
 import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
+import { Loader } from '@/components/Loader'
 //library
 import cx from 'classnames'
 import { Navigation, Pagination } from 'swiper/modules'
@@ -113,7 +114,11 @@ export default function LifeTimePage() {
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">
-          {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
+          {offerEndDate ? (
+            <CountdownTimer date={offerEndDate} theme="dark" />
+          ) : (
+            <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+          )}
         </div>
       </section>
 

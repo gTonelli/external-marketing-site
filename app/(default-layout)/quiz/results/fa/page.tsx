@@ -13,6 +13,7 @@ import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
 import { RESULTS } from './config'
+import { Loader } from '@/components/Loader'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
@@ -354,7 +355,11 @@ export default function RoyalRumbleResultsPage() {
         <div className="default-padding pt-4 lg:pt-8">
           <div>
             <div className="my-8">
-              {offerEndDate && <CountdownTimer date={offerEndDate} theme="light" />}
+              {offerEndDate ? (
+                <CountdownTimer date={offerEndDate} theme="light" />
+              ) : (
+                <Loader className="!py-8 lg:py-10" />
+              )}
             </div>
           </div>
         </div>

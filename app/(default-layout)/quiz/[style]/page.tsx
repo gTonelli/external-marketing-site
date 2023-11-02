@@ -13,6 +13,7 @@ import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
 import { ROYAL_RUMBLE } from './config'
+import { Loader } from '@/components/Loader'
 // libraries
 import Cookies from 'universal-cookie'
 import { Autoplay, Pagination } from 'swiper/modules'
@@ -305,7 +306,11 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           content="Offer Ends Soon!"
         />
 
-        {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
+        {offerEndDate ? (
+          <CountdownTimer date={offerEndDate} theme="dark" />
+        ) : (
+          <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+        )}
       </section>
       {/* THAIS SECTION */}
       <div>

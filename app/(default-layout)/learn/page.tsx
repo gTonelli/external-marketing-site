@@ -14,6 +14,7 @@ import 'swiper/css/navigation'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Page } from '@/components/Page'
+import { Loader } from '@/components/Loader'
 // config
 import { LEARN_PAGE, SECONDARY_SALES_PAGE as SSP } from './config'
 // modules
@@ -129,7 +130,11 @@ export default function SecondarySalesPage() {
   return (
     <Page page_name={page_name}>
       <div className="bg-black w-full z-65 left-0">
-        {offerEndDate && <CountdownTimer date={offerEndDate} theme="dark" />}
+        {offerEndDate ? (
+          <CountdownTimer date={offerEndDate} theme="dark" />
+        ) : (
+          <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+        )}
       </div>
 
       <main className="w-full">
@@ -423,7 +428,11 @@ const DiscountSection = ({
                       lg:px-0 lg:pt-4 lg:pb-22">
         <Text.Heading content="Discount Offer Expires Soon. Claim Your All-Access Pass Now!" />
 
-        {offerEndDate && <CountdownTimer date={offerEndDate} theme="light" />}
+        {offerEndDate ? (
+          <CountdownTimer date={offerEndDate} theme="light" />
+        ) : (
+          <Loader className="!py-8 lg:py-10" />
+        )}
 
         <div
           className="relative bg-white border-primary border-[5px] rounded-[30px] mt-12 pt-12 

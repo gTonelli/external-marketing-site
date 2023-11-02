@@ -14,16 +14,18 @@ export interface ILoaderDefaultProps extends IDefaultProps {
    * @default false
    */
   isLoading?: boolean
+  /** Spinner classes */
+  classNameSpinner?: string
 }
 
 /**
  * Default - `Spinner` variant of animated loading indicator
  */
-export const Loader = ({ className }: ILoaderDefaultProps) => {
+export const Loader = ({ className, classNameSpinner }: ILoaderDefaultProps) => {
   return (
     <div className={two(cx('default-padding flex justify-center py-24 lg:py-28', className))}>
       <svg
-        className="animate-spin h-4 w-4 text-primary"
+        className={cx('animate-spin h-4 w-4 text-primary', classNameSpinner)}
         fill="none"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg">

@@ -12,6 +12,7 @@ import { IResultProps } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { ProgressBar } from '@/components/ProgressBar'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
+import { Page } from '@/components/Page'
 // libraries
 import { Helmet } from 'react-helmet'
 // modules
@@ -21,7 +22,6 @@ import { EXTERNALQUIZQUESTIONS } from '@/components/AttachmentQuiz/config'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { Page } from '@/components/Page'
 
 export default function IATQuizPage() {
   const page_name = 'IAT Quiz' as Pages
@@ -37,7 +37,7 @@ export default function IATQuizPage() {
 
   const onStartQuiz = useCallback(() => {
     Mixpanel.track.QuizStarted({
-      quiz_name: page_name,
+      quiz_name: 'IAT Quiz',
     })
     setViewQuiz((prev) => !prev)
   }, [])

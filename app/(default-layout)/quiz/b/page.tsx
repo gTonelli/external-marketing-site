@@ -19,7 +19,6 @@ import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
 
 import './style.css'
-import { Parallax } from 'swiper/modules'
 
 export default function AttachmentQuizVariantPage() {
   const page_name = 'Main Funnel Quiz Variant'

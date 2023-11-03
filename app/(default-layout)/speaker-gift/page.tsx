@@ -532,13 +532,6 @@ const PaymentOptions = ({
                     values[`option${index + 1}`] ? 'text-white bg-primary' : 'text-black bg-white'
                   } rounded-[30px] cursor-pointer p-6 lg:px-7 lg:pt-7 lg:pb-5`}
                   htmlFor={`option_${placement}_${index + 1}`}>
-                  {index == 0 && (
-                    <Text.Paragraph
-                      className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4"
-                      content="BEST VALUE"
-                    />
-                  )}
-
                   <div className="text-left">
                     <Text.Paragraph
                       className="font-bold"

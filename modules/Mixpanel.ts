@@ -63,6 +63,7 @@ export type Pages =
   | `Main Funnel Quiz Variant`
   | `Masterclass Quiz`
   | `mha-month`
+  | `Speaker Gift`
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`
   | `vsl-${string}`

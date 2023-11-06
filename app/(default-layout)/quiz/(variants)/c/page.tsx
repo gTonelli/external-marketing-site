@@ -4,7 +4,7 @@
 import React, { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
-import { ATTACHMENT_QUIZ_VARIANT } from './config'
+import { ATTACHMENT_QUIZ_VARIANT } from '../config'
 // libraries
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
@@ -18,7 +18,7 @@ import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
 
-import './style.css'
+import '../style.css'
 
 export default function AttachmentQuizVariantPage() {
   const page_name = 'Main Funnel Quiz Variant'
@@ -62,7 +62,7 @@ export default function AttachmentQuizVariantPage() {
 
           <Text.Heading
             className="text-white mt-4 lg:!leading-[110%]"
-            content={ATTACHMENT_QUIZ_VARIANT.BANNER.heading}
+            content={ATTACHMENT_QUIZ_VARIANT.BANNER.variantC.heading}
             size={1}
           />
 
@@ -130,23 +130,23 @@ export default function AttachmentQuizVariantPage() {
             classNameIcon="text-primary-light mr-2 md:text-lg"
             classNameListItems="flex mb-4"
             iconName="check-square"
-            listItems={ATTACHMENT_QUIZ_VARIANT.QUIZ_FOR}
+            listItems={ATTACHMENT_QUIZ_VARIANT.QUIZ_FOR.variantC}
           />
         </div>
       </div>
 
-      {/* CTA Banner */}
+      {/* CTA Banner 1 */}
       <div className="w-full bg-black px-4 py-16">
         <div className="max-w-3xl flex flex-col items-center mx-auto">
           <Text.Heading
             className="text-center text-white mb-4"
-            content={ATTACHMENT_QUIZ_VARIANT.BANNER.heading}
+            content={ATTACHMENT_QUIZ_VARIANT.CTA_BANNER_1.variantC.heading}
             size={1}
           />
 
           <Text.Heading
             className="italic text-center text-primary-light mb-4 lg:!text-2xl"
-            content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.teaser}
+            content={ATTACHMENT_QUIZ_VARIANT.CTA_BANNER_1.variantC.subheading}
           />
 
           <TakeQuizCTA onStartQuiz={onStartQuiz} />
@@ -207,13 +207,13 @@ export default function AttachmentQuizVariantPage() {
 
           <Text.Heading
             className="inline-block text-center italic text-primary-light mb-4"
-            content="Why Don't My Relationships Work Out?"
+            content={ATTACHMENT_QUIZ_VARIANT.CTA_BANNER_2.variantC.heading}
             size={1}
           />
 
           <Text.Paragraph
             className="text-white mb-4 uppercase font-bold text-center lg:text-xl"
-            content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.teaser}
+            content={ATTACHMENT_QUIZ_VARIANT.CTA_BANNER_2.variantC.subheading}
           />
 
           <TakeQuizCTA onStartQuiz={onStartQuiz} />

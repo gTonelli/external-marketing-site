@@ -10,7 +10,7 @@ export const TRIAL_HEADSPACE = {
       'Private Discussion Forums',
     ],
     joinProgram:
-      'Join thousands of members and ignite your dream life in just 7 days through our proven attachment reprogramming methods with the All-Access Pass!',
+      'Join thousands of members and ignite your dream life in just 14 days through our proven attachment reprogramming methods with the All-Access Pass!',
     subHeading: `Select a plan:`,
     offers: [
       {
@@ -20,7 +20,6 @@ export const TRIAL_HEADSPACE = {
       },
     ],
     copy7day: `After your free trial, your monthly subscription automatically renews at $67/month. Cancel before the trial ends and you won't be charged a penny.`,
-    copy14day: `After your free trial, your quarterly subscription automatically renews at $169/quarter. Cancel before the trial ends and you won't be charged a penny.`,
     automaticRenewal: `After your free trial, your monthly subscription automatically renews at $67/month. Cancel before the trial ends and you won't be charged a penny.`,
   },
   DREAM_LIFE: {
@@ -147,7 +146,7 @@ export const TRIAL_MASTERCLASS = {
   COURSE_SECTION: {
     heading: `The Answers You Need, Whenever You Need Them`,
     subheading: `Start Your Journey Today`,
-    copy: `Get started today with a free 7 day trial. Cancel any time before your trial ends at no charge.`,
+    copy: `Get started today with a free 14 day trial. Cancel any time before your trial ends at no charge.`,
     categories: [
       {
         courses: [

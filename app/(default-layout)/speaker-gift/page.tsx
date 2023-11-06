@@ -49,11 +49,7 @@ export default function DreamLifePage() {
       redirection: '14-day-trial',
     })
 
-    window.location.assign(
-      selectedOption.option1
-        ? EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
-        : EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
-    )
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
   }
 
   const onOptionSelected = (option: string, checked: boolean) => {
@@ -504,11 +500,7 @@ const PaymentOptions = ({
       redirection: '14-day-trial',
     })
 
-    window.location.assign(
-      values.option1
-        ? EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
-        : EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
-    )
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
   }
 
   return (
@@ -571,10 +563,7 @@ const PaymentOptions = ({
             </div>
 
             {!isVariant && placement == 'bottom' && (
-              <Text.Paragraph
-                className="max-w-sm mt-4 mx-auto"
-                content={values.option1 ? TH.HERO.copy7day : TH.HERO.copy14day}
-              />
+              <Text.Paragraph className="max-w-sm mt-4 mx-auto" content={TH.HERO.copy7day} />
             )}
 
             <Button.Submit

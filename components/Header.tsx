@@ -130,6 +130,10 @@ const NavLinks: INavLinkProps[] = [
     text: 'View Courses',
   },
   {
+    link: ERoutes.IAT_SALES_PAGE,
+    text: 'Certification',
+  },
+  {
     link: EExternalRoutes.COLLECTIONS,
     text: 'Memberships',
   },
@@ -186,6 +190,12 @@ const SideMenuLinks = [
     link: EExternalRoutes.COLLECTIONS,
     imgSrc: '/icons/sidemenu-membership.svg',
     text: 'Memberships',
+  },
+  {
+    imgAlt: 'Certifications Icon: a vector image of a sheet with a badge',
+    link: ERoutes.IAT_SALES_PAGE,
+    imgSrc: '/icons/sidemenu-certification.svg',
+    text: 'Certification',
   },
   {
     imgAlt: 'About Icon: An information icon over a vector image of a person',

@@ -4,11 +4,9 @@
 import React, { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
-import { ATTACHMENT_QUIZ_VARIANT } from './config'
 // libraries
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
-import Mixpanel from '@/modules/Mixpanel'
 import { Helmet } from 'react-helmet'
 import { Page } from '@/components/Page'
 import { Image } from '@/components/Image'
@@ -17,12 +15,17 @@ import { Button } from '@/components/Button/Button'
 import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
+import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { TAttachmentQuizVariant } from '@/app/(default-layout)/quiz/(variants)/config'
 
 import './style.css'
 
-export default function AttachmentQuizVariantPage() {
-  const page_name = 'Main Funnel Quiz Variant'
+interface IQuizVariantProps {
+  page_name: Pages
+  config: TAttachmentQuizVariant
+}
 
+export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) => {
   // ================= State =======================
   const [viewQuiz, setViewQuiz] = useState(false)
 
@@ -46,23 +49,25 @@ export default function AttachmentQuizVariantPage() {
         <meta content="noindex" name="robots" />
       </Helmet>
       <div className="bg-attachment-quiz-variant w-full">
-        <div className="max-w-4xl flex flex-col justify-center items-center text-center mx-auto px-4 py-16">
+        <div className="max-w-4xl flex flex-col justify-center items-center text-center mx-auto px-4 pt-16 py-2">
           <Image alt="PDS Logo" height={80} src="logo-footer.svg" width={80} />
 
           <Text.Paragraph
-            className="text-white mt-6 lg:mt-24"
+            className="text-white mt-2 lg:mt-4"
             content="The Personal Development School's"
           />
 
           <Text.Heading
             className="text-white md:text-lg"
-            content={ATTACHMENT_QUIZ_VARIANT.BANNER.label}
+            content="ATTACHMENT STYLE QUIZ"
             size={4}
           />
 
+          <Text.Paragraph className="text-white font-bold mb-8" content="by Thais Gibson" />
+
           <Text.Heading
             className="text-white mt-4 lg:!leading-[110%]"
-            content={ATTACHMENT_QUIZ_VARIANT.BANNER.heading}
+            content={config.BANNER.heading}
             size={1}
           />
 
@@ -92,7 +97,7 @@ export default function AttachmentQuizVariantPage() {
 
       {/* Stats Section */}
       <div className="w-full flex flex-col justify-between items-center bg-primary my-6 p-16 md:flex-row">
-        {ATTACHMENT_QUIZ_VARIANT.STATS.map((stat, idx) => (
+        {config.STATS.map((stat, idx) => (
           <div key={idx} className="flex-1 flex flex-col text-center p-4">
             <Icon className="text-white mb-4" name={stat.icon as IconName} size="3x" />
 
@@ -107,14 +112,27 @@ export default function AttachmentQuizVariantPage() {
       </div>
 
       {/* Featured On Section */}
-      <div className="max-w-5xl mx-auto my-16 px-4">
-        <Text.Heading className="text-center mb-8" content="Featured On:" size={1} />
+      <div className="max-w-5xl flex flex-col justify-center items-center mx-auto my-16">
+        <Image
+          alt="Thais Gibson Portrait"
+          height="auto"
+          src="IATPage/thais-portrait.png"
+          width="100%"
+        />
 
-        <div className="relative flex whitespace-nowrap overflow-x-hidden">
-          <Trustbar.Slider
-            brandLogosList={ATTACHMENT_QUIZ_VARIANT.FEATURED}
-            classNameImage="grayscale"
-          />
+        <Text.Paragraph className="text-center my-2" content="Thais Gibson" />
+
+        <Text.Paragraph
+          className="text-center"
+          content="Founder of The Personal Development School and Gibson Integrated Attachment Theory™"
+        />
+
+        <div className="w-[100%] flex flex-col flex-1 overflow-hidden">
+          <Text.Heading className="text-center my-8" content="Featured On:" size={1} />
+
+          <div className="relative flex whitespace-nowrap overflow-x-hidden">
+            <Trustbar.Slider brandLogosList={config.FEATURED} classNameImage="grayscale" />
+          </div>
         </div>
       </div>
 
@@ -130,23 +148,23 @@ export default function AttachmentQuizVariantPage() {
             classNameIcon="text-primary-light mr-2 md:text-lg"
             classNameListItems="flex mb-4"
             iconName="check-square"
-            listItems={ATTACHMENT_QUIZ_VARIANT.QUIZ_FOR}
+            listItems={config.QUIZ_FOR}
           />
         </div>
       </div>
 
-      {/* CTA Banner */}
+      {/* CTA Banner 1 */}
       <div className="w-full bg-black px-4 py-16">
         <div className="max-w-3xl flex flex-col items-center mx-auto">
           <Text.Heading
             className="text-center text-white mb-4"
-            content={ATTACHMENT_QUIZ_VARIANT.BANNER.heading}
+            content={config.CTA_BANNER_1.heading}
             size={1}
           />
 
           <Text.Heading
             className="italic text-center text-primary-light mb-4 lg:!text-2xl"
-            content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.teaser}
+            content={config.CTA_BANNER_1.subheading}
           />
 
           <TakeQuizCTA onStartQuiz={onStartQuiz} />
@@ -162,7 +180,7 @@ export default function AttachmentQuizVariantPage() {
         />
 
         <div className="grid grid-cols-1 gap-8 md:!grid-cols-2">
-          {ATTACHMENT_QUIZ_VARIANT.TYPES.map((type, idx) => (
+          {config.TYPES.map((type, idx) => (
             <div key={idx}>
               <div className="flex items-center mb-4">
                 <Icon className="text-primary-light mr-1" name={type.icon as IconName} />
@@ -184,15 +202,11 @@ export default function AttachmentQuizVariantPage() {
         <div className="max-w-3xl mx-auto">
           <Text.Heading
             className="text-center mb-6"
-            content={ATTACHMENT_QUIZ_VARIANT.KEY_TO_SUCCESS.title}
+            content={config.KEY_TO_SUCCESS.title}
             size={1}
           />
 
-          <Text.Paragraph
-            useMD
-            className="md:text-lg"
-            content={ATTACHMENT_QUIZ_VARIANT.KEY_TO_SUCCESS.content}
-          />
+          <Text.Paragraph useMD className="md:text-lg" content={config.KEY_TO_SUCCESS.content} />
         </div>
       </div>
 
@@ -207,13 +221,13 @@ export default function AttachmentQuizVariantPage() {
 
           <Text.Heading
             className="inline-block text-center italic text-primary-light mb-4"
-            content="Why Don't My Relationships Work Out?"
+            content={config.CTA_BANNER_2.heading}
             size={1}
           />
 
           <Text.Paragraph
             className="text-white mb-4 uppercase font-bold text-center lg:text-xl"
-            content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.teaser}
+            content={config.CTA_BANNER_2.subheading}
           />
 
           <TakeQuizCTA onStartQuiz={onStartQuiz} />
@@ -223,13 +237,9 @@ export default function AttachmentQuizVariantPage() {
       {/* BENEFITS */}
       <div className="w-full bg-primary-light px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <Text.Heading
-            className="text-center mb-8"
-            content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.heading}
-            size={1}
-          />
+          <Text.Heading className="text-center mb-8" content={config.BENEFITS.heading} size={1} />
 
-          {ATTACHMENT_QUIZ_VARIANT.BENEFITS.items.map((benefit, idx) => (
+          {config.BENEFITS.items.map((benefit, idx) => (
             <div key={idx} className="rounded-10 bg-white shadow mb-8 p-8">
               <div className="flex mb-4">
                 <Icon
@@ -254,11 +264,11 @@ export default function AttachmentQuizVariantPage() {
         <div className="max-w-4xl mx-auto">
           <Text.Heading
             className="text-center mb-8"
-            content={ATTACHMENT_QUIZ_VARIANT.TESTIMONIALS.heading}
+            content={config.TESTIMONIALS.heading}
             size={1}
           />
 
-          {ATTACHMENT_QUIZ_VARIANT.TESTIMONIALS.items.map((testimonial, idx) => (
+          {config.TESTIMONIALS.items.map((testimonial, idx) => (
             <div
               key={idx}
               className="flex flex-col bg-white rounded-10 shadow mb-8 p-8 md:flex-row">
@@ -287,11 +297,7 @@ export default function AttachmentQuizVariantPage() {
           ))}
 
           <div className="flex items-center justify-center flex-col">
-            <Text.Heading
-              className="mt-4 text-center"
-              content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.teaser}
-              size={3}
-            />
+            <Text.Heading className="mt-4 text-center" content={config.BENEFITS.teaser} size={3} />
 
             <TakeQuizCTA onStartQuiz={onStartQuiz} />
           </div>
@@ -302,29 +308,21 @@ export default function AttachmentQuizVariantPage() {
       <div className="max-w-4xl mx-auto px-4 my-16">
         <Text.Heading
           className="text-center mb-8"
-          content={ATTACHMENT_QUIZ_VARIANT.ROLLERCOASTER.heading}
+          content={config.ROLLERCOASTER.heading}
           size={1}
         />
 
-        <Text.Paragraph
-          useMD
-          className="md:text-lg"
-          content={ATTACHMENT_QUIZ_VARIANT.ROLLERCOASTER.aboveTheList}
-        />
+        <Text.Paragraph useMD className="md:text-lg" content={config.ROLLERCOASTER.aboveTheList} />
 
         <List
           className="my-8"
           classNameIcon="text-primary"
           classNameListItems="mb-4 md:text-lg"
           iconName="angle-double-right"
-          listItems={ATTACHMENT_QUIZ_VARIANT.ROLLERCOASTER.list}
+          listItems={config.ROLLERCOASTER.list}
         />
 
-        <Text.Paragraph
-          useMD
-          className="md:text-lg"
-          content={ATTACHMENT_QUIZ_VARIANT.ROLLERCOASTER.belowTheList}
-        />
+        <Text.Paragraph useMD className="md:text-lg" content={config.ROLLERCOASTER.belowTheList} />
 
         <div className="flex items-center justify-center">
           <Image
@@ -355,14 +353,11 @@ export default function AttachmentQuizVariantPage() {
             size={1}
           />
 
-          <Text.Heading
-            className="inline text-white lg:hidden"
-            content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.teaser}
-          />
+          <Text.Heading className="inline text-white lg:hidden" content={config.BENEFITS.teaser} />
 
           <Text.Heading
             className="hidden text-white lg:inline"
-            content={ATTACHMENT_QUIZ_VARIANT.BENEFITS.teaser}
+            content={config.BENEFITS.teaser}
             size={1}
           />
 

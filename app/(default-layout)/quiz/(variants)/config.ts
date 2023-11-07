@@ -1,6 +1,5 @@
 export const ATTACHMENT_QUIZ_VARIANT = {
   BANNER: {
-    label: 'ATTACHMENT STYLE QUIZ',
     heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
     subheading: 'Decode Your Relationship In Under 5 Minutes!',
   },
@@ -38,36 +37,43 @@ export const ATTACHMENT_QUIZ_VARIANT = {
     "Confused by your own or your partner's behavior",
     'Ready to stop the cycle of repeat relationship problems',
   ],
+  CTA_BANNER_1: {
+    heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
+    subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
+  },
   TYPES: [
     {
       icon: 'frown',
       title: 'ANXIOUS PREOCCUPIED',
-      content:
-        'Relationships can often make you feel anxious, unsafe or insecure because you likely have a subconscious fear of abandonment.\n\nAs a result, you seek more closeness in your relationships, and can feel afraid if you sense a loved one is pulling away.',
+      content: `Relationships can often make you feel anxious, unsafe, or insecure because you likely have a subconscious fear of abandonment or being alone "forever."\n\nAs a result, you seek more closeness in your relationships and can feel afraid if you sense a loved one is pulling away. You might become clingy and co-dependent and focus on other people's behavior as a form of people-pleasing.\n\nYou crave a relationship that prioritizes commitment and want to feel appreciated by your partner.`,
     },
     {
       icon: 'grimace',
       title: 'FEARFUL AVOIDANT',
       content:
-        'Relationships can feel chaotic, confusing and overwhelming because you swing between being avoidant and anxious.\n\nDepending on the relationship, you can shift between being "hot and cold," often feeling confused about your feelings.',
+        'Relationships can feel chaotic, confusing, and overwhelming because you swing between being avoidant and anxious. You struggle with thoughts of betrayal, abandonment, and the feeling of relying on someone else.\n\nDepending on the relationship, you can shift between being "hot and cold," often confused about your feelings.\n\nMoving to a secure style leaves you feeling that there is "too much" to do, heightening fears of dealing with your painful past, and your desire for immediate results.',
     },
     {
       icon: 'sad-cry',
       title: 'DISMISSIVE AVOIDANT',
       content:
-        'Intense emotions can feel overwhelming and can cause you to pull away from others. You may find yourself withdrawing from arguments or triggering situations.\n\nThis need for independence can cause challenges in your relationships and inner conflict for you, because deep down, you want to connect with others.',
+        'Intense emotions can feel overwhelming and can cause you to pull away from others. You may withdraw from arguments or trigger situations due to a core desire for independence. The inner conflict is that you want freedom, but deep down, you want to connect with others.\n\nYou feel you might be stuck in a painful relationship forever or end up with the wrong person, confusing the perception of your relationship and leading to doubts if you can commit at all.',
     },
     {
       icon: 'smile-beam',
       title: 'SECURE ATTACHED',
       content:
-        "You often feel comfortable and at ease in relationships. You're also good at communicating your needs and feelings, and feel open to vulnerability in your relationships.\n\nHowever, sometimes you can experience difficulty when relating to those who aren't as secure in relationships.",
+        "You often feel comfortable and at ease in relationships. You’re also good at communicating your feelings and needs and feel confident enough to open up to vulnerability in your relationships.\n\nHowever, you can sometimes experience difficulty relating to those who aren’t as secure in relationships. You don't understand their tendencies, which can cause conflict. The underlying fear is that you might be stuck in a painful relationship or have a broken heart.",
     },
   ],
   KEY_TO_SUCCESS: {
     title: 'Understanding your Attachment Style: The Key To Relationship Success',
     content:
       "If you don't know why you act the way you do in certain situations, such as getting jealous, fearing abandonment, or craving affection...\n\nOr why seemingly harmless conversations often end in tears...\n\n**You'll never have a harmonious relationship that withstands the test of time.**\n\nBecause the truth is:\n\nRelationships thrive on patience, trust, and a profound mutual understanding - without these pillars, they simply won't last!\n\nThe likelihood is, your partner isn't acting in a certain way to hurt you on purpose.\n\nYou simply don't yet understand each other's attachment style, therefore you're lacking the crucial insights you need to make your relationship a success.\n\nBut that's about to change.",
+  },
+  CTA_BANNER_2: {
+    heading: "Why Don't My Relationships Work Out?",
+    subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
   },
   BENEFITS: {
     heading: 'Understanding Your Attachment Style Can:',
@@ -142,3 +148,5 @@ export const ATTACHMENT_QUIZ_VARIANT = {
       'Combined, these four powerful skills pave the path to a passionate, deeply connected relationship with your ideal partner.\n\nSo, why wait?\n\n**Break free from your emotional chains and forge bonds that truly matter with our free, 5-minute quiz:**',
   },
 }
+
+export type TAttachmentQuizVariant = typeof ATTACHMENT_QUIZ_VARIANT

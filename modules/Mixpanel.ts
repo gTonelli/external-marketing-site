@@ -61,6 +61,10 @@ export type Pages =
   | `Not Found Page`
   | `Main Funnel Quiz`
   | `Main Funnel Quiz Variant`
+  | `Main Funnel Quiz Variant C`
+  | `Main Funnel Quiz Variant D`
+  | `Main Funnel Quiz Variant E`
+  | `Main Funnel Quiz Variant F`
   | `Masterclass Quiz`
   | `mha-month`
   | `Speaker Gift`

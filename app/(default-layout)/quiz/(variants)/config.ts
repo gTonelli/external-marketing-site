@@ -1,30 +1,7 @@
 export const ATTACHMENT_QUIZ_VARIANT = {
   BANNER: {
-    label: 'ATTACHMENT STYLE QUIZ',
-    variantB: {
-      heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
-      subheading: 'Decode Your Relationship In Under 5 Minutes!',
-    },
-    variantC: {
-      heading: 'Take Our Free Quiz To See If You Have An Insecure Attachment Style',
-      subheading:
-        'Get a personalized report in 5 minutes so you can begin healing your attachment style for good!',
-    },
-    variantD: {
-      heading: 'Take Our Free 5-Minute Quiz To Discover Your & Your Partner’s Attachment Styles!',
-      subheading:
-        'Unlock the keys to a healthy, loving relationship with our free personalized report!',
-    },
-    variantE: {
-      heading: 'Find Lasting Love By Taking Our Free 5-Minute Attachment Style Quiz Today!',
-      subheading:
-        'With our free personalized quiz, you’ll learn to be valued, loved, and happy in your relationships!',
-    },
-    variantF: {
-      heading: "Take Our Free Attachment Style Quiz To Discover If You're Anxiously Attached",
-      subheading:
-        "In less than 5 minutes, you'll get a free personalized report to help you create committed and loving relationships!",
-    },
+    heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
+    subheading: 'Decode Your Relationship In Under 5 Minutes!',
   },
   STATS: [
     {
@@ -52,75 +29,17 @@ export const ATTACHMENT_QUIZ_VARIANT = {
     'yahoo-news-logo.png',
     'barnes-noble-logo.png',
   ],
-  QUIZ_FOR: {
-    variantB: [
-      'Tired of misunderstandings and conflict',
-      "Sick of feeling like you're on a different wavelength",
-      'Feeling lonely, isolated, and lacking emotional connection',
-      'Experiencing trust issues and fear of abandonment',
-      "Confused by your own or your partner's behavior",
-      'Ready to stop the cycle of repeat relationship problems',
-    ],
-    variantC: [
-      'Finding any relationship – family, friends, romantic – to be challenging',
-      'Struggling with relationship anxiety and insecurity',
-      'Fearful of commitment, causing you to swing from hot to cold',
-      'Becoming needy and desperate to be around your partner',
-      'Avoiding and becoming overwhelmed with intense emotions',
-      'Ready to fine-tune your relationships with professional insight',
-    ],
-    variantD: [
-      'Tired of having regular arguments with your partner',
-      'Confused about why your partner goes from loving to dismissive',
-      'Having trust issues and fears of abandonment',
-      'Struggling to set healthy boundaries',
-      'Excited to stop the chaotic cycle of your relationship',
-      'Ready to fulfill your relationship with love',
-    ],
-    variantE: [
-      'Being abandoned or betrayed by your partner',
-      'Growing distance or apart in your relationship',
-      'Feeling powerless to heal yourself',
-      'Scared that there is “too much” to do when fixing yourself',
-      'Ready to be happy in relationships',
-      'Desiring to be healed from childhood trauma',
-    ],
-    variantF: [
-      'Healing from a broken or rocky relationship',
-      'Tired of not being appreciated by your partner',
-      'Always thinking you’ll be betrayed or abandoned',
-      'Over being a “people-pleaser”',
-      'Excited to find a loving, committed partner',
-      'Ready to become independent',
-    ],
-  },
+  QUIZ_FOR: [
+    'Tired of misunderstandings and conflict',
+    "Sick of feeling like you're on a different wavelength",
+    'Feeling lonely, isolated, and lacking emotional connection',
+    'Experiencing trust issues and fear of abandonment',
+    "Confused by your own or your partner's behavior",
+    'Ready to stop the cycle of repeat relationship problems',
+  ],
   CTA_BANNER_1: {
-    variantB: {
-      heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
-      subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
-    },
-    variantC: {
-      heading: 'Take Our Free Quiz To See If You Have An Insecure Attachment Style',
-      subheading:
-        'Your attachment style can be HEALED! Our personalized report will explain how you can transform it – get yours in less than 5 minutes!',
-    },
-    variantD: {
-      heading:
-        'Take Our Free Attachment Style Quiz & Begin Building A Loving, Healthy Relationship',
-      subheading:
-        'In 5 minutes, you’ll get a free personalized report that will put you both on the path to forming a stronger, more loving bond.',
-    },
-    variantE: {
-      heading:
-        'Discover Your Attachment Style With Our Free Quiz & Start Forming A Loving Relationship!',
-      subheading:
-        'You’ll get a free personalized report – after 5 minutes – that will guide you on the next steps to finding lasting love!',
-    },
-    variantF: {
-      heading: 'Discover Whether You’re Anxious or Dismissively Attached In Less Than 5 Minutes!',
-      subheading:
-        'Get a free personalized report – and overcome your fears to form committed, connected, and appreciated relationships.',
-    },
+    heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
+    subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
   },
   TYPES: [
     {
@@ -153,30 +72,8 @@ export const ATTACHMENT_QUIZ_VARIANT = {
       "If you don't know why you act the way you do in certain situations, such as getting jealous, fearing abandonment, or craving affection...\n\nOr why seemingly harmless conversations often end in tears...\n\n**You'll never have a harmonious relationship that withstands the test of time.**\n\nBecause the truth is:\n\nRelationships thrive on patience, trust, and a profound mutual understanding - without these pillars, they simply won't last!\n\nThe likelihood is, your partner isn't acting in a certain way to hurt you on purpose.\n\nYou simply don't yet understand each other's attachment style, therefore you're lacking the crucial insights you need to make your relationship a success.\n\nBut that's about to change.",
   },
   CTA_BANNER_2: {
-    variantB: {
-      heading: "Why Don't My Relationships Work Out?",
-      subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
-    },
-    variantC: {
-      heading: "Why Don't My Relationships Work Out?",
-      subheading:
-        'The first step to finding loving relationships is taking our 5-minute quiz and getting a free personalized relationship report!',
-    },
-    variantD: {
-      heading: 'Why Do I Keep Having Conflict With My Partner?',
-      subheading:
-        'Unlock the keys to a healthy, loving relationship with our free personalized report – it just takes 5 minutes!',
-    },
-    variantE: {
-      heading: 'Why Can’t I Find Loving Relationships?',
-      subheading:
-        'Take our short 5-minute quiz to get a free personalized report on how you can overcome your fearful patterns to make yourself feel worthy of love!',
-    },
-    variantF: {
-      heading: 'Why Do I Feel I’ll Get Abandoned or Betrayed?',
-      subheading:
-        'Overcome your relationship fears thanks to our free personalized report – get one in less than 5 minutes!',
-    },
+    heading: "Why Don't My Relationships Work Out?",
+    subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
   },
   BENEFITS: {
     heading: 'Understanding Your Attachment Style Can:',
@@ -251,3 +148,134 @@ export const ATTACHMENT_QUIZ_VARIANT = {
       'Combined, these four powerful skills pave the path to a passionate, deeply connected relationship with your ideal partner.\n\nSo, why wait?\n\n**Break free from your emotional chains and forge bonds that truly matter with our free, 5-minute quiz:**',
   },
 }
+
+export type TAttachmentQuizVariant = typeof ATTACHMENT_QUIZ_VARIANT
+
+/**
+ * Banner
+ * variantB: {
+      heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
+      subheading: 'Decode Your Relationship In Under 5 Minutes!',
+    },
+    variantC: {
+      heading: 'Take Our Free Quiz To See If You Have An Insecure Attachment Style',
+      subheading:
+        'Get a personalized report in 5 minutes so you can begin healing your attachment style for good!',
+    },
+    variantD: {
+      heading: 'Take Our Free 5-Minute Quiz To Discover Your & Your Partner’s Attachment Styles!',
+      subheading:
+        'Unlock the keys to a healthy, loving relationship with our free personalized report!',
+    },
+    variantE: {
+      heading: 'Find Lasting Love By Taking Our Free 5-Minute Attachment Style Quiz Today!',
+      subheading:
+        'With our free personalized quiz, you’ll learn to be valued, loved, and happy in your relationships!',
+    },
+    variantF: {
+      heading: "Take Our Free Attachment Style Quiz To Discover If You're Anxiously Attached",
+      subheading:
+        "In less than 5 minutes, you'll get a free personalized report to help you create committed and loving relationships!",
+    },
+ * 
+ * 
+ * Quiz For
+ * variantB: [
+      'Tired of misunderstandings and conflict',
+      "Sick of feeling like you're on a different wavelength",
+      'Feeling lonely, isolated, and lacking emotional connection',
+      'Experiencing trust issues and fear of abandonment',
+      "Confused by your own or your partner's behavior",
+      'Ready to stop the cycle of repeat relationship problems',
+    ],
+    variantC: [
+      'Finding any relationship – family, friends, romantic – to be challenging',
+      'Struggling with relationship anxiety and insecurity',
+      'Fearful of commitment, causing you to swing from hot to cold',
+      'Becoming needy and desperate to be around your partner',
+      'Avoiding and becoming overwhelmed with intense emotions',
+      'Ready to fine-tune your relationships with professional insight',
+    ],
+    variantD: [
+      'Tired of having regular arguments with your partner',
+      'Confused about why your partner goes from loving to dismissive',
+      'Having trust issues and fears of abandonment',
+      'Struggling to set healthy boundaries',
+      'Excited to stop the chaotic cycle of your relationship',
+      'Ready to fulfill your relationship with love',
+    ],
+    variantE: [
+      'Being abandoned or betrayed by your partner',
+      'Growing distance or apart in your relationship',
+      'Feeling powerless to heal yourself',
+      'Scared that there is “too much” to do when fixing yourself',
+      'Ready to be happy in relationships',
+      'Desiring to be healed from childhood trauma',
+    ],
+    variantF: [
+      'Healing from a broken or rocky relationship',
+      'Tired of not being appreciated by your partner',
+      'Always thinking you’ll be betrayed or abandoned',
+      'Over being a “people-pleaser”',
+      'Excited to find a loving, committed partner',
+      'Ready to become independent',
+    ],
+
+
+    CTA Banner 1
+
+    variantB: {
+      heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
+      subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
+    },
+    variantC: {
+      heading: 'Take Our Free Quiz To See If You Have An Insecure Attachment Style',
+      subheading:
+        'Your attachment style can be HEALED! Our personalized report will explain how you can transform it – get yours in less than 5 minutes!',
+    },
+    variantD: {
+      heading:
+        'Take Our Free Attachment Style Quiz & Begin Building A Loving, Healthy Relationship',
+      subheading:
+        'In 5 minutes, you’ll get a free personalized report that will put you both on the path to forming a stronger, more loving bond.',
+    },
+    variantE: {
+      heading:
+        'Discover Your Attachment Style With Our Free Quiz & Start Forming A Loving Relationship!',
+      subheading:
+        'You’ll get a free personalized report – after 5 minutes – that will guide you on the next steps to finding lasting love!',
+    },
+    variantF: {
+      heading: 'Discover Whether You’re Anxious or Dismissively Attached In Less Than 5 Minutes!',
+      subheading:
+        'Get a free personalized report – and overcome your fears to form committed, connected, and appreciated relationships.',
+    },
+
+
+    CTA Banner 2
+    variantB: {
+      heading: "Why Don't My Relationships Work Out?",
+      subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
+    },
+    variantC: {
+      heading: "Why Don't My Relationships Work Out?",
+      subheading:
+        'The first step to finding loving relationships is taking our 5-minute quiz and getting a free personalized relationship report!',
+    },
+    variantD: {
+      heading: 'Why Do I Keep Having Conflict With My Partner?',
+      subheading:
+        'Unlock the keys to a healthy, loving relationship with our free personalized report – it just takes 5 minutes!',
+    },
+    variantE: {
+      heading: 'Why Can’t I Find Loving Relationships?',
+      subheading:
+        'Take our short 5-minute quiz to get a free personalized report on how you can overcome your fearful patterns to make yourself feel worthy of love!',
+    },
+    variantF: {
+      heading: 'Why Do I Feel I’ll Get Abandoned or Betrayed?',
+      subheading:
+        'Overcome your relationship fears thanks to our free personalized report – get one in less than 5 minutes!',
+    },
+
+ */

@@ -5,6 +5,7 @@ import Mixpanel from '@/modules/Mixpanel'
 import { IDefaultProps } from '@/components'
 // libraries
 import cx from 'classnames'
+import { overrideTailwindClasses as two } from 'tailwind-override'
 
 export type TButtonColor =
   | 'primary'
@@ -70,15 +71,17 @@ export const ButtonDefault = ({
 
   const button = (
     <button
-      className={cx(
-        `border-2 rounded-full tracking-10 px-4 py-2 transition-colors 
+      className={two(
+        cx(
+          `border-2 rounded-full tracking-10 px-4 py-2 transition-colors 
         active:shadow-md active:text-white
         lg:hover:text-white lg:hover:shadow-md`,
-        theme === 'secondary'
-          ? 'text-primary bg-white border-primary active:!bg-primary lg:hover:!bg-primary'
-          : `bg-${theme} border-${theme} text-white active:bg-opacity-50 lg:hover:bg-opacity-50`,
-        disabled && 'bg-opacity-25 border-opacity-25',
-        className
+          theme === 'secondary'
+            ? 'text-primary bg-white border-primary active:!bg-primary lg:hover:!bg-primary'
+            : `bg-${theme} border-${theme} text-white active:bg-opacity-50 lg:hover:bg-opacity-50`,
+          disabled && 'bg-opacity-25 border-opacity-25',
+          className
+        )
       )}
       disabled={disabled}
       type={type}

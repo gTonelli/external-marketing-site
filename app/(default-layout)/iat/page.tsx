@@ -650,7 +650,7 @@ export default function IATSalesPage() {
           iframeClassName="rounded-10"
           maxHeight={432}
           thumbnail="IATPage/IAT-testimonial-thumbnail.png"
-          videoId="zpwXtAyKl6Q"
+          videoId="tUUHFJw-VrI"
           onPlay={() => onVideoStarted('testimonial')}
         />
       </Section>

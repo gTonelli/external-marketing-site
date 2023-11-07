@@ -45,9 +45,6 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
 
   return (
     <Page className="w-full" page_name={page_name}>
-      <Helmet>
-        <meta content="noindex" name="robots" />
-      </Helmet>
       <div className="bg-attachment-quiz-variant w-full">
         <div className="max-w-4xl flex flex-col justify-center items-center text-center mx-auto px-4 pt-16 py-2">
           <Image alt="PDS Logo" height={80} src="logo-footer.svg" width={80} />

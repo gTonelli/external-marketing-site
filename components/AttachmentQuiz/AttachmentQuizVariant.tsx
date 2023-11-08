@@ -70,7 +70,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
 
           <Text.Heading
             className="italic text-primary-light mt-4 md:!text-2xl"
-            content="Get a free personalised report, it takes less than 5 minutes!"
+            content={config.BANNER.subheading}
           />
 
           <TakeQuizCTA onStartQuiz={onStartQuiz} />
@@ -117,7 +117,10 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           width="100%"
         />
 
-        <Text.Paragraph className="text-center my-2" content="Thais Gibson" />
+        <Text.Paragraph
+          className="text-xl font-bold underline text-center my-2"
+          content="Thais Gibson"
+        />
 
         <Text.Paragraph
           className="text-center"

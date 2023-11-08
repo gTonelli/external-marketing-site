@@ -25,14 +25,14 @@ export default function AttachmentQuizVariantEPage() {
     ],
     CTA_BANNER_1: {
       heading:
-        'Discover Your Attachment Style With Our Free Quiz & Start Forming A Loving Relationship!',
+        'Form A Loving Relationship By Discovering Your Attachment Style With Our Free Quiz!',
       subheading:
         'You’ll get a free personalized report – after 5 minutes – that will guide you on the next steps to finding lasting love!',
     },
     CTA_BANNER_2: {
       heading: 'Why Can’t I Find Loving Relationships?',
       subheading:
-        'Take our short 5-minute quiz to get a free personalized report on how you can overcome your fearful patterns to make yourself feel worthy of love!',
+        'Take our short 5-minute quiz to get a free personalized report on how to overcome your fearful patterns so you can feel worthy of love!',
     },
   }
   return <AttachmentQuizVariant page_name={page_name} config={config} />

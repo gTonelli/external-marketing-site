@@ -11,9 +11,9 @@ export default function AttachmentQuizVariantEPage() {
   const config: TAttachmentQuizVariant = {
     ...ATTACHMENT_QUIZ_VARIANT,
     BANNER: {
-      heading: "Take Our Free Attachment Style Quiz To Discover If You're Anxiously Attached",
+      heading: 'Take Our Free Attachment Style Quiz To Help You Create Committed Relationships!',
       subheading:
-        "In less than 5 minutes, you'll get a free personalized report to help you create committed and loving relationships!",
+        "In less than 5 minutes, you'll get a free personalized report to help you find and nurture a loving relationship!",
     },
     QUIZ_FOR: [
       'Healing from a broken or rocky relationship',
@@ -24,7 +24,8 @@ export default function AttachmentQuizVariantEPage() {
       'Ready to become independent',
     ],
     CTA_BANNER_1: {
-      heading: 'Discover Whether You’re Anxious or Dismissively Attached In Less Than 5 Minutes!',
+      heading:
+        'Discover How You Can Find & Form Loving, Committed Relationships – In Less Than 5 Minutes!',
       subheading:
         'Get a free personalized report – and overcome your fears to form committed, connected, and appreciated relationships.',
     },

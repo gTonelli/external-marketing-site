@@ -45,19 +45,19 @@ export const ATTACHMENT_QUIZ_VARIANT = {
     {
       icon: 'frown',
       title: 'ANXIOUS PREOCCUPIED',
-      content: `Relationships can often make you feel anxious, unsafe, or insecure because you likely have a subconscious fear of abandonment or being alone "forever."\n\nAs a result, you seek more closeness in your relationships and can feel afraid if you sense a loved one is pulling away. You might become clingy and co-dependent and focus on other people's behavior as a form of people-pleasing.\n\nYou crave a relationship that prioritizes commitment and want to feel appreciated by your partner.`,
+      content: `Relationships can often make you feel anxious, unsafe, or insecure because you likely have a subconscious fear of abandonment or being alone "forever."\n\nAs a result, you seek more closeness in your relationships and can feel afraid if you sense a loved one is pulling away. You might become clingy and co-dependent and focus on other people's behavior as a form of people-pleasing.\n\nYou crave a relationship that prioritizes commitment and wants to feel appreciated by your partner.`,
     },
     {
       icon: 'grimace',
       title: 'FEARFUL AVOIDANT',
       content:
-        'Relationships can feel chaotic, confusing, and overwhelming because you swing between being avoidant and anxious. You struggle with thoughts of betrayal, abandonment, and the feeling of relying on someone else.\n\nDepending on the relationship, you can shift between being "hot and cold," often confused about your feelings.\n\nMoving to a secure style leaves you feeling that there is "too much" to do, heightening fears of dealing with your painful past, and your desire for immediate results.',
+        'Relationships can feel chaotic, confusing, and overwhelming because you swing between being avoidant and anxious. You struggle with thoughts of betrayal, abandonment, and the feeling of relying on someone else.\n\nDepending on the relationship, you can shift between being "hot and cold" and often feel confused about your feelings.\n\nMoving to a secure style leaves you feeling that there is "too much" to do, heightening fears of dealing with your painful past, and your desire for immediate results.',
     },
     {
       icon: 'sad-cry',
       title: 'DISMISSIVE AVOIDANT',
       content:
-        'Intense emotions can feel overwhelming and can cause you to pull away from others. You may withdraw from arguments or trigger situations due to a core desire for independence. The inner conflict is that you want freedom, but deep down, you want to connect with others.\n\nYou feel you might be stuck in a painful relationship forever or end up with the wrong person, confusing the perception of your relationship and leading to doubts if you can commit at all.',
+        'Intense emotions can feel overwhelming and cause you to pull away from others. You may withdraw from arguments or trigger situations due to a core desire for independence. The inner conflict is that you want freedom, but deep down, you want to connect with others.\n\nYou feel you might be stuck in a painful relationship forever or end up with the wrong person, confusing the perception of your relationship and leading to doubts if you can commit at all.',
     },
     {
       icon: 'smile-beam',
@@ -69,7 +69,7 @@ export const ATTACHMENT_QUIZ_VARIANT = {
   KEY_TO_SUCCESS: {
     title: 'Understanding your Attachment Style: The Key To Relationship Success',
     content:
-      "If you don't know why you act the way you do in certain situations, such as getting jealous, fearing abandonment, or craving affection...\n\nOr why seemingly harmless conversations often end in tears...\n\n**You'll never have a harmonious relationship that withstands the test of time.**\n\nBecause the truth is:\n\nRelationships thrive on patience, trust, and a profound mutual understanding - without these pillars, they simply won't last!\n\nThe likelihood is, your partner isn't acting in a certain way to hurt you on purpose.\n\nYou simply don't yet understand each other's attachment style, therefore you're lacking the crucial insights you need to make your relationship a success.\n\nBut that's about to change.",
+      "If you don't know why you act the way you do in certain situations, such as getting jealous, fearing abandonment, or craving affection...\n\nOr why seemingly harmless conversations often end in tears...\n\n**You'll never have a harmonious relationship that withstands the test of time.**\n\nBecause the truth is:\n\nRelationships thrive on patience, trust, and a profound mutual understanding - without these pillars, they simply won't last!\n\nThe likelihood is, your partner isn't acting in a certain way to hurt you on purpose.\n\nYou simply don't yet understand each other's attachment style; therefore, you're lacking the crucial insights you need to make your relationship a success.\n\nBut that's about to change.",
   },
   CTA_BANNER_2: {
     heading: "Why Don't My Relationships Work Out?",
@@ -77,7 +77,7 @@ export const ATTACHMENT_QUIZ_VARIANT = {
   },
   BENEFITS: {
     heading: 'Understanding Your Attachment Style Can:',
-    teaser: 'Get a free personalised relationship report, it takes less than 5 minutes!',
+    teaser: 'Get a free personalized relationship report - it only takes 5 minutes!',
     items: [
       {
         title: 'IMPROVE SELF-AWARENESS',
@@ -92,12 +92,12 @@ export const ATTACHMENT_QUIZ_VARIANT = {
       {
         title: 'BETTER PARTNER SELECTION',
         content:
-          "Finding the right partner can be like hunting for a needle in a haystack. But understanding your attachment style helps attract those who resonate with your needs and values. It's your ticket to building a connection that burns bright and lasts long.",
+          "Finding the right partner can be like hunting for a needle in a haystack. However, understanding your attachment style helps attract those who resonate with your needs and values. It's your ticket to building a connection that burns bright and lasts long.",
       },
       {
         title: 'DEVELOP CONFLICT RESOLUTION SKILLS',
         content:
-          "Let's face it, conflicts are a part of life, especially in relationships. But understanding your attachment style equips you with supercharged conflict resolution strategies so you can say goodbye to heated arguments and hello to peaceful, fulfilling relationships.",
+          "Let's face it: conflicts are a part of life, especially in relationships. But understanding your attachment style equips you with supercharged conflict resolution strategies so you can say goodbye to heated arguments and hello to peaceful, fulfilling relationships.",
       },
       {
         title: 'STRENGTHEN EMPATHY & COMPASSION',

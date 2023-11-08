@@ -9,7 +9,6 @@ import { ATTACHMENT_QUIZ_VARIANT } from './config'
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { Helmet } from 'react-helmet'
 import { Page } from '@/components/Page'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
@@ -42,9 +41,6 @@ export default function AttachmentQuizVariantPage() {
 
   return (
     <Page className="w-full" page_name={page_name}>
-      <Helmet>
-        <meta content="noindex" name="robots" />
-      </Helmet>
       <div className="bg-attachment-quiz-variant w-full">
         <div className="max-w-4xl flex flex-col justify-center items-center text-center mx-auto px-4 py-16">
           <Image alt="PDS Logo" height={80} src="logo-footer.svg" width={80} />

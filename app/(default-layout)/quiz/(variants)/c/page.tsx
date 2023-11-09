@@ -11,7 +11,7 @@ export default function AttachmentQuizVariantCPage() {
   const config: TAttachmentQuizVariant = {
     ...ATTACHMENT_QUIZ_VARIANT,
     BANNER: {
-      heading: 'Take Our Free Quiz To Discover & Heal Your Insecure Love Patterns',
+      heading: 'Take Our Free Quiz To Discover & Heal Your Insecure Love Patterns!',
       subheading:
         'Get a personalized report in 5 minutes so you can begin healing your attachment style for good!',
     },
@@ -24,7 +24,7 @@ export default function AttachmentQuizVariantCPage() {
       'Ready to fine-tune your relationships with professional insight',
     ],
     CTA_BANNER_1: {
-      heading: 'Take Our Free Attachment Style Quiz & Start Building Thriving Relationships',
+      heading: 'Take Our Free Attachment Style Quiz & Start Building Thriving Relationships!',
       subheading:
         'Your attachment style can be HEALED! Our personalized report will explain how you can transform it – get yours in less than 5 minutes!',
     },

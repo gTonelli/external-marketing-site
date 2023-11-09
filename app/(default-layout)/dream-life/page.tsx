@@ -90,7 +90,7 @@ export default function DreamLifePage() {
 
       <Image
         className="hidden absolute w-1/2 lg:-right-56 top-20 lg:block xl:w-1/3 xl:-right-32"
-        src="TrialHeadspace/hero-right-mockup.png"
+        src="TrialHeadspace/hero-right-mockup.png" 
       />
 
       <Image className="w-full" src="TrialHeadspace/hero-bg.png" />

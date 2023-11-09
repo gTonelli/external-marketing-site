@@ -11,7 +11,7 @@ export default function AttachmentQuizVariantDPage() {
   const config: TAttachmentQuizVariant = {
     ...ATTACHMENT_QUIZ_VARIANT,
     BANNER: {
-      heading: 'Take Our Free Quiz To Build A Loving & Intimate Relationship',
+      heading: 'Take Our Free Quiz To Build A Loving & Intimate Relationship!',
       subheading:
         'Unlock the keys to a healthy, loving relationship with our free personalized report!',
     },
@@ -24,7 +24,7 @@ export default function AttachmentQuizVariantDPage() {
       'Ready to fill your relationship with love',
     ],
     CTA_BANNER_1: {
-      heading: 'Take Our Free Attachment Style Quiz & Begin Building A Loving, Relationship',
+      heading: 'Take Our Free Attachment Style Quiz & Begin Building A Loving Relationship!',
       subheading:
         'In 5 minutes, you’ll get a free personalized report that will put you both on the path to forming a stronger, more loving bond.',
     },

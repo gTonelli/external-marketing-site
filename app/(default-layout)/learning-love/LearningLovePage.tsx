@@ -52,6 +52,7 @@ export default function LearningLovePage() {
           />
 
           <Image
+            fetchPriority="high"
             className="mt-4 w-auto max-h-[90vh] max-w-full mx-auto lg:max-w-lg xl:w-full xl:max-h-max xl:max-w-xl"
             src="LearningLovePage/learning-love-book-cover.png"
           />
@@ -266,10 +267,15 @@ export default function LearningLovePage() {
 
         <Text.Paragraph
           className="text-h1 !tracking-0.325 my-4 lg:mb-12"
-          content="20% OFF UNTIL DECEMBER 20TH"
+          content="20% OFF UNTIL DECEMBER 12TH"
         />
 
-        <Image className="sm:hidden w-full" src="LearningLovePage/book-mockup-2.jpg" />
+        <Image
+          className="sm:hidden w-full"
+          src="LearningLovePage/book-mockup-2.png"
+          fetchPriority="low"
+          loading="lazy"
+        />
 
         <Image
           className="hidden sm:block lg:hidden w-full"
@@ -298,7 +304,7 @@ export default function LearningLovePage() {
 
             <Text.Paragraph
               className="mb-4 lg:mb-7"
-              content="Click the button below to claim 20% off until December 20th on Amazon!"
+              content="Click the button below to claim 20% off until December 12th on Amazon!"
               size={20}
             />
 

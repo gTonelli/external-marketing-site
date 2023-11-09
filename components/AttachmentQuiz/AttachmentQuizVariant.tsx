@@ -7,7 +7,6 @@ import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 // libraries
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
-import { Helmet } from 'react-helmet'
 import { Page } from '@/components/Page'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'

@@ -13,8 +13,6 @@ import { ProgressBar } from '@/components/ProgressBar'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
 import { Page } from '@/components/Page'
-// libraries
-import { Helmet } from 'react-helmet'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
@@ -44,10 +42,6 @@ export default function IATQuizPage() {
 
   return (
     <Page page_name="IAT Attachment Quiz">
-      {/* Prevent indexing of the page since there is no lead gen or funnel */}
-      <Helmet>
-        <meta content="noindex" name="robots" />
-      </Helmet>
       <div className="w-full text-center relative z-10">
         {/* INTRO */}
         <section className="w-full flex flex-col bg-primary-light pt-11">

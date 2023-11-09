@@ -1,7 +1,7 @@
 export const ATTACHMENT_QUIZ_VARIANT = {
   BANNER: {
     heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
-    subheading: 'Decode Your Relationship In Under 5 Minutes!',
+    subheading: 'Get a free personalized report, it takes less than 5 minutes!',
   },
   STATS: [
     {
@@ -39,7 +39,7 @@ export const ATTACHMENT_QUIZ_VARIANT = {
   ],
   CTA_BANNER_1: {
     heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
-    subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
+    subheading: 'Get a free personalized relationship report, it takes less than 5 minutes!',
   },
   TYPES: [
     {
@@ -73,7 +73,7 @@ export const ATTACHMENT_QUIZ_VARIANT = {
   },
   CTA_BANNER_2: {
     heading: "Why Don't My Relationships Work Out?",
-    subheading: 'Get a free personalised relationship report, it takes less than 5 minutes!',
+    subheading: 'Get a free personalized relationship report, it takes less than 5 minutes!',
   },
   BENEFITS: {
     heading: 'Understanding Your Attachment Style Can:',

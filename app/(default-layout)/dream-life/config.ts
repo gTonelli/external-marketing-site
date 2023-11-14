@@ -1,16 +1,6 @@
 export const TRIAL_HEADSPACE = {
   HERO: {
     heading: `Step Into Your Dream Life`,
-    benefits: [
-      'Access to 65+ Courses',
-      'On-Demand Course Videos',
-      'Interactive Workbooks',
-      'Certificate of Completion',
-      'Weekly Live Webinars with Thais',
-      'Private Discussion Forums',
-    ],
-    joinProgram:
-      'Join thousands of members and ignite your dream life in just 7 days through our proven attachment reprogramming methods with the All-Access Pass!',
     subHeading: `Select a plan:`,
     offers: [
       {
@@ -48,7 +38,6 @@ export const TRIAL_HEADSPACE = {
     ],
     heading: `Build Your Dream Life`,
     copy: `Look no further – with the tools and methods you'll learn in The Personal Development School, you can achieve this and so much more!`,
-    copyVariant: `Imagine what it would feel like to have the answers to all of the questions you've always asked yourself about your relationships, emotional well-being, and career goals. Now you can access the knowledge you need to build an incredible life, all at the click of a button.`,
   },
   VIDEO_CATEGORIES: [
     {

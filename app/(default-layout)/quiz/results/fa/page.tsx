@@ -64,7 +64,16 @@ export default function RoyalRumbleResultsPage() {
         seq_no: seq_no,
       })
 
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      let destination: string = EExternalRoutes.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
+
+      const userEmail = Storage.get('lastUserEmail')
+      if (userEmail) {
+        destination += `?${new URLSearchParams({ prefilled_email: userEmail }).toString()}`
+      }
+
+      // #TODO add split test, vars and event
+      // window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      window.location.assign(destination)
     },
     [style]
   )

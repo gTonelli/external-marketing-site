@@ -66,6 +66,7 @@ export type Pages =
   | `Main Funnel Quiz Variant E`
   | `Main Funnel Quiz Variant F`
   | `Masterclass Quiz`
+  | `Order Complete`
   | `mha-month`
   | `Speaker Gift`
   | `Secondary Sales - ${string}`

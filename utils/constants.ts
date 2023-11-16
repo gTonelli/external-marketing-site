@@ -112,6 +112,7 @@ export enum EExternalRoutes {
 
   // Checkout
   // Subscriptions
+  STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://buy.stripe.com/test_28o02X9hu4xh3g49AA',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_19_DOLLAR = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773&coupon=special19promo',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=3175705&coupon=40off',

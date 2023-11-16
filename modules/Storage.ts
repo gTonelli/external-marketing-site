@@ -13,7 +13,7 @@ export type TStorageKeys =
   | 'gm-791-page-test'
 
 export const Storage = {
-  get: (key: TStorageKeys): string | null => {
+  get: (key: TStorageKeys): any => {
     if (typeof window === 'undefined') return null
     const value = window.localStorage.getItem(key)
 

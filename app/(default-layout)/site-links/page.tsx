@@ -22,44 +22,25 @@ export default function SiteLinksPage() {
 
   return (
     <div className="relative w-full flex flex-col flex-grow items-center justify-center overflow-hidden">
-      <div className="max-w-[1000px] flex flex-col bg-primary-light-50 rounded-20 m-4 p-6 md:flex-row md:mt-32 md:mx-24">
-        <div className="flex-1">
-          <Text.Paragraph
-            className="uppercase font-bold leading-5 text-center mb-2 md:text-left"
-            content={SITELINKS.HEADER.title}
-          />
-          <Link.Wrapper
-            url={SITELINKS.HEADER.url}
-            onClick={() => onLinkClicked(SITELINKS.HEADER.link)}>
-            <Text.Heading
-              className="text-purple-dark text-center text-2xl mb-4 md:text-left md:mb-0"
-              content={SITELINKS.HEADER.link}
-            />
-          </Link.Wrapper>
-        </div>
-
-        <div className="relative flex-1">
-          <Image
-            alt="PDS-Courses"
-            className="md:absolute md:bottom-0"
-            height={221}
-            src={SITELINKS.HEADER.asset}
-            width={412}
-          />
-        </div>
+      <div className="max-w-[720px] text-purple-dark mx-auto mt-8 z-10">
+        <Text.Heading className="text-center mb-4" content={SITELINKS.HEADER.title} />
       </div>
 
-      <div className="mb-8 md:mx-24">
+      <div className="max-w-[420px] flex flex-col mx-auto mb-8 z-10">
         {SITELINKS.BUTTONS.map((button, idx) => (
           <Link.Wrapper
             key={idx}
-            className="w-full flex flex-col justify-center items-center bg-purple-dark rounded-20 p-5 mb-4  md:flex-row md:justify-start"
+            className="w-full flex flex-col justify-center items-center bg-white border-2 border-purple-dark rounded-full p-5 mb-4 md:flex-row md:justify-start"
             url={button.url}
             onClick={() => onLinkClicked(button.label)}>
-            <Image alt={`button-${idx + 1}`} className="mr-4 mb-2 md:mb-0" src={button.icon} />
+            <Image
+              alt={`button-${idx + 1}`}
+              className="hidden mr-4 mb-2 md:mb-0 md:flex"
+              src={button.icon}
+            />
 
             <Text.Paragraph
-              className="text-white uppercase leading-5 font-bold text-center md:text-left"
+              className="text-purple-dark leading-5 font-bold text-center md:text-left"
               content={button.label}
             />
           </Link.Wrapper>
@@ -68,25 +49,25 @@ export default function SiteLinksPage() {
 
       <Image
         alt="vector-1"
-        className="hidden absolute top-0 left-[-5%] -z-1 md:block"
+        className="absolute top-0 left-[-5%] z-0"
         src="SiteLinksPage/vector-1.svg"
       />
 
       <Image
         alt="ellipse"
-        className="hidden absolute left-[-5%] bottom-[-20%] -z-1 md:block"
+        className="absolute left-[-15%] bottom-[-20%] z-0"
         src="SiteLinksPage/ellipse.svg"
       />
 
       <Image
         alt="vector-2"
-        className="hidden absolute top-0 right-0 -z-1 md:block"
+        className="absolute top-0 right-[-10%] z-0"
         src="SiteLinksPage/vector-2.svg"
       />
 
       <Image
         alt="vector-2"
-        className="hidden absolute top-[-5%] right-[15%] -z-1 md:block"
+        className="hidden absolute top-[-5%] right-[5%] z-0 md:block"
         src="SiteLinksPage/vector-3.svg"
       />
     </div>

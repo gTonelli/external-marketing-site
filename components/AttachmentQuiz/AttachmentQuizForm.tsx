@@ -2,7 +2,7 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
 // components
 import { IResultProps, TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
@@ -10,8 +10,6 @@ import { Loader } from '../Loader'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
-import { Storage } from '@/modules/Storage'
-import Mixpanel from '@/modules/Mixpanel'
 
 const AttachmentQuizResults = dynamic(
   () => import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults),
@@ -37,29 +35,10 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   // =================== State ======================
   const [showResults, setShowResults] = useState(true)
-  const [showFaVariant, setShowFaVariant] = useState(false)
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
 
   const router = useRouter()
-
-  useEffect(() => {
-    let showFaVariant: string | null | boolean = Storage.get('gm-791-page-test')
-
-    if (showFaVariant === null) {
-      showFaVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-      Storage.set('gm-791-page-test', showFaVariant)
-
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'GM-755-headspace-split',
-        'Variant name': showFaVariant ? 'Variant 1' : 'Control',
-      })
-
-      setShowFaVariant(showFaVariant)
-    } else {
-      setShowFaVariant(showFaVariant === 'true')
-    }
-  }, [])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -73,7 +52,7 @@ export const AttachmentQuizForm = ({
     if (quiz_traffic_source === 'organic') {
       setShowResults(!showResults)
     } else if (userStyle === 'fa') {
-      showFaVariant ? router.push('/dream-life-results') : router.push('/quiz/results/fa')
+      router.push('/quiz/results/fa')
     } else {
       router.push('/quiz/' + userStyle)
     }

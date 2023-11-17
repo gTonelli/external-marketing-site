@@ -22,11 +22,11 @@ export default function SiteLinksPage() {
 
   return (
     <div className="relative w-full flex flex-col flex-grow items-center justify-center overflow-hidden">
-      <div className="max-w-[720px] text-purple-dark mx-auto mt-8 z-10">
+      <div className="max-w-3xl text-purple-dark mx-auto mt-8 z-10">
         <Text.Heading className="text-center mb-4" content={SITELINKS.HEADER.title} />
       </div>
 
-      <div className="max-w-[420px] flex flex-col mx-auto mb-8 z-10">
+      <div className="max-w-104 flex flex-col mx-auto mb-8 z-10">
         {SITELINKS.BUTTONS.map((button, idx) => (
           <Link.Wrapper
             key={idx}

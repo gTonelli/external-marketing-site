@@ -1,7 +1,9 @@
+'use client'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import type { Metadata } from 'next'
 import { ERoutes } from '@/utils/constants'
+import { usePathname } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Explore PDS Courses',
@@ -10,18 +12,24 @@ export const metadata: Metadata = {
 }
 
 export default function ExploreCoursesLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+
   return (
     <>
-      <Header
-        clickableLogo={false}
-        navLinks={[
-          {
-            link: ERoutes.EXPLORE_COURSES_PAGE,
-            text: 'View Courses',
-            className: '!mr-auto !ml-0',
-          },
-        ]}
-      />
+      {pathname === '/site-links' ? (
+        <Header clickableLogo={false} navLinks={[]} />
+      ) : (
+        <Header
+          clickableLogo={false}
+          navLinks={[
+            {
+              link: ERoutes.EXPLORE_COURSES_PAGE,
+              text: 'View Courses',
+              className: '!mr-auto !ml-0',
+            },
+          ]}
+        />
+      )}
 
       {children}
 

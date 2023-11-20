@@ -49,19 +49,19 @@ export default function SiteLinksPage() {
 
       <Image
         alt="vector-1"
-        className="absolute top-0 left-[-5%] z-0"
+        className="hidden absolute top-0 left-[-5%] z-0 md:block"
         src="SiteLinksPage/vector-1.svg"
       />
 
       <Image
         alt="ellipse"
-        className="absolute left-[-15%] bottom-[-20%] z-0"
+        className="hidden absolute left-[-15%] bottom-[-20%] z-0 md:block"
         src="SiteLinksPage/ellipse.svg"
       />
 
       <Image
         alt="vector-2"
-        className="absolute top-0 right-[-10%] z-0"
+        className="hidden absolute top-0 right-[-10%] z-0 md:block"
         src="SiteLinksPage/vector-2.svg"
       />
 

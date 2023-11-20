@@ -51,23 +51,27 @@ export default function BlackFridayPage() {
     <Page className="w-full overflow-hidden" page_name="Black Friday">
       {/* HEADER TEXT */}
       <Section className="relative z-10 bg-blue-lightest lg:pb-0">
+        <Text.Paragraph
+          className="mb-3 rounded-lg font-bold bg-blue-dark text-white px-8 py-5 lg:py-6 lg:text-3xl"
+          content="Black Friday Deal!"
+          size={20}
+        />
+
         <Text.Heading
-          className="leading-6 font-effra font-bold lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:text-5xl lg:mb-8"
-          content="Tame Your Anxiety, Build Your Self-Esteem, or Break Your Toxic Relationship Patterns"
-          size={1}
+          className="leading-6 text-primary font-bold mb-4 lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:text-5xl lg:mb-8"
+          content="Are You Ready To Transform Your Relationships And Find Lasting Love?"
+          size={2}
         />
 
-        <Text.Paragraph
-          className="!leading-6 !tracking-0.325 text-primary font-extrabold !text-xl my-4"
-          content="RIGHT FROM YOUR HOME IN THE NEXT 2 WEEKS"
-        />
-
-        <Text.Paragraph
-          className="!text-lg font-medium mb-4 lg:max-w-lg lg:mx-auto"
-          content="Unlock free access to the courses that are giving our members the breakthroughs they've been looking for."
+        <Text.Heading
+          className="!text-lg font-medium mb-4 lg:max-w-3xl lg:mx-auto"
+          content="Unlock free access to the courses that are giving our members the breakthroughs they've been looking for with our black friday 14-day free trial, right from the comfort of your home."
+          size={4}
         />
 
         <MHAButton />
+
+        <Text.Paragraph className="mt-2 font-bold italic" content="*This offer ends soon!*" />
       </Section>
 
       <Image className="relative w-full mt-0 z-5 2xl:-mt-5" src="styled-wave-green.png" />
@@ -593,7 +597,7 @@ const MHAButton = ({ label }: IButtonDefaultProps) => {
 
   return (
     <Button
-      className="rounded-full text-black px-4 xs:px-8 xs:text-xl"
+      className="px-4 xs:px-8 xs:text-xl"
       label={label ?? `START YOUR 14-DAY ${windowWidth < 375 ? 'TRIAL' : 'ALL-ACCESS PASS'}`}
       onClick={onGoToCheckout}
     />

@@ -83,7 +83,7 @@ class Mixpanel {
       {
         // config override goes here
         api_host: 'https://api.personaldevelopmentschool.com',
-        debug: true
+        debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev'
       }
     )
   }

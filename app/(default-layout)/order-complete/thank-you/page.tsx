@@ -5,21 +5,15 @@ import { Input } from '@/components/Input/Input'
 import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
-import { Storage } from '@/modules/Storage'
 import { Form, Formik, FormikValues } from 'formik'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import * as Yup from 'yup'
 
 export default function ThankYouPage() {
   // ============ State ==============
-  const [token, setToken] = useState<null | undefined>(null)
   const newUser = useSearchParams().get('new_user') === 'true'
-
-  useEffect(() => {
-    setToken(Storage.get('token'))
-  }, [])
 
   return (
     <Section>
@@ -31,7 +25,7 @@ export default function ThankYouPage() {
         below!
       </p>
 
-      {newUser && token && <SetPasswordContent token={token} />}
+      {newUser && <SetPasswordContent />}
 
       <Link href={'https://staging.university.personaldevelopmentschool.com/enrollments'}>
         <Button label="START LEARNING" />
@@ -53,7 +47,7 @@ const passwordFormValidationSchema = Yup.object({
     .default(''),
 })
 
-const SetPasswordContent = ({ token }: { token: string }) => {
+const SetPasswordContent = () => {
   // =========== State =============
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submissionError, setSubmissionError] = useState(false)
@@ -63,13 +57,13 @@ const SetPasswordContent = ({ token }: { token: string }) => {
 
     fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/thinkific-checkout-set-password', {
       method: 'POST',
-      body: JSON.stringify({ token, password: values.password }),
+      body: JSON.stringify({ password: values.password }),
       cache: 'no-cache',
+      credentials: 'include',
     }).then(async (res) => {
       const response = await res.json()
 
       if (response.success) {
-        Storage.remove('token')
         window.location.assign(response.destination)
       } else {
         setSubmissionError(true)
@@ -80,8 +74,8 @@ const SetPasswordContent = ({ token }: { token: string }) => {
 
   if (submissionError) {
     return (
-      <p className="text-danger">
-        Oops! It looks like something went wrong, please reach out top us at{' '}
+      <p className="mb-4">
+        Oops! It looks like something went wrong, please reach out to us at{' '}
         <Link className="text-primary font-bold" href={'mailto:info@personaldevelopmentschool.com'}>
           info@personaldevelopmentschool.com
         </Link>{' '}

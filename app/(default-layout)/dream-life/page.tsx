@@ -1,15 +1,13 @@
 'use client'
 
 // core
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 //components
 import { Button } from '@/components/Button/Button'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { TestimonialSection } from '@/components/TestimonialSection'
 import { Page } from '@/components/Page'
-import { Storage } from '@/modules/Storage'
-import { List } from '@/components/List'
 import { Icon } from '@/components/Icon'
 import { Input } from '@/components/Input/Input'
 import { IDefaultProps } from '@/components'
@@ -31,20 +29,6 @@ export default function DreamLifePage() {
   // ==================== State ====================
   const [selectedOption, setSelectedOption] = useState({ option1: true, option2: false })
   const [videoIndex, setVideoIndex] = useState(0)
-  const [isVariant, setIsVariant] = useState<boolean>(false)
-
-  useEffect(() => {
-    let _isVariant = Storage.get('gm-755-headspace-split') === 'yes'
-    if (Storage.get('gm-755-headspace-split') === null) {
-      _isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
-      Storage.set('gm-755-headspace-split', isVariant ? 'yes' : 'no')
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'GM-755-headspace-split',
-        'Variant name': isVariant ? 'Variant 1' : 'Control',
-      })
-    }
-    setIsVariant(_isVariant)
-  }, [])
 
   const onGoToBlog = (blog: ArticleKey) => {
     Mixpanel.track.ButtonClicked({
@@ -93,7 +77,6 @@ export default function DreamLifePage() {
         <div className="relative mt-8 lg:mt-12">
           <PaymentOptions
             className="lg:flex-col"
-            isVariant={isVariant}
             placement="top"
             onOptionSelected={onOptionSelected}
           />
@@ -136,10 +119,7 @@ export default function DreamLifePage() {
             <div>
               <Text.Heading content={TH.DREAM_LIFE.heading} />
 
-              <Text.Paragraph
-                className="mt-6 lg:mt-11"
-                content={isVariant ? TH.DREAM_LIFE.copyVariant : TH.DREAM_LIFE.copy}
-              />
+              <Text.Paragraph className="mt-6 lg:mt-11" content={TH.DREAM_LIFE.copy} />
 
               <Button
                 className="mt-8 px-6 lg:mt-11"
@@ -152,29 +132,6 @@ export default function DreamLifePage() {
           </div>
         </div>
       </section>
-
-      {isVariant && (
-        <section className="flex flex-col items-center mt-16 px-4">
-          <Text.Heading
-            className="text-center capitalize mb-8"
-            content="What's included in your membership:"
-          />
-
-          <div className="flex justify-center items-center my-4 mb-10">
-            <List
-              classNameIcon="w-fit !text-green-check"
-              classNameListItems="mb-2"
-              iconName="circle-check"
-              iconType="regular"
-              listItems={TH.HERO.benefits}
-            />
-          </div>
-
-          <Text.Paragraph className="max-w-[540px] mb-8 mx-auto" content={TH.HERO.joinProgram} />
-
-          <Button className="mb-8 px-6 py-4" label="JOIN TODAY FOR FREE" onClick={onGoToCheckout} />
-        </section>
-      )}
 
       {/**TESTIMONIAL*/}
       <section className="max-w-4xl mx-auto px-4 pt-9 lg:pt-[102px]">
@@ -487,11 +444,7 @@ export default function DreamLifePage() {
           </div>
 
           <div className="mt-24">
-            <PaymentOptions
-              isVariant={isVariant}
-              placement="bottom"
-              onOptionSelected={onOptionSelected}
-            />
+            <PaymentOptions placement="bottom" onOptionSelected={onOptionSelected} />
           </div>
         </div>
       </section>
@@ -500,14 +453,12 @@ export default function DreamLifePage() {
 }
 
 interface IPaymentOptionsProps extends IDefaultProps {
-  isVariant?: boolean
   placement?: string
   onOptionSelected: (option: string, checked: boolean) => void
 }
 
 const PaymentOptions = ({
   className,
-  isVariant,
   placement = 'top',
   onOptionSelected,
 }: IPaymentOptionsProps) => {
@@ -566,7 +517,7 @@ const PaymentOptions = ({
 
                     <Text.Paragraph
                       className={`max-w-[336px] !text-sm mt-4 lg:block ${
-                        !isVariant && placement === 'bottom' && 'hidden lg:block'
+                        placement === 'bottom' && 'hidden lg:block'
                       }`}
                       content={offer.copy}
                     />
@@ -592,13 +543,6 @@ const PaymentOptions = ({
                 </label>
               ))}
             </div>
-
-            {!isVariant && placement == 'bottom' && (
-              <Text.Paragraph
-                className="max-w-sm mt-4 mx-auto"
-                content={values.option1 ? TH.HERO.copy7day : TH.HERO.copy14day}
-              />
-            )}
 
             <Button.Submit
               className="w-44 !font-bold border-none mt-4 lg:mt-10"

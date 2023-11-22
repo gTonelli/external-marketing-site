@@ -1,27 +1,27 @@
 export const SITELINKS = {
   HEADER: {
-    title: 'Heal your attachment style & dramatically improve your relationships:',
-    link: 'Click to Unlock Your FREE All-Access Pass to PDS Courses Today!',
-    url: 'https://university.personaldevelopmentschool.com/pages/7-day-free-trial',
-    asset: 'SiteLinksPage/macbook-pro-16.png',
+    title: 'Heal Your Attachment Style & Dramatically Improve Your Relationships',
   },
   BUTTONS: [
     {
       icon: 'SiteLinksPage/button-1-icon.png',
-      label:
-        'Take our quiz to Discover What Your Attachment Style is and How It Could Be Sabotaging Your Relationships',
-      url: '/quiz',
+      label: 'BLACK FRIDAY DEALS',
+      url: 'https://attachment.personaldevelopmentschool.com/black-friday?utm_source=linktree&utm_medium=organic&utm_campaign=black-friday&utm_id=black-friday',
     },
     {
       icon: 'SiteLinksPage/button-2-icon.png',
-      label: 'Explore our blog now for a fresh perspective on Attachment Theory and RELATIONSHIPS',
-      url: 'https://blog.personaldevelopmentschool.com',
+      label: 'PRE-ORDER MY NEW BOOK',
+      url: 'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH?utm_source=linktree&utm_medium=organic&utm_campaign=learning-love&utm_id=learning-love',
     },
     {
       icon: 'SiteLinksPage/button-3-icon.png',
-      label:
-        'Transform Lives as a Thriving Relationship Coach in Just 90 Days: Start Your Journey Today!',
-      url: '/iat',
+      label: 'TAKE OUR ATTACHMENT QUIZ',
+      url: 'https://attachment.personaldevelopmentschool.com/?utm_source=linktree&utm_medium=organic&utm_campaign=attachment-quiz&utm_id=attachment-quiz',
+    },
+    {
+      icon: 'SiteLinksPage/button-4-icon.png',
+      label: 'EXPLORE OUR BLOG',
+      url: 'https://blog.personaldevelopmentschool.com/?utm_source=linktree&utm_medium=organic&utm_campaign=blog&utm_id=blog',
     },
   ],
 }

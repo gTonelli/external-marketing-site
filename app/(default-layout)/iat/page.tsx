@@ -10,6 +10,7 @@ import { Captcha } from '@/components/Captcha'
 import { Dialog } from '@/components/Dialog/Dialog'
 import { Expandable } from '@/components/Expandable'
 import { Faq } from '@/components/Faq/Faq'
+import { Page } from '@/components/Page'
 import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
 import { Input } from '@/components/Input/Input'
@@ -68,16 +69,26 @@ export default function IATSalesPage() {
     setWatchedVideos(new Set<string>([...watchedVideos, type]))
   }
 
-  const onClickPurchase = () => {
+  const onClickPurchase = (event: React.MouseEvent<Element, MouseEvent>) => {
     if (priceRef.current) priceRef.current.scrollIntoView({ behavior: 'smooth' })
+
+    Mixpanel.track.ButtonClicked({
+      button_label: (event.target as HTMLButtonElement).innerText,
+      page_name: page_name,
+    })
   }
 
-  const onBookNow = () => {
+  const onBookNow = (event: React.MouseEvent<Element, MouseEvent>) => {
     window.location.assign(EExternalRoutes.CALENDLY_MELANIE)
+
+    Mixpanel.track.ButtonClicked({
+      button_label: (event.target as HTMLButtonElement).innerText,
+      page_name: page_name,
+    })
   }
 
   return (
-    <main className="w-full">
+    <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
       <Section className="w-full relative z-10 bg-blue-lightest 3xl:pb-0">
         <Text.Heading
@@ -666,7 +677,7 @@ export default function IATSalesPage() {
           subheaderTextMobile=""
         />
       </Section>
-    </main>
+    </Page>
   )
 }
 
@@ -1012,8 +1023,9 @@ const IATPriceCard = ({
               label="BUY NOW"
               onClick={() => {
                 Mixpanel.track.ButtonClicked({
-                  button_label: `Buy Now-${isLive ? 'live' : 'recorded'}-${selectedCardIndex}`,
+                  button_label: `Buy Now-${selectedCardIndex}`,
                   page_name: 'External IAT Page',
+                  plan_type: `${isLive ? 'live' : 'recorded'}`
                 })
 
                 window.location.assign(prices[selectedCardIndex].link)

@@ -53,7 +53,7 @@ export default function BlackFridayPage() {
       <Section className="relative z-10 bg-blue-lightest lg:pb-0">
         <Text.Paragraph
           className="mb-3 rounded-lg font-bold bg-blue-dark text-white px-8 py-5 lg:py-6 lg:text-3xl"
-          content="Black Friday Deal!"
+          content="Cyber Monday Deal!"
           size={20}
         />
 
@@ -65,7 +65,7 @@ export default function BlackFridayPage() {
 
         <Text.Heading
           className="!text-lg font-medium mb-4 lg:max-w-3xl lg:mx-auto"
-          content="Unlock free access to the courses that are giving our members the breakthroughs they've been looking for with our black friday 14-day free trial, right from the comfort of your home."
+          content="Unlock free access to the courses that are giving our members the breakthroughs they've been looking for with our cyber monday 14-day free trial, right from the comfort of your home."
           size={4}
         />
 

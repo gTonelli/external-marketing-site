@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { Page } from '@/components/Page'
 import { Text } from '@/components/Text/Text'
@@ -18,7 +18,7 @@ import { Loader } from '@/components/Loader'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { StripeCheckoutLinks } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { Image } from '@/components/Image'
 
@@ -64,7 +64,7 @@ export default function RoyalRumbleResultsPage() {
         seq_no: seq_no,
       })
 
-      let destination: string = EExternalRoutes.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
+      let destination: string = StripeCheckoutLinks.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
 
       const userEmail = Storage.get('lastUserEmail')
       if (userEmail) {

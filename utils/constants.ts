@@ -112,7 +112,6 @@ export enum EExternalRoutes {
 
   // Checkout
   // Subscriptions
-  STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://buy.stripe.com/test_28o02X9hu4xh3g49AA',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_19_DOLLAR = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773&coupon=special19promo',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=3175705&coupon=40off',
@@ -152,3 +151,13 @@ export enum EExternalRoutes {
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
 }
+
+export const StripeCheckoutPriceIDs =
+  process.env.NODE_ENV === 'production'
+    ? { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'price_1OC8wQEQ6ij1zforxLCqR6U0' }
+    : { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'price_1NGm52EQ6ij1zford3VGv4oh' }
+
+export const StripeCheckoutLinks =
+  process.env.NODE_ENV === 'production'
+    ? { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'https://buy.stripe.com/8wM00OdwCgs5g7uaEF' }
+    : { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'https://buy.stripe.com/test_28o02X9hu4xh3g49AA' }

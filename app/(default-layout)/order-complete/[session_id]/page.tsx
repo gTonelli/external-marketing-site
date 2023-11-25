@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 
 export default function OrderCompletePage({ params }: { params: { session_id: string } }) {
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/thinkific-checkout', {
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/thinkific-checkout-finalize', {
       method: 'POST',
       cache: 'no-cache',
       credentials: 'include',

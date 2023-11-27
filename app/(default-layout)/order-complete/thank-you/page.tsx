@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/Button/Button'
+import ErrorMessage from '@/components/ErrorMessage'
 import { Input } from '@/components/Input/Input'
 import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
@@ -51,6 +52,7 @@ const SetPasswordContent = () => {
   // =========== State =============
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submissionError, setSubmissionError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const onSubmitPassword = (values: FormikValues) => {
     setIsSubmitting(true)
@@ -67,21 +69,14 @@ const SetPasswordContent = () => {
         window.location.assign(response.destination)
       } else {
         setSubmissionError(true)
+        setErrorMessage(response.message)
         setIsSubmitting(false)
       }
     })
   }
 
   if (submissionError) {
-    return (
-      <p className="mb-4">
-        Oops! It looks like something went wrong, please reach out to us at{' '}
-        <Link className="text-primary font-bold" href={'mailto:info@personaldevelopmentschool.com'}>
-          info@personaldevelopmentschool.com
-        </Link>{' '}
-        and let us know!
-      </p>
-    )
+    return <ErrorMessage message={errorMessage} />
   }
 
   if (isSubmitting) return <Loader className="!py-4 mb-4" />

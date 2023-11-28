@@ -29,6 +29,7 @@ import { getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { useCheckoutSplitTest } from '@/utils/hooks'
 
 export interface IAttachmentStylePageParams {
   style: TStyle
@@ -50,6 +51,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
+  const { checkoutLink, useCheckoutVariant } = useCheckoutSplitTest()
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')
@@ -87,9 +89,17 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         page_name: page_name,
       })
 
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      if (useCheckoutVariant) {
+        Mixpanel.track.CheckoutStepStarted({
+          'Checkout Page': 'checkout_page',
+          'Product Price': 'The All-Access Pass $67.00 / month',
+          page_name,
+        })
+      }
+
+      window.location.assign(checkoutLink!)
     },
-    [style, ROYAL_RUMBLE]
+    [style, ROYAL_RUMBLE, checkoutLink, useCheckoutVariant]
   )
 
   const getTitleStart = () => {

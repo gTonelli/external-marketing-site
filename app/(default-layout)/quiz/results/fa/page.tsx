@@ -18,7 +18,7 @@ import { Loader } from '@/components/Loader'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
-import { StripeCheckoutLinks } from '@/utils/constants'
+import { EExternalRoutes, StripeCheckoutLinks } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { Image } from '@/components/Image'
 
@@ -64,16 +64,7 @@ export default function RoyalRumbleResultsPage() {
         seq_no: seq_no,
       })
 
-      let destination: string = StripeCheckoutLinks.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
-
-      const userEmail = Storage.get('lastUserEmail')
-      if (userEmail) {
-        destination += `?${new URLSearchParams({ prefilled_email: userEmail }).toString()}`
-      }
-
-      // #TODO add split test, vars and event
-      // window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
-      window.location.assign(destination)
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
     [style]
   )

@@ -3,6 +3,7 @@
 import ErrorMessage from '@/components/ErrorMessage'
 import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
+import Mixpanel from '@/modules/Mixpanel'
 import { useEffect, useState } from 'react'
 
 export default function OrderCompletePage({ params }: { params: { session_id: string } }) {
@@ -19,13 +20,15 @@ export default function OrderCompletePage({ params }: { params: { session_id: st
       }),
     }).then(async (res) => {
       const response = await res.json()
-      if (response.success && response.destination) {
-        window.location.assign(response.destination)
-      } else {
+      if (!response.success || !response.destination) {
         console.error('Error when finalizing checkout')
         setErrorMessage(response.message)
         setFinalizeError(true)
       }
+      if (response.email) {
+        Mixpanel.setUser(response.email)
+      }
+      window.location.assign(response.destination)
     })
   }, [])
 

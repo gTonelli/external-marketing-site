@@ -11,6 +11,7 @@ export type TStorageKeys =
   | 'gm-772-copy-changes'
   | 'gm-755-headspace-split'
   | 'gm-791-page-test'
+  | 'prod-2320-checkout-test'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

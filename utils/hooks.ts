@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, MutableRefObject, useRef, use } from 'react'
-import { TBreakpoints } from './types'
+import { TBreakpoints, TStyle } from './types'
 import { EExternalRoutes, EWindowWidth, StripeCheckoutLinks } from './constants'
 import { IViewport } from './interfaces'
 import { result, throttle } from 'lodash'
@@ -130,7 +130,7 @@ function getScrollPercentage(
   return Math.round((element.scrollTop / height) * 100)
 }
 
-export function useCheckoutSplitTest() {
+export function useCheckoutSplitTest(userStyle: TStyle) {
   // ============= State ===========
   const [checkoutLink, setCheckoutLink] = useState<Maybe<string>>()
   const [useCheckoutVariant, setUseCheckoutVariant] = useState(false)
@@ -138,6 +138,9 @@ export function useCheckoutSplitTest() {
   const variantTrafficRatio = process.env.NODE_ENV === 'production' ? 0.2 : 0.5
 
   useEffect(() => {
+    if (userStyle !== 'ap') {
+      return setCheckoutLink(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    }
     const checkoutVariantLock = Storage.get('prod-2320-checkout-test')
     let useCheckoutVariant: boolean
     console.log('Checkout variant', checkoutVariantLock)

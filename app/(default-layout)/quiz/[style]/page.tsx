@@ -51,7 +51,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
-  const { checkoutLink, useCheckoutVariant } = useCheckoutSplitTest()
+  const { checkoutLink, useCheckoutVariant } = useCheckoutSplitTest(style)
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')
@@ -97,7 +97,9 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         })
       }
 
-      window.location.assign(checkoutLink!)
+      window.location.assign(
+        checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+      )
     },
     [style, ROYAL_RUMBLE, checkoutLink, useCheckoutVariant]
   )

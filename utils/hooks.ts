@@ -143,7 +143,6 @@ export function useCheckoutSplitTest(userStyle: TStyle) {
     }
     const checkoutVariantLock = Storage.get('prod-2320-checkout-test')
     let useCheckoutVariant: boolean
-    console.log('Checkout variant', checkoutVariantLock)
 
     if (!checkoutVariantLock) {
       useCheckoutVariant =

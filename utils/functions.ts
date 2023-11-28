@@ -1,3 +1,5 @@
+import { StripeCheckoutPriceIDs } from './constants'
+
 /**
  * Check if proprety is function
  * @param func Property to check
@@ -48,4 +50,18 @@ export const getOfferEndDate = (releaseDate: Date, diff: number): Date => {
 export const stopEvent = (e: React.MouseEvent | MouseEvent) => {
   e.preventDefault()
   e.stopPropagation()
+}
+
+/**
+ * @param priceId priceID of the item being added to card
+ * @param userEmail the users email
+ */
+export const getCheckoutSession = (
+  userEmail?: string,
+  priceId: string = StripeCheckoutPriceIDs.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
+) => {
+  return fetch(process.env.NEXT_PUBLIC_STRAPI_URL + `/api/thinkific-checkout`, {
+    method: 'POST',
+    body: JSON.stringify({ priceId, userEmail, returnTo: window?.location.href }),
+  })
 }

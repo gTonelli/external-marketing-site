@@ -5,6 +5,7 @@ import mixpanel, { Dict } from 'mixpanel-browser'
 /* Collection of all Mixpanel event names tracked throughout the app */
 type Events =
   | 'Button Clicked'
+  | 'Checkout Step Started'
   | 'Course Filterd'
   | 'Course Banner Clicked'
   | 'Course Landing Page'
@@ -66,6 +67,7 @@ export type Pages =
   | `Main Funnel Quiz Variant E`
   | `Main Funnel Quiz Variant F`
   | `Masterclass Quiz`
+  | `Order Complete`
   | `mha-month`
   | `Speaker Gift`
   | `Secondary Sales - ${string}`
@@ -143,6 +145,17 @@ class Mixpanel {
       seq_no?: number
     }) => {
       this.event('Button Clicked', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    CheckoutStepStarted: (props: {
+      'Checkout Page': 'checkout_signin_signup_page' | 'checkout_page'
+      'Product Price': string
+      page_name?: Pages
+    }) => {
+      this.event('Checkout Step Started', {
         ...props,
         page_name: props.page_name || window.location.pathname,
       })

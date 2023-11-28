@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { Page } from '@/components/Page'
 import { Text } from '@/components/Text/Text'
@@ -18,7 +18,7 @@ import { Loader } from '@/components/Loader'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { EExternalRoutes, StripeCheckoutLinks } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { Image } from '@/components/Image'
 

@@ -71,11 +71,9 @@ export enum EWindowWidth {
 export enum ERoutes {
   // Defaults
   HOME = '/',
-  NOT_FOUND_PAGE = '*', // Error boundary and not-found.tsx
   // ========== Internal ==========
   ATTACHMENT_QUIZ = '/quiz',
-  ATTACHMENT_STYLES_NEEDS_BELIEFS = '/:seriesParam/:styleParam',
-  BLACK_FRIDAY = '/black-friday', // #TODO for Nov 2023
+  BLACK_FRIDAY = '/black-friday',
   CORPORATE_LANDING_PAGE = '/corporate-quiz',
   CORPORATE_QUIZ_QUESTIONS = '/corporate-quiz/questions',
   CORPORATE_QUIZ_RESULTS = '/corporate-quiz/results',
@@ -83,18 +81,13 @@ export enum ERoutes {
   DREAM_LIFE_RESULTS_PAGE = '/dream-life-results',
   EXPLORE_COURSES_PAGE = '/explore-courses',
   FLASH_SALE_PAGE = '/membership-discount',
-  HOLIDAY_GIVEAWAY = '/holiday-giveaway', // Remove?
-  HOLIDAY_GIVEAWAY_TERMS = '/holiday-giveaway/terms', // Remove?
   IAT_QUIZ = '/iat/quiz',
   IAT_SALES_PAGE = '/iat',
   LEARNING_LOVE_PAGE = '/learning-love',
   LEARN_PAGE = '/learn',
   LIFE_TIME_PAGE = '/lifetime',
-  LIMITED_OFFER_PAGE = '/limited-offer/:style', //
   MARKETING_QUIZ_B = '/quiz/b',
   MENTAL_HEALTH_AWARENESS_PAGE = '/mha-month',
-  ROYAL_RUMBLE = '/quiz/:style',
-  ROYAL_RUMBLE_RESULTS_PAGE = '/quiz/results/:style',
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
@@ -151,3 +144,13 @@ export enum EExternalRoutes {
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
 }
+
+export const StripeCheckoutPriceIDs =
+  process.env.NODE_ENV === 'production'
+    ? { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'price_1OC8wQEQ6ij1zforxLCqR6U0' }
+    : { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'price_1NGm52EQ6ij1zford3VGv4oh' }
+
+export const StripeCheckoutLinks =
+  process.env.NODE_ENV === 'production'
+    ? { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'https://buy.stripe.com/8wM00OdwCgs5g7uaEF' }
+    : { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'https://buy.stripe.com/test_28o02X9hu4xh3g49AA' }

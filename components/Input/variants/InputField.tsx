@@ -31,6 +31,7 @@ export const InputField = ({
   name,
   tooltip,
   tooltipSide,
+  type = 'text',
 }: IInputFieldMUIProps) => {
   const { errors, submitCount } = useFormikContext()
   const error = submitCount > 0 && get(errors, name)
@@ -43,7 +44,7 @@ export const InputField = ({
             {...fieldProps.field}
             className="w-full outline-none border-none focus:ring-transparent peer py-2 px-4"
             placeholder=" "
-            type="text"
+            type={type}
           />
 
           <label

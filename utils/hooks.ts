@@ -135,7 +135,7 @@ export function useCheckoutSplitTest(userStyle: TStyle) {
   const [checkoutLink, setCheckoutLink] = useState<Maybe<string>>()
   const [useCheckoutVariant, setUseCheckoutVariant] = useState(false)
 
-  const variantTrafficRatio = process.env.NEXT_PUBLIC_CHECKOUT_ENV === 'production' ? 0.2 : 0.5
+  const variantTrafficRatio = process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? 0.2 : 0.5
 
   useEffect(() => {
     if (userStyle !== 'ap') {

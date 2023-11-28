@@ -146,11 +146,11 @@ export enum EExternalRoutes {
 }
 
 export const StripeCheckoutPriceIDs =
-  process.env.NEXT_PUBLIC_CHECKOUT_ENV === 'production'
+  process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production'
     ? { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'price_1OC8wQEQ6ij1zforxLCqR6U0' }
     : { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'price_1NGm52EQ6ij1zford3VGv4oh' }
 
 export const StripeCheckoutLinks =
-  process.env.NEXT_PUBLIC_CHECKOUT_ENV === 'production'
+  process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production'
     ? { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'https://buy.stripe.com/8wM00OdwCgs5g7uaEF' }
     : { STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: 'https://buy.stripe.com/test_28o02X9hu4xh3g49AA' }

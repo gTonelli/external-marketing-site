@@ -69,20 +69,20 @@ export default function IATSalesPage() {
     setWatchedVideos(new Set<string>([...watchedVideos, type]))
   }
 
-  const onClickPurchase = (event: React.MouseEvent<Element, MouseEvent>) => {
+  const onClickPurchase = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (priceRef.current) priceRef.current.scrollIntoView({ behavior: 'smooth' })
 
     Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
+      button_label: event.currentTarget.innerText,
       page_name: page_name,
     })
   }
 
-  const onBookNow = (event: React.MouseEvent<Element, MouseEvent>) => {
+  const onBookNow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     window.location.assign(EExternalRoutes.CALENDLY_MELANIE)
 
     Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
+      button_label: event.currentTarget.innerText,
       page_name: page_name,
     })
   }
@@ -1025,7 +1025,7 @@ const IATPriceCard = ({
                 Mixpanel.track.ButtonClicked({
                   button_label: `Buy Now-${selectedCardIndex}`,
                   page_name: 'External IAT Page',
-                  plan_type: `${isLive ? 'live' : 'recorded'}`
+                  plan_type: `${isLive ? 'live' : 'recorded'}`,
                 })
 
                 window.location.assign(prices[selectedCardIndex].link)

@@ -1,27 +1,28 @@
 'use client'
 
 // core
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 //components
 import { Button } from '@/components/Button/Button'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { TestimonialSection } from '@/components/TestimonialSection'
 import { Page } from '@/components/Page'
-import { Storage } from '@/modules/Storage'
 import { List } from '@/components/List'
 import { Icon } from '@/components/Icon'
 import { Input } from '@/components/Input/Input'
 import { IDefaultProps } from '@/components'
 import { Video } from '@/components/Video/Video'
+// config
 import { TRIAL_HEADSPACE as TH } from './config'
-//libraries
+// libraries
 import cx from 'classnames'
 import { Form, Formik, FormikHelpers } from 'formik'
 import * as yup from 'yup'
-//modules
-import { EExternalRoutes } from '@/utils/constants'
+// modules
 import Mixpanel from '@/modules/Mixpanel'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 
 type ArticleKey = keyof typeof TH.ARTICLES
 const isVariant = true

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, MutableRefObject, useRef, use } from 'react'
 import { TBreakpoints, TStyle } from './types'
-import { EExternalRoutes, EWindowWidth, StripeCheckoutLinks } from './constants'
+import { EExternalRoutes, EWindowWidth, StripeCheckoutPrices } from './constants'
 import { IViewport } from './interfaces'
 import { result, throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
@@ -133,7 +133,6 @@ function getScrollPercentage(
 export function useCheckoutSplitTest(userStyle: TStyle) {
   // ============= State ===========
   const [checkoutLink, setCheckoutLink] = useState<Maybe<string>>()
-  const [useCheckoutVariant, setUseCheckoutVariant] = useState(false)
 
   const variantTrafficRatio = process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? 0.2 : 0.5
 
@@ -157,18 +156,16 @@ export function useCheckoutSplitTest(userStyle: TStyle) {
       useCheckoutVariant = checkoutVariantLock
     }
 
-    let destination: string = useCheckoutVariant
-      ? StripeCheckoutLinks.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
-      : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
-
-    const userEmail = Storage.get('lastUserEmail')
-    if (userEmail && useCheckoutVariant) {
-      destination += `?prefilled_email=${userEmail}`
+    let destination: string
+    if (useCheckoutVariant) {
+      const price = StripeCheckoutPrices.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
+      destination = `/checkout/${price.priceId}`
+      if (price.discountId) destination += `?discount_id=${price.discountId}`
+    } else {
+      destination = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
     }
-
-    setUseCheckoutVariant(useCheckoutVariant)
     setCheckoutLink(destination)
   }, [])
 
-  return { checkoutLink, useCheckoutVariant }
+  return { checkoutLink }
 }

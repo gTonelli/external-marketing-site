@@ -51,7 +51,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
-  const { checkoutLink, useCheckoutVariant } = useCheckoutSplitTest(style)
+  const { checkoutLink } = useCheckoutSplitTest(style)
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')
@@ -89,19 +89,11 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         page_name: page_name,
       })
 
-      if (useCheckoutVariant) {
-        Mixpanel.track.CheckoutStepStarted({
-          'Checkout Page': 'checkout_page',
-          'Product Price': 'The All-Access Pass $67.00 / month',
-          page_name,
-        })
-      }
-
       window.location.assign(
         checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
       )
     },
-    [style, ROYAL_RUMBLE, checkoutLink, useCheckoutVariant]
+    [style, ROYAL_RUMBLE, checkoutLink]
   )
 
   const getTitleStart = () => {

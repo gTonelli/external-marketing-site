@@ -59,7 +59,7 @@ export default function OrderCompletePage() {
         currency: 'USD',
         transaction_id: response.orderId,
       })
-      // window.location.assign(response.destination)
+      window.location.assign(response.destination)
     })
   }, [])
 

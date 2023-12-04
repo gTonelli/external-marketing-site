@@ -2,6 +2,7 @@
 
 // core
 import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
 // components
 import { LIFETIME } from './config'
 import { ViewportContext } from '@/utils/contexts'
@@ -28,7 +29,6 @@ import { formatPrice, getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { useRouter } from 'next/navigation'
 
 interface IPricingPlan {
   title: string
@@ -51,7 +51,7 @@ const pricingPlanbenefits: string[] = [
 const pricingPlan: IPricingPlan[] = [
   {
     title: 'ONE TIME PAYMENT',
-    currentPrice: 1799,
+    currentPrice: 1399,
     originalPrice: 2399,
     isRecommended: true,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
@@ -59,7 +59,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '6 MONTH PAYMENT PLAN',
-    currentPrice: 339,
+    currentPrice: 269,
     originalPrice: 449,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
@@ -67,7 +67,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '12 MONTH PAYMENT PLAN',
-    currentPrice: 179,
+    currentPrice: 149,
     originalPrice: 239,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,

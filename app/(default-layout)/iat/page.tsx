@@ -1167,7 +1167,6 @@ interface IFormContactUsProps<TForm> extends IFormDefaultProps<TForm> {}
 
 const IATFormContactUs = (props: IFormContactUsProps<TFormContactUs>) => {
   const defaultInputClasses = '!rounded-10  border-1 border-primary !border-solid py-3 mt-4'
-  //   const defaultInputClasses = ''
 
   return (
     <Formik<TFormContactUs> {...props} initialValues={initialValues} validationSchema={schema}>

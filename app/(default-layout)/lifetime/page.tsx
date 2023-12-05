@@ -23,8 +23,8 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
 // utils
+import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
 import { formatPrice, getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
@@ -79,9 +79,10 @@ export default function LifeTimePage() {
   const page_name = `Lifetime` as Pages
   // ==================== Context ====================
   const { windowWidth } = useContext(ViewportContext)
+
   // ==================== Hook ====================
   const pricingTableRef = useRef<null | HTMLDivElement>(null)
-  const router = useRouter()
+
   // ==================== State ====================
   const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
 
@@ -100,8 +101,6 @@ export default function LifeTimePage() {
       page_name: page_name,
     })
 
-    // TODO: Router is entering an infitie loop of cancelled network requests (there are hundreds)
-    // This is possibly a bug. Occasionally app router does not work.
     window.location.assign(link)
   }
 

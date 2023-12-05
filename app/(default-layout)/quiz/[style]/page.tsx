@@ -46,8 +46,6 @@ declare global {
 
 export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
   const style = params.style
-  // ==================== Context ====================
-  const { scrollPercentage } = useContext(ScrollContext)
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
@@ -65,21 +63,6 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
     setTitleStart(getTitleStart() + `${style === 'ap' ? 'an' : 'a'}`)
     setOfferEndDate(getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1))
   }, [])
-
-  useEffect(() => {
-    // Cookie to determine checkout copy
-    cookies.remove('gm-300-promo-offer', {
-      path: '/',
-      domain: '.personaldevelopmentschool.com',
-    })
-
-    // Cookie to ensure these users see the same program messaging on the Dashboard
-    cookies.set('prod-813-programs', 'true', {
-      path: '/',
-      domain: '.personaldevelopmentschool.com',
-      maxAge: 31536000, // 1 year in seconds
-    })
-  }, [scrollPercentage, style, ROYAL_RUMBLE])
 
   //============================ Events ========================================
   const onGoToCheckout = useCallback(

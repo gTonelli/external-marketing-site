@@ -2,13 +2,16 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 // components
 import { IResultProps, TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { Loader } from '../Loader'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
+import { EExternalRoutes } from '@/utils/constants'
+import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
 import { useGoogleTagManager } from '@/modules/GTM'
 
 const AttachmentQuizResults = dynamic(
@@ -33,12 +36,32 @@ export const AttachmentQuizForm = ({
   userInfo,
   userStyle,
 }: IAttachmentQuizFormProps) => {
-  // =================== State ======================
-  const [showResults, setShowResults] = useState(true)
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
-
+  // =================== State ======================
+  const [showResults, setShowResults] = useState(true)
+  const [showFaVariant, setShowFaVariant] = useState(false)
   const router = useRouter()
+
+  useEffect(() => {
+    if (userStyle === 'fa') {
+      let showFaVariant: string | null | boolean = Storage.get('gm-822-fa-split-test')
+
+      if (showFaVariant === null) {
+        showFaVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+        Storage.set('gm-822-fa-split-test', showFaVariant)
+
+        Mixpanel.track.ExperimentStarted({
+          'Experiment name': 'GM-822-FA-Split-Test',
+          'Variant name': showFaVariant ? 'Variant 1' : 'Control',
+        })
+
+        setShowFaVariant(showFaVariant)
+      } else {
+        setShowFaVariant(showFaVariant === 'true')
+      }
+    }
+  }, [])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -52,7 +75,9 @@ export const AttachmentQuizForm = ({
     if (quiz_traffic_source === 'organic') {
       setShowResults(!showResults)
     } else if (userStyle === 'fa') {
-      router.push('/quiz/results/fa')
+      showFaVariant
+        ? window.location.assign(EExternalRoutes.FA_VARIANT)
+        : router.push('/quiz/results/fa')
     } else {
       router.push('/quiz/' + userStyle)
     }

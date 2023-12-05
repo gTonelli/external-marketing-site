@@ -99,9 +99,11 @@ export enum EExternalRoutes {
   BLOG = 'https://blog.personaldevelopmentschool.com/',
   COLLECTIONS = 'https://university.personaldevelopmentschool.com/collections',
   FAQ = 'https://university.personaldevelopmentschool.com/pages/faq',
+  FA_VARIANT = 'https://results.personaldevelopmentschool.com/fa-b',
   GIFT_CARDS = 'https://university.personaldevelopmentschool.com/pages/gift-cards',
   PDS_COURSES = 'https://university.personaldevelopmentschool.com/pages/view-courses',
   SIGN_IN = 'https://university.personaldevelopmentschool.com/users/sign_in',
+
 
   // Checkout
   // Subscriptions

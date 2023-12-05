@@ -46,16 +46,13 @@ export const AttachmentQuizForm = ({
   useEffect(() => {
     if (userStyle === 'fa') {
       let showFaVariant: string | null | boolean = Storage.get('gm-822-fa-split-test')
-
       if (showFaVariant === null) {
         showFaVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
         Storage.set('gm-822-fa-split-test', showFaVariant)
-
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-822-FA-Split-Test',
           'Variant name': showFaVariant ? 'Variant 1' : 'Control',
         })
-
         setShowFaVariant(showFaVariant)
       } else {
         setShowFaVariant(showFaVariant === 'true')

@@ -2,10 +2,10 @@
 // The config you add here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
-import * as Sentry from "@sentry/nextjs";
+import * as Sentry from '@sentry/nextjs'
 
 Sentry.init({
-  dsn: "https://d0feaeae28b6be54c0f8953b69f12d28@o4504553887629312.ingest.sentry.io/4506236502474752",
+  dsn: 'https://d0feaeae28b6be54c0f8953b69f12d28@o4504553887629312.ingest.sentry.io/4506236502474752',
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
@@ -26,5 +26,13 @@ Sentry.init({
       maskAllText: true,
       blockAllMedia: true,
     }),
+    new Sentry.BrowserTracing({
+      traceFetch: false, // Disable this if you get CORS errors from Sentry-added headers
+    }),
   ],
-});
+
+  tracePropagationTargets: [
+    'https://dev.strapi.personaldevelopmentschool.com/api',
+    'https://strapi.personaldevelopmentschool.com/api',
+  ],
+})

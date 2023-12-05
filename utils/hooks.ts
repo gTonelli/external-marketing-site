@@ -1,11 +1,13 @@
 'use client'
 
-import { useState, useEffect, MutableRefObject, useRef } from 'react'
-import { TBreakpoints } from './types'
-import { EWindowWidth } from './constants'
+import { useState, useEffect, MutableRefObject, useRef, use } from 'react'
+import { TBreakpoints, TStyle } from './types'
+import { EExternalRoutes, EWindowWidth, StripeCheckoutPrices } from './constants'
 import { IViewport } from './interfaces'
-import { throttle } from 'lodash'
+import { result, throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
+import { Maybe } from 'yup'
 
 // ==============================
 //          R E S I Z E
@@ -126,4 +128,65 @@ function getScrollPercentage(
   }
   const height = element.scrollHeight - element.clientHeight
   return Math.round((element.scrollTop / height) * 100)
+}
+
+export function useCheckoutSplitTest(userStyle: TStyle) {
+  // ============= State ===========
+  const [checkoutLink, setCheckoutLink] = useState<Maybe<string>>()
+
+  const variantTrafficRatio = process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? 0.2 : 0.5
+
+  useEffect(() => {
+    if (userStyle !== 'ap') {
+      return setCheckoutLink(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    }
+    const checkoutVariantLock = Storage.get('prod-2320-checkout-test')
+    const userEmail = Storage.get('lastUserEmail')
+    let useCheckoutVariant: boolean
+
+    if (!checkoutVariantLock) {
+      useCheckoutVariant =
+        window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantTrafficRatio
+      Storage.set('prod-2320-checkout-test', useCheckoutVariant.toString())
+
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': 'prod-2320-checkout-test',
+        'Variant name': useCheckoutVariant ? 'Variant 1' : 'Control',
+      })
+
+      if (userEmail && useCheckoutVariant) {
+        fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/graphql', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            query: `mutation registerInActiveCampaign($email: String!, $userTags: [String!]) {
+              registerInActiveCampaign(email:$email, userTags:$userTags)
+            }`,
+            variables: {
+              email: userEmail,
+              userTags: ['one-step-checkout'],
+            },
+          }),
+        }).catch((error) => {
+          console.error('Error registering users checkout version\n', error)
+        })
+      }
+    } else {
+      useCheckoutVariant = checkoutVariantLock
+    }
+
+    let destination: string
+    if (useCheckoutVariant) {
+      const price = StripeCheckoutPrices.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
+      destination = `/checkout/${price.priceId}`
+      if (price.discountId) destination += `?discount_id=${price.discountId}`
+    } else {
+      destination = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+    }
+    setCheckoutLink(destination)
+  }, [])
+
+  return { checkoutLink }
 }

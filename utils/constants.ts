@@ -71,11 +71,9 @@ export enum EWindowWidth {
 export enum ERoutes {
   // Defaults
   HOME = '/',
-  NOT_FOUND_PAGE = '*', // Error boundary and not-found.tsx
   // ========== Internal ==========
   ATTACHMENT_QUIZ = '/quiz',
-  ATTACHMENT_STYLES_NEEDS_BELIEFS = '/:seriesParam/:styleParam',
-  BLACK_FRIDAY = '/black-friday', // #TODO for Nov 2023
+  BLACK_FRIDAY = '/black-friday',
   CORPORATE_LANDING_PAGE = '/corporate-quiz',
   CORPORATE_QUIZ_QUESTIONS = '/corporate-quiz/questions',
   CORPORATE_QUIZ_RESULTS = '/corporate-quiz/results',
@@ -83,18 +81,13 @@ export enum ERoutes {
   DREAM_LIFE_RESULTS_PAGE = '/dream-life-results',
   EXPLORE_COURSES_PAGE = '/explore-courses',
   FLASH_SALE_PAGE = '/membership-discount',
-  HOLIDAY_GIVEAWAY = '/holiday-giveaway', // Remove?
-  HOLIDAY_GIVEAWAY_TERMS = '/holiday-giveaway/terms', // Remove?
   IAT_QUIZ = '/iat/quiz',
   IAT_SALES_PAGE = '/iat',
   LEARNING_LOVE_PAGE = '/learning-love',
   LEARN_PAGE = '/learn',
   LIFE_TIME_PAGE = '/lifetime',
-  LIMITED_OFFER_PAGE = '/limited-offer/:style', //
   MARKETING_QUIZ_B = '/quiz/b',
   MENTAL_HEALTH_AWARENESS_PAGE = '/mha-month',
-  ROYAL_RUMBLE = '/quiz/:style',
-  ROYAL_RUMBLE_RESULTS_PAGE = '/quiz/results/:style',
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
@@ -110,6 +103,7 @@ export enum EExternalRoutes {
   GIFT_CARDS = 'https://university.personaldevelopmentschool.com/pages/gift-cards',
   PDS_COURSES = 'https://university.personaldevelopmentschool.com/pages/view-courses',
   SIGN_IN = 'https://university.personaldevelopmentschool.com/users/sign_in',
+
 
   // Checkout
   // Subscriptions
@@ -151,4 +145,11 @@ export enum EExternalRoutes {
   TERMS = 'https://university.personaldevelopmentschool.com/pages/terms',
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
+}
+
+export const StripeCheckoutPrices = {
+  STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: {
+    priceId: '97monthlysubscription',
+    discountId: '30offmonthlysubscription',
+  },
 }

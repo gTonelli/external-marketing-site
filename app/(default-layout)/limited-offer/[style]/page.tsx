@@ -55,8 +55,6 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         seq_no: seq_no,
       })
 
-      // TODO: Router is entering an infitie loop of cancelled network requests (there are hundreds)
-      // This is possibly a bug. Occasionally app router does not work.
       window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
     []

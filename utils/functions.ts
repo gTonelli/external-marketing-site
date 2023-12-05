@@ -1,3 +1,5 @@
+import { StripeCheckoutPrices } from './constants'
+
 /**
  * Check if proprety is function
  * @param func Property to check

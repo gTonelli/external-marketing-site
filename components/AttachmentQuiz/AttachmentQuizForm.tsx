@@ -44,7 +44,7 @@ export const AttachmentQuizForm = ({
   const router = useRouter()
 
   useEffect(() => {
-    if (userStyle === 'fa') {
+    if (userStyle === 'fa' && quiz_traffic_source === 'paid') {
       let showFaVariant: string | null | boolean = Storage.get('gm-822-fa-split-test')
       if (showFaVariant === null) {
         showFaVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5

@@ -61,7 +61,9 @@ export const Header = ({
         </nav>
 
         {includeGoBackButton && (
-          <p className="ml-auto text-primary font-bold" onClick={() => router.back()}>
+          <p
+            className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
+            onClick={() => router.back()}>
             {goBackButtonText}
           </p>
         )}

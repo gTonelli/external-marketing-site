@@ -104,7 +104,6 @@ export enum EExternalRoutes {
   PDS_COURSES = 'https://university.personaldevelopmentschool.com/pages/view-courses',
   SIGN_IN = 'https://university.personaldevelopmentschool.com/users/sign_in',
 
-
   // Checkout
   // Subscriptions
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773',
@@ -151,5 +150,10 @@ export const StripeCheckoutPrices = {
   STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: {
     priceId: '97monthlysubscription',
     discountId: '30offmonthlysubscription',
+  },
+
+  STRIPE_CHECKOUT_38_OFF_MONTHLY_SUBSCRIPTION: {
+    priceId: '97monthlysubscription',
+    discountId: '38offmonthlysubscription',
   },
 }

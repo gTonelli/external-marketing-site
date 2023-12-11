@@ -139,15 +139,17 @@ export enum EExternalRoutes {
 
   // Other
   AMAZON_LEARNING_LOVE_BOOK_PURCHASE = 'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH/ref=mp_s_a_1_1?crid=241WSK4NOH946&keywords=thais+gibson+learning+love&qid=1697043535&sprefix=thais+gibson+learning+love%2Caps%2C74&sr=8-1',
+  ANDROID_APP = 'https://play.google.com/store/apps/details?id=com.personaldevelopment2.app&pcampaignid=web_share',
   CALENDLY_MELANIE = 'https://calendly.com/info-pds/call-with-melanie-pds',
   CONTACT_US = 'mailto:info@personaldevelopmentschool.com',
-  SUPPORT = 'info@personaldevelopmentschool.com',
   CORPORATE = 'https://www.corporate.personaldevelopmentschool.com/',
   DISCORD = 'https://discord.com/invite/EasJ2CvUkv',
   FACEBOOK = 'https://www.facebook.com/groups/461389461257253/?ref=bookmarks',
   INSTAGRAM = 'https://www.instagram.com/thepersonaldevelopmentschool',
+  IOS_APP = 'https://apps.apple.com/us/app/personal-development-school/id6459618663',
   PODCASTS = 'https://podcasts.apple.com/us/podcast/personal-development-school/id1478580185',
   PRIVACY = 'https://university.personaldevelopmentschool.com/pages/privacy',
+  SUPPORT = 'info@personaldevelopmentschool.com',
   TERMS = 'https://university.personaldevelopmentschool.com/pages/terms',
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',

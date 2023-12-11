@@ -11,7 +11,7 @@ import { FLASH_SALE_PAGE } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes, StripeCheckoutPrices } from '@/utils/constants'
+import { StripeCheckoutPrices } from '@/utils/constants'
 import { useRouter } from 'next/navigation'
 
 export default function FlashSalePage() {

@@ -89,15 +89,8 @@ export default function RoyalRumbleResultsPage() {
 
             {/* BANNER BACKGROUND */}
             <div className="max-w-5xl w-full my-8">
-              <div className="flex flex-col md:flex-row-reverse md:px-8">
-                <div>
-                  <Video.Youtube
-                    iframeClassName="rounded-10"
-                    videoId={RESULTS[style].HERO_SECTION.videoURL}
-                    onPlay={() => onVideoStarted('default')}
-                  />
-                </div>
-                <div className="m-4 p-2 md:text-left md:w-1/2">
+              <div className="flex flex-col items-center md:px-8">
+                <div className="text-center m-4 p-2 md:w-1/2">
                   <Text.Heading
                     className="text-purple-dark text-2xl"
                     content={RESULTS[style].HERO_SECTION.title}

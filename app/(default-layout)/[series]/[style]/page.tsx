@@ -8,13 +8,14 @@ import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Video } from '@/components/Video/Video'
 import { NotFound } from '@/components/NotFound'
+import { Page } from '@/components/Page'
+// config
 import { EMAIL_RESULTS } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { TStyle } from '@/utils/types'
 import { EExternalRoutes } from '@/utils/constants'
-import { Page } from '@/components/Page'
 
 export type TSeriesParam = 'needs' | 'beliefs'
 export interface IAttachmentSeriesPageParams {

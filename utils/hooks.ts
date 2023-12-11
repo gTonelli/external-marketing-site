@@ -133,6 +133,7 @@ function getScrollPercentage(
 export function useCheckoutSplitTest(userStyle: TStyle) {
   // ============= State ===========
   const [checkoutLink, setCheckoutLink] = useState<Maybe<string>>()
+  const [usingVariant, setUsingVariant] = useState<Maybe<boolean>>()
 
   const variantTrafficRatio = process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? 0.2 : 0.5
 
@@ -141,7 +142,6 @@ export function useCheckoutSplitTest(userStyle: TStyle) {
       return setCheckoutLink(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     }
     const checkoutVariantLock = Storage.get('prod-2320-checkout-test')
-    const userEmail = Storage.get('lastUserEmail')
     let useCheckoutVariant: boolean
 
     if (!checkoutVariantLock) {
@@ -153,26 +153,6 @@ export function useCheckoutSplitTest(userStyle: TStyle) {
         'Experiment name': 'prod-2320-checkout-test',
         'Variant name': useCheckoutVariant ? 'Variant 1' : 'Control',
       })
-
-      if (userEmail && useCheckoutVariant) {
-        fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/graphql', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            query: `mutation registerInActiveCampaign($email: String!, $userTags: [String!]) {
-              registerInActiveCampaign(email:$email, userTags:$userTags)
-            }`,
-            variables: {
-              email: userEmail,
-              userTags: ['one-step-checkout'],
-            },
-          }),
-        }).catch((error) => {
-          console.error('Error registering users checkout version\n', error)
-        })
-      }
     } else {
       useCheckoutVariant = checkoutVariantLock
     }
@@ -186,7 +166,8 @@ export function useCheckoutSplitTest(userStyle: TStyle) {
       destination = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
     }
     setCheckoutLink(destination)
+    setUsingVariant(useCheckoutVariant)
   }, [])
 
-  return { checkoutLink }
+  return { checkoutLink, usingVariant }
 }

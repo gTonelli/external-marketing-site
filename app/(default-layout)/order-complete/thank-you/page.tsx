@@ -18,19 +18,38 @@ export default function ThankYouPage() {
 
   return (
     <Section>
-      <h3>Welcome to the Personal Development School</h3>
+      <h3>Welcome to The Personal Development School</h3>
+
+      {newUser ? (
+        <>
+          <p className="my-4">
+            Thank you for creating an account at The Personal Development School! Please set your
+            password below to join our wonderful community and start your personal development
+            journey.
+          </p>
+
+          <SetPasswordContent />
+        </>
+      ) : (
+        <>
+          <p className="my-4">
+            We found an existing account with the email you provided during checkout. You'll have to
+            sign in using the password you've previously set.
+          </p>
+
+          <Link
+            href={
+              (process.env.NEXT_PUBLIC_THINKIFIC_URL ||
+                'https://university.personaldevelopmentschool.com') + '/users/sign_in'
+            }>
+            <Button label="Sign In" />
+          </Link>
+        </>
+      )}
 
       <p className="my-4">
-        Welcome to our wonderful community, and to your personal development journey. To learn more
-        about how to get started and find the most success along your way, check out the video
-        below!
+        Check out the video below to learn how to start your journey to find happiness and love.
       </p>
-
-      {newUser && <SetPasswordContent />}
-
-      <Link href={'https://staging.university.personaldevelopmentschool.com/enrollments'}>
-        <Button label="START LEARNING" />
-      </Link>
 
       <Video.Large
         srcUrl="https://storage.googleapis.com/pds_videos/welcome-to-pds.mp4"
@@ -89,10 +108,10 @@ const SetPasswordContent = () => {
         initialValues={{}}
         onSubmit={onSubmitPassword}
         validationSchema={passwordFormValidationSchema}>
-        <Form className="max-w-106 mx-auto mb-4 flex items-center">
-          <Input.Field className="w-full" name="password" type="password" label="Password" />
+        <Form className="max-w-106 mx-auto mb-4 text-left">
+          <Input.Field className="mx-0" name="password" type="password" label="Set Password" />
 
-          <Button.Submit label="Submit" />
+          <Button.Submit label="Activate Account" />
         </Form>
       </Formik>
     </>

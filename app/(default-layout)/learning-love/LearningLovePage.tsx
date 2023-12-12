@@ -2,7 +2,6 @@
 
 // core
 import React, { useEffect, useState } from 'react'
-import { Metadata } from 'next'
 // components
 import { IDefaultProps } from '@/components'
 import { Icon } from '@/components/Icon'
@@ -16,7 +15,8 @@ import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -24,12 +24,6 @@ import '@/styles/background-images.css'
 
 const page_name = 'Learning Love Page' as any
 let buttonInstance = 0
-
-export const metadata: Metadata = {
-  title: 'Learning Love - A Book by Thais Gibson',
-  description:
-    "Explore an overview of Learning Love by Thais Gibson. This book details the use of Integrated Attachment Theory and it's applications.",
-}
 
 export default function LearningLovePage() {
   return (

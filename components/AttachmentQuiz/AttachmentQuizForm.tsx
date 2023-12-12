@@ -13,6 +13,8 @@ import { EExternalRoutes } from '@/utils/constants'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { useGoogleTagManager } from '@/modules/GTM'
+import { useCheckoutSplitTest } from '@/utils/hooks'
+import { Maybe } from 'yup'
 
 const AttachmentQuizResults = dynamic(
   () => import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults),
@@ -91,7 +93,6 @@ export const AttachmentQuizForm = ({
           {/* QUIZ COMPLETION FORM */}
           <RegistrationForm
             clientTag={getClientTag({
-              quiz_traffic_source,
               userStyle,
             })}
             submitButtonLabel="SUBMIT NOW"
@@ -109,16 +110,23 @@ export const AttachmentQuizForm = ({
   )
 }
 
-interface IPossibleSplitTests {
-  emailSeriesTest: boolean
-}
-
 interface IGetClientTagProps {
   userStyle: TUserStyle
-  quiz_traffic_source?: TQuizTrafficSources
-  splitTests?: IPossibleSplitTests
 }
 
-const getClientTag = ({ quiz_traffic_source, userStyle, splitTests }: IGetClientTagProps) => {
-  return `attachment-quiz-${userStyle}`
+const getClientTag = ({ userStyle }: IGetClientTagProps) => {
+  // ============= State =============
+  const [tag, setTag] = useState('')
+  // ============= Hooks =============
+  const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
+
+  useEffect(() => {
+    let tag = `attachment-quiz-${userStyle}`
+    if (userStyle === 'ap' && usingVariant) {
+      tag += `,one-step-checkout,password-not-set`
+    }
+    setTag(tag)
+  }, [usingVariant, userStyle])
+
+  return tag
 }

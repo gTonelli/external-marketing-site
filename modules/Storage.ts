@@ -2,18 +2,14 @@
 
 /* Collection of all keys used to store data in localStorage */
 export type TStorageKeys =
-  | 'token'
-  | 'user'
   | 'lastUserEmail'
-  | 'ftTest'
   | 'userFirstName'
-  | 'gm-716-pricing-test'
-  | 'gm-772-copy-changes'
-  | 'gm-755-headspace-split'
+  | 'prod-2320-checkout-test'
   | 'gm-822-fa-split-test'
+  | 'gm-845-checkout-test'
 
 export const Storage = {
-  get: (key: TStorageKeys): string | null => {
+  get: (key: TStorageKeys): any => {
     if (typeof window === 'undefined') return null
     const value = window.localStorage.getItem(key)
 

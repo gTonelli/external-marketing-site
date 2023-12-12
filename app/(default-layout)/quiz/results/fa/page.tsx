@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { Page } from '@/components/Page'
 import { Text } from '@/components/Text/Text'

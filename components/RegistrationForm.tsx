@@ -55,6 +55,7 @@ export const RegistrationForm = ({
     // Creating an identity of user in mixpanel
     Mixpanel.setUser(email)
     Storage.set('userFirstName', firstName)
+    Storage.set('lastUserEmail', email)
 
     // Setting up the first touch of the user
     const gamFirstTouchData = {

@@ -6,6 +6,7 @@ import { IDefaultProps } from '.'
 import cx from 'classnames'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface IHeaderProps {
   /**
@@ -13,12 +14,31 @@ interface IHeaderProps {
    * @default true
    */
   clickableLogo?: boolean
+  /**
+   * Include a button to go back to the previous page?
+   * @default false
+   */
+  includeGoBackButton?: boolean
+  /**
+   * Include the sidemenu on mobile?
+   * @default true
+   */
+  includeSideMenu?: boolean
+  /** Go back button text. Only renders if @includeGoBackButton is set to true */
+  goBackButtonText?: string
   /** Nav Links */
   navLinks?: INavLinkProps[]
 }
 
-export const Header = ({ clickableLogo = true, navLinks = NavLinks }: IHeaderProps) => {
+export const Header = ({
+  clickableLogo = false,
+  navLinks = NavLinks,
+  includeGoBackButton = false,
+  includeSideMenu = false,
+  goBackButtonText = 'Back',
+}: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <>
@@ -40,16 +60,26 @@ export const Header = ({ clickableLogo = true, navLinks = NavLinks }: IHeaderPro
           ))}
         </nav>
 
-        <div className="min-w-[108px] ml-auto text-right">
-          <Image
-            alt="sidemenu"
-            className="ml-auto cursor-pointer lg:hidden"
-            src="/icons/hamburger-menu.svg"
-            width={24}
-            height={28}
-            onClick={() => setSideMenuIsOpen(true)}
-          />
-        </div>
+        {includeGoBackButton && (
+          <p
+            className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
+            onClick={() => router.back()}>
+            {goBackButtonText}
+          </p>
+        )}
+
+        {includeSideMenu && (
+          <div className="min-w-[108px] ml-auto text-right">
+            <Image
+              alt="sidemenu"
+              className="ml-auto cursor-pointer lg:hidden"
+              src="/icons/hamburger-menu.svg"
+              width={24}
+              height={28}
+              onClick={() => setSideMenuIsOpen(true)}
+            />
+          </div>
+        )}
       </div>
 
       {/* SIDEMENU */}
@@ -120,33 +150,7 @@ const NavLink = ({ className, link, text }: INavLinkProps) => (
   </Link>
 )
 
-const NavLinks: INavLinkProps[] = [
-  {
-    link: ERoutes.ATTACHMENT_QUIZ,
-    text: 'Attachment Quiz',
-  },
-  {
-    link: EExternalRoutes.PDS_COURSES,
-    text: 'View Courses',
-  },
-  {
-    link: ERoutes.IAT_SALES_PAGE,
-    text: 'Certification',
-  },
-  {
-    link: EExternalRoutes.COLLECTIONS,
-    text: 'Memberships',
-  },
-  {
-    link: EExternalRoutes.ABOUT,
-    text: 'About',
-  },
-  {
-    link: EExternalRoutes.BLOG,
-    text: 'Blog',
-    className: '!pr-0',
-  },
-]
+const NavLinks: INavLinkProps[] = []
 
 interface ISideMenuLinkProps {
   link: string

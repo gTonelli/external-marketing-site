@@ -5,7 +5,11 @@ import Link from 'next/link'
 const todaysDate = new Date()
 const year = todaysDate.getFullYear()
 
-export const Footer = () => (
+interface IFooterProps {
+  includeLinks?: boolean
+}
+
+export const Footer = ({ includeLinks }: IFooterProps) => (
   <footer className="bg-[#252334] relative z-15 pb-0 lg:pt-14 lg:px-4 p-[19px]">
     <div className="relative flex flex-col text-white z-20 px-5 lg:px-0 lg:flex-row lg:pb-[75px] lg:max-w-[1120px] lg:mx-auto">
       <div className="flex flex-col lg:flex-1">
@@ -63,105 +67,109 @@ export const Footer = () => (
       </div>
 
       <div className="flex flex-wrap lg:flex-[1.5] lg:justify-between">
-        <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
-          <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">What we offer</p>
+        {includeLinks && (
+          <>
+            <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
+              <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">What we offer</p>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.PDS_COURSES}>
-            Courses
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.PDS_COURSES}>
+                Courses
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.COLLECTIONS}>
-            Memberships
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.COLLECTIONS}>
+                Memberships
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={ERoutes.ATTACHMENT_QUIZ}>
-            Attachment Quiz
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={ERoutes.ATTACHMENT_QUIZ}>
+                Attachment Quiz
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.GIFT_CARDS}>
-            Gift Cards
-          </Link>
-        </div>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.GIFT_CARDS}>
+                Gift Cards
+              </Link>
+            </div>
 
-        <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start lg:max-w-[161px]">
-          <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">About</p>
+            <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start lg:max-w-[161px]">
+              <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">About</p>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.ABOUT}>
-            About Us
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.ABOUT}>
+                About Us
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.BLOG}>
-            Blog
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.BLOG}>
+                Blog
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.FAQ}>
-            FAQ
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.FAQ}>
+                FAQ
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4 lg:max-w-[200px]"
-            href={ERoutes.IAT_SALES_PAGE}>
-            Integrated Attachment Theory<sup>TM</sup> Certification
-          </Link>
-        </div>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4 lg:max-w-[200px]"
+                href={ERoutes.IAT_SALES_PAGE}>
+                Integrated Attachment Theory<sup>TM</sup> Certification
+              </Link>
+            </div>
 
-        <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
-          <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">Company</p>
+            <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
+              <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">Company</p>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.CONTACT_US}>
-            Contact Us
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.CONTACT_US}>
+                Contact Us
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.PRIVACY}>
-            Privacy Policy
-          </Link>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.PRIVACY}>
+                Privacy Policy
+              </Link>
 
-          <Link
-            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.TERMS}>
-            Terms & Conditions
-          </Link>
-        </div>
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.TERMS}>
+                Terms & Conditions
+              </Link>
+            </div>
 
-        <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
-          <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">Get Our App</p>
+            <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
+              <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">Get Our App</p>
 
-          <Link className="mb-4" href={EExternalRoutes.IOS_APP}>
-            <Image
-              alt="Download the app on iOS"
-              src="/images/app-store-apple-icon.svg"
-              height={32}
-              width={96}
-            />
-          </Link>
+              <Link className="mb-4" href={EExternalRoutes.IOS_APP}>
+                <Image
+                  alt="Download the app on iOS"
+                  src="/images/app-store-apple-icon.svg"
+                  height={32}
+                  width={96}
+                />
+              </Link>
 
-          <Link className="mb-4" href={EExternalRoutes.ANDROID_APP}>
-            <Image
-              alt="Download the app on Google Play"
-              src="/images/app-store-google-icon.svg"
-              height={32}
-              width={108}
-            />
-          </Link>
-        </div>
+              <Link className="mb-4" href={EExternalRoutes.ANDROID_APP}>
+                <Image
+                  alt="Download the app on Google Play"
+                  src="/images/app-store-google-icon.svg"
+                  height={32}
+                  width={108}
+                />
+              </Link>
+            </div>
+          </>
+        )}
       </div>
     </div>
 

@@ -51,7 +51,7 @@ export default function CheckoutPage({ params }: { params: { price_id: string } 
 
   return (
     <EmbeddedCheckoutProvider stripe={stripe} options={{ clientSecret }}>
-      <EmbeddedCheckout className="pb-12 lg:py-12 bg-blue-lightest" />
+      <EmbeddedCheckout className="pb-12 flex flex-grow lg:py-12 bg-blue-lightest" />
     </EmbeddedCheckoutProvider>
   )
 }

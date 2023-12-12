@@ -146,14 +146,15 @@ export enum EExternalRoutes {
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
 }
 
-export const StripeCheckoutPrices = {
-  STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: {
-    priceId: '97monthlysubscription',
-    discountId: '30offmonthlysubscription',
-  },
-
-  STRIPE_CHECKOUT_38_OFF_MONTHLY_SUBSCRIPTION: {
-    priceId: '97monthlysubscription',
-    discountId: '38offmonthlysubscription',
-  },
+interface IStripeCheckoutPrices {
+  [key: string]: TCheckoutPriceURLs
 }
+
+export const StripeCheckoutPrices: IStripeCheckoutPrices = {
+  MONTHLY_67: '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription',
+  MONTHLY_59: '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription',
+}
+
+export type TCheckoutPriceURLs =
+  | '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription'
+  | '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription'

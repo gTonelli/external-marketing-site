@@ -2,11 +2,16 @@
 
 import { useState, useEffect, MutableRefObject, useRef, use } from 'react'
 import { TBreakpoints, TStyle } from './types'
-import { EExternalRoutes, EWindowWidth, StripeCheckoutPrices } from './constants'
+import {
+  EExternalRoutes,
+  EWindowWidth,
+  StripeCheckoutPrices,
+  TCheckoutPriceURLs,
+} from './constants'
 import { IViewport } from './interfaces'
 import { result, throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 import { Maybe } from 'yup'
 
 // ==============================
@@ -130,27 +135,65 @@ function getScrollPercentage(
   return Math.round((element.scrollTop / height) * 100)
 }
 
-export function useCheckoutSplitTest(userStyle: TStyle) {
+interface IUseCheckoutSplitTestProps {
+  /**
+   * The users attachment style, for AS specific split tests
+   * @default undefined if left undefind then split test is set normally
+   */
+  userStyle?: TStyle
+  /**
+   * The URL of the control price
+   * @default EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+   */
+  controlPriceUrl?:
+    | EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+    | EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR
+  /**
+   * The URL of the variant price
+   * @default StripeCheckoutPrices.MONTHLY_67
+   */
+  variantPriceUrl?: TCheckoutPriceURLs
+  /**
+   * Key for both localStorage and Mixpanel event's Variant Name
+   * @default 'prod-2320-checkout-test'
+   */
+  storageKey?: TStorageKeys
+  /**
+   * Amount of traffic to run to variant. Should be a range from 0 - 1
+   * @default 0.5
+   */
+  trafficRatio?: number
+}
+
+export function useCheckoutSplitTest({
+  userStyle,
+  controlPriceUrl = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+  variantPriceUrl = StripeCheckoutPrices.MONTHLY_67,
+  storageKey = 'prod-2320-checkout-test',
+  trafficRatio = 0.5,
+}: IUseCheckoutSplitTestProps) {
   // ============= State ===========
   const [checkoutLink, setCheckoutLink] = useState<Maybe<string>>()
   const [usingVariant, setUsingVariant] = useState<Maybe<boolean>>()
 
-  const variantTrafficRatio = process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? 0.2 : 0.5
+  const variantTrafficRatio =
+    process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? trafficRatio : 0.5
 
   useEffect(() => {
-    if (userStyle !== 'ap') {
+    if (userStyle && userStyle !== 'ap') {
+      setUsingVariant(false)
       return setCheckoutLink(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     }
-    const checkoutVariantLock = Storage.get('prod-2320-checkout-test')
+    const checkoutVariantLock = Storage.get(storageKey)
     let useCheckoutVariant: boolean
 
     if (!checkoutVariantLock) {
       useCheckoutVariant =
         window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantTrafficRatio
-      Storage.set('prod-2320-checkout-test', useCheckoutVariant.toString())
+      Storage.set(storageKey, useCheckoutVariant.toString())
 
       Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'prod-2320-checkout-test',
+        'Experiment name': storageKey,
         'Variant name': useCheckoutVariant ? 'Variant 1' : 'Control',
       })
     } else {
@@ -159,11 +202,9 @@ export function useCheckoutSplitTest(userStyle: TStyle) {
 
     let destination: string
     if (useCheckoutVariant) {
-      const price = StripeCheckoutPrices.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION
-      destination = `/checkout/${price.priceId}`
-      if (price.discountId) destination += `?discount_id=${price.discountId}`
+      destination = variantPriceUrl
     } else {
-      destination = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+      destination = controlPriceUrl
     }
     setCheckoutLink(destination)
     setUsingVariant(useCheckoutVariant)

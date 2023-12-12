@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 // components
 import { Button } from '../Button/Button'
 import { ProgressBar } from '../ProgressBar'
@@ -20,6 +20,7 @@ import _ from 'lodash'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
+import { isMobile } from 'react-device-detect'
 
 let modifiedQuestions = [...questions]
 
@@ -50,14 +51,49 @@ export const AttachmentQuizQuestions = ({
     relationshipIntend: '',
     relationshipSatisfaction: '',
   })
-  const [index, setIndex] = useState(0)
 
   // ======================== Hooks ====================
   const tagManager = useGoogleTagManager()
 
+  const trackProgressMobile = useCallback(() => {
+    const progress = (currentIndex / modifiedQuestions.length) * 100
+    if (document.visibilityState === 'hidden' && progress < 100) {
+      Mixpanel.track.QuizProgress({
+        quiz_name: quizName,
+        progress: `${Math.round(progress)}%`,
+        question: currentIndex,
+        total_questions: modifiedQuestions.length,
+      })
+    }
+  }, [currentIndex, modifiedQuestions, Mixpanel])
+
+  const trackProgressDesktop = useCallback(() => {
+    const progress = (currentIndex / modifiedQuestions.length) * 100
+    if (progress < 100) {
+      Mixpanel.track.QuizProgress({
+        quiz_name: quizName,
+        progress: `${Math.round(progress)}%`,
+        question: currentIndex,
+        total_questions: modifiedQuestions.length,
+      })
+    }
+  }, [currentIndex, modifiedQuestions, Mixpanel])
+
+  useEffect(() => {
+    if (isMobile) {
+      window.addEventListener('visibilitychange', trackProgressMobile)
+    } else {
+      window.addEventListener('pagehide', trackProgressDesktop)
+    }
+
+    return () => {
+      window.removeEventListener('visibilitychange', trackProgressMobile)
+      window.removeEventListener('pagehide', trackProgressDesktop)
+    }
+  }, [isMobile, currentIndex, modifiedQuestions, Mixpanel])
+
   const onQuestionAnswer = useCallback(
     (answer: string) => () => {
-      const threshold = [25, 50, 75]
       let _ap = apPoints
       let _fa = faPoints
       let _da = daPoints
@@ -65,28 +101,13 @@ export const AttachmentQuizQuestions = ({
 
       if (currentIndex === 0) {
         if (answer === 'Yes') {
-          Mixpanel.track.SegmentUser({
-            segment_type: 'in a relationship',
-          })
           modifiedQuestions.splice(1, 0, detailedQuestions[4])
           modifiedQuestions.splice(2, 0, detailedQuestions[2])
         } else {
-          Mixpanel.track.SegmentUser({
-            segment_type: 'not in a relationship',
-          })
           modifiedQuestions.splice(1, 0, detailedQuestions[5])
         }
       }
 
-      const progress = (currentIndex / modifiedQuestions.length) * 100
-      if (progress >= threshold[index]) {
-        Mixpanel.track.QuizProgress({
-          quiz_name: quizName,
-          progress: `${threshold[index]}%`,
-        })
-
-        setIndex((prev) => prev + 1)
-      }
       if (answer === 'True') {
         // Save the score based on association and move to the next one
         if (currentIndex >= 0) {
@@ -132,7 +153,15 @@ export const AttachmentQuizQuestions = ({
       }
       setCurrentIndex(currentIndex + 1)
     },
-    [currentIndex, faPoints, apPoints, saPoints, daPoints, index]
+    [
+      currentIndex,
+      faPoints,
+      apPoints,
+      saPoints,
+      daPoints,
+      trackProgressDesktop,
+      trackProgressMobile,
+    ]
   )
 
   let options = null

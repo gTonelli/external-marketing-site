@@ -21,14 +21,12 @@ type Events =
   | 'Masterclass Results Quiz Submit'
   | 'Membership Ended'
   | 'Membership Started'
-  | 'Page Exit'
   | 'Page Scrolled'
   | 'Page Viewed'
   | 'Quiz Finished'
   | 'Quiz Started'
   | 'Quiz Progress'
   | '$signup'
-  | 'Segment User'
   | 'Trial Ended'
   | 'Trial Started'
   | 'Video Started'
@@ -83,7 +81,7 @@ class Mixpanel {
       {
         // config override goes here
         api_host: 'https://api.personaldevelopmentschool.com',
-        debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev'
+        debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
       }
     )
   }
@@ -180,10 +178,6 @@ class Mixpanel {
       this.event('Masterclass Results Quiz Submit', props)
     },
 
-    PageExited: (props: { page_name?: Pages }) => {
-      this.event('Page Exit', { page_name: props.page_name || window.location.pathname })
-    },
-
     PageScrolled: (props: { page_name?: Pages; scroll_depth: number }) => {
       this.event('Page Scrolled', {
         ...props,
@@ -199,16 +193,17 @@ class Mixpanel {
       this.event('Quiz Finished', props)
     },
 
-    QuizProgress: (props: { quiz_name: string; progress: string }) => {
+    QuizProgress: (props: {
+      quiz_name: string
+      progress: string
+      question: number
+      total_questions: number
+    }) => {
       this.event('Quiz Progress', props)
     },
 
     QuizStarted: (props: { quiz_name: string }) => {
       this.event('Quiz Started', props)
-    },
-
-    SegmentUser: (props: { segment_type: string }) => {
-      this.event('Segment User', props)
     },
 
     SignUp: (props: { distinct_id: string; $insert_id: string }) => {

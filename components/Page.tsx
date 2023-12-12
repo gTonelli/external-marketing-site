@@ -24,26 +24,6 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
 
   useEffect(() => {
     Mixpanel.track.PageViewed({ page_name })
-
-    Mixpanel.eventTime('Page Exit')
-
-    function onEndSession() {
-      Mixpanel.track.PageExited({ page_name })
-    }
-
-    if (isMobile) {
-      window.addEventListener('visibilitychange', onEndSession, false)
-    } else {
-      window.addEventListener('beforeunload', onEndSession, false)
-    }
-
-    return () => {
-      if (isMobile) {
-        window.removeEventListener('visibilitychange', onEndSession, false)
-      } else {
-        window.removeEventListener('beforeunload', onEndSession, false)
-      }
-    }
   }, [])
 
   return (

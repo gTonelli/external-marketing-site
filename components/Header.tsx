@@ -31,10 +31,10 @@ interface IHeaderProps {
 }
 
 export const Header = ({
-  clickableLogo = true,
+  clickableLogo = false,
   navLinks = NavLinks,
   includeGoBackButton = false,
-  includeSideMenu = true,
+  includeSideMenu = false,
   goBackButtonText = 'Back',
 }: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
@@ -150,33 +150,7 @@ const NavLink = ({ className, link, text }: INavLinkProps) => (
   </Link>
 )
 
-const NavLinks: INavLinkProps[] = [
-  {
-    link: ERoutes.ATTACHMENT_QUIZ,
-    text: 'Attachment Quiz',
-  },
-  {
-    link: EExternalRoutes.PDS_COURSES,
-    text: 'View Courses',
-  },
-  {
-    link: ERoutes.IAT_SALES_PAGE,
-    text: 'Certification',
-  },
-  {
-    link: EExternalRoutes.COLLECTIONS,
-    text: 'Memberships',
-  },
-  {
-    link: EExternalRoutes.ABOUT,
-    text: 'About',
-  },
-  {
-    link: EExternalRoutes.BLOG,
-    text: 'Blog',
-    className: '!pr-0',
-  },
-]
+const NavLinks: INavLinkProps[] = []
 
 interface ISideMenuLinkProps {
   link: string

@@ -11,7 +11,7 @@ import { FLASH_SALE_PAGE } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import { useCheckoutSplitTest } from '@/utils/hooks'
 
 export default function FlashSalePage() {
@@ -20,7 +20,7 @@ export default function FlashSalePage() {
   const { checkoutLink } = useCheckoutSplitTest({
     controlPriceUrl: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR,
     storageKey: 'gm-845-checkout-test',
-    variantPriceUrl: '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription',
+    variantPriceUrl: ERoutes.STRIPE_CHECKOUT_MONTHLY_59,
   })
   // ================= Events =======================
   const onGoToCheckout = useCallback(

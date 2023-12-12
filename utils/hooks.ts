@@ -2,12 +2,7 @@
 
 import { useState, useEffect, MutableRefObject, useRef, use } from 'react'
 import { TBreakpoints, TStyle } from './types'
-import {
-  EExternalRoutes,
-  EWindowWidth,
-  StripeCheckoutPrices,
-  TCheckoutPriceURLs,
-} from './constants'
+import { EExternalRoutes, ERoutes, EWindowWidth } from './constants'
 import { IViewport } from './interfaces'
 import { result, throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
@@ -150,9 +145,9 @@ interface IUseCheckoutSplitTestProps {
     | EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR
   /**
    * The URL of the variant price
-   * @default StripeCheckoutPrices.MONTHLY_67
+   * @default EExternalRoutes.STRIPE_CHECKOUT_MONTHLY_67
    */
-  variantPriceUrl?: TCheckoutPriceURLs
+  variantPriceUrl?: ERoutes.STRIPE_CHECKOUT_MONTHLY_67 | ERoutes.STRIPE_CHECKOUT_MONTHLY_59
   /**
    * Key for both localStorage and Mixpanel event's Variant Name
    * @default 'prod-2320-checkout-test'
@@ -168,7 +163,7 @@ interface IUseCheckoutSplitTestProps {
 export function useCheckoutSplitTest({
   userStyle,
   controlPriceUrl = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
-  variantPriceUrl = StripeCheckoutPrices.MONTHLY_67,
+  variantPriceUrl = ERoutes.STRIPE_CHECKOUT_MONTHLY_67,
   storageKey = 'prod-2320-checkout-test',
   trafficRatio = 0.5,
 }: IUseCheckoutSplitTestProps) {

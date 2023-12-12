@@ -91,6 +91,10 @@ export enum ERoutes {
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
+
+  // Stripe Checkout
+  STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription',
+  STRIPE_CHECKOUT_MONTHLY_59 = '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription',
 }
 
 export enum EExternalRoutes {
@@ -145,16 +149,3 @@ export enum EExternalRoutes {
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
 }
-
-interface IStripeCheckoutPrices {
-  [key: string]: TCheckoutPriceURLs
-}
-
-export const StripeCheckoutPrices: IStripeCheckoutPrices = {
-  MONTHLY_67: '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription',
-  MONTHLY_59: '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription',
-}
-
-export type TCheckoutPriceURLs =
-  | '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription'
-  | '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription'

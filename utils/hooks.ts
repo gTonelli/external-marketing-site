@@ -145,7 +145,7 @@ interface IUseCheckoutSplitTestProps {
     | EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR
   /**
    * The URL of the variant price
-   * @default EExternalRoutes.STRIPE_CHECKOUT_MONTHLY_67
+   * @default ERoutes.STRIPE_CHECKOUT_MONTHLY_67
    */
   variantPriceUrl?: ERoutes.STRIPE_CHECKOUT_MONTHLY_67 | ERoutes.STRIPE_CHECKOUT_MONTHLY_59
   /**

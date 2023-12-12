@@ -49,7 +49,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
-  const { checkoutLink } = useCheckoutSplitTest(style)
+  const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')

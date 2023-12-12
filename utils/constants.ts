@@ -91,6 +91,10 @@ export enum ERoutes {
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
+
+  // Stripe Checkout
+  STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription',
+  STRIPE_CHECKOUT_MONTHLY_59 = '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription',
 }
 
 export enum EExternalRoutes {
@@ -144,16 +148,4 @@ export enum EExternalRoutes {
   TERMS = 'https://university.personaldevelopmentschool.com/pages/terms',
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
-}
-
-export const StripeCheckoutPrices = {
-  STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION: {
-    priceId: '97monthlysubscription',
-    discountId: '30offmonthlysubscription',
-  },
-
-  STRIPE_CHECKOUT_38_OFF_MONTHLY_SUBSCRIPTION: {
-    priceId: '97monthlysubscription',
-    discountId: '38offmonthlysubscription',
-  },
 }

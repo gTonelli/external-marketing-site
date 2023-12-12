@@ -11,13 +11,17 @@ import { FLASH_SALE_PAGE } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { StripeCheckoutPrices } from '@/utils/constants'
-import { useRouter } from 'next/navigation'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { useCheckoutSplitTest } from '@/utils/hooks'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
   // ================= Hooks =======================
-  const router = useRouter()
+  const { checkoutLink } = useCheckoutSplitTest({
+    controlPriceUrl: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR,
+    storageKey: 'gm-845-checkout-test',
+    variantPriceUrl: ERoutes.STRIPE_CHECKOUT_MONTHLY_59,
+  })
   // ================= Events =======================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,11 +30,11 @@ export default function FlashSalePage() {
         page_name: page_name,
       })
 
-      const { priceId, discountId } =
-        StripeCheckoutPrices.STRIPE_CHECKOUT_38_OFF_MONTHLY_SUBSCRIPTION
-      router.push(`/checkout/${priceId}?discount_id=${discountId}`)
+      window.location.assign(
+        checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR
+      )
     },
-    [page_name]
+    [page_name, checkoutLink, EExternalRoutes]
   )
 
   return (

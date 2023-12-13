@@ -1,15 +1,10 @@
 'use client'
 
 import { Button } from '@/components/Button/Button'
-import ErrorMessage from '@/components/ErrorMessage'
-import { Input } from '@/components/Input/Input'
-import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
-import { Form, Formik, FormikValues } from 'formik'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useState } from 'react'
 import * as Yup from 'yup'
 
 export default function ThankYouPage() {
@@ -36,7 +31,7 @@ export default function ThankYouPage() {
                 'https://university.personaldevelopmentschool.com') +
               `/users/express_signin?email=${encodeURIComponent(email)}`
             }>
-            <Button label="Set Password" />
+            <Button label="Activate Account" />
           </Link>
         </>
       ) : (
@@ -60,7 +55,7 @@ export default function ThankYouPage() {
         </>
       )}
 
-      <p className="my-4">
+      <p className="my-4 mt-8">
         Check out the video below to learn how to start your journey to find happiness and love.
       </p>
 

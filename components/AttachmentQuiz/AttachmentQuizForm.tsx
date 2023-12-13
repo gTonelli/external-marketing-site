@@ -14,7 +14,6 @@ import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { useGoogleTagManager } from '@/modules/GTM'
 import { useCheckoutSplitTest } from '@/utils/hooks'
-import { Maybe } from 'yup'
 
 const AttachmentQuizResults = dynamic(
   () => import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults),
@@ -41,8 +40,9 @@ export const AttachmentQuizForm = ({
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
   // =================== State ======================
-  const [showResults, setShowResults] = useState(true)
+  const [showResults, setShowResults] = useState(false)
   const [showFaVariant, setShowFaVariant] = useState(false)
+  const userTag = getClientTag({ userStyle })
   const router = useRouter()
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export const AttachmentQuizForm = ({
     })
 
     if (quiz_traffic_source === 'organic') {
-      setShowResults(!showResults)
+      setShowResults(true)
     } else if (userStyle === 'fa') {
       showFaVariant
         ? window.location.assign(EExternalRoutes.FA_VARIANT)
@@ -85,6 +85,10 @@ export const AttachmentQuizForm = ({
   return (
     <section className="flex justify-center">
       {showResults ? (
+        <div className="w-full">
+          <AttachmentQuizResults ap={ap} da={da} fa={fa} sa={sa} />
+        </div>
+      ) : (
         <div className="max-w-5xl w-full rounded-2xl py-12 mt-6 mx-2 xxs:shadow-centered md:mx-4">
           <h2 className="font-bold font-sspb mx-4 text-center">
             Fill Out the Form Below to View Your Free Results!
@@ -92,18 +96,12 @@ export const AttachmentQuizForm = ({
 
           {/* QUIZ COMPLETION FORM */}
           <RegistrationForm
-            clientTag={getClientTag({
-              userStyle,
-            })}
+            clientTag={userTag}
             submitButtonLabel="SUBMIT NOW"
             userInfo={userInfo}
             userStyle={userStyle}
             onAfterSubmit={onAfterSubmit}
           />
-        </div>
-      ) : (
-        <div className="w-full">
-          <AttachmentQuizResults ap={ap} da={da} fa={fa} sa={sa} />
         </div>
       )}
     </section>

@@ -134,7 +134,7 @@ export default function LearningLovePage() {
           size={20}
         />
 
-        <Button label="Claim Pre-Order Discount" />
+        <Button label="Buy Now" />
       </Section>
 
       {/* AUTHOR SECTION */}
@@ -171,7 +171,7 @@ export default function LearningLovePage() {
 
           <Image className="w-1/2 max-w-36 my-12" src="thais-gibson-signature.svg" />
 
-          <Button label="Claim My Pre-Order Discount" />
+          <Button label="Buy Now" />
         </div>
 
         <Image
@@ -266,11 +266,6 @@ export default function LearningLovePage() {
       <Section>
         <Text.Heading content="Pre-Order Now!" size={1} />
 
-        <Text.Paragraph
-          className="text-h1 !tracking-0.325 my-4 lg:mb-12"
-          content="20% OFF UNTIL DECEMBER 12TH"
-        />
-
         <Image
           className="sm:hidden w-full"
           src="LearningLovePage/book-mockup-2.png"
@@ -303,15 +298,9 @@ export default function LearningLovePage() {
               size={20}
             />
 
-            <Text.Paragraph
-              className="mb-4 lg:mb-7"
-              content="Click the button below to claim 20% off until December 12th on Amazon!"
-              size={20}
-            />
+            <Button className="lg:hidden" label="Buy Now" />
 
-            <Button className="lg:hidden" label="Claim Pre-Order Discount" />
-
-            <Button className="hidden lg:block" label="Claim My Pre-Order Discount On Amazon" />
+            <Button className="hidden lg:block" label="Buy Now" />
           </div>
         </div>
       </Section>
@@ -467,7 +456,7 @@ const TeaserCard = ({ heading, includeButton = false, number, texts }: ITeaserCa
         <Text.Paragraph key={`TeaserCard_text_${i}`} className="mb-4" content={text} size={20} />
       ))}
 
-      {includeButton && <Button label="Claim Pre-Order Discount" />}
+      {includeButton && <Button label="Buy Now" />}
     </div>
   )
 }

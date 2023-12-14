@@ -23,7 +23,7 @@ export default function AttachmentQuizPage() {
         <div className="flex flex-col items-center lg:-mb-16 xl:-mb-24">
           <h4>The Personal Development School's</h4>
 
-          <h1 className="mb-0 leading-10 hidden lg:block">Attachment Style Quiz</h1>
+          <h1 className="mb-2 leading-10">Attachment Style Quiz</h1>
 
           <p className="font-bold mb-5 rounded-full bg-green w-max px-3 py-1">By Thais Gibson</p>
 

@@ -21,11 +21,9 @@ export default function AttachmentQuizPage() {
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}
         <div className="lg:-mb-16 xl:-mb-24">
-          <h4>The Personal Development School's</h4>
+          <h1 className="mb-5 lg:hidden">What's Your Attachment Style?</h1>
 
-          <h1 className="mb-0 leading-10 hidden lg:block">Attachment Style Quiz</h1>
-
-          <p className="font-bold mb-5">By Thais Gibson</p>
+          <h2 className="mb-5 hidden lg:block">{quizCopy.header}</h2>
 
           <span className="font-bold mb-4 !tracking-10 lg:hidden">{quizCopy.subheader_mobile}</span>
 

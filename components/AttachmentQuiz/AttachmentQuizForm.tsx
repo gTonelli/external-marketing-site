@@ -121,7 +121,7 @@ const getClientTag = ({ userStyle }: IGetClientTagProps) => {
   useEffect(() => {
     let tag = `attachment-quiz-${userStyle}`
     if (userStyle === 'ap' && usingVariant) {
-      tag += `,one-step-checkout,password-not-set`
+      tag += `,one-step-checkout`
     }
     setTag(tag)
   }, [usingVariant, userStyle])

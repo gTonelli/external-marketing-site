@@ -31,7 +31,7 @@ interface IHeaderProps {
 }
 
 export const Header = ({
-  clickableLogo = false,
+  clickableLogo = true,
   navLinks = NavLinks,
   includeGoBackButton = false,
   includeSideMenu = false,

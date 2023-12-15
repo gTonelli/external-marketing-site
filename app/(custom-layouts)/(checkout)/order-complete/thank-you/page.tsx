@@ -37,12 +37,9 @@ export default function ThankYouPage() {
       ) : (
         <>
           <p className="my-4">
-            We found an existing account with the email you provided during checkout. You'll have to
-            sign in using the password you've previously set. You can also reach out to us at{' '}
-            <Link href="mailt:info@personaldevelopmentschool.com">
-              info@personaldevelopmentschool.com
-            </Link>
-            with any questions.
+            Thank you for joining the wonderful community at The Personal Development School! It
+            looks like you already have an account with us, please sign in below start your personal
+            development journey.
           </p>
 
           <Link
@@ -52,6 +49,16 @@ export default function ThankYouPage() {
             }>
             <Button label="Sign In" />
           </Link>
+
+          <p className="my-4">
+            Have questions about your account? Reach out to us at{' '}
+            <Link
+              className="font-bold text-primary hover:underline"
+              href="mailt:info@personaldevelopmentschool.com">
+              info@personaldevelopmentschool.com
+            </Link>{' '}
+            and a member of the team will be happy to help!
+          </p>
         </>
       )}
 
@@ -60,6 +67,7 @@ export default function ThankYouPage() {
       </p>
 
       <Video.Large
+        className="shadow-center-light"
         srcUrl="https://storage.googleapis.com/pds_videos/welcome-to-pds.mp4"
         thumbnailUrl="/checkout-thankyou.jpg"
       />

@@ -28,7 +28,6 @@ export default function CheckoutPage({ params }: { params: { price_id: string } 
       body: JSON.stringify({
         priceId: params.price_id,
         discountId: discount_id,
-        userEmail: Storage.get('lastUserEmail'),
         uiMode: 'embedded',
       }),
     })

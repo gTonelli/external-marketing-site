@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
 
+import colors from 'tailwindcss/colors'
+
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -40,7 +42,17 @@ const config: Config = {
         'blue-dashboard': '#F7F7FE',
         'blue-darkest': '#142BD5',
 
+        brown: '#82737d',
+        beige: '#e4d9d3',
+        'beige-30': 'rgba(228, 217, 211, 0.3)',
+
+        danger: colors.red[500],
+
+        footer: '#252334',
+        'blue-dark': '#4794A1',
+
         green: '#71C2C1',
+        'green-check': '#41BD22',
         'green-light': '#E3EDED',
 
         // secondaries
@@ -62,9 +74,11 @@ const config: Config = {
 
         'grey-darker': '#CACCD6',
 
-        brown: '#82737d',
-        beige: '#e4d9d3',
-        'beige-30': 'rgba(228, 217, 211, 0.3)',
+        orange: '#D35E4A',
+        'orange-secondary': '#E7A69D',
+        'orange-light': '#FBEFED',
+        'orange-dark': '#D35E4A',
+
         yellow: '#F8BF53',
         'yellow-secondary': '#FFC123',
         'yellow-tertiary': '#FFCD32',
@@ -72,8 +86,6 @@ const config: Config = {
 
         // bordel
         'teal-light-35': 'rgba(227, 237, 237, 0.35)',
-        footer: '#252334',
-        'blue-dark': '#4794A1',
 
         // Mostly for the quiz
         pink: '#D35592',
@@ -88,18 +100,15 @@ const config: Config = {
         'purple-medium': '#9747FF',
         'purple-light': '#7557FA80',
 
+        success: colors.green[500],
+
         teal: '#71C2C1',
         'teal-secondary': '#98C3CA',
         'teal-tertiary': '#DAEAEF',
         'teal-light': '#E3EDED',
         'teal-dark': '#4794A1',
 
-        orange: '#D35E4A',
-        'orange-secondary': '#E7A69D',
-        'orange-light': '#FBEFED',
-        'orange-dark': '#D35E4A',
-
-        'green-check': '#41BD22',
+        warning: colors.yellow[400],
 
         tertiary: '#D23333',
 

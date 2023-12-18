@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { IDefaultProps } from '.'
 import cx from 'classnames'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 interface IHeaderProps {
@@ -38,7 +38,6 @@ export const Header = ({
   goBackButtonText = 'Back',
 }: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
-  const router = useRouter()
 
   return (
     <>
@@ -60,13 +59,7 @@ export const Header = ({
           ))}
         </nav>
 
-        {includeGoBackButton && (
-          <p
-            className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
-            onClick={() => router.back()}>
-            {goBackButtonText}
-          </p>
-        )}
+        {includeGoBackButton && <GoBackButton label={goBackButtonText} />}
 
         {includeSideMenu && (
           <div className="min-w-[108px] ml-auto text-right">
@@ -138,6 +131,23 @@ const PDSLogo = () => (
     width={70}
   />
 )
+
+const GoBackButton = ({ label }: { label: string }) => {
+  const [showButton, setShowButton] = useState(true)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!document.referrer) setShowButton(false)
+  }, [])
+
+  return showButton ? (
+    <p
+      className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
+      onClick={() => router.back()}>
+      {label}
+    </p>
+  ) : null
+}
 
 interface INavLinkProps extends IDefaultProps {
   link: string

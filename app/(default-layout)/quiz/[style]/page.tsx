@@ -29,6 +29,7 @@ import { getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { useCheckoutSplitTest } from '@/utils/hooks'
 
 export interface IAttachmentStylePageParams {
   style: TStyle
@@ -45,11 +46,10 @@ declare global {
 
 export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
   const style = params.style
-  // ==================== Context ====================
-  const { scrollPercentage } = useContext(ScrollContext)
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
+  const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')
@@ -64,21 +64,6 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
     setOfferEndDate(getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1))
   }, [])
 
-  useEffect(() => {
-    // Cookie to determine checkout copy
-    cookies.remove('gm-300-promo-offer', {
-      path: '/',
-      domain: '.personaldevelopmentschool.com',
-    })
-
-    // Cookie to ensure these users see the same program messaging on the Dashboard
-    cookies.set('prod-813-programs', 'true', {
-      path: '/',
-      domain: '.personaldevelopmentschool.com',
-      maxAge: 31536000, // 1 year in seconds
-    })
-  }, [scrollPercentage, style, ROYAL_RUMBLE])
-
   //============================ Events ========================================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<Element, MouseEvent>) => {
@@ -87,9 +72,11 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         page_name: page_name,
       })
 
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      window.location.assign(
+        checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+      )
     },
-    [style, ROYAL_RUMBLE]
+    [style, ROYAL_RUMBLE, checkoutLink]
   )
 
   const getTitleStart = () => {

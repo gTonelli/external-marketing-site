@@ -52,6 +52,7 @@ export const Tooltip = ({
    * @returns Contrasting text color based on the background color
    */
   const colorText = () => {
+    // @import bg-danger bg-success bg-warning
     switch (color) {
       case 'danger':
       case 'success':

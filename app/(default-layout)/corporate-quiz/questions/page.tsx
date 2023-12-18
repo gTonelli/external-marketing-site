@@ -27,7 +27,7 @@ export default function CorporateQuizQuestionsPage() {
 
   // Remove the 'canViewResults' from LS
   useEffect(() => {
-    localStorage.clear()
+    localStorage.removeItem('canViewResults')
 
     document.title = 'The Attachment Style Quiz'
   }, [])

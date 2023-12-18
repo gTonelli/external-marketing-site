@@ -1,4 +1,5 @@
 'use client'
+import { TStyle } from '@/utils/types'
 // libraries
 import mixpanel, { Dict } from 'mixpanel-browser'
 
@@ -43,6 +44,7 @@ export type Pages =
   | `7-Day Trial Page (Variant)`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
+  | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
   | `Corporate Quiz Landing Page`
@@ -83,7 +85,7 @@ class Mixpanel {
       {
         // config override goes here
         api_host: 'https://api.personaldevelopmentschool.com',
-        debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev'
+        debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
       }
     )
   }

@@ -41,9 +41,12 @@ export const AttachmentQuizForm = ({
   // =================== State ======================
   const [showResults, setShowResults] = useState(true)
   const [showFaVariant, setShowFaVariant] = useState(false)
+  const [showOrganicVariants, setShowOrganicVariants] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
+    console.log('Variants', showOrganicVariants, typeof Storage.get('gm-849-quiz-outputs'))
+
     if (userStyle === 'fa' && quiz_traffic_source === 'paid') {
       let showFaVariant: string | null | boolean = Storage.get('gm-822-fa-split-test')
       if (showFaVariant === null) {
@@ -55,10 +58,25 @@ export const AttachmentQuizForm = ({
         })
         setShowFaVariant(showFaVariant)
       } else {
-        setShowFaVariant(showFaVariant === 'true')
+        setShowFaVariant(showFaVariant === 'true' || showFaVariant === true)
       }
     }
-  }, [])
+
+    if (quiz_traffic_source == 'organic') {
+      let showOrganicVariants: string | null | boolean = Storage.get('gm-849-quiz-outputs')
+      if (showOrganicVariants === null) {
+        showOrganicVariants = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+        Storage.set('gm-849-quiz-outputs', showOrganicVariants)
+        Mixpanel.track.ExperimentStarted({
+          'Experiment name': 'GM-849-Quiz-Outputs',
+          'Variant name': showOrganicVariants ? 'Variant 1' : 'Control',
+        })
+        setShowOrganicVariants(showOrganicVariants)
+      } else {
+        setShowOrganicVariants(showOrganicVariants === 'true' || showOrganicVariants === true)
+      }
+    }
+  }, [userStyle, quiz_traffic_source, Storage, Mixpanel])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -70,7 +88,7 @@ export const AttachmentQuizForm = ({
     })
 
     if (quiz_traffic_source === 'organic') {
-      setShowResults(!showResults)
+      showOrganicVariants ? router.push('/results/' + userStyle) : setShowResults(!showResults)
     } else if (userStyle === 'fa') {
       showFaVariant
         ? window.location.assign(EExternalRoutes.FA_VARIANT)

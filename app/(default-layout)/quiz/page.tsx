@@ -34,6 +34,7 @@ export default function AttachmentQuizPage() {
           </span>
         </div>
       </section>
+
       <Image
         alt=""
         className="w-full hidden relative z-5 lg:block"

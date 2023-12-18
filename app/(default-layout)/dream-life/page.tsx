@@ -20,24 +20,14 @@ import * as yup from 'yup'
 //modules
 import { EExternalRoutes } from '@/utils/constants'
 import Mixpanel from '@/modules/Mixpanel'
-
-type ArticleKey = keyof typeof TH.ARTICLES
+import { Articles } from '@/components/Articles'
+import { CommunityTeaser } from '@/components/CommunityTeaser'
 
 export default function DreamLifePage() {
   const page_name = '7 Day Free Trial Headspace'
 
   // ==================== State ====================
   const [selectedOption, setSelectedOption] = useState({ option1: true, option2: false })
-  const [videoIndex, setVideoIndex] = useState(0)
-
-  const onGoToBlog = (blog: ArticleKey) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: TH.ARTICLES[blog].name,
-      page_name: page_name,
-    })
-
-    window.location.assign(TH.ARTICLES[blog].url)
-  }
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
     Mixpanel.track.ButtonClicked({
@@ -153,301 +143,11 @@ export default function DreamLifePage() {
         </div>
       </section>
 
-      {/**VIDEO SECTION*/}
-      <section className="w-full pt-14 lg:pt-28">
-        <div className="max-w-5xl bg-pale-pink text-center mx-auto px-4 py-16 lg:rounded-20 lg:px-36 lg:py-[68px]">
-          <div className="-mt-[88px] lg:-mt-24">
-            <div className="flex row justify-center space-x-1 lg:space-x-9">
-              {TH.VIDEO_CATEGORIES.map((category, index) => (
-                <div
-                  key={`category_${index}]`}
-                  className={`${
-                    videoIndex === index ? 'bg-black' : 'bg-primary'
-                  } text-white rounded-10 cursor-pointer px-2 py-2 lg:w-[204px] lg:py-4`}
-                  onClick={() => setVideoIndex(index)}>
-                  <Text.Paragraph
-                    className="font-bold !text-[12px] lg:text-base"
-                    content={category.name}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+      <Video.Teaser />
 
-          <Text.Paragraph
-            className="max-w-[430px] mx-auto mt-10"
-            content="Learn to communicate more effectively, connect deeply, and repair any relationship in a matter of weeks."
-          />
+      <Articles />
 
-          <Video.Thumbnail
-            playAuto
-            playInline
-            className="mt-5 lg:mx-auto lg:mt-10"
-            classNameVideo="object-fit"
-            playButtonSize="none"
-            srcUrl={TH.VIDEO_CATEGORIES[videoIndex].url}
-            style={{ maxWidth: '100%', height: 'auto' }}
-          />
-        </div>
-      </section>
-
-      {/**ARTICLE SECTION */}
-      <section className="relative w-full pt-5 lg:pt-14">
-        <Image
-          className="hidden absolute top-5 lg:block 2xl:left-60"
-          src="TrialHeadspace/eclipse-left.png"
-        />
-
-        <Image
-          className="hidden absolute top-80 right-0 -z-10 lg:block 2xl:right-48"
-          src="TrialHeadspace/eclipse-right.png"
-        />
-
-        <div className="max-w-5xl mx-auto px-4">
-          <Text.Heading
-            className="!text-h1 text-center mt-10 lg:text-right lg:mt-0"
-            content="Latest Articles"
-            size={1}
-          />
-
-          <div className="mt-5 lg:mt-14">
-            <div className="flex flex-col items-center space-y-5 md:justify-center md:space-x-5 md:space-y-0 md:flex-row">
-              <div className="relative">
-                <Image className="lg:hidden" src="TrialHeadspace/article-mockup-mobile-1.png" />
-
-                <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-1.png" />
-
-                <div
-                  className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white rounded-[15px] cursor-pointer mx-auto px-6 py-7
-                                lg:-translate-x-0 lg:left-5 lg:px-5 lg:pt-6 lg:pb-4"
-                  onClick={() => onGoToBlog('article1')}>
-                  <Text.Paragraph
-                    className="!w-56 text-[#7b7b7b]"
-                    content={TH.ARTICLES.article1.name}
-                  />
-
-                  <Icon
-                    className="text-white bg-primary rounded-full mt-2 p-2 lg:mt-4"
-                    name="long-arrow-alt-right"
-                  />
-                </div>
-              </div>
-
-              <div className="relative">
-                <Image className="lg:hidden" src="TrialHeadspace/article-mockup-mobile-2.png" />
-
-                <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-2.png" />
-
-                <div
-                  className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white rounded-[15px] cursor-pointer px-6 py-7 
-                                lg:-translate-x-0 lg:left-5 lg:px-5 lg:pt-6 lg:pb-4"
-                  onClick={() => onGoToBlog('article2')}>
-                  <Text.Paragraph
-                    className="!w-56 text-[#7b7b7b]"
-                    content={TH.ARTICLES.article2.name}
-                  />
-
-                  <Icon
-                    className="text-white bg-primary rounded-full mt-2 p-2 lg:mt-4"
-                    name="long-arrow-alt-right"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="flex row items-center justify-between border-primary border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
-              onClick={() => onGoToBlog('article3')}>
-              <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
-                <Text.Paragraph
-                  className="w-40 font-bold !text-lg lg:w-64"
-                  content={TH.ARTICLES.article3.name}
-                />
-
-                <Icon name="long-arrow-alt-right" size="lg" />
-              </div>
-
-              <Image className="lg:hidden" src="TrialHeadspace/article-mockup-mobile-3.png" />
-
-              <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-3.png" />
-            </div>
-
-            <div
-              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
-              onClick={() => onGoToBlog('article4')}>
-              <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
-                <Text.Paragraph
-                  className="w-40 font-bold !text-lg lg:w-64"
-                  content={TH.ARTICLES.article4.name}
-                />
-
-                <Icon name="long-arrow-alt-right" size="lg" />
-              </div>
-
-              <Image className="lg:hidden" src="TrialHeadspace/article-mockup-mobile-4.png" />
-
-              <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-4.png" />
-            </div>
-
-            <div
-              className="flex row items-center justify-between border-primary border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
-              onClick={() => onGoToBlog('article5')}>
-              <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
-                <Text.Paragraph
-                  className="w-40 font-bold !text-lg lg:w-64"
-                  content={TH.ARTICLES.article5.name}
-                />
-
-                <Icon name="long-arrow-alt-right" size="lg" />
-              </div>
-
-              <Image className="lg:hidden" src="TrialHeadspace/article-mockup-mobile-5.png" />
-
-              <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-5.png" />
-            </div>
-
-            <div
-              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
-              onClick={() => onGoToBlog('article6')}>
-              <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
-                <Text.Paragraph
-                  className="w-40 font-bold !text-lg lg:w-64"
-                  content={TH.ARTICLES.article6.name}
-                />
-
-                <Icon name="long-arrow-alt-right" size="lg" />
-              </div>
-
-              <Image className="lg:hidden" src="TrialHeadspace/article-mockup-mobile-6.png" />
-
-              <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-6.png" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/**LIFE ADVICE SECTION */}
-      <section className="w-full pt-14 px-4">
-        <div className="max-w-5xl text-center mx-auto">
-          <Text.Heading
-            className="max-w-3xl mx-auto"
-            content="Life Advice for Any Relationship, Experience, or Goal"
-            size={1}
-          />
-
-          <div className="flex flex-col items-center justify-between mt-12 lg:flex-row">
-            <div className="lg:text-left">
-              <Text.Heading content="Attachment Styles" size={3} />
-
-              <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
-                content={TH.ARTICLES.article3.name}
-                onClick={() => onGoToBlog('article3')}
-              />
-
-              <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
-                content={TH.ARTICLES.article1.name}
-                onClick={() => onGoToBlog('article1')}
-              />
-
-              <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
-                content={TH.ARTICLES.article6.name}
-                onClick={() => onGoToBlog('article6')}
-              />
-
-              <Text.Heading className="mt-12 lg:mt-14" content="Emotional Wellness" size={3} />
-
-              <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
-                content={TH.ARTICLES.article4.name}
-                onClick={() => onGoToBlog('article4')}
-              />
-
-              <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
-                content={TH.ARTICLES.article5.name}
-                onClick={() => onGoToBlog('article5')}
-              />
-
-              <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
-                content={TH.ARTICLES.article2.name}
-                onClick={() => onGoToBlog('article2')}
-              />
-            </div>
-
-            <Image className="hidden lg:block" src="TrialHeadspace/life-advice-mockup.png" />
-          </div>
-        </div>
-      </section>
-
-      {/**COMMUNITY SECTION*/}
-      <Image className="w-full mt-10 -mb-1 lg:mt-0" src="TrialHeadspace/community-bg.png" />
-      <section className="w-full bg-black px-4 py-20">
-        <div className="max-w-5xl text-center text-white mx-auto">
-          <Text.Heading className="max-w-xl mx-auto" content={TH.COMMUNITY.heading} size={1} />
-
-          <div className="flex row justify-between space-x-4 mt-12 overflow-x-auto scrollbar-hide lg:mt-15">
-            {TH.COMMUNITY.cards.map((card, index) => (
-              <div
-                key={`card_${index}`}
-                className="min-w-52 bg-white rounded-[30px] px-8 py-4 lg:w-60 lg:py-10 lg:px-9">
-                <div className="min-w-28 min-h-20 mx-auto">
-                  <Image className="w-16 h-16 mx-auto" src={`TrialHeadspace/${card.img}`} />
-                </div>
-
-                <Text.Heading className="text-black mt-3" content={card.stat} />
-
-                <Text.Paragraph className="text-[#7B7B7B] mt-6" content={card.copy} />
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 lg:mt-[70px]">
-            <Text.Heading
-              className="text-center lg:text-left"
-              content={TH.COMMUNITY.bullets.heading}
-              size={1}
-            />
-
-            <div className="flex flex-col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:flex-row md:mt-20">
-              <div>
-                <div className="flex row items-center space-x-6 lg:space-x-10">
-                  <Icon name="check" size="2x" />
-
-                  <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet1} />
-                </div>
-
-                <div className="flex row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <Icon name="check" size="2x" />
-
-                  <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet2} />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex row items-center space-x-6 lg:space-x-10">
-                  <Icon name="check" size="2x" />
-
-                  <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet3} />
-                </div>
-
-                <div className="flex row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <Icon name="check" size="2x" />
-
-                  <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet4} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-24">
-            <PaymentOptions placement="bottom" onOptionSelected={onOptionSelected} />
-          </div>
-        </div>
-      </section>
+      <CommunityTeaser onOptionSelected={onOptionSelected} />
     </Page>
   )
 }
@@ -457,7 +157,7 @@ interface IPaymentOptionsProps extends IDefaultProps {
   onOptionSelected: (option: string, checked: boolean) => void
 }
 
-const PaymentOptions = ({
+export const PaymentOptions = ({
   className,
   placement = 'top',
   onOptionSelected,

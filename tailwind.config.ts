@@ -35,6 +35,7 @@ const config: Config = {
         'black-transparent': 'rgba(0, 0, 0, 0.6)',
 
         blue: '#85bbca',
+        'blue-75': 'rgba(133, 187, 202, 0.75)',
         'blue-light': '#c3d7db',
         'blue-lightest': '#e3eded',
         'blue-lightest-50': '#e3eded80',

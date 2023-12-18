@@ -1,4 +1,5 @@
 'use client'
+import { TStyle } from '@/utils/types'
 // libraries
 import mixpanel, { Dict } from 'mixpanel-browser'
 
@@ -42,6 +43,7 @@ export type Pages =
   | `7-Day Trial Page (Variant)`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
+  | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
   | `Corporate Quiz Landing Page`

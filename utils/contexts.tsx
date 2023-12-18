@@ -1,7 +1,8 @@
 'use client'
 
 import { createContext } from 'react'
-import { IScrolldepth, IViewport } from './interfaces'
+import { IPage, IScrolldepth, IViewport } from './interfaces'
+import { Maybe } from 'yup'
 
 // ==================== Viewport context ====================
 export const ViewportContext = createContext<IViewport>({
@@ -26,3 +27,6 @@ export const ViewportContext = createContext<IViewport>({
 export const ScrollContext = createContext<IScrolldepth>({
   scrollPercentage: 0,
 })
+
+// ==================== Page context ====================
+export const PageContext = createContext<IPage>({ page_name: undefined })

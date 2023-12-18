@@ -6,6 +6,7 @@ export type TStorageKeys =
   | 'userFirstName'
   | 'prod-2320-checkout-test'
   | 'gm-822-fa-split-test'
+  | 'gm-849-quiz-outputs'
   | 'gm-845-checkout-test'
 
 export const Storage = {

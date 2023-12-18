@@ -27,10 +27,12 @@ export default function AttachmentQuizPage() {
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}
-        <div className="lg:-mb-16 xl:-mb-24">
-          <h1 className="mb-5 lg:hidden">What's Your Attachment Style?</h1>
+        <div className="flex flex-col items-center lg:-mb-16 xl:-mb-24">
+          <h4>The Personal Development School's</h4>
 
-          <h2 className="mb-5 hidden lg:block">{quizCopy.header}</h2>
+          <h1 className="mb-2 leading-10">Attachment Style Quiz</h1>
+
+          <p className="font-bold mb-5 rounded-full bg-green w-max px-3 py-1">By Thais Gibson</p>
 
           <span className="font-bold mb-4 !tracking-10 lg:hidden">{quizCopy.subheader_mobile}</span>
 
@@ -39,6 +41,7 @@ export default function AttachmentQuizPage() {
           </span>
         </div>
       </section>
+
       <Image
         priority
         alt=""

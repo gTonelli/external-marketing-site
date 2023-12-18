@@ -117,7 +117,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
         <div className="lg:grid lg:grid-cols-[1fr_474px_1fr] lg:relative lg:items-start lg:w-[125%] lg:left-[-12.5%]">
           <Image
             alt="A mockup of PDS courses on 2 phones side by side."
-            className="w-full"
+            className="w-full hidden lg:block"
             src="/images/AttachmentQuizResults/offer-mockup-1-desktop.png"
             unoptimized
             width={1024}
@@ -141,7 +141,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
           <Image
             alt="A mockup of the PDS quiz and PDS webinar calendar on 2 phones side by side."
-            className="w-full"
+            className="w-full hidden lg:block"
             unoptimized
             src="/images/AttachmentQuizResults/offer-mockup-2-desktop.png"
             width={1024}

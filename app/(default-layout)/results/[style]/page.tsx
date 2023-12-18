@@ -82,6 +82,8 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             listItems={copy.result.listItemsRight}
           />
         </div>
+
+        <CheckoutLink />
       </Section>
 
       {/**OFFER SECTION*/}

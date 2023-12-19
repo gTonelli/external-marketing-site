@@ -23,8 +23,10 @@ export default function VideoTeaser({ className }: IDefaultProps) {
               <div
                 key={`category_${index}]`}
                 className={`${
-                  videoIndex === index ? 'bg-black' : 'bg-primary'
-                } text-white rounded-10 cursor-pointer px-2 py-2 lg:w-[204px] lg:py-4`}
+                  videoIndex === index
+                    ? 'bg-black hover:bg-slate-800 border-black'
+                    : 'bg-primary hover:bg-primary-light border-primary'
+                } border-2 transition-all text-white rounded-10 cursor-pointer px-2 py-2 lg:w-[204px] lg:py-4`}
                 onClick={() => setVideoIndex(index)}>
                 <Text.Paragraph
                   className="font-bold !text-[12px] lg:text-base"

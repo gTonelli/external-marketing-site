@@ -53,7 +53,7 @@ export const Articles = () => {
                 <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-1.png" />
 
                 <div
-                  className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white rounded-[15px] cursor-pointer mx-auto px-6 py-5 my-2 transition-all hover:bg-gray-200
+                  className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white rounded-[15px] cursor-pointer mx-auto px-6 py-5 transition-all hover:bg-gray-100
                               lg:-translate-x-0 lg:left-5 lg:px-5 lg:pt-6 lg:pb-4"
                   onClick={() => onGoToBlog('article1')}>
                   <Text.Paragraph
@@ -74,7 +74,7 @@ export const Articles = () => {
                 <Image className="hidden lg:block" src="TrialHeadspace/article-mockup-2.png" />
 
                 <div
-                  className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white rounded-[15px] cursor-pointer px-6 py-5 my-2 transition-all hover:bg-slate-200
+                  className="absolute bottom-5 left-1/2 transform -translate-x-1/2 bg-white rounded-[15px] cursor-pointer px-6 py-5 transition-all hover:bg-gray-100
                               lg:-translate-x-0 lg:left-5 lg:px-5 lg:pt-6 lg:pb-4"
                   onClick={() => onGoToBlog('article2')}>
                   <Text.Paragraph
@@ -91,7 +91,7 @@ export const Articles = () => {
             </div>
 
             <div
-              className="flex row items-center justify-between border-primary border-b-[5px] cursor-pointer mx-4 py-5 my-2 transition-all hover:bg-gray-200 lg:pt-8"
+              className="flex row items-center justify-between border-primary border-b-[5px] cursor-pointer mx-4 mt-1 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8"
               onClick={() => onGoToBlog('article3')}>
               <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
                 <Text.Paragraph
@@ -108,7 +108,7 @@ export const Articles = () => {
             </div>
 
             <div
-              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-5 my-2 transition-all hover:bg-gray-200 lg:pt-8"
+              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8"
               onClick={() => onGoToBlog('article4')}>
               <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
                 <Text.Paragraph
@@ -125,7 +125,7 @@ export const Articles = () => {
             </div>
 
             <div
-              className="flex row items-center justify-between border-primary border-b-[5px] cursor-pointer mx-4 py-5 my-2 transition-all hover:bg-gray-200 lg:pt-8"
+              className="flex row items-center justify-between border-primary border-b-[5px] cursor-pointer mx-4 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8"
               onClick={() => onGoToBlog('article5')}>
               <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
                 <Text.Paragraph
@@ -142,7 +142,7 @@ export const Articles = () => {
             </div>
 
             <div
-              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-5 my-2 transition-all hover:bg-gray-200 lg:pt-8"
+              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8"
               onClick={() => onGoToBlog('article6')}>
               <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
                 <Text.Paragraph
@@ -174,19 +174,19 @@ export const Articles = () => {
               <Text.Heading content="Attachment Styles" size={3} />
 
               <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
+                className="underline cursor-pointer mt-4 hover:text-primary"
                 content={TH.ARTICLES.article3.name}
                 onClick={() => onGoToBlog('article3')}
               />
 
               <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
+                className="underline cursor-pointer mt-4 hover:text-primary"
                 content={TH.ARTICLES.article1.name}
                 onClick={() => onGoToBlog('article1')}
               />
 
               <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
+                className="underline cursor-pointer mt-4 hover:text-primary"
                 content={TH.ARTICLES.article6.name}
                 onClick={() => onGoToBlog('article6')}
               />
@@ -194,19 +194,19 @@ export const Articles = () => {
               <Text.Heading className="mt-12 lg:mt-14" content="Emotional Wellness" size={3} />
 
               <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
+                className="underline cursor-pointer mt-4 hover:text-primary"
                 content={TH.ARTICLES.article4.name}
                 onClick={() => onGoToBlog('article4')}
               />
 
               <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
+                className="underline cursor-pointer mt-4 hover:text-primary"
                 content={TH.ARTICLES.article5.name}
                 onClick={() => onGoToBlog('article5')}
               />
 
               <Text.Paragraph
-                className="underline cursor-pointer mt-4 hover:font-bold"
+                className="underline cursor-pointer mt-4 hover:text-primary"
                 content={TH.ARTICLES.article2.name}
                 onClick={() => onGoToBlog('article2')}
               />

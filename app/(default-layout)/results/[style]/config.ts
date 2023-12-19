@@ -57,10 +57,9 @@ export const RESULTS_COPY = {
     result: {
       header: 'You are a Dismissive Avoidant',
       body: [
-        `Thank you for taking our Attachment Style Quiz. You have a fearful avoidant attachment style (also known as disorganized attachment). 
-        This style can lead to having conflicted feelings about your relationships, as you desire to form deep connections but fear losing your 
-        independence or getting hurt.`,
-        `Don't worry; I'll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached.`,
+        `Thank you for taking our Attachment Style Quiz. You have a dismissive avoidant attachment style. For you, relationships can often feel overwhelming, and you fear that you'll end up with the wrong person. However, you do desire to be deeply accepted and supported by a kind partner in an easy relationship.`,
+
+        `Don’t worry; I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached.`,
       ],
       videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
       listItemsLeft: [
@@ -104,10 +103,9 @@ export const RESULTS_COPY = {
     result: {
       header: 'You are an Anxious Preoccupied',
       body: [
-        `Thank you for taking our Attachment Style Quiz. You have a fearful avoidant attachment style (also known as disorganized attachment). This 
-        style can lead to having conflicted feelings about your relationships, as you desire to form deep connections but fear losing your independence 
-        or getting hurt.`,
-        "Don't worry; I'll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached.",
+        `Thank you for taking our Attachment Style Quiz. You have an anxious preoccupied attachment style. Your biggest obstacle to forming loving and committed is your fear of abandonment or betrayal, making you become easily attached, “clingy”, and a people-pleaser. But these are only patterns – and your patterns can be changed.`,
+
+        `Don’t worry; I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached.`,
       ],
       videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
       listItemsLeft: [
@@ -152,10 +150,9 @@ export const RESULTS_COPY = {
     result: {
       header: 'You are Securely Attached',
       body: [
-        `Thank you for taking our Attachment Style Quiz. You have a fearful avoidant attachment style (also known as disorganized attachment). 
-        This style can lead to having conflicted feelings about your relationships, as you desire to form deep connections but fear losing your 
-        independence or getting hurt.`,
-        "Don't worry; I'll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached.",
+        `Thank you for taking our Attachment Style Quiz. You have a secure attached attachment style. You're open and invested in romance, but sometimes, you end up in relationships that feel wildly out of balance, struggling to understand your partner's needs and how to support them. `,
+
+        `Don’t worry; I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached.`,
       ],
       videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
       listItemsLeft: [

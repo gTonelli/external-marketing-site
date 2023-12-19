@@ -11,9 +11,10 @@ export type TStorageKeys =
   | 'gm-772-copy-changes'
   | 'gm-755-headspace-split'
   | 'gm-822-fa-split-test'
+  | 'gm-849-quiz-outputs'
 
 export const Storage = {
-  get: (key: TStorageKeys): string | null => {
+  get: (key: TStorageKeys): any => {
     if (typeof window === 'undefined') return null
     const value = window.localStorage.getItem(key)
 

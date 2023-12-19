@@ -146,7 +146,7 @@ export const VideoDefault = ({
               className={cx(
                 'cursor-pointer w-8 h-8',
                 playButtonSize === 'small' && 'w-8 h-8',
-                playButtonSize === 'medium' && 'lg:w-16 lg:h-16',
+                playButtonSize === 'medium' && '!w-16 !h-16',
                 playButtonSize === 'large' && '2xl:!w-28 2xl:!h-28',
                 // default - size adjusts based on the screen size
                 !playButtonSize && 'w-8 h-8 lg:w-16 lg:h-16 2xl:w-28 2xl:h-28'

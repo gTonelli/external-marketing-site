@@ -7,7 +7,7 @@ import { IDefaultWrapperProps } from '.'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { isMobile } from 'react-device-detect'
-import { ScrollContext, ViewportContext } from '@/utils/contexts'
+import { PageContext, ScrollContext, ViewportContext } from '@/utils/contexts'
 import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/utils/hooks'
 import { useGamAnalytics } from '@/modules/GAM'
 
@@ -49,9 +49,11 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
   return (
     <ViewportContext.Provider value={viewportValues}>
       <ScrollContext.Provider value={{ scrollPercentage }}>
-        <main ref={scrollRef} className={className}>
-          {children}
-        </main>
+        <PageContext.Provider value={{ page_name }}>
+          <main ref={scrollRef} className={className}>
+            {children}
+          </main>
+        </PageContext.Provider>
       </ScrollContext.Provider>
     </ViewportContext.Provider>
   )

@@ -1,3 +1,4 @@
+import { Pages } from '@/modules/Mixpanel'
 import { TBreakpoints } from './types'
 
 export interface IViewport {
@@ -8,6 +9,10 @@ export interface IViewport {
 
 export interface IScrolldepth {
   scrollPercentage: number
+}
+
+export interface IPage {
+  page_name?: Pages
 }
 
 /**

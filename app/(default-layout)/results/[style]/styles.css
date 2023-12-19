@@ -1,0 +1,51 @@
+.bg-fa-hero {
+  position: relative;
+  background: url('/images/AttachmentQuizResults/fa-hero.jpg') no-repeat center right / cover;
+}
+
+.bg-ap-hero {
+  position: relative;
+  background: url('/images/AttachmentQuizResults/ap-hero.jpg') no-repeat center right / cover;
+}
+
+.bg-da-hero {
+  position: relative;
+  background: url('/images/AttachmentQuizResults/da-hero.jpg') no-repeat center right / cover;
+}
+
+.bg-sa-hero {
+  position: relative;
+  background: url('/images/AttachmentQuizResults/sa-hero.jpg') no-repeat center right / cover;
+}
+
+@media screen and (min-width: 1024px) {
+  .bg-fa-hero::after,
+  .bg-ap-hero::after,
+  .bg-sa-hero::after,
+  .bg-da-hero::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: linear-gradient(108deg, #e3eded 0%, rgba(213, 184, 216, 0) 71.01%);
+  }
+
+  .bg-fa-hero {
+    background: url('/images/AttachmentQuizResults/fa-hero-desktop.jpg') no-repeat top right / cover;
+  }
+
+  .bg-ap-hero {
+    background: url('/images/AttachmentQuizResults/ap-hero-desktop.jpg') no-repeat top right / cover;
+  }
+
+  .bg-da-hero {
+    background: url('/images/AttachmentQuizResults/da-hero-desktop.jpg') no-repeat top right / cover;
+  }
+
+  .bg-sa-hero {
+    background: url('/images/AttachmentQuizResults/sa-hero-desktop.jpg') no-repeat top right / cover;
+  }
+}

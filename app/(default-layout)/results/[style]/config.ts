@@ -41,9 +41,7 @@ export const RESULTS_COPY = {
 
         'Ready to be happy in a relationship.',
       ],
-      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to assist you in **overcoming your fearful 
-        attachment style to become secure in yourself and your relationships.** You'll feel empowered to stop feeling chaotic about romantic 
-        relationships and be happy, loved, valued, and "seen" by your partner with **confidence and self-love!**`,
+      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to assist you in **overcoming your fearful attachment style to become secure in yourself and your relationships.** You'll feel empowered to stop feeling chaotic about romantic relationships and be happy, loved, valued, and "seen" by your partner with **confidence and self-love!**`,
     },
   },
 
@@ -88,9 +86,7 @@ export const RESULTS_COPY = {
 
         'Ready to heal and let your guard down to truly connect with someone.',
       ],
-      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to assist you in **overcoming your 
-        dismissive avoidant attachment style and changing your self-sabotaging patterns.** You'll find and form a romantic relationship
-        with someone who respects your space, accepts you as a person, and allows you to truly connect with them.`,
+      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to assist you in **overcoming your dismissive avoidant attachment style and changing your self-sabotaging patterns.** You'll find and form a romantic relationship with someone who respects your space, accepts you as a person, and allows you to truly connect with them.`,
     },
   },
 
@@ -134,9 +130,7 @@ export const RESULTS_COPY = {
 
         'Want to fix your rocky relationship.',
       ],
-      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to help you **overcome your anxious 
-        preoccupied patterns to become secure.** You'll feel empowered to improve existing relationships, create lasting love, and build 
-        new relationships with **confidence and self-love!**`,
+      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to help you **overcome your anxious preoccupied patterns to become secure.** You'll feel empowered to improve existing relationships, create lasting love, and build new relationships with **confidence and self-love!**`,
     },
   },
 
@@ -181,9 +175,7 @@ export const RESULTS_COPY = {
 
         'Are fearful of not being able to understand or work through things with your partner',
       ],
-      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to **teach you how to understand your insecurely attached 
-        loved ones to have lasting and fulfilling relationships.** You'll feel confident to overcome any confusion or worries about your relationships, so 
-        together, you can become stronger.`,
+      offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to **teach you how to understand your insecurely attached loved ones to have lasting and fulfilling relationships.** You'll feel confident to overcome any confusion or worries about your relationships, so together, you can become stronger.`,
     },
   },
 }

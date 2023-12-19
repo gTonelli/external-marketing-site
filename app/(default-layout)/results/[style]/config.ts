@@ -55,7 +55,7 @@ export const RESULTS_COPY = {
       img: 'fa-hero.jpg',
     },
     result: {
-      header: 'You are a Fearful Avoidant',
+      header: 'You are a Dismissive Avoidant',
       body: [
         `Thank you for taking our Attachment Style Quiz. You have a fearful avoidant attachment style (also known as disorganized attachment). 
         This style can lead to having conflicted feelings about your relationships, as you desire to form deep connections but fear losing your 
@@ -102,7 +102,7 @@ export const RESULTS_COPY = {
       img: 'fa-hero.jpg',
     },
     result: {
-      header: 'You are a Fearful Avoidant',
+      header: 'You are an Anxious Preoccupied',
       body: [
         `Thank you for taking our Attachment Style Quiz. You have a fearful avoidant attachment style (also known as disorganized attachment). This 
         style can lead to having conflicted feelings about your relationships, as you desire to form deep connections but fear losing your independence 
@@ -150,7 +150,7 @@ export const RESULTS_COPY = {
       img: 'fa-hero.jpg',
     },
     result: {
-      header: 'You are a Fearful Avoidant',
+      header: 'You are Securely Attached',
       body: [
         `Thank you for taking our Attachment Style Quiz. You have a fearful avoidant attachment style (also known as disorganized attachment). 
         This style can lead to having conflicted feelings about your relationships, as you desire to form deep connections but fear losing your 

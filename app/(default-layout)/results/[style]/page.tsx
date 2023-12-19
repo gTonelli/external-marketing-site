@@ -9,7 +9,7 @@ import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
-import { IDefaultProps } from '@/components'
+import { IDefaultProps, IDefaultWrapperProps } from '@/components'
 import Image from 'next/image'
 import { TextParagraph } from '@/components/Text/variants/TextParagraph'
 // config
@@ -28,10 +28,10 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
       <Section
         className={`w-full min-h-72 bg-${params.style}-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
         classNameInner="relative z-10 lg:grid lg:grid-cols-12">
-        <div className="hidden text-black text-left lg:block lg:col-span-7">
-          <h2 className="capitalize">{copy.hero.header}</h2>
+        <div className="text-black text-left lg:col-span-7">
+          <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
 
-          <p className="tracking-33 uppercase my-6">{copy.hero.subheader}</p>
+          <p className="hidden tracking-33 uppercase mb-6 lg:block">{copy.hero.subheader}</p>
 
           <CheckoutLink />
         </div>
@@ -39,11 +39,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
       {/* REULT */}
       <Section>
-        <div className="text-left lg:hidden">
-          <h2 className="capitalize leading-9 mb-8">{copy.hero.header}</h2>
-
-          <p className="tracking-33 uppercase">{copy.hero.subheader}</p>
-        </div>
+        <p className="tracking-33 uppercase text-left lg:hidden">{copy.hero.subheader}</p>
 
         <div className="w-full text-left lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
           <VideoThumbnail
@@ -56,7 +52,9 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           <div>
             <h2 className="my-5 text-primary">{copy.result.header}</h2>
 
-            <p>{copy.result.body}</p>
+            <p className="mb-4">{copy.result.body}</p>
+
+            <CheckoutLink />
           </div>
         </div>
       </Section>
@@ -124,20 +122,23 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             height={1000}
           />
 
-          <div className="bg-primary text-white rounded-4xl default-padding">
-            <h2>Step Into Your Dream Life</h2>
+          <CheckoutLink>
+            <div className="bg-primary text-white rounded-4xl default-padding">
+              <h2>Step Into Your Dream Life</h2>
 
-            <p className="tracking-33 uppercase my-4">See major breakthroughs in just 30 days!</p>
+              <p className="tracking-33 uppercase my-4">See major breakthroughs in just 30 days!</p>
 
-            <p className="my-4">
-              You'll unlock unlimited access to our courses, social events, and powerful
-              reprogramming tools for just $67/month (save 30% for a limited time). Cancel anytime.
-            </p>
+              <p className="my-4">
+                You'll unlock unlimited access to our courses, social events, and powerful
+                reprogramming tools for just $67/month (save 30% for a limited time). Cancel
+                anytime.
+              </p>
 
-            <CheckoutLink className="bg-green border-green text-black mb-4" />
+              <Button className="bg-green border-green text-black mb-4" label="SIGN UP NOW" />
 
-            <p>You can cancel all your subscription anytime – no strings attached.</p>
-          </div>
+              <p>You can cancel all your subscription anytime – no strings attached.</p>
+            </div>
+          </CheckoutLink>
 
           <Image
             alt="A mockup of the PDS quiz and PDS webinar calendar on 2 phones side by side."
@@ -150,14 +151,14 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
         </div>
       </Section>
 
-      <Section className="hidden lg:block">
+      <Section className="">
         <h2>What Is An Attachment Style?</h2>
 
         <p className="tracking-33 my-8">EVERYONE HAS AN ATTACHMENT STYLE</p>
 
         <div>
           <List
-            className="text-left grid grid-cols-3 gap-4"
+            className="text-left lg:grid lg:grid-cols-3 lg:gap-4"
             classNameIcon="!text-green-check text-2xl mr-3 mt-1"
             classNameListItems="mb-6"
             iconName="circle-check"
@@ -175,6 +176,8 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             ]}
           />
         </div>
+
+        <CheckoutLink className="lg:hidden" />
       </Section>
 
       <Section
@@ -314,10 +317,13 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
 interface ICheckoutLinkProps extends IDefaultProps {
   label?: string
+  children?: React.ReactNode
 }
 
-const CheckoutLink = ({ label = 'SIGN UP NOW', className }: ICheckoutLinkProps) => (
-  <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-    <Button className={className} label={label} />
+const CheckoutLink = ({ label = 'SIGN UP NOW', className, children }: ICheckoutLinkProps) => (
+  <Link
+    className="hover:no-underline"
+    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+    {children || <Button className={className} label={label} />}
   </Link>
 )

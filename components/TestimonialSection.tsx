@@ -70,14 +70,14 @@ export const TestimonialSection = () => {
       {/* LEFT ARROW ICON */}
       <div
         ref={(node) => setPrevEl(node)}
-        className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-20 absolute top-1/2 lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
+        className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-4 z-55 absolute top-1/2 cursor-pointer transition-all border border-transparent hover:border-primary lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
         <Icon className="text-primary" name="chevron-left" size="lg" />
       </div>
 
       {/* RIGHT ARROW ICON */}
       <div
         ref={(node) => setNextEl(node)}
-        className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-20 absolute top-1/2 lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
+        className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-4 z-55 absolute top-1/2 cursor-pointer transition-all border border-transparent hover:border-primary lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
         <Icon className="text-primary" name="chevron-right" size="lg" />
       </div>
     </div>

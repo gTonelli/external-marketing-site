@@ -67,8 +67,8 @@ export const TRIAL_HEADSPACE = {
       url: 'https://blog.personaldevelopmentschool.com/11/how-to-repair-any-relationship',
     },
     article3: {
-      name: `Attachment Styles for Beginners`,
-      url: 'https://blog.personaldevelopmentschool.com/12/attachment-styles-for-beginners',
+      name: `Understanding Attachment Styles for Beginners`,
+      url: 'https://blog.personaldevelopmentschool.com/21/understanding-attachment-styles-for-beginners',
     },
     article4: {
       name: `How to Heal After a Breakup`,

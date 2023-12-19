@@ -18,31 +18,18 @@
   background: url('/images/AttachmentQuizResults/sa-hero.jpg') no-repeat center right / cover;
 }
 
-.bg-fa-hero::after,
-.bg-ap-hero::after,
-.bg-sa-hero::after,
-.bg-da-hero::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 5;
-  background: linear-gradient(
-    108deg,
-    rgba(227, 237, 237, 0.8) 27.51%,
-    rgba(213, 184, 216, 0.4) 100%
-  );
-}
-
 @media screen and (min-width: 1024px) {
   .bg-fa-hero::after,
   .bg-ap-hero::after,
   .bg-sa-hero::after,
   .bg-da-hero::after {
+    content: '';
+    position: absolute;
     width: 100%;
+    height: 100%;
+    top: 0;
     left: 0;
+    z-index: 5;
     background: linear-gradient(108deg, #e3eded 0%, rgba(213, 184, 216, 0) 71.01%);
   }
 

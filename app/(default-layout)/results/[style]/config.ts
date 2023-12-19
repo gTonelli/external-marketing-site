@@ -63,30 +63,30 @@ export const RESULTS_COPY = {
       ],
       videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
       listItemsLeft: [
-        'Your relationships feel chaotic and challenging.',
+        'You fear being stuck in a painful relationship forever.',
 
-        'You want to get close to people, but you swing from hot to cold (staying vs leaving).',
+        'Have a sense of being "trapped" when committed.',
 
-        "You're unwillingly self-sabotaging your relationship to get out of it.",
+        'Emotionally closed off and afraid to explore your feelings.',
 
-        'It feels scary to rely on others and ask others for help or favors.',
+        'Confused about your status within relationships.',
 
-        "Any shift in your partner's behavior brings up fears of betrayal or abandonment.",
+        'You value your own freedom, space, and independence.',
 
-        'An underlying fear of being helpless, powerless, or unworthy.',
+        `You're more of a "thinker," not a feeler.`,
       ],
       listItemsRight: [
-        'You desire a deep connection and intense chemistry with someone.',
+        'You value a deep connection, but you just feel wildly misunderstood.',
 
-        'Being independent and embracing freedom while being in a relationship.',
+        'You desire a partner where you can be yourself.',
 
-        'You want a trusting and transparent romantic relationship.',
+        'That partner must accept and support you.',
 
-        'A desire to be loved, valued, and to be "seen" by your partner.',
+        'Strive to have an easy relationship with minimal issues.',
 
-        'You want to stop having relationship ups and downs.',
+        'Be respected and understood when it comes to your freedom.',
 
-        'Ready to be happy in a relationship.',
+        'Ready to heal and let your guard down to truly connect with someone.',
       ],
       offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to assist you in **overcoming your 
         dismissive avoidant attachment style and changing your self-sabotaging patterns.** You'll find and form a romantic relationship
@@ -109,30 +109,30 @@ export const RESULTS_COPY = {
       ],
       videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
       listItemsLeft: [
-        'Your relationships feel chaotic and challenging.',
+        'Worrying about breaking up or being abandoned.',
 
-        'You want to get close to people, but you swing from hot to cold (staying vs leaving).',
+        'Jumping to conclusions about relationships, whether cheating or pulling away.',
 
-        "You're unwillingly self-sabotaging your relationship to get out of it.",
+        "Keeping a score of how much your partner is, or isn't, loving you.",
 
-        'It feels scary to rely on others and ask others for help or favors.',
+        'You fear being alone "forever".',
 
-        "Any shift in your partner's behavior brings up fears of betrayal or abandonment.",
+        'Being a "people-pleaser" and putting yourself last.',
 
-        'An underlying fear of being helpless, powerless, or unworthy.',
+        'You find yourself extremely codependent on others.',
       ],
       listItemsRight: [
-        'You desire a deep connection and intense chemistry with someone.',
+        'You desire to be seen and valued in a relationship.',
 
-        'Being independent and embracing freedom while being in a relationship.',
+        'Expect or would like a committed relationship.',
 
-        'You want a trusting and transparent romantic relationship.',
+        'Be prioritized and appreciated by your partner.',
 
-        'A desire to be loved, valued, and to be "seen" by your partner.',
+        'Feel excited when people chase and want you.',
 
-        'You want to stop having relationship ups and downs.',
+        'Ready to heal from a breakup and move past your ex.',
 
-        'Ready to be happy in a relationship.',
+        'Want to fix your rocky relationship.',
       ],
       offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to help you **overcome your anxious 
         preoccupied patterns to become secure.** You'll feel empowered to improve existing relationships, create lasting love, and build 
@@ -156,30 +156,30 @@ export const RESULTS_COPY = {
       ],
       videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
       listItemsLeft: [
-        'Your relationships feel chaotic and challenging.',
+        'You find yourself comfortable in relationships.',
 
-        'You want to get close to people, but you swing from hot to cold (staying vs leaving).',
+        'Connecting with people is easy for you.',
 
-        "You're unwillingly self-sabotaging your relationship to get out of it.",
+        'Generally, you feel confident with who you are as a person.',
 
-        'It feels scary to rely on others and ask others for help or favors.',
+        'You have a strong sense of self-worth.',
 
-        "Any shift in your partner's behavior brings up fears of betrayal or abandonment.",
+        'Having healthy boundaries means you let people in easily.',
 
-        'An underlying fear of being helpless, powerless, or unworthy.',
+        'You see most problems as solvable, thanks to solid conflict resolution skills.',
       ],
       listItemsRight: [
-        'You desire a deep connection and intense chemistry with someone.',
+        'You desire a consistent, balanced, and healthy relationship.',
 
-        'Being independent and embracing freedom while being in a relationship.',
+        'There is a struggle to understand insecurely attached people.',
 
-        'You want a trusting and transparent romantic relationship.',
+        'There is a worry about being "shut out" from your partner.',
 
-        'A desire to be loved, valued, and to be "seen" by your partner.',
+        'You end up in unbalanced and chaotic relationships due to different styles.',
 
-        'You want to stop having relationship ups and downs.',
+        'You struggle to understand different insecure attachment styles.',
 
-        'Ready to be happy in a relationship.',
+        'Are fearful of not being able to understand or work through things with your partner',
       ],
       offer: `At The Personal Development School, we offer tailored programs, tools, and ongoing support to **teach you how to understand your insecurely attached 
         loved ones to have lasting and fulfilling relationships.** You'll feel confident to overcome any confusion or worries about your relationships, so 

@@ -29,7 +29,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
         <div className="text-black text-left lg:col-span-7">
           <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
 
-          <p className="tracking-33 uppercase mb-6">{copy.hero.subheader}</p>
+          <p className="mb-6">{copy.hero.subheader}</p>
 
           <CheckoutLink />
         </div>

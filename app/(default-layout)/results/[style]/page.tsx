@@ -9,7 +9,7 @@ import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
-import { IDefaultProps, IDefaultWrapperProps } from '@/components'
+import { IDefaultProps } from '@/components'
 import Image from 'next/image'
 import { TextParagraph } from '@/components/Text/variants/TextParagraph'
 // config
@@ -25,13 +25,23 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
   return (
     <Page page_name={`Attachment Style Results - ${params.style.toUpperCase()}`}>
-      <Section
-        className={`w-full min-h-72 bg-${params.style}-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
-        classNameInner="relative z-10 lg:grid lg:grid-cols-12">
+      <Section className="bg-gradient-to-b from-blue-light to-white lg:hidden">
         <div className="text-black text-left lg:col-span-7">
           <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
 
-          <p className="hidden tracking-33 uppercase mb-6 lg:block">{copy.hero.subheader}</p>
+          <p className="tracking-33 uppercase mb-6">{copy.hero.subheader}</p>
+
+          <CheckoutLink />
+        </div>
+      </Section>
+
+      <Section
+        className={`w-full min-h-72 bg-${params.style}-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
+        classNameInner="relative z-10 lg:grid lg:grid-cols-12">
+        <div className="text-black text-left hidden lg:col-span-7 lg:block">
+          <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
+
+          <p className="tracking-33 uppercase mb-6">{copy.hero.subheader}</p>
 
           <CheckoutLink />
         </div>
@@ -39,18 +49,18 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
       {/* REULT */}
       <Section>
-        <p className="tracking-33 uppercase text-left lg:hidden">{copy.hero.subheader}</p>
-
         <div className="w-full text-left lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+          <h2 className="mb-5 text-primary lg:hidden">{copy.result.header}</h2>
+
           <VideoThumbnail
-            className="mt-4 lg:order-1"
+            className="my-4 lg:order-1 lg:my-0"
             playButtonSize="medium"
             srcUrl={copy.result.videoSrc}
             thumbnailUrl="AttachmentQuizResults/video-thumbnail.jpg"
           />
 
           <div>
-            <h2 className="my-5 text-primary">{copy.result.header}</h2>
+            <h2 className="my-5 text-primary hidden lg:block">{copy.result.header}</h2>
 
             <p className="mb-4">{copy.result.body}</p>
 

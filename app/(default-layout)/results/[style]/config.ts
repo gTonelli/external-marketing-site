@@ -2,7 +2,7 @@ export const RESULTS_COPY = {
   fa: {
     hero: {
       header:
-        'Do you want to feel deeply connected, valued, and happy in your love life – without the conflict, stress, and fear?',
+        'Are You Ready to Feel Deeply Connected In Your Love Life—Without the Conflict and Stress?',
       subheader: 'Learn why your fearful style is hindering your love life!',
       img: 'fa-hero.jpg',
     },
@@ -50,7 +50,7 @@ export const RESULTS_COPY = {
   da: {
     hero: {
       header:
-        'Are You Ready For an authentic, harmonious, low-maintenance relationship while still having your independence and freedom?',
+        'Are You Ready For Harmonious, Authentic Relationships While Having Your Independence?',
       subheader: 'Discover why your dismissive style is affecting your relationship! ',
       img: 'fa-hero.jpg',
     },
@@ -97,8 +97,7 @@ export const RESULTS_COPY = {
 
   ap: {
     hero: {
-      header:
-        'Do you want to feel deeply connected, valued, and happy in your love life – without the conflict, stress, and fear?',
+      header: 'Do you desire a loving, committed partner without feeling confused or uncertain?',
       subheader: 'Learn why your fearful style is hindering your love life!',
       img: 'fa-hero.jpg',
     },
@@ -146,7 +145,7 @@ export const RESULTS_COPY = {
   sa: {
     hero: {
       header:
-        'Do you want to feel deeply connected, valued, and happy in your love life – without the conflict, stress, and fear?',
+        'Are you ready to move past out-of-balance relationships to find someone who meets your needs?',
       subheader: 'Learn why your fearful style is hindering your love life!',
       img: 'fa-hero.jpg',
     },

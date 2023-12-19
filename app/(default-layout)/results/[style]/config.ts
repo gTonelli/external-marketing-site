@@ -93,7 +93,7 @@ export const RESULTS_COPY = {
   ap: {
     hero: {
       header: 'Do you desire a loving, committed partner without feeling confused or uncertain?',
-      subheader: 'Learn why your fearful style is hindering your love life!',
+      subheader: 'Learn about the anxious patterns behind your romantic relationships!',
       img: 'fa-hero.jpg',
     },
     result: {
@@ -138,7 +138,8 @@ export const RESULTS_COPY = {
     hero: {
       header:
         'Are you ready to move past out-of-balance relationships to find someone who meets your needs?',
-      subheader: 'Learn why your fearful style is hindering your love life!',
+      subheader:
+        'Learn why you’re comfortable in relationships, but struggle with different types of partners.',
       img: 'fa-hero.jpg',
     },
     result: {

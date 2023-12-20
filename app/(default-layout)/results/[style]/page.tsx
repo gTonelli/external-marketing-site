@@ -25,23 +25,31 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
   return (
     <Page page_name={`Attachment Style Results - ${params.style.toUpperCase()}`}>
-      <Section className="bg-gradient-to-b from-blue-light to-white lg:hidden">
-        <div className="text-black text-left lg:col-span-7">
+      <Section className="bg-hero-mobile z-15 lg:hidden">
+        <div className="text-black text-left relative z-20 lg:col-span-7">
           <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
 
-          <p className="mb-6">{copy.hero.subheader}</p>
+          <p className="mb-6">
+            Your attachment style is formed during childhood and is the #1 factor that determines
+            whether your relationships will fail or succed. Whats your attachment style? Keep
+            reading to learn more about your attachment profile!
+          </p>
 
           <CheckoutLink />
         </div>
       </Section>
 
       <Section
-        className={`w-full min-h-72 bg-${params.style}-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
+        className={`w-full min-h-52 z-10 bg-${params.style}-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
         classNameInner="relative z-10 lg:grid lg:grid-cols-12">
         <div className="text-black text-left hidden lg:col-span-7 lg:block">
           <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
 
-          <p className="tracking-33 uppercase mb-6">{copy.hero.subheader}</p>
+          <p className="tracking-33 uppercase mb-6">
+            Your attachment style is formed during childhood and is the #1 factor that determines
+            whether your relationships will fail or succed. Whats your attachment style? Keep
+            reading to learn more about your attachment profile!
+          </p>
 
           <CheckoutLink />
         </div>
@@ -50,7 +58,10 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
       {/* REULT */}
       <Section>
         <div className="w-full text-left lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-          <h2 className="mb-5 text-primary lg:hidden">{copy.result.header}</h2>
+          <h2 className="mb-5 lg:hidden">
+            Your Attachment Style Is:{' '}
+            <span className="text-primary font-effra">{copy.result.header.toUpperCase()}</span>
+          </h2>
 
           <VideoThumbnail
             className="my-4 lg:order-1 lg:my-0"
@@ -62,7 +73,11 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           <div>
             <h2 className="my-5 text-primary hidden lg:block">{copy.result.header}</h2>
 
-            <p className="mb-4">{copy.result.body}</p>
+            {copy.result.body.map((result, i) => (
+              <p key={`result_body_${i}`} className="mb-4">
+                {result}
+              </p>
+            ))}
 
             <CheckoutLink />
           </div>

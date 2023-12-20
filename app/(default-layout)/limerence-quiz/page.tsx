@@ -2,7 +2,7 @@
 
 // components
 import { Carousel } from '@/components/Carousel/Carousel'
-import { Quiz } from '@/components/Quiz'
+import { Quiz } from '@/components/Quiz/Quiz'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'

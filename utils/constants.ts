@@ -71,11 +71,9 @@ export enum EWindowWidth {
 export enum ERoutes {
   // Defaults
   HOME = '/',
-  NOT_FOUND_PAGE = '*', // Error boundary and not-found.tsx
   // ========== Internal ==========
   ATTACHMENT_QUIZ = '/quiz',
-  ATTACHMENT_STYLES_NEEDS_BELIEFS = '/:seriesParam/:styleParam',
-  BLACK_FRIDAY = '/black-friday', // #TODO for Nov 2023
+  BLACK_FRIDAY = '/black-friday',
   CORPORATE_LANDING_PAGE = '/corporate-quiz',
   CORPORATE_QUIZ_QUESTIONS = '/corporate-quiz/questions',
   CORPORATE_QUIZ_RESULTS = '/corporate-quiz/results',
@@ -83,21 +81,20 @@ export enum ERoutes {
   DREAM_LIFE_RESULTS_PAGE = '/dream-life-results',
   EXPLORE_COURSES_PAGE = '/explore-courses',
   FLASH_SALE_PAGE = '/membership-discount',
-  HOLIDAY_GIVEAWAY = '/holiday-giveaway', // Remove?
-  HOLIDAY_GIVEAWAY_TERMS = '/holiday-giveaway/terms', // Remove?
   IAT_QUIZ = '/iat/quiz',
   IAT_SALES_PAGE = '/iat',
   LEARNING_LOVE_PAGE = '/learning-love',
   LEARN_PAGE = '/learn',
   LIFE_TIME_PAGE = '/lifetime',
-  LIMITED_OFFER_PAGE = '/limited-offer/:style', //
   MARKETING_QUIZ_B = '/quiz/b',
   MENTAL_HEALTH_AWARENESS_PAGE = '/mha-month',
-  ROYAL_RUMBLE = '/quiz/:style',
-  ROYAL_RUMBLE_RESULTS_PAGE = '/quiz/results/:style',
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
+
+  // Stripe Checkout
+  STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription',
+  STRIPE_CHECKOUT_MONTHLY_59 = '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription',
 }
 
 export enum EExternalRoutes {

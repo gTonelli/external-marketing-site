@@ -1,3 +1,5 @@
+'use client'
+
 // components
 import { Button } from '../Button/Button'
 import { IResultProps } from './AttachmentQuiz'

@@ -6,6 +6,7 @@ import mixpanel, { Dict } from 'mixpanel-browser'
 /* Collection of all Mixpanel event names tracked throughout the app */
 type Events =
   | 'Button Clicked'
+  | 'Checkout Step Started'
   | 'Course Filterd'
   | 'Course Banner Clicked'
   | 'Course Landing Page'
@@ -22,14 +23,12 @@ type Events =
   | 'Masterclass Results Quiz Submit'
   | 'Membership Ended'
   | 'Membership Started'
-  | 'Page Exit'
   | 'Page Scrolled'
   | 'Page Viewed'
   | 'Quiz Finished'
   | 'Quiz Started'
   | 'Quiz Progress'
   | '$signup'
-  | 'Segment User'
   | 'Trial Ended'
   | 'Trial Started'
   | 'Video Started'
@@ -68,6 +67,7 @@ export type Pages =
   | `Main Funnel Quiz Variant E`
   | `Main Funnel Quiz Variant F`
   | `Masterclass Quiz`
+  | `Order Complete`
   | `mha-month`
   | `Speaker Gift`
   | `Secondary Sales - ${string}`
@@ -150,6 +150,17 @@ class Mixpanel {
       })
     },
 
+    CheckoutStepStarted: (props: {
+      'Checkout Page': 'checkout_signin_signup_page' | 'checkout_page'
+      'Product Price': string
+      page_name?: Pages
+    }) => {
+      this.event('Checkout Step Started', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
     CourseBannerClicked: (props: { page_name?: Pages; course_name: string }) => {
       this.event('Course Banner Clicked', {
         ...props,
@@ -182,10 +193,6 @@ class Mixpanel {
       this.event('Masterclass Results Quiz Submit', props)
     },
 
-    PageExited: (props: { page_name?: Pages }) => {
-      this.event('Page Exit', { page_name: props.page_name || window.location.pathname })
-    },
-
     PageScrolled: (props: { page_name?: Pages; scroll_depth: number }) => {
       this.event('Page Scrolled', {
         ...props,
@@ -201,16 +208,17 @@ class Mixpanel {
       this.event('Quiz Finished', props)
     },
 
-    QuizProgress: (props: { quiz_name: string; progress: string }) => {
+    QuizProgress: (props: {
+      quiz_name: string
+      progress: string
+      question: number
+      total_questions: number
+    }) => {
       this.event('Quiz Progress', props)
     },
 
     QuizStarted: (props: { quiz_name: string }) => {
       this.event('Quiz Started', props)
-    },
-
-    SegmentUser: (props: { segment_type: string }) => {
-      this.event('Segment User', props)
     },
 
     SignUp: (props: { distinct_id: string; $insert_id: string }) => {

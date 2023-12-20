@@ -3,11 +3,10 @@ export const RESULTS_COPY = {
     hero: {
       header:
         'Are You Ready to Feel Deeply Connected In Your Love Life—Without the Conflict and Stress?',
-      subheader: 'Learn why your fearful style is hindering your love life!',
       img: 'fa-hero.jpg',
     },
     result: {
-      header: 'You are a Fearful Avoidant',
+      header: 'Fearful Avoidant',
       body: [
         `Thank you for taking our Attachment Style Quiz. You have a fearful avoidant attachment style (also known as disorganized attachment). 
         This style can lead to having conflicted feelings about your relationships, as you desire to form deep connections but fear losing your 
@@ -49,11 +48,10 @@ export const RESULTS_COPY = {
     hero: {
       header:
         'Are You Ready For Harmonious, Authentic Relationships While Having Your Independence?',
-      subheader: 'Discover why your dismissive style is affecting your relationship! ',
       img: 'fa-hero.jpg',
     },
     result: {
-      header: 'You are a Dismissive Avoidant',
+      header: 'Dismissive Avoidant',
       body: [
         `Thank you for taking our Attachment Style Quiz. You have a dismissive avoidant attachment style. For you, relationships can often feel overwhelming, and you fear that you'll end up with the wrong person. However, you do desire to be deeply accepted and supported by a kind partner in an easy relationship.`,
 
@@ -93,11 +91,10 @@ export const RESULTS_COPY = {
   ap: {
     hero: {
       header: 'Do you desire a loving, committed partner without feeling confused or uncertain?',
-      subheader: 'Learn about the anxious patterns behind your romantic relationships!',
       img: 'fa-hero.jpg',
     },
     result: {
-      header: 'You are an Anxious Preoccupied',
+      header: 'Anxious Preoccupied',
       body: [
         `Thank you for taking our Attachment Style Quiz. You have an anxious preoccupied attachment style. Your biggest obstacle to forming loving and committed is your fear of abandonment or betrayal, making you become easily attached, “clingy”, and a people-pleaser. But these are only patterns – and your patterns can be changed.`,
 
@@ -138,12 +135,10 @@ export const RESULTS_COPY = {
     hero: {
       header:
         'Are you ready to move past out-of-balance relationships to find someone who meets your needs?',
-      subheader:
-        'Learn why you’re comfortable in relationships, but struggle with different types of partners.',
       img: 'fa-hero.jpg',
     },
     result: {
-      header: 'You are Securely Attached',
+      header: 'Securely Attached',
       body: [
         `Thank you for taking our Attachment Style Quiz. You have a secure attached attachment style. You're open and invested in romance, but sometimes, you end up in relationships that feel wildly out of balance, struggling to understand your partner's needs and how to support them. `,
 

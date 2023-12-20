@@ -45,7 +45,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
         <div className="text-black text-left hidden lg:col-span-7 lg:block">
           <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
 
-          <p className="tracking-33 uppercase mb-6">
+          <p className="mb-6">
             Your attachment style is formed during childhood and is the #1 factor that determines
             whether your relationships will fail or succed. Whats your attachment style? Keep
             reading to learn more about your attachment profile!
@@ -71,7 +71,10 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           />
 
           <div>
-            <h2 className="my-5 text-primary hidden lg:block">{copy.result.header}</h2>
+            <h2 className="mb-2">
+              Your Attachment Style Is:{' '}
+              <span className="text-primary font-effra">{copy.result.header.toUpperCase()}</span>
+            </h2>
 
             {copy.result.body.map((result, i) => (
               <p key={`result_body_${i}`} className="mb-4">

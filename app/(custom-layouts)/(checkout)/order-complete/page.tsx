@@ -2,6 +2,7 @@
 
 import ErrorMessage from '@/components/ErrorMessage'
 import { Loader } from '@/components/Loader'
+import { NotFound } from '@/components/NotFound'
 import { Section } from '@/components/Section'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
@@ -11,6 +12,7 @@ import { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie'
 
 export default function OrderCompletePage() {
+  return <NotFound />
   const session_id = useSearchParams().get('session_id')
   const [finalizeError, setFinalizeError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')

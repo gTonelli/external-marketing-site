@@ -11,6 +11,7 @@ import { Section } from './Section'
 import { Field, Form, Formik, FormikHelpers, useFormikContext } from 'formik'
 import * as Yup from 'yup'
 import { get } from 'lodash'
+import Mixpanel from '@/modules/Mixpanel'
 
 const quizValidationScehma = Yup.object()
 const quizInitialValues = quizValidationScehma.cast({})
@@ -20,12 +21,14 @@ export const Quiz = ({
   outputs,
   theme = 'primary',
   validationSchema = quizValidationScehma,
+  quizName,
 }: IQuizProps) => {
   // ============= State ==============
   const [quizState, setQuizState] = useState<TQuizStates>('preQuiz')
   const [result, setResult] = useState(0)
 
   const onStartQuiz = () => {
+    Mixpanel.track.QuizStarted({ quiz_name: quizName })
     setQuizState('quiz')
   }
 
@@ -37,13 +40,19 @@ export const Quiz = ({
 
     setResult(result)
     setQuizState('quizForm')
-    // setQuizState('quizResults')
+
+    Mixpanel.track.QuizFinished({ quiz_name: quizName })
 
     formikHelpers.setSubmitting(false)
   }
 
   const onAfterSubmit = () => {
-    setQuizState('quizResults')
+    const url = getResult(result, outputs).reportUrl
+    if (url) {
+      window.location.assign(url)
+    } else {
+      setQuizState('quizResults')
+    }
   }
 
   return (
@@ -66,7 +75,7 @@ export const Quiz = ({
                 key={`question_group_${i + 1}`}
                 number={i + 1}
                 question={question}
-                theme={theme}
+                // theme={theme}
               />
             ))}
 
@@ -190,6 +199,7 @@ export type TQuizTheme = 'primary' | 'orange-secondary' | 'blue-lightest'
 
 interface IQuizProps {
   questions: string[]
+  quizName: string
   outputs: IQuizOutputs[]
   theme?: TQuizTheme
   validationSchema?: any | (() => any)
@@ -200,6 +210,7 @@ export interface IQuizOutputs {
   max: number
   clientTag?: string
   report: string[]
+  reportUrl?: string
 }
 
 interface IQuizRadioGroup {
@@ -215,6 +226,7 @@ const getResult = (result: number, outputs: IQuizOutputs[]) => {
     output || {
       clientTag: outputs[outputs.length - 1].clientTag,
       report: outputs[outputs.length - 1].report,
+      reportUrl: outputs[outputs.length - 1].reportUrl,
     }
   )
 }

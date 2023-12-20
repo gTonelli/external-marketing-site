@@ -25,7 +25,7 @@ export const CODEPENDENCY_QUIZ_QUESTIONS = [
   'Do you suppress your emotions or “pretend” you are okay when you aren’t?',
   'Do you avoid speaking your truth in order to avoid conflict?',
   'Do you believe mistakes = failure? Do you put excessive pressure on yourself?',
-  'Do you have to needed to feel alive? Do you need to stand out in order to feel like you matter?',
+  'Do you need to stand out in order to feel like you matter?',
   'Do you feel resentment towards others because you are repressing your needs? ',
   'Are other people the center of your universe and you come last?',
 ]

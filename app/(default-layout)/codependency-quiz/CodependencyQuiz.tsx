@@ -1,6 +1,6 @@
 'use client'
 
-import { Quiz } from '@/components/Quiz'
+import { Quiz } from '@/components/Quiz/Quiz'
 import {
   CODEPENDENCY_QUIZ_RESULTS,
   CODEPENDENCY_QUIZ_QUESTIONS,

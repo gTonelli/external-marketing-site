@@ -3,7 +3,7 @@
 // core
 import React from 'react'
 // components
-import { TQuizTheme } from '@/components/Quiz'
+import { TQuizTheme } from '@/components/Quiz/Quiz'
 // libraries
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'

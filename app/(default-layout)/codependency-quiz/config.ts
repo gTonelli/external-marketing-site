@@ -1,5 +1,5 @@
 import { ICarouselQuizSlide } from '@/components/Carousel/variants/CarouselQuiz'
-import { IQuizOutputs } from '@/components/Quiz'
+import { IQuizOutputs } from '@/components/Quiz/Quiz'
 import * as Yup from 'yup'
 
 export const CODEPENDENCY_SLIDES: ICarouselQuizSlide[] = [

@@ -24,7 +24,7 @@ export default function CodependencyQuizPage() {
 
           <h1 className="mb-2 leading-10">Free Codependency Quiz</h1>
 
-          <p className="font-bold mb-5 rounded-full bg-primary text-white w-max px-3 py-1">
+          <p className="font-bold mb-5 rounded-full bg-teal text-white w-max px-3 py-1">
             By Thais Gibson
           </p>
 
@@ -52,7 +52,7 @@ export default function CodependencyQuizPage() {
       />
 
       {/* SLIDER */}
-      <CarouselQuiz slides={CODEPENDENCY_SLIDES} theme="blue-lightest" />
+      <CarouselQuiz slides={CODEPENDENCY_SLIDES} theme="primary" />
 
       <CodependencyQuiz />
     </Page>

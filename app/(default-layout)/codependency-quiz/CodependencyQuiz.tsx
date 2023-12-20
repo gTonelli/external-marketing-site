@@ -11,7 +11,7 @@ export const CodependencyQuiz = () => (
   <Quiz
     outputs={CODEPENDENCY_QUIZ_RESULTS}
     questions={CODEPENDENCY_QUIZ_QUESTIONS}
-    theme="blue-lightest"
+    theme="primary"
     validationSchema={codependencyQuizValidationSchema}
     quizName="Codependency Quiz"
   />

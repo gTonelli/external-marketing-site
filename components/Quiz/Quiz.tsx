@@ -5,8 +5,6 @@ import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
 // components
 import { Button } from '../Button/Button'
-import { Text } from '../Text/Text'
-import { RegistrationForm } from '../RegistrationForm'
 import { Section } from '../Section'
 import { Loader } from '../Loader'
 // libraries
@@ -72,8 +70,8 @@ export const Quiz = ({
     <Section>
       {quizState === 'preQuiz' ? (
         <Button
-          // @import !bg-blue-lightest !bg-orange-secondary !border-orange-secondary !border-blue-lightest !text-blue-lightest !text-orange-secondary
-          className={`!bg-${theme} !border-${theme} ${theme === 'blue-lightest' && 'text-black'}`}
+          // @import !border-primary !bg-orange-secondary !border-orange-secondary !text-orange-secondary
+          className={`!bg-${theme} !border-${theme}`}
           label="START QUIZ"
           onClick={onStartQuiz}
         />
@@ -96,7 +94,7 @@ export const Quiz = ({
 
 type TQuizStates = 'preQuiz' | 'quiz' | 'quizForm' | 'quizResults'
 
-export type TQuizTheme = 'primary' | 'orange-secondary' | 'blue-lightest'
+export type TQuizTheme = 'primary' | 'orange-secondary'
 
 export interface IQuizProps {
   questions: string[]

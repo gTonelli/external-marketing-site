@@ -13,18 +13,27 @@ import {
   CODEPENDENCY_QUIZ_RESULTS,
   CODEPENDENCY_SLIDES,
 } from './config'
+import { Page } from '@/components/Page'
 
 export default function CodependencyQuizPage() {
   return (
-    <main className="w-full">
+    <Page page_name="Codependency Quiz">
       <Section className="pb-0 bg-blue-lightest lg:-mb-8 xl:-mb-16 2xl:-mb-24 3xl:-mb-32">
-        <Text.Heading className="relative z-10" content="Take Our Free Codependency Quiz" />
+        {/* TITLE + DESCRIPTION */}
+        <div className="relative z-10 flex flex-col items-center lg:-mb-16 xl:-mb-24">
+          <h4>The Personal Development School's</h4>
 
-        <Text.Heading
-          className="relative z-10 max-w-screen-md mx-auto mt-4 lg:mt-8"
-          content="Stop feeling lonely in your relationships and instead create fulfilling connections where you feel seen, heard and important to the people in your life."
-          size={4}
-        />
+          <h1 className="mb-2 leading-10">Free Codependency Quiz</h1>
+
+          <p className="font-bold mb-5 rounded-full bg-primary text-white w-max px-3 py-1">
+            By Thais Gibson
+          </p>
+
+          <span className="font-bold mb-4 max-w-xl mx-auto">
+            Stop feeling lonely in your relationships and instead create fulfilling connections
+            where you feel seen, heard and important to the people in your life.
+          </span>
+        </div>
       </Section>
 
       <Image
@@ -45,7 +54,8 @@ export default function CodependencyQuizPage() {
         questions={CODEPENDENCY_QUIZ_QUESTIONS}
         theme="blue-lightest"
         validationSchema={codependencyQuizValidationSchema}
+        quizName="Codependency Quiz"
       />
-    </main>
+    </Page>
   )
 }

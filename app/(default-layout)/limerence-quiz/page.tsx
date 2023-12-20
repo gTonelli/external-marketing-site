@@ -45,6 +45,7 @@ export default function LimerenceQuizPage() {
         questions={lIMERENCE_QUIZ_QUESTIONS}
         theme="orange-secondary"
         validationSchema={limerenceQuizValidationSchema}
+        quizName="Limerence Quiz"
       />
     </main>
   )

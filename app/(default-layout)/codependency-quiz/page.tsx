@@ -9,7 +9,7 @@ import { Metadata } from 'next'
 import { CodependencyQuiz } from './CodependencyQuiz'
 
 export const metadata: Metadata = {
-  title: 'The Codependency Quiz',
+  title: 'The Codependency Quiz | By Thais Gibson',
   description: 'Take the leading Codependency Quiz by Thais Gibson for Free!',
   robots: 'all',
 }

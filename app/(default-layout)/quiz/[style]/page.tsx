@@ -23,13 +23,11 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
-import { ScrollContext } from '@/utils/contexts'
 import { TStyle } from '@/utils/types'
 import { getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { useCheckoutSplitTest } from '@/utils/hooks'
 
 export interface IAttachmentStylePageParams {
   style: TStyle
@@ -49,7 +47,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
-  const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })
+  // const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')
@@ -72,11 +70,9 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
         page_name: page_name,
       })
 
-      window.location.assign(
-        checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
-      )
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
-    [style, ROYAL_RUMBLE, checkoutLink]
+    [style, ROYAL_RUMBLE]
   )
 
   const getTitleStart = () => {

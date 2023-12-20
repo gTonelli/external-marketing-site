@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/Button/Button'
+import { NotFound } from '@/components/NotFound'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
 import Link from 'next/link'
@@ -8,6 +9,7 @@ import { useSearchParams } from 'next/navigation'
 import * as Yup from 'yup'
 
 export default function ThankYouPage() {
+  return <NotFound />
   // ============ State ==============
   const searchParams = useSearchParams()
   const newUser = searchParams.get('new_user') === 'true'

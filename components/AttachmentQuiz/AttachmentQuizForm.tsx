@@ -13,7 +13,6 @@ import { EExternalRoutes } from '@/utils/constants'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { useGoogleTagManager } from '@/modules/GTM'
-import { useCheckoutSplitTest } from '@/utils/hooks'
 
 const AttachmentQuizResults = dynamic(
   () => import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults),
@@ -132,15 +131,15 @@ const getClientTag = ({ userStyle }: IGetClientTagProps) => {
   // ============= State =============
   const [tag, setTag] = useState('')
   // ============= Hooks =============
-  const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
+  // const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
 
   useEffect(() => {
     let tag = `attachment-quiz-${userStyle}`
-    if (userStyle === 'ap' && usingVariant) {
-      tag += `,one-step-checkout`
-    }
+    // if (userStyle === 'ap' && usingVariant) {
+    //   tag += `,one-step-checkout`
+    // }
     setTag(tag)
-  }, [usingVariant, userStyle])
+  }, [userStyle])
 
   return tag
 }

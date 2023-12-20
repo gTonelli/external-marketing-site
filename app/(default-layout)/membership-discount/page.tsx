@@ -11,17 +11,16 @@ import { FLASH_SALE_PAGE } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
-import { useCheckoutSplitTest } from '@/utils/hooks'
+import { EExternalRoutes } from '@/utils/constants'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
-  // ================= Hooks =======================
-  const { checkoutLink } = useCheckoutSplitTest({
-    controlPriceUrl: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR,
-    storageKey: 'gm-845-checkout-test',
-    variantPriceUrl: ERoutes.STRIPE_CHECKOUT_MONTHLY_59,
-  })
+  // // ================= Hooks =======================
+  // const { checkoutLink } = useCheckoutSplitTest({
+  //   controlPriceUrl: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR,
+  //   storageKey: 'gm-845-checkout-test',
+  //   variantPriceUrl: ERoutes.STRIPE_CHECKOUT_MONTHLY_59,
+  // })
   // ================= Events =======================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -30,11 +29,9 @@ export default function FlashSalePage() {
         page_name: page_name,
       })
 
-      window.location.assign(
-        checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR
-      )
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
     },
-    [page_name, checkoutLink, EExternalRoutes]
+    [page_name, EExternalRoutes]
   )
 
   return (

@@ -1,19 +1,18 @@
-'use client'
-
 // components
-import { Carousel } from '@/components/Carousel/Carousel'
-import { Quiz } from '@/components/Quiz'
 import { Section } from '@/components/Section'
-import { Text } from '@/components/Text/Text'
-import { Image } from '@/components/Image'
-// config
-import {
-  codependencyQuizValidationSchema,
-  CODEPENDENCY_QUIZ_QUESTIONS,
-  CODEPENDENCY_QUIZ_RESULTS,
-  CODEPENDENCY_SLIDES,
-} from './config'
 import { Page } from '@/components/Page'
+import Image from 'next/image'
+import { CarouselQuiz } from '@/components/Carousel/variants/CarouselQuiz'
+// config
+import { CODEPENDENCY_SLIDES } from './config'
+import { Metadata } from 'next'
+import { CodependencyQuiz } from './CodependencyQuiz'
+
+export const metadata: Metadata = {
+  title: 'The Codependency Quiz',
+  description: 'Take the leading Codependency Quiz by Thais Gibson for Free!',
+  robots: 'all',
+}
 
 export default function CodependencyQuizPage() {
   return (
@@ -37,25 +36,25 @@ export default function CodependencyQuizPage() {
       </Section>
 
       <Image
+        alt="A vector wave for styling the page"
         className="hidden w-full -mt-[1px] xs:-mt-1 bg-white lg:block"
-        src="Quizzes/codependency-quiz-hero-bg-desktop.svg"
+        src="/images/Quizzes/codependency-quiz-hero-bg-desktop.svg"
+        width={1920}
+        height={333}
       />
 
       <Image
+        alt="A vector wave for styling the page"
         className="w-full relative -mt-[1px] xs:-mt-1 lg:hidden"
-        src="Quizzes/codependency-quiz-hero-bg.svg"
+        src="/images/Quizzes/codependency-quiz-hero-bg.svg"
+        width={375}
+        height={72}
       />
 
       {/* SLIDER */}
-      <Carousel.Quiz slides={CODEPENDENCY_SLIDES} theme="blue-lightest" />
+      <CarouselQuiz slides={CODEPENDENCY_SLIDES} theme="blue-lightest" />
 
-      <Quiz
-        outputs={CODEPENDENCY_QUIZ_RESULTS}
-        questions={CODEPENDENCY_QUIZ_QUESTIONS}
-        theme="blue-lightest"
-        validationSchema={codependencyQuizValidationSchema}
-        quizName="Codependency Quiz"
-      />
+      <CodependencyQuiz />
     </Page>
   )
 }

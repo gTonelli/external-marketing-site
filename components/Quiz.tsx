@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
+'use client'
+
 // core
 import React, { useState } from 'react'
 // components
@@ -197,7 +198,7 @@ type TQuizStates = 'preQuiz' | 'quiz' | 'quizForm' | 'quizResults'
 
 export type TQuizTheme = 'primary' | 'orange-secondary' | 'blue-lightest'
 
-interface IQuizProps {
+export interface IQuizProps {
   questions: string[]
   quizName: string
   outputs: IQuizOutputs[]

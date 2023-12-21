@@ -1,12 +1,19 @@
+'use client'
+
 // core
 import React from 'react'
 // components
-import { TQuizTheme } from '@/components/Quiz'
+import { TQuizTheme } from '@/components/Quiz/Quiz'
 // libraries
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
+
+// styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 interface ICarouselQuizProps {
   slides: ICarouselQuizSlide[]

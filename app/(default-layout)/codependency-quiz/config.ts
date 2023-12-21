@@ -1,5 +1,5 @@
 import { ICarouselQuizSlide } from '@/components/Carousel/variants/CarouselQuiz'
-import { IQuizOutputs } from '@/components/Quiz'
+import { IQuizOutputs } from '@/components/Quiz/Quiz'
 import * as Yup from 'yup'
 
 export const CODEPENDENCY_SLIDES: ICarouselQuizSlide[] = [
@@ -25,7 +25,7 @@ export const CODEPENDENCY_QUIZ_QUESTIONS = [
   'Do you suppress your emotions or “pretend” you are okay when you aren’t?',
   'Do you avoid speaking your truth in order to avoid conflict?',
   'Do you believe mistakes = failure? Do you put excessive pressure on yourself?',
-  'Do you have to needed to feel alive? Do you need to stand out in order to feel like you matter?',
+  'Do you need to stand out in order to feel like you matter?',
   'Do you feel resentment towards others because you are repressing your needs? ',
   'Are other people the center of your universe and you come last?',
 ]
@@ -52,6 +52,7 @@ export const CODEPENDENCY_QUIZ_RESULTS: IQuizOutputs[] = [
       'You are not experiencing codependency and you do have good boundaries. Chances are, you have relatively healthy boundaries and are able to create a healthy relationship dynamic that is considerate to yourself and others. If you are looking to build healthy relationships or improve a current relationship, check out our 12 Pillars to Building Secure Relationships. ',
       'You will gain FREE access to this course for 7 days so that you can learn the skills needed to make a relationship last, grow a better connection with someone more quickly and easily work through any relationship challenge more effectively. ',
     ],
+    reportUrl: 'https://results.personaldevelopmentschool.com/not-codependent',
   },
   {
     clientTag: 'codependency-quiz-moderate',
@@ -69,6 +70,7 @@ export const CODEPENDENCY_QUIZ_RESULTS: IQuizOutputs[] = [
       'It can be scary at first, but there are simple tools that can assist you in developing exactly the 3 major steps to communicating your needs and learning healthy boundaries. Learning these steps will dramatically improve your current relationships and also allow you to grow new relationships with people who are emotionally available. ',
       'If codependency is sabotaging your love life, friendships or family relationships, you can gain access to our “Transforming Codependency to Create Thriving Relationships” course for FREE for 7 days. This course will give you the exact tools you need to transform codependency into authentic connection where you can feel seen, heard and important by the people you love. This will teach you everything you need to know about exactly how to do this in as little as 7 days. ',
     ],
+    reportUrl: 'https://results.personaldevelopmentschool.com/moderately-codependent',
   },
   {
     clientTag: 'codependency-quiz-codependent',
@@ -86,5 +88,6 @@ export const CODEPENDENCY_QUIZ_RESULTS: IQuizOutputs[] = [
       'It can be scary at first, but there are simple tools that can assist you in developing exactly the 3 major steps to communicating your needs and learning healthy boundaries. Learning these steps will dramatically improve your current relationships and also allow you to grow new relationships with people who are emotionally available. ',
       'If codependency is sabotaging your love life, friendships or family relationships, you can gain access to our “Transforming Codependency to Create Thriving Relationships” course for FREE for 7 days. This course will give you the exact tools you need to transform codependency into authentic connection where you can feel seen, heard and important by the people you love. This will teach you everything you need to know about exactly how to do this in as little as 7 days. ',
     ],
+    reportUrl: 'https://results.personaldevelopmentschool.com/codependent',
   },
 ]

@@ -71,7 +71,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           />
 
           <div>
-            <h2 className="mb-2">
+            <h2 className="mb-2 hidden lg:block">
               Your Attachment Style Is:{' '}
               <span className="text-primary font-effra">{copy.result.header.toUpperCase()}</span>
             </h2>

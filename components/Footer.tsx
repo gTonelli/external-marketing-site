@@ -70,7 +70,7 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
         {includeLinks && (
           <>
             <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
-              <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">What we offer</p>
+              <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">What We Offer</p>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
@@ -85,15 +85,15 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
               </Link>
 
               <Link
-                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={ERoutes.ATTACHMENT_QUIZ}>
-                Attachment Quiz
-              </Link>
-
-              <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4 lg:max-w-[200px]"
                 href={ERoutes.IAT_SALES_PAGE}>
                 Integrated Attachment Theory<sup>TM</sup> Certification
+              </Link>
+
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={ERoutes.ATTACHMENT_QUIZ}>
+                Attachment Quiz
               </Link>
             </div>
 
@@ -108,6 +108,12 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={ERoutes.LEARNING_LOVE_PAGE}>
+                Book
+              </Link>
+
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
                 href={EExternalRoutes.BLOG}>
                 Blog
               </Link>
@@ -116,12 +122,6 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
                 href={EExternalRoutes.FAQ}>
                 FAQ
-              </Link>
-
-              <Link
-                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={ERoutes.LEARNING_LOVE_PAGE}>
-                Book
               </Link>
             </div>
 

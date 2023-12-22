@@ -91,9 +91,9 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
               </Link>
 
               <Link
-                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.GIFT_CARDS}>
-                Gift Cards
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4 lg:max-w-[200px]"
+                href={ERoutes.IAT_SALES_PAGE}>
+                Integrated Attachment Theory<sup>TM</sup> Certification
               </Link>
             </div>
 
@@ -119,9 +119,9 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
               </Link>
 
               <Link
-                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4 lg:max-w-[200px]"
-                href={ERoutes.IAT_SALES_PAGE}>
-                Integrated Attachment Theory<sup>TM</sup> Certification
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={ERoutes.LEARNING_LOVE_PAGE}>
+                Book
               </Link>
             </div>
 
@@ -132,6 +132,12 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
                 href={EExternalRoutes.CONTACT_US}>
                 Contact Us
+              </Link>
+
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.GIFT_CARDS}>
+                Gift Cards
               </Link>
 
               <Link

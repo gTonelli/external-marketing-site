@@ -206,6 +206,12 @@ const SideMenuLinks = [
     text: 'Memberships',
   },
   {
+    imgAlt: 'Book Icon: a vector image of a Book',
+    link: ERoutes.LEARNING_LOVE_PAGE,
+    imgSrc: '/icons/sidemenu-book.svg',
+    text: 'Book',
+  },
+  {
     imgAlt: 'Certifications Icon: a vector image of a sheet with a badge',
     link: ERoutes.IAT_SALES_PAGE,
     imgSrc: '/icons/sidemenu-certification.svg',

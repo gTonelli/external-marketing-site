@@ -26,16 +26,16 @@ export default function NotFoundPage() {
             text: 'Memberships',
           },
           {
+            link: ERoutes.LEARNING_LOVE_PAGE,
+            text: 'Book',
+          },
+          {
             link: EExternalRoutes.ABOUT,
             text: 'About',
           },
           {
             link: EExternalRoutes.BLOG,
             text: 'Blog',
-          },
-          {
-            link: ERoutes.LEARNING_LOVE_PAGE,
-            text: 'Book',
           },
         ]}
       />

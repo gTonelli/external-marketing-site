@@ -212,6 +212,12 @@ const SideMenuLinks = [
     text: 'Certification',
   },
   {
+    imgAlt: 'Book Icon: a vector image of a Book',
+    link: ERoutes.LEARNING_LOVE_PAGE,
+    imgSrc: '/icons/sidemenu-book.svg',
+    text: 'Book',
+  },
+  {
     imgAlt: 'About Icon: An information icon over a vector image of a person',
     link: EExternalRoutes.ABOUT,
     imgSrc: '/icons/sidemenu-about.svg',

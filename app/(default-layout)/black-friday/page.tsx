@@ -580,7 +580,7 @@ const MHAPageText = ({ className, content }: ITextDefaultProps) => (
   <Text.Paragraph useMD className={cx('text-lg my-4', className)} content={content} />
 )
 
-export const MHAButton = ({ label }: IButtonDefaultProps) => {
+const MHAButton = ({ label }: IButtonDefaultProps) => {
   // ==================== Hooks ====================
   const windowWidth = useWindowWidth().windowWidth
 

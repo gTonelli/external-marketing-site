@@ -8,13 +8,12 @@ import { Image } from '@/components/Image'
 import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { FLASH_SALE_PAGE } from './config'
+import { MHAButton } from '../black-friday/page'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { Section } from '@/components/Section'
-import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'
-import { useWindowWidth } from '@/utils/hooks'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
@@ -252,29 +251,5 @@ export default function FlashSalePage() {
         />
       </section>
     </main>
-  )
-}
-
-const MHAButton = ({ label }: IButtonDefaultProps) => {
-  // ==================== Hooks ====================
-  const windowWidth = useWindowWidth().windowWidth
-
-  const page_name = 'mha-month' as Pages
-
-  const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: page_name,
-    })
-
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
-  }
-
-  return (
-    <Button
-      className="px-4 xs:px-8 xs:text-xl"
-      label={label ?? `START YOUR 14-DAY ${windowWidth < 375 ? 'TRIAL' : 'ALL-ACCESS PASS'}`}
-      onClick={onGoToCheckout}
-    />
   )
 }

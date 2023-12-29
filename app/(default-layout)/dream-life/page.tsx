@@ -23,28 +23,14 @@ type ArticleKey = keyof typeof TH.ARTICLES
 export default function DreamLifePage() {
   const page_name = '7 Day Free Trial Headspace'
 
-  // ==================== State ====================
-  const [selectedOption, setSelectedOption] = useState({ option1: true, option2: false })
-
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
     Mixpanel.track.ButtonClicked({
       button_label: (event.target as HTMLButtonElement).innerText,
       page_name: page_name,
-      redirection: selectedOption.option1 ? '7-day-trial' : '14-day-trial',
+      redirection: '7-day-trial',
     })
 
-    window.location.assign(
-      selectedOption.option1
-        ? EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
-        : EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY
-    )
-  }
-
-  const onOptionSelected = (option: string, checked: boolean) => {
-    setSelectedOption((prev) => ({
-      ...prev,
-      [option]: checked,
-    }))
+    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL)
   }
 
   return (
@@ -62,11 +48,7 @@ export default function DreamLifePage() {
         />
 
         <div className="relative mt-8 lg:mt-12">
-          <PaymentOptions
-            className="lg:flex-col"
-            placement="top"
-            onOptionSelected={onOptionSelected}
-          />
+          <PaymentOptions className="lg:flex-col" placement="top" />
         </div>
       </section>
 
@@ -144,7 +126,7 @@ export default function DreamLifePage() {
 
       <Articles />
 
-      <CommunityTeaser onOptionSelected={onOptionSelected} />
+      <CommunityTeaser />
     </Page>
   )
 }

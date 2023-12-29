@@ -22,7 +22,7 @@ export const CommunityTeaser = ({ includePaymentOptions = true }: ICommunityTeas
         <div className="max-w-5xl text-center text-white mx-auto">
           <Text.Heading className="max-w-xl mx-auto" content={TH.COMMUNITY.heading} size={1} />
 
-          <div className="flex flex-row justify-between space-x-4 mt-12 overflow-x-auto scrollbar-hide lg:mt-15">
+          <div className="flex row justify-between space-x-4 mt-12 overflow-x-auto scrollbar-hide lg:mt-15">
             {TH.COMMUNITY.cards.map((card, index) => (
               <div
                 key={`card_${index}`}

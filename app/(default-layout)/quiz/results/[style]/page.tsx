@@ -10,6 +10,7 @@ import { Button } from '@/components/Button/Button'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Icon } from '@/components/Icon'
+import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
 import { RESULTS } from './config'
@@ -20,16 +21,10 @@ import { Storage } from '@/modules/Storage'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
-import { Image } from '@/components/Image'
+import { TStyle } from '@/utils/types'
 
-type TResultsPagePossibleStyles = 'fa'
-
-export interface IAttachmentStyleResultsParams {
-  style: TResultsPagePossibleStyles
-}
-
-export default function RoyalRumbleResultsPage() {
-  const style = 'fa'
+export default function RoyalRumbleResultsPage({ params }: { params: { style: TStyle } }) {
+  const style = params.style
   // ==================== Hooks ====================
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
 
@@ -83,7 +78,7 @@ export default function RoyalRumbleResultsPage() {
             />
 
             <Text.Paragraph
-              className="!text-2xl max-w-3xl font-medium tracking-0.325 mt-6 !leading-7"
+              className="max-w-3xl uppercase font-bold !tracking-0.325 mt-8 mb-8 md:mb-10"
               content={RESULTS[style].HERO_SECTION.subheadline}
             />
 
@@ -185,7 +180,7 @@ export default function RoyalRumbleResultsPage() {
           />
 
           <Text.Paragraph
-            className="uppercase font-medium font-xl !leading-6 tracking-[0.33em] mb-8 md:mb-10"
+            className="uppercase font-bold !tracking-0.325 mb-8 md:mb-10"
             content={RESULTS[style].ATTACHMENT_EXPLAIN.subtitle}
           />
           <div className="mb-4 md:px-8">
@@ -214,26 +209,18 @@ export default function RoyalRumbleResultsPage() {
           <div className="text-white mx-auto">
             <Text.Heading
               className="text-2xl md:text-md"
-              content="Are You Ready to Leave Your Painful Patterns Behind?"
+              content={RESULTS[style].GOOD_NEWS.header}
             />
 
             <div>
               <Text.Paragraph
                 className="font-medium mt-8 mb-2 !text-xl"
-                content="We have a simple course that will help you let go of painful relationship patterns, overcome 
-                        negative emotions and create fulfilling relationships in your life."
+                content={RESULTS[style].GOOD_NEWS.copy1}
               />
 
-              <Text.Paragraph
-                className="my-4 !text-xl"
-                content="In less than an hour, you will learn the insights about your attachment style and the 3 key 
-                        ingredients you need to empower any relationship in your life that feels stuck. "
-              />
+              <Text.Paragraph className="my-4 !text-xl" content={RESULTS[style].GOOD_NEWS.copy2} />
 
-              <Text.Paragraph
-                className="my-4 !text-xl"
-                content="You can join over 20,000 students who have taken this course and have given us a 99.7% satisfaction score!"
-              />
+              <Text.Paragraph className="my-4 !text-xl" content={RESULTS[style].GOOD_NEWS.copy3} />
             </div>
 
             <div>
@@ -256,13 +243,13 @@ export default function RoyalRumbleResultsPage() {
       <div className="text-center">
         <Text.Paragraph
           className="default-padding my-4 font-bold !tracking-0.325 !text-2xl"
-          content="We Have Been Featured On:"
+          content="WE HAVE BEEN FEATURED ON:"
         />
 
         <Trustbar.Slider />
       </div>
 
-      {/* PROMOTION_1 | "BY TAKING OUR FEARFUL AVOIDANT..." | COUNT DOWN TIMER */}
+      {/* PROMOTION_1 | "BY TAKING OUR [STYLE] COURSE..." | COUNT DOWN TIMER */}
       <section className="w-full bg-gradient-to-b from-white via-primary-light-4 to-primary-light-4 mt-8">
         <div className="w-full flex flex-col items-center justify-center ">
           <div className="max-w-5xl flex flex-col items-center mx-4">
@@ -283,7 +270,7 @@ export default function RoyalRumbleResultsPage() {
                     classNameIcon="text-yellow-secondary text-xl"
                     classNameListItems="text-left mb-8"
                     iconName="star"
-                    listItems={[`${bullet.text} **${bullet.text_bold}**`]}
+                    listItems={[`${bullet}`]}
                   />
                 ))}
               </div>
@@ -296,7 +283,7 @@ export default function RoyalRumbleResultsPage() {
                     classNameIcon="text-yellow-secondary text-xl"
                     classNameListItems="text-left mb-8"
                     iconName="star"
-                    listItems={[`${bullet.text} **${bullet.text_bold}**`]}
+                    listItems={[`${bullet}`]}
                   />
                 ))}
               </div>

@@ -12,9 +12,6 @@ import { FLASH_SALE_PAGE } from './config'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
-import { Section } from '@/components/Section'
-import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'
-import { useWindowWidth } from '@/utils/hooks'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
@@ -39,31 +36,6 @@ export default function FlashSalePage() {
 
   return (
     <main className="w-full">
-      <Section className="relative z-10 bg-blue-lightest lg:pb-0">
-        <Text.Paragraph
-          className="mb-3 rounded-lg font-bold bg-blue-dark text-white px-8 py-5 lg:py-6 lg:text-3xl"
-          content="Boxing Week Sale!"
-          size={20}
-        />
-
-        <Text.Heading
-          className="leading-6 text-primary font-bold mb-4 lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:text-5xl lg:mb-8"
-          content="Are You Ready To Transform Your Relationships And Find Lasting Love?"
-          size={2}
-        />
-
-        <Text.Heading
-          className="!text-lg font-medium mb-4 lg:max-w-3xl lg:mx-auto"
-          content="Unlock free access to the courses that are giving our members the breakthroughs they've been looking for with our cyber monday 14-day free trial, right from the comfort of your home."
-          size={4}
-        />
-
-        <FlashSaleButton />
-
-        <Text.Paragraph className="mt-2 font-bold italic" content="*This offer ends soon!*" />
-      </Section>
-
-      <Image className="relative w-full mt-0 z-5 2xl:-mt-5" src="styled-wave-green.png" />
       {/* Hero Section */}
       <section className="max-w-5xl flex flex-col mx-auto px-4 py-8 md:flex-row md:py-16">
         <div className="w-full flex flex-col items-center flex-1 text-center md:items-start md:text-left">
@@ -252,29 +224,5 @@ export default function FlashSalePage() {
         />
       </section>
     </main>
-  )
-}
-
-const FlashSaleButton = ({ label }: IButtonDefaultProps) => {
-  // ==================== Hooks ====================
-  const windowWidth = useWindowWidth().windowWidth
-
-  const page_name = 'Flash Sale' as Pages
-
-  const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: page_name,
-    })
-
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
-  }
-
-  return (
-    <Button
-      className="px-4 xs:px-8 xs:text-xl"
-      label={label ?? `START YOUR 14-DAY ${windowWidth < 375 ? 'TRIAL' : 'ALL-ACCESS PASS'}`}
-      onClick={onGoToCheckout}
-    />
   )
 }

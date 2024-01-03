@@ -3,23 +3,11 @@
 //core
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
 // components
 import { IResultProps, TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
-import { Loader } from '../Loader'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
-import { EExternalRoutes } from '@/utils/constants'
-import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 import { useGoogleTagManager } from '@/modules/GTM'
-
-const AttachmentQuizResults = dynamic(
-  () => import('./AttachmentQuizResults').then((mod) => mod.AttachmentQuizResults),
-  {
-    loading: () => <Loader />,
-  }
-)
 
 interface IAttachmentQuizFormProps extends IResultProps {
   userStyle: TUserStyle
@@ -52,7 +40,7 @@ export const AttachmentQuizForm = ({
 
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
-    } else if (userStyle === 'fa') {
+    } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
       router.push('/quiz/results/fa')
     } else {
       router.push('/quiz/' + userStyle)

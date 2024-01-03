@@ -1,7 +1,4 @@
 'use client'
-
-// core
-import { useState } from 'react'
 //components
 import { Button } from '@/components/Button/Button'
 import { Image } from '@/components/Image'
@@ -27,7 +24,6 @@ export default function DreamLifePage() {
     Mixpanel.track.ButtonClicked({
       button_label: (event.target as HTMLButtonElement).innerText,
       page_name: page_name,
-      redirection: '7-day-trial',
     })
 
     window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL)

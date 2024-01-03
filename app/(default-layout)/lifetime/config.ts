@@ -2,7 +2,6 @@ export const LIFETIME = {
   HERO_SECTION: {
     header: 'Achieve Your Dream Connections with Lifetime Access to Our Proven Programs',
     subheader: 'Unlock the Secrets to Life-Transforming Relationships: ',
-    promo_text: 'SAVE UP TO $1000 TODAY',
   },
   SITUATION_SECTION: {
     header: 'Do Any of These Situations Sound Familiar to You?',

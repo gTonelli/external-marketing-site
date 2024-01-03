@@ -2,13 +2,11 @@ export const TRIAL_HEADSPACE = {
   HERO: {
     heading: `Step Into Your Dream Life`,
     subHeading: `Select a plan:`,
-    offers: [
-      {
-        type: `MONTHLY`,
-        title: `7 Days Free`,
-        copy: `$67.00/month after your free trial. You can cancel any time before your trial ends and you won’t be charged.`,
-      }
-    ],
+    offer: {
+      type: `MONTHLY`,
+      title: `7 Days Free`,
+      copy: `$67.00/month after your free trial. You can cancel any time before your trial ends and you won’t be charged.`,
+    },
     copy7day: `After your free trial, your monthly subscription automatically renews at $67/month. Cancel before the trial ends and you won't be charged a penny.`,
     copy14day: `After your free trial, your quarterly subscription automatically renews at $169/quarter. Cancel before the trial ends and you won't be charged a penny.`,
     automaticRenewal: `After your free trial, your monthly subscription automatically renews at $67/month. Cancel before the trial ends and you won't be charged a penny.`,

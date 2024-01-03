@@ -163,7 +163,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
             />
 
             <Button
-              className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
+              className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold hover:!text-white"
               label="UNLOCK MY DISCOUNT"
               onClick={onGoToCheckout}
             />
@@ -214,18 +214,18 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
 
             <div>
               <Text.Paragraph
-                className="font-medium mt-8 mb-2 !text-xl"
+                className="font-medium mt-8 mb-2"
                 content={RESULTS[style].GOOD_NEWS.copy1}
               />
 
-              <Text.Paragraph className="my-4 !text-xl" content={RESULTS[style].GOOD_NEWS.copy2} />
+              <Text.Paragraph className="my-4" content={RESULTS[style].GOOD_NEWS.copy2} />
 
-              <Text.Paragraph className="my-4 !text-xl" content={RESULTS[style].GOOD_NEWS.copy3} />
+              <Text.Paragraph className="my-4" content={RESULTS[style].GOOD_NEWS.copy3} />
             </div>
 
             <div>
               <Button
-                className="hidden bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase !text-black border-none xxs:inline"
+                className="hidden bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none xxs:inline"
                 label="SIGN UP NOW"
                 onClick={(e) => onGoToCheckout(e, 1)}
               />
@@ -234,7 +234,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
         </div>
 
         <Button
-          className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase !text-black border-none mt-6 xxs:hidden"
+          className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none mt-6 xxs:hidden"
           label="SIGN UP NOW"
           onClick={(e) => onGoToCheckout(e, 2)}
         />
@@ -330,7 +330,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
               />
 
               <Button
-                className="bg-gradient-to-b from-[#FFDE89] to-yellow-tertiary uppercase text-black border-none"
+                className="bg-gradient-to-b from-[#FFDE89] to-yellow-tertiary uppercase font-bold text-black border-none"
                 label="SIGN UP NOW"
                 onClick={(e) => onGoToCheckout(e, 3)}
               />
@@ -423,7 +423,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
 
           <div className="flex justify-center my-8 lg:justify-start">
             <Button
-              className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
+              className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold hover:!text-white"
               label="SIGN UP NOW"
               onClick={(e) => onGoToCheckout(e, 4)}
             />

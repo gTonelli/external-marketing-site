@@ -445,28 +445,28 @@ export const RESULTS = {
       bullets: [
         `Your attachment style represents the subconscious set of rules you learned about love and relationships. Dismissive Avoidants (DAs) often didn't receive emotional support in childhood, making them independent and desiring easy-going relationships.`,
         "When someone has a different attachment style than you, it's no different than trying to play a board game with someone who has a completely different set of rules for how to play the game.",
-        "When you have a different set of rules and expectations for love, it's easy for things to be more confusing, defeating and overwhelming than they need to be. ",
+        "When you have a different set of rules and expectations for love, it's easy for things to be more confusing, defeating and overwhelming than they need to be. This can lead to issues finding, forming, or maintaining relationships.",
       ],
     },
     GOOD_NEWS: {
-      header: "Are You Ready to Leave Your Painful Patterns Behind?",
-      copy1: "We have a simple course that will help you let go of painful relationship patterns, overcome negative emotions and create fulfilling relationships in your life.",
-      copy2: "In less than an hour, you will learn the insights about your attachment style and the 3 key ingredients you need to empower any relationship in your life that feels stuck.",
-      copy3: "You can join over 20,000 students who have taken this course and have given us a 99.7% satisfaction score!"
+      header: "Are You Ready to Find True Love?",
+      copy1: 'As a Dismissive Avoidant, you might often feel that overcoming your vulnerabilities of "being with the wrong person" or being stuck in an unhealthy relationship is challenging.',
+      copy2: "I'm here to tell you one thing: you can change your attachment style. And our straightforward and accessible course will help you do it.",
+      copy3: "It explains the root cause of your vulnerabilities, how you can express yourself in a healthy way, and the tools to help you form empowering and trusting relationships.\n\nIf you're ready to change, take the program where over 20,000 students have rated it 99.7% on satisfaction!"
     },
     PROMOTION_1: {
       title:
-        'By Taking Our Fearful Avoidant "7 Days to Transform Relationships Course," You Will Learn…',
+        'Here’s What You’ll Learn With Our “Dismissive Avoidant to Securely Attached Program”...',
       bullets: {
         left: [ 
-          `Your needs **so that you can have deep connection without compromising your freedom and independence.**`,
-          `Your insecurities/fears (with tools to overcome them), **so that you can feel confident and stable in your love life.**`,
-          `Expectations **so that you understand your personal roadmap and can uphold the standards you deserve.**`
+          `Where your vulnerability comes from, and the **subconscious tools to help you understand and overcome it.**`,
+          `Your needs in a relationship and **how to ask your partner for it from the very start.**`,
+          `**The best ways to communicate what and how you're feeling** so you don't shut people out.`
         ],
         right: [
-          `Boundaries **so that you can stop burning out and feeling taken advantage of in relationships.**`,
-          `Strategies you need to communicate and interact with others **so that you can have the quality of relationship you actually want to be in.**`,
-          `It ALSO gives you specific tools to quickly recognize others' attachment styles and to understand their needs, fears and boundaries **so that you can feel safe trusting others and letting your guard down.**`
+          `**The differences between compromise and sacrifices**, so you don’t always feel like people expect too much from you.`,
+          `How to get comfortable with your feelings **rather than just shutting them down.**`,
+          `**The tools to recognize the needs, fears, and boundaries of other people** so that you can tell more quickly if they’re a fit or a mismatch for you.`
         ],
       },
       copy1:
@@ -495,24 +495,24 @@ export const RESULTS = {
         part7: '(You can cancel in the settings area of your account very easily). ',
       },
       copy6: {
-        part1: `If you join today, you’ll get this course for 30% off for life!`,
-        part2: `If you sign up now, you’ll get it for just $67 (regularly priced at $97).\n\n Not only does your $67 get you access to The Fearful Avoidant 7-Day Transformation Course. It also unlocks access to ALL of The Personal Development School’s courses, so you can take as many as you choose to, **all for one price.**`,
-        part3: `On top of that, we offer a full 7-day money-back guarantee if you don’t see the massive breakthrough in your dating and love life that you’ve been waiting for. Just ask for a refund before your first 7 days are up, and we’ll get you a full refund.`,
+        part1: `If you join today, you'll enjoy 30% off our All-Access Pass for LIFE! `,
+        part2: `You'll only pay $67 per month instead of the regular price of $97.\n\nOn top of the **Dismissive Avoidant to Securely Attached Program**, you'll get everything that makes The Personal Development School unique: 65+ courses, webinars, Q&As, community groups, and much more. `,
+        part3: `To take the pressure off, we offer a full 7-day money-back guarantee. If you don’t see massive breakthroughs in your dating and love life within the first week, you can get a full refund before the 7-day trial is up!`,
       },
     },
     PROMOTION_2: {
       title: 'How Do I Know That This Works So Quickly?',
       copy1:
-        'Because the course is only an hour long - easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!',
+        'Because the program is less than 14 hours long – it’s easy to get through it within 7 days. It gives you everything you need to start experiencing major breakthroughs in your relationships!',
       copy2:
-        'Use the Fearful Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life!',
+        'Use the Dismissive Avoidant to Securely Attached Program to Release Your Fears, Empower You to Communicate with Confidence, and Help You Find Deeper Connections Without Giving Up Your Independence!',
       special_bonus: {
         copy1:
           'When you join today, you’ll also get access to all of our other courses at The Personal Development School via our All-Access Pass.',
         copy2:
           'With your All-Access Pass, you’ll learn the secret ingredients to understand all other attachment styles, their needs, and what motivates them to invest in relationships.',
         copy3:
-          'You get access to all of these courses for one single price when you sign up for the All-Access Pass, including the Fearful Avoidant 7-Day Transformation Course!',
+          'You get access to all of these courses for one single price when you sign up for the All-Access Pass, including the Dismissive Avoidant to Securely Attached Program!',
         copy4:
           "Plus, you'll also get access to live weekly webinars with me where you'll get to ask me questions about your love life, whilst connecting with other members also going through this life-changing journey. These webinar calls are not mandatory, but just there as an added feature if you need any extra support!",
         copy5:
@@ -617,59 +617,62 @@ export const RESULTS = {
   sa: {
     HERO_SECTION: {
       headline:
-        'ARE YOU READY TO FEEL CONNECTED AND EMPOWERED IN YOUR LOVE LIFE - WITHOUT THE CONFLICT AND STRESS?',
-      subheadline: `Learn Your Relationship Patterns - And They're Shockingly Accurate!`,
+        'ARE YOU READY TO MOVE PAST OUT-OF-BALANCE AND DRAINING RELATIONSHIPS TO FIND SOMEONE WHO MEETS YOUR SECURE NEEDS?',
+      subheadline: `Learn why you’re comfortable in relationships, but struggle with different types of partners.`,
       videoURL: '3xQhjx7pB84',
-      title: 'Who Is The Secure Attached?',
-      copy: "You have a Fearful Avoidant attachment style, and in the next few minutes, I'm going to reveal what this means.",
+      title: 'Who Is The Securely Attached?',
+      copy: "You have a secure attachment style. I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached in this video! ",
     },
     STYLE_TRAITS: {
       bullets_left: [
-        'You often want to connect deeply with others but can get cold feet when things become more serious.',
-        'Once a relationship gets more serious, emotional chaos begins and you start going back and forth in your mind between wanting to stay vs. wanting to leave.',
-        'You often over-give in relationships to the point of feeling resentful or burnt out.',
-        'Resentment can cause you to become angry at times and express your emotions in unhealthy ways - or to shut off completely.',
+        'You find yourself comfortable in relationships.',
+        'Connecting with people is easy for you.',
+        'Generally, you feel confident with who you are as a person.',
+        'You have a strong sense of self-worth.',
+        'Having healthy boundaries means you let people in easily.',
+        'You see most problems as solvable, thanks to solid conflict resolution skills.'
       ],
       bullets_right: [
-        "You notice any shift in a partner's behavior - at times causing you to feel suspicious and on high alert.",
-        'It can feel scary for you to rely on others and ask others for help or favors.',
-        'You find yourself struggling to trust that relationships can really work long-term.',
-        'You can fear abandonment at times and also find yourself fearing being betrayed by other.',
-        'You may struggle with feelings of guilt and shame.',
+        'You desire a consistent, balanced, and healthy relationship.',
+        'There is a struggle to understand insecurely attached people.',
+        'There is a worry about being "shut out" from your partner.',
+        'You end up in unbalanced and chaotic relationships due to different styles.',
+        "You don't know how to manage or assist with an insecure partner's triggers.",
+        'You fear not being able to understand or work through things with your partner.'
       ],
       copy1:
-        "Having a Fearful Avoidant Attachment Style can feel as if relationships are chaotic and challenging, but it doesn't have to be this way. It is absolutely possible to get the deep connection you need in relationships, without fear, and without losing your independence and your freedom. ",
+        "With a Secure Attachment Style, you're open and invested in romance, but sometimes, you end up in relationships that feel wildly out of balance, struggling to understand your partner's needs and how to support them.",
       copy2:
-        'At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access. This is 30% off for a limited time.',
+        "At The Personal Development School, we offer tailored programs, tools, and ongoing support to teach you how to understand your insecurely attached loved ones so you can have lasting and fulfilling connections. You'll feel confident to overcome any confusion or worries about your relationships to become stronger together.",
     },
     ATTACHMENT_EXPLAIN: {
       title: 'What Is An Attachment Style?',
       subtitle: 'Everyone has an attachment style',
       bullets: [
-        'Your attachment style represents the subconscious set of rules you learned about how to love. Fearful Avoidants often experience chaos in their childhood - leaving them to have more complicated and confusing relationships as adults.',
+        'Your attachment style represents the subconscious set of rules you learned about love. Securely Attached (SA) individuals enjoyed a healthy relationship with caregivers and were encouraged to express themselves, but now struggle to communicate with different types of partners.',
         "When someone has a different attachment style than you, it's no different than trying to play a board game with someone who has a completely different set of rules for how to play the game.",
-        "When you have a different set of rules and expectations for love, it's easy for things to be more confusing, defeating and overwhelming than they need to be. ",
+        "When you have a different set of rules and expectations for love, it's easy for things to be more confusing, defeating, and overwhelming than they need to be. This can lead to issues finding, forming, or maintaining relationships.",
       ],
     },
     GOOD_NEWS: {
-      header: "Are You Ready to Leave Your Painful Patterns Behind?",
-      copy1: "We have a simple course that will help you let go of painful relationship patterns, overcome negative emotions and create fulfilling relationships in your life.",
-      copy2: "In less than an hour, you will learn the insights about your attachment style and the 3 key ingredients you need to empower any relationship in your life that feels stuck.",
-      copy3: "You can join over 20,000 students who have taken this course and have given us a 99.7% satisfaction score!"
+      header: "Are You Excited To Find Someone That Truly Connects With You?",
+      copy1: `As a Secure Attached person, you might often get frustrated – or triggered – when you can't connect with partners, with your relationships feeling "unfulfilled".`,
+      copy2: "That's because you have yet to learn the differences between secure and insecure attachment styles. Our program can help you do that.",
+      copy3: "It will explain where your security comes from, how you learn to connect to others with insecure styles, and the tools to build the romantic relationship you desire.\n\nWith over 20,000 students giving it a satisfaction score of 99.7%, you'll be amazed at what you'll learn and experience with our program!"
     },
     PROMOTION_1: {
       title:
-        'By Taking Our Fearful Avoidant "7 Days to Transform Relationships Course," You Will Learn…',
+        'Here’s How Our “Emotional Healing Program” Can Help…',
       bullets: {
         left: [ 
-          `Your needs **so that you can have deep connection without compromising your freedom and independence.**`,
-          `Your insecurities/fears (with tools to overcome them), **so that you can feel confident and stable in your love life.**`,
-          `Expectations **so that you understand your personal roadmap and can uphold the standards you deserve.**`
+          `**You discover your relationship needs** and how to ask for them right from your partner right from the start.`,
+          `Relate to other insecure attachment styles, **learning about childhood trauma and triggers.**`,
+          `Where your partner’s different fears and issues come from and **how to help them overcome these patterns before they impact your relationship.**`
         ],
         right: [
-          `Boundaries **so that you can stop burning out and feeling taken advantage of in relationships.**`,
-          `Strategies you need to communicate and interact with others **so that you can have the quality of relationship you actually want to be in.**`,
-          `It ALSO gives you specific tools to quickly recognize others' attachment styles and to understand their needs, fears and boundaries **so that you can feel safe trusting others and letting your guard down.**`
+          `Learn to distinguish between relationships that **are and aren't worth your time and investment.**`,
+          `**Understand the reasons behind your triggers in certain situations** and what you can do to manage them.`,
+          `**Use the life-changing tools to help you identify other people's needs, fears, and boundaries** so that you can tell more quickly if they’re a fit or a mismatch for you.`
         ],
       },
       copy1:
@@ -698,24 +701,24 @@ export const RESULTS = {
         part7: '(You can cancel in the settings area of your account very easily). ',
       },
       copy6: {
-        part1: `If you join today, you’ll get this course for 30% off for life!`,
-        part2: `If you sign up now, you’ll get it for just $67 (regularly priced at $97).\n\n Not only does your $67 get you access to The Fearful Avoidant 7-Day Transformation Course. It also unlocks access to ALL of The Personal Development School’s courses, so you can take as many as you choose to, **all for one price.**`,
-        part3: `On top of that, we offer a full 7-day money-back guarantee if you don’t see the massive breakthrough in your dating and love life that you’ve been waiting for. Just ask for a refund before your first 7 days are up, and we’ll get you a full refund.`,
+        part1: `If you're ready to find your soulmate, we have the best offer to get you started: 30% off our All-Access Pass for life!`,
+        part2: `You'll get access to everything under The Personal Development School roof for only $67 per month (instead of the regular price of $97). That means 65+ courses, on-demand and live webinars, Q&As, exercises, community groups, and much more – all for one price!`,
+        part3: `And to help take the pressure off your shoulders, we offer a full 7-day money-back guarantee. You can get a full refund before the 7-day trial finishes if you don't notice any changes in your dating, relationships, or love life.`,
       },
     },
     PROMOTION_2: {
       title: 'How Do I Know That This Works So Quickly?',
       copy1:
-        'Because the course is only an hour long - easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!',
+        'Because the program consists of small videos and modules, it’s easy to get through it within 7 days. Plus, you can actively use tools to make breakthroughs in your relationships!',
       copy2:
-        'Use the Fearful Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life!',
+        "Use the Emotional Healing Program to Find a Worthwhile Connection, Relate to Your Partner's Needs, and Get the Secure Romantic Relationship You Always Wanted.",
       special_bonus: {
         copy1:
           'When you join today, you’ll also get access to all of our other courses at The Personal Development School via our All-Access Pass.',
         copy2:
           'With your All-Access Pass, you’ll learn the secret ingredients to understand all other attachment styles, their needs, and what motivates them to invest in relationships.',
         copy3:
-          'You get access to all of these courses for one single price when you sign up for the All-Access Pass, including the Fearful Avoidant 7-Day Transformation Course!',
+          'You get access to all of these courses for one single price when you sign up for the All-Access Pass, including the Emotional Healing Program!',
         copy4:
           "Plus, you'll also get access to live weekly webinars with me where you'll get to ask me questions about your love life, whilst connecting with other members also going through this life-changing journey. These webinar calls are not mandatory, but just there as an added feature if you need any extra support!",
         copy5:

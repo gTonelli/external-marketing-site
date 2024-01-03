@@ -2,7 +2,6 @@
 
 // core
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { LIFETIME } from './config'
 import { ViewportContext } from '@/utils/contexts'
@@ -51,7 +50,7 @@ const pricingPlanbenefits: string[] = [
 const pricingPlan: IPricingPlan[] = [
   {
     title: 'ONE TIME PAYMENT',
-    currentPrice: 1399,
+    currentPrice: 1799,
     originalPrice: 2399,
     isRecommended: true,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
@@ -59,7 +58,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '6 MONTH PAYMENT PLAN',
-    currentPrice: 269,
+    currentPrice: 339,
     originalPrice: 449,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
@@ -67,7 +66,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '12 MONTH PAYMENT PLAN',
-    currentPrice: 149,
+    currentPrice: 179,
     originalPrice: 239,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,
@@ -88,10 +87,6 @@ export default function LifeTimePage() {
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-06-29T00:00:00`), 1))
-    Mixpanel.track.ExperimentStarted({
-      'Variant name': 'Variant 1',
-      'Experiment name': 'GM-634 Lifetime Page Split Test',
-    })
   }, [])
 
   // Mixpanel Button Clicks
@@ -134,11 +129,6 @@ export default function LifeTimePage() {
             <Text.Heading
               className="max-w-3xl font-bold font-sspb text-4xl text-purple-dark pt-4"
               content={LIFETIME.HERO_SECTION.header}
-            />
-
-            <Text.Paragraph
-              className="text-green-check font-bold mt-4 md:mt-6"
-              content={LIFETIME.HERO_SECTION.promo_text}
             />
 
             <div className="mx-auto mt-4 md:mt-8">

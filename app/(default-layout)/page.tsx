@@ -73,7 +73,7 @@ export default function AttachmentQuizPage() {
 
         <BreakThroughSectionMobile />
 
-        <AttachmentQuiz quiz_traffic_source="organic" />
+        <AttachmentQuiz quiz_traffic_source="organic" quizName="Attachment Style Quiz"/>
       </section>
       {/* ATTACHMENT STYLES */}
       <div className="relative -z-1 mt-4 lg:mt-16">

@@ -18,6 +18,7 @@ export const CommunityTeaser = ({ includePaymentOptions = true }: ICommunityTeas
   return (
     <>
       <Image className="w-full mt-10 -mb-1 lg:mt-0" src="TrialHeadspace/community-bg.png" />
+
       <section className="w-full bg-black px-4 py-20">
         <div className="max-w-5xl text-center text-white mx-auto">
           <Text.Heading className="max-w-xl mx-auto" content={TH.COMMUNITY.heading} size={1} />
@@ -96,7 +97,6 @@ export const PaymentOptions = ({ className, placement = 'top' }: IPaymentOptions
     Mixpanel.track.ButtonClicked({
       button_label: 'TRY FOR FREE',
       page_name: '7 Day Free Trial Headspace',
-      redirection: '7-day-trial',
     })
 
     window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL)
@@ -104,32 +104,29 @@ export const PaymentOptions = ({ className, placement = 'top' }: IPaymentOptions
 
   return (
     <div className={cx(`flex flex-col space-y-4 lg:justify-between items-center`, className)}>
-      {TH.HERO.offers.map((offer, index) => (
-        <label
-          key={`offer_${index}`}
-          className={`relative max-w-[474px] flex row items-center space-x-5 text-white bg-primary rounded-[30px] cursor-pointer p-6 lg:px-7 lg:pt-7 lg:pb-5`}
-          htmlFor={`option_${placement}_${index + 1}`}>
-          {index == 0 && (
-            <Text.Paragraph
-              className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4"
-              content="BEST VALUE"
-            />
-          )}
+      <div className="relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5">
+        <Text.Paragraph
+          className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4"
+          content="BEST VALUE"
+        />
 
-          <div className="text-left">
-            <Text.Paragraph className="font-bold" content={offer.type} spacing="tracking-0.325" />
+        <div className="text-left">
+          <Text.Paragraph
+            className="font-bold"
+            content={TH.HERO.offer.type}
+            spacing="tracking-0.325"
+          />
 
-            <Text.Heading className="mt-3" content={offer.title} />
+          <Text.Heading className="mt-3" content={TH.HERO.offer.title} />
 
-            <Text.Paragraph
-              className={`max-w-[336px] !text-sm mt-4 lg:block ${
-                placement === 'bottom' && 'hidden lg:block'
-              }`}
-              content={offer.copy}
-            />
-          </div>
-        </label>
-      ))}
+          <Text.Paragraph
+            className={`max-w-[336px] !text-sm mt-4 lg:block ${
+              placement === 'bottom' && 'hidden lg:block'
+            }`}
+            content={TH.HERO.offer.copy}
+          />
+        </div>
+      </div>
 
       <Button
         className="w-44 !font-bold border-none mt-4 lg:mt-10"

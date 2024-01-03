@@ -131,6 +131,11 @@ export default function LifeTimePage() {
               content={LIFETIME.HERO_SECTION.header}
             />
 
+            <Text.Paragraph
+              className="text-green-check font-bold mt-4 md:mt-6"
+              content={LIFETIME.HERO_SECTION.promo_text}
+            />
+
             <div className="mx-auto mt-4 md:mt-8">
               <Button
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"

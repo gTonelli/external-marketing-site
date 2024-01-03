@@ -104,7 +104,9 @@ export const PaymentOptions = ({ className, placement = 'top' }: IPaymentOptions
 
   return (
     <div className={cx(`flex flex-col space-y-4 lg:justify-between items-center`, className)}>
-      <div className="relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5">
+      <div
+        className="relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 cursor-pointer lg:px-7 lg:pt-7 lg:pb-5"
+        onClick={onSubmit}>
         <Text.Paragraph
           className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4"
           content="BEST VALUE"

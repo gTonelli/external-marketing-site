@@ -5,9 +5,8 @@ export type TStorageKeys =
   | 'lastUserEmail'
   | 'userFirstName'
   | 'prod-2320-checkout-test'
-  | 'gm-822-fa-split-test'
-  | 'gm-849-quiz-outputs'
   | 'gm-845-checkout-test'
+  | 'gm-860-rr-split-test'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

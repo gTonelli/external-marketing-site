@@ -207,7 +207,7 @@ export const RESULTS = {
       headline:
         'DO YOU DESIRE A LOVING, COMMITTED PARTNER WITHOUT FEELING CONFUSED OR UNCERTAIN ABOUT YOUR RELATIONSHIP?',
       subheadline: `Learn About The Anxious Patterns Behind Your Romantic Relationships!`,
-      videoURL: '3xQhjx7pB84',
+      videoURL: 'rg0tm16tLYQ',
       title: 'Who Is Anxious Preoccupied?',
       copy: "You have an anxious preoccupied attachment style. I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached in this video!",
     },
@@ -413,7 +413,7 @@ export const RESULTS = {
       headline:
         'ARE YOU READY FOR AN AUTHENTIC, HARMONIOUS, LOW-MAINTENANCE RELATIONSHIP WHILE STILL HAVING YOUR INDEPENDENCE AND FREEDOM?',
       subheadline: `Discover Why Your Dismissive Style Is Affecting Your Relationship!`,
-      videoURL: '3xQhjx7pB84',
+      videoURL: '46LShiTH07c',
       title: 'Who Is The The Dismissive Avoidant?',
       copy: "You have a dismissive avoidant attachment style. I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached in this video!",
     },
@@ -524,9 +524,9 @@ export const RESULTS = {
         copy8:
           'But by understanding yourself and your personal roadmap to success at love, it will finally make things clear. Better yet, it can save you thousands of dollars and extensive time in counseling - dealing with challenges after they keep happening instead of being proactive about understanding this area of your life.',
         copy9:
-          "This course will also help you recognize what attachment style someone else is so you can learn what needs they have. For a relationship to last and also actually be fulfilling, we have to clearly understand what each other's needs and desires are. ",
+          "It only takes 7 days to experience substantial breakthroughs in the way you date and in your relationships. Not only will you understand where your attachment styles originate from, as well as your triggers and fears, but you'll also learn the techniques to challenge and change these behavioral thoughts and patterns.\n\n",
         copy10:
-          "And if you don't know your own needs in relationships, how can you ever possibly get them met? Learning this can save you years of wasted time on failed relationships, painful breakups, and energy poured into the relationship rollercoaster instead of towards your dreams and fulfilling your life's potential.",
+          "The results speak for themselves. Our students have enjoyed up to 3X more success and confidence in their dating life and up to a 50% jump in relationship communication and conflict management. You can enjoy these benefits too with our course.",
       },
     },
     PROMOTION_3: {
@@ -619,8 +619,8 @@ export const RESULTS = {
       headline:
         'ARE YOU READY TO MOVE PAST OUT-OF-BALANCE AND DRAINING RELATIONSHIPS TO FIND SOMEONE WHO MEETS YOUR SECURE NEEDS?',
       subheadline: `Learn why you’re comfortable in relationships, but struggle with different types of partners.`,
-      videoURL: '3xQhjx7pB84',
-      title: 'Who Is The Securely Attached?',
+      videoURL: 'RBhxl6xR69U',
+      title: 'Who Is Securely Attached?',
       copy: "You have a secure attachment style. I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached in this video! ",
     },
     STYLE_TRAITS: {
@@ -730,9 +730,9 @@ export const RESULTS = {
         copy8:
           'But by understanding yourself and your personal roadmap to success at love, it will finally make things clear. Better yet, it can save you thousands of dollars and extensive time in counseling - dealing with challenges after they keep happening instead of being proactive about understanding this area of your life.',
         copy9:
-          "This course will also help you recognize what attachment style someone else is so you can learn what needs they have. For a relationship to last and also actually be fulfilling, we have to clearly understand what each other's needs and desires are. ",
+          "Our program will help you recognize your attachment style, triggers, and needs while helping you understand everyone else's. With tools and techniques that can be easily applied, you can form stronger, healthier, and fulfilling relationships.\n\n",
         copy10:
-          "And if you don't know your own needs in relationships, how can you ever possibly get them met? Learning this can save you years of wasted time on failed relationships, painful breakups, and energy poured into the relationship rollercoaster instead of towards your dreams and fulfilling your life's potential.",
+          "Without having the foundations set, you won't be able to work with your partner to overcome any challenges or issues as a team. By knowing how a secure and insecure attachment style can work, you'll move past potential pitfalls and put energy into building a future together.",
       },
     },
     PROMOTION_3: {

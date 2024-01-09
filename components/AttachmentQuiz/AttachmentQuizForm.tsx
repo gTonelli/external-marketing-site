@@ -35,14 +35,17 @@ export const AttachmentQuizForm = ({
   const router = useRouter()
 
   useEffect(() => {
-    if (quiz_traffic_source === 'paid') {
-      let showPaidVariants: string | null | boolean = Storage.get('gm-860-rr-split-test')
+    if (quiz_traffic_source === 'paid' && userStyle !== 'fa') {
+      let showPaidVariants: string | null | boolean = Storage.get(
+        `gm-860-rr-split-test-${userStyle}`
+      )
       if (showPaidVariants === null) {
         showPaidVariants = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-        Storage.set('gm-860-rr-split-test', showPaidVariants)
+        Storage.set(`gm-860-rr-split-test-${userStyle}`, showPaidVariants)
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-860-RR-Split-Test',
           'Variant name': showPaidVariants ? 'Variant 1' : 'Control',
+          page_name: `VSL Royal Rumble Results - ${userStyle}`,
         })
         setShowPaidVariants(showPaidVariants)
       } else {

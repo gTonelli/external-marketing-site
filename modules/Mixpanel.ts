@@ -172,6 +172,7 @@ class Mixpanel {
     ExperimentStarted: (props: {
       'Experiment name': string
       'Variant name': ExperimentVariant
+      'page_name'?: Pages,
     }) => {
       this.event('$experiment_started', props)
     },

@@ -3,14 +3,22 @@
 import { Button } from '@/components/Button/Button'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
+import Mixpanel from '@/modules/Mixpanel'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 export default function ThankYouPage() {
   // ============ State ==============
   const searchParams = useSearchParams()
   const newUser = searchParams.get('new_user') === 'true'
   const email = decodeURIComponent(searchParams.get('email') || '')
+
+  useEffect(() => {
+    if (email) {
+      Mixpanel.setUser(email)
+    }
+  }, [email])
 
   return (
     <Section>

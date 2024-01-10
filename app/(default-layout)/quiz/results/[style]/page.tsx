@@ -64,7 +64,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
         checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
       )
     },
-    [style]
+    [style, checkoutLink]
   )
 
   return (

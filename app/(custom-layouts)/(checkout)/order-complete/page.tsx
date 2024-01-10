@@ -2,7 +2,6 @@
 
 import ErrorMessage from '@/components/ErrorMessage'
 import { Loader } from '@/components/Loader'
-import { NotFound } from '@/components/NotFound'
 import { Section } from '@/components/Section'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
@@ -12,7 +11,6 @@ import { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie'
 
 export default function OrderCompletePage() {
-  return <NotFound />
   const session_id = useSearchParams().get('session_id')
   const [finalizeError, setFinalizeError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -68,11 +66,12 @@ export default function OrderCompletePage() {
     })
   }, [])
 
-  if (finalizeError)
+  if (finalizeError) {
     return (
       <Section className="!py-48 lg:!py-72">
         <ErrorMessage message={errorMessage} />
       </Section>
     )
+  }
   return <Loader className="!py-48 lg:!py-72" />
 }

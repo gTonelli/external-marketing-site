@@ -22,12 +22,13 @@ import { Storage } from '@/modules/Storage'
 import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
+import { useCheckoutSplitTest } from '@/utils/hooks'
 
 export default function RoyalRumbleResultsPage({ params }: { params: { style: TStyle } }) {
   const style = params.style
   // ==================== Hooks ====================
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
-
+  const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const userFirstName = Storage.get('userFirstName')
@@ -59,7 +60,9 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
         seq_no: seq_no,
       })
 
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      window.location.assign(
+        checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+      )
     },
     [style]
   )

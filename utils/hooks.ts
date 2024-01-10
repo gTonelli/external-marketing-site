@@ -175,7 +175,7 @@ export function useCheckoutSplitTest({
     process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? trafficRatio : 0.5
 
   useEffect(() => {
-    if (userStyle && userStyle !== 'ap') {
+    if (userStyle && userStyle !== 'fa') {
       setUsingVariant(false)
       return setCheckoutLink(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     }

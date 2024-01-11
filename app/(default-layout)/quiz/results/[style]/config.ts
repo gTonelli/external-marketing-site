@@ -368,9 +368,9 @@ export const RESULTS = {
 
     PROMOTION_4: {
       copy1:
-        "Still on the fence about whether this course could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
+        "Still on the fence about whether this program could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
       copy2:
-        'Signing up for this course comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
+        'Signing up for this program comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
       title: 'I want to ask you to courageously reflect:',
       bullets: [
         'How has not learning about this part of your life affected you so far? Has it been working for you?',
@@ -381,7 +381,7 @@ export const RESULTS = {
       copy3:
         "Now just imagine what life would look like if another 1, 3 or 5 years – or maybe even decades – go by and you're still struggling with these patterns? Or, by taking action today, you could experience a different reality starting right now.",
       copy4:
-        'Remember, this simple course will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
+        'Remember, this simple program will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
       copy5:
         'In less than an hour, you will learn three simple steps to leave your painful attachment style patterns behind. This will empower you to create more attraction, chemistry and deeper connection in your love life - without the fear of losing yourself in relationships.',
       copy6:
@@ -578,9 +578,9 @@ export const RESULTS = {
 
     PROMOTION_4: {
       copy1:
-        "Still on the fence about whether this course could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
+        "Still on the fence about whether this program could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
       copy2:
-        'Signing up for this course comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
+        'Signing up for this program comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
       title: 'I want to ask you to courageously reflect:',
       bullets: [
         'How has not learning about this part of your life affected you so far? Has it been working for you?',
@@ -591,7 +591,7 @@ export const RESULTS = {
       copy3:
         "Now just imagine what life would look like if another 1, 3 or 5 years – or maybe even decades – go by and you're still struggling with these patterns? Or, by taking action today, you could experience a different reality starting right now.",
       copy4:
-        'Remember, this simple course will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
+        'Remember, this simple program will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
       copy5:
         'In less than an hour, you will learn three simple steps to leave your painful attachment style patterns behind. This will empower you to create more attraction, chemistry and deeper connection in your love life - without the fear of losing yourself in relationships.',
       copy6:
@@ -788,9 +788,9 @@ export const RESULTS = {
 
     PROMOTION_4: {
       copy1:
-        "Still on the fence about whether this course could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
+        "Still on the fence about whether this program could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
       copy2:
-        'Signing up for this course comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
+        'Signing up for this program comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
       title: 'I want to ask you to courageously reflect:',
       bullets: [
         'How has not learning about this part of your life affected you so far? Has it been working for you?',
@@ -801,7 +801,7 @@ export const RESULTS = {
       copy3:
         "Now just imagine what life would look like if another 1, 3 or 5 years – or maybe even decades – go by and you're still struggling with these patterns? Or, by taking action today, you could experience a different reality starting right now.",
       copy4:
-        'Remember, this simple course will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
+        'Remember, this simple program will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
       copy5:
         'In less than an hour, you will learn three simple steps to leave your painful attachment style patterns behind. This will empower you to create more attraction, chemistry and deeper connection in your love life - without the fear of losing yourself in relationships.',
       copy6:

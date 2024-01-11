@@ -87,7 +87,8 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
               <div className="flex flex-col md:flex-row-reverse md:px-8">
                 <div>
                   <Video.Youtube
-                    iframeClassName="rounded-10"
+                    iframeClassName="rounded-20"
+                    thumbnail="RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
                     videoId={RESULTS[style].HERO_SECTION.videoURL}
                     onPlay={() => onVideoStarted('default')}
                   />
@@ -163,7 +164,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
             />
 
             <Button
-              className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold hover:!text-white"
+              className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold border-none hover:!text-white"
               label="UNLOCK MY DISCOUNT"
               onClick={onGoToCheckout}
             />
@@ -250,7 +251,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
       </div>
 
       {/* PROMOTION_1 | "BY TAKING OUR [STYLE] COURSE..." | COUNT DOWN TIMER */}
-      <section className="w-full bg-gradient-to-b from-white via-primary-light-4 to-primary-light-4 mt-8">
+      <section className="w-full bg-gradient-to-b from-white  to-purple-dark to-95% mt-8">
         <div className="w-full flex flex-col items-center justify-center ">
           <div className="max-w-5xl flex flex-col items-center mx-4">
             <Text.Heading
@@ -319,13 +320,13 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
 
             <div className="my-4">
               <Text.Heading
-                className="text-black mb-8"
+                className="text-white mb-8"
                 content={RESULTS[style].PROMOTION_2.title}
                 size={1}
               />
 
               <Text.Paragraph
-                className="max-w-xl mx-auto mb-8 text-black"
+                className="max-w-xl mx-auto mb-8 text-white"
                 content={RESULTS[style].PROMOTION_2.copy1}
               />
 
@@ -339,12 +340,12 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
         </div>
       </section>
 
-      <section className="bg-primary-light-4">
+      <section className="bg-purple-dark">
         <div className="default-padding pt-4 lg:pt-8">
           <div>
             <div className="my-8">
               {offerEndDate ? (
-                <CountdownTimer date={offerEndDate} theme="light" />
+                <CountdownTimer date={offerEndDate} theme="dark" />
               ) : (
                 <Loader className="!py-8 lg:py-10" />
               )}
@@ -423,7 +424,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
 
           <div className="flex justify-center my-8 lg:justify-start">
             <Button
-              className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold hover:!text-white"
+              className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold border-none hover:!text-white"
               label="SIGN UP NOW"
               onClick={(e) => onGoToCheckout(e, 4)}
             />
@@ -446,9 +447,10 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
           <div className="flex flex-col items-center md:flex-row mt-8">
             <div className="max-w-md md:w-1/2 md:mr-8">
               <Image
-                alt="7 Days to Transform Relationship Course Thumbnail"
+                alt={RESULTS[style].PROMOTION_2.special_bonus.thumbnail.alt}
                 className="rounded-3xl "
-                src="RoyalRumbleResultsPage/video_thumbnail.png"
+                src={RESULTS[style].PROMOTION_2.special_bonus.thumbnail.src}
+                width="100%"
               />
             </div>
 
@@ -496,7 +498,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
         </div>
         <div>
           <Button
-            className="bg-gradient-to-b from-purple-medium to-purple-dark my-8 hover:!text-white"
+            className="bg-gradient-to-b from-purple-medium to-purple-dark my-8 border-none hover:!text-white"
             label="SIGN UP NOW"
             onClick={(e) => onGoToCheckout(e, 5)}
           />
@@ -524,6 +526,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
             <div className="mx-auto">
               <Video.Youtube
                 maxHeight={512}
+                thumbnail="RoyalRumbleResultsPage/testimonial_thumbnail.jpg"
                 videoId={RESULTS[style].TESTIMONIAL_VIDEO_URL}
                 onPlay={() => onVideoStarted('testimonial')}
               />
@@ -610,7 +613,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
 
           <Text.Heading className="capitalize" content={RESULTS[style].PROMOTION_4.title} />
           <div className="flex flex-col my-8  md:items-start md:px-8">
-            <div className="flex-col items-center md:flex-row md:justify-around md:px-8 ">
+            <div className="flex flex-col items-center md:flex-row md:justify-around md:px-8 ">
               <div className="max-w-sm mx-auto md:max-w-md px-16">
                 <Image alt="" src="RoyalRumbleResultsPage/mirror.png" />
               </div>

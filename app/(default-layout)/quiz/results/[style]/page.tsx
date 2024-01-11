@@ -87,6 +87,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
               <div className="flex flex-col md:flex-row-reverse md:px-8">
                 <div>
                   <Video.Youtube
+                    maxHeight={512}
                     iframeClassName="rounded-20"
                     thumbnail="RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
                     videoId={RESULTS[style].HERO_SECTION.videoURL}
@@ -180,10 +181,13 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
             content={RESULTS[style].ATTACHMENT_EXPLAIN.title}
           />
 
-          <Text.Paragraph
-            className="uppercase font-bold !tracking-0.325 mb-8 md:mb-10"
-            content={RESULTS[style].ATTACHMENT_EXPLAIN.subtitle}
-          />
+          {style === 'fa' && (
+            <Text.Paragraph
+              className="uppercase font-bold !tracking-0.325 mb-8 md:mb-10"
+              content={RESULTS[style].ATTACHMENT_EXPLAIN.subtitle}
+            />
+          )}
+
           <div className="mb-4 md:px-8">
             <ul className="flex flex-col justify-evenly md:flex-row">
               {RESULTS[style].ATTACHMENT_EXPLAIN.bullets.map(
@@ -201,6 +205,21 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
               )}
             </ul>
           </div>
+
+          {style !== 'fa' && (
+            <div>
+              <Text.Paragraph
+                className="font-bold mb-8 md:mb-10"
+                content="Everyone has an attachment style. Traditionally, attachment styles were considered permanent; you couldn't change them. But at The Personal Development School, we have the tools, strategies, and processes to help you reprogram them to become more secure in yourself and your relationship."
+              />
+
+              <Button
+                className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold border-none hover:!text-white"
+                label="SIGN UP NOW"
+                onClick={(e) => onGoToCheckout(e, 2)}
+              />
+            </div>
+          )}
         </div>
       </section>
 

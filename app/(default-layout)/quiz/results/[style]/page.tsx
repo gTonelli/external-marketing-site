@@ -251,7 +251,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
       </div>
 
       {/* PROMOTION_1 | "BY TAKING OUR [STYLE] COURSE..." | COUNT DOWN TIMER */}
-      <section className="w-full bg-gradient-to-b from-white  to-purple-dark to-95% mt-8">
+      <section className="w-full bg-gradient-to-b from-white to-purple-dark to-95% mt-8">
         <div className="w-full flex flex-col items-center justify-center ">
           <div className="max-w-5xl flex flex-col items-center mx-4">
             <Text.Heading

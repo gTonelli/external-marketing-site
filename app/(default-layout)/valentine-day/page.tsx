@@ -584,7 +584,7 @@ const MHAButton = ({ label }: IButtonDefaultProps) => {
   // ==================== Hooks ====================
   const windowWidth = useWindowWidth().windowWidth
 
-  const page_name = 'mha-month' as Pages
+  const page_name = 'Valentine Day' as Pages
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
     Mixpanel.track.ButtonClicked({

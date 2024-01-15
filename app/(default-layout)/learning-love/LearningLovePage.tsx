@@ -56,6 +56,7 @@ export default function LearningLovePage() {
             fetchPriority="high"
             className="mt-4 w-auto max-h-[90vh] max-w-full mx-auto lg:max-w-lg xl:w-full xl:max-h-max xl:max-w-xl"
             src="LearningLovePage/learning-love-book-cover.png"
+            alt="Learning Love Book Cover"
           />
 
           <Testimonial
@@ -141,7 +142,11 @@ export default function LearningLovePage() {
       <Section classNameInner="text-left lg:grid lg:grid-cols-2 lg:gap-32">
         <Text.Heading className="mb-4 lg:hidden" content="Note From The Author" />
 
-        <Image className="mb-4 mx-auto lg:hidden" src="LearningLovePage/thais.jpg" />
+        <Image
+          className="mb-4 mx-auto lg:hidden"
+          src="LearningLovePage/thais.jpg"
+          alt="Thais Gibson Portrait"
+        />
 
         <div>
           <Text.Heading
@@ -169,7 +174,11 @@ export default function LearningLovePage() {
             size={20}
           />
 
-          <Image className="w-1/2 max-w-36 my-12" src="thais-gibson-signature.svg" />
+          <Image
+            className="w-1/2 max-w-36 my-12"
+            src="thais-gibson-signature.svg"
+            alt="Thais Gibson Signature"
+          />
 
           <Button label="Buy Now" />
         </div>
@@ -177,6 +186,7 @@ export default function LearningLovePage() {
         <Image
           className="hidden bg-[#E6E6E6] rounded-20 lg:block"
           src="RoyalRumbleResultsPage/thais-desktop.png"
+          alt="Thais Gibson Portrait"
         />
       </Section>
 
@@ -213,7 +223,11 @@ export default function LearningLovePage() {
         </div>
       </Section>
 
-      <Image className="w-full md:hidden" src="LearningLovePage/magazine-mockup.jpg" />
+      <Image
+        className="w-full md:hidden"
+        src="LearningLovePage/magazine-mockup.jpg"
+        alt="Learning Love Book Spread"
+      />
 
       <div className="hidden relative w-full bg-learning-love-parallax md:block">
         <div className="absolute w-24 top-0 left-0 h-full bg-gradient-to-r from-white to-transparent 2xl:via-white-80" />
@@ -270,18 +284,21 @@ export default function LearningLovePage() {
           className="sm:hidden w-full"
           src="LearningLovePage/book-mockup-2.png"
           fetchPriority="low"
+          alt="Learning Love Book Spread"
           loading="lazy"
         />
 
         <Image
           className="hidden sm:block lg:hidden w-full"
           src="LearningLovePage/book-mockup-2-desktop.png"
+          alt="Learning Love Book Cover"
         />
 
         <div className="lg:grid lg:grid-cols-12 lg:items-center lg:mt-2 lg:gap-12 2xl:gap-16">
           <Image
             className="hidden w-full lg:block lg:col-span-5"
             src="LearningLovePage/book-mockup-2-desktop.png"
+            alt="Learning Love Book Cover"
           />
 
           <div className="text-left lg:col-start-6 lg:col-span-7">
@@ -342,6 +359,7 @@ interface IAttachmentStyleCardProps {
   classNameImage?: string
   header: string
   img: string
+  alt: string
   text: string
 }
 
@@ -350,6 +368,7 @@ const AttachmentStyleCard = ({
   classNameImage,
   header,
   img,
+  alt,
   text,
 }: IAttachmentStyleCardProps) => {
   return (
@@ -357,6 +376,7 @@ const AttachmentStyleCard = ({
       <Image
         className={cx('mx-auto lg:mx-0 lg:w-16', classNameImage)}
         src={`LearningLovePage/${img}`}
+        alt={alt}
       />
 
       <div className="lg:ml-6 lg:flex-grow">
@@ -377,23 +397,27 @@ const AttachmentStyleCards = [
     classNameHeader: 'text-[#E12D6E]',
     header: 'Anxious Preoccupied: ',
     img: 'hands.png',
+    alt: 'Hands Logo',
     text: 'individuals who fear abandonment and often people-please to avoid it.',
   },
   {
     classNameHeader: 'text-blue-tertiary',
     header: 'Dismissive Avoidant: ',
     img: 'heart-puzzle.png',
+    alt: 'Puzzle Heart Logo',
     text: 'highly independent individuals who can withdraw in emotional situations.',
   },
   {
     classNameHeader: 'text-purple-dark-secondary',
     header: 'Fearful Avoidant: ',
     img: 'flame.png',
+    alt: 'Flame Logo',
     text: 'those who are “hot and cold” in relationships due to their fear of betrayal.',
   },
   {
     header: 'Secure Attachment: ',
     img: 'heart.png',
+    alt: 'Heart Logo',
     text: 'those who are effective at communicating their needs and thrive in their relationships.',
   },
 ]
@@ -430,7 +454,11 @@ const Button = ({ className, label }: IButtonProps) => {
       )}
       onClick={onGoToAmazon}>
       <div className="flex items-center font-bold">
-        <Image className="hidden lg:block lg:mr-4" src="LearningLovePage/gift.svg" />
+        <Image
+          className="hidden lg:block lg:mr-4"
+          src="LearningLovePage/gift.svg"
+          alt="Gift Logo"
+        />
 
         <span>{label}</span>
       </div>

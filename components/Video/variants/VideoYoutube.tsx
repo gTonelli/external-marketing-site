@@ -1,17 +1,19 @@
 'use client'
 
 // core
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useContext, useState } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
 import { Text } from '@/components/Text/Text'
-import { Image } from '@/components/Image'
+import Image from 'next/image'
 import { Dialog } from '@/components/Dialog/Dialog'
 // libraries
 import cx from 'classnames'
 import YouTube, { YouTubeProps } from 'react-youtube'
 // utils
 import { useWindowWidth } from '@/utils/hooks'
+import Mixpanel from '@/modules/Mixpanel'
+import { PageContext } from '@/utils/contexts'
 
 interface IYouTubeProps extends YouTubeProps {
   /** Button label */
@@ -44,6 +46,8 @@ interface IYouTubeProps extends YouTubeProps {
   onPlay?(): void
   /* Event called when the video is ready */
   onPlayerReady?(): void
+  /** ID for recording whether the video has been played */
+  type?: string
   /* Youtube video id */
   videoId: string
 }
@@ -59,13 +63,34 @@ export const VideoYoutube = ({
   playButtonSize,
   maxHeight = 300,
   thumbnail = 'RoyalRumblePage/rr-video-thumbnail.png',
+  type,
 }: IYouTubeProps) => {
   // ==================== State ====================
   const [isDialogShown, setIsDialogShown] = useState<boolean>(false)
+  const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
+  // ==================== Context ====================
+  const page_name = useContext(PageContext)?.page_name
+
+  const onVideoStarted = () => {
+    if (!type) return
+    if (!watchedVideos.has(type)) {
+      Mixpanel.track.VideoStarted({
+        video_type: `${type} - ${page_name}`,
+        page_name: page_name,
+      })
+    }
+
+    setWatchedVideos(new Set<string>([...watchedVideos, type]))
+  }
 
   const onToggleDialog = useCallback(() => {
     setIsDialogShown(!isDialogShown)
   }, [isDialogShown, setIsDialogShown])
+
+  const _onPlay = () => {
+    onPlay?.()
+    onVideoStarted()
+  }
 
   //Auto play when click on thumbnail play
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
@@ -90,7 +115,7 @@ export const VideoYoutube = ({
             },
           }}
           videoId={videoId}
-          onPlay={onPlay}
+          onPlay={_onPlay}
           onReady={onPlayerReady}
         />
       </Dialog>
@@ -122,8 +147,16 @@ export const VideoYoutube = ({
                   className
                 )}
                 onClick={() => setIsDialogShown(true)}>
-                <Image className="rounded-10" src={thumbnail} />
                 <Image
+                  alt=""
+                  className="rounded-10"
+                  src={thumbnail}
+                  tabIndex={-1}
+                  width={425}
+                  height={239}
+                />
+                <Image
+                  alt=""
                   className={cx(
                     'clickable absolute z-10 w-8 h-8',
                     playButtonSize === 'small' && 'w-8 h-8',
@@ -132,7 +165,10 @@ export const VideoYoutube = ({
                     // default - size adjusts based on the screen size
                     !playButtonSize && 'w-8 h-8 lg:w-16 lg:h-16 '
                   )}
-                  src="play_icon.svg"
+                  src="/images/play_icon.svg"
+                  tabIndex={-1}
+                  width={64}
+                  height={64}
                 />
               </div>
             )

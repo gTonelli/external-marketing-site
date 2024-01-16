@@ -83,16 +83,19 @@ export const TRIAL_HEADSPACE = {
         img: 'ratings.png',
         stat: '99.7%',
         copy: 'Satisfaction rate',
+        alt: '5 Stars in a row',
       },
       {
         img: 'globe.png',
         stat: '113+',
         copy: 'Countries worldwide',
+        alt: 'A vector image of the globe',
       },
       {
         img: 'heart.png',
         stat: '88.7%',
         copy: 'Relationship improvement',
+        alt: 'A purple heart',
       },
     ],
     bullets: {

@@ -6,12 +6,13 @@ import { Text } from '@/components/Text/Text'
 import { TestimonialSection } from '@/components/TestimonialSection'
 import { Page } from '@/components/Page'
 import { Video } from '@/components/Video/Video'
+import { Articles } from '@/components/Articles'
+import { CommunityTeaser } from '@/components/CommunityTeaser'
+import { PaymentOptions } from '@/components/PaymentOptions'
 // config
 import { TRIAL_HEADSPACE as TH } from './config'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { Articles } from '@/components/Articles'
-import { CommunityTeaser, PaymentOptions } from '@/components/CommunityTeaser'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 

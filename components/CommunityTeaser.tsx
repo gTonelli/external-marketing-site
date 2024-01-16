@@ -1,7 +1,7 @@
 // components
 import { Icon } from './Icon'
 import Image from 'next/image'
-import { PaymentOptions } from './PaymentOptionCards'
+import { PaymentOptions } from './PaymentOptions'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(default-layout)/dream-life/config'
 

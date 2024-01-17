@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 type TGTMEvent = 'form_tracking' | 'quiz_tracking'
 
 /** Collection of Google Analytic categories used in tracking custom events */
-type TGTMCategory = 'Attachment Quiz' | 'Quiz'
+type TGTMCategory = 'Attachment Quiz' | 'Codependency Quiz' | 'Quiz' 
 
 /** Collection of Google Analytic actions used in tracking custom events */
 type TGTMAction = 'Form' | 'Finished'

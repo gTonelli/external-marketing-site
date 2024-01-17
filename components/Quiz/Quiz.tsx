@@ -12,6 +12,7 @@ import { FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import { useGoogleTagManager } from '@/modules/GTM'
 
 const quizValidationScehma = Yup.object()
 
@@ -34,6 +35,9 @@ export const Quiz = ({
   validationSchema = quizValidationScehma,
   quizName,
 }: IQuizProps) => {
+  // ============ Hooks ===============
+  const tagManager = useGoogleTagManager()
+
   // ============= State ==============
   const [quizState, setQuizState] = useState<TQuizStates>('preQuiz')
   const [result, setResult] = useState(0)
@@ -58,6 +62,13 @@ export const Quiz = ({
   }
 
   const onAfterSubmit = () => {
+    tagManager?.track({
+      event: 'form_tracking',
+      eventCategory: 'Codependency Quiz',
+      eventAction: 'Form',
+      eventLabel: 'Submit',
+    })
+
     const url = getResult(result, outputs).reportUrl
     if (url) {
       window.location.assign(url)

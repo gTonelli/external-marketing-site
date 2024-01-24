@@ -115,13 +115,17 @@ export const RESULTS = {
           "This course will also help you recognize what attachment style someone else is so you can learn what needs they have. For a relationship to last and also actually be fulfilling, we have to clearly understand what each other's needs and desires are. ",
         copy10:
           "And if you don't know your own needs in relationships, how can you ever possibly get them met? Learning this can save you years of wasted time on failed relationships, painful breakups, and energy poured into the relationship rollercoaster instead of towards your dreams and fulfilling your life's potential.",
+        thumbnail: {
+          src: 'RoyalRumbleResultsPage/video_thumbnail_fa.jpg',
+          alt: '7 Days to Transform Relationship Course Thumbnail'
+        }
       },
     },
     PROMOTION_3: {
       copy1:
         "In case you're wondering, I'll be teaching the course and guiding you every step of the way. ",
       copy2:
-        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing. So much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more! I also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
+        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing.\n\nSo much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more!\n\nI also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
       copy3:
         'Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 200,000 subscribers.',
       copy4:
@@ -208,7 +212,7 @@ export const RESULTS = {
         'DO YOU DESIRE A LOVING, COMMITTED PARTNER WITHOUT FEELING CONFUSED OR UNCERTAIN ABOUT YOUR RELATIONSHIP?',
       subheadline: `Learn About The Anxious Patterns Behind Your Romantic Relationships!`,
       videoURL: 'rg0tm16tLYQ',
-      title: 'Who Is Anxious Preoccupied?',
+      title: 'Who Is The Anxious Preoccupied?',
       copy: "You have an anxious preoccupied attachment style. I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached in this video!",
     },
     STYLE_TRAITS: {
@@ -253,13 +257,13 @@ export const RESULTS = {
         `WHEN YOU TAKE OUR "ANXIOUS PREOCCUPIED TO SECURE RELATIONSHIP PROGRAM" COURSE, YOU'LL LEARN...`,
         bullets: {
         left: [ 
-          `The **origins of your fear of abandonment and betrayal** and the **tools to help you overcome it.**`,
+          `**The life-changing strategies** that help you manage your emotions and self-soothing so you can self-regulate without depending on others.`,
           `The ability to set healthy boundaries for yourself in a relationship **so you never "lose yourself" in one again.**`,
           `About your relationship expectations and "non-negotiables" **while setting up new standards for yourself.**`
         ],
         right: [
-          `**The life-changing strategies** that help you manage your emotions and self-soothing so you can self-regulate without depending on others.`,
           `**How to ask what you need in a relationship** – like reassurance or consistency – from your partner right from the start.`,
+          `The **origins of your fear of abandonment and betrayal** and the **tools to help you overcome it.**`,
           `The specific subconscious tools help you detect others' needs, fears, and boundaries **to quickly tell if they’re a fit or a mismatch for you.**`
         ],
       },
@@ -321,13 +325,17 @@ export const RESULTS = {
           "This unique program provides three simple steps to leave your anxious preoccupied attachment style patterns behind and become securely attached. You'll learn where your fear of abandonment originates from, how to set healthy boundaries, and, most importantly, what you need in a relationship.",
         copy10:
           "\n\nBy learning the strategies to manage your emotions while using techniques to recognize other people's needs, fears, and boundaries, you can find your perfect partner that meets your needs, ending the cycle of anxious relationships and heartbreak.",
+        thumbnail: {
+          src: 'RoyalRumbleResultsPage/video_thumbnail_ap.jpg',
+          alt: 'Anxious Preoccupied to Securely Attached Thumbnail'
+        }
       },
     },
     PROMOTION_3: {
       copy1:
         "In case you're wondering, I'll be teaching the course and guiding you every step of the way. ",
       copy2:
-        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing. So much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more! I also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
+        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing.\n\nSo much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more!\n\nI also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
       copy3:
         'Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 200,000 subscribers.',
       copy4:
@@ -360,9 +368,9 @@ export const RESULTS = {
 
     PROMOTION_4: {
       copy1:
-        "Still on the fence about whether this course could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
+        "Still on the fence about whether this program could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
       copy2:
-        'Signing up for this course comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
+        'Signing up for this program comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
       title: 'I want to ask you to courageously reflect:',
       bullets: [
         'How has not learning about this part of your life affected you so far? Has it been working for you?',
@@ -373,7 +381,7 @@ export const RESULTS = {
       copy3:
         "Now just imagine what life would look like if another 1, 3 or 5 years – or maybe even decades – go by and you're still struggling with these patterns? Or, by taking action today, you could experience a different reality starting right now.",
       copy4:
-        'Remember, this simple course will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
+        'Remember, this simple program will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
       copy5:
         'In less than an hour, you will learn three simple steps to leave your painful attachment style patterns behind. This will empower you to create more attraction, chemistry and deeper connection in your love life - without the fear of losing yourself in relationships.',
       copy6:
@@ -411,10 +419,10 @@ export const RESULTS = {
   da: {
     HERO_SECTION: {
       headline:
-        'ARE YOU READY FOR AN AUTHENTIC, HARMONIOUS, LOW-MAINTENANCE RELATIONSHIP WHILE STILL HAVING YOUR INDEPENDENCE AND FREEDOM?',
+        'ARE YOU READY FOR A HARMONIOUS, LOW-MAINTENANCE RELATIONSHIP WHILE STILL HAVING YOUR INDEPENDENCE AND FREEDOM?',
       subheadline: `Discover Why Your Dismissive Style Is Affecting Your Relationship!`,
       videoURL: '46LShiTH07c',
-      title: 'Who Is The The Dismissive Avoidant?',
+      title: 'Who Is The Dismissive Avoidant?',
       copy: "You have a dismissive avoidant attachment style. I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached in this video!",
     },
     STYLE_TRAITS: {
@@ -445,7 +453,7 @@ export const RESULTS = {
       bullets: [
         `Your attachment style represents the subconscious set of rules you learned about love and relationships. Dismissive Avoidants (DAs) often didn't receive emotional support in childhood, making them independent and desiring easy-going relationships.`,
         "When someone has a different attachment style than you, it's no different than trying to play a board game with someone who has a completely different set of rules for how to play the game.",
-        "When you have a different set of rules and expectations for love, it's easy for things to be more confusing, defeating and overwhelming than they need to be. This can lead to issues finding, forming, or maintaining relationships.",
+        "When you have a different set of rules and expectations for love, it's easy for things to be more confusing, defeating, and overwhelming than they need to be. This can lead to issues finding, forming, or maintaining relationships.",
       ],
     },
     GOOD_NEWS: {
@@ -466,7 +474,7 @@ export const RESULTS = {
         right: [
           `**The differences between compromise and sacrifices**, so you don’t always feel like people expect too much from you.`,
           `How to get comfortable with your feelings **rather than just shutting them down.**`,
-          `**The tools to recognize the needs, fears, and boundaries of other people** so that you can tell more quickly if they’re a fit or a mismatch for you.`
+          `**The tools to recognize the needs, fears, and boundaries of other people** to see if they’re a match.`
         ],
       },
       copy1:
@@ -527,13 +535,17 @@ export const RESULTS = {
           "It only takes 7 days to experience substantial breakthroughs in the way you date and in your relationships. Not only will you understand where your attachment styles originate from, as well as your triggers and fears, but you'll also learn the techniques to challenge and change these behavioral thoughts and patterns.\n\n",
         copy10:
           "The results speak for themselves. Our students have enjoyed up to 3X more success and confidence in their dating life and up to a 50% jump in relationship communication and conflict management. You can enjoy these benefits too with our course.",
+        thumbnail: {
+          src: 'RoyalRumbleResultsPage/video_thumbnail_da.jpg',
+          alt: 'Dismissive Avoidant to Securely Attached Thumbnail'
+        }
       },
     },
     PROMOTION_3: {
       copy1:
         "In case you're wondering, I'll be teaching the course and guiding you every step of the way. ",
       copy2:
-        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing. So much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more! I also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
+        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing.\n\nSo much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more!\n\nI also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
       copy3:
         'Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 200,000 subscribers.',
       copy4:
@@ -566,9 +578,9 @@ export const RESULTS = {
 
     PROMOTION_4: {
       copy1:
-        "Still on the fence about whether this course could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
+        "Still on the fence about whether this program could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
       copy2:
-        'Signing up for this course comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
+        'Signing up for this program comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
       title: 'I want to ask you to courageously reflect:',
       bullets: [
         'How has not learning about this part of your life affected you so far? Has it been working for you?',
@@ -579,7 +591,7 @@ export const RESULTS = {
       copy3:
         "Now just imagine what life would look like if another 1, 3 or 5 years – or maybe even decades – go by and you're still struggling with these patterns? Or, by taking action today, you could experience a different reality starting right now.",
       copy4:
-        'Remember, this simple course will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
+        'Remember, this simple program will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
       copy5:
         'In less than an hour, you will learn three simple steps to leave your painful attachment style patterns behind. This will empower you to create more attraction, chemistry and deeper connection in your love life - without the fear of losing yourself in relationships.',
       copy6:
@@ -621,7 +633,7 @@ export const RESULTS = {
       subheadline: `Learn why you’re comfortable in relationships, but struggle with different types of partners.`,
       videoURL: 'RBhxl6xR69U',
       title: 'Who Is Securely Attached?',
-      copy: "You have a secure attachment style. I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached in this video! ",
+      copy: "You have a secure attachment style. I’ll help explain where this style originated from, your patterns, and how you can truly form and connect with your partner in this video!",
     },
     STYLE_TRAITS: {
       bullets_left: [
@@ -733,13 +745,17 @@ export const RESULTS = {
           "Our program will help you recognize your attachment style, triggers, and needs while helping you understand everyone else's. With tools and techniques that can be easily applied, you can form stronger, healthier, and fulfilling relationships.\n\n",
         copy10:
           "Without having the foundations set, you won't be able to work with your partner to overcome any challenges or issues as a team. By knowing how a secure and insecure attachment style can work, you'll move past potential pitfalls and put energy into building a future together.",
+        thumbnail: {
+          src: 'RoyalRumbleResultsPage/video_thumbnail_sa.jpg',
+          alt: 'Master Your Emotions Thumbnail'
+        }
       },
     },
     PROMOTION_3: {
       copy1:
         "In case you're wondering, I'll be teaching the course and guiding you every step of the way. ",
       copy2:
-        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing. So much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more! I also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
+        "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing.\n\nSo much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more!\n\nI also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
       copy3:
         'Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 200,000 subscribers.',
       copy4:
@@ -772,9 +788,9 @@ export const RESULTS = {
 
     PROMOTION_4: {
       copy1:
-        "Still on the fence about whether this course could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
+        "Still on the fence about whether this program could actually fix your relationship struggles once and for all? I get it, especially if you've tried everything else before.",
       copy2:
-        'Signing up for this course comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
+        'Signing up for this program comes at no risk to you at all with our 7-day money-back guarantee. If you decide that the course or our school isn’t for you, just let us know within your first 7 days and we’ll give you a full refund, no questions asked!',
       title: 'I want to ask you to courageously reflect:',
       bullets: [
         'How has not learning about this part of your life affected you so far? Has it been working for you?',
@@ -785,7 +801,7 @@ export const RESULTS = {
       copy3:
         "Now just imagine what life would look like if another 1, 3 or 5 years – or maybe even decades – go by and you're still struggling with these patterns? Or, by taking action today, you could experience a different reality starting right now.",
       copy4:
-        'Remember, this simple course will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
+        'Remember, this simple program will help you understand yourself more deeply, heal old wounds and finally feel comfortable and at ease in love.',
       copy5:
         'In less than an hour, you will learn three simple steps to leave your painful attachment style patterns behind. This will empower you to create more attraction, chemistry and deeper connection in your love life - without the fear of losing yourself in relationships.',
       copy6:

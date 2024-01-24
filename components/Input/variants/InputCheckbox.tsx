@@ -26,7 +26,7 @@ export const InputCheckbox = ({
     if (!isDisabled && onChange) {
       onChange(!value)
     }
-  }, [value])
+  }, [isDisabled, onChange, value])
 
   return (
     <div className={cx('flex items-center flex-nowrap space-x-3', className)} onClick={_onChange}>

@@ -11,7 +11,7 @@ interface IErrorProps {
 export default function ErrorMessage({ message }: IErrorProps) {
   useEffect(() => {
     Sentry.captureMessage(message)
-  }, [])
+  }, [message])
 
   return (
     <p className="mb-4">

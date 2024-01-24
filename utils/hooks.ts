@@ -88,7 +88,7 @@ export function useScrollPercentage(): [MutableRefObject<any>, number] {
         node.removeEventListener('scroll', throttleScroll)
       }
     }
-  })
+  }, [scrollPercentage])
 
   return [scrollRef, Number.isNaN(scrollPercentage) ? 0 : scrollPercentage]
 }
@@ -203,7 +203,7 @@ export function useCheckoutSplitTest({
     }
     setCheckoutLink(destination)
     setUsingVariant(useCheckoutVariant)
-  }, [])
+  }, [controlPriceUrl, storageKey, userStyle, variantPriceUrl, variantTrafficRatio])
 
   return { checkoutLink, usingVariant }
 }

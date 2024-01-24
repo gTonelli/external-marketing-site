@@ -24,7 +24,7 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
 
   useEffect(() => {
     Mixpanel.track.PageViewed({ page_name })
-  }, [])
+  }, [page_name])
 
   return (
     <ViewportContext.Provider value={viewportValues}>

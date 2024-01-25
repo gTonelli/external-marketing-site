@@ -10,6 +10,7 @@ interface IErrorProps {
 
 export default function ErrorMessage({ message }: IErrorProps) {
   useEffect(() => {
+    console.error(message)
     Sentry.captureMessage(message)
   }, [message])
 

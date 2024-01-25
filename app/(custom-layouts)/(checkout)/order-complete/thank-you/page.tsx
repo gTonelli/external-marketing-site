@@ -69,11 +69,14 @@ export default function ThankYouPage() {
         Check out the video below to learn how to start your journey to find happiness and love.
       </p>
 
-      <Video.Large
-        className="shadow-center-light"
-        srcUrl="https://storage.googleapis.com/pds_videos/welcome-to-pds.mp4"
-        thumbnailUrl="/checkout-thankyou.jpg"
-      />
+      <div className="p-2 bg-white shadow-center-light rounded-10 xxs:p-3 xs:p-4 lg:p-6 lg:rounded-20">
+        <Video.Youtube
+          videoId="CN5lNJLed7M"
+          className="max-w-screen-2xl"
+          thumbnail="/checkout-thankyou.jpg"
+          maxHeight={768}
+        />
+      </div>
     </Section>
   )
 }

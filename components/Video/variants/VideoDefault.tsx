@@ -89,8 +89,8 @@ export const VideoDefault = ({
 
   const toggleVideo = useCallback(() => {
     onToggleDialog()
-    setIsPlaying(!isPlaying)
-  }, [isPlaying, onToggleDialog])
+    setIsPlaying((prev) => !prev)
+  }, [onToggleDialog])
 
   useEffect(() => {
     playAuto && toggleVideo()

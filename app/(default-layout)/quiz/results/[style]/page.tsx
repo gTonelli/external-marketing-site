@@ -49,7 +49,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
   useEffect(() => {
     setTitleStart(userFirstName ? userFirstName.toUpperCase() + ', ' : '')
     setOfferEndDate(getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1))
-  }, [])
+  }, [userFirstName])
 
   // ================== Events =====================
   const onGoToCheckout = useCallback(

@@ -7,6 +7,7 @@ import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
 import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
 import { FormikValues, Formik, Form } from 'formik'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -17,28 +18,17 @@ export default function ThankYouPage() {
   // ============ State ==============
   const searchParams = useSearchParams()
   const newUser = searchParams.get('new_user') === 'true'
-  const email = decodeURIComponent(searchParams.get('email') || '')
-
-  useEffect(() => {
-    if (email) {
-      Mixpanel.setUser(email)
-    }
-  }, [email])
 
   return (
     <Section>
-      <h3>Your Purchase Was Successful!</h3>
-
       {newUser ? (
         <>
-          <p className="my-4">
-            Complete your account setup to access The Personal Development School.
-          </p>
-
           <SetPasswordContent />
         </>
       ) : (
         <>
+          <h3>Your Purchase Was Successful!</h3>
+
           <p className="my-4">
             Thank you for joining the wonderful community at The Personal Development School! It
             looks like you already have an account with us, please sign in below start your personal
@@ -90,8 +80,19 @@ const passwordFormValidationSchema = Yup.object({
 })
 
 const SetPasswordContent = () => {
+  const firstName = Storage.get('userFirstName')
+  const lastUserEmail = Storage.get('lastUserEmail')
   // =========== State =============
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [dashboardLink, setDashboardLink] = useState(
+    lastUserEmail
+      ? (process.env.NEXT_PUBLIC_THINKIFIC_URL ||
+          'https://university.personaldevelopmentschool.com') +
+          `/users/express_signin?email=${lastUserEmail}`
+      : (process.env.NEXT_PUBLIC_THINKIFIC_URL ||
+          'https://university.personaldevelopmentschool.com') + '/enrollments'
+  )
   const [submissionError, setSubmissionError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -107,7 +108,9 @@ const SetPasswordContent = () => {
       const response = await res.json()
 
       if (response.success) {
-        window.location.assign(response.destination)
+        setDashboardLink(response.destination)
+        setIsSubmitting(false)
+        setIsSubmitted(true)
       } else {
         setSubmissionError(true)
         setErrorMessage(response.message)
@@ -122,9 +125,29 @@ const SetPasswordContent = () => {
 
   if (isSubmitting) return <Loader className="!py-4 mb-4" />
 
+  if (isSubmitted)
+    return (
+      <>
+        <h3>Thank You{firstName && `, ${firstName}`}!</h3>
+
+        <p className="my-4">Your account is setup, and we just sent you a welcome email!</p>
+
+        <p className="my-4">You can now being your journey at The Personal Development School</p>
+
+        <Link href={dashboardLink}>
+          <Button label="Start Learning" />
+        </Link>
+      </>
+    )
+
   return (
     <>
-      <p>Additionally, don't forget to set your password below!</p>
+      <h3>Your Purchase Was Successful!</h3>
+
+      <p className="my-4">
+        Complete your account setup to access The Personal Development School by setting your
+        password:
+      </p>
 
       <Formik
         initialValues={{}}

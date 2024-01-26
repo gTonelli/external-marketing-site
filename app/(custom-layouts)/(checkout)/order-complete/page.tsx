@@ -5,6 +5,7 @@ import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -15,9 +16,10 @@ export default function OrderCompletePage() {
   const [finalizeError, setFinalizeError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const fbq = useFacebookPixel()
-  const cookies = new Cookies()
 
   useEffect(() => {
+    const cookies = new Cookies()
+
     fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/thinkific-checkout-finalize', {
       method: 'POST',
       cache: 'no-cache',
@@ -36,6 +38,10 @@ export default function OrderCompletePage() {
       }
       if (response.email) {
         Mixpanel.setUser(response.email)
+        Storage.set('lastUserEmail', response.first_name)
+      }
+      if (response.first_name && typeof response.first_name === 'string') {
+        Storage.set('userFirstName', response.first_name)
       }
 
       fbq?.event('Purchase', {
@@ -64,7 +70,7 @@ export default function OrderCompletePage() {
         window.location.assign(response.destination)
       }
     })
-  }, [])
+  }, [fbq, session_id])
 
   if (finalizeError) {
     return (

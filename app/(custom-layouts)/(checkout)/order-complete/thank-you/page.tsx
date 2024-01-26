@@ -143,9 +143,13 @@ const SetPasswordContent = ({ email }: ISetPasswordContentProps) => {
   if (submissionError) {
     return email ? (
       <>
-        <h3>Something went wrong{firstName && `, ${firstName}`}.</h3>
+        <h3>Something went wrong{firstName && `, ${firstName}`}</h3>
 
-        <p className="my-4">
+        <p className="mb-3 mt-1 text-sm">
+          We've just sent you a welcome email where you can complete your account setup
+        </p>
+
+        <p className="mb-4">
           Let’s try that again, complete your account setup to access The Personal Development
           School
         </p>
@@ -169,11 +173,13 @@ const SetPasswordContent = ({ email }: ISetPasswordContentProps) => {
   if (isSubmitted)
     return (
       <>
-        <h3>Thank You{firstName && `, ${firstName}`}!</h3>
+        <h3>Thank You{firstName && `, ${firstName}`}</h3>
 
-        <p className="my-4">Your account is setup, and we've just sent you a welcome email!</p>
+        <p className="mb-3 mt-1 text-sm">
+          Your account is all set, and we've just sent you a welcome email!
+        </p>
 
-        <p className="my-4">You can now being your journey at The Personal Development School</p>
+        <p className="mb-4">You can now being your journey at The Personal Development School</p>
 
         <Link href={dashboardLink}>
           <Button label="Start Learning" />
@@ -183,12 +189,9 @@ const SetPasswordContent = ({ email }: ISetPasswordContentProps) => {
 
   return (
     <>
-      <h3>Your Purchase Was Successful!</h3>
+      <h3>Your purchase was successful!</h3>
 
-      <p className="my-4">
-        Complete your account setup to access The Personal Development School by setting your
-        password:
-      </p>
+      <p className="my-4">Complete your account setup to access The Personal Development School</p>
 
       <Formik
         initialValues={passwordFormInitialValues}

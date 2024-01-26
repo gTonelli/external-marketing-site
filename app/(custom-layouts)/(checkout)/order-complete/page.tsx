@@ -19,6 +19,7 @@ export default function OrderCompletePage() {
 
   useEffect(() => {
     const cookies = new Cookies()
+    if (!fbq || !session_id) return
 
     fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/thinkific-checkout-finalize', {
       method: 'POST',

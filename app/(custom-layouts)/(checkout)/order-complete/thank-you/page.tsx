@@ -65,7 +65,7 @@ export default function ThankYouPage() {
           videoId="CN5lNJLed7M"
           className="max-w-screen-2xl"
           playButtonSize="large"
-          thumbnail="/checkout-thankyou.png"
+          thumbnail="/images/checkout-thankyou.png"
           maxHeight={768}
         />
       </div>

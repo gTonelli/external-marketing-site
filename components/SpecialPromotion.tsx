@@ -529,7 +529,7 @@ export const SpecialPromotion = () => {
           className=" rounded-10 mx-auto"
           iframeClassName="rounded-10"
           maxHeight={432}
-          thumbnail="BlackFridayPage/mha-video-thumbnail.png"
+          thumbnail="/images/BlackFridayPage/mha-video-thumbnail.png"
           videoId="zpwXtAyKl6Q"
           onPlay={() => onVideoStarted('testimonial')}
         />

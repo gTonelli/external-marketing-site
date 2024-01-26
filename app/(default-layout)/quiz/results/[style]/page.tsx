@@ -92,7 +92,9 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
                   <Video.Youtube
                     maxHeight={512}
                     iframeClassName="rounded-20"
-                    thumbnail="RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
+                    thumbnail="/images/RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
+                    thumbnailWidth={465}
+                    thumbnailHeight={265}
                     videoId={RESULTS[style].HERO_SECTION.videoURL}
                     onPlay={() => onVideoStarted('default')}
                   />
@@ -548,7 +550,9 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
             <div className="mx-auto">
               <Video.Youtube
                 maxHeight={512}
-                thumbnail="RoyalRumbleResultsPage/testimonial_thumbnail.jpg"
+                thumbnail="/images/RoyalRumbleResultsPage/testimonial_thumbnail.jpg"
+                thumbnailWidth={503}
+                thumbnailHeight={287}
                 videoId={RESULTS[style].TESTIMONIAL_VIDEO_URL}
                 onPlay={() => onVideoStarted('testimonial')}
               />

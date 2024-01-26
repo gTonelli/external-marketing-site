@@ -60,11 +60,12 @@ export default function ThankYouPage() {
         Check out the video below to learn how to start your journey to find happiness and love.
       </p>
 
-      <div className="p-2 bg-white shadow-center-light rounded-10 xxs:p-3 xs:p-4 lg:p-6 lg:rounded-20">
+      <div className="p-2 max-w-screen-md bg-white shadow-center-light rounded-10 mx-auto xxs:p-3 xs:p-4 lg:p-6 lg:rounded-20">
         <Video.Youtube
           videoId="CN5lNJLed7M"
           className="max-w-screen-2xl"
-          thumbnail="/checkout-thankyou.jpg"
+          playButtonSize="large"
+          thumbnail="/checkout-thankyou.png"
           maxHeight={768}
         />
       </div>

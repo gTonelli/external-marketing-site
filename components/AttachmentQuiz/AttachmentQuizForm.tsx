@@ -31,7 +31,7 @@ export const AttachmentQuizForm = ({
 
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
-  const userTag = getClientTag({ userStyle })
+  const userTag = useClientTag({ userStyle })
   const router = useRouter()
 
   useEffect(() => {
@@ -94,11 +94,11 @@ export const AttachmentQuizForm = ({
   )
 }
 
-interface IGetClientTagProps {
+interface IUseClientTagProps {
   userStyle: TUserStyle
 }
 
-const getClientTag = ({ userStyle }: IGetClientTagProps) => {
+const useClientTag = ({ userStyle }: IUseClientTagProps) => {
   // ============= State =============
   const [tag, setTag] = useState('')
   // ============= Hooks =============

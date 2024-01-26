@@ -88,7 +88,7 @@ export function useScrollPercentage(): [MutableRefObject<any>, number] {
         node.removeEventListener('scroll', throttleScroll)
       }
     }
-  })
+  }, [scrollPercentage])
 
   return [scrollRef, Number.isNaN(scrollPercentage) ? 0 : scrollPercentage]
 }
@@ -175,7 +175,7 @@ export function useCheckoutSplitTest({
     process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? trafficRatio : 0.5
 
   useEffect(() => {
-    if (userStyle && userStyle !== 'ap') {
+    if (userStyle && userStyle !== 'fa') {
       setUsingVariant(false)
       return setCheckoutLink(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     }
@@ -203,7 +203,7 @@ export function useCheckoutSplitTest({
     }
     setCheckoutLink(destination)
     setUsingVariant(useCheckoutVariant)
-  }, [])
+  }, [controlPriceUrl, storageKey, userStyle, variantPriceUrl, variantTrafficRatio])
 
   return { checkoutLink, usingVariant }
 }

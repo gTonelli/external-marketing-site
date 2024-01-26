@@ -15,6 +15,11 @@ interface IHeaderProps {
    */
   clickableLogo?: boolean
   /**
+   * Logo Image element
+   * @default <PDSLogo />
+   */
+  logoElement?: JSX.Element
+  /**
    * Include a button to go back to the previous page?
    * @default false
    */
@@ -32,6 +37,7 @@ interface IHeaderProps {
 
 export const Header = ({
   clickableLogo = true,
+  logoElement,
   navLinks = NavLinks,
   includeGoBackButton = false,
   includeSideMenu = false,
@@ -46,10 +52,10 @@ export const Header = ({
         <div className="min-w-[108px] text-center">
           {clickableLogo ? (
             <a href="https://university.personaldevelopmentschool.com/collections">
-              <PDSLogo />
+              {logoElement || <PDSLogo />}
             </a>
           ) : (
-            <PDSLogo />
+            logoElement || <PDSLogo />
           )}
         </div>
 
@@ -129,6 +135,16 @@ const PDSLogo = () => (
     src="/images/pds-logo.png"
     height={70}
     width={70}
+  />
+)
+
+export const PDSLogoStacked = () => (
+  <Image
+    alt="PDS Logo - Tree of Life"
+    className="w-auto h-10 ml-0 lg:h-[70px] lg:mx-auto"
+    src="/images/pds-logo-stacked-right-primary.png"
+    height={70}
+    width={193}
   />
 )
 

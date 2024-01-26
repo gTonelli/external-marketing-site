@@ -65,7 +65,7 @@ export const AttachmentQuizQuestions = ({
         total_questions: modifiedQuestions.length,
       })
     }
-  }, [currentIndex, modifiedQuestions, Mixpanel])
+  }, [currentIndex, quizName])
 
   const trackProgressDesktop = useCallback(() => {
     const progress = (currentIndex / modifiedQuestions.length) * 100
@@ -77,7 +77,7 @@ export const AttachmentQuizQuestions = ({
         total_questions: modifiedQuestions.length,
       })
     }
-  }, [currentIndex, modifiedQuestions, Mixpanel])
+  }, [currentIndex, quizName])
 
   useEffect(() => {
     if (isMobile) {
@@ -90,7 +90,7 @@ export const AttachmentQuizQuestions = ({
       window.removeEventListener('visibilitychange', trackProgressMobile)
       window.removeEventListener('pagehide', trackProgressDesktop)
     }
-  }, [isMobile, currentIndex, modifiedQuestions, Mixpanel])
+  }, [currentIndex, trackProgressMobile, trackProgressDesktop])
 
   const onQuestionAnswer = useCallback(
     (answer: string) => () => {
@@ -153,15 +153,7 @@ export const AttachmentQuizQuestions = ({
       }
       setCurrentIndex(currentIndex + 1)
     },
-    [
-      currentIndex,
-      faPoints,
-      apPoints,
-      saPoints,
-      daPoints,
-      trackProgressDesktop,
-      trackProgressMobile,
-    ]
+    [apPoints, faPoints, daPoints, saPoints, currentIndex, userInfo, quizName, tagManager]
   )
 
   let options = null

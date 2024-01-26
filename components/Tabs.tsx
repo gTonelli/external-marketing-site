@@ -139,7 +139,7 @@ export function Tabs<TabIDs = undefined>({
 
   useEffect(() => {
     if (activeTab !== currentTab) setCurrentTab(activeTab)
-  }, [activeTab])
+  }, [activeTab, currentTab])
 
   const _onChangeTab = (tabId: TabIDs) => () => {
     setCurrentTab(tabId)

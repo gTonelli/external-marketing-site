@@ -81,24 +81,24 @@ export const VideoDefault = ({
   const [isDialogShown, setIsDialogShown] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
-  useEffect(() => {
-    playAuto && toggleVideo()
-  }, [])
-
-  useEffect(() => {
-    isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
-  }, [isPlaying])
-
   const onToggleDialog = useCallback(() => {
     if (playInline) return
 
     setIsDialogShown(!isDialogShown)
-  }, [isDialogShown, setIsDialogShown])
+  }, [isDialogShown, playInline])
 
   const toggleVideo = useCallback(() => {
     onToggleDialog()
-    setIsPlaying(!isPlaying)
-  }, [isPlaying, onToggleDialog])
+    setIsPlaying((prev) => !prev)
+  }, [onToggleDialog])
+
+  useEffect(() => {
+    playAuto && toggleVideo()
+  }, [playAuto, toggleVideo])
+
+  useEffect(() => {
+    isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
+  }, [isPlaying])
 
   return (
     <>

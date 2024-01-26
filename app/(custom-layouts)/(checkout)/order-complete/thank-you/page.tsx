@@ -6,12 +6,11 @@ import { Input } from '@/components/Input/Input'
 import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
-import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { FormikValues, Formik, Form } from 'formik'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import * as Yup from 'yup'
 
 export default function ThankYouPage() {
@@ -144,14 +143,12 @@ const SetPasswordContent = ({ email }: ISetPasswordContentProps) => {
   if (submissionError) {
     return email ? (
       <>
-        <h3>Thank You{firstName && `, ${firstName}`}!</h3>
+        <h3>Something went wrong{firstName && `, ${firstName}`}.</h3>
 
         <p className="my-4">
-          Your account is setup, and we just sent you a welcome email, but something went wrong when
-          setting your password.
+          Let’s try that again, complete your account setup to access The Personal Development
+          School
         </p>
-
-        <p className="mb-4">You can instead set your password on the next page:</p>
 
         <Link
           href={
@@ -159,7 +156,7 @@ const SetPasswordContent = ({ email }: ISetPasswordContentProps) => {
               'https://university.personaldevelopmentschool.com') +
             `/users/express_signin?email=${email}`
           }>
-          <Button label="Set Password" />
+          <Button label="Complete Setup" />
         </Link>
       </>
     ) : (
@@ -174,7 +171,7 @@ const SetPasswordContent = ({ email }: ISetPasswordContentProps) => {
       <>
         <h3>Thank You{firstName && `, ${firstName}`}!</h3>
 
-        <p className="my-4">Your account is setup, and we just sent you a welcome email!</p>
+        <p className="my-4">Your account is setup, and we've just sent you a welcome email!</p>
 
         <p className="my-4">You can now being your journey at The Personal Development School</p>
 

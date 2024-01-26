@@ -24,7 +24,7 @@ export default function ErrorMessage({ message }: IErrorProps) {
         and let us know!
       </p>
 
-      <strong>Error message: {message}</strong>
+      {typeof message === 'string' && <strong>Error message: {message}</strong>}
     </>
   )
 }

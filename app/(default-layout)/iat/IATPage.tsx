@@ -658,7 +658,7 @@ export const IATPage = () => {
           className=" rounded-10 mx-auto"
           iframeClassName="rounded-10"
           maxHeight={432}
-          thumbnail="IATPage/IAT-testimonial-thumbnail.png"
+          thumbnail="/images/IATPage/IAT-testimonial-thumbnail.png"
           videoId="tUUHFJw-VrI"
           onPlay={() => onVideoStarted('testimonial')}
         />

@@ -25,7 +25,7 @@ export const Expandable = ({
   const [shouldRender, setShouldRender] = useState(false)
   useEffect(() => {
     setShouldRender(true)
-  })
+  }, [setShouldRender])
 
   if (!shouldRender) return null
   else {

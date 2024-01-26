@@ -78,9 +78,11 @@ export default function AttachmentStyleNeedsBeliefsPage({
           </div>
           <div className="mt-6">
             <Video.Youtube
-              className="rounded-20 shadow-centered"
+              className="!rounded-20 shadow-centered"
               iframeClassName="w-full aspect-video rounded-10"
               maxHeight={498}
+              thumbnailWidth={415}
+              thumbnailHeight={234}
               videoId={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
               onPlay={onVideoStarted}
             />

@@ -22,12 +22,13 @@ import { Storage } from '@/modules/Storage'
 import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
+import { useCheckoutSplitTest } from '@/utils/hooks'
 
 export default function RoyalRumbleResultsPage({ params }: { params: { style: TStyle } }) {
   const style = params.style
   // ==================== Hooks ====================
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
-
+  const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.0 })
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const userFirstName = Storage.get('userFirstName')
@@ -48,7 +49,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
   useEffect(() => {
     setTitleStart(userFirstName ? userFirstName.toUpperCase() + ', ' : '')
     setOfferEndDate(getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1))
-  }, [])
+  }, [userFirstName])
 
   // ================== Events =====================
   const onGoToCheckout = useCallback(
@@ -59,9 +60,11 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
         seq_no: seq_no,
       })
 
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      window.location.assign(
+        checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+      )
     },
-    [style]
+    [style, checkoutLink]
   )
 
   return (
@@ -89,7 +92,9 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
                   <Video.Youtube
                     maxHeight={512}
                     iframeClassName="rounded-20"
-                    thumbnail="RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
+                    thumbnail="/images/RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
+                    thumbnailWidth={465}
+                    thumbnailHeight={265}
                     videoId={RESULTS[style].HERO_SECTION.videoURL}
                     onPlay={() => onVideoStarted('default')}
                   />
@@ -545,7 +550,9 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
             <div className="mx-auto">
               <Video.Youtube
                 maxHeight={512}
-                thumbnail="RoyalRumbleResultsPage/testimonial_thumbnail.jpg"
+                thumbnail="/images/RoyalRumbleResultsPage/testimonial_thumbnail.jpg"
+                thumbnailWidth={503}
+                thumbnailHeight={287}
                 videoId={RESULTS[style].TESTIMONIAL_VIDEO_URL}
                 onPlay={() => onVideoStarted('testimonial')}
               />

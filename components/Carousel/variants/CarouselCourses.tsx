@@ -69,14 +69,17 @@ export const CarouselCourses = ({
   const { windowWidth } = useContext(ViewportContext)
 
   //============================ Events ========================================
-  const onGoToCheckout = useCallback((event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: pageName as Pages,
-    })
+  const onGoToCheckout = useCallback(
+    (event: React.MouseEvent<Element, MouseEvent>) => {
+      Mixpanel.track.ButtonClicked({
+        button_label: (event.target as HTMLButtonElement).innerText,
+        page_name: pageName as Pages,
+      })
 
-    window.location.assign(checkoutLink)
-  }, [])
+      window.location.assign(checkoutLink)
+    },
+    [checkoutLink, pageName]
+  )
 
   return (
     <section className={cx('relative w-full', className)}>

@@ -64,7 +64,7 @@ export const AttachmentQuiz = ({
       quiz_name: quizName,
     })
     setViewQuiz(true)
-  }, [viewQuiz, quizName])
+  }, [quizName])
 
   if (!viewQuiz) {
     return (

@@ -18,7 +18,7 @@ export const NotFound = () => {
 
   const onClickHome = useCallback(() => {
     router.push(ERoutes.HOME)
-  }, [])
+  }, [router])
 
   return (
     <Page className="w-full flex flex-auto justify-center items-center" page_name="Not Found Page">

@@ -28,7 +28,7 @@ export default function RoyalRumbleResultsPage({ params }: { params: { style: TS
   const style = params.style
   // ==================== Hooks ====================
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
-  const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })
+  const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.0 })
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const userFirstName = Storage.get('userFirstName')

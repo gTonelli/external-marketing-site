@@ -93,8 +93,7 @@ export enum ERoutes {
   WELLNESS_PAGE = '/wellness',
 
   // Stripe Checkout
-  STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthlysubscription?discount_id=30offmonthlysubscription',
-  STRIPE_CHECKOUT_MONTHLY_59 = '/checkout/97monthlysubscription?discount_id=38offmonthlysubscription',
+  STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthly?discount_id=30off',
 }
 
 export enum EExternalRoutes {

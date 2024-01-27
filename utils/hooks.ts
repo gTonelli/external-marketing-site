@@ -147,7 +147,7 @@ interface IUseCheckoutSplitTestProps {
    * The URL of the variant price
    * @default ERoutes.STRIPE_CHECKOUT_MONTHLY_67
    */
-  variantPriceUrl?: ERoutes.STRIPE_CHECKOUT_MONTHLY_67 | ERoutes.STRIPE_CHECKOUT_MONTHLY_59
+  variantPriceUrl?: ERoutes.STRIPE_CHECKOUT_MONTHLY_67
   /**
    * Key for both localStorage and Mixpanel event's Variant Name
    * @default 'prod-2320-checkout-test'

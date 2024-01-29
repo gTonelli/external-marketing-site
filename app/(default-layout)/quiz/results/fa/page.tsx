@@ -21,11 +21,10 @@ import { Storage } from '@/modules/Storage'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
-import { TStyle } from '@/utils/types'
 import { useCheckoutSplitTest } from '@/utils/hooks'
 
-export default function RoyalRumbleResultsPage({ params }: { params: { style: TStyle } }) {
-  const style = params.style
+export default function RoyalRumbleResultsPage() {
+  const style = 'fa'
   // ==================== Hooks ====================
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
   const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })

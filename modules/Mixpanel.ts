@@ -43,6 +43,8 @@ export type Pages =
   | `7-Day Trial Page (Variant)`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
+  | `Attachment Style Report New - ${string}`
+  | `Attachment Style Report Old - ${string}`
   | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`

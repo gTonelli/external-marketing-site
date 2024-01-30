@@ -667,7 +667,7 @@ export default function LifeTimePage() {
           className="shadow-centered rounded-20 max-w-none"
           maxHeight={512}
           playButtonSize="medium"
-          thumbnail="course-emotional-mastery.jpg"
+          thumbnail="/images/course-emotional-mastery.jpg"
           videoId="1_GbEDgwgqE"
         />
       </section>

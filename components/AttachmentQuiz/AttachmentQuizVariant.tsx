@@ -40,7 +40,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
       setViewQuiz((prev) => !prev)
     }
     quizSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [viewQuiz])
+  }, [page_name, viewQuiz])
 
   return (
     <Page className="w-full" page_name={page_name}>

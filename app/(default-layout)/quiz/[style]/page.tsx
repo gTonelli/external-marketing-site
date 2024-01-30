@@ -1,8 +1,7 @@
 'use client'
 
 //core
-// eslint-disable-next-line simple-import-sort/imports
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { Page } from '@/components/Page'
 import { Text } from '@/components/Text/Text'
@@ -47,7 +46,6 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   // ==================== Hooks ====================
   const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
-  // const { checkoutLink } = useCheckoutSplitTest({ userStyle: style, trafficRatio: 0.2 })
 
   // ==================== State ====================
   const [titleStart, setTitleStart] = useState('')
@@ -55,12 +53,17 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
   const userFirstName = Storage.get('userFirstName')
 
+  const getTitleStart = useCallback(() => {
+    if (!userFirstName) return `You have `
+    return `${userFirstName}, you have `
+  }, [userFirstName])
+
   useEffect(() => {
     document.title = page_name
 
     setTitleStart(getTitleStart() + `${style === 'ap' ? 'an' : 'a'}`)
     setOfferEndDate(getOfferEndDate(new Date(`2023-01-21T00:00:00`), 1))
-  }, [])
+  }, [getTitleStart, page_name, style])
 
   //============================ Events ========================================
   const onGoToCheckout = useCallback(
@@ -74,11 +77,6 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
     },
     [style, ROYAL_RUMBLE]
   )
-
-  const getTitleStart = () => {
-    if (!userFirstName) return `You have `
-    return `${userFirstName}, you have `
-  }
 
   return (
     <Page className="w-full text-center z-10" page_name={`vsl-${style}`}>

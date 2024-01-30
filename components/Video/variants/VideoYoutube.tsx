@@ -40,6 +40,12 @@ interface IYouTubeProps extends YouTubeProps {
    * Thumbnail for the youtube video
    */
   thumbnail?: string
+  /** Alt text for thumbnail img */
+  thumbnailAlt?: string
+  /** Width in px of the thumbnail */
+  thumbnailWidth?: number
+  /** Height in px of the thumbnail */
+  thumbnailHeight?: number
   /* Event called when play button is clicked */
   onClick?(): void
   /* Event called when the video starts to play */
@@ -53,6 +59,9 @@ interface IYouTubeProps extends YouTubeProps {
 }
 
 export const VideoYoutube = ({
+  thumbnailAlt,
+  thumbnailWidth,
+  thumbnailHeight,
   buttonLabel,
   buttonType,
   className,
@@ -62,7 +71,7 @@ export const VideoYoutube = ({
   videoId,
   playButtonSize,
   maxHeight = 300,
-  thumbnail = 'RoyalRumblePage/rr-video-thumbnail.png',
+  thumbnail = '/images/RoyalRumblePage/rr-video-thumbnail.png',
   type,
 }: IYouTubeProps) => {
   // ==================== State ====================
@@ -148,27 +157,26 @@ export const VideoYoutube = ({
                 )}
                 onClick={() => setIsDialogShown(true)}>
                 <Image
-                  alt=""
+                  alt={thumbnailAlt || 'Youtube Video Thumbnail'}
                   className="rounded-10"
                   src={thumbnail}
                   tabIndex={-1}
-                  width={425}
-                  height={239}
+                  width={thumbnailWidth || 768}
+                  height={thumbnailHeight || 453}
                 />
                 <Image
-                  alt=""
+                  alt="Play Video Button"
                   className={cx(
-                    'clickable absolute z-10 w-8 h-8',
+                    'clickable absolute z-10',
                     playButtonSize === 'small' && 'w-8 h-8',
-                    playButtonSize === 'medium' && 'lg:w-16 lg:h-16',
-                    playButtonSize === 'large' && '2xl:w-28 2xl:h-28',
+                    playButtonSize === 'medium' && 'w-10 h-10 lg:w-16 lg:h-16',
+                    playButtonSize === 'large' && 'w-12 h-12 2xl:w-28 2xl:h-28',
                     // default - size adjusts based on the screen size
                     !playButtonSize && 'w-8 h-8 lg:w-16 lg:h-16 '
                   )}
                   src="/images/play_icon.svg"
-                  tabIndex={-1}
-                  width={64}
-                  height={64}
+                  width={32}
+                  height={32}
                 />
               </div>
             )

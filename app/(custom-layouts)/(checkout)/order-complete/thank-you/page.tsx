@@ -1,43 +1,34 @@
 'use client'
 
 import { Button } from '@/components/Button/Button'
-import { NotFound } from '@/components/NotFound'
+import ErrorMessage from '@/components/ErrorMessage'
+import { Input } from '@/components/Input/Input'
+import { Loader } from '@/components/Loader'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
+import { Storage } from '@/modules/Storage'
+import { FormikValues, Formik, Form } from 'formik'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
+import { useState } from 'react'
 import * as Yup from 'yup'
 
 export default function ThankYouPage() {
-  return <NotFound />
   // ============ State ==============
   const searchParams = useSearchParams()
   const newUser = searchParams.get('new_user') === 'true'
-  const email = decodeURIComponent(searchParams.get('email') || '')
+  const email = searchParams.get('email')
 
   return (
     <Section>
-      <h3>Welcome to The Personal Development School</h3>
-
-      {newUser && email ? (
+      {newUser ? (
         <>
-          <p className="my-4">
-            Thank you for creating an account at The Personal Development School! Please set your
-            password below to join our wonderful community and start your personal development
-            journey.
-          </p>
-
-          <Link
-            href={
-              (process.env.NEXT_PUBLIC_THINKIFIC_URL ||
-                'https://university.personaldevelopmentschool.com') +
-              `/users/express_signin?email=${encodeURIComponent(email)}`
-            }>
-            <Button label="Activate Account" />
-          </Link>
+          <SetPasswordContent email={email} />
         </>
       ) : (
         <>
+          <h3>Your Purchase Was Successful!</h3>
+
           <p className="my-4">
             Thank you for joining the wonderful community at The Personal Development School! It
             looks like you already have an account with us, please sign in below start your personal
@@ -68,11 +59,15 @@ export default function ThankYouPage() {
         Check out the video below to learn how to start your journey to find happiness and love.
       </p>
 
-      <Video.Large
-        className="shadow-center-light"
-        srcUrl="https://storage.googleapis.com/pds_videos/welcome-to-pds.mp4"
-        thumbnailUrl="/checkout-thankyou.jpg"
-      />
+      <div className="p-2 max-w-screen-md bg-white shadow-center-light rounded-10 mx-auto xxs:p-3 xs:p-4 lg:p-6 lg:rounded-20">
+        <Video.Youtube
+          videoId="CN5lNJLed7M"
+          className="max-w-screen-2xl"
+          playButtonSize="large"
+          thumbnail="/images/checkout-thankyou.png"
+          maxHeight={768}
+        />
+      </div>
     </Section>
   )
 }
@@ -83,4 +78,154 @@ const passwordFormValidationSchema = Yup.object({
     .required('Enter a password')
     .min(8, 'Password must be at least 8 characters')
     .default(''),
+  passwordConfirmation: Yup.string()
+    .ensure()
+    .required('Enter a password')
+    .oneOf([Yup.ref('password')], 'Passwords must match')
+    .min(8, 'Password must be at least 8 characters')
+    .default(''),
+  checkbox: Yup.boolean(),
 })
+
+const passwordFormInitialValues = passwordFormValidationSchema.cast({})
+
+interface ISetPasswordContentProps {
+  email?: string | null
+}
+
+const SetPasswordContent = ({ email }: ISetPasswordContentProps) => {
+  const firstName = Storage.get('userFirstName')
+  // =========== State =============
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [dashboardLink, setDashboardLink] = useState(
+    email
+      ? (process.env.NEXT_PUBLIC_THINKIFIC_URL ||
+          'https://university.personaldevelopmentschool.com') +
+          `/users/express_signin?email=${email}`
+      : (process.env.NEXT_PUBLIC_THINKIFIC_URL ||
+          'https://university.personaldevelopmentschool.com') + '/enrollments'
+  )
+  const [submissionError, setSubmissionError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const onSubmitPassword = (values: FormikValues) => {
+    setIsSubmitting(true)
+
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/thinkific-checkout-set-password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        password: values.password,
+        passwordConfirmation: values.passwordConfirmation,
+      }),
+      cache: 'no-cache',
+      credentials: 'include',
+    }).then(async (res) => {
+      const response = await res.json()
+
+      if (response.success) {
+        setDashboardLink(response.destination)
+        setIsSubmitting(false)
+        setIsSubmitted(true)
+      } else {
+        console.log('response', response)
+        setSubmissionError(true)
+        setErrorMessage(response.message)
+        setIsSubmitting(false)
+      }
+    })
+  }
+
+  if (submissionError) {
+    return email ? (
+      <>
+        <h3>Something went wrong{firstName && `, ${firstName}`}</h3>
+
+        <p className="mb-3 mt-1 text-sm">
+          We've just sent you a welcome email where you can complete your account setup
+        </p>
+
+        <p className="mb-4">
+          Let’s try that again, complete your account setup to access The Personal Development
+          School
+        </p>
+
+        <Link
+          href={
+            (process.env.NEXT_PUBLIC_THINKIFIC_URL ||
+              'https://university.personaldevelopmentschool.com') +
+            `/users/express_signin?email=${email}`
+          }>
+          <Button label="Complete Setup" />
+        </Link>
+      </>
+    ) : (
+      <ErrorMessage message={errorMessage} />
+    )
+  }
+
+  if (isSubmitting) return <Loader className="!py-4 mb-4" />
+
+  if (isSubmitted)
+    return (
+      <>
+        <h3>Thank You{firstName && `, ${firstName}`}</h3>
+
+        <p className="mb-3 mt-1 text-sm">
+          Your account is all set, and we've just sent you a welcome email!
+        </p>
+
+        <p className="mb-4">You can now being your journey at The Personal Development School</p>
+
+        <Link href={dashboardLink}>
+          <Button label="Start Learning" />
+        </Link>
+      </>
+    )
+
+  return (
+    <>
+      <h3>Your purchase was successful!</h3>
+
+      <p className="my-4">Complete your account setup to access The Personal Development School</p>
+
+      <Formik
+        initialValues={passwordFormInitialValues}
+        onSubmit={onSubmitPassword}
+        validationSchema={passwordFormValidationSchema}>
+        <Form className="max-w-106 mx-auto mb-4 items-center">
+          <Input.Field
+            autocomplete="new-password"
+            className="w-full mx-0"
+            name="password"
+            type={showPassword ? 'text' : 'password'}
+            label="New Password"
+          />
+
+          <Input.Field
+            autocomplete="off"
+            className="w-full mb-2 mx-0"
+            name="passwordConfirmation"
+            type={showPassword ? 'text' : 'password'}
+            label="Confirm Password"
+          />
+
+          <Input.Checkbox
+            className="mb-2"
+            label="Show Passwords"
+            type="checkbox"
+            name="showPassword"
+            onChange={() => setShowPassword((prev) => !prev)}
+            value={showPassword}
+          />
+
+          <Button.Submit className="w-full" label="Complete Setup" />
+        </Form>
+      </Formik>
+    </>
+  )
+}

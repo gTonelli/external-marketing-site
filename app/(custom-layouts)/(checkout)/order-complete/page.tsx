@@ -2,24 +2,25 @@
 
 import ErrorMessage from '@/components/ErrorMessage'
 import { Loader } from '@/components/Loader'
-import { NotFound } from '@/components/NotFound'
 import { Section } from '@/components/Section'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie'
 
 export default function OrderCompletePage() {
-  return <NotFound />
   const session_id = useSearchParams().get('session_id')
   const [finalizeError, setFinalizeError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const fbq = useFacebookPixel()
-  const cookies = new Cookies()
 
   useEffect(() => {
+    const cookies = new Cookies()
+    if (!fbq || !session_id) return
+
     fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/thinkific-checkout-finalize', {
       method: 'POST',
       cache: 'no-cache',
@@ -38,6 +39,10 @@ export default function OrderCompletePage() {
       }
       if (response.email) {
         Mixpanel.setUser(response.email)
+        Storage.set('lastUserEmail', response.first_name)
+      }
+      if (response.first_name && typeof response.first_name === 'string') {
+        Storage.set('userFirstName', response.first_name)
       }
 
       fbq?.event('Purchase', {
@@ -66,13 +71,14 @@ export default function OrderCompletePage() {
         window.location.assign(response.destination)
       }
     })
-  }, [])
+  }, [fbq, session_id])
 
-  if (finalizeError)
+  if (finalizeError) {
     return (
       <Section className="!py-48 lg:!py-72">
         <ErrorMessage message={errorMessage} />
       </Section>
     )
+  }
   return <Loader className="!py-48 lg:!py-72" />
 }

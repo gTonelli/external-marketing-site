@@ -3,29 +3,23 @@
 // core
 import { useState, useEffect } from 'react'
 // components
-import { RESULTS } from '@/app/(default-layout)/quiz/results/[style]/config'
+import { RESULTS } from '@/app/(default-layout)/quiz/results/fa/config'
 // modules
 import { Storage } from '@/modules/Storage'
-// utils
-import { TStyle } from '@/utils/types'
 
-interface IAttachmentQuizHeadingProps {
-  style: TStyle
-}
-
-export const AttachmentQuizHeading = ({ style }: IAttachmentQuizHeadingProps) => {
+export const AttachmentQuizHeading = () => {
   // ==================== State ====================
   const userFirstName = Storage.get('userFirstName')
   const [titleStart, setTitleStart] = useState('')
 
   useEffect(() => {
     setTitleStart(userFirstName ? userFirstName.toUpperCase() + ', ' : '')
-  }, [])
+  }, [userFirstName])
 
   return (
     <h1 className="text-purple-dark font-bold font-effra">
       {titleStart}
-      {RESULTS[style].HERO_SECTION.headline}
+      {RESULTS['fa'].HERO_SECTION.headline}
     </h1>
   )
 }

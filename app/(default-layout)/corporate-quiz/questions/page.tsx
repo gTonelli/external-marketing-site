@@ -1,7 +1,6 @@
 'use client'
 
 // core
-// eslint-disable-next-line simple-import-sort/imports
 import React, { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components

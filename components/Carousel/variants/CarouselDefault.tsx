@@ -1,3 +1,5 @@
+'use client'
+
 // core
 import React, { useContext } from 'react'
 // components

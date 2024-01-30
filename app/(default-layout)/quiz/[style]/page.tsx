@@ -148,10 +148,9 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
         <div className="w-full overflow-hidden bg-blue-lightest/60">
           <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 inset-0 mb-12 md:mb-20">
-            <Text.Heading
-              className="capitalize mb-8 md:mb-10 text-2xl text-primary"
-              content="Does any of this sound familiar?"
-            />
+            <p className="capitalize mb-8 md:mb-10 text-2xl text-primary">
+              Does any of this sound familiar?
+            </p>
 
             {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.traits.map((object, index) => (
               <div
@@ -168,15 +167,14 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                           name="square-check"
                           type="regular"
                         />
-                        <Text.Paragraph
-                          className="md:text-lg font-bold font-effra capitalize"
-                          content={content.title}
-                        />
+
+                        <p className="md:text-lg font-bold font-effra capitalize">
+                          {content.title}
+                        </p>
                       </div>
-                      <Text.Paragraph
-                        className="max-w-[415px] font-effra md:text-lg mt-2 text-left ml-6"
-                        content={content.copy}
-                      />
+                      <p className="max-w-[415px] font-effra md:text-lg mt-2 text-left ml-6">
+                        {content.copy}
+                      </p>
                     </div>
                   )
                 })}
@@ -184,31 +182,24 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             ))}
 
             <div className="-mt-2 md:mt-4 text-left">
-              <Text.Paragraph
-                className="md:text-lg font-bold font-effra"
-                content={ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.headline}
-              />
+              <p className="md:text-lg font-bold font-effra">
+                {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.headline}
+              </p>
             </div>
 
             <div className="mt-10 rounded-10 text-left">
-              <Text
-                useMD
-                className="md:text-lg font-sspb capitalize md:hidden"
-                content={ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadlineMobile}
-              />
+              <ReactMarkdown className="md:text-lg font-sspb capitalize md:hidden">
+                {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadlineMobile}
+              </ReactMarkdown>
 
-              <Text
-                useMD
-                className="md:text-lg capitalize hidden md:block"
-                content={ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadline}
-              />
+              <ReactMarkdown className="md:text-lg capitalize hidden md:block">
+                {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadline}
+              </ReactMarkdown>
 
               {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subheadlineTwo && (
-                <Text
-                  useMD
-                  className="md:text-lg my-4 text-primary"
-                  content={ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subheadlineTwo}
-                />
+                <ReactMarkdown className="md:text-lg my-4 text-primary">
+                  {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subheadlineTwo}
+                </ReactMarkdown>
               )}
 
               <Button
@@ -223,21 +214,21 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
       {/* ATTACHMENT ORIGIN SECTION */}
       <section className="w-full relative">
         <div className="max-w-[850px] mt-6 md:mt-32  mx-4 md:mx-auto md:px-4 text-left">
-          <Text.Heading
-            className="capitalize mb-8 md:mb-10 text-2xl text-primary"
-            content="So where does your attachment style come from?"
-          />
+          <h2 className="capitalize mb-8 md:mb-10 text-2xl text-primary">
+            So where does your attachment style come from?
+          </h2>
 
           <div className="mt-8 md:mt-10 flex flex-center flex-col md:flex-row md:space-x-9">
-            <Text.Paragraph
-              useMD
-              className="md:text-lg font-effra"
-              content={ROYAL_RUMBLE[style].ATTACHMENT_ORIGIN_SEGMENT.copy1}
-            />
+            <ReactMarkdown className="md:text-lg font-effra">
+              {ROYAL_RUMBLE[style].ATTACHMENT_ORIGIN_SEGMENT.copy1}
+            </ReactMarkdown>
 
             <Image
+              alt="A man pushing a woman sitting in a box in a new home. Both are smiling and looking forward."
               className="my-6 mx-12 md:m-0 w-3/4 sm:w-1/2 md:w-full"
-              src="RoyalRumblePage/attachment-origin.svg"
+              src="/images/RoyalRumblePage/attachment-origin.png"
+              width={300}
+              height={300}
             />
           </div>
 

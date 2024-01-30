@@ -156,13 +156,15 @@ const GoBackButton = ({ label }: { label: string }) => {
     if (!document.referrer) setShowButton(false)
   }, [])
 
-  return showButton ? (
-    <p
-      className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
-      onClick={() => router.back()}>
-      {label}
-    </p>
-  ) : null
+  return (
+    showButton && (
+      <p
+        className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
+        onClick={() => router.back()}>
+        {label}
+      </p>
+    )
+  )
 }
 
 interface INavLinkProps extends IDefaultProps {

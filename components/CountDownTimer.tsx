@@ -1,4 +1,6 @@
-﻿// core
+﻿'use client'
+
+// core
 import React, { FC, forwardRef, useEffect, useState } from 'react'
 // components
 import { Text } from './Text/Text'
@@ -6,11 +8,13 @@ import { Text } from './Text/Text'
 import cx from 'classnames'
 import CountdownPlugin from 'react-countdown'
 import Countdown from 'react-countdown'
+import { getOfferEndDate } from '@/utils/functions'
+import dayjs from 'dayjs'
 
 type Props = {
   autoStart?: boolean
   className?: string
-  date: Date
+  date?: Date
   theme?: string
 }
 
@@ -29,7 +33,7 @@ export const CountdownTimer: FC<Props> = forwardRef(
     return (
       <CountdownPlugin
         autoStart={autoStart}
-        date={date}
+        date={date || dayjs().hour(23).minute(0).toISOString()}
         ref={ref}
         renderer={({ days, hours, minutes, seconds }: ICountdownRendererProps) => {
           return (

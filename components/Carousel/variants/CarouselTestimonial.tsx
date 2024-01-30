@@ -1,3 +1,5 @@
+'use client'
+
 // core
 import React, { forwardRef, useContext, useState } from 'react'
 // components

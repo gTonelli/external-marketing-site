@@ -10,6 +10,7 @@ import { RegistrationForm } from '../RegistrationForm'
 import { useGoogleTagManager } from '@/modules/GTM'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
+import { useCheckoutSplitTest } from '@/utils/hooks'
 
 interface IAttachmentQuizFormProps extends IResultProps {
   userStyle: TUserStyle
@@ -26,33 +27,10 @@ export const AttachmentQuizForm = ({
   userInfo,
   userStyle,
 }: IAttachmentQuizFormProps) => {
-  // =================== State ======================
-  const [showPaidVariants, setShowPaidVariants] = useState(false)
-
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
   const userTag = useClientTag({ userStyle })
   const router = useRouter()
-
-  useEffect(() => {
-    if (quiz_traffic_source === 'paid' && userStyle !== 'fa') {
-      let showPaidVariants: string | null | boolean = Storage.get(
-        `gm-860-rr-split-test-${userStyle}`
-      )
-      if (showPaidVariants === null) {
-        showPaidVariants = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-        Storage.set(`gm-860-rr-split-test-${userStyle}`, showPaidVariants)
-        Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-860-RR-Split-Test',
-          'Variant name': showPaidVariants ? 'Variant 1' : 'Control',
-          page_name: `VSL Royal Rumble Results - ${userStyle}`,
-        })
-        setShowPaidVariants(showPaidVariants)
-      } else {
-        setShowPaidVariants(showPaidVariants === 'true' || showPaidVariants === true)
-      }
-    }
-  }, [quiz_traffic_source, Storage, Mixpanel])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -65,8 +43,6 @@ export const AttachmentQuizForm = ({
 
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
-    } else if (showPaidVariants) {
-      router.push('/quiz/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
       router.push('/quiz/results/fa')
     } else {
@@ -102,13 +78,13 @@ const useClientTag = ({ userStyle }: IUseClientTagProps) => {
   // ============= State =============
   const [tag, setTag] = useState('')
   // ============= Hooks =============
-  // const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
+  const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
 
   useEffect(() => {
     let tag = `attachment-quiz-${userStyle}`
-    // if (userStyle === 'ap' && usingVariant) {
-    //   tag += `,one-step-checkout`
-    // }
+    if (userStyle === 'fa' && usingVariant) {
+      tag += `,one-step-checkout`
+    }
     setTag(tag)
   }, [userStyle])
 

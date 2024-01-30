@@ -10,6 +10,7 @@ import { RegistrationForm } from '../RegistrationForm'
 import { useGoogleTagManager } from '@/modules/GTM'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
+import { useCheckoutSplitTest } from '@/utils/hooks'
 
 interface IAttachmentQuizFormProps extends IResultProps {
   userStyle: TUserStyle
@@ -76,9 +77,14 @@ interface IUseClientTagProps {
 const useClientTag = ({ userStyle }: IUseClientTagProps) => {
   // ============= State =============
   const [tag, setTag] = useState('')
+  // ============= Hooks =============
+  const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
 
   useEffect(() => {
     let tag = `attachment-quiz-${userStyle}`
+    if (userStyle === 'fa' && usingVariant) {
+      tag += `,one-step-checkout`
+    }
     setTag(tag)
   }, [userStyle])
 

@@ -4,10 +4,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { Page } from '@/components/Page'
-import { Text } from '@/components/Text/Text'
+import Image from 'next/image'
 import { Video } from '@/components/Video/Video'
 import { Button } from '@/components/Button/Button'
-import { Image } from '@/components/Image'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
@@ -27,6 +26,7 @@ import { getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import ReactMarkdown from 'react-markdown'
 
 export interface IAttachmentStylePageParams {
   style: TStyle
@@ -88,23 +88,13 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           {/* TITLE + VIDEO */}
           <div className="text-left flex flex-center flex-col md:grid md:grid-cols-2 md:gap-8">
             <div className="my-auto">
-              <Text.Heading
-                className="inline capitalize lg:block"
-                content={titleStart + ' '}
-                size={2}
-              />
+              <h2 className="inline capitalize lg:block">{titleStart + ' '}</h2>
 
-              <Text.Heading
-                className="inline capitalize text-primary lg:block"
-                content={ROYAL_RUMBLE[style].TITLE + ' '}
-                size={2}
-              />
+              <h2 className="inline capitalize text-primary lg:block">
+                {ROYAL_RUMBLE[style].TITLE + ' '}
+              </h2>
 
-              <Text.Heading
-                className="inline capitalize lg:block"
-                content="Attachment Style"
-                size={2}
-              />
+              <h2 className="inline capitalize lg:block">Attachment Style</h2>
             </div>
 
             <div className="mt-10 md:mt-0">
@@ -126,22 +116,17 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
 
         <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
           <div className="text-left">
-            <Text.Paragraph
-              className="font-effra font-bold uppercase md:text-lg"
-              content={ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
-              spacing="tracking-0.325"
-            />
+            <p className="font-effra font-bold uppercase tracking-0.325 md:text-lg">
+              {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
+            </p>
 
-            <Text.Paragraph
-              className="font-effra mt-8 md:mt-10 md:text-lg"
-              content={ROYAL_RUMBLE[style].BANNER_SEGMENT.copy}
-            />
+            <p className="font-effra mt-8 md:mt-10 md:text-lg">
+              {ROYAL_RUMBLE[style].BANNER_SEGMENT.copy}
+            </p>
 
-            <Text.Paragraph
-              useMD
-              className="font-effra mt-8 md:mt-10 md:text-lg"
-              content={ROYAL_RUMBLE.firstOfferCopy}
-            />
+            <ReactMarkdown className="font-effra mt-8 md:mt-10 md:text-lg">
+              {ROYAL_RUMBLE.firstOfferCopy}
+            </ReactMarkdown>
           </div>
 
           <Button
@@ -154,8 +139,11 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
       {/* FAMILIAR SECTION*/}
       <section className="w-full mt-20">
         <Image
+          alt="A green vector wave"
+          tabIndex={-1}
           className="w-full mt-13 md:mt-0 md:-mb-[10px] lg:-mb-[30px] xl:-mb-[70px] 2xl:-mb-[100px] 3xl:-mb-[164px]"
-          src="RoyalRumblePage/familiar-section-bg.png"
+          src="/images/RoyalRumblePage/familiar-section-bg.png"
+          width={425}
         />
 
         <div className="w-full overflow-hidden bg-blue-lightest/60">

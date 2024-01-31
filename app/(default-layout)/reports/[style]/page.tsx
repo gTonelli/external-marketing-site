@@ -13,7 +13,7 @@ import './styles.css'
 import { TextHeading } from '@/components/Text/variants/TextHeading'
 import { TextParagraph } from '@/components/Text/variants/TextParagraph'
 
-export default function ResultsPage({ params }: { params: { style: TStyle } }) {
+export default function ReportsPage({ params }: { params: { style: TStyle } }) {
   const style = params.style
   const copy = REPORT_COPY[style]
 
@@ -103,7 +103,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
         <div className="flex flex-col lg:flex-row">
           <TextParagraph useMD className="flex-1 text-left lg:pr-8" content={copy.causes.copy1} />
 
-          <TextParagraph useMD className="flex-1 text-left" content={copy.causes.copy2} />
+          <TextParagraph useMD className="flex-1 text-left italic" content={copy.causes.copy2} />
         </div>
       </Section>
 
@@ -122,11 +122,27 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             className="mb-4"
             content={`Until recently, your attachment style was considered unchangeable; it was forever.\n\nBut we’ve found the way.`}
           />
+
+          <TextParagraph useMD content={copy.changeStyle.copy1} />
         </div>
 
         <div className="flex-1">
           <p>Image</p>
         </div>
+      </Section>
+
+      <Section className="w-full max-w-4xl mx-auto">
+        <TextParagraph
+          className="font-bold mb-4"
+          content="This subconscious-based process leads to long-lasting results for you and all the relationships around you."
+        />
+
+        <TextParagraph
+          className="font-bold mb-4"
+          content="It delves deep into your subconscious mind, replacing your old habits, patterns, and coping mechanisms with positive ones, transforming how you approach love, relationships, and yourself."
+        />
+
+        <TextParagraph content="And it’s easier to adopt in your daily life than you think…" />
       </Section>
     </Page>
   )

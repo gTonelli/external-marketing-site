@@ -19,7 +19,7 @@ export default function NotFoundPage() {
           },
           {
             link: ERoutes.IAT_SALES_PAGE,
-            text: 'Certication',
+            text: 'Certification',
           },
           {
             link: EExternalRoutes.COLLECTIONS,

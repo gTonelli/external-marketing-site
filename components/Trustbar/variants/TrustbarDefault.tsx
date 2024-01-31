@@ -39,6 +39,7 @@ export const TrustbarDefault = ({
       )}>
       {brandLogosList.map((logo, i) => (
         <Image
+          alt={typeof logo === 'string' ? logo : logo.img}
           key={`brand_logo_${i}`}
           className={cx(
             'max-h-9 mb-2',

@@ -1,5 +1,4 @@
 export const ROYAL_RUMBLE = {
-  firstOfferCopy: `At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access. **This is 30% off for a limited time.**`,
   moneyBackGuaranteeCopy: `
   All programs at The Personal Development School are backed by our Risk Free 100% money back guarantee!
   
@@ -17,6 +16,62 @@ export const ROYAL_RUMBLE = {
   
   You will walk away with the self awareness and emotional skills you’ve been missing to overcome the #1 obstacle that’s been preventing you from developing a healthy and happy relationship that lasts.`,
 
+  LEARNHOWTO_SEGMENT_IMAGES: [
+    {
+      alt: 'A man and woman lying on the couch smiling at each other. The man is holding a remote and lying on his back, the woman is sitting upright smiling down at him.',
+      width: 200,
+      height: 91,
+      deskImageURL: 'rr-learn-tl-1.png',
+    },
+
+    {
+      alt: 'A mockup of Thais teaching a live webinar with several students on-screen.',
+      width: 200,
+      height: 107,
+      deskImageURL: 'rr-learn-tl-2.png',
+    },
+
+    {
+      alt: 'Multiple images iina  collage: 3 of PDS, features like webinars, courses and the dashboard. 4 small iumages of people, 3 smiling and 1 working on a laptop.',
+      width: 200,
+      height: 160,
+      deskImageURL: 'rr-learn-tl-3.png',
+    },
+
+    {
+      alt: "2 images and a quote: One image is of a persdon writing on paper, another image of a couple sitting close reading something together. Quote: 'This is the best decision I've ever made for myself.'",
+      width: 200,
+      height: 103,
+      deskImageURL: 'rr-learn-tl-4.png',
+    },
+  ],
+
+  TESTIMONIAL_SEGMENT: [
+    {
+      avatar: 'avatar_carrie.jpeg',
+      name: 'Carrie L',
+      testimonial: `Hi! I’m Carrie from northern California, USA. I’ve been a member of the PDS school since around June, 2020. This experience has been a life changer for me.  I have always been a seeker and self-improvement fan, but the courses and webinars with Thais as well as the zoom meetings with the community led by Mike, have given me actionable tools and a supportive safe space to discuss and practice them.  I am so fortunate to have found this school and so many friendly folks to share this journey!`,
+    },
+    {
+      avatar: 'avatar_tappy.jpg',
+      name: 'Tapanga P',
+      testimonial: `I discovered PDS shortly after my 19th birthday, even being one of the youngest in the school, everyone is so welcoming!!
+        I really love how Thais Gibson covers so many topics and goes above and beyond to cater to the needs of the members. The post-webinar breakout rooms have so many brilliant, and like-minded individuals who I always look forward to talking to!
+        PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself 😊`,
+    },
+    {
+      avatar: 'avatar_jake.png',
+      name: 'Jake J',
+      testimonial: `PDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others in all relationships. It has honestly changed my life for the better and am on my path towards becoming a more secure person. Not to sound too much like an infomercial, but I don’t know where I would be in my life without this place. They have created such an amazing community that is extremely supportive and is full of wonderful people. PDS has grown into something I am very proud to be a part of and look forward to seeing where this journey takes me.`,
+    },
+    {
+      avatar: 'avatar_leona.jpg',
+      name: 'Leona',
+      testimonial: `Joining PDS was the single best decision I made last year as it opened my eyes to the possibility that I could dramatically improve the quality of my relationships and that my past did not have to define my future. I learned about my attachment style, core wounds and personality needs and how these have been affecting the quality of my life currently. Thais gives clear instructions as to how you can reprogramme your subconscious mind, learn to communicate more effectively and excel in all 7 areas of your life to get rid of so many roadblocks that may be holding you back from living your best life. The PDS community is a truly supportive environment for personal growth and healing, my only regret is that I did not find all this out sooner as it has been truly life changing for me! ❤️
+        `,
+    },
+  ],
+
   ap: {
     TITLE: 'Anxious Preoccupied',
 
@@ -24,13 +79,15 @@ export const ROYAL_RUMBLE = {
 
     BANNER_SEGMENT: {
       headline: `Your fear of abandonment may be getting in the way of you forming healthy relationships that last`,
-      copy: `You’re an extremely empathetic person who has mastered the art of connecting with others on a deep and real level. You may be a social butterfly or deeply value being in long-term relationships. You’re an expert at reading people and are the person your friends turn to when they need help. Yet, ironically, your relationships are often a huge source of your pain in your life.
-  
-        Because you have such an enormous desire for deep connections, losing the people closest to you is one of your biggest fears. This deep fear causes you to do whatever it takes to stay close to them, even if it means sacrificing your own needs and boundaries in the process.  
-        
-        Your underlying fear of abandonment is amplified in romantic relationships, especially when you find yourself dating someone who likes their space, someone who isn’t very emotionally expressive, or someone who doesn’t appear to really “need” you. When you’re met with these situations, you constantly feel like you’re giving and giving and giving, but getting nothing back in return. All of this leads you to wonder “why aren’t I enough?”.
-        
-        Because of this internal struggle, it’s common for you to become angry and resentful towards your partner when they’re not meeting your expectations. Not knowing how to express yourself best, you may pick fights with your partner constantly, pushing them away, only to reaffirm your beliefs that you’re going to be abandoned to end up alone.`,
+      copy: [
+        'You’re an extremely empathetic person who has mastered the art of connecting with others on a deep and real level. You may be a social butterfly or deeply value being in long-term relationships. You’re an expert at reading people and are the person your friends turn to when they need help. Yet, ironically, your relationships are often a huge source of your pain in your life.',
+
+        'Because you have such an enormous desire for deep connections, losing the people closest to you is one of your biggest fears. This deep fear causes you to do whatever it takes to stay close to them, even if it means sacrificing your own needs and boundaries in the process.',
+
+        'Your underlying fear of abandonment is amplified in romantic relationships, especially when you find yourself dating someone who likes their space, someone who isn’t very emotionally expressive, or someone who doesn’t appear to really “need” you. When you’re met with these situations, you constantly feel like you’re giving and giving and giving, but getting nothing back in return. All of this leads you to wonder “why aren’t I enough?”.',
+
+        'Because of this internal struggle, it’s common for you to become angry and resentful towards your partner when they’re not meeting your expectations. Not knowing how to express yourself best, you may pick fights with your partner constantly, pushing them away, only to reaffirm your beliefs that you’re going to be abandoned to end up alone.',
+      ],
     },
 
     FAMILIAR_SEGMENTS: {
@@ -72,19 +129,23 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if it feels like your relationships have pushed you to the point of exhaustion, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `**You are not broken! These are just your patterns - and your patterns can be changed.**`,
+      subHeadline: `You are not broken! These are just your patterns - and your patterns can be changed.`,
       subheadlineTwo:
-        '**Use the Anxious Preoccupied to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!**',
-      subHeadlineMobile: `You are not broken!
-  
-  These are just your patterns - and your patterns can be changed.`,
+        'Use the Anxious Preoccupied to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
+      subHeadlineMobile: [
+        'You are not broken!',
+
+        'These are just your patterns - and your patterns can be changed.',
+      ],
       freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
 
     ATTACHMENT_ORIGIN_SEGMENT: {
-      copy1: `Your attachment style and the relationship challenges it brings are **not your fault**, they are a reflection of your story. 
-  
-  An Anxious Preoccupied attachment style is what you end up with if you received inconsistent emotional support from your primary caregivers during your childhood. It doesn’t mean that you were severely neglected, but maybe in your early years your parents weren’t around much due to their work schedule or because they were busy taking care of your siblings. Or maybe they were present physically, but were cold or withdrawn, unable to express themselves, relate to you, or understand what you needed from them at the time.`,
+      copy1: [
+        'Your attachment style and the relationship challenges it brings are **not your fault**, they are a reflection of your story.',
+
+        'An Anxious Preoccupied attachment style is what you end up with if you received inconsistent emotional support from your primary caregivers during your childhood. It doesn’t mean that you were severely neglected, but maybe in your early years your parents weren’t around much due to their work schedule or because they were busy taking care of your siblings. Or maybe they were present physically, but were cold or withdrawn, unable to express themselves, relate to you, or understand what you needed from them at the time.',
+      ],
 
       copy2: `These early experiences contribute to how you perceive love and the role you play in your relationships to earn it. When you’ve felt forgotten or unheard as a child, you may try to make up for this through several behaviors in your adulthood. You might people-please those you care about and do whatever it takes to get closer to them. All of this is a subconscious coping mechanism that ties in with your fear of abandonment and is a subconscious strategy to stop them from leaving you. 
   
@@ -143,25 +204,21 @@ export const ROYAL_RUMBLE = {
       {
         title: 'Find your way',
         copy: 'Navigate love with less fear, distress and anxiety.',
-        deskImageURL: 'rr-learn-tl-1.png',
       },
 
       {
         title: 'Feel seen',
         copy: 'Feel seen, heard, and connected in your relationships with others.',
-        deskImageURL: 'rr-learn-tl-2.png',
       },
 
       {
         title: 'Feel confident',
         copy: 'Improve the relationship within yourself.',
-        deskImageURL: 'rr-learn-tl-3.png',
       },
 
       {
         title: 'Be certain',
         copy: 'Gain a sense of certainty in your relationships.',
-        deskImageURL: 'rr-learn-tl-4.png',
       },
     ],
 
@@ -193,34 +250,7 @@ export const ROYAL_RUMBLE = {
 
       freeTrialCopy: `**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
     },
-    TESTIMONIAL_SEGMENT: [
-      {
-        avatar: 'avatar_carrie.jpeg',
-        name: 'Carrie L',
-        testimonial: `Hi! I’m Carrie from northern California, USA. I’ve been a member of the PDS school since around June, 2020. This experience has been a life changer for me.  I have always been a seeker and self-improvement fan, but the courses and webinars with Thais as well as the zoom meetings with the community led by Mike, have given me actionable tools and a supportive safe space to discuss and practice them.  I am so fortunate to have found this school and so many friendly folks to share this journey!`,
-      },
 
-      {
-        avatar: 'avatar_tappy.jpg',
-        name: 'Tapanga P',
-        testimonial: `I discovered PDS shortly after my 19th birthday, even being one of the youngest in the school, everyone is so welcoming!!
-          I really love how Thais Gibson covers so many topics and goes above and beyond to cater to the needs of the members. The post-webinar breakout rooms have so many brilliant, and like-minded individuals who I always look forward to talking to!
-          PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself 😊`,
-      },
-
-      {
-        avatar: 'avatar_jake.png',
-        name: 'Jake J',
-        testimonial: `PDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others in all relationships. It has honestly changed my life for the better and am on my path towards becoming a more secure person. Not to sound too much like an infomercial, but I don’t know where I would be in my life without this place. They have created such an amazing community that is extremely supportive and is full of wonderful people. PDS has grown into something I am very proud to be a part of and look forward to seeing where this journey takes me.`,
-      },
-
-      {
-        avatar: 'avatar_leona.jpg',
-        name: 'Leona',
-        testimonial: `Joining PDS was the single best decision I made last year as it opened my eyes to the possibility that I could dramatically improve the quality of my relationships and that my past did not have to define my future. I learned about my attachment style, core wounds and personality needs and how these have been affecting the quality of my life currently. Thais gives clear instructions as to how you can reprogramme your subconscious mind, learn to communicate more effectively and excel in all 7 areas of your life to get rid of so many roadblocks that may be holding you back from living your best life. The PDS community is a truly supportive environment for personal growth and healing, my only regret is that I did not find all this out sooner as it has been truly life changing for me! ❤️ 
-          `,
-      },
-    ],
     BESTSELF_SEGMENT: {
       subheading: `All of this is achievable through as little as 10 minutes of coursework a day.`,
 
@@ -326,11 +356,13 @@ export const ROYAL_RUMBLE = {
 
     BANNER_SEGMENT: {
       headline: `Your fear of vulnerability may be getting in the way of you forming healthy relationships that last`,
-      copy: `You like to do your own thing and value your freedom, space, and independence. Because you thrive independently, you value your time spent out of romantic relationships. You are a very logical and practical person when it comes to making decisions and appreciate whenever people are direct, clear, and specific with what they need from you, be it at work, or in your friendships, family, or romantic relationships. Identifying as more of a “thinker” than a “feeler”, you are much more comfortable expressing what you think about situations to friends and family than what you feel about them. Being vulnerable with others is difficult for you and oversharing or being around intense emotions generally makes you feel uncomfortable. You feel a lot more in control and relaxed when you are able to choose when and where you’ll be with people, how close, and for how long. You’ve never been great at putting language to your feelings or sitting with them in the present so you might have a tendency to escape into your work, books, podcasts, video games, the news, or travel instead, enjoying the more mental rather than emotional investments they require from you.  
-  
-        When it comes to romantic relationships, you can have a pretty hard time navigating them. They often feel overwhelming and you can never quite understand what’s expected from you. It seems like no matter what you do, you just can’t seem to get it right. Incredibly self-sufficient with an attitude that the only person you can rely on is yourself, you have a hard time believing that you should ever have to rely on a partner to meet your needs. When faced with the pressures of meeting someone else’s needs, you can feel suffocated. Long term relationships and long term commitments can make you feel trapped at one point or another and you worry constantly that being involved might mean losing that independence that you value so much.
-        
-        Your only strategy when you feel this inner conflict is to detach from others, distance yourself, and get very protective over your time and space alone. It’s so common for you to go to great lengths to avoid letting people in, that it can come across like you don’t need your partner, friends, or family at all. The truth is that you do value their connection, you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.`,
+      copy: [
+        'You like to do your own thing and value your freedom, space, and independence. Because you thrive independently, you value your time spent out of romantic relationships. You are a very logical and practical person when it comes to making decisions and appreciate whenever people are direct, clear, and specific with what they need from you, be it at work, or in your friendships, family, or romantic relationships. Identifying as more of a “thinker” than a “feeler”, you are much more comfortable expressing what you think about situations to friends and family than what you feel about them. Being vulnerable with others is difficult for you and oversharing or being around intense emotions generally makes you feel uncomfortable. You feel a lot more in control and relaxed when you are able to choose when and where you’ll be with people, how close, and for how long. You’ve never been great at putting language to your feelings or sitting with them in the present so you might have a tendency to escape into your work, books, podcasts, video games, the news, or travel instead, enjoying the more mental rather than emotional investments they require from you.',
+
+        'When it comes to romantic relationships, you can have a pretty hard time navigating them. They often feel overwhelming and you can never quite understand what’s expected from you. It seems like no matter what you do, you just can’t seem to get it right. Incredibly self-sufficient with an attitude that the only person you can rely on is yourself, you have a hard time believing that you should ever have to rely on a partner to meet your needs. When faced with the pressures of meeting someone else’s needs, you can feel suffocated. Long term relationships and long term commitments can make you feel trapped at one point or another and you worry constantly that being involved might mean losing that independence that you value so much.',
+
+        'Your only strategy when you feel this inner conflict is to detach from others, distance yourself, and get very protective over your time and space alone. It’s so common for you to go to great lengths to avoid letting people in, that it can come across like you don’t need your partner, friends, or family at all. The truth is that you do value their connection, you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
+      ],
     },
     FAMILIAR_SEGMENTS: {
       traits: [
@@ -380,18 +412,22 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if you worry that you’ll never be able to feel safe, open up, truly connect, and have fulfilling relationships, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `**You are not broken! These are just your patterns - and your patterns can be changed.**`,
+      subHeadline: `You are not broken! These are just your patterns - and your patterns can be changed.`,
       subheadlineTwo:
-        '**Use the Dismissive Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!**',
-      subHeadlineMobile: `You are not broken!
-  
-  These are just your patterns - and your patterns can be changed.`,
+        'Use the Dismissive Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
+      subHeadlineMobile: [
+        'You are not broken!',
+
+        'These are just your patterns - and your patterns can be changed.',
+      ],
       freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
-      copy1: `Your attachment style and the relationship challenges it brings are not your fault, they are a reflection of your story. 
-  
-  A Dismissive Avoidant attachment style is what you end up with if you received a lack of emotional support or harsh criticism from your primary caregivers during your childhood. Maybe in your early years your parents weren’t around much due to their work schedule or because they were busy taking care of your siblings. Or maybe they were quite harsh on you when you expressed your feelings, shaming you for them or telling you, for example, that crying was “wrong”. You might have grown up in a home with a controlling or authoritarian caregiver who placed very high expectations on you. When you didn’t meet their idea of perfection, you were criticized or even shamed for falling below the mark.`,
+      copy1: [
+        'Your attachment style and the relationship challenges it brings are not your fault, they are a reflection of your story.',
+
+        'A Dismissive Avoidant attachment style is what you end up with if you received a lack of emotional support or harsh criticism from your primary caregivers during your childhood. Maybe in your early years your parents weren’t around much due to their work schedule or because they were busy taking care of your siblings. Or maybe they were quite harsh on you when you expressed your feelings, shaming you for them or telling you, for example, that crying was “wrong”. You might have grown up in a home with a controlling or authoritarian caregiver who placed very high expectations on you. When you didn’t meet their idea of perfection, you were criticized or even shamed for falling below the mark.',
+      ],
       copy2: `As a result, you learned to take care of your own needs for emotional connection and developed a subconscious fear or block around opening up to others. Because you didn't feel like you were able to express and show your entire self to your parents, you now have a hard time feeling safe when doing that to others. Learning that displaying certain emotions was wrong, you became an expert at bottling things up and repressing your emotions for no one to see. And since you were regularly criticized and were always trying to meet impossible expectations, it’s likely that today you’re very sensitive to criticism and can feel a lot of shame around your own imperfections.
   
   With a past that has made emotional connection feel unpredictable and even scary, you can now find it difficult and overwhelming to connect with others, regularly withdrawing back to yourself as the only person you can rely on. 
@@ -444,22 +480,18 @@ export const ROYAL_RUMBLE = {
       {
         title: 'Understand your emotions',
         copy: 'Get comfortable with experiencing the full range of your feelings.',
-        deskImageURL: 'rr-learn-tl-1.png',
       },
       {
         title: 'Reprogram core wounds',
         copy: 'And the painful stories you tell yourself.',
-        deskImageURL: 'rr-learn-tl-2.png',
       },
       {
         title: 'Express your needs',
         copy: 'So you no longer have to shut down or withdraw to cope.',
-        deskImageURL: 'rr-learn-tl-3.png',
       },
       {
         title: 'Learn to compromise',
         copy: 'Distinguish between compromising and making sacrifices to yourself.',
-        deskImageURL: 'rr-learn-tl-4.png',
       },
     ],
     EXCLUSIVEBONUS_SEGMENT: [
@@ -487,31 +519,6 @@ export const ROYAL_RUMBLE = {
 
       freeTrialCopy: `\n**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
     },
-    TESTIMONIAL_SEGMENT: [
-      {
-        avatar: 'avatar_carrie.jpeg',
-        name: 'Carrie L',
-        testimonial: `Hi! I’m Carrie from northern California, USA. I’ve been a member of the PDS school since around June, 2020. This experience has been a life changer for me.  I have always been a seeker and self-improvement fan, but the courses and webinars with Thais as well as the zoom meetings with the community led by Mike, have given me actionable tools and a supportive safe space to discuss and practice them.  I am so fortunate to have found this school and so many friendly folks to share this journey!`,
-      },
-      {
-        avatar: 'avatar_tappy.jpg',
-        name: 'Tapanga P',
-        testimonial: `I discovered PDS shortly after my 19th birthday, even being one of the youngest in the school, everyone is so welcoming!!
-          I really love how Thais Gibson covers so many topics and goes above and beyond to cater to the needs of the members. The post-webinar breakout rooms have so many brilliant, and like-minded individuals who I always look forward to talking to!
-          PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself 😊`,
-      },
-      {
-        avatar: 'avatar_jake.png',
-        name: 'Jake J',
-        testimonial: `PDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others in all relationships. It has honestly changed my life for the better and am on my path towards becoming a more secure person. Not to sound too much like an infomercial, but I don’t know where I would be in my life without this place. They have created such an amazing community that is extremely supportive and is full of wonderful people. PDS has grown into something I am very proud to be a part of and look forward to seeing where this journey takes me.`,
-      },
-      {
-        avatar: 'avatar_leona.jpg',
-        name: 'Leona',
-        testimonial: `Joining PDS was the single best decision I made last year as it opened my eyes to the possibility that I could dramatically improve the quality of my relationships and that my past did not have to define my future. I learned about my attachment style, core wounds and personality needs and how these have been affecting the quality of my life currently. Thais gives clear instructions as to how you can reprogramme your subconscious mind, learn to communicate more effectively and excel in all 7 areas of your life to get rid of so many roadblocks that may be holding you back from living your best life. The PDS community is a truly supportive environment for personal growth and healing, my only regret is that I did not find all this out sooner as it has been truly life changing for me! ❤️
-          `,
-      },
-    ],
     BESTSELF_SEGMENT: {
       subheading: `The Dismissive Avoidant to Securely Attached Program is the missing piece to help you get there.`,
       bullets: [
@@ -614,13 +621,15 @@ export const ROYAL_RUMBLE = {
 
     BANNER_SEGMENT: {
       headline: `Your fear of betrayal may be getting in the way of you forming healthy relationships that last`,
-      copy: `You are a passionate, empathetic person who has been through some big challenges in life. You might feel that your life and relationships have always been a bit of a rollercoaster. While you are very strong and independent, a part of you longs to have someone care for you the way that you care for others. 
-  
-        As a giving person, you may find that you give until you burn out. This can cause you to feel overwhelmed by others in relationships and even resentful at times. A big trigger for you is the feeling of being taken advantage of. You are excellent at showing up for other people when they are going through a hard time and are always there for others to lean on. And yet, you may fear truly letting people in and depending on others - causing you to feel that relationships are one-sided at times. It can be hard for you to reach out to others to ask for help and support. 
-        
-        In your romantic relationships, it can be difficult for you to trust that others will stick around in the long-run. You may fear being abandoned or assume that relationships won’t last because one of you will eventually get bored. You may also find that you fear being lied to, cheated on or betrayed in some way. This often doesn’t happen until you deeply attach to someone, but once you do - it can feel like you are always on high alert, waiting for the other shoe to drop. 
-                
-        In the history of your adult romantic relationships, you may experience a lot of feeling “hot and cold.” One day you may feel deeply connected and committed to a relationship, and the next you may feel really discouraged, frustrated and withdrawn. Fearful Avoidant Attachment Styles often go back and forth in their mind between optimism and doubt when it comes to their relationships. This tends to happen the most intensely when there is a deeper connection and people are getting close to you. It can be scary for you to trust others and to let people in. This can lead to arguments, feeling like you are on a rollercoaster in relationships and feeling frustrated and let down by the people you love.`,
+      copy: [
+        'You are a passionate, empathetic person who has been through some big challenges in life. You might feel that your life and relationships have always been a bit of a rollercoaster. While you are very strong and independent, a part of you longs to have someone care for you the way that you care for others.',
+
+        'As a giving person, you may find that you give until you burn out. This can cause you to feel overwhelmed by others in relationships and even resentful at times. A big trigger for you is the feeling of being taken advantage of. You are excellent at showing up for other people when they are going through a hard time and are always there for others to lean on. And yet, you may fear truly letting people in and depending on others - causing you to feel that relationships are one-sided at times. It can be hard for you to reach out to others to ask for help and support.',
+
+        'In your romantic relationships, it can be difficult for you to trust that others will stick around in the long-run. You may fear being abandoned or assume that relationships won’t last because one of you will eventually get bored. You may also find that you fear being lied to, cheated on or betrayed in some way. This often doesn’t happen until you deeply attach to someone, but once you do - it can feel like you are always on high alert, waiting for the other shoe to drop.',
+
+        'In the history of your adult romantic relationships, you may experience a lot of feeling “hot and cold.” One day you may feel deeply connected and committed to a relationship, and the next you may feel really discouraged, frustrated and withdrawn. Fearful Avoidant Attachment Styles often go back and forth in their mind between optimism and doubt when it comes to their relationships. This tends to happen the most intensely when there is a deeper connection and people are getting close to you. It can be scary for you to trust others and to let people in. This can lead to arguments, feeling like you are on a rollercoaster in relationships and feeling frustrated and let down by the people you love.',
+      ],
     },
     FAMILIAR_SEGMENTS: {
       traits: [
@@ -659,18 +668,22 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if you worry that you’ll never be able to feel safe, trust, and have fulfilling relationships, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `**You are not broken! These are just your patterns - and your patterns can be changed.**`,
+      subHeadline: `You are not broken! These are just your patterns - and your patterns can be changed.`,
       subheadlineTwo:
-        '**Use the Fearful Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!**',
-      subHeadlineMobile: `You are not broken!  
-  
-  These are just your patterns - and your patterns can be changed. `,
+        'Use the Fearful Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
+      subHeadlineMobile: [
+        'You are not broken!',
+
+        'These are just your patterns - and your patterns can be changed.',
+      ],
       freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
-      copy1: `Your attachment style and the relationship challenges it brings are not your fault, they are a reflection of your story. 
-  
-  A Fearful Avoidant attachment style is what arises when you’ve experienced inconsistent emotional support from your primary caregivers in your early childhood. You most likely came from a tumultuous household that was filled with polarity. Maybe you had a strong emotional connection with one of your parents, but a lot of avoidance with the other. Or maybe one (or both) of your parents were emotionally supportive but at infrequent times, so you never really knew what to expect. If either one of them was very hot and cold with you, you probably began to understand that their love was conditional — based on you performing well or behaving a certain way.`,
+      copy1: [
+        'Your attachment style and the relationship challenges it brings are not your fault, they are a reflection of your story.',
+
+        'A Fearful Avoidant attachment style is what arises when you’ve experienced inconsistent emotional support from your primary caregivers in your early childhood. You most likely came from a tumultuous household that was filled with polarity. Maybe you had a strong emotional connection with one of your parents, but a lot of avoidance with the other. Or maybe one (or both) of your parents were emotionally supportive but at infrequent times, so you never really knew what to expect. If either one of them was very hot and cold with you, you probably began to understand that their love was conditional — based on you performing well or behaving a certain way.',
+      ],
       copy2: `Being exposed to such unpredictability in your childhood means that you subconsciously developed an impending sense of betrayal in relationships, came to believe that vulnerability will result in pain, and started to believe that love is something that has to be earned. Now as an adult, you have grown up with an innate sense of distrust that you just can’t shake, always wondering what people’s true intentions are, never feeling entirely safe to let your guard down, and resentfully over-giving to get approval from the people closest to you.  
   
   The problem is that these attitudes and beliefs about love and connection are now draining your energy and blocking you from your chance at developing the strong sense of trust and personal boundaries that you need to build the long-lasting and fulfilling relationships you truly want. 
@@ -724,22 +737,18 @@ export const ROYAL_RUMBLE = {
       {
         title: 'Reprogram betrayal wounds',
         copy: 'Let go of painful fears that block you from trusting others.',
-        deskImageURL: 'rr-learn-tl-1.png',
       },
       {
         title: 'Communicate better',
         copy: 'When you need more space or more connection.',
-        deskImageURL: 'rr-learn-tl-2.png',
       },
       {
         title: 'Self-soothe',
         copy: 'When experiencing anger or resentment.',
-        deskImageURL: 'rr-learn-tl-3.png',
       },
       {
         title: 'Create passionate relationships',
         copy: 'Without feeling like you’re on high alert all the time.',
-        deskImageURL: 'rr-learn-tl-4.png',
       },
     ],
     EXCLUSIVEBONUS_SEGMENT: [
@@ -767,31 +776,7 @@ export const ROYAL_RUMBLE = {
 
       freeTrialCopy: `\n**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
     },
-    TESTIMONIAL_SEGMENT: [
-      {
-        avatar: 'avatar_carrie.jpeg',
-        name: 'Carrie L',
-        testimonial: `Hi! I’m Carrie from northern California, USA. I’ve been a member of the PDS school since around June, 2020. This experience has been a life changer for me.  I have always been a seeker and self-improvement fan, but the courses and webinars with Thais as well as the zoom meetings with the community led by Mike, have given me actionable tools and a supportive safe space to discuss and practice them.  I am so fortunate to have found this school and so many friendly folks to share this journey!`,
-      },
-      {
-        avatar: 'avatar_tappy.jpg',
-        name: 'Tapanga P',
-        testimonial: `I discovered PDS shortly after my 19th birthday, even being one of the youngest in the school, everyone is so welcoming!!
-          I really love how Thais Gibson covers so many topics and goes above and beyond to cater to the needs of the members. The post-webinar breakout rooms have so many brilliant, and like-minded individuals who I always look forward to talking to!
-          PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself 😊`,
-      },
-      {
-        avatar: 'avatar_jake.png',
-        name: 'Jake J',
-        testimonial: `PDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others in all relationships. It has honestly changed my life for the better and am on my path towards becoming a more secure person. Not to sound too much like an infomercial, but I don’t know where I would be in my life without this place. They have created such an amazing community that is extremely supportive and is full of wonderful people. PDS has grown into something I am very proud to be a part of and look forward to seeing where this journey takes me.`,
-      },
-      {
-        avatar: 'avatar_leona.jpg',
-        name: 'Leona',
-        testimonial: `Joining PDS was the single best decision I made last year as it opened my eyes to the possibility that I could dramatically improve the quality of my relationships and that my past did not have to define my future. I learned about my attachment style, core wounds and personality needs and how these have been affecting the quality of my life currently. Thais gives clear instructions as to how you can reprogramme your subconscious mind, learn to communicate more effectively and excel in all 7 areas of your life to get rid of so many roadblocks that may be holding you back from living your best life. The PDS community is a truly supportive environment for personal growth and healing, my only regret is that I did not find all this out sooner as it has been truly life changing for me! ❤️
-          `,
-      },
-    ],
+
     BESTSELF_SEGMENT: {
       subheading: `The Fearful Avoidant to Securely Attached Program is the missing piece to help you get there.`,
       bullets: [
@@ -884,7 +869,9 @@ export const ROYAL_RUMBLE = {
 
     BANNER_SEGMENT: {
       headline: `But without knowing how to communicate best with different types of partners, you may keep ending up in unfulfilling relationships`,
-      copy: `You’re a warm and friendly person who feels comfortable in relationships (both intimate and platonic). You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth. You are quite good at communicating your needs, feelings, and opinions to others. Letting people in is easy for you because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time. When faced with relationship problems with your partner, friends, family, or coworkers, you see most problems as solvable and have strong conflict resolution skills. When you are faced with situations that are triggering, you are able to sit with your emotions and regulate them appropriately. When it comes to supporting others, you are an empathetic listener and are happy to be their rock. Your romantic relationships are generally stable and you don’t have a problem with long-term commitments. However, you can sometimes end up in relationships that feel wildly out of balance and that can drain you. Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.`,
+      copy: [
+        'You’re a warm and friendly person who feels comfortable in relationships (both intimate and platonic). You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth. You are quite good at communicating your needs, feelings, and opinions to others. Letting people in is easy for you because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time. When faced with relationship problems with your partner, friends, family, or coworkers, you see most problems as solvable and have strong conflict resolution skills. When you are faced with situations that are triggering, you are able to sit with your emotions and regulate them appropriately. When it comes to supporting others, you are an empathetic listener and are happy to be their rock. Your romantic relationships are generally stable and you don’t have a problem with long-term commitments. However, you can sometimes end up in relationships that feel wildly out of balance and that can drain you. Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
+      ],
     },
     FAMILIAR_SEGMENTS: {
       traits: [
@@ -907,15 +894,19 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if it feels like your relationships have pushed you to the point of exhaustion, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `**With the right tools, you can make sure that your relationships always feel harmonious.**`,
+      subHeadline: `With the right tools, you can make sure that your relationships always feel harmonious.`,
       subheadlineTwo: '',
-      subHeadlineMobile: `**With the right tools, you can make sure that your relationships always feel harmonious.**`,
+      subHeadlineMobile: [
+        `With the right tools, you can make sure that your relationships always feel harmonious.`,
+      ],
       freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
-      copy1: `Your attachment style and the relationship challenges it brings are a reflection of your story.
-  
-  if your attachment style is Securely Attached, it’s likely that you had a healthy relationship with both of your caregivers during childhood. You were probably encouraged to express yourself, and your needs for emotional and physical support were consistently met. That’s why as an adult, it’s easier for you to create supportive, communicative relationships with others. Unlike the 3 insecure attachment styles – Anxious-Preoccupied, Dismissive Avoidant and Fearful Avoidant – you don’t experience much anxiety or fear when in a relationship because you didn’t experience attachment traumas in your relationships as a child.`,
+      copy1: [
+        'Your attachment style and the relationship challenges it brings are a reflection of your story.',
+
+        'if your attachment style is Securely Attached, it’s likely that you had a healthy relationship with both of your caregivers during childhood. You were probably encouraged to express yourself, and your needs for emotional and physical support were consistently met. That’s why as an adult, it’s easier for you to create supportive, communicative relationships with others. Unlike the 3 insecure attachment styles – Anxious-Preoccupied, Dismissive Avoidant and Fearful Avoidant – you don’t experience much anxiety or fear when in a relationship because you didn’t experience attachment traumas in your relationships as a child.',
+      ],
       copy2: `Insecure attachment styles (Anxious Preoccupied, Fearful Avoidant, Dismissive Avoidant) can have a tendency to bottle up their emotions, pull away, send mixed signals by coming close and then moving away again, have difficulty communicating their needs, or putting up huge walls all in an effort to manage their deep-rooted fears of abandonment or betrayal. All of this can be extremely hard to relate to as someone who has never had the same traumatic experiences. 
   
   A second thing to note is although you might have scored as Securely Attached on your quiz, everyone also has their secondary attachment style which can get triggered in particularly emotional situations. Depending on the type of partner you’re with and the situation, your secondary attachment style can surface, bringing along all of its associated relationship challenges. For that reason, it’s worthwhile to spend some time exploring the different attachment styles to enhance your self awareness in an effort to improve your relationships.
@@ -968,22 +959,18 @@ export const ROYAL_RUMBLE = {
       {
         title: 'Communicate appropriately',
         copy: 'With partners who have insecure attachment styles.',
-        deskImageURL: 'rr-learn-tl-1.png',
       },
       {
         title: 'Understand others better',
         copy: 'Relate to and support others through their challenges.',
-        deskImageURL: 'rr-learn-tl-2.png',
       },
       {
         title: 'Develop self awareness',
         copy: 'By uncovering your secondary attachment style.',
-        deskImageURL: 'rr-learn-tl-3.png',
       },
       {
         title: 'Create healthy relationships',
         copy: 'That feel harmonious, connected, and that last.',
-        deskImageURL: 'rr-learn-tl-4.png',
       },
     ],
     EXCLUSIVEBONUS_SEGMENT: [
@@ -1010,31 +997,7 @@ export const ROYAL_RUMBLE = {
 
       freeTrialCopy: `\n**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
     },
-    TESTIMONIAL_SEGMENT: [
-      {
-        avatar: 'avatar_carrie.jpeg',
-        name: 'Carrie L',
-        testimonial: `Hi! I’m Carrie from northern California, USA. I’ve been a member of the PDS school since around June, 2020. This experience has been a life changer for me.  I have always been a seeker and self-improvement fan, but the courses and webinars with Thais as well as the zoom meetings with the community led by Mike, have given me actionable tools and a supportive safe space to discuss and practice them.  I am so fortunate to have found this school and so many friendly folks to share this journey!`,
-      },
-      {
-        avatar: 'avatar_tappy.jpg',
-        name: 'Tapanga P',
-        testimonial: `I discovered PDS shortly after my 19th birthday, even being one of the youngest in the school, everyone is so welcoming!!
-          I really love how Thais Gibson covers so many topics and goes above and beyond to cater to the needs of the members. The post-webinar breakout rooms have so many brilliant, and like-minded individuals who I always look forward to talking to!
-          PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself 😊`,
-      },
-      {
-        avatar: 'avatar_jake.png',
-        name: 'Jake J',
-        testimonial: `PDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others in all relationships. It has honestly changed my life for the better and am on my path towards becoming a more secure person. Not to sound too much like an infomercial, but I don’t know where I would be in my life without this place. They have created such an amazing community that is extremely supportive and is full of wonderful people. PDS has grown into something I am very proud to be a part of and look forward to seeing where this journey takes me.`,
-      },
-      {
-        avatar: 'avatar_leona.jpg',
-        name: 'Leona',
-        testimonial: `Joining PDS was the single best decision I made last year as it opened my eyes to the possibility that I could dramatically improve the quality of my relationships and that my past did not have to define my future. I learned about my attachment style, core wounds and personality needs and how these have been affecting the quality of my life currently. Thais gives clear instructions as to how you can reprogramme your subconscious mind, learn to communicate more effectively and excel in all 7 areas of your life to get rid of so many roadblocks that may be holding you back from living your best life. The PDS community is a truly supportive environment for personal growth and healing, my only regret is that I did not find all this out sooner as it has been truly life changing for me! ❤️
-          `,
-      },
-    ],
+
     BESTSELF_SEGMENT: {
       subheading: `The Emotional Healing Program at The Personal Development School is the missing piece to help you get there.`,
       bullets: [

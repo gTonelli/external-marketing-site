@@ -1,16 +1,19 @@
-﻿// core
-import React, { FC, forwardRef, useEffect, useState } from 'react'
+﻿'use client'
+
+// core
+import React, { FC, forwardRef } from 'react'
 // components
 import { Text } from './Text/Text'
 // libraries
 import cx from 'classnames'
 import CountdownPlugin from 'react-countdown'
 import Countdown from 'react-countdown'
+import dayjs from 'dayjs'
 
 type Props = {
   autoStart?: boolean
   className?: string
-  date: Date
+  date?: Date | number | string
   theme?: string
 }
 
@@ -29,7 +32,7 @@ export const CountdownTimer: FC<Props> = forwardRef(
     return (
       <CountdownPlugin
         autoStart={autoStart}
-        date={date}
+        date={date || dayjs().hour(24).minute(0).second(0).toDate()}
         ref={ref}
         renderer={({ days, hours, minutes, seconds }: ICountdownRendererProps) => {
           return (

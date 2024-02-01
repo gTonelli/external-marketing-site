@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useCallback, useContext } from 'react'
 // components
 import { IDefaultProps } from '@/components'

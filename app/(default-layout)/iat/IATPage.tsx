@@ -114,9 +114,17 @@ export const IATPage = () => {
       </Section>
 
       <div className="relative">
-        <Image className="w-full md:hidden" src="IATPage/iat-hero-bg.png" />
+        <Image
+          alt="Blue Curve Background on Mobile"
+          className="w-full md:hidden"
+          src="IATPage/iat-hero-bg.png"
+        />
 
-        <Image className="w-full hidden md:block" src="IATPage/iat-hero-bg-desktop.png" />
+        <Image
+          alt="Blue Curve Background on Desktop"
+          className="w-full hidden md:block"
+          src="IATPage/iat-hero-bg-desktop.png"
+        />
       </div>
 
       {/* VIDEO SECTION */}
@@ -125,6 +133,7 @@ export const IATPage = () => {
           className="mx-auto shadow-centered max-w-3xl lg:p-8"
           srcUrl="https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4"
           thumbnailUrl="IATPage/iat-video-thumbnail.png"
+          thumbnailAlt="IAT Video Thumbnail"
           onPlay={() => onVideoStarted('default')}
         />
 
@@ -153,9 +162,17 @@ export const IATPage = () => {
 
       {/* INITIAL 4 WEEKS SECTION */}
       <div className="relative">
-        <Image className="w-full lg:hidden" src="IATPage/initial-weeks-bg.png" />
+        <Image
+          alt="Pink Wave Background on Mobile"
+          className="w-full lg:hidden"
+          src="IATPage/initial-weeks-bg.png"
+        />
 
-        <Image className="w-full hidden lg:block" src="IATPage/initial-weeks-bg-desktop.png" />
+        <Image
+          alt="Pink Wave Background on Desktop"
+          className="w-full hidden lg:block"
+          src="IATPage/initial-weeks-bg-desktop.png"
+        />
       </div>
 
       <Section className="bg-primary-light-50 pt-0 pb-12 lg:pb-[120px]">
@@ -166,7 +183,11 @@ export const IATPage = () => {
         />
 
         <div className="flex flex-col mt-6 space-y-8 lg:items-start lg:flex-row lg:mt-9 lg:space-y-0 lg:space-x-14">
-          <Image className="w-full" src="IATPage/initial-weeks-mockup.png" />
+          <Image
+            alt="A Girl Using a Laptop Mockup"
+            className="w-full"
+            src="IATPage/initial-weeks-mockup.png"
+          />
 
           <div className="text-center lg:text-left">
             <Text.Paragraph className="font-bold" content={IAT.initial_weeks.subheading} />
@@ -227,12 +248,13 @@ export const IATPage = () => {
           </div>
 
           <Image
+            alt="IAT Training at PDS Mockup"
             className="lg:col-start-8 lg:col-span-5 lg:pl-4"
             src="IATPage/iat-training-mockup.jpg"
           />
         </div>
 
-        <Image className="hidden mx-auto lg:block" src="IATPage/live-icon.png" />
+        <Image alt="Live Icon" className="hidden mx-auto lg:block" src="IATPage/live-icon.png" />
 
         <Text.Heading
           className="text-black !text-[26px] mt-4"
@@ -428,7 +450,11 @@ export const IATPage = () => {
           </div>
 
           <div>
-            <Image className="w-full hidden lg:block" src="IATPage/certification-mockup.png" />
+            <Image
+              alt="A Girl With A Notepad Mockup"
+              className="w-full hidden lg:block"
+              src="IATPage/certification-mockup.png"
+            />
           </div>
         </div>
 
@@ -437,6 +463,7 @@ export const IATPage = () => {
             return (
               <div key={`audience-${index}`} className="mt-9 lg:mt-0">
                 <Image
+                  alt={`IAT Coach - ${coach.title}`}
                   className="w-3/4 mx-auto max-w-64"
                   src={`IATPage/iat-coaches-${index + 1}.png`}
                 />
@@ -470,7 +497,11 @@ export const IATPage = () => {
 
             <Text.Paragraph useMD className="mt-10" content={IAT.what_you_get.copy} />
 
-            <Image className="mt-10 lg:mt-15" src="IATPage/iat-learn-mockup.png" />
+            <Image
+              alt="IAT Certification Mockup 1"
+              className="mt-10 lg:mt-15"
+              src="IATPage/iat-learn-mockup.png"
+            />
           </div>
 
           <div className="max-w-[502px]">
@@ -500,7 +531,11 @@ export const IATPage = () => {
 
           <div className="flex flex-col mt-8 lg:mt-13 lg:flex-row lg:space-x-14">
             <div className="max-w-[502px] text-center lg:text-left">
-              <Image className="w-full lg:hidden" src="IATPage/benefits-mockup.png" />
+              <Image
+                alt="IAT Benefits Mockup Mobile"
+                className="w-full lg:hidden"
+                src="IATPage/benefits-mockup.png"
+              />
 
               <Text.Paragraph
                 className="font-bold text-left mt-10 lg:mt-0"
@@ -518,16 +553,28 @@ export const IATPage = () => {
             </div>
 
             <div className="max-w-[502px]">
-              <Image className="w-full hidden lg:block" src="IATPage/benefits-mockup-desktop.png" />
+              <Image
+                alt="IAT Benefits Mockup Desktop"
+                className="w-full hidden lg:block"
+                src="IATPage/benefits-mockup-desktop.png"
+              />
             </div>
           </div>
         </div>
       </Section>
 
       <div>
-        <Image className="w-full -mt-4 md:hidden" src="IATPage/benefits-bg.png" />
+        <Image
+          alt="Black Wave Background on Mobile"
+          className="w-full -mt-4 md:hidden"
+          src="IATPage/benefits-bg.png"
+        />
 
-        <Image className="w-full hidden md:block" src="IATPage/benefits-bg-desktop.png" />
+        <Image
+          alt="Black Wave Background on Desktop"
+          className="w-full hidden md:block"
+          src="IATPage/benefits-bg-desktop.png"
+        />
       </div>
 
       {/* PRICE CARDS */}
@@ -543,8 +590,13 @@ export const IATPage = () => {
       </div>
 
       {/* PROGRAM ITINERARY */}
-      <Image className="w-full md:hidden" src="IATPage/iat-curriculum-bg.png" />
       <Image
+        alt="Grey Curve Background on Mobile"
+        className="w-full md:hidden"
+        src="IATPage/iat-curriculum-bg.png"
+      />
+      <Image
+        alt="Grey Curve Background on Desktop"
         className="relative z-10 hidden w-full md:block"
         src="IATPage/iat-curriculum-bg-desktop.jpg"
       />
@@ -575,7 +627,11 @@ export const IATPage = () => {
       {/* HOW WILL YOU BE CERTIFIED SECTION */}
       <Section classNameInner="lg:max-w-5xl lg:pt-4 lg:pb-10">
         <div className="flex flex-center flex-col space-y-6 lg:flex-row lg:space-y-0 lg:space-x-14">
-          <Image className="w-full" src="IATPage/iat-certfication.png" />
+          <Image
+            alt="IAT Certificate Framed on a Wall"
+            className="w-full"
+            src="IATPage/iat-certfication.png"
+          />
 
           <div className="lg:min-w-[502px]">
             <Text.Heading
@@ -608,7 +664,11 @@ export const IATPage = () => {
             />
           </div>
 
-          <Image className="w-full" src="IATPage/thais-portrait.png" />
+          <Image
+            alt="Thais Gibson's Portrait"
+            className="w-full"
+            src="IATPage/thais-portrait.png"
+          />
         </div>
       </Section>
 
@@ -621,7 +681,11 @@ export const IATPage = () => {
         />
 
         <div className="flex flex-col space-y-6 mt-8 lg:flex-row lg:space-y-0 lg:space-x-[72px] lg:mt-11">
-          <Image className="w-full" src="IATPage/iat-impact.png" />
+          <Image
+            alt="A Man Indulged in Deep Thinking"
+            className="w-full"
+            src="IATPage/iat-impact.png"
+          />
 
           <div className="text-center lg:text-left">
             <Text.Paragraph
@@ -659,6 +723,7 @@ export const IATPage = () => {
           iframeClassName="rounded-10"
           maxHeight={432}
           thumbnail="/images/IATPage/IAT-testimonial-thumbnail.png"
+          thumbnailAlt="IAT Testimonial Thumbnail"
           videoId="tUUHFJw-VrI"
           onPlay={() => onVideoStarted('testimonial')}
         />
@@ -811,7 +876,7 @@ const IATPriceCard = ({
               />
             </div>
 
-            <Image className="mx-auto" src="IATPage/live-icon-red.png" />
+            <Image alt="Live Icon Red" className="mx-auto" src="IATPage/live-icon-red.png" />
 
             <Text.Heading className="mt-5" content={heading} />
 

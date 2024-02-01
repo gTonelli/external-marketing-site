@@ -143,6 +143,7 @@ export const VideoDefault = ({
         {(playButtonSize !== 'none' || srcUrl) && (!isPlaying || !playInline) && (
           <div className="cursor-pointer absolute z-10" onClick={toggleVideo}>
             <Image
+              alt="Video Play Button"
               className={cx(
                 'cursor-pointer w-8 h-8',
                 playButtonSize === 'small' && 'w-8 h-8',

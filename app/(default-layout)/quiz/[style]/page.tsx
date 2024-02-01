@@ -1,79 +1,55 @@
-'use client'
-
-//core
-import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { Page } from '@/components/Page'
+import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import Image from 'next/image'
-import { Video } from '@/components/Video/Video'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
 import { Button } from '@/components/Button/Button'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
-import { ROYAL_RUMBLE } from './config'
+import Link from 'next/link'
 // libraries
-import Cookies from 'universal-cookie'
-import { Autoplay, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import cx from 'classnames'
-// modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { ROYAL_RUMBLE } from './config'
 import { TStyle } from '@/utils/types'
-
-import 'swiper/css'
-import 'swiper/css/pagination'
-import ReactMarkdown from 'react-markdown'
+import { EExternalRoutes } from '@/utils/constants'
 
 export interface IAttachmentStylePageParams {
   style: TStyle
 }
 
-const cookies = new Cookies()
+type TParams = { params: { style: TStyle } }
 
-declare global {
-  interface Window {
-    $crisp: any[]
-    CRISP_WEBSITE_ID: string | undefined
+export async function generateMetadata({ params }: TParams) {
+  let title = 'Your Attachment Style Results'
+
+  switch (params.style) {
+    case 'fa':
+      title = 'Fearful Avoidant | ' + title
+      break
+
+    case 'da':
+      title = 'Dismissive Avoidant | ' + title
+      break
+
+    case 'ap':
+      title = 'Anxious Preoccupied | ' + title
+      break
+
+    case 'sa':
+      title = 'Securely Attached | ' + title
+      break
+  }
+
+  return {
+    title,
   }
 }
 
-export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
+export default function RoyalRumble({ params }: TParams) {
   const style = params.style
-
-  // ==================== Hooks ====================
-  const page_name = `vsl-${ROYAL_RUMBLE[style].TITLE}` as Pages
-
-  // ==================== State ====================
-  const [titleStart, setTitleStart] = useState('')
-
-  const userFirstName = Storage.get('userFirstName')
-
-  const getTitleStart = useCallback(() => {
-    if (!userFirstName) return `You have `
-    return `${userFirstName}, you have `
-  }, [userFirstName])
-
-  useEffect(() => {
-    document.title = page_name
-
-    setTitleStart(getTitleStart() + `${style === 'ap' ? 'an' : 'a'}`)
-  }, [getTitleStart, page_name, style])
-
-  //============================ Events ========================================
-  const onGoToCheckout = useCallback(
-    (event: React.MouseEvent<Element, MouseEvent>) => {
-      Mixpanel.track.ButtonClicked({
-        button_label: (event.target as HTMLButtonElement).innerText,
-        page_name: page_name,
-      })
-
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
-    },
-    [style, ROYAL_RUMBLE]
-  )
 
   return (
     <Page className="w-full text-center z-10" page_name={`vsl-${style}`}>
@@ -85,7 +61,10 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           {/* TITLE + VIDEO */}
           <div className="text-left flex flex-center flex-col md:grid md:grid-cols-2 md:gap-8">
             <div className="my-auto">
-              <h2 className="inline capitalize lg:block">{titleStart + ' '}</h2>
+              <AttachmentQuizHeading
+                className="!text-h2 !text-black !capitalize !font-ssp"
+                copy={`You Have A${style === 'ap' ? 'n' : ''}`}
+              />
 
               <h2 className="inline capitalize text-primary lg:block">
                 {ROYAL_RUMBLE[style].TITLE + ' '}
@@ -95,17 +74,11 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             </div>
 
             <div className="mt-10 md:mt-0">
-              <Video.Thumbnail
+              <VideoThumbnail
                 playButtonSize="medium"
                 srcUrl={ROYAL_RUMBLE[style].YOUTUBE_URL}
                 style={{ maxWidth: '415px', borderRadius: '20px' }}
                 thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
-                onClick={() =>
-                  Mixpanel.track.VideoStarted({
-                    video_type: `default - ${page_name}}`,
-                    page_name: page_name,
-                  })
-                }
               />
             </div>
           </div>
@@ -134,11 +107,9 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             </p>
           </div>
 
-          <Button
-            className="bg-primary mt-8 xxs:px-16 md:mt-10"
-            label="UNLOCK MY DISCOUNT"
-            onClick={onGoToCheckout}
-          />
+          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+            <Button className="bg-primary mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
+          </Link>
         </div>
       </section>
       {/* FAMILIAR SECTION*/}
@@ -213,11 +184,9 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                 </p>
               )}
 
-              <Button
-                className="bg-primary mt-4 px-16 md:mt-10"
-                label="GET STARTED"
-                onClick={onGoToCheckout}
-              />
+              <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+                <Button className="bg-primary mt-4 px-16 md:mt-10" label="GET STARTED" />
+              </Link>
             </div>
           </div>
         </div>
@@ -266,7 +235,9 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               </p>
             )}
 
-            <Button className="bg-primary px-16" label="GET STARTED" onClick={onGoToCheckout} />
+            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+              <Button className="bg-primary px-16" label="GET STARTED" />
+            </Link>
           </div>
         </div>
       </section>
@@ -284,13 +255,13 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 text-left inset-0">
             <h2 className="mb-8 md:mb-10 text-2xl text-primary">Hi, I’m Thais!</h2>
 
-            <p className="md:text-lg text-justify">
+            <p className="mb-4 md:text-lg text-justify">
               I have over a decade of experience as a relationship coach and counsellor and got into
               this field because I too, had a Fearful Avoidant attachment style, and was seeking
               answers and healing.
             </p>
 
-            <p className="md:text-lg text-justify">
+            <p className="mb-4 md:text-lg text-justify">
               I embarked on a journey of relentless research and education which led to me
               completing a Master's Degree and more than 13 different certifications in a variety of
               psychology modalities including Cognitive Behavioral Therapy, Neuro Linguistic
@@ -299,7 +270,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               to transform lifelong relationship patterns.
             </p>
 
-            <p className="md:text-lg text-justify">
+            <p className="mb-4 md:text-lg text-justify">
               Eventually, I transitioned into creating online programs - originally because my
               waitlist to see clients was over 2 years long. I have also published a best-selling
               book on this very topic, and have a Youtube channel with almost 200,000 subscribers.
@@ -307,7 +278,7 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               The Personal Development School so I could share this information with more people.
             </p>
 
-            <p className="md:text-lg text-justify">
+            <p className="mb-4 md:text-lg text-justify">
               In the past 3 years alone, I have helped thousands of students on their journey to
               healthy, happy relationships using the techniques from the program that I'm sharing
               with you today. I am humbled to say that this program has received a 99.7%
@@ -315,10 +286,11 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
             </p>
 
             <p className="md:text-lg font-bold font-effra text-justify pb-4">
-              ROYAL_RUMBLE[style].THAIS_SEGMENT.copy
+              {ROYAL_RUMBLE[style].THAIS_SEGMENT.copy}
             </p>
           </div>
         </section>
+
         <Image
           alt="An image of Thais smiling with her head tilted. She's sitting on a white couch wearing a bluie shirt."
           className="w-full xs:hidden"
@@ -379,10 +351,11 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               This will empower you to create more attraction, chemistry and deeper connection in
               your love life - without the fear of losing yourself in relationships.
             </p>
-
-            <ReactMarkdown className="md:text-lg font-effra mt-4 text-white ">
-              {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.copy}
-            </ReactMarkdown>
+            {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.copy.map((copy, index) => (
+              <p key={`program_copy_${index}`} className="md:text-lg font-effra mt-4 text-white ">
+                {copy}
+              </p>
+            ))}
 
             <ul className="mt-4 !ml-6 fa-ul text-white font-effra md:text-lg">
               {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.bullets.map((copy, index) => (
@@ -393,16 +366,14 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                     type="regular"
                   />
 
-                  <ReactMarkdown className="my-4">{copy}</ReactMarkdown>
+                  <p className="my-4">{copy}</p>
                 </li>
               ))}
             </ul>
 
-            <Button
-              className="mt-8 md:mt-10 bg-primary border-0 px-16"
-              label="SIGN UP NOW"
-              onClick={onGoToCheckout}
-            />
+            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+              <Button className="mt-8 md:mt-10 bg-primary border-0 px-16" label="SIGN UP NOW" />
+            </Link>
           </div>
         </div>
       </section>
@@ -461,9 +432,9 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                 Access to These Exclusive Bonuses:
               </h2>
 
-              <div className="mt-8 md:mt-10 flex flex-col md:flex-row text-left justify-between">
+              <div className="mt-8 md:mt-10 flex flex-col md:grid md:grid-cols-2 md:gap-4 text-left justify-between">
                 <ul className="font-effra !ml-6 fa-ul max-w-[415px]">
-                  {ROYAL_RUMBLE[style].EXCLUSIVEBONUS_SEGMENT.map((copy, index) => (
+                  {ROYAL_RUMBLE.EXCLUSIVEBONUS_SEGMENT.map((copy, index) => (
                     <li key={`bonus_${index}`} className="mb-6">
                       <Icon
                         className="text-primary mr-2 my-auto w-4 h-4 fa-li"
@@ -471,30 +442,31 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                         type="regular"
                       />
 
-                      <ReactMarkdown className="md:text-lg">{copy}</ReactMarkdown>
+                      <p className="md:text-lg">{copy}</p>
                     </li>
                   ))}
                 </ul>
 
                 <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-[415px]">
-                  <li className="font-bold text-primary">
+                  <li className="font-bold text-primary mb-4">
                     <Icon
                       className="text-primary mr-2 my-auto w-4 h-4 fa-li"
                       name="check-circle"
                       type="regular"
                     />
-                    {`Not to mention, a 7-day money-back guarantee!
-                `}
+                    Not to mention, a 7-day money-back guarantee!
                   </li>
 
-                  <li>
-                    <ReactMarkdown className="font-effra md:text-lg">
-                      {ROYAL_RUMBLE.moneyBackGuaranteeCopy}
-                    </ReactMarkdown>
-                  </li>
+                  {ROYAL_RUMBLE.moneyBackGuaranteeCopy.map((copy, index) => (
+                    <li key={`money_back_copy_${index}`}>
+                      <p className="font-effra mb-4 md:text-lg">{copy}</p>
+                    </li>
+                  ))}
 
                   <li className="mt-8 md:mt-10">
-                    <Button className="bg-primary" label="ENROLL NOW" onClick={onGoToCheckout} />
+                    <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+                      <Button className="bg-primary" label="ENROLL NOW" />
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -540,79 +512,25 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               Our Programs have helped Thousands of People Transform Their Lives
             </h2>
 
-            <div className="mt-10 w-full flex relative max-w-[640px] sm:max-w-[850px]">
-              <Swiper
-                autoplay={{
-                  delay: 6000,
-                  reverseDirection: true,
-                }}
-                className="!py-6 !px-2 lg:!px-18"
-                modules={[Autoplay, Pagination]}
-                pagination={{
-                  bulletActiveClass: '!bg-black',
-                  bulletClass:
-                    'inline-block w-4 h-4 mx-1 bg-white border-2 rounded-full border-black cursor-pointer',
-                  clickable: true,
-                  horizontalClass: '!bottom-16',
-                }}
-                slidesPerView={1}
-                spaceBetween={96}>
-                {ROYAL_RUMBLE.TESTIMONIAL_SEGMENT.map((testimonial, index) => (
-                  <SwiperSlide
-                    key={`testimonial_${index}`}
-                    className="p-6 py-12 shadow-centered rounded-2xl md:px-8">
-                    <div className="mb-6">
-                      <Image
-                        alt="A vector image of a quotation mark"
-                        src="/images/homepage_quote_left.png"
-                        tabIndex={-1}
-                        width={67}
-                        height={54}
-                      />
-                    </div>
+            <CarouselTestimonialAlt />
 
-                    <div className="pl-5 border-l-[12px] border-blue-lightest">
-                      <div className="flex items-center mb-6">
-                        <Image
-                          alt={`An image of ${testimonial.name}`}
-                          className="rounded-full overflow-hidden w-8 h-8"
-                          src={`/images/${testimonial.avatar}`}
-                          width={32}
-                          height={32}
-                        />
-                        <span className="font-semibold ml-3">{testimonial.name}</span>
-                      </div>
+            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+              <Button
+                className="bg-primary mt-4 md:hidden min-w-min xxs:min-w-max"
+                label="START HEALING"
+              />
+            </Link>
 
-                      <ReactMarkdown className="text-left">{testimonial.testimonial}</ReactMarkdown>
-                    </div>
-
-                    <div className="rotate-180 mt-6">
-                      <Image
-                        alt="A vector image of a quotation mark"
-                        src="/images/homepage_quote_left.png"
-                        width={67}
-                        height={54}
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-
-            <Button
-              className="bg-primary mt-4 md:hidden min-w-min xxs:min-w-max"
-              label="START HEALING"
-              onClick={onGoToCheckout}
-            />
-
-            <Button
-              className="hidden bg-primary mt-8 !px-16 md:mt-10 md:block md:mx-auto min-w-max"
-              label="START MY TRANSFORMATION"
-              onClick={onGoToCheckout}
-            />
+            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+              <Button
+                className="hidden bg-primary mt-8 !px-16 md:mt-10 md:block md:mx-auto min-w-max"
+                label="START MY TRANSFORMATION"
+              />
+            </Link>
           </div>
         </div>
       </section>
+
       {/*BEST SELF SECTION */}
       <section className="w-full mt-8 md:mt-16 bg-black pt-10 pb-8 md:pb-10">
         <div className="max-w-[1024px] mx-4 md:mx-auto md:px-4 mt-10 inset-0">
@@ -658,24 +576,24 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
               </div>
             ))}
 
-            <Button
-              className="bg-primary mt-2 border-0"
-              label="I WANT THIS"
-              onClick={onGoToCheckout}
-            />
+            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+              <Button className="bg-primary mt-2 border-0" label="I WANT THIS" />
+            </Link>
           </div>
         </div>
       </section>
       {/* MY QUESTION SECTION */}
       <section className="w-full">
-        <div className="mt-6 md:mt-32 max-w-[1024px] mx-4 md:mx-auto md:px-4 text-left">
+        <div className="mt-6 md:mt-32 max-w-[1024px] mx-4 md:mx-auto md:px-4 md:mb-10 text-left">
           <h2 className="capitalize text-2xl text-primary">
             My question to you is: can you really afford to keep going the way that you are?
           </h2>
 
-          <ReactMarkdown className="font-effra md:text-lg mt-8 md:mt-10">
-            {ROYAL_RUMBLE[style].MYQUESTION_SEGMENT.subheading1}
-          </ReactMarkdown>
+          {ROYAL_RUMBLE[style].MYQUESTION_SEGMENT.subheading1.map((copy, index) => (
+            <p key={`my_question_copy_${index}`} className="font-effra md:text-lg mt-4">
+              {copy}
+            </p>
+          ))}
 
           <div className="flex flex-center flex-col md:flex-row md:space-x-11 mt-6">
             <div className="my-auto">
@@ -702,12 +620,14 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           </div>
 
           <div className="mt-6">
-            <ReactMarkdown className="font-effra md:text-lg">
+            <p className="font-effra md:text-lg">
               {ROYAL_RUMBLE[style].MYQUESTION_SEGMENT.subheading2}
-            </ReactMarkdown>
+            </p>
           </div>
 
-          <Button className="bg-primary mt-6 md:mt-8" label="SIGN ME UP" onClick={onGoToCheckout} />
+          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+            <Button className="bg-primary mt-6 md:mt-8" label="SIGN ME UP" />
+          </Link>
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
@@ -792,11 +712,10 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
                       <p className="md:text-lg">7-Day Money Back Guarantee, No Questions Asked!</p>
                     </li>
                   </ul>
-                  <Button
-                    className="bg-primary mt-6 md:mt-10 border-0"
-                    label="REGISTER NOW"
-                    onClick={onGoToCheckout}
-                  />
+
+                  <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+                    <Button className="bg-primary mt-6 md:mt-10 border-0" label="REGISTER NOW" />
+                  </Link>
                   <p className="font-effra font-bold md:text-lg mt-2">SAVE 30% NOW</p>
                 </div>
               </div>
@@ -842,11 +761,12 @@ export default function RoyalRumble({ params }: { params: { style: TStyle } }) {
           </p>
         </div>
 
-        <Button
-          className="bg-primary mt-8 md:mt-10 border-primary md:px-20 min-w-min xxs:min-w-max"
-          label="REWRITE MY STORY"
-          onClick={onGoToCheckout}
-        />
+        <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+          <Button
+            className="bg-primary mt-8 md:mt-10 border-primary md:px-20 min-w-min xxs:min-w-max"
+            label="REWRITE MY STORY"
+          />
+        </Link>
       </section>
       {/* FAQ SECTION */}
       <Faq

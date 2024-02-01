@@ -1,10 +1,11 @@
 export const ROYAL_RUMBLE = {
-  moneyBackGuaranteeCopy: `
-  All programs at The Personal Development School are backed by our Risk Free 100% money back guarantee!
-  
-  If you take our program and don't get the results you were looking for, we will issue you a FULL REFUND within 7 days of your purchase, no hard feelings and NO questions asked! 
-  
-  You will walk away with the self awareness and emotional skills you’ve been missing to overcome the #1 obstacle that’s been preventing you from developing a healthy and happy relationship that lasts.`,
+  moneyBackGuaranteeCopy: [
+    'All programs at The Personal Development School are backed by our Risk Free 100% money back guarantee!',
+
+    "If you take our program and don't get the results you were looking for, we will issue you a FULL REFUND within 7 days of your purchase, no hard feelings and NO questions asked!",
+
+    'You will walk away with the self awareness and emotional skills you’ve been missing to overcome the #1 obstacle that’s been preventing you from developing a healthy and happy relationship that lasts.',
+  ],
 
   moneyBackGuaranteeCopyWithTrial: `All programs at The Personal Development School are backed by our Risk Free 100% money back guarantee!
                       
@@ -44,6 +45,33 @@ export const ROYAL_RUMBLE = {
       height: 103,
       deskImageURL: 'rr-learn-tl-4.png',
     },
+  ],
+
+  EXCLUSIVEBONUS_SEGMENT: [
+    <>
+      Gain <strong>free access to our library of over 50 bonus courses</strong> on personal
+      development including - understanding others’ attachment styles, emotional mastery and
+      overcoming burnout!
+    </>,
+
+    <>
+      My <strong>weekly live webinars</strong> where you can ask me your own questions, share your
+      experience, and discuss your challenges in an informal and intimate environment with other
+      members.
+    </>,
+
+    <>
+      <strong>Priority access</strong> to all upcoming promotions, offers, and new programs at The
+      Personal Development School.
+    </>,
+
+    `The chance to attend **our regular events and socials** to connect with myself, The Personal Development School team, and other members.`,
+
+    <>
+      An invitation to our <strong>online forum and Facebook group</strong> where you have the
+      opportunity to interact with a supportive community like-minded individuals who are equally
+      dedicated to their healing.
+    </>,
   ],
 
   TESTIMONIAL_SEGMENT: [
@@ -187,8 +215,15 @@ export const ROYAL_RUMBLE = {
     ],
 
     WHATPROGRAMCOVER_SEGMENT: {
-      copy: `The Anxious Preoccupied to Securely Attached program gives you access to **a tailored online course** you can complete on your own schedule. Through the course of videos, highly effective exercises, and my support through intimate webinars, together we'll tackle a list of other emotional issues that you might deal with in your life that come from your attachment trauma, like:
-        `,
+      copy: [
+        <>
+          The Anxious Preoccupied to Securely Attached program gives you access to{' '}
+          <strong>a tailored online course</strong> you can complete on your own schedule. Through
+          the course of videos, highly effective exercises, and my support through intimate
+          webinars, together we'll tackle a list of other emotional issues that you might deal with
+          in your life that come from your attachment trauma, like:
+        </>,
+      ],
       bullets: [
         `Codependency and enmeshment`,
         `Having a lack of boundaries`,
@@ -220,18 +255,6 @@ export const ROYAL_RUMBLE = {
         title: 'Be certain',
         copy: 'Gain a sense of certainty in your relationships.',
       },
-    ],
-
-    EXCLUSIVEBONUS_SEGMENT: [
-      `Gain **free access to our library of over 50 bonus courses** on personal development including - understanding others’ attachment styles, emotional mastery and overcoming burnout!`,
-
-      `My **weekly live webinars** where you can ask me your own questions, share your experience, and discuss your challenges in an informal and intimate environment with other members.`,
-
-      `**Priority access** to all upcoming promotions, offers, and new programs at The Personal Development School.`,
-
-      `The chance to attend **our regular events and socials** to connect with myself, The Personal Development School team, and other members.`,
-
-      `An invitation to our **online forum and Facebook group** where you have the opportunity to interact with a supportive community like-minded individuals who are equally dedicated to their healing.`,
     ],
 
     STILLNOTSURE_SEGMENT: {
@@ -297,15 +320,32 @@ export const ROYAL_RUMBLE = {
       ],
     },
     MYQUESTION_SEGMENT: {
-      subheading1: `I get it — you might feel paralyzed by the material you have to learn, worried about facing your traumas, or feel doubtful that you have what it takes to commit to yourself. 
-  
-  **But we’re going to do this together. My team and I will be there to support you every step of the way.**`,
+      subheading1: [
+        'I get it — you might feel paralyzed by the material you have to learn, worried about facing your traumas, or feel doubtful that you have what it takes to commit to yourself.',
 
-      subheading2: `**The biggest risk you can take is doing nothing at all.** 
-  
-  Signing up for a program at The Personal Development School is your chance to step in and put an end to your vicious attachment cycles.
-                      
-  **Too many people let their attachment styles, their beliefs, and their subconscious relationship patterns control their whole lives. But not you. It doesn’t have to be you too.**`,
+        <>
+          <strong>
+            But we’re going to do this together. My team and I will be there to support you every
+            step of the way.
+          </strong>
+        </>,
+      ],
+
+      subheading2: [
+        <>
+          <strong>The biggest risk you can take is doing nothing at all.</strong>
+        </>,
+
+        'Signing up for a program at The Personal Development School is your chance to step in and put an end to your vicious attachment cycles.',
+
+        <>
+          <strong>
+            Too many people let their attachment styles, their beliefs, and their subconscious
+            relationship patterns control their whole lives. But not you. It doesn’t have to be you
+            too.
+          </strong>
+        </>,
+      ],
 
       bullets: [
         `Repeating your same relationship cycles over and over again with no way out, not knowing where to start to create real change.`,
@@ -465,9 +505,14 @@ export const ROYAL_RUMBLE = {
       `Access your course materials again whenever you need a refresh`,
     ],
     WHATPROGRAMCOVER_SEGMENT: {
-      copy: `The Dismissive Avoidant to Securely Attached program gives you access to **a tailored online courses** you can complete at your own convenience. 
-  
-  Through the course videos, highly effective exercises, and my support through intimate webinars, together we'll tackle a list of other emotional issues that you might deal with in your life that come from your attachment trauma, like:`,
+      copy: [
+        <>
+          The Dismissive Avoidant to Securely Attached program gives you access to{' '}
+          <strong>a tailored online course</strong> you can complete at your own convenience.
+        </>,
+
+        "Through the course videos, highly effective exercises, and my support through intimate webinars, together we'll tackle a list of other emotional issues that you might deal with in your life that come from your attachment trauma, like:",
+      ],
       bullets: [
         `Bottling things up`,
         `Feeling constant anxiety around your relationships`,
@@ -494,17 +539,7 @@ export const ROYAL_RUMBLE = {
         copy: 'Distinguish between compromising and making sacrifices to yourself.',
       },
     ],
-    EXCLUSIVEBONUS_SEGMENT: [
-      `Gain **free access to our library of over 50 bonus courses** on personal development including - understanding others’ attachment styles, emotional mastery and overcoming burnout!`,
 
-      `My **weekly live webinars** where you can ask me your own questions, share your experience, and discuss your challenges in an informal and intimate environment with other members.`,
-
-      `**Priority access** to all upcoming promotions, offers, and new programs at The Personal Development School.`,
-
-      `The chance to attend **our regular events and socials** to connect with myself, The Personal Development School team, and other members.`,
-
-      `An invitation to our **online forum and Facebook group** where you have the opportunity to interact with a supportive community like-minded individuals who are equally dedicated to their healing.`,
-    ],
     STILLNOTSURE_SEGMENT: {
       copy1: `**We hear you.** 
   
@@ -565,14 +600,32 @@ export const ROYAL_RUMBLE = {
       ],
     },
     MYQUESTION_SEGMENT: {
-      subheading1: `I get it — you might feel paralyzed by the material you have to learn, worried about facing your traumas, or feel doubtful that you have what it takes to commit to yourself. 
-  
-  **But we’re going to do this together. My team and I will be there to support you every step of the way.**`,
-      subheading2: `**The biggest risk you can take is doing nothing at all.** 
-  
-  Signing up for a program at The Personal Development School is your chance to step in and put an end to your vicious attachment cycles.
-                      
-  **Too many people let their attachment styles, their beliefs, and their subconscious relationship patterns control their whole lives. But not you. It doesn’t have to be you too.**`,
+      subheading1: [
+        'I get it — you might feel paralyzed by the material you have to learn, worried about facing your traumas, or feel doubtful that you have what it takes to commit to yourself.',
+
+        <>
+          <strong>
+            But we’re going to do this together. My team and I will be there to support you every
+            step of the way.
+          </strong>
+        </>,
+      ],
+
+      subheading2: [
+        <>
+          <strong>The biggest risk you can take is doing nothing at all.</strong>
+        </>,
+
+        'Signing up for a program at The Personal Development School is your chance to step in and put an end to your vicious attachment cycles.',
+
+        <>
+          <strong>
+            Too many people let their attachment styles, their beliefs, and their subconscious
+            relationship patterns control their whole lives. But not you. It doesn’t have to be you
+            too.
+          </strong>
+        </>,
+      ],
       bullets: [
         `Repeating your same relationship cycles over and over again with no way out, not knowing where to start to create real change.`,
 
@@ -720,9 +773,14 @@ export const ROYAL_RUMBLE = {
       `Access your course materials again whenever you need a refresh`,
     ],
     WHATPROGRAMCOVER_SEGMENT: {
-      copy: `The Fearful Avoidant to Securely Attached program gives you access to **a tailored online course** you can complete at your own convenience. 
-  
-  Through the course videos, highly effective exercises, and my support through intimate webinars, together we'll tackle a list of other emotional issues that you might deal with in your life that come from your attachment trauma, like:`,
+      copy: [
+        <>
+          The Fearful Avoidant to Securely Attached program gives you access to{' '}
+          <strong>a tailored online course</strong> you can complete at your own convenience.
+        </>,
+
+        "Through the course videos, highly effective exercises, and my support through intimate webinars, together we'll tackle a list of other emotional issues that you might deal with in your life that come from your attachment trauma, like:",
+      ],
       bullets: [
         `Your needs **so that you can have deep connection without compromising your freedom and independence**`,
         `Your insecurities/fears (with tools to overcome them), **so that you can feel confident and stable in your love life**`,
@@ -751,17 +809,7 @@ export const ROYAL_RUMBLE = {
         copy: 'Without feeling like you’re on high alert all the time.',
       },
     ],
-    EXCLUSIVEBONUS_SEGMENT: [
-      `Gain **free access to our library of over 50 bonus courses** on personal development including - understanding others’ attachment styles, emotional mastery and overcoming burnout!`,
 
-      `My **weekly live webinars** where you can ask me your own questions, share your experience, and discuss your challenges in an informal and intimate environment with other members.`,
-
-      `**Priority access** to all upcoming promotions, offers, and new programs at The Personal Development School.`,
-
-      `The chance to attend **our regular events and socials** to connect with myself, The Personal Development School team, and other members.`,
-
-      `An invitation to our **online forum and Facebook group** where you have the opportunity to interact with a supportive community like-minded individuals who are equally dedicated to their healing.`,
-    ],
     STILLNOTSURE_SEGMENT: {
       copy1: `**We hear you.** 
   
@@ -813,14 +861,31 @@ export const ROYAL_RUMBLE = {
       ],
     },
     MYQUESTION_SEGMENT: {
-      subheading1: `I get it — you might feel paralyzed by the material you have to learn, worried about facing your traumas, or feel doubtful that you have what it takes to commit to yourself. 
-  
-  **But we’re going to do this together. My team and I will be there to support you every step of the way.**`,
-      subheading2: `**The biggest risk you can take is doing nothing at all.** 
-  
-  Signing up for a program at The Personal Development School is your chance to step in and put an end to your vicious attachment cycles.
-                    
-  **Too many people let their attachment styles, their beliefs, and their subconscious relationship patterns control their whole lives. But not you. It doesn’t have to be you too.**`,
+      subheading1: [
+        'I get it — you might feel paralyzed by the material you have to learn, worried about facing your traumas, or feel doubtful that you have what it takes to commit to yourself.',
+
+        <>
+          <strong>
+            But we’re going to do this together. My team and I will be there to support you every
+            step of the way.
+          </strong>
+        </>,
+      ],
+      subheading2: [
+        <>
+          <strong>The biggest risk you can take is doing nothing at all.</strong>
+        </>,
+
+        'Signing up for a program at The Personal Development School is your chance to step in and put an end to your vicious attachment cycles.',
+
+        <>
+          <strong>
+            Too many people let their attachment styles, their beliefs, and their subconscious
+            relationship patterns control their whole lives. But not you. It doesn’t have to be you
+            too.
+          </strong>
+        </>,
+      ],
       bullets: [
         `Pushing away more and more people when they try to get close to you and foster potentially meaningful, long lasting relationships.`,
 
@@ -943,8 +1008,13 @@ export const ROYAL_RUMBLE = {
       `Access your course materials again whenever you need a refresh`,
     ],
     WHATPROGRAMCOVER_SEGMENT: {
-      copy: `The Emotional Healing program gives you access to **a tailored online course** you can complete at your own convenience. These courses tackle topics including:
-        `,
+      copy: [
+        <>
+          The Emotional Healing program gives you access to{' '}
+          <strong>a tailored online course</strong> you can complete at your own convenience. These
+          courses tackle topics including:
+        </>,
+      ],
       bullets: [
         `Belief reprogramming`,
         `Discovering, embracing, and fulfilling your personal needs`,
@@ -973,17 +1043,7 @@ export const ROYAL_RUMBLE = {
         copy: 'That feel harmonious, connected, and that last.',
       },
     ],
-    EXCLUSIVEBONUS_SEGMENT: [
-      `Gain **free access to our library of over 50 bonus courses** on personal development including - understanding others’ attachment styles, emotional mastery and overcoming burnout!`,
 
-      `My **weekly live webinars** where you can ask me your own questions, share your experience, and discuss your challenges in an informal and intimate environment with other members.`,
-
-      `**Priority access** to all upcoming promotions, offers, and new programs at The Personal Development School.`,
-
-      `The chance to attend **our regular events and socials** to connect with myself, The Personal Development School team, and other members.`,
-
-      `An invitation to our **online forum and Facebook group** where you have the opportunity to interact with a supportive community like-minded individuals who are equally dedicated to their healing.`,
-    ],
     STILLNOTSURE_SEGMENT: {
       copy1: `**We hear you.** 
   
@@ -1030,12 +1090,26 @@ export const ROYAL_RUMBLE = {
       ],
     },
     MYQUESTION_SEGMENT: {
-      subheading1: `I get it — you might feel paralyzed by the material you have to learn or might feel doubtful that you have what it takes to commit to a program.
-  
-  **But my team and I will be there to support you every step of the way.**`,
-      subheading2: `**The biggest risk you can take is doing nothing at all.** 
-  
-  **Signing up for a program at The Personal Development School is your chance to maximize your awareness and put an end to misunderstandings and relationships that are not serving you.**`,
+      subheading1: [
+        'I get it — you might feel paralyzed by the material you have to learn or might feel doubtful that you have what it takes to commit to a program.',
+
+        <>
+          <strong>But my team and I will be there to support you every step of the way.</strong>
+        </>,
+      ],
+      subheading2: [
+        <>
+          <strong>The biggest risk you can take is doing nothing at all.</strong>
+        </>,
+
+        <>
+          <strong>
+            Signing up for a program at The Personal Development School is your chance to maximize
+            your awareness and put an end to misunderstandings and relationships that are not
+            serving you.
+          </strong>
+        </>,
+      ],
       bullets: [
         `Ending up in more unfulfilling relationships.`,
 

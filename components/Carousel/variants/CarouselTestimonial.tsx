@@ -6,6 +6,8 @@ import React, { forwardRef, useContext, useState } from 'react'
 import { IDefaultProps } from '@/components'
 import { Icon } from '@/components/Icon'
 import { Testimonial } from '@/components/Testimonial/Testimonial'
+import { Image } from '@/components/Image'
+import { Text } from '@/components/Text/Text'
 // libraries
 import cx from 'classnames'
 import { Navigation, Pagination } from 'swiper/modules'
@@ -13,10 +15,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { TTestimonial } from '../../Testimonial/variants/TestimonialDefault'
-
 import { ViewportContext } from '@/utils/contexts'
-import { Image } from '@/components/Image'
-import { Text } from '@/components/Text/Text'
+
 interface ICarouselTestimonialProps extends IDefaultProps {
   /** Classnames for carousel children (cards) */
   classNameCard?: string

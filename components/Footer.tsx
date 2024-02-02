@@ -16,10 +16,10 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
         <div className="flex flex-col items-center mb-5 lg:items-start">
           <Image
             alt="PDS Logo - Tree of Life"
-            className="mb-5 lg:ml-[30px] lg:w-[219px]"
-            src="/images/pds-logo-stacked-right.svg"
-            height={48}
-            width={131}
+            className="mb-5 lg:ml-[30px] lg:w-[320px]"
+            src="/images/pds-logo-stacked-right-alt.svg"
+            height={43}
+            width={221}
           />
 
           <div className="flex px-4">
@@ -180,7 +180,10 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
     </div>
 
     <div className="text-white py-4 border-t border-gray-500 lg:text-right lg:max-w-[calc(100%-340px)] lg:mx-auto">
-      <p>© Copyright {year} Personal Development School All rights Reserved</p>
+      <p>
+        © Copyright {year} <strong>PDS: The Personal Development School,</strong> All rights
+        Reserved
+      </p>
     </div>
   </footer>
 )

@@ -6,20 +6,28 @@ import { useState, useEffect } from 'react'
 import { RESULTS } from '@/app/(default-layout)/quiz/results/fa/config'
 // modules
 import { Storage } from '@/modules/Storage'
+import { IDefaultProps } from '..'
+// libraries
+import cx from 'classnames'
+import { TStyle } from '@/utils/types'
 
-export const AttachmentQuizHeading = () => {
+interface IAttachmentQuizHeadingProps extends IDefaultProps {
+  copy?: string
+}
+
+export const AttachmentQuizHeading = ({ copy, className }: IAttachmentQuizHeadingProps) => {
   // ==================== State ====================
   const userFirstName = Storage.get('userFirstName')
   const [titleStart, setTitleStart] = useState('')
 
   useEffect(() => {
-    setTitleStart(userFirstName ? userFirstName.toUpperCase() + ', ' : '')
+    setTitleStart(userFirstName ? userFirstName + ', ' : '')
   }, [userFirstName])
 
   return (
-    <h1 className="text-purple-dark font-bold font-effra">
+    <h1 className={cx('text-purple-dark font-bold font-effra uppercase', className)}>
       {titleStart}
-      {RESULTS['fa'].HERO_SECTION.headline}
+      {copy || RESULTS['fa'].HERO_SECTION.headline}
     </h1>
   )
 }

@@ -78,6 +78,7 @@ export default function RoyalRumble({ params }: TParams) {
                 playButtonSize="medium"
                 srcUrl={ROYAL_RUMBLE[style].YOUTUBE_URL}
                 style={{ maxWidth: '415px', borderRadius: '20px' }}
+                thumbnailAlt="A picture of Thais teaching"
                 thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
               />
             </div>
@@ -191,6 +192,7 @@ export default function RoyalRumble({ params }: TParams) {
           </div>
         </div>
       </section>
+
       {/* ATTACHMENT ORIGIN SECTION */}
       <section className="w-full relative">
         <div className="max-w-[850px] mt-6 md:mt-32  mx-4 md:mx-auto md:px-4 text-left">
@@ -322,9 +324,11 @@ export default function RoyalRumble({ params }: TParams) {
               program overview
             </p>
 
-            <p className="md:text-lg font-effra mt-4 text-white ">
-              {ROYAL_RUMBLE[style].GAINACCESS_SEGMENT}
-            </p>
+            {ROYAL_RUMBLE[style].GAINACCESS_SEGMENT.map((copy, index) => (
+              <p key={`gain_access_${index}`} className="md:text-lg font-effra mt-4 text-white">
+                {copy}
+              </p>
+            ))}
 
             <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
               How do the programs work?
@@ -482,16 +486,20 @@ export default function RoyalRumble({ params }: TParams) {
               Still not sure if our programs are right for you?
             </h2>
 
-            <div className="mt-6 md:mt-10 flex flex-center flex-col md:flex-row md:space-x-9">
-              <p className="md:text-lg font-effra">
-                {ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy1}
-              </p>
+            <div className="mt-6 md:mt-10 flex flex-center flex-col md:grid md:gap-9 md:grid-cols-[1fr_264px]">
+              <div>
+                {ROYAL_RUMBLE.STILLNOTSURE_SEGMENT.copy1.map((copy, index) => (
+                  <p key={`still_not_sure_copy_${index}`} className="mb-4 md:text-lg font-effra">
+                    {copy}
+                  </p>
+                ))}
+              </div>
 
               <Image
                 alt="An elderly couple dancing and smiling in their kitchen"
                 className="my-6 mx-12 md:m-0 w-3/4 sm:w-1/2 md:w-full"
-                width={300}
-                height={300}
+                width={264}
+                height={264}
                 src="/images/RoyalRumblePage/rr-not-sure.png"
               />
             </div>
@@ -502,7 +510,7 @@ export default function RoyalRumble({ params }: TParams) {
               </p>
 
               <p className="font-bold font-effra md:text-lg">
-                {ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy3}
+                {ROYAL_RUMBLE.STILLNOTSURE_SEGMENT.copy3}
               </p>
             </div>
           </div>
@@ -751,14 +759,16 @@ export default function RoyalRumble({ params }: TParams) {
         </div>
 
         <div className="max-w-[850px] mt-6 md:mt-32 mx-4 md:mx-auto md:px-4 text-left">
-          <h2 className="capitalize text-2xl text-primary">
+          <h2 className="capitalize text-2xl text-primary md:mb-10">
             If you don’t make a change now, then when? And if you don’t show up for yourself … who
             will?
           </h2>
 
-          <p className="font-effra md:text-lg mt-8 md:mt-10">
-            {ROYAL_RUMBLE[style].OFFER_SEGMENT.copy}
-          </p>
+          {ROYAL_RUMBLE[style].OFFER_SEGMENT.copy.map((copy, index) => (
+            <p key={`offer_copy_${index}`} className="font-effra md:text-lg mb-4">
+              {copy}
+            </p>
+          ))}
         </div>
 
         <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>

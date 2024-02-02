@@ -7,16 +7,6 @@ export const ROYAL_RUMBLE = {
     'You will walk away with the self awareness and emotional skills you’ve been missing to overcome the #1 obstacle that’s been preventing you from developing a healthy and happy relationship that lasts.',
   ],
 
-  moneyBackGuaranteeCopyWithTrial: `All programs at The Personal Development School are backed by our Risk Free 100% money back guarantee!
-                      
-  If you take our program and don't get the results you were looking for, we will issue you a FULL REFUND within 7 days of your purchase, no hard feelings and NO questions asked! 
-  
-  **You’re also eligible for a 7-day free trial!**
-  
-  **Our programs come with a 7-day free trial. Explore the program’s complete list of courses as well as all of our bonuses for a full week to see if it works for you without spending a dime!** 
-  
-  You will walk away with the self awareness and emotional skills you’ve been missing to overcome the #1 obstacle that’s been preventing you from developing a healthy and happy relationship that lasts.`,
-
   LEARNHOWTO_SEGMENT_IMAGES: [
     {
       alt: 'A man and woman lying on the couch smiling at each other. The man is holding a remote and lying on his back, the woman is sitting upright smiling down at him.',
@@ -65,7 +55,10 @@ export const ROYAL_RUMBLE = {
       Personal Development School.
     </>,
 
-    `The chance to attend **our regular events and socials** to connect with myself, The Personal Development School team, and other members.`,
+    <>
+      The chance to attend <strong>our regular events and socials</strong> to connect with myself,
+      The Personal Development School team, and other members.
+    </>,
 
     <>
       An invitation to our <strong>online forum and Facebook group</strong> where you have the
@@ -73,6 +66,26 @@ export const ROYAL_RUMBLE = {
       dedicated to their healing.
     </>,
   ],
+
+  STILLNOTSURE_SEGMENT: {
+    copy1: [
+      <>
+        <strong>We hear you.</strong>
+      </>,
+
+      <>
+        You could tackle your healing on your own, reading dozens of books on attachment styles, or
+        turn to your friends or journaling practices to work through your traumas. But many of our
+        members come to us after attempting these healing methods{' '}
+        <strong>and seeing limited results or change.</strong>
+      </>,
+
+      'Sometimes what you need is more support, and guidance from someone who will take you through the exercises you need to really understand yourself, face yourself, and re-program your beliefs. Speaking from experience and from the experience of our members, it’s extremely difficult to do that all on your own.',
+    ],
+
+    copy3:
+      'We are committed to helping you gain more self awareness and teaching you how to develop the habits and thought processes you need to see long-lasting change.',
+  },
 
   TESTIMONIAL_SEGMENT: [
     {
@@ -165,12 +178,14 @@ export const ROYAL_RUMBLE = {
 
         'These are just your patterns - and your patterns can be changed.',
       ],
-      freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
 
     ATTACHMENT_ORIGIN_SEGMENT: {
       copy1: [
-        'Your attachment style and the relationship challenges it brings are **not your fault**, they are a reflection of your story.',
+        <>
+          Your attachment style and the relationship challenges it brings are{' '}
+          <strong>not your fault</strong>, they are a reflection of your story.
+        </>,
 
         'An Anxious Preoccupied attachment style is what you end up with if you received inconsistent emotional support from your primary caregivers during your childhood. It doesn’t mean that you were severely neglected, but maybe in your early years your parents weren’t around much due to their work schedule or because they were busy taking care of your siblings. Or maybe they were present physically, but were cold or withdrawn, unable to express themselves, relate to you, or understand what you needed from them at the time.',
       ],
@@ -186,7 +201,6 @@ export const ROYAL_RUMBLE = {
         What if I told you there was a way to change your attachment style and your beliefs without having to spend thousands of dollars on therapy or coaching sessions?`,
       heading3:
         'Use the Anxious Preoccupied to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
-      freeTrialCopy: `**This program comes with a 7-day free trial. Take a full week to explore what you can get out of the program before spending a penny!**`,
     },
 
     THAIS_SEGMENT: {
@@ -194,9 +208,15 @@ export const ROYAL_RUMBLE = {
         The Anxious Preoccupied to Securely Attached Program is your personal invitation to break free from your attachment trauma and create the love, safety, and connection that you deeply crave – and know, deep down, that you do deserve.`,
     },
 
-    GAINACCESS_SEGMENT: `This online program is designed to show you, step by step, how to reprogram your attachment style by teaching you highly-targeted and effective tools based on the latest research and my decades of experience counseling couples and individuals. 
-  
-  My system differs from other personal development programs because it’s designed to **work directly with your subconscious mind** – which is ESSENTIAL for any lasting change to occur.`,
+    GAINACCESS_SEGMENT: [
+      'This online program is designed to show you, step by step, how to reprogram your attachment style by teaching you highly-targeted and effective tools based on the latest research and my decades of experience counseling couples and individuals.',
+
+      <>
+        My system differs from other personal development programs because it’s designed to{' '}
+        <strong>work directly with your subconscious mind</strong> – which is ESSENTIAL for any
+        lasting change to occur.
+      </>,
+    ],
 
     HOWPROGRAMWORK_SEGMENT: [
       `Register for the program`,
@@ -232,7 +252,6 @@ export const ROYAL_RUMBLE = {
         `Difficulty communicating needs`,
         `Having trust issues`,
       ],
-      freeTrialCopy: `**Discover just how much you can accomplish for yourself when you activate your 7-day free trial to this program.**`,
     },
 
     LEARNHOWTO_SEGMENT: [
@@ -258,20 +277,11 @@ export const ROYAL_RUMBLE = {
     ],
 
     STILLNOTSURE_SEGMENT: {
-      copy1: `**We hear you.** 
-  
-  You could tackle your healing on your own, reading dozens of books on attachment styles, or turn to your friends or journaling practices to work through your traumas. But many of our members come to us after attempting these healing methods **and seeing limited results or change**. 
-                    
-  Sometimes what you need is more support, and guidance from someone who will take you through the exercises you need to really understand yourself, face yourself, and re-program your beliefs. Speaking from experience and from the experience of our members, it’s extremely difficult to do that all on your own.`,
+      copy2: [
+        'Or maybe you feel like you’re better off working with a therapist or relationship coach in a private capacity. We are big advocates of seeking therapy here at The Personal Development School, but advise you to consider the amount of time, money, and insurance benefits budget it can take you to shop for the right one.',
 
-      copy2: `Or maybe you feel like you’re better off working with a therapist or relationship coach in a private capacity. We are big advocates of seeking therapy here at The Personal Development School, but advise you to consider the amount of time, money, and insurance benefits budget it can take you to shop for the right one. 
-  
-        Even then, the risk with some types of talk therapies or working with a relationship coach is that not all types of therapy are designed to tackle attachment trauma, which lives in the body and deep in your subconscious. Without working with the most qualified type of therapist trained to help you do the unconscious work to heal your core wounds, you can end up seeing limited progress for quite the monthly bill (between $150-200 per session).`,
-
-      copy3: `
-        We are committed to helping you gain more self awareness and teaching you how to develop the habits and thought processes you need to see long-lasting change.`,
-
-      freeTrialCopy: `**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
+        'Even then, the risk with some types of talk therapies or working with a relationship coach is that not all types of therapy are designed to tackle attachment trauma, which lives in the body and deep in your subconscious. Without working with the most qualified type of therapist trained to help you do the unconscious work to heal your core wounds, you can end up seeing limited progress for quite the monthly bill (between $150-200 per session).',
+      ],
     },
 
     BESTSELF_SEGMENT: {
@@ -361,22 +371,30 @@ export const ROYAL_RUMBLE = {
     },
 
     OFFER_SEGMENT: {
-      copy: `Facing yourself to create true, lasting change from within is challenging. We get it.  
-  And healing your attachment traumas and reprogramming your thoughts, patterns, and beliefs doesn’t happen overnight. 
-                  
-  **But it CAN happen with the right support and guidance. That’s what my team and I are here for.** 
-                  
-  All you need to do is take that brave first step. 
-                  
-  You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing. 
-                  
-  By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life 
-                  
-  It’s time to look at your emotional self in the mirror. 
-                  
-  **Do you like what you see? Or are you ready to step up?**
-                  
-  Enroll in The Anxious Preoccupied to Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.`,
+      copy: [
+        'Facing yourself to create true, lasting change from within is challenging. We get it.',
+
+        'And healing your attachment traumas and reprogramming your thoughts, patterns, and beliefs doesn’t happen overnight.',
+
+        <>
+          <strong>
+            But it CAN happen with the right support and guidance. That’s what my team and I are
+            here for.
+          </strong>
+        </>,
+        'All you need to do is take that brave first step.',
+
+        'You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing.',
+
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life',
+
+        'It’s time to look at your emotional self in the mirror.',
+
+        <>
+          <strong>Do you like what you see? Or are you ready to step up?</strong>
+        </>,
+        'Enroll in The Anxious Preoccupied to Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.',
+      ],
 
       bullets: [
         `Additional free access to the entire Personal Development School library of courses including - Understanding Others' Attachment Styles, Emotional Mastery and Overcoming Burnout!`,
@@ -460,11 +478,13 @@ export const ROYAL_RUMBLE = {
 
         'These are just your patterns - and your patterns can be changed.',
       ],
-      freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
       copy1: [
-        'Your attachment style and the relationship challenges it brings are not your fault, they are a reflection of your story.',
+        <>
+          Your attachment style and the relationship challenges it brings are{' '}
+          <strong>not your fault</strong>, they are a reflection of your story.
+        </>,
 
         'A Dismissive Avoidant attachment style is what you end up with if you received a lack of emotional support or harsh criticism from your primary caregivers during your childhood. Maybe in your early years your parents weren’t around much due to their work schedule or because they were busy taking care of your siblings. Or maybe they were quite harsh on you when you expressed your feelings, shaming you for them or telling you, for example, that crying was “wrong”. You might have grown up in a home with a controlling or authoritarian caregiver who placed very high expectations on you. When you didn’t meet their idea of perfection, you were criticized or even shamed for falling below the mark.',
       ],
@@ -480,15 +500,20 @@ export const ROYAL_RUMBLE = {
       What if I told you there was a way to break these unconscious patterns and beliefs, re-write your story, and change your attachment style without having to spend thousands of dollars on therapy or coaching sessions?`,
       heading3:
         'Use the Dismissive Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
-      freeTrialCopy: `**This program comes with a 7-day free trial. Take a full week to explore what you can get out of the program before spending a penny!**`,
     },
     THAIS_SEGMENT: {
       copy: `
       The Dismissive Avoidant to Securely Attached Program is your personal invitation to break free from your attachment trauma and destructive isolation patterns to create the love, safety, and connection that you deeply crave – and know, deep down, that you do deserve.`,
     },
-    GAINACCESS_SEGMENT: `This online program is designed to show you, step by step, how to reprogram your attachment style by teaching you highly-targeted and effective tools based on the latest research and my decades of experience counseling couples and individuals. 
-  
-  My system differs from other personal development programs because it’s designed to **work directly with your subconscious mind** – which is ESSENTIAL for any lasting change to occur.`,
+    GAINACCESS_SEGMENT: [
+      'This online program is designed to show you, step by step, how to reprogram your attachment style by teaching you highly-targeted and effective tools based on the latest research and my decades of experience counseling couples and individuals.',
+
+      <>
+        My system differs from other personal development programs because it’s designed to{' '}
+        <strong>work directly with your subconscious mind</strong> – which is ESSENTIAL for any
+        lasting change to occur.
+      </>,
+    ],
     HOWPROGRAMWORK_SEGMENT: [
       `Register for the program`,
 
@@ -519,7 +544,6 @@ export const ROYAL_RUMBLE = {
         `Putting up walls`,
         `Avoiding your emotions and the emotions of those around you`,
       ],
-      freeTrialCopy: `**Discover just how much you can accomplish for yourself when you activate your 7-day free trial to this program.**`,
     },
     LEARNHOWTO_SEGMENT: [
       {
@@ -541,18 +565,11 @@ export const ROYAL_RUMBLE = {
     ],
 
     STILLNOTSURE_SEGMENT: {
-      copy1: `**We hear you.** 
-  
-  You could tackle your healing on your own, reading dozens of books on attachment styles, or turn to your friends or journaling practices to work through your traumas. But many of our members come to us after attempting these healing methods **and seeing limited results or change**. 
-                    
-  Sometimes what you need is more support, and guidance from someone who will take you through the exercises you need to really understand yourself, face yourself, and re-program your beliefs. Speaking from experience and from the experience of our members, it’s extremely difficult to do that all on your own.`,
-      copy2: `Or maybe you feel like you’re better off working with a therapist or relationship coach in a private capacity. We are big advocates of seeking therapy here at The Personal Development School, but advise you to consider the amount of time, money, and insurance benefits budget it can take you to shop for the right one. 
-  
-  Even then, the risk with some types of talk therapies or working with a relationship coach is that not all types of therapy are designed to tackle attachment trauma, which lives in the body and deep in your subconscious. Without working with the most qualified type of therapist trained to help you do the unconscious work to heal your core wounds, you can end up seeing limited progress for quite the monthly bill (between $150-200 per session).`,
-      copy3: `
-  We are committed to helping you gain more self awareness and teaching you how to develop the habits and thought processes you need to see long-lasting change.`,
+      copy2: [
+        'Or maybe you feel like you’re better off working with a therapist or relationship coach in a private capacity. We are big advocates of seeking therapy here at The Personal Development School, but advise you to consider the amount of time, money, and insurance benefits budget it can take you to shop for the right one.',
 
-      freeTrialCopy: `\n**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
+        'Even then, the risk with some types of talk therapies or working with a relationship coach is that not all types of therapy are designed to tackle attachment trauma, which lives in the body and deep in your subconscious. Without working with the most qualified type of therapist trained to help you do the unconscious work to heal your core wounds, you can end up seeing limited progress for quite the monthly bill (between $150-200 per session).',
+      ],
     },
     BESTSELF_SEGMENT: {
       subheading: `The Dismissive Avoidant to Securely Attached Program is the missing piece to help you get there.`,
@@ -641,22 +658,32 @@ export const ROYAL_RUMBLE = {
       ],
     },
     OFFER_SEGMENT: {
-      copy: `Facing yourself to create true, lasting change from within is challenging. We get it.  
-  And healing your attachment traumas and reprogramming your thoughts, patterns, and beliefs doesn’t happen overnight. 
-            
-  **But it CAN happen with the right support and guidance. That’s what my team and I are here for.** 
-            
-  All you need to do is take that brave first step. 
-            
-  You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing. 
-            
-  By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life 
-            
-  It’s time to look at your emotional self in the mirror. 
-            
-  **Do you like what you see? Or are you ready to step up?**
-            
-  Enroll in The Dismissive Avoidant to Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.`,
+      copy: [
+        'Facing yourself to create true, lasting change from within is challenging. We get it.',
+
+        'And healing your attachment traumas and reprogramming your thoughts, patterns, and beliefs doesn’t happen overnight.',
+
+        <>
+          <strong>
+            But it CAN happen with the right support and guidance. That’s what my team and I are
+            here for.
+          </strong>
+        </>,
+
+        'All you need to do is take that brave first step.',
+
+        'You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing.',
+
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life',
+
+        'It’s time to look at your emotional self in the mirror.',
+
+        <>
+          <strong>Do you like what you see? Or are you ready to step up?</strong>
+        </>,
+
+        'Enroll in The Dismissive Avoidant to Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.',
+      ],
       bullets: [
         `Additional free access to the entire Personal Development School library of courses including - Understanding Others' Attachment Styles, Emotional Mastery and Overcoming Burnout!`,
         `Weekly live webinars with Thais Gibson`,
@@ -729,11 +756,13 @@ export const ROYAL_RUMBLE = {
 
         'These are just your patterns - and your patterns can be changed.',
       ],
-      freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
       copy1: [
-        'Your attachment style and the relationship challenges it brings are not your fault, they are a reflection of your story.',
+        <>
+          Your attachment style and the relationship challenges it brings are{' '}
+          <strong>not your fault</strong>, they are a reflection of your story.
+        </>,
 
         'A Fearful Avoidant attachment style is what arises when you’ve experienced inconsistent emotional support from your primary caregivers in your early childhood. You most likely came from a tumultuous household that was filled with polarity. Maybe you had a strong emotional connection with one of your parents, but a lot of avoidance with the other. Or maybe one (or both) of your parents were emotionally supportive but at infrequent times, so you never really knew what to expect. If either one of them was very hot and cold with you, you probably began to understand that their love was conditional — based on you performing well or behaving a certain way.',
       ],
@@ -748,15 +777,20 @@ export const ROYAL_RUMBLE = {
       What if I told you there was a way to break these unconscious patterns and beliefs, re-write your story, and change your attachment style without having to spend thousands of dollars on therapy or coaching sessions?`,
       heading3:
         'Use the Fearful Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
-      freeTrialCopy: `**This program comes with a 7-day free trial. Take a full week to explore what you can get out of the program before spending a penny!**`,
     },
     THAIS_SEGMENT: {
       copy: `
       The Fearful Avoidant to Securely Attached Program is your personal invitation to break free from your attachment trauma and destructive patterns to create the love, safety, and connection that you deeply crave – and know, deep down, that you do deserve.`,
     },
-    GAINACCESS_SEGMENT: `This online program is designed to show you, step by step, how to reprogram your attachment style by teaching you highly-targeted and effective tools based on the latest research and my decades of experience counseling couples and individuals. 
-  
-  My system differs from other personal development programs because it’s designed to **work directly with your subconscious mind** – which is ESSENTIAL for any lasting change to occur.`,
+    GAINACCESS_SEGMENT: [
+      'This online program is designed to show you, step by step, how to reprogram your attachment style by teaching you highly-targeted and effective tools based on the latest research and my decades of experience counseling couples and individuals.',
+
+      <>
+        My system differs from other personal development programs because it’s designed to{' '}
+        <strong>work directly with your subconscious mind</strong> – which is ESSENTIAL for any
+        lasting change to occur.
+      </>,
+    ],
     HOWPROGRAMWORK_SEGMENT: [
       `Register for the program`,
 
@@ -782,14 +816,40 @@ export const ROYAL_RUMBLE = {
         "Through the course videos, highly effective exercises, and my support through intimate webinars, together we'll tackle a list of other emotional issues that you might deal with in your life that come from your attachment trauma, like:",
       ],
       bullets: [
-        `Your needs **so that you can have deep connection without compromising your freedom and independence**`,
-        `Your insecurities/fears (with tools to overcome them), **so that you can feel confident and stable in your love life**`,
-        `Expectations **so that you understand your personal roadmap and can uphold the standards you deserve**`,
-        `Boundaries **so that you can stop burning out and feeling taken advantage of in relationships**`,
-        `Strategies you need to communicate and interact with others **so that you can have the quality of relationship you actually want to be in**`,
-        `It ALSO gives you specific tools to quickly recognize others' attachment styles and to understand their needs, fears and boundaries **so that you can feel safe trusting others and letting your guard down**`,
+        <>
+          Your needs{' '}
+          <strong>
+            so that you can have deep connection without compromising your freedom and independence
+          </strong>
+        </>,
+        <>
+          Your insecurities/fears (with tools to overcome them),{' '}
+          <strong>so that you can feel confident and stable in your love life</strong>
+        </>,
+        <>
+          Expectations{' '}
+          <strong>
+            so that you understand your personal roadmap and can uphold the standards you deserve
+          </strong>
+        </>,
+        <>
+          Boundaries{' '}
+          <strong>
+            so that you can stop burning out and feeling taken advantage of in relationships
+          </strong>
+        </>,
+        <>
+          Strategies you need to communicate and interact with others{' '}
+          <strong>
+            so that you can have the quality of relationship you actually want to be in
+          </strong>
+        </>,
+        <>
+          It ALSO gives you specific tools to quickly recognize others' attachment styles and to
+          understand their needs, fears and boundaries{' '}
+          <strong>so that you can feel safe trusting others and letting your guard down</strong>
+        </>,
       ],
-      freeTrialCopy: `**Discover just how much you can accomplish for yourself when you activate your 7-day free trial to this program.**`,
     },
     LEARNHOWTO_SEGMENT: [
       {
@@ -811,18 +871,11 @@ export const ROYAL_RUMBLE = {
     ],
 
     STILLNOTSURE_SEGMENT: {
-      copy1: `**We hear you.** 
-  
-  You could tackle your healing on your own, reading dozens of books on attachment styles, or turn to your friends or journaling practices to work through your traumas. But many of our members come to us after attempting these healing methods **and seeing limited results or change**. 
-                    
-  Sometimes what you need is more support, and guidance from someone who will take you through the exercises you need to really understand yourself, face yourself, and re-program your beliefs. Speaking from experience and from the experience of our members, it’s extremely difficult to do that all on your own.`,
-      copy2: `Or maybe you feel like you’re better off working with a therapist or relationship coach in a private capacity. We are big advocates of seeking therapy here at The Personal Development School, but advise you to consider the amount of time, money, and insurance benefits budget it can take you to shop for the right one. 
-  
-  Even then, the risk with some types of talk therapies or working with a relationship coach is that not all types of therapy are designed to tackle attachment trauma, which lives in the body and deep in your subconscious. Without working with the most qualified type of therapist trained to help you do the unconscious work to heal your core wounds, you can end up seeing limited progress for quite the monthly bill (between $150-200 per session).`,
-      copy3: `
-  We are committed to helping you gain more self awareness and teaching you how to develop the habits and thought processes you need to see long-lasting change.`,
+      copy2: [
+        'Or maybe you feel like you’re better off working with a therapist or relationship coach in a private capacity. We are big advocates of seeking therapy here at The Personal Development School, but advise you to consider the amount of time, money, and insurance benefits budget it can take you to shop for the right one.',
 
-      freeTrialCopy: `\n**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
+        'Even then, the risk with some types of talk therapies or working with a relationship coach is that not all types of therapy are designed to tackle attachment trauma, which lives in the body and deep in your subconscious. Without working with the most qualified type of therapist trained to help you do the unconscious work to heal your core wounds, you can end up seeing limited progress for quite the monthly bill (between $150-200 per session).',
+      ],
     },
 
     BESTSELF_SEGMENT: {
@@ -901,22 +954,31 @@ export const ROYAL_RUMBLE = {
       ],
     },
     OFFER_SEGMENT: {
-      copy: `Facing yourself to create true, lasting change from within is challenging. We get it.  
-  And healing your attachment traumas and reprogramming your thoughts, patterns, and beliefs doesn’t happen overnight. 
-            
-  **But it CAN happen with the right support and guidance. That’s what my team and I are here for.** 
-            
-  All you need to do is take that brave first step. 
-            
-  You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing. 
-            
-  By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life 
-            
-  It’s time to look at your emotional self in the mirror. 
-            
-  **Do you like what you see? Or are you ready to step up?**
-            
-  Enroll in The Fearful Avoidant to Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.`,
+      copy: [
+        'Facing yourself to create true, lasting change from within is challenging. We get it.',
+        'And healing your attachment traumas and reprogramming your thoughts, patterns, and beliefs doesn’t happen overnight.',
+
+        <>
+          <strong>
+            But it CAN happen with the right support and guidance. That’s what my team and I are
+            here for.
+          </strong>
+        </>,
+
+        'All you need to do is take that brave first step.',
+
+        'You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing.',
+
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life.',
+
+        'It’s time to look at your emotional self in the mirror.',
+
+        <>
+          <strong>Do you like what you see? Or are you ready to step up?</strong>
+        </>,
+
+        'Enroll in The Fearful Avoidant to Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.',
+      ],
       bullets: [
         `Additional free access to the entire Personal Development School library of courses including - Understanding Others' Attachment Styles, Emotional Mastery and Overcoming Burnout!`,
         `Weekly live webinars with Thais Gibson`,
@@ -964,7 +1026,6 @@ export const ROYAL_RUMBLE = {
       subHeadlineMobile: [
         `With the right tools, you can make sure that your relationships always feel harmonious.`,
       ],
-      freeTrialCopy: `This program comes with a 7-day free trial which you can use to explore the program at no cost. If you feel like it’s not for you, you can cancel before the 7th day and we won't take any payment!`,
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
       copy1: [
@@ -982,16 +1043,18 @@ export const ROYAL_RUMBLE = {
       What if I told you there was a simple way to take your relationships to the next level by gaining the knowledge you’ve been missing?`,
       heading3: '',
       heading4: '',
-      freeTrialCopy: `**This program comes with a 7-day free trial. Take a full week to explore what you can get out of the program before spending a penny!**`,
     },
     THAIS_SEGMENT: {
       copy: `
       This is your personal invitation to improve your self awareness and communication skills even further and create the love and connection that you deserve.`,
     },
-    GAINACCESS_SEGMENT: `My system differs from other personal development programs because it’s designed to work directly with your subconscious mind – which is ESSENTIAL for any lasting change to occur. 
-  
-  All courses are intended to improve your emotional well-being, self-awareness, and communication skills. 
-  You also get access to in-depth quizzes to help you discover your secondary attachment style, and how your attachment style can change with friends, family, and partners. This will arm you with new awareness on which situations cause you to shift into an insecure attachment style.`,
+    GAINACCESS_SEGMENT: [
+      'My system differs from other personal development programs because it’s designed to work directly with your subconscious mind – which is ESSENTIAL for any lasting change to occur.',
+
+      'All courses are intended to improve your emotional well-being, self-awareness, and communication skills.',
+
+      'You also get access to in-depth quizzes to help you discover your secondary attachment style, and how your attachment style can change with friends, family, and partners. This will arm you with new awareness on which situations cause you to shift into an insecure attachment style.',
+    ],
     HOWPROGRAMWORK_SEGMENT: [
       `Register for the program`,
 
@@ -1023,7 +1086,6 @@ export const ROYAL_RUMBLE = {
         `Learning forgiveness`,
         `Reparenting your inner child`,
       ],
-      freeTrialCopy: `**Discover just how much you can accomplish for yourself when you activate your 7-day free trial to this program.**`,
     },
     LEARNHOWTO_SEGMENT: [
       {
@@ -1044,19 +1106,7 @@ export const ROYAL_RUMBLE = {
       },
     ],
 
-    STILLNOTSURE_SEGMENT: {
-      copy1: `**We hear you.** 
-  
-  You could tackle your healing on your own, reading dozens of books on attachment styles, or turn to your friends or journaling practices to work through your traumas. But many of our members come to us after attempting these healing methods **and seeing limited results or change**. 
-              
-  Sometimes what you need is more support, and guidance from someone who will take you through the exercises you need to really understand yourself, face yourself, and re-program your beliefs. Speaking from experience and from the experience of our members, it’s extremely difficult to do that all on your own.`,
-      copy2: ``,
-
-      copy3: `
-  We are committed to helping you gain more self awareness and teaching you how to develop the habits and thought processes you need to see long-lasting change.`,
-
-      freeTrialCopy: `\n**Don’t forget that this program comes with a 7-day free trial you can take advantage of to decide if the program really is right for you!**`,
-    },
+    STILLNOTSURE_SEGMENT: { copy2: `` },
 
     BESTSELF_SEGMENT: {
       subheading: `The Emotional Healing Program at The Personal Development School is the missing piece to help you get there.`,
@@ -1123,15 +1173,22 @@ export const ROYAL_RUMBLE = {
       ],
     },
     OFFER_SEGMENT: {
-      copy: `Doing the work to create true, lasting change from within is challenging. We get it. 
-  
-  But all you need to do is take the first step.
-  
-  **You’ve landed here because you’re being given the chance to radically transform yourself and your life by gaining the tools you’ve been missing.** 
-            
-  By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to develop stronger connections and open yourself up to the relationships you need to live a fulfilling life. 
-            
-  Get your membership started to dive straight into The Emotional Healing Program and prepare to start connecting with others in a much better way.`,
+      copy: [
+        'Doing the work to create true, lasting change from within is challenging. We get it.',
+
+        'But all you need to do is take the first step.',
+
+        <>
+          <strong>
+            You’ve landed here because you’re being given the chance to radically transform yourself
+            and your life by gaining the tools you’ve been missing.
+          </strong>
+        </>,
+
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to develop stronger connections and open yourself up to the relationships you need to live a fulfilling life.',
+
+        'Get your membership started to dive straight into The Emotional Healing Program and prepare to start connecting with others in a much better way.',
+      ],
       bullets: [
         `Additional free access to the entire Personal Development School library of courses including - Understanding Others' Attachment Styles, Emotional Mastery and Overcoming Burnout!`,
         `Weekly live webinars with Thais Gibson`,

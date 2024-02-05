@@ -17,7 +17,7 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
           <Image
             alt="PDS Logo - Tree of Life"
             className="mb-5 lg:ml-[30px] lg:w-[320px]"
-            src="/images/pds-logo-stacked-right-alt.svg"
+            src="/images/pds-logo-stacked-right-alt.png"
             height={43}
             width={221}
           />

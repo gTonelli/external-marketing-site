@@ -2,8 +2,6 @@
 import React, { ImgHTMLAttributes } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-// libraries
-import cx from 'classnames'
 // utils
 import { Regexes } from '@/utils/constants'
 
@@ -20,11 +18,11 @@ export const Image = ({ alt, className, src = '', style, tabIndex }: IImageProps
 
   return src ? (
     isSrcLink ? (
-      <img alt={alt} className={cx('', className)} src={src} style={style} tabIndex={tabIndex} />
+      <img alt={alt} className={className} src={src} style={style} tabIndex={tabIndex} />
     ) : (
       <img
         alt={alt}
-        className={cx('', className)}
+        className={className}
         src={`/images/${src}`}
         style={style}
         tabIndex={tabIndex}

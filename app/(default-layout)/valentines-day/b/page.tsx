@@ -1,4 +1,5 @@
 // components
+import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import Image from 'next/image'
@@ -17,6 +18,14 @@ import { ERoutes } from '@/utils/constants'
 // styles
 import './styles.css'
 
+export const metadata: Metadata = {
+  title:
+    "Transform Your Relationships And Find Lasting Love this Valentine's Day | The Personal Development School",
+  description:
+    "Unlock access to everything The Personal Development School offers this Valentine's Day with our All-Access Pass. Sign up now!",
+  robots: 'all',
+}
+
 export default function ValentinesDayPageVariant() {
   return (
     <Page className="w-full overflow-hidden" page_name="Valentine's Day">
@@ -31,8 +40,8 @@ export default function ValentinesDayPageVariant() {
         </h2>
 
         <h4 className="!text-lg font-medium mb-4 lg:max-w-3xl lg:mx-auto">
-          Unlock free access to the empowering courses and inspiring simple-to-do tools that are
-          giving our members the breakthroughs they've been looking for.{' '}
+          Unlock access to the empowering courses and inspiring simple-to-do tools that are giving
+          our members the breakthroughs they've been looking for.{' '}
           <span className="underline">Better yet, get 60% off your first month</span>! And you can
           do it all right from the comfort of your home. Start building the best relationships of
           your life now!

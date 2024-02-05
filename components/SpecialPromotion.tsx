@@ -25,10 +25,10 @@ import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { useWindowWidth } from '@/utils/hooks'
+import { PageContext } from '@/utils/contexts'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { PageContext } from '@/utils/contexts'
 
 export const SpecialPromotion = () => {
   // ==================== Hooks ====================

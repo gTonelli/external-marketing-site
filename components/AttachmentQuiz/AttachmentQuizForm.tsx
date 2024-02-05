@@ -78,15 +78,15 @@ const useClientTag = ({ userStyle }: IUseClientTagProps) => {
   // ============= State =============
   const [tag, setTag] = useState('')
   // ============= Hooks =============
-  // const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
+  const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
 
   useEffect(() => {
     let tag = `attachment-quiz-${userStyle}`
-    // if (userStyle === 'fa' && usingVariant) {
-    //   tag += `,one-step-checkout`
-    // }
+    if (userStyle === 'fa' && usingVariant) {
+      tag += `,one-step-checkout`
+    }
     setTag(tag)
-  }, [userStyle])
+  }, [userStyle, usingVariant])
 
   return tag
 }

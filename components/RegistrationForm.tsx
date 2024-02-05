@@ -132,9 +132,9 @@ export const RegistrationForm = ({
 
   return (
     <Formik
-      initialValues={quizRegistrationFormInitialValues}
+      initialValues={registrationFormInitialValues}
       validateOnBlur={false}
-      validationSchema={QuizRegistrationFormValidationSchema}
+      validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
       {({ setFieldValue, isSubmitting }) => (
         <Form className="w-full max-w-xl flex-col justify-center px-2 mx-auto xxs:!px-3 xs:!px-4 md:pt-8">
@@ -212,7 +212,7 @@ export const RegistrationForm = ({
   )
 }
 
-const QuizRegistrationFormValidationSchema = yup
+const RegistrationFormValidationSchema = yup
   .object()
   .shape({
     firstName: yup.string().defined().ensure().required(' First name required'),
@@ -228,10 +228,10 @@ const QuizRegistrationFormValidationSchema = yup
   .defined()
 
 export interface IQuizRegistrationFormSchema
-  extends yup.InferType<typeof QuizRegistrationFormValidationSchema> {}
+  extends yup.InferType<typeof RegistrationFormValidationSchema> {}
 
-const quizRegistrationFormInitialValues: IQuizRegistrationFormSchema =
-  QuizRegistrationFormValidationSchema.cast({})
+const registrationFormInitialValues: IQuizRegistrationFormSchema =
+  RegistrationFormValidationSchema.cast({})
 
 interface IUtmData {
   [key: string]: string

@@ -1,14 +1,13 @@
 ﻿'use client'
 
 // core
-import React, { FC, forwardRef, useEffect, useState } from 'react'
+import React, { FC, forwardRef } from 'react'
 // components
 import { Text } from './Text/Text'
 // libraries
 import cx from 'classnames'
 import CountdownPlugin from 'react-countdown'
 import Countdown from 'react-countdown'
-import { getOfferEndDate } from '@/utils/functions'
 import dayjs from 'dayjs'
 
 type Props = {
@@ -19,9 +18,6 @@ type Props = {
 }
 
 interface ICountdownRendererProps {
-  /**
-   * default props passed by the react-countdown from date
-   */
   seconds: number
   minutes: number
   days: number
@@ -33,9 +29,16 @@ export const CountdownTimer: FC<Props> = forwardRef(
     return (
       <CountdownPlugin
         autoStart={autoStart}
-        date={date || dayjs().hour(23).minute(0).toISOString()}
+        date={date || dayjs().hour(24).minute(0).toISOString()}
         ref={ref}
         renderer={({ days, hours, minutes, seconds }: ICountdownRendererProps) => {
+          const data = [
+            days.toString().split('').reverse().join(''),
+            hours.toString().split('').reverse().join(''),
+            minutes.toString().split('').reverse().join(''),
+            seconds.toString().split('').reverse().join(''),
+          ]
+
           return (
             <div className="flex flex-wrap">
               <div
@@ -43,110 +46,25 @@ export const CountdownTimer: FC<Props> = forwardRef(
                   'flex w-full items-center justify-center text-primary font-semibold pt-2 xxs:text-lg xs:text-xl xs:pt-4 lg:!text-3xl',
                   className
                 )}>
-                {days < 10 ? (
+                {data.map((number, index) => (
                   <>
                     <Text
                       className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content="0"
+                      content={number.charAt(1) || 0}
                     />
                     <Text
                       className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={days.toString().charAt(0)}
+                      content={number.charAt(0)}
                     />
+
+                    {index < data.length - 1 && (
+                      <Text
+                        className={`${theme === 'dark' ? 'text-white' : 'text-dark'} mx-1`}
+                        content=":"
+                      />
+                    )}
                   </>
-                ) : (
-                  <>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={days.toString()[0]}
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={days.toString().charAt(1)}
-                    />
-                  </>
-                )}
-                <Text
-                  className={`${theme === 'dark' ? 'text-white' : 'text-dark'} mx-1`}
-                  content=":"
-                />
-                {hours < 10 ? (
-                  <>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content="0"
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={hours.toString().charAt(0)}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={hours.toString()[0]}
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={hours.toString().charAt(1)}
-                    />
-                  </>
-                )}
-                <Text
-                  className={`${theme == 'dark' ? 'text-white' : 'text-dark'} mx-1`}
-                  content=":"
-                />{' '}
-                {minutes < 10 ? (
-                  <>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content="0"
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={minutes.toString().charAt(0)}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={minutes.toString()[0]}
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={minutes.toString().charAt(1)}
-                    />
-                  </>
-                )}
-                <Text
-                  className={`${theme == 'dark' ? 'text-white' : 'text-dark'} mx-1`}
-                  content=":"
-                />{' '}
-                {seconds < 10 ? (
-                  <>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content="0"
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={seconds.toString().charAt(0)}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={seconds.toString()[0]}
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={seconds.toString().charAt(1)}
-                    />
-                  </>
-                )}
+                ))}
               </div>
               <div
                 className={`w-full max-w-[312px] mx-auto ${
@@ -154,8 +72,11 @@ export const CountdownTimer: FC<Props> = forwardRef(
                 } flex items-center justify-around text-center
                       xxs:max-w-[320px]`}>
                 <Text className="w-[76px] mt-2" content="Days" />
+
                 <Text className="w-[76px] mt-2" content="Hours" />
+
                 <Text className="w-[76px] mt-2" content="Minutes" />
+
                 <Text className="w-[76px] mt-2" content="Seconds" />
               </div>
             </div>

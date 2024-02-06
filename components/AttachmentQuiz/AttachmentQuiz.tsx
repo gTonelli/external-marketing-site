@@ -15,6 +15,7 @@ import _ from 'lodash'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import Link from 'next/link'
 // utils
 
 const AttachmentQuizQuestions = dynamic(
@@ -69,11 +70,28 @@ export const AttachmentQuiz = ({
   if (!viewQuiz) {
     return (
       <div className={cx('text-center', className)}>
-        <Text.Paragraph
-          useMD
-          className="max-w-3xl mt-4 mx-10 lg:mx-0"
-          content={REGULAR_COPY.copy}
-        />
+        {quiz_traffic_source === 'organic' ? (
+          <p>
+            Take this quiz to determine your attachment style.{' '}
+            <span className="underline">
+              <Link
+                href="https://blog.personaldevelopmentschool.com/21/understanding-attachment-styles-for-beginners"
+                target="_blank">
+                Knowing your attachment style
+              </Link>{' '}
+            </span>
+            is the first step to creating more meaningful connections, feeling valued, and
+            developing more harmony in all of your relationships. Learn about how your childhood
+            experiences form your beliefs on emotional intimacy, adult relationships, personal
+            growth, and self-awareness.
+          </p>
+        ) : (
+          <Text.Paragraph
+            useMD
+            className="max-w-3xl mt-4 mx-10 lg:mx-0"
+            content={REGULAR_COPY.copy}
+          />
+        )}
         <Button
           className="mt-7 px-20 py-4 lg:mt-8"
           label={REGULAR_COPY.button_label}

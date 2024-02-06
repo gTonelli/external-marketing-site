@@ -50,6 +50,10 @@
     font-weight: 700;
     font-size: 18px;
   }
+
+  p {
+    text-align: left;
+  }
 }
 
 a {

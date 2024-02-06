@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect, MutableRefObject, useRef, use } from 'react'
+import { useState, useEffect, MutableRefObject, useRef } from 'react'
 import { TBreakpoints, TStyle } from './types'
 import { EExternalRoutes, ERoutes, EWindowWidth } from './constants'
 import { IViewport } from './interfaces'
-import { result, throttle } from 'lodash'
+import { throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Storage, TStorageKeys } from '@/modules/Storage'
 import { Maybe } from 'yup'
@@ -182,7 +182,7 @@ export function useCheckoutSplitTest({
     const checkoutVariantLock = Storage.get(storageKey)
     let useCheckoutVariant: boolean
 
-    if (!checkoutVariantLock) {
+    if (!checkoutVariantLock?.toString()) {
       useCheckoutVariant =
         window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantTrafficRatio
       Storage.set(storageKey, useCheckoutVariant.toString())

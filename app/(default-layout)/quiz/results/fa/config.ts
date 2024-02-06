@@ -37,24 +37,27 @@ export const RESULTS = {
       ],
     },
     GOOD_NEWS: {
-      header: "Are You Ready to Leave Your Painful Patterns Behind?",
-      copy1: "We have a simple course that will help you let go of painful relationship patterns, overcome negative emotions and create fulfilling relationships in your life.",
-      copy2: "In less than an hour, you will learn the insights about your attachment style and the 3 key ingredients you need to empower any relationship in your life that feels stuck.",
-      copy3: "You can join over 20,000 students who have taken this course and have given us a 99.7% satisfaction score!"
+      header: 'Are You Ready to Leave Your Painful Patterns Behind?',
+      copy1:
+        'We have a simple course that will help you let go of painful relationship patterns, overcome negative emotions and create fulfilling relationships in your life.',
+      copy2:
+        'In less than an hour, you will learn the insights about your attachment style and the 3 key ingredients you need to empower any relationship in your life that feels stuck.',
+      copy3:
+        'You can join over 20,000 students who have taken this course and have given us a 99.7% satisfaction score!',
     },
     PROMOTION_1: {
       title:
         'By Taking Our Fearful Avoidant "7 Days to Transform Relationships Course," You Will Learn…',
       bullets: {
-        left: [ 
+        left: [
           `Your needs **so that you can have deep connection without compromising your freedom and independence.**`,
           `Your insecurities/fears (with tools to overcome them), **so that you can feel confident and stable in your love life.**`,
-          `Expectations **so that you understand your personal roadmap and can uphold the standards you deserve.**`
+          `Expectations **so that you understand your personal roadmap and can uphold the standards you deserve.**`,
         ],
         right: [
           `Boundaries **so that you can stop burning out and feeling taken advantage of in relationships.**`,
           `Strategies you need to communicate and interact with others **so that you can have the quality of relationship you actually want to be in.**`,
-          `It ALSO gives you specific tools to quickly recognize others' attachment styles and to understand their needs, fears and boundaries **so that you can feel safe trusting others and letting your guard down.**`
+          `It ALSO gives you specific tools to quickly recognize others' attachment styles and to understand their needs, fears and boundaries **so that you can feel safe trusting others and letting your guard down.**`,
         ],
       },
       copy1:
@@ -117,8 +120,8 @@ export const RESULTS = {
           "And if you don't know your own needs in relationships, how can you ever possibly get them met? Learning this can save you years of wasted time on failed relationships, painful breakups, and energy poured into the relationship rollercoaster instead of towards your dreams and fulfilling your life's potential.",
         thumbnail: {
           src: 'RoyalRumbleResultsPage/video_thumbnail_fa.jpg',
-          alt: '7 Days to Transform Relationship Course Thumbnail'
-        }
+          alt: '7 Days to Transform Relationship Course Thumbnail',
+        },
       },
     },
     PROMOTION_3: {
@@ -205,5 +208,5 @@ export const RESULTS = {
         ratings: '17,362',
       },
     ],
-  }
+  },
 }

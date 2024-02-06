@@ -2,21 +2,18 @@
 import { Button } from '@/components/Button/Button'
 import { Page } from '@/components/Page'
 import { TestimonialSection } from '@/components/TestimonialSection'
-import Link from 'next/link'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
 import { Articles } from '@/components/Articles'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
-import { IDefaultProps } from '@/components'
 import Image from 'next/image'
 import { TextParagraph } from '@/components/Text/variants/TextParagraph'
 import { CheckoutButton } from '@/components/CheckoutButton'
 // config
 import { RESULTS_COPY } from './config'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
 import { TStyle } from '@/utils/types'
 // styles
 import './styles.css'

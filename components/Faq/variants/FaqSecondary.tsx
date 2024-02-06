@@ -158,7 +158,7 @@ const FAQ = ({
               'flex justify-between items-center text-black transition-all bg-white rounded-lg  p-4',
               classNameQuestionFAQ
             )}>
-            <Text.Paragraph className="font-bold md:text-lg" content={question} />
+            <Text.Paragraph className="font-bold mb-0 md:text-lg" content={question} />
 
             <Icon
               className={cx(`ml-5 text-xl transition-all ${isOpen && 'rotate-180'}`, classNameIcon)}

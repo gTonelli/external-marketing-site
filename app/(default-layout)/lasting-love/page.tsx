@@ -93,7 +93,7 @@ export default function LastingLovePage() {
           </p>
 
           <p>
-            It’s called the Integrated Attachment Theory (IAT™), and it’s focused on changing your
+            It’s called the Integrated Attachment Theory™ (IAT), and it’s focused on changing your
             patterns, beliefs, and behaviors through your subconscious mind.
           </p>
 
@@ -103,8 +103,9 @@ export default function LastingLovePage() {
           </p>
 
           <p>
-            To help get you off to a positive start, I’m offering a 60% discount on your first month
-            on our All-Access Pass (That's $39 instead of the usual $67).
+            To help get you off to a positive start, I’m offering a{' '}
+            <strong className="underline">60% discount on your first month</strong>
+            on our All-Access Pass.
           </p>
 
           <p>
@@ -117,7 +118,9 @@ export default function LastingLovePage() {
           <CheckoutLink />
 
           <p className="text-base font-bold italic mt-3">
-            * This offer is available for a limited time *
+            * This offer is available for a limited time. You'll get 60% off the regular monthly
+            price of $97 (so you pay only $39 for your first month). After the first month, you'll
+            pay $67 per month, which is 30% off the regular price. *
           </p>
         </div>
 
@@ -656,7 +659,7 @@ export default function LastingLovePage() {
         <FaqSecondary
           className="bg-transparent py-0"
           faq={FAQs}
-          subheaderTextDesktop="BEFORE STARTING YOUR FREE TRIAL"
+          subheaderTextDesktop="BEFORE STARTING YOUR MEMBERSHIP"
         />
       </Section>
     </Page>
@@ -673,14 +676,13 @@ const FAQs = [
   {
     question:
       'The trial includes access to over 60 courses! Where should I start to make the most of my membership?',
-    answer: `If you haven’t already done so, go to our website and take the attachment Style Quiz to learn your attachment style. Then once you 
-  have signed up for your free trial, login to the members area and download our Course Guide to discover which courses you should start with.`,
+    answer:
+      'If you haven’t already done so, go to our website and take the attachment Style Quiz to learn your attachment style. Then once you have signed up for your free trial, login to the members area and download our Course Guide to discover which courses you should start with.',
   },
   {
     question: 'What happens after my first month?',
-    answer: `After your first month (so your second month), you’ll automatically be charged the standard $67/month to retain access to everything. 
-      But if you feel it’s not the right fit for you, there is zero obligation and you can cancel before your first month ends by logging into 
-      the members area.`,
+    answer:
+      "After your first month (so your second month), you’ll automatically be charged $67/month (30% off the regular monthly price of $97) to retain access to everything. But if you feel it’s not the right fit for you, there is zero obligation, and you can cancel before your first month ends by logging into the member's area.",
   },
   {
     question: 'Can I cancel later on?',
@@ -689,8 +691,7 @@ const FAQs = [
   },
   {
     question: 'Can you remind me what I get access to?',
-    answer: `Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships and gain emotional mastery. You also get 
-    access to weekly live webinars and Q&A calls, and all of our past recordings. Plus, access to our members-only forum and Facebook group, as well as online 
-    study groups and social events so you can get additional support and connect with likeminded members.`,
+    answer:
+      'Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships and gain emotional mastery. You also get access to weekly live webinars and Q&A calls, and all of our past recordings. Plus, access to our members-only forum and Facebook group, as well as online study groups and social events so you can get additional support and connect with like-minded members.',
   },
 ]

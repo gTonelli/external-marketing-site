@@ -15,7 +15,7 @@ export const CheckoutButton = ({ className, label = 'SIGN UP NOW' }: IButtonDefa
   const { checkoutLink } = useCheckoutSplitTest({ userStyle: 'fa', trafficRatio: 0.2 })
 
   return (
-    <Link href={checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+    <a href={checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
       <Button
         className={two(
           cx(
@@ -25,6 +25,6 @@ export const CheckoutButton = ({ className, label = 'SIGN UP NOW' }: IButtonDefa
         )}
         label={label}
       />
-    </Link>
+    </a>
   )
 }

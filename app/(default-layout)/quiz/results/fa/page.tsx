@@ -11,6 +11,7 @@ import { VideoDefault } from '@/components/Video/variants/VideoDefault'
 import Link from 'next/link'
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
+import { CheckoutButton } from '@/components/CheckoutButton'
 // config
 import { RESULTS } from './config'
 // modules
@@ -112,12 +113,7 @@ export default function RoyalRumbleResultsPage() {
               {RESULTS[style].STYLE_TRAITS.copy2}
             </p>
 
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-              <Button
-                className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold border-none hover:!text-white"
-                label="UNLOCK MY DISCOUNT"
-              />
-            </Link>
+            <CheckoutButton />
           </div>
         </div>
       </section>
@@ -162,12 +158,7 @@ export default function RoyalRumbleResultsPage() {
                 secure in yourself and your relationship.
               </p>
 
-              <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                <Button
-                  className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold border-none hover:!text-white"
-                  label="SIGN UP NOW"
-                />
-              </Link>
+              <CheckoutButton />
             </div>
           )}
         </div>
@@ -187,23 +178,9 @@ export default function RoyalRumbleResultsPage() {
               <p className="my-4">{RESULTS[style].GOOD_NEWS.copy3}</p>
             </div>
 
-            <div>
-              <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                <Button
-                  className="hidden bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none xxs:inline"
-                  label="SIGN UP NOW"
-                />
-              </Link>
-            </div>
+            <CheckoutButton className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none" />
           </div>
         </div>
-
-        <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-          <Button
-            className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none mt-6 xxs:hidden"
-            label="SIGN UP NOW"
-          />
-        </Link>
       </section>
 
       <div className="text-center">
@@ -282,12 +259,7 @@ export default function RoyalRumbleResultsPage() {
 
               <p className="max-w-xl mx-auto mb-8 text-white">{RESULTS[style].PROMOTION_2.copy1}</p>
 
-              <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                <Button
-                  className="bg-gradient-to-b from-[#FFDE89] to-yellow-tertiary uppercase font-bold text-black border-none"
-                  label="SIGN UP NOW"
-                />
-              </Link>
+              <CheckoutButton className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none" />
             </div>
           </div>
         </div>
@@ -319,7 +291,7 @@ export default function RoyalRumbleResultsPage() {
         <div className="max-w-5xl flex flex-col items-center mx-4 mb-8 -mt-12 md:max-w-5xl md:-mt-36 lg:-mt-48 xl:-mt-60 ">
           <h1 className="font-bold tracking-[2px] ">And As A Special Bonus:</h1>
 
-          <div className="flex flex-col-reverse lg:flex-row mt-8 lg:px-8">
+          <div className="flex flex-col-reverse lg:flex-row my-8 lg:px-8">
             {/* LEFT COL  */}
             <div className="flex flex-col items-center lg:items-end mt-8 lg:mt-0 lg:w-1/2 lg:px-8">
               <div className="max-w-xl">
@@ -362,14 +334,7 @@ export default function RoyalRumbleResultsPage() {
             </div>
           </div>
 
-          <div className="flex justify-center my-8 lg:justify-start">
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-              <Button
-                className="bg-gradient-to-b from-purple-medium to-purple-dark font-bold border-none hover:!text-white"
-                label="SIGN UP NOW"
-              />
-            </Link>
-          </div>
+          <CheckoutButton className="font-bold" />
         </div>
       </section>
 
@@ -423,14 +388,8 @@ export default function RoyalRumbleResultsPage() {
             <p className="mt-4">{RESULTS[style].PROMOTION_3.copy5}</p>
           </div>
         </div>
-        <div>
-          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-            <Button
-              className="bg-gradient-to-b from-purple-medium to-purple-dark my-8 border-none hover:!text-white"
-              label="SIGN UP NOW"
-            />
-          </Link>
-        </div>
+
+        <CheckoutButton />
       </section>
 
       <CarouselTestimonial
@@ -458,14 +417,7 @@ export default function RoyalRumbleResultsPage() {
               />
             </div>
 
-            <div className="my-8">
-              <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                <Button
-                  className="bg-gradient-to-b from-purple-medium to-purple-dark border-none hover:!text-white"
-                  label="SIGN UP NOW"
-                />
-              </Link>
-            </div>
+            <CheckoutButton className="mt-8" />
           </div>
 
           <div className="flex flex-col lg:items-start lg:my-8 lg:px-8">
@@ -514,11 +466,11 @@ export default function RoyalRumbleResultsPage() {
                   </p>
                 ))}
 
-                <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                  <p className="text-blue-darkest font-bold text-left underline mt-8 cursor-pointer">
-                    {RESULTS[style].TESTIMONIAL.ctaText}
-                  </p>
-                </Link>
+                <CheckoutButton
+                  className="tracking-normal underline font-bold inline !p-0 text-blue-darkest from-transparent to-transparent bg-transparent border-none text-left
+                  hover:!text-blue-darkest hover:!bg-transparent hover:!shadow-none mt-4"
+                  label={RESULTS[style].TESTIMONIAL.ctaText}
+                />
               </div>
             </div>
 
@@ -577,12 +529,7 @@ export default function RoyalRumbleResultsPage() {
 
           <p className="max-w-3xl mb-8">{RESULTS[style].PROMOTION_4.copy6}</p>
 
-          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-            <Button
-              className="bg-gradient-to-b from-purple-medium to-purple-dark border-none hover:!text-white"
-              label="SIGN UP NOW"
-            />
-          </Link>
+          <CheckoutButton />
         </div>
       </section>
     </Page>

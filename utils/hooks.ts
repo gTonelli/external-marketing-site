@@ -182,9 +182,11 @@ export function useCheckoutSplitTest({
     const checkoutVariantLock = Storage.get(storageKey)
     let useCheckoutVariant: boolean
 
-    if (!checkoutVariantLock) {
+    if (!checkoutVariantLock.toString()) {
+      console.log('Setting')
       useCheckoutVariant =
         window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantTrafficRatio
+      console.log('Set', useCheckoutVariant)
       Storage.set(storageKey, useCheckoutVariant.toString())
 
       Mixpanel.track.ExperimentStarted({

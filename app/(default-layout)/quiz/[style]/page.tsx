@@ -8,6 +8,7 @@ import { Button } from '@/components/Button/Button'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
+import { CheckoutButton } from '@/components/CheckoutButton'
 import Link from 'next/link'
 // libraries
 import cx from 'classnames'
@@ -108,9 +109,7 @@ export default function RoyalRumble({ params }: TParams) {
             </p>
           </div>
 
-          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-            <Button className="bg-primary mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
-          </Link>
+          <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
         </div>
       </section>
       {/* FAMILIAR SECTION*/}
@@ -185,9 +184,7 @@ export default function RoyalRumble({ params }: TParams) {
                 </p>
               )}
 
-              <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                <Button className="bg-primary mt-4 px-16 md:mt-10" label="GET STARTED" />
-              </Link>
+              <CheckoutButton className="mt-4 px-16 md:mt-10" label="GET STARTED" />
             </div>
           </div>
         </div>
@@ -237,9 +234,7 @@ export default function RoyalRumble({ params }: TParams) {
               </p>
             )}
 
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-              <Button className="bg-primary px-16" label="GET STARTED" />
-            </Link>
+            <CheckoutButton className="px-16" label="GET STARTED" />
           </div>
         </div>
       </section>
@@ -375,9 +370,7 @@ export default function RoyalRumble({ params }: TParams) {
               ))}
             </ul>
 
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-              <Button className="mt-8 md:mt-10 bg-primary border-0 px-16" label="SIGN UP NOW" />
-            </Link>
+            <CheckoutButton className="mt-8 md:mt-10 px-16" label="SIGN UP NOW" />
           </div>
         </div>
       </section>
@@ -468,9 +461,7 @@ export default function RoyalRumble({ params }: TParams) {
                   ))}
 
                   <li className="mt-8 md:mt-10">
-                    <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                      <Button className="bg-primary" label="ENROLL NOW" />
-                    </Link>
+                    <CheckoutButton label="ENROLL NOW" />
                   </li>
                 </ul>
               </div>
@@ -522,19 +513,15 @@ export default function RoyalRumble({ params }: TParams) {
 
             <CarouselTestimonialAlt />
 
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-              <Button
-                className="bg-primary mt-4 md:hidden min-w-min xxs:min-w-max"
-                label="START HEALING"
-              />
-            </Link>
+            <CheckoutButton
+              className="mt-4 md:hidden min-w-min xxs:min-w-max"
+              label="START HEALING"
+            />
 
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-              <Button
-                className="hidden bg-primary mt-8 !px-16 md:mt-10 md:block md:mx-auto min-w-max"
-                label="START MY TRANSFORMATION"
-              />
-            </Link>
+            <CheckoutButton
+              className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
+              label="START MY TRANSFORMATION"
+            />
           </div>
         </div>
       </section>
@@ -584,9 +571,7 @@ export default function RoyalRumble({ params }: TParams) {
               </div>
             ))}
 
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-              <Button className="bg-primary mt-2 border-0" label="I WANT THIS" />
-            </Link>
+            <CheckoutButton className="mt-2" label="I WANT THIS" />
           </div>
         </div>
       </section>
@@ -633,9 +618,7 @@ export default function RoyalRumble({ params }: TParams) {
             </p>
           </div>
 
-          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-            <Button className="bg-primary mt-6 md:mt-8" label="SIGN ME UP" />
-          </Link>
+          <CheckoutButton className="mt-6 md:mt-8" label="SIGN ME UP" />
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
@@ -721,9 +704,8 @@ export default function RoyalRumble({ params }: TParams) {
                     </li>
                   </ul>
 
-                  <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-                    <Button className="bg-primary mt-6 md:mt-10 border-0" label="REGISTER NOW" />
-                  </Link>
+                  <CheckoutButton className="mt-6 md:mt-10" label="REGISTER NOW" />
+
                   <p className="font-effra font-bold md:text-lg mt-2">SAVE 30% NOW</p>
                 </div>
               </div>
@@ -771,12 +753,10 @@ export default function RoyalRumble({ params }: TParams) {
           ))}
         </div>
 
-        <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-          <Button
-            className="bg-primary mt-8 md:mt-10 border-primary md:px-20 min-w-min xxs:min-w-max"
-            label="REWRITE MY STORY"
-          />
-        </Link>
+        <CheckoutButton
+          className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
+          label="REWRITE MY STORY"
+        />
       </section>
       {/* FAQ SECTION */}
       <Faq

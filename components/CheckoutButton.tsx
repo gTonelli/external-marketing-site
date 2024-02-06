@@ -1,7 +1,6 @@
 'use client'
 
 // components
-import Link from 'next/link'
 import { Button } from './Button/Button'
 import { IButtonDefaultProps } from './Button/variants/ButtonDefault'
 // libraries
@@ -10,21 +9,44 @@ import { overrideTailwindClasses as two } from 'tailwind-override'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { useCheckoutSplitTest } from '@/utils/hooks'
+import { TStyle } from '@/utils/types'
 
-export const CheckoutButton = ({ className, label = 'SIGN UP NOW' }: IButtonDefaultProps) => {
-  const { checkoutLink } = useCheckoutSplitTest({ userStyle: 'fa', trafficRatio: 0.2 })
+interface ICheckoutButtonProps extends IButtonDefaultProps {
+  children?: React.ReactNode
+  userStyle?: TStyle
+  href?: string
+  useSplitTest?: boolean
+  theme?: 'primary' | 'secondary'
+}
+
+export const CheckoutButton = ({
+  children,
+  className,
+  href = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+  label = 'SIGN UP NOW',
+  theme = 'primary',
+  userStyle,
+  useSplitTest = false,
+}: ICheckoutButtonProps) => {
+  const { checkoutLink } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
+  const url = useSplitTest ? checkoutLink : href
 
   return (
-    <a href={checkoutLink || EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-      <Button
-        className={two(
-          cx(
-            'bg-gradient-to-b from-purple-medium to-purple-dark border-none hover:!text-white',
-            className
-          )
-        )}
-        label={label}
-      />
+    // There is an issue with next/link and the Thinkific Checkout. If the user is logged in the browser enters an infinite loop.
+    <a href={url || href}>
+      {children || (
+        <Button
+          className={two(
+            cx(
+              theme === 'secondary'
+                ? 'bg-gradient-to-b from-purple-medium to-purple-dark border-none hover:!text-white'
+                : '',
+              className
+            )
+          )}
+          label={label}
+        />
+      )}
     </a>
   )
 }

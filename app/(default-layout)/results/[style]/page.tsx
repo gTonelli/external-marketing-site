@@ -12,6 +12,7 @@ import { List } from '@/components/List'
 import { IDefaultProps } from '@/components'
 import Image from 'next/image'
 import { TextParagraph } from '@/components/Text/variants/TextParagraph'
+import { CheckoutButton } from '@/components/CheckoutButton'
 // config
 import { RESULTS_COPY } from './config'
 // utils
@@ -35,7 +36,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             reading to learn more about your attachment profile!
           </p>
 
-          <CheckoutLink />
+          <CheckoutButton />
         </div>
       </Section>
 
@@ -51,7 +52,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             reading to learn more about your attachment profile!
           </p>
 
-          <CheckoutLink />
+          <CheckoutButton />
         </div>
       </Section>
 
@@ -82,7 +83,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
               </p>
             ))}
 
-            <CheckoutLink />
+            <CheckoutButton />
           </div>
         </div>
       </Section>
@@ -109,7 +110,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           />
         </div>
 
-        <CheckoutLink />
+        <CheckoutButton />
       </Section>
 
       {/**OFFER SECTION*/}
@@ -150,7 +151,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             height={1000}
           />
 
-          <CheckoutLink>
+          <CheckoutButton>
             <div className="bg-primary text-white rounded-4xl default-padding">
               <h2>Step Into Your Dream Life</h2>
 
@@ -166,7 +167,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
               <p>You can cancel all your subscription anytime – no strings attached.</p>
             </div>
-          </CheckoutLink>
+          </CheckoutButton>
 
           <Image
             alt="A mockup of the PDS quiz and PDS webinar calendar on 2 phones side by side."
@@ -205,7 +206,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           />
         </div>
 
-        <CheckoutLink className="lg:hidden" />
+        <CheckoutButton className="lg:hidden" />
       </Section>
 
       <Section
@@ -281,7 +282,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           </p>
 
           <div className="text-center lg:text-left">
-            <CheckoutLink className="my-8" label="SAY YES TO YOUR DREAMS" />
+            <CheckoutButton className="my-8" label="SAY YES TO YOUR DREAMS" />
           </div>
         </div>
 
@@ -305,12 +306,10 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             Explore some snippets of our most popular courses from each of the categories below!
           </p>
 
-          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-            <Button
-              className="text-black bg-blue border-blue mt-8"
-              label="BECOME SECURELY ATTACHED NOW"
-            />
-          </Link>
+          <CheckoutButton
+            className="text-black bg-blue border-blue mt-8"
+            label="BECOME SECURELY ATTACHED NOW"
+          />
         </div>
       </section>
 
@@ -331,9 +330,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           tools for just $67/month (save 30% for a limited time). Cancel anytime.
         </p>
 
-        <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-          <Button className="text-white my-6" label="SIGN UP NOW" />
-        </Link>
+        <CheckoutButton className="text-white my-6" label="SIGN UP NOW" />
 
         <p className="max-w-80 mx-auto mt-4">
           You can cancel all your subscription anytime – no strings attached.
@@ -342,16 +339,3 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
     </Page>
   )
 }
-
-interface ICheckoutLinkProps extends IDefaultProps {
-  label?: string
-  children?: React.ReactNode
-}
-
-const CheckoutLink = ({ label = 'SIGN UP NOW', className, children }: ICheckoutLinkProps) => (
-  <Link
-    className="hover:no-underline"
-    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
-    {children || <Button className={className} label={label} />}
-  </Link>
-)

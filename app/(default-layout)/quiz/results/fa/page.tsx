@@ -1,14 +1,12 @@
 // components
 import { Page } from '@/components/Page'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
-import { Button } from '@/components/Button/Button'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Icon } from '@/components/Icon'
 import Image from 'next/image'
 import { List } from '@/components/List'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoDefault } from '@/components/Video/variants/VideoDefault'
-import Link from 'next/link'
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import { CheckoutButton } from '@/components/CheckoutButton'
@@ -18,7 +16,6 @@ import { RESULTS } from './config'
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { Metadata } from 'next'
-import { EExternalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Your Attachment Style Results | Fearful Avoidant',
@@ -113,7 +110,7 @@ export default function RoyalRumbleResultsPage() {
               {RESULTS[style].STYLE_TRAITS.copy2}
             </p>
 
-            <CheckoutButton />
+            <CheckoutButton useSplitTest theme="secondary" userStyle="fa" />
           </div>
         </div>
       </section>
@@ -158,7 +155,7 @@ export default function RoyalRumbleResultsPage() {
                 secure in yourself and your relationship.
               </p>
 
-              <CheckoutButton />
+              <CheckoutButton useSplitTest userStyle="fa" />
             </div>
           )}
         </div>
@@ -178,7 +175,11 @@ export default function RoyalRumbleResultsPage() {
               <p className="my-4">{RESULTS[style].GOOD_NEWS.copy3}</p>
             </div>
 
-            <CheckoutButton className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none" />
+            <CheckoutButton
+              useSplitTest
+              className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none"
+              userStyle="fa"
+            />
           </div>
         </div>
       </section>
@@ -259,7 +260,11 @@ export default function RoyalRumbleResultsPage() {
 
               <p className="max-w-xl mx-auto mb-8 text-white">{RESULTS[style].PROMOTION_2.copy1}</p>
 
-              <CheckoutButton className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none" />
+              <CheckoutButton
+                useSplitTest
+                className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
+                userStyle="fa"
+              />
             </div>
           </div>
         </div>
@@ -334,7 +339,7 @@ export default function RoyalRumbleResultsPage() {
             </div>
           </div>
 
-          <CheckoutButton className="font-bold" />
+          <CheckoutButton useSplitTest className="font-bold" theme="secondary" userStyle="fa" />
         </div>
       </section>
 
@@ -389,7 +394,7 @@ export default function RoyalRumbleResultsPage() {
           </div>
         </div>
 
-        <CheckoutButton />
+        <CheckoutButton useSplitTest theme="secondary" userStyle="fa" />
       </section>
 
       <CarouselTestimonial
@@ -417,7 +422,7 @@ export default function RoyalRumbleResultsPage() {
               />
             </div>
 
-            <CheckoutButton className="mt-8" />
+            <CheckoutButton useSplitTest className="mt-8" theme="secondary" userStyle="fa" />
           </div>
 
           <div className="flex flex-col lg:items-start lg:my-8 lg:px-8">
@@ -467,9 +472,11 @@ export default function RoyalRumbleResultsPage() {
                 ))}
 
                 <CheckoutButton
+                  useSplitTest
                   className="tracking-normal underline font-bold inline !p-0 text-blue-darkest from-transparent to-transparent bg-transparent border-none text-left
                   hover:!text-blue-darkest hover:!bg-transparent hover:!shadow-none mt-4"
                   label={RESULTS[style].TESTIMONIAL.ctaText}
+                  userStyle="fa"
                 />
               </div>
             </div>
@@ -529,7 +536,7 @@ export default function RoyalRumbleResultsPage() {
 
           <p className="max-w-3xl mb-8">{RESULTS[style].PROMOTION_4.copy6}</p>
 
-          <CheckoutButton />
+          <CheckoutButton useSplitTest theme="secondary" userStyle="fa" />
         </div>
       </section>
     </Page>

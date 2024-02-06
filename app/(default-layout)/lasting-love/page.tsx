@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   robots: 'all',
 }
 
-export default function ValentinesDayPageVariant() {
+export default function LastingLovePage() {
   return (
     <Page className="w-full overflow-hidden" page_name="Valentine's Day">
       {/* HEADER TEXT */}
@@ -49,7 +49,7 @@ export default function ValentinesDayPageVariant() {
 
         <CheckoutLink />
 
-        <p className="mt-2 font-bold italic">*This offer ends soon!*</p>
+        <p className="mt-2 mb-0 font-bold italic">*This offer ends soon!*</p>
       </Section>
 
       <Image

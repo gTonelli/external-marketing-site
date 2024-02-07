@@ -1,14 +1,34 @@
+'use client'
 // core
 import Image from 'next/image'
+import Link from 'next/link'
+import { useState, useRef, useCallback } from 'react'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { TextHeading } from '@/components/Text/variants/TextHeading'
-import Link from 'next/link'
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
+import Mixpanel from '@/modules/Mixpanel'
 
 export default function OrganicQuizPage() {
+  // ================= State =======================
+  const [viewQuiz, setViewQuiz] = useState(false)
+
+  // ================= Refs =======================
+  const quizSectionRef = useRef<HTMLDivElement>(null)
+
+  // ================== Events =====================
+  const onStartQuiz = useCallback(() => {
+    if (!viewQuiz) {
+      Mixpanel.track.QuizStarted({
+        quiz_name: 'Attachment Style Quiz',
+      })
+      setViewQuiz((prev) => !prev)
+    }
+    quizSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [viewQuiz])
+
   return (
     <Page page_name="Attachment Style Quiz">
       <div className="relative w-full">
@@ -45,18 +65,51 @@ export default function OrganicQuizPage() {
               content="Get a free personalized report with everything you need to know!"
             />
 
-            <Button label="TAKE QUIZ" theme="primary" link="#quiz" />
+            <Button label="TAKE QUIZ" theme="primary" onClick={onStartQuiz} />
           </div>
         </div>
       </div>
 
-      <div className="max-w-5xl default-padding mx-auto" id="quiz">
+      <Section className="max-w-5xl mx-auto" classNameInner="flex flex-col items-center">
         {/* <div id="quiz" /> */}
 
-        <TextHeading className="text-left mb-8" content="Build Loving and Lasting Relationships" />
+        <TextHeading
+          className="text-center mb-8"
+          content="Build Loving and Lasting Relationships"
+        />
 
-        <AttachmentQuiz quiz_traffic_source="organic" quizName="Attachment Style Quiz" />
-      </div>
+        <p className="text-center">
+          Take this quiz to determine your attachment style.{' '}
+          <span className="underline">
+            <Link
+              href="https://blog.personaldevelopmentschool.com/21/understanding-attachment-styles-for-beginners"
+              target="_blank">
+              Knowing your attachment style
+            </Link>{' '}
+          </span>
+          is the first step to creating more meaningful connections, feeling valued, and developing
+          more harmony in all of your relationships. Learn about how your childhood experiences form
+          your beliefs on emotional intimacy, adult relationships, personal growth, and
+          self-awareness.
+        </p>
+
+        <div ref={quizSectionRef} className="w-full px-4">
+          {viewQuiz && (
+            <div className="w-full flex justify-center mx-auto py-16">
+              <AttachmentQuiz
+                className="!max-w-5xl"
+                quizName="Attachment Style Quiz"
+                quiz_traffic_source="organic"
+                showStartButton={false}
+              />
+            </div>
+          )}
+        </div>
+
+        {!viewQuiz && (
+          <Button className="my-4" label="START QUIZ" theme="primary" onClick={onStartQuiz} />
+        )}
+      </Section>
 
       <Section
         className="max-w-5xl mx-auto"
@@ -225,7 +278,12 @@ export default function OrganicQuizPage() {
             and unlock the keys to a healthy, loving relationship!
           </p>
 
-          <Button className="mb-8" label="START OUR FREE QUIZ NOW" theme="primary" link="#quiz" />
+          <Button
+            className="mb-8"
+            label="START OUR FREE QUIZ NOW"
+            theme="primary"
+            onClick={onStartQuiz}
+          />
         </div>
 
         <div className="min-w-64 h-auto">

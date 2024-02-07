@@ -33,6 +33,7 @@ export default function OrganicQuizPage() {
     <Page page_name="Attachment Style Quiz">
       <div className="relative w-full">
         <Image
+          priority
           alt="A picture of a couple smiling while looking down at the phone."
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom xs:object-top md:hidden"
           width={376}
@@ -40,6 +41,7 @@ export default function OrganicQuizPage() {
           src="/images/AttachmentQuiz/organic-hero.jpg"
         />
         <Image
+          priority
           alt="A picture of a couple smiling while looking down at the phone."
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom hidden md:block md:object-right xl:object-right"
           width={1440}

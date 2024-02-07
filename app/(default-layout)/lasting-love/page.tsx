@@ -104,8 +104,8 @@ export default function LastingLovePage() {
 
           <p>
             To help get you off to a positive start, I’m offering a{' '}
-            <strong className="underline">60% discount on your first month</strong>
-            on our All-Access Pass.
+            <strong className="underline">60% discount on your first month</strong> on our
+            All-Access Pass.
           </p>
 
           <p>
@@ -317,9 +317,9 @@ export default function LastingLovePage() {
 
           <div>
             <p>
-              Take the time to explore our complete list of tailed courses (which range from between
-              1 and 3 hours) carefully designed to help you tackle any personal challenge stopping
-              you from living your dream life.
+              Take the time to explore our complete list of tailored courses (which range from
+              between 1 and 3 hours) carefully designed to help you tackle any personal challenge
+              stopping you from living your dream life.
             </p>
 
             <p>

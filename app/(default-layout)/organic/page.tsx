@@ -33,7 +33,6 @@ export default function OrganicQuizPage() {
     <Page page_name="Attachment Style Quiz">
       <div className="relative w-full">
         <Image
-          priority
           alt="A picture of a couple smiling while looking down at the phone."
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom xs:object-top md:hidden"
           width={376}
@@ -41,7 +40,6 @@ export default function OrganicQuizPage() {
           src="/images/AttachmentQuiz/organic-hero.jpg"
         />
         <Image
-          priority
           alt="A picture of a couple smiling while looking down at the phone."
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom hidden md:block md:object-right xl:object-right"
           width={1440}
@@ -65,6 +63,12 @@ export default function OrganicQuizPage() {
               content="Get a free personalized report with everything you need to know!"
             />
 
+            <p className="mb-4">
+              <em>
+                Created by personal development leader, <strong>Thais Gibson!</strong>
+              </em>
+            </p>
+
             <Button label="TAKE QUIZ" theme="primary" onClick={onStartQuiz} />
           </div>
         </div>
@@ -79,7 +83,7 @@ export default function OrganicQuizPage() {
         />
 
         <p className="text-center">
-          Take this quiz to determine your attachment style.{' '}
+          Take our free attachment style test to discover your attachment style.{' '}
           <span className="underline">
             <Link
               href="https://blog.personaldevelopmentschool.com/21/understanding-attachment-styles-for-beginners"
@@ -134,8 +138,8 @@ export default function OrganicQuizPage() {
 
           <p>
             There are four types of attachment styles, all with different characteristics. Three are
-            recognized as insecure attachment styles; the other is securely attached. Check them out
-            below:
+            recognized as insecure attachment styles; the other is securely attached. Take our free
+            test to find out which attachment style you have.
           </p>
         </div>
       </Section>

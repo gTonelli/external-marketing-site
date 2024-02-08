@@ -38,7 +38,7 @@ export default function OrganicQuizPage() {
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom xs:object-top md:hidden"
           width={376}
           height={799}
-          src="/images/AttachmentQuiz/organic-hero.webp"
+          src="/images/AttachmentQuiz/organic-hero.jpg"
         />
         <Image
           priority
@@ -46,7 +46,7 @@ export default function OrganicQuizPage() {
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom hidden md:block md:object-right xl:object-right"
           width={1440}
           height={594}
-          src="/images/AttachmentQuiz/organic-hero-desktop.webp"
+          src="/images/AttachmentQuiz/organic-hero-desktop.jpg"
           sizes="100vw"
         />
         <div className="absolute w-full h-full bg-gradient-to-r from-[#E3EDED22] to-[#D5B8D822] z-10" />
@@ -59,11 +59,9 @@ export default function OrganicQuizPage() {
               content="Take our Free Life-Changing Quiz to Discover Your Attachment Style in Just 5 Minutes"
             />
 
-            <TextHeading
-              className="mb-4"
-              size={5}
-              content="Get a free personalized report with everything you need to know!"
-            />
+            <p className="mb-4 font-bold tracking-33 uppercase">
+              Get a free personalized report with everything you need to know!
+            </p>
 
             <p className="mb-4">
               <em>
@@ -79,12 +77,9 @@ export default function OrganicQuizPage() {
       <Section className="max-w-5xl mx-auto" classNameInner="flex flex-col items-center">
         {/* <div id="quiz" /> */}
 
-        <TextHeading
-          className="text-center mb-8"
-          content="Build Loving and Lasting Relationships"
-        />
+        <TextHeading className="mb-8" content="Build Loving and Lasting Relationships" />
 
-        <p className="text-center">
+        <p>
           Take our free attachment style test to discover your attachment style.{' '}
           <span className="underline">
             <Link
@@ -129,8 +124,8 @@ export default function OrganicQuizPage() {
           />
         </div>
 
-        <div className="flex-1">
-          <TextHeading className="text-left mb-4" content="What Are The Four Attachment Styles?" />
+        <div className="flex-1 text-left">
+          <TextHeading className="mb-4" content="What Are The Four Attachment Styles?" />
 
           <p className="mb-4">
             Attachment Theory is the single largest predictor of success in your relationships,
@@ -147,7 +142,7 @@ export default function OrganicQuizPage() {
       </Section>
 
       <Section className="max-w-5xl mx-auto">
-        <div className="flex flex-col mb-12 lg:flex-row lg:items-center">
+        <div className="flex flex-col text-left mb-12 lg:flex-row lg:items-center">
           <div className="mb-4 lg:mb-0">
             <div className="min-w-40 max-w-40 h-40 flex items-center justify-center bg-blue-lightest rounded-full p-4">
               <Image
@@ -178,7 +173,7 @@ export default function OrganicQuizPage() {
           </div>
         </div>
 
-        <div className="flex flex-col mb-12 lg:flex-row lg:items-center">
+        <div className="flex flex-col text-left mb-12 lg:flex-row lg:items-center">
           <div className="mb-4 lg:mb-0">
             <div className="min-w-40 max-w-40 h-40 flex items-center justify-center bg-blue-lightest rounded-full p-4">
               <Image
@@ -210,7 +205,7 @@ export default function OrganicQuizPage() {
           </div>
         </div>
 
-        <div className="flex flex-col mb-12 lg:flex-row lg:items-center">
+        <div className="flex flex-col text-left mb-12 lg:flex-row lg:items-center">
           <div className="mb-4 lg:mb-0">
             <div className="min-w-40 max-w-40 h-40 flex items-center justify-center bg-blue-lightest rounded-full p-4">
               <Image
@@ -242,7 +237,7 @@ export default function OrganicQuizPage() {
           </div>
         </div>
 
-        <div className="flex flex-col mb-12 lg:flex-row lg:items-center">
+        <div className="flex flex-col text-left mb-12 lg:flex-row lg:items-center">
           <div className="mb-4 lg:mb-0">
             <div className="min-w-40 max-w-40 h-40 flex items-center justify-center bg-blue-lightest rounded-full p-4">
               <Image
@@ -296,8 +291,8 @@ export default function OrganicQuizPage() {
           <Image
             alt="Attachment Style Results Mockup"
             src="/images/AttachmentQuiz/attachment-style-results.png"
-            width={250}
-            height={298}
+            width={500}
+            height={596}
           />
         </div>
       </Section>

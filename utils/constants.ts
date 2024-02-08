@@ -94,6 +94,7 @@ export enum ERoutes {
 
   // Stripe Checkout
   STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthly?discount_id=30off',
+  STRIPE_CHECKOUT_39_FIRST_MONTH = '/checkout/67monthly?discount_id=28off1mo',
 }
 
 export enum EExternalRoutes {

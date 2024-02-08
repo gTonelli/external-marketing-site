@@ -287,7 +287,6 @@ export default function SecondarySalesPage() {
         <Carousel.Courses
           headerTextDesktop="Unlock Instant Access to These Courses"
           headerTextMobile="Unlock Instant Access to These Courses"
-          pageName={page_name}
         />
 
         {/* SKILL SECTION */}

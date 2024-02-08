@@ -16,6 +16,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { EWindowWidth } from '@/utils/constants'
 import { TTestimonial } from '../../Testimonial/variants/TestimonialDefault'
 import { ViewportContext } from '@/utils/contexts'
+// styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 interface ICarouselTestimonialProps extends IDefaultProps {
   /** Classnames for carousel children (cards) */

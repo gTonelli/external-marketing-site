@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { ValentineDayPage } from './ValentineDayPage'
+import { ValentinesDayPage } from './ValentinesDayPage'
 
 export const metadata: Metadata = {
   title: "Get a 14-day FREE Trial this Valentine's Day | The Personal Development School",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function ValentinePage() {
-  return <ValentineDayPage />
+  return <ValentinesDayPage />
 }

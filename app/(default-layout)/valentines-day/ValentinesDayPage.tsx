@@ -7,7 +7,7 @@ import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { SpecialPromotion, MHAButton } from '@/components/SpecialPromotion'
 
-export const ValentineDayPage = () => {
+export const ValentinesDayPage = () => {
   return (
     <Page className="w-full overflow-hidden" page_name="Valentine's Day">
       {/* HEADER TEXT */}

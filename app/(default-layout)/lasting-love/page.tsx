@@ -405,7 +405,7 @@ export default function LastingLovePage() {
             </p>
 
             <p>
-              As a member, you can join our
+              As a member, you can join our{' '}
               <strong>online study groups, sharing circles, self-love routines</strong> and{' '}
               <strong>other support groups</strong> led by our trained coaches.
             </p>

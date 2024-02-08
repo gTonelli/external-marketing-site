@@ -4,18 +4,15 @@ import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQui
 import Image from 'next/image'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
-import { Button } from '@/components/Button/Button'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
 import { CheckoutButton } from '@/components/CheckoutButton'
-import Link from 'next/link'
 // libraries
 import cx from 'classnames'
 // utils
 import { ROYAL_RUMBLE } from './config'
 import { TStyle } from '@/utils/types'
-import { EExternalRoutes } from '@/utils/constants'
 
 export interface IAttachmentStylePageParams {
   style: TStyle

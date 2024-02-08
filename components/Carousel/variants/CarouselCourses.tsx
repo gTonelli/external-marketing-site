@@ -6,7 +6,7 @@ import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
 import { Icon } from '@/components/Icon'
-import { ViewportContext } from '@/utils/contexts'
+import { PageContext, ViewportContext } from '@/utils/contexts'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 // libraries
@@ -18,6 +18,11 @@ import cx from 'classnames'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { EExternalRoutes, ERoutes, EWindowWidth } from '@/utils/constants'
+// styles
+// styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 interface ICourse {
   title: string
@@ -47,8 +52,6 @@ interface ICarouselCoursesProps extends IDefaultProps {
    * @default 'Preview the Course in Your Program'
    */
   headerTextDesktop?: string
-  /** Name of the page */
-  pageName: string
   /**
    * Subheading text
    * @default 'We have simple courses to support you in any area of life you want to work on, especially catered to learning your relationship attachment patterns and how to navigate and understand the attachment styles of others. These courses are perfect for you if you are tired of feeling disconnected, sick of uncertainty in your love life and are ready for lasting and thriving relationships.''
@@ -64,27 +67,27 @@ export const CarouselCourses = ({
   courses = SSP.COURSES,
   headerTextMobile = 'Courses In Your Program',
   headerTextDesktop = 'Preview the Course in Your Program',
-  pageName,
   subheadingText,
 }: ICarouselCoursesProps) => {
   //======================== Hooks ============================
   const { windowWidth } = useContext(ViewportContext)
+  const { page_name } = useContext(PageContext)
 
   //============================ Events ========================================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<Element, MouseEvent>) => {
       Mixpanel.track.ButtonClicked({
         button_label: (event.target as HTMLButtonElement).innerText,
-        page_name: pageName as Pages,
+        page_name,
       })
 
       window.location.assign(checkoutLink)
     },
-    [checkoutLink, pageName]
+    [checkoutLink, page_name]
   )
 
   return (
-    <section className={cx('relative w-full', className)}>
+    <section className={cx('relative w-full z-5', className)}>
       <div
         className={cx(
           'hidden absolute left-40 -top-24 h-[155px] w-[155px] bg-white rounded-20 rotate-45 lg:block',

@@ -38,7 +38,7 @@ export default function OrganicQuizPage() {
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom xs:object-top md:hidden"
           width={376}
           height={799}
-          src="/images/AttachmentQuiz/organic-hero.jpg"
+          src="/images/AttachmentQuiz/organic-hero.webp"
         />
         <Image
           priority
@@ -46,7 +46,7 @@ export default function OrganicQuizPage() {
           className="absolute z-0 h-full w-full top-0 left-0 object-cover object-bottom hidden md:block md:object-right xl:object-right"
           width={1440}
           height={594}
-          src="/images/AttachmentQuiz/organic-hero-desktop.jpg"
+          src="/images/AttachmentQuiz/organic-hero-desktop.webp"
           sizes="100vw"
         />
         <div className="absolute w-full h-full bg-gradient-to-r from-[#E3EDED22] to-[#D5B8D822] z-10" />

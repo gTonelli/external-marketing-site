@@ -12,7 +12,7 @@ export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
       <Script
         defer
         type="text/javascript"
-        src="https://184284.t.hyros.com/v1/lst/universal-script?ph=b8a3426fb8e80314f3ba1bbeb78db76454a57084d1e165ba830f52cda229dd6b&tag=!clicked"
+        src="https://t.personaldevelopmentschool.com/v1/lst/universal-script?ph=b8a3426fb8e80314f3ba1bbeb78db76454a57084d1e165ba830f52cda229dd6b&tag=!clicked"
         strategy="lazyOnload"
       />
 

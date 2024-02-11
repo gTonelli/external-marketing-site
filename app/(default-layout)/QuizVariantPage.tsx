@@ -9,9 +9,10 @@ import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { TextHeading } from '@/components/Text/variants/TextHeading'
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
+// modules
 import Mixpanel from '@/modules/Mixpanel'
 
-export default function OrganicQuizPage() {
+export default function AttachmentQuizVariantPage() {
   // ================= State =======================
   const [viewQuiz, setViewQuiz] = useState(false)
 
@@ -30,8 +31,8 @@ export default function OrganicQuizPage() {
   }, [viewQuiz])
 
   return (
-    <Page page_name="Attachment Style Quiz">
-      <div className="relative w-full">
+    <>
+      <div className="relative text-left w-full">
         <Image
           priority
           alt="A picture of a couple smiling while looking down at the phone."
@@ -280,7 +281,7 @@ export default function OrganicQuizPage() {
           </p>
 
           <Button
-            className="mb-8"
+            className="ml-4 mb-8"
             label="START OUR FREE QUIZ NOW"
             theme="primary"
             onClick={onStartQuiz}
@@ -296,6 +297,6 @@ export default function OrganicQuizPage() {
           />
         </div>
       </Section>
-    </Page>
+    </>
   )
 }

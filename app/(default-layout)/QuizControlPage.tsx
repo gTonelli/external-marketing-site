@@ -16,7 +16,7 @@ export default function AttachmentQuizControlPage() {
   const quizCopy = REGULAR_COPY
 
   return (
-    <Page className="w-full text-center relative z-10" page_name="Attachment Style Quiz">
+    <>
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}
@@ -37,16 +37,17 @@ export default function AttachmentQuizControlPage() {
 
       <Image
         priority
-        alt=""
+        alt="Quiz Banner"
         className="w-full hidden relative z-5 lg:block"
         src="/images/external-quiz-banner-bg.png"
         width={1920}
         height={243}
         tabIndex={-1}
       />
+
       <Image
         priority
-        alt=""
+        alt="Quiz Banner Mobile"
         className="w-full relative z-5 lg:hidden"
         src="/images/external-quiz-banner-bg-mobile.png"
         tabIndex={-1}
@@ -79,6 +80,6 @@ export default function AttachmentQuizControlPage() {
 
         <AttachmentStylesTabs className="-mt-80" type="quizpage" />
       </div>
-    </Page>
+    </>
   )
 }

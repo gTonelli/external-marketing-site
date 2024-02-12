@@ -62,7 +62,7 @@ export const TextHeading = ({
 
     case 5:
       return (
-        <h4
+        <h5
           className={cx(
             'font-effra font-bold uppercase leading-6 !tracking-33',
             font,
@@ -70,7 +70,7 @@ export const TextHeading = ({
             className
           )}>
           {content}
-        </h4>
+        </h5>
       )
   }
 }

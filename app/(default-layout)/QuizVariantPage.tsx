@@ -1,10 +1,9 @@
 'use client'
 // core
+import { useState, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState, useRef, useCallback } from 'react'
 // components
-import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { TextHeading } from '@/components/Text/variants/TextHeading'

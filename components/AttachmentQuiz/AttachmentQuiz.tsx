@@ -15,8 +15,6 @@ import _ from 'lodash'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import Link from 'next/link'
-// utils
 
 const AttachmentQuizQuestions = dynamic(
   () => import('./AttachmentQuizQuestions').then((mod) => mod.AttachmentQuizQuestions),

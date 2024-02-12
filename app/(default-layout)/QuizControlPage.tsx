@@ -1,14 +1,12 @@
+// core
+import Image from 'next/image'
 // components
-import { Page } from '@/components/Page'
 import { AttachmentStylesTabs } from '@/components/AttachmentStylesTabs/AttachmentStylesTabs'
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
 import { REGULAR_COPY } from './config'
-import Image from 'next/image'
 // libraries
-import _ from 'lodash'
-
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -40,6 +38,7 @@ export default function AttachmentQuizControlPage() {
         alt="Quiz Banner"
         className="w-full hidden relative z-5 lg:block"
         src="/images/external-quiz-banner-bg.png"
+        sizes="100vw"
         width={1920}
         height={243}
         tabIndex={-1}

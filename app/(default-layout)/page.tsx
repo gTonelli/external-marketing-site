@@ -1,11 +1,7 @@
 // core
 import { Metadata } from 'next'
-// libraries
-import _ from 'lodash'
-
-import 'swiper/css'
-import 'swiper/css/pagination'
-import OrganicQuizPage from './QuizPage'
+// components
+import QuizPage from './QuizPage'
 
 export const metadata: Metadata = {
   title: 'The Attachment Style Quiz',
@@ -14,5 +10,5 @@ export const metadata: Metadata = {
 }
 
 export default function AttachmentQuizPage() {
-  return <OrganicQuizPage />
+  return <QuizPage />
 }

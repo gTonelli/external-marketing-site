@@ -11,7 +11,7 @@ import Mixpanel from '@/modules/Mixpanel'
 // libraries
 import cx from 'classnames'
 
-export default function OrganicQuizPage() {
+export default function QuizPage() {
   const [showOrganicVariant, setShowOrganicVariant] = useState<boolean>()
 
   useEffect(() => {

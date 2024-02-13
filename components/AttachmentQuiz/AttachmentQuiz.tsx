@@ -15,7 +15,6 @@ import _ from 'lodash'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-// utils
 
 const AttachmentQuizQuestions = dynamic(
   () => import('./AttachmentQuizQuestions').then((mod) => mod.AttachmentQuizQuestions),
@@ -74,6 +73,7 @@ export const AttachmentQuiz = ({
           className="max-w-3xl mt-4 mx-10 lg:mx-0"
           content={REGULAR_COPY.copy}
         />
+
         <Button
           className="mt-7 px-20 py-4 lg:mt-8"
           label={REGULAR_COPY.button_label}

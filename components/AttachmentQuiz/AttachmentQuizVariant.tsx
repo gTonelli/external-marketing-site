@@ -4,9 +4,6 @@
 import React, { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
-// libraries
-import type { IconName } from '@fortawesome/fontawesome-common-types'
-// modules
 import { Page } from '@/components/Page'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
@@ -14,9 +11,12 @@ import { Button } from '@/components/Button/Button'
 import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { TAttachmentQuizVariant } from '@/app/(default-layout)/quiz/(variants)/config'
-
+// libraries
+import type { IconName } from '@fortawesome/fontawesome-common-types'
+// modules
+import Mixpanel, { Pages } from '@/modules/Mixpanel'
+// styles
 import './style.css'
 
 interface IQuizVariantProps {

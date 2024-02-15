@@ -421,6 +421,43 @@ export const ROYAL_RUMBLE = {
 
         'Your only strategy when you feel this inner conflict is to detach from others, distance yourself, and get very protective over your time and space alone. It’s so common for you to go to great lengths to avoid letting people in, that it can come across like you don’t need your partner, friends, or family at all. The truth is that you do value their connection, you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
       ],
+      variantSubheader:
+        'Here’s why your dismissive avoidant attachment is affecting your relationships…',
+      variantCopy1: [
+        'You like to do your own thing and value your freedom, space, and independence.',
+        'You are a very logical and practical person when it comes to making decisions.',
+        'You appreciate when people are direct, clear, and specific about what they need from you and your relationships.',
+        'You identify as more of a “thinker” than a “feeler”.',
+        'You are much more comfortable expressing what you think about situations than what you feel about them.',
+        'You feel more in control and relaxed when choosing when and where you’ll be with people, how close, and for how long.',
+      ],
+      variantCopy2: [
+        'Because you thrive independently, you value your time spent out of romantic relationships?',
+        'Being vulnerable around others or being around intense emotions makes you feel uncomfortable?',
+        'You’ve never been great at expressing or sitting with your feelings?',
+        'You believe that you’re the only person you can rely on?',
+        'When it comes to romantic relationships, you have a hard time navigating them, emotionally and practically?',
+        'When faced with the pressures of meeting someone else’s needs, you feel suffocated?',
+        'Long-term relationships and commitments make you feel trapped or fearful you’ll lose your independence?',
+      ],
+      variantCopy3: [
+        <>
+          That’s the thing about dismissive avoidants:{' '}
+          <strong>
+            {' '}
+            your only strategy when you feel this inner conflict is to detach from others, distance
+            yourself, and get very protective over your time and space alone.
+          </strong>
+        </>,
+        'It’s so common for you to go to great lengths to avoid letting people in that it can come across as if you don’t need your partner, friends, or family at all.',
+        <>
+          <strong>
+            The truth is that you value their connection; you just feel wildly misunderstood and
+            don’t know how to get out of your head or let your guard down to truly connect.
+          </strong>
+        </>,
+        'So, how do you overcome these fears and barriers and open yourself to vulnerability so that you can form a relationship with someone special?',
+      ],
     },
     FAMILIAR_SEGMENTS: {
       traits: [
@@ -998,6 +1035,40 @@ export const ROYAL_RUMBLE = {
       headline: `But without knowing how to communicate best with different types of partners, you may keep ending up in unfulfilling relationships`,
       copy: [
         'You’re a warm and friendly person who feels comfortable in relationships (both intimate and platonic). You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth. You are quite good at communicating your needs, feelings, and opinions to others. Letting people in is easy for you because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time. When faced with relationship problems with your partner, friends, family, or coworkers, you see most problems as solvable and have strong conflict resolution skills. When you are faced with situations that are triggering, you are able to sit with your emotions and regulate them appropriately. When it comes to supporting others, you are an empathetic listener and are happy to be their rock. Your romantic relationships are generally stable and you don’t have a problem with long-term commitments. However, you can sometimes end up in relationships that feel wildly out of balance and that can drain you. Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
+      ],
+      variantSubheader:
+        'Here’s why you’re comfortable in relationships but struggle with different types of partners…',
+      variantCopy1: [
+        'You’re a warm and friendly person who feels comfortable in relationships.',
+        'You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth.',
+        'You are good at communicating your needs, feelings, and opinions to others.',
+        'You have strong conflict resolution skills to handle most situations.',
+        'Letting people in is easy because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time.',
+        "You don't have a problem with long-term commitments in relationships.",
+        'You can regulate your emotions appropriately when dealing with triggering situations.',
+      ],
+      variantCopy2: [
+        'When faced with relationship problems with your partner, friends, family, or coworkers, you see the problems as solvable, but they don’t? ',
+        'You get frustrated with poor communication and when others struggle to express themselves.',
+        'That your partner, friend, or family rejects you when you’re supporting them by being an empathetic listener?',
+        'When arguing with your partner, they’re not responding to how you want to resolve the conflict?',
+      ],
+      variantCopy3: [
+        <>
+          That’s the thing about securely attached individuals:{' '}
+          <strong>
+            you can sometimes end up in relationships that feel wildly out of balance, which can
+            drain you emotionally, mentally, and spiritually.
+          </strong>
+        </>,
+        'Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
+        <>
+          <strong>
+            The result is that you default to your patterns: continuing to try to solve problems
+            that end up self-sabotaging the relationships and causing them to end.
+          </strong>
+        </>,
+        'So, how do you find a genuinely balanced, robust, and loving relationship?',
       ],
     },
     FAMILIAR_SEGMENTS: {

@@ -1,13 +1,16 @@
+// core
+import Image from 'next/image'
+
 // components
 import { Page } from '@/components/Page'
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
-import Image from 'next/image'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
 import { CheckoutButton } from '@/components/CheckoutButton'
+import { RoyalRumbleHeadline } from './RoyalRumbleHeadline'
 // libraries
 import cx from 'classnames'
 // utils
@@ -52,63 +55,68 @@ export default function RoyalRumble({ params }: TParams) {
   return (
     <Page className="w-full text-center z-10" page_name={`vsl-${style}`}>
       {/* BANNER SECTION */}
-      <section className="w-full">
-        <div className="relative max-w-[1008px] mt-10 md:mt-20 mx-4 md:w-calc(100%-2rem) lg:mx-auto px-9 md:px-22 py-10">
-          {/* INTRO BACKGROUND */}
-          <div className="bg-grey opacity-10 inset-0 rounded-20 absolute w-full"> </div>
-          {/* TITLE + VIDEO */}
-          <div className="text-left flex flex-center flex-col md:grid md:grid-cols-2 md:gap-8">
-            <div className="my-auto">
-              <AttachmentQuizHeading
-                className="!text-h2 !text-black !capitalize !font-ssp"
-                copy={`You Have A${style === 'ap' ? 'n' : ''}`}
-              />
+      {style === 'da' || style === 'sa' ? (
+        <RoyalRumbleHeadline style={style} />
+      ) : (
+        <section className="w-full">
+          <div className="relative max-w-[1008px] mt-10 md:mt-20 mx-4 md:w-calc(100%-2rem) lg:mx-auto px-9 md:px-22 py-10">
+            {/* INTRO BACKGROUND */}
+            <div className="bg-grey opacity-10 inset-0 rounded-20 absolute w-full"> </div>
+            {/* TITLE + VIDEO */}
+            <div className="text-left flex flex-center flex-col md:grid md:grid-cols-2 md:gap-8">
+              <div className="my-auto">
+                <AttachmentQuizHeading
+                  className="!text-h2 !text-black !capitalize !font-ssp"
+                  copy={`You Have A${style === 'ap' ? 'n' : ''}`}
+                />
 
-              <h2 className="inline capitalize text-primary lg:block">
-                {ROYAL_RUMBLE[style].TITLE + ' '}
-              </h2>
+                <h2 className="inline capitalize text-primary lg:block">
+                  {ROYAL_RUMBLE[style].TITLE + ' '}
+                </h2>
 
-              <h2 className="inline capitalize lg:block">Attachment Style</h2>
-            </div>
+                <h2 className="inline capitalize lg:block">Attachment Style</h2>
+              </div>
 
-            <div className="mt-10 md:mt-0">
-              <VideoThumbnail
-                playButtonSize="medium"
-                srcUrl={ROYAL_RUMBLE[style].YOUTUBE_URL}
-                style={{ maxWidth: '415px', borderRadius: '20px' }}
-                thumbnailAlt="A picture of Thais teaching"
-                thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
-              />
+              <div className="mt-10 md:mt-0">
+                <VideoThumbnail
+                  playButtonSize="medium"
+                  srcUrl={ROYAL_RUMBLE[style].YOUTUBE_URL}
+                  style={{ maxWidth: '415px', borderRadius: '20px' }}
+                  thumbnailAlt="A picture of Thais teaching"
+                  thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
+                />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
-          <div className="text-left">
-            <p className="font-effra font-bold uppercase tracking-0.325 md:text-lg">
-              {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
-            </p>
-
-            {ROYAL_RUMBLE[style].BANNER_SEGMENT.copy.map((copy, index) => (
-              <p
-                key={`banner_segment_copy_${index}`}
-                className="font-effra mt-4 md:mt-6 md:text-lg">
-                {copy}
+          <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
+            <div className="text-left">
+              <p className="font-effra font-bold uppercase tracking-0.325 md:text-lg">
+                {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
               </p>
-            ))}
 
-            <p className="font-effra mt-8 md:mt-10 md:text-lg">
-              At The Personal Development School, we have a tailored program and suite of tools to
-              assist you in changing these patterns in as little as 30 days. This will allow you to
-              improve existing relationships, create lasting love and build new relationships with
-              emotionally available people. Click the button below to enroll in exclusive access.
-              <strong> This is 30% off for a limited time.</strong>
-            </p>
+              {ROYAL_RUMBLE[style].BANNER_SEGMENT.copy.map((copy, index) => (
+                <p
+                  key={`banner_segment_copy_${index}`}
+                  className="font-effra mt-4 md:mt-6 md:text-lg">
+                  {copy}
+                </p>
+              ))}
+
+              <p className="font-effra mt-8 md:mt-10 md:text-lg">
+                At The Personal Development School, we have a tailored program and suite of tools to
+                assist you in changing these patterns in as little as 30 days. This will allow you
+                to improve existing relationships, create lasting love and build new relationships
+                with emotionally available people. Click the button below to enroll in exclusive
+                access.
+                <strong> This is 30% off for a limited time.</strong>
+              </p>
+            </div>
+
+            <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
           </div>
-
-          <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
-        </div>
-      </section>
+        </section>
+      )}
       {/* FAMILIAR SECTION*/}
       <section className="w-full mt-20">
         <Image

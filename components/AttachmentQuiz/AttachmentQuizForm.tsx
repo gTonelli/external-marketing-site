@@ -78,7 +78,7 @@ const useClientTag = ({ userStyle }: IUseClientTagProps) => {
   // ============= State =============
   const [tag, setTag] = useState('')
   // ============= Hooks =============
-  const { usingVariant } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
+  const { usingVariant } = useCheckoutSplitTest({ userStyle })
 
   useEffect(() => {
     let tag = `attachment-quiz-${userStyle}`

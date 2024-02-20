@@ -89,12 +89,13 @@ export default function LearningLovePage() {
         <Text.Heading
           className="mb-4 lg:hidden"
           content="The Complete Guide to Building The Best Relationships of Your Life"
-          size={3}
+          size={1}
         />
 
         <Text.Heading
           className="hidden mb-6 lg:block"
           content="The Complete Guide to Building The Best Relationships of Your Life"
+          size={1}
         />
 
         <Text.Paragraph
@@ -152,7 +153,7 @@ export default function LearningLovePage() {
           <Text.Heading
             className="hidden lg:mb-6 lg:block"
             content="A Note From The Author"
-            size={1}
+            size={2}
           />
 
           <Text.Paragraph
@@ -278,7 +279,7 @@ export default function LearningLovePage() {
 
       {/* COUNTDOWN */}
       <Section>
-        <Text.Heading content="Pre-Order Now!" size={1} />
+        <Text.Heading content="Pre-Order Now!" size={2} />
 
         <Image
           className="sm:hidden w-full"

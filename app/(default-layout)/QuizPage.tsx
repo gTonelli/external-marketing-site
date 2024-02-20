@@ -17,7 +17,7 @@ export default function QuizPage() {
   useEffect(() => {
     let showOrganicVariant: string | null | boolean = Storage.get('seo-90-organic-quiz-test')
     if (showOrganicVariant === null) {
-      showOrganicVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      showOrganicVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
       Storage.set('seo-90-organic-quiz-test', showOrganicVariant)
       Mixpanel.track.ExperimentStarted({
         'Experiment name': 'SEO-90-Organic-Quiz-Test',

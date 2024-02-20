@@ -46,25 +46,16 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
         {/* TITLE + VIDEO */}
         <div className="text-left flex flex-center flex-col md:grid md:grid-cols-2 md:gap-8">
           <div className="my-auto">
-            {isVariant ? (
-              <h2>
-                What Does It Mean To Have A{' '}
-                <span className="text-primary">{ROYAL_RUMBLE[style].TITLE}</span> Attachment Style?
-              </h2>
-            ) : (
-              <>
-                <AttachmentQuizHeading
-                  className="!text-h2 !text-black !capitalize !font-ssp"
-                  copy={`You Have A`}
-                />
+            <AttachmentQuizHeading
+              className="!text-h2 !text-black !capitalize !font-ssp"
+              copy={`You Have A`}
+            />
 
-                <h2 className="inline capitalize text-primary lg:block">
-                  {ROYAL_RUMBLE[style].TITLE + ' '}
-                </h2>
+            <h2 className="inline capitalize text-primary lg:block">
+              {ROYAL_RUMBLE[style].TITLE + ' '}
+            </h2>
 
-                <h2 className="inline capitalize lg:block">Attachment Style</h2>
-              </>
-            )}
+            <h2 className="inline capitalize !text-black lg:block">Attachment Style</h2>
           </div>
 
           <div className="mt-10 md:mt-0">
@@ -83,6 +74,8 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
         <div className="max-w-[1008px] text-left mx-4 mt-8 md:w-calc(100%-2rem) md:mx-auto">
           <h3>{ROYAL_RUMBLE[style].BANNER_SEGMENT.variantSubheader}</h3>
 
+          {style === 'da' && <h3 className="my-8">Does this sound like you?</h3>}
+
           <List
             className="my-8"
             classNameListItems="items-center mb-2"
@@ -92,7 +85,7 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
             listItems={ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy1}
           />
 
-          <h3>However, do you find that…</h3>
+          {style === 'sa' && <h3>However, do you find that…</h3>}
 
           <List
             className="my-8"
@@ -113,20 +106,16 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
 
           <div className="md:text-lg">
             <p className="mb-4">
-              At The Personal Development School, we guide you to achieve your personal and
-              relationship goals through on-demand and tailored courses{' '}
-              <strong>
-                {' '}
-                – all created and developed by me, co-founder, author, and personal development
-                leader Thais Gibson.
-              </strong>
+              Achieve your personal and relationship goals through on-demand courses – all created
+              and developed by me, Thais Gibson – author, industry leader, and co-founder of The
+              Personal Development School.
             </p>
 
             <p className="mb-4">
-              In each course, I'll teach you the concepts, tools, and strategies that can be used in
-              real life (for as little as 10 minutes a day), setting you up to experience profound
-              transformations in your behaviors and beliefs while moving closer to your goals in
-              less than 30 days.
+              In each course, I'll teach you concepts, tools, and strategies that can be used for as
+              little as <em>10 minutes a day</em>. You’ll conquer your fears, let down your
+              barriers, overcome your patterns, and open yourself to forming new loving
+              relationships in less than <em>30 days</em>.
             </p>
 
             <p className="mb-4">

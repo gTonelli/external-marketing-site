@@ -422,40 +422,27 @@ export const ROYAL_RUMBLE = {
         'Your only strategy when you feel this inner conflict is to detach from others, distance yourself, and get very protective over your time and space alone. It’s so common for you to go to great lengths to avoid letting people in, that it can come across like you don’t need your partner, friends, or family at all. The truth is that you do value their connection, you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
       ],
       variantSubheader:
-        'Here’s why your dismissive avoidant attachment is affecting your relationships…',
+        'Keep reading to learn about your dismissive avoidant attachment style and how you can heal it…',
       variantCopy1: [
-        'You like to do your own thing and value your freedom, space, and independence.',
-        'You are a very logical and practical person when it comes to making decisions.',
-        'You appreciate when people are direct, clear, and specific about what they need from you and your relationships.',
-        'You identify as more of a “thinker” than a “feeler”.',
-        'You are much more comfortable expressing what you think about situations than what you feel about them.',
-        'You feel more in control and relaxed when choosing when and where you’ll be with people, how close, and for how long.',
+        'You like to do your own thing and value your freedom, space, and independence outside relationships.',
+        'You identify as more of a “thinker” than a “feeler” and want control over when, where, how close, and how long you’ll be with people.',
+        'You’re uncomfortable being vulnerable around others and have never been great at expressing or sitting with intense emotions.',
+        'You believe that you’re the only person you can rely on.',
+        'You feel suffocated when faced with the pressures of meeting someone else’s needs.',
+        'You feel trapped or fearful you’ll lose your independence when committing to long-term relationships.',
       ],
-      variantCopy2: [
-        'Because you thrive independently, you value your time spent out of romantic relationships?',
-        'Being vulnerable around others or being around intense emotions makes you feel uncomfortable?',
-        'You’ve never been great at expressing or sitting with your feelings?',
-        'You believe that you’re the only person you can rely on?',
-        'When it comes to romantic relationships, you have a hard time navigating them, emotionally and practically?',
-        'When faced with the pressures of meeting someone else’s needs, you feel suffocated?',
-        'Long-term relationships and commitments make you feel trapped or fearful you’ll lose your independence?',
-      ],
+      variantCopy2: [],
       variantCopy3: [
         <>
           That’s the thing about dismissive avoidants:{' '}
           <strong>
             {' '}
-            your only strategy when you feel this inner conflict is to detach from others, distance
-            yourself, and get very protective over your time and space alone.
+            That’s the thing about dismissive avoidants: your only coping strategy is to detach and
+            distance yourself from others and get very protective about your independence, coming
+            across as if you don’t need your partner, friends, or family.
           </strong>
         </>,
-        'It’s so common for you to go to great lengths to avoid letting people in that it can come across as if you don’t need your partner, friends, or family at all.',
-        <>
-          <strong>
-            The truth is that you value their connection; you just feel wildly misunderstood and
-            don’t know how to get out of your head or let your guard down to truly connect.
-          </strong>
-        </>,
+        'The truth is that you value their connection; you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
         'So, how do you overcome these fears and barriers and open yourself to vulnerability so that you can form a relationship with someone special?',
       ],
     },

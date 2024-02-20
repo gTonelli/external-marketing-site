@@ -141,12 +141,12 @@ export const EXTERNALQUIZQUESTIONS = [
   {
     question: 'How old are you?',
     association: 'age',
-    options: ['18-24', '25-34', '35-44', '45-54', '55+'],
+    options: ['Prefer not to say', '18-24', '25-34', '35-44', '45-54', '55+'],
   },
   {
     question: 'What is your gender?',
     association: 'gender',
-    options: ['Male', 'Female', 'Other', 'Prefer not to say'],
+    options: ['Prefer not to say', 'Male', 'Female', 'Other'],
   },
 ]
 
@@ -165,6 +165,7 @@ export const QUIZ_DETAILED_QUESTIONS = [
     question: 'How would you rate your current satisfaction in your relationship?',
     association: 'relationshipSatisfaction',
     options: [
+      'Prefer not to say',
       'We’re very happy',
       'Things are not how I would like them to be',
       'The relationship may be nearing a breakup',
@@ -174,6 +175,7 @@ export const QUIZ_DETAILED_QUESTIONS = [
     question: 'How much do you know about attachment theory?',
     association: 'attachment',
     options: [
+      'Prefer not to say',
       'First time hearing about it',
       'I know a little bit (watched videos, done some reading)',
       'I feel well-versed in it',
@@ -184,6 +186,7 @@ export const QUIZ_DETAILED_QUESTIONS = [
     question: 'What is your relationship status?',
     association: 'relationship',
     options: [
+      'Prefer not to say',
       'Short term relationship (less than one year)',
       'Long term relationship (more than one year)',
       'Married',
@@ -192,6 +195,6 @@ export const QUIZ_DETAILED_QUESTIONS = [
   {
     question: 'What is your relationship status?',
     association: 'relationship',
-    options: ['Single', 'Recently ended a relationship', 'Still looking'],
+    options: ['Prefer not to say', 'Single', 'Recently ended a relationship', 'Still looking'],
   },
 ]

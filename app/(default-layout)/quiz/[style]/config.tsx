@@ -422,7 +422,7 @@ export const ROYAL_RUMBLE = {
         'Your only strategy when you feel this inner conflict is to detach from others, distance yourself, and get very protective over your time and space alone. It’s so common for you to go to great lengths to avoid letting people in, that it can come across like you don’t need your partner, friends, or family at all. The truth is that you do value their connection, you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
       ],
       variantSubheader:
-        'Keep reading to learn about your dismissive avoidant attachment style and how you can heal it…',
+        'Keep Reading to Learn About Your Dismissive Avoidant Attachment Style And How You Can Heal It…',
       variantCopy1: [
         'You like to do your own thing and value your freedom, space, and independence outside relationships.',
         'You identify as more of a “thinker” than a “feeler” and want control over when, where, how close, and how long you’ll be with people.',
@@ -431,19 +431,36 @@ export const ROYAL_RUMBLE = {
         'You feel suffocated when faced with the pressures of meeting someone else’s needs.',
         'You feel trapped or fearful you’ll lose your independence when committing to long-term relationships.',
       ],
-      variantCopy2: [],
-      variantCopy3: [
+      variantCopy2: [
         <>
           That’s the thing about dismissive avoidants:{' '}
           <strong>
             {' '}
-            That’s the thing about dismissive avoidants: your only coping strategy is to detach and
-            distance yourself from others and get very protective about your independence, coming
-            across as if you don’t need your partner, friends, or family.
+            your only coping strategy is to detach and distance yourself from others and get very
+            protective about your independence, coming across as if you don’t need your partner,
+            friends, or family.
           </strong>
         </>,
         'The truth is that you value their connection; you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
-        'So, how do you overcome these fears and barriers and open yourself to vulnerability so that you can form a relationship with someone special?',
+        'So, how do you overcome these fears so that you can form a lasting and secure relationship with someone special?',
+      ],
+      variantCopy3: [
+        'Our courses will teach you how to navigate relationships with insecure attachment styles, so you can foster and create fulfilling, lasting relationships.',
+        <>
+          In each course, I'll teach you tailored concepts, tools, and strategies that can be used
+          to navigate relationships with insecure attachment styles, so you can foster and create
+          fulfilling, lasting relationships. You’ll learn to conquer your fears, let down your
+          barriers, overcome your patterns, and open yourself to forming loving relationships with
+          emotionally available people in <em>less than 30 days</em>.
+        </>,
+        <>
+          <strong>
+            Achieve your personal and relationship goals through on-demand courses – all created and
+            developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
+            Development School. Click the button below to enroll and gain exclusive access. This is
+            30% off for life for a limited time.
+          </strong>
+        </>,
       ],
     },
     FAMILIAR_SEGMENTS: {
@@ -1024,23 +1041,17 @@ export const ROYAL_RUMBLE = {
         'You’re a warm and friendly person who feels comfortable in relationships (both intimate and platonic). You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth. You are quite good at communicating your needs, feelings, and opinions to others. Letting people in is easy for you because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time. When faced with relationship problems with your partner, friends, family, or coworkers, you see most problems as solvable and have strong conflict resolution skills. When you are faced with situations that are triggering, you are able to sit with your emotions and regulate them appropriately. When it comes to supporting others, you are an empathetic listener and are happy to be their rock. Your romantic relationships are generally stable and you don’t have a problem with long-term commitments. However, you can sometimes end up in relationships that feel wildly out of balance and that can drain you. Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
       ],
       variantSubheader:
-        'Here’s why you’re comfortable in relationships but struggle with different types of partners…',
+        'Keep Reading to Learn About Your Secure Attachment Style And How It Impacts Your Relationships…',
       variantCopy1: [
-        'You’re a warm and friendly person who feels comfortable in relationships.',
-        'You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth.',
-        'You are good at communicating your needs, feelings, and opinions to others.',
-        'You have strong conflict resolution skills to handle most situations.',
-        'Letting people in is easy because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time.',
+        'You’re a warm and friendly person who feels comfortable in long-term relationships and has a strong sense of self-worth.',
+        'You are good at communicating your needs, feelings, and opinions to others and have strong conflict-resolution skills.',
+        'You can set healthy boundaries and avoid situations that don’t deserve your time.',
+        'You get frustrated with poor communication and when others struggle to express themselves.',
+        "You see the problems as solvable, but sometimes your partner doesn't.",
         "You don't have a problem with long-term commitments in relationships.",
-        'You can regulate your emotions appropriately when dealing with triggering situations.',
+        'You’re an empathetic listener when your partner, friends, or family need you.',
       ],
       variantCopy2: [
-        'When faced with relationship problems with your partner, friends, family, or coworkers, you see the problems as solvable, but they don’t? ',
-        'You get frustrated with poor communication and when others struggle to express themselves.',
-        'That your partner, friend, or family rejects you when you’re supporting them by being an empathetic listener?',
-        'When arguing with your partner, they’re not responding to how you want to resolve the conflict?',
-      ],
-      variantCopy3: [
         <>
           That’s the thing about securely attached individuals:{' '}
           <strong>
@@ -1049,13 +1060,22 @@ export const ROYAL_RUMBLE = {
           </strong>
         </>,
         'Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
+        'So, how do you find a genuinely balanced, robust, and loving relationship?',
+      ],
+      variantCopy3: [
+        'Our courses will teach you how to navigate relationships so you can foster and create fulfilling, lasting relationships.',
+        <>
+          In each course, I'll teach you concepts, tools, and strategies that can be used for as
+          little as <em>10 minutes a day</em>. You’ll learn how to navigate relationships, overcome
+          your patterns, and create a loving relationship for life.
+        </>,
+        'Achieve your personal and relationship goals through on-demand courses – all created and developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal Development School.',
         <>
           <strong>
-            The result is that you default to your patterns: continuing to try to solve problems
-            that end up self-sabotaging the relationships and causing them to end.
+            Click the button below to enroll and gain exclusive access. This is 30% off for life for
+            a limited time.
           </strong>
         </>,
-        'So, how do you find a genuinely balanced, robust, and loving relationship?',
       ],
     },
     FAMILIAR_SEGMENTS: {

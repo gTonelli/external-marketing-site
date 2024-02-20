@@ -74,7 +74,7 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
         <div className="max-w-[1008px] text-left mx-4 mt-8 md:w-calc(100%-2rem) md:mx-auto">
           <h3>{ROYAL_RUMBLE[style].BANNER_SEGMENT.variantSubheader}</h3>
 
-          {style === 'da' && <h3 className="my-8">Does this sound like you?</h3>}
+          <h4 className="my-8">Does this sound like you?</h4>
 
           <List
             className="my-8"
@@ -85,52 +85,19 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
             listItems={ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy1}
           />
 
-          {style === 'sa' && <h3>However, do you find that…</h3>}
+          {ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy2.map((copy, index) => (
+            <p key={`banner_segment_copy_v_${index}`} className="mb-4 md:text-lg">
+              {copy}
+            </p>
+          ))}
 
-          <List
-            className="my-8"
-            classNameListItems="items-center mb-2"
-            classNameText="md:text-lg"
-            iconName="chevron-double-right"
-            iconSize="sm"
-            listItems={ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy2}
-          />
+          <h3 className="my-8">Our Personalized Courses Can Guide You to Achieve These Goals</h3>
 
           {ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy3.map((copy, index) => (
             <p key={`banner_segment_copy_v_${index}`} className="mb-4 md:text-lg">
               {copy}
             </p>
           ))}
-
-          <h3 className="my-8">Our Personalized Courses Can Guide You to Achieve Your Goals</h3>
-
-          <div className="md:text-lg">
-            <p className="mb-4">
-              Achieve your personal and relationship goals through on-demand courses – all created
-              and developed by me, Thais Gibson – author, industry leader, and co-founder of The
-              Personal Development School.
-            </p>
-
-            <p className="mb-4">
-              In each course, I'll teach you concepts, tools, and strategies that can be used for as
-              little as <em>10 minutes a day</em>. You’ll conquer your fears, let down your
-              barriers, overcome your patterns, and open yourself to forming new loving
-              relationships in less than <em>30 days</em>.
-            </p>
-
-            <p className="mb-4">
-              We’ll teach you how to navigate relationships with insecure attachment styles, so you
-              can foster and create fulfilling, lasting relationships.
-            </p>
-
-            <p>
-              <strong>
-                Enroll in our All-Access Pass to gain exclusive access to all our courses, webinars,
-                Q&As, supportive community, and more. Get 30% off per month for life! Available for
-                a limited time.
-              </strong>
-            </p>
-          </div>
 
           <div className="flex justify-center">
             <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />

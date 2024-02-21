@@ -433,12 +433,10 @@ export const ROYAL_RUMBLE = {
       ],
       variantCopy2: [
         <>
-          That’s the thing about dismissive avoidants:{' '}
           <strong>
-            {' '}
-            your only coping strategy is to detach and distance yourself from others and get very
-            protective about your independence, coming across as if you don’t need your partner,
-            friends, or family.
+            That’s the thing about dismissive avoidants: your only coping strategy is to detach and
+            distance yourself from others and get very protective about your independence, coming
+            across as if you don’t need your partner, friends, or family.
           </strong>
         </>,
         'The truth is that you value their connection; you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
@@ -454,11 +452,12 @@ export const ROYAL_RUMBLE = {
           emotionally available people in <em>less than 30 days</em>.
         </>,
         <>
+          Achieve your personal and relationship goals through on-demand courses – all created and
+          developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
+          Development School.{' '}
           <strong>
-            Achieve your personal and relationship goals through on-demand courses – all created and
-            developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
-            Development School. Click the button below to enroll and gain exclusive access. This is
-            30% off for life for a limited time.
+            Click the button below to enroll and gain exclusive access. This is 30% off for life,
+            for a limited time only!
           </strong>
         </>,
       ],
@@ -1053,27 +1052,30 @@ export const ROYAL_RUMBLE = {
       ],
       variantCopy2: [
         <>
-          That’s the thing about securely attached individuals:{' '}
           <strong>
-            you can sometimes end up in relationships that feel wildly out of balance, which can
-            drain you emotionally, mentally, and spiritually.
+            That’s the thing about securely attached individuals: you can sometimes end up in
+            relationships that feel wildly out of balance, which can drain you emotionally,
+            mentally, and spiritually.
           </strong>
         </>,
         'Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
         'So, how do you find a genuinely balanced, robust, and loving relationship?',
       ],
       variantCopy3: [
-        'Our courses will teach you how to navigate relationships so you can foster and create fulfilling, lasting relationships.',
+        'Our courses will teach you how to navigate loving relationships with individuals who have insecure attachment styles, so you can foster and create fulfilling, lasting relationships.',
         <>
           In each course, I'll teach you concepts, tools, and strategies that can be used for as
-          little as <em>10 minutes a day</em>. You’ll learn how to navigate relationships, overcome
-          your patterns, and create a loving relationship for life.
+          little as <em>10 minutes a day</em>. You’ll learn how to return the balance to your
+          relationships, improve communication, remove conflict, and understand different attachment
+          styles to form new loving relationships in less than <em>30 days</em>.
         </>,
-        'Achieve your personal and relationship goals through on-demand courses – all created and developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal Development School.',
         <>
+          Achieve your personal and relationship goals through on-demand courses – all created and
+          developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
+          Development School.{' '}
           <strong>
-            Click the button below to enroll and gain exclusive access. This is 30% off for life for
-            a limited time.
+            Click the button below to enroll and gain exclusive access. This is 30% off for life,
+            for a limited time only!
           </strong>
         </>,
       ],

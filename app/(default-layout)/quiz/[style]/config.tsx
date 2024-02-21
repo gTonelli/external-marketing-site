@@ -443,13 +443,11 @@ export const ROYAL_RUMBLE = {
         'So, how do you overcome these fears so that you can form a lasting and secure relationship with someone special?',
       ],
       variantCopy3: [
-        'Our courses will teach you how to navigate relationships with insecure attachment styles, so you can foster and create fulfilling, lasting relationships.',
+        "In each course, I'll teach you tailored concepts, tools, and strategies that guide your transformation from dismissive avoidant to securely attached, helping you create and foster the relationships you desire.",
         <>
-          In each course, I'll teach you tailored concepts, tools, and strategies that can be used
-          to navigate relationships with insecure attachment styles, so you can foster and create
-          fulfilling, lasting relationships. You’ll learn to conquer your fears, let down your
-          barriers, overcome your patterns, and open yourself to forming loving relationships with
-          emotionally available people in <em>less than 30 days</em>.
+          You’ll learn to conquer your fears, let down your barriers, overcome your patterns, and
+          open yourself to forming loving relationships with emotionally available people in less
+          than less than <em>30 days</em>.
         </>,
         <>
           Achieve your personal and relationship goals through on-demand courses – all created and

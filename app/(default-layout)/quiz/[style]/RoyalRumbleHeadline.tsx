@@ -24,18 +24,17 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
   const [isVariant, setIsVariant] = useState<boolean>()
 
   useEffect(() => {
-    setIsVariant(true)
-    //   let storageVar = `gm-866-headline-test-${style}` as TStorageKeys
-    //   let showVariant: string | null | boolean = Storage.get(storageVar)
-    //   if (showVariant === null) {
-    //     showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-    //     Storage.set(storageVar, showVariant)
-    //     Mixpanel.track.ExperimentStarted({
-    //       'Experiment name': 'GM-866-DA-SA-Headline-Test',
-    //       'Variant name': showVariant ? 'Variant 1' : 'Control',
-    //     })
-    //   }
-    //   setIsVariant(showVariant === 'true' || showVariant === true)
+    let storageVar = `gm-866-headline-test-${style}` as TStorageKeys
+    let showVariant: string | null | boolean = Storage.get(storageVar)
+    if (showVariant === null) {
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      Storage.set(storageVar, showVariant)
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': 'GM-866-DA-SA-Headline-Test',
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
+      })
+    }
+    setIsVariant(showVariant === 'true' || showVariant === true)
   }, [])
 
   return (
@@ -104,34 +103,31 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
           </div>
         </div>
       ) : (
-        <>
-          <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
-            <div className="text-left">
-              <p className="font-effra font-bold uppercase tracking-0.325 md:text-lg">
-                {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
+        <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
+          <div className="text-left">
+            <p className="font-effra font-bold uppercase tracking-0.325 md:text-lg">
+              {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
+            </p>
+
+            {ROYAL_RUMBLE[style].BANNER_SEGMENT.copy.map((copy, index) => (
+              <p
+                key={`banner_segment_copy_${index}`}
+                className="font-effra mt-4 md:mt-6 md:text-lg">
+                {copy}
               </p>
+            ))}
 
-              {ROYAL_RUMBLE[style].BANNER_SEGMENT.copy.map((copy, index) => (
-                <p
-                  key={`banner_segment_copy_${index}`}
-                  className="font-effra mt-4 md:mt-6 md:text-lg">
-                  {copy}
-                </p>
-              ))}
-
-              <p className="font-effra mt-8 md:mt-10 md:text-lg">
-                At The Personal Development School, we have a tailored program and suite of tools to
-                assist you in changing these patterns in as little as 30 days. This will allow you
-                to improve existing relationships, create lasting love and build new relationships
-                with emotionally available people. Click the button below to enroll in exclusive
-                access.
-                <strong> This is 30% off for a limited time.</strong>
-              </p>
-            </div>
-
-            <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
+            <p className="font-effra mt-8 md:mt-10 md:text-lg">
+              At The Personal Development School, we have a tailored program and suite of tools to
+              assist you in changing these patterns in as little as 30 days. This will allow you to
+              improve existing relationships, create lasting love and build new relationships with
+              emotionally available people. Click the button below to enroll in exclusive access.
+              <strong> This is 30% off for a limited time.</strong>
+            </p>
           </div>
-        </>
+
+          <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
+        </div>
       )}
     </section>
   )

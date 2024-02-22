@@ -89,7 +89,7 @@ export default function RoyalRumble({ params }: TParams) {
             </div>
           </div>
 
-          <div className="max-w-[1024px] mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
+          <div className="max-w-5xl mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
             <div className="text-left">
               <p className="font-effra font-bold uppercase tracking-0.325 md:text-lg">
                 {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}

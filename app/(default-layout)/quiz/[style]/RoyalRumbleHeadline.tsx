@@ -32,6 +32,7 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
       Mixpanel.track.ExperimentStarted({
         'Experiment name': 'GM-866-DA-SA-Headline-Test',
         'Variant name': showVariant ? 'Variant 1' : 'Control',
+        page_name: `vsl-${style}`,
       })
     }
     setIsVariant(showVariant === 'true' || showVariant === true)

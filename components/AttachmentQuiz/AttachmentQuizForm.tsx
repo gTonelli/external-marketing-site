@@ -4,32 +4,26 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 // components
-import { IResultProps, TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage, TStorageKeys } from '@/modules/Storage'
-import { useCheckoutSplitTest } from '@/utils/hooks'
 
-interface IAttachmentQuizFormProps extends IResultProps {
+interface IAttachmentQuizFormProps {
   userStyle: TUserStyle
   userInfo?: IUserInfo
   quiz_traffic_source: TQuizTrafficSources
 }
 
 export const AttachmentQuizForm = ({
-  ap,
-  da,
-  fa,
-  sa,
   quiz_traffic_source,
   userInfo,
   userStyle,
 }: IAttachmentQuizFormProps) => {
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
-  const userTag = useClientTag({ userStyle })
   const router = useRouter()
 
   // =================== States ======================
@@ -78,7 +72,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={userTag}
+          clientTag={`attachment-quiz-${userStyle}`}
           submitButtonLabel="SUBMIT NOW"
           userInfo={userInfo}
           userStyle={userStyle}
@@ -87,25 +81,4 @@ export const AttachmentQuizForm = ({
       </div>
     </section>
   )
-}
-
-interface IUseClientTagProps {
-  userStyle: TUserStyle
-}
-
-const useClientTag = ({ userStyle }: IUseClientTagProps) => {
-  // ============= State =============
-  const [tag, setTag] = useState('')
-  // ============= Hooks =============
-  const { usingVariant } = useCheckoutSplitTest({ userStyle })
-
-  useEffect(() => {
-    let tag = `attachment-quiz-${userStyle}`
-    if (userStyle === 'fa' && usingVariant) {
-      tag += `,one-step-checkout`
-    }
-    setTag(tag)
-  }, [userStyle, usingVariant])
-
-  return tag
 }

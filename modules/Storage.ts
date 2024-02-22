@@ -7,6 +7,7 @@ export type TStorageKeys =
   | 'prod-2320-checkout-test'
   | 'gm-845-checkout-test'
   | 'seo-90-organic-quiz-test'
+  | 'gm-896-fa-retest'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

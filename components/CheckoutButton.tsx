@@ -28,7 +28,7 @@ export const CheckoutButton = ({
   userStyle,
   useSplitTest = false,
 }: ICheckoutButtonProps) => {
-  const { checkoutLink } = useCheckoutSplitTest({ userStyle, trafficRatio: 0.2 })
+  const { checkoutLink } = useCheckoutSplitTest({ userStyle })
   const url = useSplitTest ? checkoutLink : href
 
   return (

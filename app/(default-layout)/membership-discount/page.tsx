@@ -15,12 +15,6 @@ import { EExternalRoutes } from '@/utils/constants'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
-  // // ================= Hooks =======================
-  // const { checkoutLink } = useCheckoutSplitTest({
-  //   controlPriceUrl: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR,
-  //   storageKey: 'gm-845-checkout-test',
-  //   variantPriceUrl: ERoutes.STRIPE_CHECKOUT_MONTHLY_59,
-  // })
   // ================= Events =======================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -31,7 +25,7 @@ export default function FlashSalePage() {
 
       window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
     },
-    [page_name, EExternalRoutes]
+    [page_name]
   )
 
   return (

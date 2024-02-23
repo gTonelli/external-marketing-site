@@ -110,7 +110,7 @@ export default function RoyalRumbleResultsPage() {
               {RESULTS[style].STYLE_TRAITS.copy2}
             </p>
 
-            <CheckoutButton useSplitTest theme="secondary" userStyle="fa" />
+            <CheckoutButton theme="secondary" />
           </div>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default function RoyalRumbleResultsPage() {
                 secure in yourself and your relationship.
               </p>
 
-              <CheckoutButton useSplitTest userStyle="fa" />
+              <CheckoutButton />
             </div>
           )}
         </div>
@@ -175,11 +175,7 @@ export default function RoyalRumbleResultsPage() {
               <p className="my-4">{RESULTS[style].GOOD_NEWS.copy3}</p>
             </div>
 
-            <CheckoutButton
-              useSplitTest
-              className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none"
-              userStyle="fa"
-            />
+            <CheckoutButton className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none" />
           </div>
         </div>
       </section>
@@ -260,11 +256,7 @@ export default function RoyalRumbleResultsPage() {
 
               <p className="max-w-xl mx-auto mb-8 text-white">{RESULTS[style].PROMOTION_2.copy1}</p>
 
-              <CheckoutButton
-                useSplitTest
-                className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
-                userStyle="fa"
-              />
+              <CheckoutButton className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none" />
             </div>
           </div>
         </div>
@@ -339,7 +331,7 @@ export default function RoyalRumbleResultsPage() {
             </div>
           </div>
 
-          <CheckoutButton useSplitTest className="font-bold" theme="secondary" userStyle="fa" />
+          <CheckoutButton className="font-bold" theme="secondary" />
         </div>
       </section>
 
@@ -394,7 +386,7 @@ export default function RoyalRumbleResultsPage() {
           </div>
         </div>
 
-        <CheckoutButton useSplitTest theme="secondary" userStyle="fa" />
+        <CheckoutButton theme="secondary" />
       </section>
 
       <CarouselTestimonial
@@ -422,7 +414,7 @@ export default function RoyalRumbleResultsPage() {
               />
             </div>
 
-            <CheckoutButton useSplitTest className="mt-8" theme="secondary" userStyle="fa" />
+            <CheckoutButton className="mt-8" theme="secondary" />
           </div>
 
           <div className="flex flex-col lg:items-start lg:my-8 lg:px-8">
@@ -472,11 +464,9 @@ export default function RoyalRumbleResultsPage() {
                 ))}
 
                 <CheckoutButton
-                  useSplitTest
                   className="tracking-normal underline font-bold inline !p-0 text-blue-darkest from-transparent to-transparent bg-transparent border-none text-left
                   hover:!text-blue-darkest hover:!bg-transparent hover:!shadow-none mt-4"
                   label={RESULTS[style].TESTIMONIAL.ctaText}
-                  userStyle="fa"
                 />
               </div>
             </div>
@@ -536,7 +526,7 @@ export default function RoyalRumbleResultsPage() {
 
           <p className="max-w-3xl mb-8">{RESULTS[style].PROMOTION_4.copy6}</p>
 
-          <CheckoutButton useSplitTest theme="secondary" userStyle="fa" />
+          <CheckoutButton theme="secondary" />
         </div>
       </section>
     </Page>

@@ -4,33 +4,46 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 // components
-import { IResultProps, TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
 import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
-import { useCheckoutSplitTest } from '@/utils/hooks'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 
-interface IAttachmentQuizFormProps extends IResultProps {
+interface IAttachmentQuizFormProps {
   userStyle: TUserStyle
   userInfo?: IUserInfo
   quiz_traffic_source: TQuizTrafficSources
 }
 
 export const AttachmentQuizForm = ({
-  ap,
-  da,
-  fa,
-  sa,
   quiz_traffic_source,
   userInfo,
   userStyle,
 }: IAttachmentQuizFormProps) => {
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
-  const userTag = useClientTag({ userStyle })
   const router = useRouter()
+
+  // =================== States ======================
+  const [isVariant, setIsVariant] = useState<boolean>()
+
+  useEffect(() => {
+    if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
+      let storageVar = 'gm-896-fa-retest' as TStorageKeys
+      let showVariant: string | null | boolean = Storage.get(storageVar)
+      if (showVariant === null) {
+        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+        Storage.set(storageVar, showVariant)
+        Mixpanel.track.ExperimentStarted({
+          'Experiment name': 'GM-896-FA-Retest',
+          'Variant name': showVariant ? 'Variant 1' : 'Control',
+        })
+      }
+      setIsVariant(showVariant === 'true' || showVariant === true)
+    }
+  }, [quiz_traffic_source, userStyle])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -44,7 +57,7 @@ export const AttachmentQuizForm = ({
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      router.push('/quiz/results/fa')
+      router.push(isVariant ? '/quiz/fa' : '/quiz/results/fa')
     } else {
       router.push('/quiz/' + userStyle)
     }
@@ -59,7 +72,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={userTag}
+          clientTag={`attachment-quiz-${userStyle}`}
           submitButtonLabel="SUBMIT NOW"
           userInfo={userInfo}
           userStyle={userStyle}
@@ -68,25 +81,4 @@ export const AttachmentQuizForm = ({
       </div>
     </section>
   )
-}
-
-interface IUseClientTagProps {
-  userStyle: TUserStyle
-}
-
-const useClientTag = ({ userStyle }: IUseClientTagProps) => {
-  // ============= State =============
-  const [tag, setTag] = useState('')
-  // ============= Hooks =============
-  const { usingVariant } = useCheckoutSplitTest({ userStyle })
-
-  useEffect(() => {
-    let tag = `attachment-quiz-${userStyle}`
-    if (userStyle === 'fa' && usingVariant) {
-      tag += `,one-step-checkout`
-    }
-    setTag(tag)
-  }, [userStyle, usingVariant])
-
-  return tag
 }

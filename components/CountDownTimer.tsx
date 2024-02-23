@@ -47,7 +47,7 @@ export const CountdownTimer: FC<Props> = forwardRef(
                   className
                 )}>
                 {data.map((number, index) => (
-                  <>
+                  <React.Fragment key={`timer-${index}`}>
                     <Text
                       className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
                       content={number.charAt(1) || 0}
@@ -63,7 +63,7 @@ export const CountdownTimer: FC<Props> = forwardRef(
                         content=":"
                       />
                     )}
-                  </>
+                  </React.Fragment>
                 ))}
               </div>
               <div

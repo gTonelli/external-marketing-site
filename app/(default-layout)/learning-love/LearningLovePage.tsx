@@ -279,7 +279,7 @@ export default function LearningLovePage() {
 
       {/* COUNTDOWN */}
       <Section>
-        <Text.Heading content="Pre-Order Now!" size={2} />
+        <Text.Heading content="Order Now!" size={2} />
 
         <Image
           className="sm:hidden w-full"

@@ -1,49 +1,59 @@
-'use client'
-
-// core
-import React, { useCallback } from 'react'
 // components
 import { SITELINKS } from './config'
 // modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+// import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { Image } from '@/components/Image'
-import { Text } from '@/components/Text/Text'
-import { Link } from '@/components/Link'
+// import { Text } from '@/components/Text/Text'
+// import { Link } from '@/components/Link'
+import { SiteLinkButton } from '@/components/SiteLinkButton'
 
-export default function SiteLinksPage() {
-  const page_name = `Site Links` as Pages
+type SiteLink = {
+  id: number
+  label: string
+  url: string
+  target: '_self' | '_blank'
+  iconAlt: string
+  iconWidth: number
+  iconHeight: number
+}
 
-  const onLinkClicked = useCallback((label: string) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: label,
-      page_name: page_name,
-    })
-  }, [])
+const fetchSiteLinks = async () => {
+  const response = await fetch('http://127.0.0.1:1337/api/site-links-page?populate=*', {
+    next: { revalidate: 60 },
+  })
+  const data = await response.json()
+  console.log(data.data.attributes.Link)
+  return data.data.attributes.Link
+}
+
+export default async function SiteLinksPage() {
+  const siteLinks = await fetchSiteLinks()
 
   return (
     <div className="relative w-full flex flex-col flex-grow items-center justify-center overflow-hidden">
       <div className="max-w-3xl text-purple-dark mx-auto mt-8 z-10">
-        <Text.Heading className="text-center mb-4" content={SITELINKS.HEADER.title} />
+        <h2 className="text-center mb-4">{SITELINKS.HEADER.title}</h2>
       </div>
 
       <div className="max-w-104 flex flex-col mx-auto mb-8 z-10">
         {SITELINKS.BUTTONS.map((button, idx) => (
-          <Link.Wrapper
-            key={idx}
-            className="w-full flex flex-col justify-center items-center bg-white border-2 border-purple-dark rounded-full p-5 mb-4 md:flex-row md:justify-start"
-            url={button.url}
-            onClick={() => onLinkClicked(button.label)}>
-            <Image
-              alt={`button-${idx + 1}`}
-              className="hidden mr-4 mb-2 md:mb-0 md:flex"
-              src={button.icon}
-            />
+          <SiteLinkButton key={idx} icon={button.icon} label={button.label} url={button.url} />
+          // <Link.Wrapper
+          //   key={idx}
+          //   className="w-full flex flex-col justify-center items-center bg-white border-2 border-purple-dark rounded-full p-5 mb-4 md:flex-row md:justify-start"
+          //   url={button.url}
+          //   onClick={() => onLinkClicked(button.label)}>
+          //   <Image
+          //     alt={`button-${idx + 1}`}
+          //     className="hidden mr-4 mb-2 md:mb-0 md:flex"
+          //     src={button.icon}
+          //   />
 
-            <Text.Paragraph
-              className="text-purple-dark leading-5 font-bold text-center md:text-left"
-              content={button.label}
-            />
-          </Link.Wrapper>
+          //   <Text.Paragraph
+          //     className="text-purple-dark leading-5 font-bold text-center md:text-left"
+          //     content={button.label}
+          //   />
+          // </Link.Wrapper>
         ))}
       </div>
 

@@ -9,12 +9,18 @@ import { LinkWrapper } from './Link'
 import Mixpanel from '@/modules/Mixpanel'
 
 type Props = {
-  icon: string
+  icon: {
+    width: number
+    height: number
+    url: string
+  }
+  iconAlt: string
+  target: '_self' | '_blank'
   label: string
   url: string
 }
 
-export const SiteLinkButton = ({ icon, label, url }: Props) => {
+export const SiteLinkButton = ({ icon, iconAlt, label, target, url }: Props) => {
   const onClick = useCallback(() => {
     Mixpanel.track.ButtonClicked({
       button_label: label,
@@ -24,15 +30,16 @@ export const SiteLinkButton = ({ icon, label, url }: Props) => {
 
   return (
     <LinkWrapper
+      target={target}
       url={url}
       onClick={onClick}
       className="w-full flex flex-col justify-center items-center bg-white border-2 border-purple-dark rounded-full p-5 mb-4 md:flex-row md:justify-start">
       <Image
-        alt={`button`}
+        alt={iconAlt}
         className="hidden mr-4 mb-2 md:mb-0 md:flex"
-        width={30}
-        height={30}
-        src={`/images/${icon}`}
+        width={icon.width}
+        height={icon.height}
+        src={icon.url}
       />
 
       <p className="text-purple-dark leading-5 font-bold text-center md:text-left">{label}</p>

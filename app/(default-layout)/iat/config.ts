@@ -176,7 +176,7 @@ export const IAT_COPY = {
       review: `I completed the 'on demand' IAT Coach course & it was amazing. I've always loved your content & it has not only helped transform my own personal life & relationships, but now I'm also helping my clients with the same principles & they love it. I can't thank you enough.`,
       author: 'Brii Kingsley',
       designation: '',
-      location: ''
+      location: 'IAT Facebook Group'
     }
   ],
 

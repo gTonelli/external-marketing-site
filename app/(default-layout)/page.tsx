@@ -1,7 +1,7 @@
 // core
 import { Metadata } from 'next'
 // components
-import QuizPage from './QuizPage'
+import OrganicQuizPage from './OrganicQuizPage'
 
 export const metadata: Metadata = {
   title: 'The Attachment Style Quiz',
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 }
 
 export default function AttachmentQuizPage() {
-  return <QuizPage />
+  return <OrganicQuizPage />
 }

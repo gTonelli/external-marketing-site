@@ -11,7 +11,7 @@ import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 
-export default function AttachmentQuizVariantPage() {
+export default function OrganicQuizPage() {
   // ================= State =======================
   const [viewQuiz, setViewQuiz] = useState(false)
 
@@ -39,6 +39,7 @@ export default function AttachmentQuizVariantPage() {
           width={376}
           height={799}
           src="/images/AttachmentQuiz/organic-hero.jpg"
+          sizes="100vw"
         />
         <Image
           priority

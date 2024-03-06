@@ -2,14 +2,11 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
 // components
 import { TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
-import Mixpanel from '@/modules/Mixpanel'
-import { Storage, TStorageKeys } from '@/modules/Storage'
 
 interface IAttachmentQuizFormProps {
   userStyle: TUserStyle
@@ -26,25 +23,6 @@ export const AttachmentQuizForm = ({
   const tagManager = useGoogleTagManager()
   const router = useRouter()
 
-  // =================== States ======================
-  const [isVariant, setIsVariant] = useState<boolean>()
-
-  useEffect(() => {
-    if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      let storageVar = 'gm-896-fa-retest' as TStorageKeys
-      let showVariant: string | null | boolean = Storage.get(storageVar)
-      if (showVariant === null) {
-        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-        Storage.set(storageVar, showVariant)
-        Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-896-FA-Retest',
-          'Variant name': showVariant ? 'Variant 1' : 'Control',
-        })
-      }
-      setIsVariant(showVariant === 'true' || showVariant === true)
-    }
-  }, [quiz_traffic_source, userStyle])
-
   // ==================== Events ====================
   const onAfterSubmit = () => {
     tagManager?.track({
@@ -57,7 +35,7 @@ export const AttachmentQuizForm = ({
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      router.push(isVariant ? '/quiz/fa' : '/quiz/results/fa')
+      router.push('/quiz/results/fa')
     } else {
       router.push('/quiz/' + userStyle)
     }

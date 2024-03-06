@@ -31,7 +31,7 @@ const fetchSiteLinks = async () => {
 }
 
 export default async function SiteLinksPage() {
-  const siteLinks: SiteLink[] | undefined = await fetchSiteLinks()
+  const siteLinks: SiteLink[] = await fetchSiteLinks()
 
   return (
     <div className="relative w-full flex flex-col flex-grow items-center justify-center overflow-hidden">

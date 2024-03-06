@@ -32,7 +32,7 @@ export default function LastingLovePage() {
       {/* HEADER TEXT */}
       <Section className="relative z-10 bg-blue-lightest lg:pb-0">
         <p className="mb-3 rounded-lg font-bold bg-blue-dark text-white px-8 py-5 lg:py-6 lg:text-3xl">
-          Valentine's Day Offer!
+          Special Offer - 60% Off Your First Month
         </p>
 
         <h2 className="text-primary font-bold mb-4 lg:max-w-[940px] lg:mx-auto lg:text-5xl lg:mb-8">

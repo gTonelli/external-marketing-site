@@ -21,17 +21,17 @@ type SiteLink = {
 
 const fetchSiteLinks = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/site-links-page?populate=*&populate=Link.icon`,
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/site-links-page?populate=*&populate=link.icon`,
     {
       next: { tags: ['sitelinks'], revalidate: 86400 },
     }
   )
   const data = await response.json()
-  return data.data.attributes.Link
+  return data.data.attributes.link || []
 }
 
 export default async function SiteLinksPage() {
-  const siteLinks: SiteLink[] = await fetchSiteLinks()
+  const siteLinks: SiteLink[] | undefined = []
 
   return (
     <div className="relative w-full flex flex-col flex-grow items-center justify-center overflow-hidden">
@@ -42,16 +42,24 @@ export default async function SiteLinksPage() {
       </div>
 
       <div className="max-w-104 flex flex-col mx-auto mb-8 z-10">
-        {siteLinks.map((button, idx) => (
+        {siteLinks &&
+          siteLinks.map((button, idx) => (
+            <SiteLinkButton
+              key={idx}
+              icon={button.icon.data.attributes}
+              iconAlt={button.iconAlt}
+              target={button.target}
+              label={button.label}
+              url={button.url}
+            />
+          ))}
+        {(!siteLinks || siteLinks.length === 0) && (
           <SiteLinkButton
-            key={idx}
-            icon={button.icon.data.attributes}
-            iconAlt={button.iconAlt}
-            target={button.target}
-            label={button.label}
-            url={button.url}
+            target="_self"
+            label="TAKE OUR ATTACHMENT QUIZ"
+            url="https://attachment.personaldevelopmentschool.com/?utm_source=linktree&utm_medium=organic&utm_campaign=attachment-quiz&utm_id=attachment-quiz"
           />
-        ))}
+        )}
       </div>
 
       <Image

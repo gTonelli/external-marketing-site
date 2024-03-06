@@ -20,9 +20,9 @@ import './styles.css'
 
 export const metadata: Metadata = {
   title:
-    "Transform Your Relationships And Find Lasting Love this Valentine's Day | The Personal Development School",
+    'Transform Your Relationships And Find Lasting Love this Month | The Personal Development School',
   description:
-    "Unlock access to everything The Personal Development School offers this Valentine's Day with our All-Access Pass. Sign up now!",
+    'Are you ready to transform your life and relationships? Get 60% off your first month with The Personal Development School. Sign up now!',
   robots: 'all',
 }
 

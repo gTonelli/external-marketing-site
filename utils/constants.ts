@@ -130,7 +130,7 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_SPRING_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713855&coupon=iatbundle6molive',
   THINKIFIC_CHECKOUT_IAT_SPRING_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713857&coupon=iatbundle12molive',
   //Lifetime payment
-  THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
+  THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=withyou',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',
   THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285785&coupon=lifetimesale12mo',
 

@@ -27,7 +27,7 @@ const fetchSiteLinks = async () => {
     }
   )
   const data = await response.json()
-  return data.data.attributes.link || []
+  return data.data.attributes?.link || []
 }
 
 export default async function SiteLinksPage() {

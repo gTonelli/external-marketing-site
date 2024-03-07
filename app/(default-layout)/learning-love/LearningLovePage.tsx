@@ -86,12 +86,6 @@ export default function LearningLovePage() {
 
       {/* COMPLETE GUIDE SECTION */}
       <Section classNameInner="text-left">
-        {/* <Text.Heading
-          className="mb-4 lg:hidden"
-          content="The Complete Guide to Building The Best Relationships of Your Life"
-          size={1}
-        /> */}
-
         <Text.Heading
           className="mb-4 lg:block"
           content="The Complete Guide to Building The Best Relationships of Your Life"

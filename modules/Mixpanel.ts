@@ -70,6 +70,7 @@ export type Pages =
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `Site Links`
   | `Speaker Gift`
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`

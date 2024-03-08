@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 // components
+import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { TextHeading } from '@/components/Text/variants/TextHeading'
@@ -30,7 +31,7 @@ export default function OrganicQuizPage() {
   }, [viewQuiz])
 
   return (
-    <>
+    <Page page_name="Attachment Style Quiz">
       <div className="relative text-left w-full">
         <Image
           priority
@@ -297,6 +298,6 @@ export default function OrganicQuizPage() {
           />
         </div>
       </Section>
-    </>
+    </Page>
   )
 }

@@ -48,7 +48,7 @@ const TRUSTBAR = [
 ]
 
 export const IATPage = () => {
-  const page_name = 'External IAT Page' as Pages
+  const page_name = 'External IAT Page'
 
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)

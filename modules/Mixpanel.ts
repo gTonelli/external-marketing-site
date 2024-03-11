@@ -1,5 +1,3 @@
-'use client'
-import { TStyle } from '@/utils/types'
 // libraries
 import mixpanel, { Dict } from 'mixpanel-browser'
 
@@ -173,7 +171,7 @@ class Mixpanel {
     ExperimentStarted: (props: {
       'Experiment name': string
       'Variant name': ExperimentVariant
-      'page_name'?: Pages,
+      page_name?: Pages
     }) => {
       this.event('$experiment_started', props)
     },
@@ -235,6 +233,44 @@ class Mixpanel {
       })
     },
   }
+}
+
+/**
+ * A custom implementation for sending Mixpanel data. This function is for use with the Edge runtime and should never be used in the browser.
+ * @param mixpanelID the distinct ID of the user
+ * @param insert_id required for [de-duplication.](https://developer.mixpanel.com/reference/track-event) **The request will not be retried if it fails.**
+ * @param event string name of the event
+ * @param props key value pairs to be sent as event properties
+ */
+export const sendEventUnsafe = (
+  mixpanelID: string,
+  insert_id: string,
+  event: Events,
+  props: Dict
+) => {
+  return fetch('https://api.mixpanel.com/track', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify([
+      {
+        event,
+        properties: {
+          token:
+            process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
+          time: Date.now(),
+          distinct_id: mixpanelID,
+          $insert_id: insert_id.slice(0, 36),
+          ...props,
+        },
+      },
+    ]),
+  })
+    .then((res) => res.text())
+    .catch((error) => {
+      console.error('Error sending mixpanel event', error)
+    })
 }
 
 export default new Mixpanel()

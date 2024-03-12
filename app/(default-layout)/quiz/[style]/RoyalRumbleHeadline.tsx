@@ -27,7 +27,7 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
     let storageVar = `gm-866-headline-test-${style}` as TStorageKeys
     let showVariant: string | null | boolean = Storage.get(storageVar)
     if (showVariant === null) {
-      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
       Storage.set(storageVar, showVariant)
       Mixpanel.track.ExperimentStarted({
         'Experiment name': 'GM-866-DA-SA-Headline-Test',
@@ -71,7 +71,7 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
       </div>
 
       {isVariant ? (
-        <div className="max-w-[1008px] text-left mx-4 mt-8 md:w-calc(100%-2rem) md:mx-auto">
+        <div className="max-w-[850px] text-left mx-4 mt-8 md:w-calc(100%-2rem) lg:mx-auto lg:max-w-[1008px]">
           <h3>{ROYAL_RUMBLE[style].BANNER_SEGMENT.variantSubheader}</h3>
 
           <h4 className="my-8">Does this sound like you?</h4>

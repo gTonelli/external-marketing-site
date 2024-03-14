@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
-import { sendEventUnsafe } from './modules/Mixpanel'
+import { sendEventUnsafe } from './utils/functions'
 
 export function middleware(request: NextRequest) {
   try {

@@ -1,7 +1,7 @@
 'use client'
 
 // config
-import { ROYAL_RUMBLE } from '@/app/(default-layout)/quiz/[style]/config'
+import { ROYAL_RUMBLE } from '@/app/(no-nav)/quiz/[style]/config'
 // components
 import Image from 'next/image'
 // libraries

@@ -12,7 +12,7 @@ import { Image } from '@/components/Image'
 // libraries
 import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SECONDARY_SALES_PAGE as SSP } from '@/app/(default-layout)/learn/config'
+import { SECONDARY_SALES_PAGE as SSP } from '@/app/(no-nav)/learn/config'
 import cx from 'classnames'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'

@@ -3,7 +3,7 @@ import { Icon } from './Icon'
 import Image from 'next/image'
 import { PaymentOptions } from './PaymentOptions'
 // config
-import { TRIAL_HEADSPACE as TH } from '@/app/(default-layout)/dream-life/config'
+import { TRIAL_HEADSPACE as TH } from '@/app/(no-nav)/dream-life/config'
 
 interface ICommunityTeaserProps {
   includePaymentOptions?: boolean

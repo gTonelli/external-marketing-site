@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { IATPage } from '@/app/(default-layout)/iat/IATPage'
+import { IATPage } from '@/app/(no-nav)/iat/IATPage'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",

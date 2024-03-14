@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
-// import { sendEventUnsafe } from './modules/Mixpanel'
+import { sendEventUnsafe } from './utils/functions'
 
 export function middleware(request: NextRequest) {
   try {
@@ -28,11 +28,11 @@ export function middleware(request: NextRequest) {
       setCookie = true
       const experimentName = 'PROD-2556-IAT-Nav'
       const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
-      // sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
-      //   'Experiment name': experimentName,
-      //   'Variant name': showVariant ? 'Variant 1' : 'Control',
-      //   page_name: 'External IAT Page',
-      // })
+      sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
+        'Experiment name': experimentName,
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
+        page_name: 'External IAT Page',
+      })
     }
 
     const response = showVariant

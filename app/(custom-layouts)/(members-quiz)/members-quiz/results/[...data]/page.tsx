@@ -37,7 +37,7 @@ type TStyleUnabbreviated =
   | 'Fearful Avoidant'
   | 'Secure Attachment'
 
-export interface IChartData {
+interface IChartData {
   style: TStyleUnabbreviated
   value: number
 }
@@ -621,7 +621,7 @@ interface IAttachmentStylesChartProps extends IDefaultProps {
   opacity?: string
 }
 
-export const AttachmentStylesChart = ({
+const AttachmentStylesChart = ({
   className,
   isSecondary,
   title = 'YOUR ATTACHMENT STYLE BREAKDOWN',

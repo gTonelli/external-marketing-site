@@ -24,7 +24,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
-import { TRIAL_PAGE } from '@/app/(no-nav)/7-day-trial/config'
+import { TRIAL_PAGE } from '@/app/(custom-layouts)/(no-nav)/7-day-trial/config'
 
 import 'swiper/css'
 import 'swiper/css/pagination'

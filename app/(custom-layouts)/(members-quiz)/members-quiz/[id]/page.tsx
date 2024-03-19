@@ -26,7 +26,6 @@ type TQuizType = 'romantic' | 'family' | 'friends'
 export default function QuizQuestionsPage({ params }: { params: { id: string | TQuizType } }) {
   // ==================== Params ====================
   const router = useRouter()
-  console.log('ID', typeof params.id)
 
   // ==================== State ====================
   const [currentIndex, setCurrentIndex] = useState<number>(0)

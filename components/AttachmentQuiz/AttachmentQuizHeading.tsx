@@ -3,7 +3,7 @@
 // core
 import { useState, useEffect } from 'react'
 // components
-import { RESULTS } from '@/app/(no-nav)/quiz/results/fa/config'
+import { RESULTS } from '@/app/(custom-layouts)/(no-nav)/quiz/results/fa/config'
 // modules
 import { Storage } from '@/modules/Storage'
 import { IDefaultProps } from '..'

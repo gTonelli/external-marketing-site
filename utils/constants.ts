@@ -73,6 +73,7 @@ export enum ERoutes {
   HOME = '/',
   // ========== Internal ==========
   ATTACHMENT_QUIZ = '/quiz',
+  MEMBERS_QUIZ = '/members-quiz',
   BLACK_FRIDAY = '/black-friday',
   CORPORATE_LANDING_PAGE = '/corporate-quiz',
   CORPORATE_QUIZ_QUESTIONS = '/corporate-quiz/questions',

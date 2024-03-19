@@ -9,7 +9,7 @@ import { Button } from '../Button/Button'
 import { Text } from '../Text/Text'
 import { Loader } from '../Loader'
 // config
-import { REGULAR_COPY } from '@/app/(no-nav)/config'
+import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 // libraries
 import _ from 'lodash'
 import cx from 'classnames'

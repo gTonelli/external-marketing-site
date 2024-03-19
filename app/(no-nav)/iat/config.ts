@@ -166,6 +166,18 @@ export const IAT_COPY = {
       designation: '',
       location: 'IAT Facebook Group',
     },
+    {
+      review: `Big coaching milestone for me; I'm starting a waitlist. I've been quite successful with my IAT Coaching practice, so much so that I can officially say that I cannot take on any more clients this Summer. It's only been 1 year since I started the program and my client roster is overflowing. Now it's time to start the transition into solely offering Coaching and to sell my other business. This has been such an incredible journey and I'm feeling so excited for this next chapter. Thank you Thais Gibson and Pds Team-member for helping me to find such fulfilling work through IAT Coaching.`,
+      author: 'Heather Jane',
+      designation: '',
+      location: 'IAT Facebook Group'
+    }, 
+    {
+      review: `I completed the 'on demand' IAT Coach course & it was amazing. I've always loved your content & it has not only helped transform my own personal life & relationships, but now I'm also helping my clients with the same principles & they love it. I can't thank you enough.`,
+      author: 'Brii Kingsley',
+      designation: '',
+      location: 'IAT Facebook Group'
+    }
   ],
 
   certification: {
@@ -487,7 +499,7 @@ export const IAT_COPY = {
     copy: `This is an exclusive opportunity to learn Thais’ distilled knowledge from over 10 years of working in a client-based practice and specializing in researching the subconscious mind and attachment. 
            \nThais Gibson has completed her PhD and over 13 different certifications in modalities including CBT, NLP, somatic experiencing, internal family systems, shadow work and more!
            \nShe ran a private practice for the better part of a decade and has worked with over 30,000 clients 1-1, in workshops and through the Personal Development School programs. With a 99.7% satisfaction score on her programs and courses, Thais has developed ground-breaking techniques in rapid transformation and healing relationships that are shared throughout this program. 
-           \nThais has a new book coming out," Learning Love'' that offers a revolutionary approach to building fulfilling relationships and is being released on Amazon in early December of 2023. Thais has also been a guest speaker for Google and has shared her cutting edge knowledge with people in over 115 different countries. The Integrated Attachment Theory certification (IAT) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.`,
+           \nThais has a new book, out now, " Learning Love'' that offers a revolutionary approach to building fulfilling relationships and was released on Amazon in early December of 2023. Thais has also been a guest speaker for Google and has shared her cutting edge knowledge with people in over 115 different countries. The Integrated Attachment Theory certification (IAT) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.`,
 
     subsection: {
       heading: `Are you ready to impact the lives of others, while having the freedom and flexibility to choose your schedule and work from anywhere in the world?`,

@@ -98,7 +98,7 @@ export const Header = ({
           <Image
             alt="PDS Logo, the Tree of Life"
             className="w-[40px] h-[40px] ml-0 mr-auto cursor-pointer"
-            src="/images/pds-logo.png"
+            src="/images/pds-icon.png"
             height={40}
             width={40}
           />
@@ -132,7 +132,7 @@ const PDSLogo = () => (
   <Image
     alt="PDS Logo, the Tree of Life"
     className="w-[40px] h-[40px] ml-0 lg:w-[70px] lg:h-[70px] lg:mx-auto"
-    src="/images/pds-logo.png"
+    src="/images/pds-icon.png"
     height={70}
     width={70}
   />

@@ -29,22 +29,21 @@ export const AttachmentQuizForm = ({
 
   // =================== States ======================
   const [isVariant, setIsVariant] = useState<boolean>()
-
   useEffect(() => {
-    if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      let storageVar = 'gm-896-fa-retest' as TStorageKeys
+    if (quiz_traffic_source === 'paid') {
+      let storageVar = 'gm-907-form-copy' as TStorageKeys
       let showVariant: string | null | boolean = Storage.get(storageVar)
       if (showVariant === null) {
         showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
         Storage.set(storageVar, showVariant)
         Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-896-FA-Retest',
+          'Experiment name': 'GM-907-Form-Copy',
           'Variant name': showVariant ? 'Variant 1' : 'Control',
         })
       }
       setIsVariant(showVariant === 'true' || showVariant === true)
     }
-  }, [quiz_traffic_source, userStyle])
+  }, [quiz_traffic_source])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -58,7 +57,7 @@ export const AttachmentQuizForm = ({
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      router.push(isVariant ? '/quiz/fa' : '/quiz/results/fa')
+      router.push('/quiz/results/fa')
     } else {
       router.push('/quiz/' + userStyle)
     }
@@ -74,11 +73,13 @@ export const AttachmentQuizForm = ({
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
           clientTag={`attachment-quiz-${userStyle}`}
-          submitButtonLabel="SUBMIT NOW"
+          submitButtonLabel={isVariant ? 'SEE MY RESULTS' : 'SUBMIT NOW'}
           userInfo={userInfo}
           userStyle={userStyle}
           onAfterSubmit={onAfterSubmit}
         />
+
+        {isVariant && <h5 className="font-effra mt-4">AND also get a free emailed report.</h5>}
       </div>
     </section>
   )

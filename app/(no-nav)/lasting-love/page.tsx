@@ -20,9 +20,9 @@ import './styles.css'
 
 export const metadata: Metadata = {
   title:
-    "Transform Your Relationships And Find Lasting Love this Valentine's Day | The Personal Development School",
+    'Transform Your Relationships And Find Lasting Love this Month | The Personal Development School',
   description:
-    "Unlock access to everything The Personal Development School offers this Valentine's Day with our All-Access Pass. Sign up now!",
+    'Are you ready to transform your life and relationships? Get 60% off your first month with The Personal Development School. Sign up now!',
   robots: 'all',
 }
 
@@ -32,7 +32,7 @@ export default function LastingLovePage() {
       {/* HEADER TEXT */}
       <Section className="relative z-10 bg-blue-lightest lg:pb-0">
         <p className="mb-3 rounded-lg font-bold bg-blue-dark text-white px-8 py-5 lg:py-6 lg:text-3xl">
-          Valentine's Day Offer!
+          Special Offer - 60% Off Your First Month
         </p>
 
         <h2 className="text-primary font-bold mb-4 lg:max-w-[940px] lg:mx-auto lg:text-5xl lg:mb-8">

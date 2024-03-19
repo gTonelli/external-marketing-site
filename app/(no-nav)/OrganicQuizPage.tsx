@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 // components
+import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { TextHeading } from '@/components/Text/variants/TextHeading'
@@ -11,7 +12,7 @@ import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 
-export default function AttachmentQuizVariantPage() {
+export default function OrganicQuizPage() {
   // ================= State =======================
   const [viewQuiz, setViewQuiz] = useState(false)
 
@@ -30,7 +31,7 @@ export default function AttachmentQuizVariantPage() {
   }, [viewQuiz])
 
   return (
-    <>
+    <Page page_name="Attachment Style Quiz">
       <div className="relative text-left w-full">
         <Image
           priority
@@ -39,6 +40,7 @@ export default function AttachmentQuizVariantPage() {
           width={376}
           height={799}
           src="/images/AttachmentQuiz/organic-hero.jpg"
+          sizes="100vw"
         />
         <Image
           priority
@@ -296,6 +298,6 @@ export default function AttachmentQuizVariantPage() {
           />
         </div>
       </Section>
-    </>
+    </Page>
   )
 }

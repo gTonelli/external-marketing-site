@@ -4,8 +4,8 @@ import { Footer } from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
-  description: 'Become an Integrated Attachment Coach through PDS',
+  title: "The Personal Development School's Member's Quiz",
+  description: 'Take your attachment style knowledge to the next level with extra quizzes!',
   robots: 'noindex',
 }
 

@@ -40,8 +40,6 @@ export interface IResultProps extends IDefaultProps {
   sa: number
 }
 
-export type TUserStyle = 'fa' | 'da' | 'sa' | 'ap'
-
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean
   quiz_traffic_source: TQuizTrafficSources

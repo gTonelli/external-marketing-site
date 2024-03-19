@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { TStyle } from '@/utils/types'
 import { Card } from './Card/Card'
 
-export const QuizCard = ({ id, color, title, description, image, isNew }: IQuizCardProps) => {
+export const QuizCard = ({ color, title, description, image, isNew, type }: IQuizCardProps) => {
   const router = useRouter()
 
   const borderColor =
@@ -14,14 +14,14 @@ export const QuizCard = ({ id, color, title, description, image, isNew }: IQuizC
   const btnBg = color === 'pink' ? 'bg-pink' : color === 'orange' ? 'bg-orange' : 'bg-teal'
 
   const onGoToQuiz = () => {
-    router.push(`/quiz/${id}`)
+    router.push(`/members-quiz/${type}`)
   }
 
   return (
     <Card
       style={{ width: '290px', height: '365px' }}
       className={cx(
-        `group relative rounded-lg border transform transition ease-in-out py-6 px-5
+        `group justify-start relative rounded-lg border transform transition ease-in-out py-6 px-5
             hover:scale-105 hover:shadow-lg`,
         borderColor
       )}>
@@ -84,7 +84,7 @@ interface IQuizQuestion {
   styleAssociationValue: number // 1
 }
 
-interface IQuizResults {
+export interface IQuizResults {
   AP: IQuizResult
   DA: IQuizResult
   FA: IQuizResult

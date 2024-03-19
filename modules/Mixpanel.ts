@@ -65,6 +65,10 @@ export type Pages =
   | `Main Funnel Quiz Variant D`
   | `Main Funnel Quiz Variant E`
   | `Main Funnel Quiz Variant F`
+  | `Members Quiz`
+  | `Members Quiz Questions`
+  | `Members Quiz Form`
+  | `Members Quiz Results`
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
@@ -205,7 +209,7 @@ class Mixpanel {
       this.event('Page Viewed', { page_name: props.page_name || window.location.pathname })
     },
 
-    QuizFinished: (props: { quiz_name: string }) => {
+    QuizFinished: (props: { quiz_name: string; quiz_type?: 'romantic' | 'friends' | 'family' }) => {
       this.event('Quiz Finished', props)
     },
 
@@ -218,7 +222,7 @@ class Mixpanel {
       this.event('Quiz Progress', props)
     },
 
-    QuizStarted: (props: { quiz_name: string }) => {
+    QuizStarted: (props: { quiz_name: string; quiz_type?: 'romantic' | 'friends' | 'family' }) => {
       this.event('Quiz Started', props)
     },
 

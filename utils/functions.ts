@@ -49,3 +49,10 @@ export const stopEvent = (e: React.MouseEvent | MouseEvent) => {
   e.preventDefault()
   e.stopPropagation()
 }
+
+export const getInitials = (str: string) =>
+  str
+    .split('')
+    .filter((a) => a.match(/[A-Z]/))
+    .join('')
+    .toUpperCase()

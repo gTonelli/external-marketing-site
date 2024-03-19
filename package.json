@@ -38,6 +38,7 @@
     "react-facebook-pixel": "^1.0.4",
     "react-google-recaptcha": "^3.1.0",
     "react-markdown": "^8.0.7",
+    "react-share": "^5.1.0",
     "react-youtube": "^10.1.0",
     "swiper": "^10.3.1",
     "tailwind-override": "^0.6.1",

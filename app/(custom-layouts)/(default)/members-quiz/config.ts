@@ -1,5 +1,12 @@
 import { IQuizCardProps } from '@/components/QuizCard'
 
+export interface ICalculateQuizPointsParams {
+  faPoints: number
+  daPoints: number
+  apPoints: number
+  saPoints: number
+}
+
 export const QUIZ_PAGE = {
   // introSection
   section_1: {

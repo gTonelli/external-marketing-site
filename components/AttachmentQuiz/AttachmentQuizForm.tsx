@@ -4,15 +4,16 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 // components
-import { TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage, TStorageKeys } from '@/modules/Storage'
+import { TStyle } from '@/utils/types'
 
 interface IAttachmentQuizFormProps {
-  userStyle: TUserStyle
+  userStyle: TStyle
   userInfo?: IUserInfo
   quiz_traffic_source: TQuizTrafficSources
 }

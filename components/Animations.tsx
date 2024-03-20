@@ -24,7 +24,7 @@ export const Animation = ({
       className={className}
       initial={{ opacity: 0, x, y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ delay: isMobile ? delay : 0 }}>
+      transition={{ delay: isMobile ? 0 : delay }}>
       {children}
     </motion.div>
   )

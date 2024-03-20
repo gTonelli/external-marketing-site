@@ -41,6 +41,7 @@ export default function AttachmentQuizV2Page() {
         </div>
 
         <Image
+          priority
           alt="An image of Thais smiling, looking and pointing at a bubble of a happy couple."
           className="lg:w-full lg:self-end"
           src="/images/AttachmentQuiz/V2/hero.png"

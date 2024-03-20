@@ -122,6 +122,7 @@ const config: Config = {
         xxs: '375px',
         xs: '425px',
         laptop: '1440px',
+        xl: '1200px',
         '2xl': '1600px',
         '3xl': '1920px',
       },

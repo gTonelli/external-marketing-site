@@ -1,0 +1,232 @@
+import { Page } from '@/components/Page'
+import { Section, StartQuizButton, PAGE_CONFIG } from './config'
+import Image from 'next/image'
+// styles
+import './styles.css'
+
+import { CarouselSocialProof } from '@/components/Carousel/variants/CarouselSocialProof'
+import { Icon } from '@/components/Icon'
+import { List } from '@/components/List'
+import { IconName } from '@fortawesome/fontawesome-common-types'
+import { Faq } from '@/components/Faq/Faq'
+
+export default function AttachmentQuizV2Page() {
+  return (
+    <Page page_name="Attachment Style Quiz">
+      <Section
+        className="!pb-0 from-green-light bg-gradient-to-r to-primary-light/20"
+        classNameInner="!text-left lg:grid lg:grid-cols-[1fr_500px] lg:gap-8">
+        <div className="mb-12">
+          <p className="text-xs tracking-33 lg:text-base">THE ATTACHMENT STYLE QUIZ</p>
+
+          <h1>What Is Your Attachment Style?</h1>
+
+          <p>
+            Take Thais Gibson’s free quiz to discover your attachment style and learn how to find
+            better love, create emotional connections, save and heal your relationships, and much
+            more. 
+          </p>
+
+          <p>
+            It only takes 5 minutes, and allows us to create a free personalized report with a
+            roadmap to guide you toward achieving your relationship and personal development goals. 
+          </p>
+
+          <p>
+            Transform your life and elevate your relationships with Thais Gibson and The Personal
+            Development School.
+          </p>
+
+          <StartQuizButton label="START THAIS' QUIZ" />
+        </div>
+
+        <Image
+          alt="An image of Thais smiling, looking and pointing at a bubble of a happy couple."
+          className="lg:w-full lg:self-end"
+          src="/images/AttachmentQuiz/V2/hero.png"
+          width={500}
+          height={425}
+        />
+      </Section>
+
+      <Section className="bg-black text-white lg:mb-8">
+        <CarouselSocialProof slides={PAGE_CONFIG.slides} />
+      </Section>
+
+      <Section classNameInner="grid grid-cols-2 gap-4 !max-w-2xl lg:!max-w-screen-xl lg:grid-cols-4">
+        <h3 className="col-span-2 lg:col-span-4">
+          Fulfill Your Relationship Needs with Thais Gibson
+        </h3>
+
+        <p className="col-span-2 lg:col-span-4">
+          I’ll teach you how to uncover and fulfill your unique personal and relationship needs!
+        </p>
+
+        {PAGE_CONFIG.cards.map((card, i) => (
+          <div
+            key={`card_${i}`}
+            className="bg-[#F1F2F4] p-8 flex flex-col items-center gap-2 rounded-lg lg:gap-4">
+            <Icon className="text-primary text-4xl" name={card.name} />
+
+            <strong>{card.text}</strong>
+          </div>
+        ))}
+      </Section>
+
+      <Section classNameInner="!text-left lg:grid lg:grid-cols-2 lg:gap-10">
+        <Image
+          alt="An image of a couple sitting on a couch working together on a computer"
+          className="mb-4 rounded-20 lg:mb-0 lg:w-full lg:self-stretch lg:object-cover"
+          src="/images/AttachmentQuiz/V2/connections.png"
+          width={393}
+          height={262}
+          sizes="(max-width: 1023px) 393px, 580px"
+        />
+
+        <div>
+          <h3 className="lg:text-h2">
+            The Enjoyable & Easy Route To Greater Connection With Your Partner
+          </h3>
+
+          <p>
+            Whether you're seeking meaningful connections, cultivating positive habits and
+            self-belief, or searching for your ideal partner, your dream relationship is well within
+            reach.
+          </p>
+
+          <strong className="block mb-4">
+            …and getting there is funner and easier than you think.
+          </strong>
+
+          <p>
+            Led by Ph.D. recipient, best-selling author, and personal development leader Thais
+            Gibson, we'll send you a personalized report with a roadmap of easily digestible courses
+            to help you create more meaningful relationships. 
+          </p>
+
+          <p>
+            Renowned for her authentic and approachable style, Thais will expertly guide you through
+            each course, explaining concepts, tools, and strategies with real-life examples to help
+            you break free from attachment style patterns and empower yourself to embrace new
+            connections.
+          </p>
+
+          <p>
+            Interactive, enjoyable, and simple, you’ll never experience an easier transformation
+            than this. 
+          </p>
+
+          <p>And it all begins with taking our quiz.</p>
+
+          <strong className="block mb-8 text-primary">
+            Get a glimpse of a Live Webinar with Thais Gibson after taking the quiz!
+          </strong>
+
+          <StartQuizButton />
+        </div>
+      </Section>
+
+      <Section classNameInner="default-padding rounded-20 bg-green-light grid grid-cols-2 gap-4 lg:grid-cols-3">
+        <h3 className="col-span-2 -mb-1 lg:col-span-3">
+          How We’ll Transform Your Attachment Style
+        </h3>
+
+        <p className="col-span-2 mb-1 lg:col-span-3">
+          Unlock the secrets to a fulfilling love life with our unique approach
+        </p>
+
+        {PAGE_CONFIG.bulletPoints.map((point, i) => (
+          <div key={`point_${i}`} className="bg-white text-left rounded-lg p-2 lg:p-4">
+            <Icon className="text-primary" name="circle-check" type="light" />
+
+            <p>{point}</p>
+          </div>
+        ))}
+      </Section>
+
+      <Section classNameInner="!text-left lg:grid lg:grid-cols-[1fr_530px] lg:gap-10">
+        <Image
+          alt="A woman sitting at her computer and texting on her phone."
+          className="rounded-20 mb-4 lg:w-full lg:self-stretch lg:object-cover lg:object-right lg:order-2 lg:mb-0"
+          src="/images/AttachmentQuiz/V2/relationships.png"
+          width={393}
+          height={262}
+          sizes="(max-width: 1023px) 393px, 530px"
+        />
+
+        <div>
+          <h3 className="mb-4">Easy Quiz, Big Insights for Better Relationships</h3>
+
+          <p>
+            Our quiz is all about keeping it easy-breezy when it comes to figuring out
+            relationships:
+          </p>
+
+          <List listItems={PAGE_CONFIG.listItems} iconName="circle-check" iconType="light" />
+
+          <p>Are you ready to embark on a journey of self-discovery?</p>
+
+          <strong className="block mb-6">
+            Take our quiz today and enhance your understanding of relationships and love with
+            insights designed just for you.
+          </strong>
+
+          <StartQuizButton />
+        </div>
+      </Section>
+
+      <Section
+        className="bg-gradient-to-b from-green-light to-primary-light bg-opacity-50 lg:my-8"
+        classNameInner="default-padding grid gap-4 !py-0 md:grid-cols-2 lg:grid-cols-4 !text-left">
+        {PAGE_CONFIG.features.map((feature, i) => (
+          <div key={`feature_${i}`} className="bg-white rounded-2xl p-6">
+            <div className="grid grid-cols-[24px_1fr] items-start mb-2">
+              <Icon
+                className="text-white text-lg bg-black p-1 rounded-md"
+                name={(i + 1) as unknown as IconName}
+              />
+
+              <Image
+                alt={feature.imgAlt}
+                className="mx-auto"
+                src={feature.imgSrc}
+                width={80}
+                height={80}
+              />
+            </div>
+
+            <strong>{feature.text}</strong>
+          </div>
+        ))}
+      </Section>
+
+      <Section>
+        <h3 className="max-w-[480px] mx-auto lg:text-h2">
+          You’ve Come This Far In Your Journey, So Why Not Get An Exclusive?
+        </h3>
+
+        <p className="text-left lg:text-center">
+          Here’s How Our Courses Will Guide You To Loving & Long-Lasting Relationships
+        </p>
+
+        <div className="default-padding bg-primary-light bg-opacity-30 rounded-lg !py-4 text-left">
+          <strong className="block mb-4">Get my exclusive sneak peak</strong>
+
+          <p>
+            Thais will guide you through our unique courses to help you understand your attachment
+            style.
+          </p>
+
+          <Faq
+            reverseIcons
+            includeHeading={false}
+            faq={PAGE_CONFIG.FAQs}
+            className="!max-w-none grid gap-4 rounded !mb-0 !p-0 lg:grid-cols-2"
+            classNameExpandable="bg-white !border-none rounded-lg"
+            classNameQuestion="mb-0"
+          />
+        </div>
+      </Section>
+    </Page>
+  )
+}

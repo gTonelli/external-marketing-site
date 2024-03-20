@@ -16,19 +16,35 @@ export interface IFAQs {
 }
 
 export interface IFAQsProps extends IDefaultProps {
-  className?: string
+  /**
+   * Classname for the expandable component
+   */
+  classNameExpandable?: string
   /**
    * Classname for title color
    */
   classNameHeading?: string
   /**
+   * Classname for the question
+   */
+  classNameQuestion?: string
+  /**
    * Classname for Plus/Minus Icon
    */
   classNameIcon?: string
   /**
+   * Display the heading?
+   * @default true
+   */
+  includeHeading?: boolean
+  /**
    * Faq(questions and answers) to show
    */
   faq?: IFAQs[]
+  /**
+   * Reverse the icon and text?
+   */
+  reverseIcons?: boolean
 }
 
 const DEFAULT_FAQs = [
@@ -52,24 +68,33 @@ const DEFAULT_FAQs = [
 
 export const FaqDefault = ({
   className,
+  classNameExpandable,
   classNameHeading,
   classNameIcon,
+  classNameQuestion,
+  includeHeading = true,
   faq = DEFAULT_FAQs,
+  reverseIcons,
 }: IFAQsProps) => {
   return (
     <section
       className={cx('max-w-screen-md mx-auto p-2 mb-8 xxs:p-3 xs:p-4 lg:px-16 lg:my-8', className)}>
-      <Text.Heading
-        className={cx('text-black text-3xl text-left mb-4', classNameHeading)}
-        content="Frequently Asked Questions"
-      />
+      {includeHeading && (
+        <Text.Heading
+          className={cx('text-black text-3xl text-left mb-4', classNameHeading)}
+          content="Frequently Asked Questions"
+        />
+      )}
 
       {faq.map((data, index) => (
         <FAQ
           key={`${index}`}
           answer={data.answer}
+          classNameExpandable={classNameExpandable}
           classNameIcon={classNameIcon}
+          classNameQuestion={classNameQuestion}
           question={data.question}
+          reverseIcon={reverseIcons}
         />
       ))}
     </section>
@@ -80,30 +105,49 @@ export interface IFAQProps extends IDefaultProps {
   question: string
   answer: string
   classNameAnswerFAQ?: string
+  classNameExpandable?: string
   classNameIcon?: string
-  classNameQuestionFAQ?: string
+  classNameQuestion?: string
+  reverseIcon?: boolean
 }
 
-const FAQ = ({ question, answer, classNameIcon }: IFAQProps) => {
+const FAQ = ({
+  answer,
+  classNameExpandable,
+  classNameIcon,
+  classNameQuestion,
+  question,
+  reverseIcon,
+}: IFAQProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <Expandable
-      className="border-b border-black"
+      className={cx('border-b border-black', classNameExpandable)}
+      openedClassName={cx('border-b border-black', classNameExpandable)}
       open={isOpen}
       trigger={
-        <div className="flex justify-between p-4 transition-all !bg-opacity-20 ">
-          <Text.Paragraph className="font-bold text-left md:text-lg" content={question} />
+        <div
+          className={`flex ${
+            reverseIcon ? 'justify-start items-center' : 'justify-between'
+          } p-4 transition-all !bg-opacity-20`}>
+          <Text.Paragraph
+            className={cx(
+              `font-bold text-left md:text-lg ${reverseIcon ? 'order-2' : ''}`,
+              classNameQuestion
+            )}
+            content={question}
+          />
 
           <Icon
-            className={cx('text-primary ml-5', classNameIcon)}
+            className={cx('text-primary ml-5', reverseIcon ? 'order-1 mr-4' : '', classNameIcon)}
             name={isOpen ? 'minus' : 'plus'}
           />
         </div>
       }
       onClosing={() => setIsOpen(false)}
       onOpening={() => setIsOpen(true)}>
-      <div className="w-full flex flex-col border-b border-black pb-4 px-4">
+      <div className="w-full flex flex-col pb-4 px-4">
         <Text.Paragraph useMD className="text-left" content={answer} />
       </div>
     </Expandable>

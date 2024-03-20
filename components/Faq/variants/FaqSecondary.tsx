@@ -130,7 +130,7 @@ export const FaqSecondary = ({
             className={classNameFAQ}
             classNameAnswerFAQ={classNameAnswerFAQ}
             classNameIcon={classNameIcon}
-            classNameQuestionFAQ={classNameQuestionFAQ}
+            classNameQuestion={classNameQuestionFAQ}
             question={data.question}
           />
         ))}
@@ -144,7 +144,7 @@ const FAQ = ({
   answer,
   className,
   classNameIcon,
-  classNameQuestionFAQ,
+  classNameQuestion,
   classNameAnswerFAQ,
 }: IFAQProps) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -156,7 +156,7 @@ const FAQ = ({
           <div
             className={cx(
               'flex justify-between items-center text-black transition-all bg-white rounded-lg  p-4',
-              classNameQuestionFAQ
+              classNameQuestion
             )}>
             <Text.Paragraph className="font-bold mb-0 md:text-lg" content={question} />
 

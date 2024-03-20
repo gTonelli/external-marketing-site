@@ -9,6 +9,7 @@ import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 import { Faq } from '@/components/Faq/Faq'
+import { Animation } from '@/components/Animations'
 
 export default function AttachmentQuizV2Page() {
   return (
@@ -16,7 +17,7 @@ export default function AttachmentQuizV2Page() {
       <Section
         className="!pb-0 from-green-light bg-gradient-to-r to-primary-light/20"
         classNameInner="!text-left lg:grid lg:grid-cols-[1fr_500px] lg:gap-8">
-        <div className="mb-12">
+        <Animation className="mb-12">
           <p className="text-xs tracking-33 lg:text-base">THE ATTACHMENT STYLE QUIZ</p>
 
           <h1>What Is Your Attachment Style?</h1>
@@ -38,53 +39,61 @@ export default function AttachmentQuizV2Page() {
           </p>
 
           <StartQuizButton label="START THAIS' QUIZ" />
-        </div>
+        </Animation>
 
-        <Image
-          priority
-          alt="An image of Thais smiling, looking and pointing at a bubble of a happy couple."
-          className="lg:w-full lg:self-end"
-          src="/images/AttachmentQuiz/V2/hero.png"
-          width={500}
-          height={425}
-        />
+        <Animation direction="fromRight">
+          <Image
+            priority
+            alt="An image of Thais smiling, looking and pointing at a bubble of a happy couple."
+            className="animFadeInLeft lg:w-full lg:self-end"
+            src="/images/AttachmentQuiz/V2/hero.png"
+            width={500}
+            height={425}
+          />
+        </Animation>
       </Section>
 
-      <Section className="bg-black text-white lg:mb-8">
-        <CarouselSocialProof slides={PAGE_CONFIG.slides} />
+      <Section className="bg-black text-white lg:mb-8" classNameInner="!text-left">
+        <Animation direction="fromBottom">
+          <CarouselSocialProof className="animFadeInBottom" slides={PAGE_CONFIG.slides} />
+        </Animation>
       </Section>
 
       <Section classNameInner="grid grid-cols-2 gap-4 !max-w-2xl lg:!max-w-screen-xl lg:grid-cols-4">
-        <h3 className="col-span-2 lg:col-span-4">
-          Fulfill Your Relationship Needs with Thais Gibson
-        </h3>
+        <Animation className="col-span-2 lg:col-span-4">
+          <h3>Fulfill Your Relationship Needs with Thais Gibson</h3>
 
-        <p className="col-span-2 lg:col-span-4">
-          I’ll teach you how to uncover and fulfill your unique personal and relationship needs!
-        </p>
+          <p>
+            I’ll teach you how to uncover and fulfill your unique personal and relationship needs!
+          </p>
+        </Animation>
 
         {PAGE_CONFIG.cards.map((card, i) => (
-          <div
+          <Animation
+            direction="fromBottom"
+            delay={i * 0.2}
             key={`card_${i}`}
             className="bg-[#F1F2F4] p-8 flex flex-col items-center gap-2 rounded-lg lg:gap-4">
             <Icon className="text-primary text-4xl" name={card.name} />
 
             <strong>{card.text}</strong>
-          </div>
+          </Animation>
         ))}
       </Section>
 
       <Section classNameInner="!text-left lg:grid lg:grid-cols-2 lg:gap-10">
-        <Image
-          alt="An image of a couple sitting on a couch working together on a computer"
-          className="mb-4 rounded-20 lg:mb-0 lg:w-full lg:self-stretch lg:object-cover"
-          src="/images/AttachmentQuiz/V2/connections.png"
-          width={393}
-          height={262}
-          sizes="(max-width: 1023px) 393px, 580px"
-        />
+        <Animation>
+          <Image
+            alt="An image of a couple sitting on a couch working together on a computer"
+            className="mb-4 rounded-20 lg:mb-0 lg:w-full lg:self-stretch lg:object-cover"
+            src="/images/AttachmentQuiz/V2/connections.png"
+            width={393}
+            height={262}
+            sizes="(max-width: 1023px) 393px, 580px"
+          />
+        </Animation>
 
-        <div>
+        <Animation direction="fromRight">
           <h3 className="lg:text-h2">
             The Enjoyable & Easy Route To Greater Connection With Your Partner
           </h3>
@@ -124,38 +133,42 @@ export default function AttachmentQuizV2Page() {
           </strong>
 
           <StartQuizButton />
-        </div>
+        </Animation>
       </Section>
 
       <Section classNameInner="default-padding rounded-20 bg-green-light grid grid-cols-2 gap-4 lg:grid-cols-3">
-        <h3 className="col-span-2 -mb-1 lg:col-span-3">
-          How We’ll Transform Your Attachment Style
-        </h3>
+        <Animation className="col-span-2 -mb-1 lg:col-span-3">
+          <h3>How We’ll Transform Your Attachment Style</h3>
 
-        <p className="col-span-2 mb-1 lg:col-span-3">
-          Unlock the secrets to a fulfilling love life with our unique approach
-        </p>
+          <p>Unlock the secrets to a fulfilling love life with our unique approach</p>
+        </Animation>
 
         {PAGE_CONFIG.bulletPoints.map((point, i) => (
-          <div key={`point_${i}`} className="bg-white text-left rounded-lg p-2 lg:p-4">
+          <Animation
+            key={`point_${i}`}
+            direction="fromTop"
+            delay={i * 0.2}
+            className="bg-white text-left rounded-lg p-2 lg:p-4">
             <Icon className="text-primary" name="circle-check" type="light" />
 
             <p>{point}</p>
-          </div>
+          </Animation>
         ))}
       </Section>
 
       <Section classNameInner="!text-left lg:grid lg:grid-cols-[1fr_530px] lg:gap-10">
-        <Image
-          alt="A woman sitting at her computer and texting on her phone."
-          className="rounded-20 mb-4 lg:w-full lg:self-stretch lg:object-cover lg:object-right lg:order-2 lg:mb-0"
-          src="/images/AttachmentQuiz/V2/relationships.png"
-          width={393}
-          height={262}
-          sizes="(max-width: 1023px) 393px, 530px"
-        />
+        <Animation className="lg:order-2" direction="fromRight">
+          <Image
+            alt="A woman sitting at her computer and texting on her phone."
+            className="rounded-20 mb-4 lg:w-full lg:self-stretch lg:object-cover lg:object-rightlg:mb-0"
+            src="/images/AttachmentQuiz/V2/relationships.png"
+            width={393}
+            height={262}
+            sizes="(max-width: 1023px) 393px, 530px"
+          />
+        </Animation>
 
-        <div>
+        <Animation>
           <h3 className="mb-4">Easy Quiz, Big Insights for Better Relationships</h3>
 
           <p>
@@ -173,14 +186,18 @@ export default function AttachmentQuizV2Page() {
           </strong>
 
           <StartQuizButton />
-        </div>
+        </Animation>
       </Section>
 
       <Section
         className="bg-gradient-to-b from-green-light to-primary-light bg-opacity-50 lg:my-8"
         classNameInner="default-padding grid gap-4 !py-0 md:grid-cols-2 lg:grid-cols-4 !text-left">
         {PAGE_CONFIG.features.map((feature, i) => (
-          <div key={`feature_${i}`} className="bg-white rounded-2xl p-6">
+          <Animation
+            direction="fromTop"
+            delay={i * 0.2}
+            key={`feature_${i}`}
+            className="bg-white rounded-2xl p-6">
             <div className="grid grid-cols-[24px_1fr] items-start mb-2">
               <Icon
                 className="text-white text-lg bg-black p-1 rounded-md"
@@ -197,20 +214,24 @@ export default function AttachmentQuizV2Page() {
             </div>
 
             <strong>{feature.text}</strong>
-          </div>
+          </Animation>
         ))}
       </Section>
 
       <Section>
-        <h3 className="max-w-[480px] mx-auto lg:text-h2">
-          You’ve Come This Far In Your Journey, So Why Not Get An Exclusive?
-        </h3>
+        <Animation>
+          <h3 className="max-w-[480px] mx-auto lg:text-h2">
+            You’ve Come This Far In Your Journey, So Why Not Get An Exclusive?
+          </h3>
 
-        <p className="text-left lg:text-center">
-          Here’s How Our Courses Will Guide You To Loving & Long-Lasting Relationships
-        </p>
+          <p className="text-left lg:text-center">
+            Here’s How Our Courses Will Guide You To Loving & Long-Lasting Relationships
+          </p>
+        </Animation>
 
-        <div className="default-padding bg-primary-light bg-opacity-30 rounded-lg !py-4 text-left">
+        <Animation
+          direction="fromRight"
+          className="default-padding bg-primary-light bg-opacity-30 rounded-lg !py-4 text-left">
           <strong className="block mb-4">Get my exclusive sneak peak</strong>
 
           <p>
@@ -226,7 +247,7 @@ export default function AttachmentQuizV2Page() {
             classNameExpandable="bg-white !border-none rounded-lg"
             classNameQuestion="mb-0"
           />
-        </div>
+        </Animation>
       </Section>
     </Page>
   )

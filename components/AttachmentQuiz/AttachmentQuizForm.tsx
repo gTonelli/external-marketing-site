@@ -33,7 +33,7 @@ export const AttachmentQuizForm = ({
       let storageVar = 'gm-907-form-copy' as TStorageKeys
       let showVariant: string | null | boolean = Storage.get(storageVar)
       if (showVariant === null) {
-        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
         Storage.set(storageVar, showVariant)
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-907-Form-Copy',

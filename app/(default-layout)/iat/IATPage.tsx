@@ -1387,7 +1387,7 @@ const IATRegistrationForm = () => {
         email: values.email,
         firstName: values.firstName,
         tags: ['iat-tips-ebook'],
-        listIds: [40],
+        listIds: [54],
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -1402,6 +1402,7 @@ const IATRegistrationForm = () => {
         setFormSubmissionSuccess(true)
 
         Mixpanel.setUser(values.email)
+        Mixpanel.track.SignUp({ distinct_id: values.email })
       })
       .catch((err: any) => {
         formikHelpers.setSubmitting(false)

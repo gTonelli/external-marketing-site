@@ -4,7 +4,7 @@ import { sendEventUnsafe } from './utils/functions'
 
 export function middleware(request: NextRequest) {
   try {
-    if (!request.nextUrl.pathname.includes('/iat')) return NextResponse.next()
+    if (!request.nextUrl.pathname.includes('/coaching')) return NextResponse.next()
 
     let showVariant = false
     let setCookie = false
@@ -59,5 +59,5 @@ export function middleware(request: NextRequest) {
   }
 }
 export const config = {
-  matcher: '/iat',
+  matcher: '/coaching',
 }

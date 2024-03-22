@@ -48,7 +48,7 @@ const TRUSTBAR = [
   `yahoo-news-logo.png`,
 ]
 
-export const IATPage = () => {
+export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean }) => {
   const page_name = 'External IAT Page'
 
   // ============== Hooks =================
@@ -145,25 +145,26 @@ export const IATPage = () => {
         />
       </Section>
 
-      {/* EBOOK FORM */}
-      <Section classNameInner="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 !text-left">
-        <div className="lg:order-2">
-          <Text.Heading
-            content="Ignite Your Entrepreneurial Passion: Get Your FREE E-Book to Kickstart Your Relationship Coaching Business!"
-            className="mb-4"
+      {showLeadGenForm && (
+        <Section classNameInner="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 !text-left">
+          <div className="lg:order-2">
+            <Text.Heading
+              content="Ignite Your Entrepreneurial Passion: Get Your FREE E-Book to Kickstart Your Relationship Coaching Business!"
+              className="mb-4"
+            />
+
+            <Text.Paragraph content="Take the first step towards success today by joining our email community. Receive exclusive offers, expert tips, and a complimentary copy of the Relationship Coaching eBook by renowned author Thais Gibson - don't miss out on this valuable resource!" />
+
+            <IATRegistrationForm />
+          </div>
+
+          <Image
+            alt="A mockup of the ebook 'Transform Your Coaching Practice"
+            className="w-full max-w-xl"
+            src="IATPage/iat-ebook-mockup.png"
           />
-
-          <Text.Paragraph content="Take the first step towards success today by joining our email community. Receive exclusive offers, expert tips, and a complimentary copy of the Relationship Coaching eBook by renowned author Thais Gibson - don't miss out on this valuable resource!" />
-
-          <IATRegistrationForm />
-        </div>
-
-        <Image
-          alt="A mockup of the ebook 'Transform Your Coaching Practice"
-          className="w-full max-w-xl"
-          src="IATPage/iat-ebook-mockup.png"
-        />
-      </Section>
+        </Section>
+      )}
 
       {/* BECOME A RELATIONSHIP COACH SECTION */}
       <Section className="pt-0 lg:py-0" classNameInner="max-w-3xl">

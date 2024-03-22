@@ -129,7 +129,7 @@ export const IATPage = () => {
       </div>
 
       {/* VIDEO SECTION */}
-      <Section className="py-9 lg:py-16">
+      <Section className="pt-9 lg:pt-16">
         <Video.Large
           className="mx-auto shadow-centered max-w-3xl lg:p-8"
           srcUrl="https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4"
@@ -1406,16 +1406,16 @@ const IATRegistrationForm = () => {
       })
       .catch((err: any) => {
         formikHelpers.setSubmitting(false)
-        setFormSubmissionError('Error: ' + err?.message || 'An unexpected error occured!')
+        setFormSubmissionError(typeof err === 'string' ? err : 'An unexpected error occured!')
       })
   }
 
   if (formSubmissionSuccess)
     return (
       <div className="flex items-center p-4 bg-success text-white mt-4 rounded-lg">
-        <Icon className="mr-4" name="check-circle" type="light" />
+        <Text.Heading content="Welcome to our email community!" />
 
-        <Text.Paragraph content="Your eBook is on the way!" />
+        <Text.Paragraph content="Your free ebook is en route to your inbox! Stay tuned for more exciting updates, exclusive offers, and valuable content. And most of all enjoy!" />
       </div>
     )
 

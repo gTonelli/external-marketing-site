@@ -15,10 +15,19 @@ interface IHeaderProps {
    */
   clickableLogo?: boolean
   /**
+   * Back button className
+   */
+  classNameBackButton?: string
+  /**
    * Logo Image element
    * @default <PDSLogo />
    */
   logoElement?: JSX.Element
+  /**
+   * On click back button callback.
+   * @default router.back()
+   */
+  onClickBack?: () => void
   /**
    * Include a button to go back to the previous page?
    * @default false
@@ -41,11 +50,13 @@ interface IHeaderProps {
 }
 
 export const Header = ({
+  classNameBackButton,
   clickableLogo = true,
   logoElement,
   navLinks = NavLinks,
   includeGoBackButton = false,
   includeSideMenu = false,
+  onClickBack,
   useMembersQuiz = false,
   goBackButtonText = 'Back',
 }: IHeaderProps) => {
@@ -75,7 +86,13 @@ export const Header = ({
           ))}
         </nav>
 
-        {includeGoBackButton && <GoBackButton label={goBackButtonText} />}
+        {includeGoBackButton && (
+          <GoBackButton
+            className={classNameBackButton}
+            label={goBackButtonText}
+            onClick={onClickBack}
+          />
+        )}
 
         {includeSideMenu && (
           <div className="min-w-[108px] ml-auto text-right">
@@ -158,7 +175,12 @@ export const PDSLogoStacked = () => (
   />
 )
 
-const GoBackButton = ({ label }: { label: string }) => {
+interface IGoBackButtonProps extends IDefaultProps {
+  onClick?: () => void
+  label: string
+}
+
+const GoBackButton = ({ className, label, onClick }: IGoBackButtonProps) => {
   const [showButton, setShowButton] = useState(true)
   const router = useRouter()
 
@@ -169,8 +191,11 @@ const GoBackButton = ({ label }: { label: string }) => {
   return (
     showButton && (
       <p
-        className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
-        onClick={() => router.back()}>
+        className={cx(
+          'ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white',
+          className
+        )}
+        onClick={() => onClick?.() ?? router.back()}>
         {label}
       </p>
     )

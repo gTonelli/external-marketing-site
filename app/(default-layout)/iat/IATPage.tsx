@@ -1412,8 +1412,8 @@ const IATRegistrationForm = () => {
 
   if (formSubmissionSuccess)
     return (
-      <div className="flex items-center p-4 bg-success text-white mt-4 rounded-lg">
-        <Text.Heading content="Welcome to our email community!" />
+      <div className="p-4 bg-success text-white mt-4 rounded-lg">
+        <Text.Heading className="mb-2" content="Welcome to our email community!" size={4} />
 
         <Text.Paragraph content="Your free ebook is en route to your inbox! Stay tuned for more exciting updates, exclusive offers, and valuable content. And most of all enjoy!" />
       </div>

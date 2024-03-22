@@ -24,7 +24,7 @@ export function middleware(request: NextRequest) {
     if (typeof variantCookie === 'string') {
       showVariant = JSON.parse(variantCookie)
     } else {
-      showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
       setCookie = true
       const experimentName = 'PROD-2614-IAT-Page'
       const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)

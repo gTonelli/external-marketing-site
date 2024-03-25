@@ -2,14 +2,11 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
 // components
 import { TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
-import Mixpanel from '@/modules/Mixpanel'
-import { Storage, TStorageKeys } from '@/modules/Storage'
 
 interface IAttachmentQuizFormProps {
   userStyle: TUserStyle
@@ -25,24 +22,6 @@ export const AttachmentQuizForm = ({
   // =================== Hooks ======================
   const tagManager = useGoogleTagManager()
   const router = useRouter()
-
-  // =================== States ======================
-  const [isVariant, setIsVariant] = useState<boolean>()
-  useEffect(() => {
-    if (quiz_traffic_source === 'paid') {
-      let storageVar = 'gm-907-form-copy' as TStorageKeys
-      let showVariant: string | null | boolean = Storage.get(storageVar)
-      if (showVariant === null) {
-        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
-        Storage.set(storageVar, showVariant)
-        Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-907-Form-Copy',
-          'Variant name': showVariant ? 'Variant 1' : 'Control',
-        })
-      }
-      setIsVariant(showVariant === 'true' || showVariant === true)
-    }
-  }, [quiz_traffic_source])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -72,13 +51,13 @@ export const AttachmentQuizForm = ({
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
           clientTag={`attachment-quiz-${userStyle}`}
-          submitButtonLabel={isVariant ? 'SEE MY RESULTS' : 'SUBMIT NOW'}
+          submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}
           onAfterSubmit={onAfterSubmit}
         />
 
-        {isVariant && <h5 className="font-effra mt-4">AND also get a free emailed report.</h5>}
+        <h5 className="font-effra mt-4">AND also get a free emailed report.</h5>
       </div>
     </section>
   )

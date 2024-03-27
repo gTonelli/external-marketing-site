@@ -1,25 +1,21 @@
 import { Field, Form, Formik } from 'formik'
-import { Animation } from '../Animations'
 import { Icon } from '../Icon'
-import { AttachmentQuiz, TQuizQuestion } from './AttachmentQuizV2'
 import * as Yup from 'yup'
 import { Button } from '../Button/Button'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
+import { Animation } from '../Animations'
+import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
 
 export const AttachmentQuizV2FormInput = ({
+  answerQuestion,
   question,
-  attachmentQuiz,
-}: {
-  question: TQuizQuestion<'FormInput'>
-  attachmentQuiz: AttachmentQuiz
-}) => {
+}: Required<IQuizComponentDefaultArgs<'FormInput'>>) => {
   const onSubmit = (values: TFormValues) => {
     if (values?.name) {
-      attachmentQuiz.setGreetHeading(`Nice to meet you, ${values.name}!`)
-      attachmentQuiz.answerQuestion(question, values.name)
+      answerQuestion(values.name)
     }
-    if (values?.email) attachmentQuiz.answerQuestion(question, values.email)
-    if (values?.age) attachmentQuiz.answerQuestion(question, values.age)
+    if (values?.email) answerQuestion(values.email)
+    if (values?.age) answerQuestion(values.age)
   }
 
   if (!question.formInputData) return

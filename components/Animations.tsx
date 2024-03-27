@@ -22,15 +22,14 @@ export const Animation = ({
   const y = direction === 'fromTop' ? '-100%' : direction === 'fromBottom' ? '100%' : 0
 
   return (
-    <motion.div
+    <div
       className={className}
-      initial={{ opacity: 0, x, y }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ delay: isMobile ? 0 : delay }}
-      exit={{ opacity: 0, x, y }}
-      viewport={{ once: true }}
+      // initial={{ opacity: 0, x, y }}
+      // whileInView={{ opacity: 1, x: 0, y: 0 }}
+      // transition={{ delay: isMobile ? 0 : delay }}
+      // viewport={{ once: true }}
       onClick={onClick}>
       {children}
-    </motion.div>
+    </div>
   )
 }

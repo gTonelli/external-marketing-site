@@ -8,7 +8,7 @@ import { useState } from 'react'
 import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
 import dynamic from 'next/dynamic'
 import { Loader } from '@/components/Loader'
-import { AttachmentQuizV2Questions } from '@/components/AttachmentQuizV2/AttachmentQuizV2Questions'
+import { AttachmentQuizV2 } from '@/components/AttachmentQuizV2/AttachmentQuizV2'
 
 // const AttachmentQuizV2Questions = dynamic(
 //   () =>
@@ -33,7 +33,7 @@ export default function AttachmentQuizV2QuestionsPage() {
         {!viewQuiz && <AttachmentQuizV2Navigation />}
 
         {viewQuiz ? (
-          <AttachmentQuizV2Questions setViewQuiz={setViewQuiz} />
+          <AttachmentQuizV2 setViewQuiz={setViewQuiz} />
         ) : (
           <>
             <Image

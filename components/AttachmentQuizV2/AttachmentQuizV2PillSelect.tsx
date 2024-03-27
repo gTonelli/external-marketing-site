@@ -3,17 +3,14 @@ import { useRef, useState } from 'react'
 import { Animation } from '../Animations'
 import { Button } from '../Button/Button'
 import { Icon } from '../Icon'
-import { AttachmentQuiz, TQuizQuestion } from './AttachmentQuizV2'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
 import { AnimatePresence } from 'framer-motion'
+import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
 
 export const AttachmentQuizV2PillSelect = ({
   question,
-  attachmentQuiz,
-}: {
-  question: TQuizQuestion<'PillSelect'>
-  attachmentQuiz: AttachmentQuiz
-}) => {
+  answerQuestion,
+}: Required<IQuizComponentDefaultArgs<'PillSelect'>>) => {
   // ============= State ================
   const [selectedPills, setSelectedPills] = useState<string[]>([])
   const otherFocusArea = useRef('')
@@ -29,7 +26,7 @@ export const AttachmentQuizV2PillSelect = ({
   const onContinue = () => {
     const _selectedPills = [...selectedPills]
     if (otherFocusArea.current) _selectedPills.push(otherFocusArea.current)
-    attachmentQuiz.answerQuestion(question, _selectedPills)
+    answerQuestion(_selectedPills)
   }
 
   if (!question.options) return

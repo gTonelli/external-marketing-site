@@ -1,7 +1,7 @@
 import { Animation } from '../Animations'
-import { TQuizQuestion } from './AttachmentQuizV2'
+import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
 
-export const AttachmentQuizV2Heading = ({ question }: { question: TQuizQuestion<'Screen'> }) => {
+export const AttachmentQuizV2Heading = ({ question }: IQuizComponentDefaultArgs<'Screen'>) => {
   return (
     <>
       <Animation key={question.heading}>

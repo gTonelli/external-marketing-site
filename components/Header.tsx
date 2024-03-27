@@ -69,7 +69,7 @@ export const Header = ({
   return (
     <>
       {/* DESKTOP NAVIGATION */}
-      <div className="py-3 px-5 flex items-center bg-[#f5f5f5] xl:px-24 2xl:px-48 3xl:px-72">
+      <header className="py-3 px-5 flex items-center bg-[#f5f5f5] xl:px-24 2xl:px-48 3xl:px-72">
         <div className="min-w-[108px] text-center">
           {clickableLogo ? (
             <a href="https://university.personaldevelopmentschool.com/collections">
@@ -106,7 +106,7 @@ export const Header = ({
             />
           </div>
         )}
-      </div>
+      </header>
 
       {/* SIDEMENU */}
       <div

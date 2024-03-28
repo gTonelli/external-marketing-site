@@ -173,7 +173,13 @@ const FAQ = ({
             'w-full flex flex-col text-black bg-white rounded-lg px-4 pb-4',
             classNameAnswerFAQ
           )}>
-          <Text.Paragraph useMD content={answer} />
+          {typeof answer === 'string' ? (
+            <Text.Paragraph useMD className="text-left" content={answer} />
+          ) : (
+            answer.map((data) => (
+              <Text.Paragraph key={data} className="text-left mb-4" content={data} />
+            ))
+          )}
         </div>
       </Expandable>
     </div>

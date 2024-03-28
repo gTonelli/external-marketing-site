@@ -42,6 +42,7 @@ export type Pages =
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
   | `Attachment Style Quiz Questions`
+  | `Attachment Style Results`
   | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`

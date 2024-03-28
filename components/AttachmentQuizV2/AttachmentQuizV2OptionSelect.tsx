@@ -12,8 +12,6 @@ export const AttachmentQuizV2OptionSelect = ({
     answerQuestion(val)
   }
 
-  if (!question.options) return
-
   return (
     <>
       <AttachmentQuizV2Heading question={question} />

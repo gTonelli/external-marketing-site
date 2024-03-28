@@ -8,19 +8,20 @@ import { useState } from 'react'
 import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
 import dynamic from 'next/dynamic'
 import { Loader } from '@/components/Loader'
-import { AttachmentQuizV2 } from '@/components/AttachmentQuizV2/AttachmentQuizV2'
 
-// const AttachmentQuizV2Questions = dynamic(
-//   () =>
-//     import('@/components/AttachmentQuizV2/AttachmentQuizV2Questions').then(
-//       (mod) => mod.AttachmentQuizV2Questions
-//     ),
-//   {
-//     loading: () => (
-//       <Loader className="flex flex-col flex-1 items-center bg-gradient-to-r from-green-light to-primary-light/50" />
-//     ),
-//   }
-// )
+const AttachmentQuizV2 = dynamic(
+  () =>
+    import('@/components/AttachmentQuizV2/AttachmentQuizV2').then((mod) => mod.AttachmentQuizV2),
+  {
+    loading: () => (
+      <>
+        <AttachmentQuizV2Navigation />
+
+        <Loader className="flex flex-col flex-1 items-center bg-gradient-to-r from-green-light to-primary-light/50" />
+      </>
+    ),
+  }
+)
 
 export default function AttachmentQuizV2QuestionsPage() {
   const [viewQuiz, setViewQuiz] = useState(false)

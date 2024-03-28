@@ -29,8 +29,6 @@ export const AttachmentQuizV2PillSelect = ({
     answerQuestion(_selectedPills)
   }
 
-  if (!question.options) return
-
   return (
     <>
       <AttachmentQuizV2Heading question={question} />

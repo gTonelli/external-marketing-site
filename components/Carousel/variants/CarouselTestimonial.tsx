@@ -35,6 +35,8 @@ interface ICarouselTestimonialProps extends IDefaultProps {
    * @default "Here's What Our Students Say:"
    */
   headingText?: string
+  /** Subheading text */
+  subheadingText?: string
   /**
    * Show stylized quotations surrounding header text
    * @default true
@@ -105,6 +107,7 @@ export const CarouselTestimonial = forwardRef(
       classNameSlide,
       classNameSwiper,
       headingText = "Here's What Our Students Say:",
+      subheadingText,
       showQuotations = true,
       testimonials = DEFAULT_TESTIMONIALS,
       testimonialType = 'primary',
@@ -150,11 +153,15 @@ export const CarouselTestimonial = forwardRef(
             </div>
           ) : null}
 
-          {/* HEADING */}
-          <Text.Heading
-            className={cx('block text-center', classNameHeader)}
-            content={headingText}
-          />
+          <div>
+            {/* HEADING */}
+            <Text.Heading
+              className={cx('block text-center', classNameHeader)}
+              content={headingText}
+            />
+
+            {subheadingText && <Text className="mt-4" content={subheadingText} />}
+          </div>
 
           {/* RIGHT QUOTE */}
           {showQuotations ? (

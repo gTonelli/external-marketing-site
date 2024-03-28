@@ -150,19 +150,23 @@ export const PAGE_CONFIG = {
     },
     {
       question: 'Overcome Your Fears',
-      answer: '',
+      answer:
+        'Learn why and how your fears impact your romantic relationships and how to overcome them.',
     },
     {
       question: 'Stop Self-Sabotage',
-      answer: '',
+      answer:
+        "We'll teach you how to stop self-sabotaging your love life with powerful subconscious reprogramming tools.",
     },
     {
       question: 'Improve Communication',
-      answer: '',
+      answer:
+        'Improve your communication and responses to all scenarios by practicing and using our communication scripts.',
     },
     {
       question: 'Make Your Relationships Stronger',
-      answer: '',
+      answer:
+        'Thais will explain what tears relationships apart, why it happens, and how to avoid it.',
     },
   ],
 }

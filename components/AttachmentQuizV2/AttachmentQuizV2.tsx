@@ -1,5 +1,5 @@
 import { AttachmentQuizV2Navigation } from './AttachmentQuizV2Navigation'
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Section } from '../Section'
 import { AttachmentQuizV2Heading as AttachmentQuizV2Screen } from './AttachmentQuizV2Heading'
@@ -9,6 +9,7 @@ import { AttachmentQuizV2OptionSelect } from './AttachmentQuizV2OptionSelect'
 import { AttachmentQuizV2PillSelect } from './AttachmentQuizV2PillSelect'
 import { AttachmentQuizV2QuizQuestion } from './AttachmentQuizV2QuizQuestion'
 import { TQuizQuestion, useAttachmentQuiz } from './useAttachmentQuiz'
+import { AttachmentQuizV2LoadingScreen } from './AttachmentQuizV2LoadingScreen'
 
 export const AttachmentQuizV2 = ({
   setViewQuiz,
@@ -23,12 +24,19 @@ export const AttachmentQuizV2 = ({
     currentQuestion,
     currentQuestionType,
     index,
+    length,
     onGoBack: _onGoBack,
-    onGoToNextQuestion,
+    onGoToNextQuestion: _onGoToNextQuestion,
+    endQuiz,
   } = useAttachmentQuiz()
 
+  const onGoToNextQuestion = () => {
+    setShouldTransitionAutomatically(true)
+    _onGoToNextQuestion?.()
+  }
+
   const onGoBack = () => {
-    console.log('OngoBack')
+    setShouldTransitionAutomatically(false)
     if (index === 0) setViewQuiz(false)
     else _onGoBack?.()
   }
@@ -58,6 +66,11 @@ export const AttachmentQuizV2 = ({
             answerQuestion={answerQuestion}
             question={currentQuestion as TQuizQuestion<'FormInput'>}
           />
+        ) : currentQuestionType === 'LoadingScreen' ? (
+          <AttachmentQuizV2LoadingScreen
+            question={currentQuestion as TQuizQuestion<'LoadingScreen'>}
+            onEndLoading={endQuiz}
+          />
         ) : (
           <AttachmentQuizV2PillSelect
             answerQuestion={answerQuestion}
@@ -65,7 +78,7 @@ export const AttachmentQuizV2 = ({
           />
         )}
 
-        {(currentQuestionType === 'Screen' || currentQuestion.userResponse) && (
+        {currentQuestionType === 'Screen' && (
           <div className="relative flex items-center justify-center mt-auto mb-8 h-11 lg:mb-12">
             <span className="underline cursor-pointer" onClick={onGoToNextQuestion}>
               Next Question

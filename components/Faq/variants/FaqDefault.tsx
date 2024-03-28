@@ -12,7 +12,7 @@ import { Expandable } from '@/components/Expandable'
 
 export interface IFAQs {
   question: string
-  answer: string
+  answer: string | string[]
 }
 
 export interface IFAQsProps extends IDefaultProps {
@@ -45,6 +45,8 @@ export interface IFAQsProps extends IDefaultProps {
    * Reverse the icon and text?
    */
   reverseIcons?: boolean
+  /** Subheading text */
+  subheading?: string
 }
 
 const DEFAULT_FAQs = [
@@ -75,6 +77,7 @@ export const FaqDefault = ({
   includeHeading = true,
   faq = DEFAULT_FAQs,
   reverseIcons,
+  subheading,
 }: IFAQsProps) => {
   return (
     <section
@@ -85,6 +88,8 @@ export const FaqDefault = ({
           content="Frequently Asked Questions"
         />
       )}
+
+      {subheading && <Text className="mt-4" content={subheading} />}
 
       {faq.map((data, index) => (
         <FAQ
@@ -103,7 +108,7 @@ export const FaqDefault = ({
 
 export interface IFAQProps extends IDefaultProps {
   question: string
-  answer: string
+  answer: string | string[]
   classNameAnswerFAQ?: string
   classNameExpandable?: string
   classNameIcon?: string
@@ -148,7 +153,13 @@ const FAQ = ({
       onClosing={() => setIsOpen(false)}
       onOpening={() => setIsOpen(true)}>
       <div className="w-full flex flex-col pb-4 px-4">
-        <Text.Paragraph useMD className="text-left" content={answer} />
+        {typeof answer === 'string' ? (
+          <Text.Paragraph useMD className="text-left" content={answer} />
+        ) : (
+          answer.map((data) => (
+            <Text.Paragraph key={data} className="text-left mb-4" content={data} />
+          ))
+        )}
       </div>
     </Expandable>
   )

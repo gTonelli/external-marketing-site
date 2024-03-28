@@ -7,14 +7,14 @@ import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { SpecialPromotion, MHAButton } from '@/components/SpecialPromotion'
 
-export const ValentinesDayPage = () => {
+export const FreeTrial14Day = () => {
   return (
     <Page className="w-full overflow-hidden" page_name="Valentine's Day">
       {/* HEADER TEXT */}
       <Section className="relative z-10 bg-blue-lightest lg:pb-0">
         <Text.Paragraph
           className="mb-3 rounded-lg font-bold bg-blue-dark text-white px-8 py-5 lg:py-6 lg:text-3xl"
-          content="Valentine's Day Offer!"
+          content="Special Offer - 14 Day Free Trial!"
           size={20}
         />
 
@@ -26,7 +26,7 @@ export const ValentinesDayPage = () => {
 
         <Text.Heading
           className="!text-lg font-medium mb-4 lg:max-w-3xl lg:mx-auto"
-          content="Unlock free access to the courses that are giving our members the breakthroughs they've been looking for with a 14-day free trial to our All- Access Pass, right from the comfort of your home. Start building the best relationships of your life this Valentine’s Day."
+          content="Unlock free access to the courses that are giving our members the breakthroughs they've been looking for with a 14-day free trial to our All- Access Pass, right from the comfort of your home. Start building the best relationships of your life today."
           size={4}
         />
 

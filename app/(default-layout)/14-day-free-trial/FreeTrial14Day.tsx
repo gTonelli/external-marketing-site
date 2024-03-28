@@ -30,9 +30,12 @@ export const FreeTrial14Day = () => {
           size={4}
         />
 
-        <MHAButton />
+        <MHAButton label="START MY 14-DAY FREE TRIAL" />
 
-        <Text.Paragraph className="mt-2 font-bold italic" content="*This offer ends soon!*" />
+        <Text.Paragraph
+          className="mt-2 font-bold italic"
+          content="*This offer is available for a limited time. Subscription renews at $67/month!*"
+        />
       </Section>
 
       <Image className="relative w-full mt-0 z-5 2xl:-mt-5" src="styled-wave-green.png" />

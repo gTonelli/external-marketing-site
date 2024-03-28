@@ -1,9 +1,11 @@
+// core
+import Link from 'next/link'
+// components
 /* eslint-disable react/jsx-key */
 import { IDefaultProps } from '@/components'
 import { ISectionProps } from '@/components/Section'
-import Link from 'next/link'
 import { Section as _Section } from '@/components/Section'
-import { SwiperSlide } from 'swiper/react'
+// libraries
 import cx from 'classnames'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 

@@ -8,7 +8,7 @@ import '../../../styles.css'
 
 export default function AttachmentQuizV2ResultsPage({ params }: { params: { scores: string[] } }) {
   return (
-    <Page page_name={'Attachment Style Results - FA'}>
+    <Page page_name={'Attachment Style Results - AP'}>
       <_Page config={config} params={params} />
     </Page>
   )

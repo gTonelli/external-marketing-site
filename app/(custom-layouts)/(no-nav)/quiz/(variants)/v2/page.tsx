@@ -1,15 +1,19 @@
-import { Page } from '@/components/Page'
-import { Section, StartQuizButton, PAGE_CONFIG } from './config'
+// core
 import Image from 'next/image'
-// styles
-import './styles.css'
-
+// components
+import { Page } from '@/components/Page'
 import { CarouselSocialProof } from '@/components/Carousel/variants/CarouselSocialProof'
 import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
-import { IconName } from '@fortawesome/fontawesome-common-types'
 import { Faq } from '@/components/Faq/Faq'
 import { Animation } from '@/components/Animations'
+// config
+import { Section, StartQuizButton, PAGE_CONFIG } from './config'
+// libraries
+import { IconName } from '@fortawesome/fontawesome-common-types'
+
+// styles
+import './styles.css'
 
 export default function AttachmentQuizV2Page() {
   return (
@@ -111,7 +115,7 @@ export default function AttachmentQuizV2Page() {
           <p>
             Led by Ph.D. recipient, best-selling author, and personal development leader Thais
             Gibson, we'll send you a personalized report with a roadmap of easily digestible courses
-            to help you create more meaningful relationships. 
+            to help you create more meaningful relationships.
           </p>
 
           <p>

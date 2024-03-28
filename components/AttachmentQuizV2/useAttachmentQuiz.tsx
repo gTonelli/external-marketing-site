@@ -109,7 +109,6 @@ export type TQuizQuestions = [
   TQuizQuestion<'Screen'>,
   ...TQuizQuestion<'AttachmentStyleQuestion'>[],
   TQuizQuestion<'OptionSelect'>,
-  TQuizQuestion<'Screen'>,
   TQuizQuestion<'LoadingScreen'>
 ]
 
@@ -172,7 +171,10 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
     percentages[indexOf(percentages, highest)] += difference
 
     const [i, j, k, l] = percentages
-    const url = `/quiz/v2/result/${dominantStyle}/${i}/${j}/${k}/${l}`
+    const url =
+      dominantStyle === 'fa' || dominantStyle === 'ap'
+        ? `/quiz/v2/result/${dominantStyle}/${i}/${j}/${k}/${l}`
+        : `/quiz/${dominantStyle}`
     router.prefetch(url)
     return url
   }, [getQuestionType, questions, router])

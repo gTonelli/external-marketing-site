@@ -1,8 +1,12 @@
+// components
 import { Animation } from '../Animations'
 import { Icon } from '../Icon'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
+import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
+// config
 import { defaultQuizQuestionOptions } from './config'
-import { IQuizComponentDefaultArgs, TQuizQuestion } from './useAttachmentQuiz'
+// libraries
+import cx from 'classnames'
 
 export const AttachmentQuizV2QuizQuestion = ({
   question,
@@ -35,7 +39,9 @@ export const AttachmentQuizV2QuizQuestion = ({
         <div className="col-span-5 flex justify-between">
           {defaultQuizQuestionOptions.map((option, i) => {
             return (
-              <p key={`option_text_${i}`} className="text-sm leading-7 mb-2 lg:text-xl">
+              <p
+                key={`option_text_${i}`}
+                className={cx('text-sm leading-7 mb-2 lg:text-xl', option.heading ? 'w-20' : '')}>
                 {option.heading}
               </p>
             )

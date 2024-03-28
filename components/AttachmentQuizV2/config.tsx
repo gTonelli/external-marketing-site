@@ -348,10 +348,6 @@ export const defaultQuestions: TQuizQuestions = [
     ],
   },
   {
-    heading:
-      "We're crafting <strong>your personalized results</strong> – just a moment longer! Your well-being is our priority.",
-  },
-  {
     heading: (
       <>
         We're crafting <strong>your personalized results</strong> – just a moment longer! Your
@@ -372,7 +368,7 @@ export const defaultQuestions: TQuizQuestions = [
         heading: (
           <>
             <strong>98% of our customers</strong> say their relationships are getting better after
-            joining The Personal Development Schools
+            joining The Personal Development School
           </>
         ),
         duration: 3,

@@ -51,7 +51,7 @@ export const AttachmentQuizV2LoadingScreen = ({
   return (
     <>
       <Animation key={`header_${Math.min(index, question.screens.length - 1)}`}>
-        <h3 className="mb-4">{header}</h3>
+        <p className="text-h3 mb-4 font-ssp max-w-xl mx-auto">{header}</p>
       </Animation>
 
       <div className="w-full max-w-xl mx-auto border border-black p-1 rounded full overflow-hidden relative">

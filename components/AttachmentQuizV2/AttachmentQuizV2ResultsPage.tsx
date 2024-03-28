@@ -84,7 +84,7 @@ export const AttachmentQuizV2ResultsPage = ({
         </Animation>
 
         <Animation className="lg:col-start-1 lg:row-start-1">
-          <h3 className="hidden lg:block">
+          <h3 className="hidden mb-8 lg:block">
             It’s Time to Learn Your Attachment Style & How It Will Empower Your Future Relationships
           </h3>
 

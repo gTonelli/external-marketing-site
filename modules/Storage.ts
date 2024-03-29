@@ -8,10 +8,6 @@ export type TStorageKeys =
   | 'userTag'
   | 'prod-2320-checkout-test'
   | 'gm-845-checkout-test'
-  | 'seo-90-organic-quiz-test'
-  | 'gm-866-headline-test-da'
-  | 'gm-866-headline-test-sa'
-  | 'gm-907-form-copy'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

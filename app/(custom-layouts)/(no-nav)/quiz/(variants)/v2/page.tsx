@@ -6,7 +6,7 @@ import { CarouselSocialProof } from '@/components/Carousel/variants/CarouselSoci
 import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { Faq } from '@/components/Faq/Faq'
-import { Animation } from '@/components/Animations'
+import { Animation } from '@/components/Animation'
 // config
 import { Section, StartQuizButton, PAGE_CONFIG } from './config'
 // libraries

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { AttachmentQuizV2ScoreCard } from '@/components/AttachmentQuizV2/AttachmentQuizV2ScoreCard'
 import { AttachmentQuizV2ResultsOfferSections } from '@/components/AttachmentQuizV2/AttachmentQuizV2ResultsOfferSections'
 import { AttachmentQuizV2ResultsHeading } from '@/components/AttachmentQuizV2/AttachmentQuizV2ResultsHeading'
-import { Animation } from '@/components/Animations'
+import { Animation } from '@/components/Animation'
 import { Section } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/v2/config'
 
 type TPageConfig = {

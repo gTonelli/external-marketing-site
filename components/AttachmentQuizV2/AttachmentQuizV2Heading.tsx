@@ -1,4 +1,4 @@
-import { Animation } from '../Animations'
+import { Animation } from '../Animation'
 import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
 
 export const AttachmentQuizV2Heading = ({ question }: IQuizComponentDefaultArgs<'Screen'>) => {

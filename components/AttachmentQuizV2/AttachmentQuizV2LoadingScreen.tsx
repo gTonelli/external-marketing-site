@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
-import { Animation } from '../Animations'
+import { Animation } from '../Animation'
 // utils
 import { ERoutes } from '@/utils/constants'
 // libraries

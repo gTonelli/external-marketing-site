@@ -13,7 +13,7 @@ import {
   toolsStrategies,
 } from './config'
 import { Icon } from '../Icon'
-import { Animation } from '../Animations'
+import { Animation } from '../Animation'
 import { Trustbar } from '../Trustbar/Trustbar'
 import { VideoYoutube } from '../Video/variants/VideoYoutube'
 import { PricingSection } from '../PricingSection'

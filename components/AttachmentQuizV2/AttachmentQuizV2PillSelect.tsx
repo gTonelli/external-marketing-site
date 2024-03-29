@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import { useRef, useState } from 'react'
-import { Animation } from '../Animations'
+import { Animation } from '../Animation'
 import { Button } from '../Button/Button'
 import { Icon } from '../Icon'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'

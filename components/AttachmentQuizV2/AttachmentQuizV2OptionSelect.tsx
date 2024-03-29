@@ -1,4 +1,4 @@
-import { Animation } from '../Animations'
+import { Animation } from '../Animation'
 import { Icon } from '../Icon'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
 import cx from 'classnames'

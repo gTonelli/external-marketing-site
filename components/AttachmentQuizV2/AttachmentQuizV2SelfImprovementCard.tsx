@@ -1,4 +1,4 @@
-import { Animation } from '../Animations'
+import { Animation } from '../Animation'
 import { Icon } from '../Icon'
 
 interface ISelfImpropvementCardProps {

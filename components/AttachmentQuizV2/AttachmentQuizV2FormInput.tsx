@@ -3,7 +3,7 @@ import { Icon } from '../Icon'
 import * as Yup from 'yup'
 import { Button } from '../Button/Button'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
-import { Animation } from '../Animations'
+import { Animation } from '../Animation'
 import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
 import { Storage } from '@/modules/Storage'
 

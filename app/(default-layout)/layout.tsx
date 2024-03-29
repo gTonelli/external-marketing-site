@@ -1,21 +1,22 @@
-import { Header } from '@/components/Header'
+// components
+import { Header, PDSDefaultNavLinks } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'The Attachment Style Quiz',
-  description: 'Take the leading Attachment Style Quiz by Thais Gibson for Free!',
+  title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
+  description: 'Become an Integrated Attachment Coach through PDS',
   robots: 'noindex',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header />
+      <Header includeSideMenu navLinks={PDSDefaultNavLinks} />
 
       {children}
 
-      <Footer />
+      <Footer includeLinks />
     </>
   )
 }

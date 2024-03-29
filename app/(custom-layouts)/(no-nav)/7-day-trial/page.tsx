@@ -370,8 +370,6 @@ export default function TrialPage() {
       </div>
 
       {/* TESTIMONIAL SLIDER */}
-
-      {/* <TestimonialSlider /> */}
       <Carousel.Testimonial
         classNameCard="!items-center"
         headingText="What Our Students Are Saying"

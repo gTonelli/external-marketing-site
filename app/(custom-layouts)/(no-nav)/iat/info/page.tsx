@@ -17,7 +17,7 @@ export default function IATInfoPage() {
         className="bg-gradient-to-b from-blue-lightest/10 via-blue-lightest to-primary-light/50 rounded-bl-[100px]"
         classNameInner="!max-w-screen-xl !text-left lg:grid lg:grid-cols-[588px_1fr] lg:items-center lg:gap-32">
         <Animation>
-          <p className="tracking-33">Become a relationship expert today...</p>
+          <p className="tracking-33 font-bold">BECOME A RELATIONSHIP EXPERT TODAY...</p>
 
           <h1>Learn How to Create a Thriving Coaching Business</h1>
 

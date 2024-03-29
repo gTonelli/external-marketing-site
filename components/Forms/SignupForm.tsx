@@ -17,7 +17,6 @@ import cx from 'classnames'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
-// utils
 
 interface ISignupFormProps extends IDefaultProps {
   /** String or function that retuirns a string for generating client tags */
@@ -45,13 +44,10 @@ export const SignupForm = ({
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
     const { email, firstName } = values
-
-    // Creating an identity of user in mixpanel
     Mixpanel.setUser(email)
-
-    // FBQ?.trackLead({
-    //   email: email,
-    // })
+    FBQ?.trackLead({
+      email: email,
+    })
 
     const requestBody = {
       userTags,

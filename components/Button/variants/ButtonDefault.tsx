@@ -47,9 +47,9 @@ export interface IButtonDefaultProps extends IDefaultProps {
 
   /**
    * Theme representing various TW classes
-   * @import bg-primary bg-black border-primary border-black
+   * @import bg-primary bg-black bg-orange bg-pink bg-teal border-primary border-black border-orange border-pink border-teal
    */
-  theme?: 'primary' | 'secondary' | 'black'
+  theme?: 'primary' | 'secondary' | 'black' | 'orange' | 'pink' | 'teal'
   type?: 'button' | 'reset' | 'submit'
 }
 

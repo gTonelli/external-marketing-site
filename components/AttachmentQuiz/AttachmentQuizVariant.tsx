@@ -11,7 +11,7 @@ import { Button } from '@/components/Button/Button'
 import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
-import { TAttachmentQuizVariant } from '@/app/(default-layout)/quiz/(variants)/config'
+import { TAttachmentQuizVariant } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/config'
 // libraries
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 // modules

@@ -9,7 +9,7 @@ import { Button } from '../Button/Button'
 import { Text } from '../Text/Text'
 import { Loader } from '../Loader'
 // config
-import { REGULAR_COPY } from '@/app/(default-layout)/config'
+import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 // libraries
 import _ from 'lodash'
 import cx from 'classnames'
@@ -39,8 +39,6 @@ export interface IResultProps extends IDefaultProps {
   fa: number
   sa: number
 }
-
-export type TUserStyle = 'fa' | 'da' | 'sa' | 'ap'
 
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean

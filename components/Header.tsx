@@ -31,6 +31,11 @@ interface IHeaderProps {
   includeSideMenu?: boolean
   /** Go back button text. Only renders if @includeGoBackButton is set to true */
   goBackButtonText?: string
+  /**
+   * Use the members quiz link
+   * @default false
+   */
+  useMembersQuiz?: boolean
   /** Nav Links */
   navLinks?: INavLinkProps[]
 }
@@ -41,9 +46,14 @@ export const Header = ({
   navLinks = NavLinks,
   includeGoBackButton = false,
   includeSideMenu = false,
+  useMembersQuiz = false,
   goBackButtonText = 'Back',
 }: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
+  if (useMembersQuiz && navLinks == PDSDefaultNavLinks) {
+    navLinks[0].link = ERoutes.MEMBERS_QUIZ
+    if (includeSideMenu) SideMenuLinks[0].link = ERoutes.MEMBERS_QUIZ
+  }
 
   return (
     <>

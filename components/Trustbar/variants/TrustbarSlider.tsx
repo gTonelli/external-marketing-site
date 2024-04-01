@@ -37,7 +37,6 @@ export const TrustbarSlider = ({
   return (
     <Swiper
       loop
-      freeMode={{ enabled: true }}
       autoplay={{
         delay: 3000,
         reverseDirection: true,

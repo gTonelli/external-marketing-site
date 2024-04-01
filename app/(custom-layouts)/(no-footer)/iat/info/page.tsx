@@ -200,13 +200,13 @@ export default function IATInfoPage() {
           </p>
 
           <Image
-            alt="An image of the inside of the ebook. It shows many features about the eboo such as learning howe to identify core wounds or reqire emotional patterns."
-            className="mb-4 lg:hidden"
-            src="/images/IATPage/InfoPage/ebook-preview.png"
-            width={425}
-            height={188}
-            quality={100}
-            sizes="100vw"
+            priority
+            alt="An image of Thais gibson on an eBoo kcover for 'Transforming Your Coaching Practice."
+            className="lg:hidden"
+            src="/images/IATPage/InfoPage/hero.png"
+            width={373}
+            height={395}
+            quality={95}
           />
 
           <EbookForm id="form" />
@@ -215,7 +215,7 @@ export default function IATInfoPage() {
         <Image
           priority
           alt="An image of Thais gibson on an eBoo kcover for 'Transforming Your Coaching Practice."
-          className="lg:w-full lg:max-w-md lg:mx-auto"
+          className="hidden lg:block lg:w-full lg:max-w-md lg:mx-auto"
           src="/images/IATPage/InfoPage/hero.png"
           width={373}
           height={395}

@@ -14,6 +14,7 @@ export const CarouselTestimonialPlain = () => {
   return (
     <Swiper
       className="!p-4 !pr-12 !overflow-visible"
+      wrapperClass="items-stretch"
       autoplay={{ delay: 6000 }}
       modules={[Autoplay]}
       slidesPerView={1}
@@ -30,17 +31,17 @@ export const CarouselTestimonialPlain = () => {
         },
       }}>
       {defaultSlides.map((slide, i) => (
-        <SwiperSlide key={`testimonial_slide_${i}`}>
+        <SwiperSlide key={`testimonial_slide_${i}`} className="!flex flex-grow !h-auto">
           <Animation
-            disabled={i > 3}
+            disabled={i > 3 || isMobile}
             delay={isMobile || i > 3 ? 0 : 0.15 * i}
-            className="p-4 rounded-4xl shadow-center-light bg-white lg:p-12"
+            className="p-4 rounded-4xl shadow-center-light bg-white flex flex-1 flex-col flex-grow !h-auto lg:p-12"
             direction="fromBottom">
             <p>“{slide.text}”</p>
 
-            <strong className="block mb-1">- {slide.name}</strong>
+            <strong className="block mb-1 mt-auto">- {slide.name}</strong>
 
-            <div className="flex">
+            <div className="">
               {Array(5)
                 .fill(undefined)
                 .map((_, j) => (

@@ -97,10 +97,10 @@ export const SignupForm = ({
       onSubmit={onSubmit}>
       {({ isSubmitting }) => (
         <Form className={cx('w-full flex-col', className)} id={id}>
-          <div className="flex gap-x-4 mb-4 max-w-2xl">
+          <div className="flex flex-col xxs:flex-row gap-x-4 mb-4 max-w-2xl">
             <Input.Field
               autocomplete="given-name"
-              className="!m-0 w-full"
+              className="!mt-0 !mx-0 mb-2 xxs:!mb-0 w-full"
               label="Your First name"
               name="firstName"
             />

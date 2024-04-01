@@ -14,6 +14,7 @@ import { ebookFeatureList } from './config'
 import './style.css'
 
 import type { Metadata } from 'next'
+import { CarouselTestimonialPlain } from '@/components/Carousel/variants/CarouselTestimonialPlain'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
@@ -26,7 +27,7 @@ export default function IATInfoPage() {
     <Page page_name="IAT Info Page">
       <Section
         className="bg-gradient-to-b from-blue-lightest/10 via-blue-lightest to-primary-light/50 rounded-bl-[100px]"
-        classNameInner="!max-w-screen-xl !text-left lg:grid lg:grid-cols-[588px_1fr] lg:items-center lg:gap-32">
+        classNameInner="!max-w-screen-xl !text-left pb-24 lg:pb-36 lg:grid lg:grid-cols-[588px_1fr] lg:items-center lg:gap-32">
         <Animation>
           <p className="tracking-33 font-bold">BECOME A RELATIONSHIP EXPERT TODAY...</p>
 
@@ -60,7 +61,9 @@ export default function IATInfoPage() {
         </Animation>
       </Section>
 
-      <CarouselTestimonial showQuotations={false} headingText="" />
+      <section className="-mt-24 max-w-screen-xl mx-auto overflow-visible lg:-mt-36">
+        <CarouselTestimonialPlain />
+      </section>
 
       <Trustbar />
 
@@ -78,12 +81,10 @@ export default function IATInfoPage() {
         </p>
 
         <div className="text-left">
-          <p className="tracking-33 font-bold leading-6" mb-6>
-            TAKE A LOOK AT WHAT'S INSIDE...
-          </p>
+          <p className="tracking-33 font-bold leading-6">TAKE A LOOK AT WHAT'S INSIDE...</p>
 
           {ebookFeatureList.map((feature, i) => (
-            <div key={`ebook_feature_4{i}`} className="border-b border-black mb-4">
+            <div key={`ebook_feature_${i}`} className="border-b border-black mb-4">
               <h4 className="text-primary mb-2">{feature.heading}</h4>
 
               <p>

@@ -9,12 +9,13 @@ import { Animation } from '@/components/Animation'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import Link from 'next/link'
 // config
-import { ebookFeatureList } from './config'
+import { ebookFeatureList, trustbarSlides } from './config'
 // styles
 import './style.css'
 
 import type { Metadata } from 'next'
 import { CarouselTestimonialPlain } from '@/components/Carousel/variants/CarouselTestimonialPlain'
+import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
@@ -61,14 +62,23 @@ export default function IATInfoPage() {
         </Animation>
       </Section>
 
-      <section className="-mt-24 max-w-screen-xl mx-auto overflow-visible lg:-mt-36">
+      <Section
+        className="-mt-24 mx-auto overflow-visible !pb-0 lg:-mt-36"
+        classNameInner="!max-w-screen-xl !text-left">
         <CarouselTestimonialPlain />
-      </section>
+      </Section>
 
-      <Trustbar />
+      <Section className="!pt-0">
+        <TrustbarSlider
+          brandLogosList={trustbarSlides}
+          className="items-stretch"
+          classNameImage="!mx-0"
+          classNameSlides="flex flex-col flex-1 items-center justify-center"
+        />
+      </Section>
 
       <Section
-        className="!pt-0"
+        className="shadow-center-light lg:shadow-none"
         classNameInner="!max-w-screen-xl lg:p-20 lg:rounded-4xl lg:shadow-md">
         <h2 className="text-left lg:text-center">
           What is Stopping You from Living the Life You've Always Wanted?
@@ -110,7 +120,6 @@ export default function IATInfoPage() {
       </Section>
 
       <Image
-        priority
         alt="An image of the inside of the ebook. It shows many features about the eboo such as learning howe to identify core wounds or reqire emotional patterns."
         className="hidden w-full lg:block"
         src="/images/IATPage/InfoPage/ebook-preview.png"
@@ -189,6 +198,16 @@ export default function IATInfoPage() {
             others, and understand relationships from every angle, the first step is simple: simply
             download our free e-book to learn exactly how you can change your life.
           </p>
+
+          <Image
+            alt="An image of the inside of the ebook. It shows many features about the eboo such as learning howe to identify core wounds or reqire emotional patterns."
+            className="mb-4 lg:hidden"
+            src="/images/IATPage/InfoPage/ebook-preview.png"
+            width={425}
+            height={188}
+            quality={100}
+            sizes="100vw"
+          />
 
           <EbookForm id="form" />
         </div>

@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 // styles
 import 'swiper/css'
+import { Animation } from '@/components/Animation'
+import { isMobile } from 'react-device-detect'
 
 export const CarouselTestimonialPlain = () => {
   return (
@@ -28,24 +30,28 @@ export const CarouselTestimonialPlain = () => {
         },
       }}>
       {defaultSlides.map((slide, i) => (
-        <SwiperSlide
-          key={`testimonial_slide_${i}`}
-          className="p-4 rounded-4xl shadow-center-light bg-white lg:p-12">
-          <p>“{slide.text}”</p>
+        <SwiperSlide key={`testimonial_slide_${i}`}>
+          <Animation
+            disabled={i > 3}
+            delay={isMobile || i > 3 ? 0 : 0.15 * i}
+            className="p-4 rounded-4xl shadow-center-light bg-white lg:p-12"
+            direction="fromBottom">
+            <p>“{slide.text}”</p>
 
-          <strong className="block mb-1">- {slide.name}</strong>
+            <strong className="block mb-1">- {slide.name}</strong>
 
-          <div className="flex">
-            {Array(5)
-              .fill(undefined)
-              .map((_, j) => (
-                <Icon
-                  key={`testimonial_${i}_star_${j}`}
-                  className="text-yellow-tertiary mr-1"
-                  name="star"
-                />
-              ))}
-          </div>
+            <div className="flex">
+              {Array(5)
+                .fill(undefined)
+                .map((_, j) => (
+                  <Icon
+                    key={`testimonial_${i}_star_${j}`}
+                    className="text-yellow-tertiary mr-1"
+                    name="star"
+                  />
+                ))}
+            </div>
+          </Animation>
         </SwiperSlide>
       ))}
     </Swiper>

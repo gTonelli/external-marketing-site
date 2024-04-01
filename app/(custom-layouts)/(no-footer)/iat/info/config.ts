@@ -27,3 +27,13 @@ export const ebookFeatureList = [
       truly make an impact on the lives of others.`,
   },
 ]
+
+export const trustbarSlides = [
+  'amazon-com-logo.png',
+  'barnes-noble-logo.png',
+  'counseling-today-logo.png',
+  'fast-company-logo.png',
+  'forbes-logo.png',
+  'success-logo.png',
+  'indigo-logo.png',
+]

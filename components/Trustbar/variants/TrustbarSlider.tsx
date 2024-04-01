@@ -24,14 +24,20 @@ const TRUSTBAR = [
   `yahoo-news-logo.png`,
 ]
 
+interface ITrustbarSliderProps extends ITrustbarDefaultProps {
+  classNameSlides?: string
+}
+
 export const TrustbarSlider = ({
   brandLogosList = TRUSTBAR,
   className,
+  classNameSlides,
   classNameImage,
-}: ITrustbarDefaultProps) => {
+}: ITrustbarSliderProps) => {
   return (
     <Swiper
       loop
+      freeMode={{ enabled: true }}
       autoplay={{
         delay: 3000,
         reverseDirection: true,
@@ -59,11 +65,12 @@ export const TrustbarSlider = ({
         },
       }}
       className={cx('!py-5 !px-2 lg:!px-18', className)}
+      wrapperClass="items-center"
       modules={[Autoplay]}
       slidesPerView={1}
       spaceBetween={10}>
       {brandLogosList.map((logo, index) => (
-        <SwiperSlide key={`trustbar_${index}`}>
+        <SwiperSlide key={`trustbar_${index}`} className={classNameSlides}>
           <Image
             alt={typeof logo === 'string' ? logo : logo.img}
             className={cx('max-w-[100px] mx-auto sm:max-w-[130px]', classNameImage)}

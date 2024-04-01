@@ -4,6 +4,10 @@ import { defaultQuestions, quizPillSelectOptions } from './config'
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { indexOf } from 'lodash'
+import Mixpanel from '@/modules/Mixpanel'
+import { useGamAnalytics } from '@/modules/GAM'
+import { useFacebookPixel } from '@/modules/FacebookPixel'
+import { isMobile } from 'react-device-detect'
 
 export type TPossibleQuizQuestionValues = 0 | 0.5 | 1
 
@@ -119,6 +123,8 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
   const [currentQuestionType, setCurrentQuestionType] = useState<TQuizQuestionType>('Screen')
   // =========== Hooks ===========
   const router = useRouter()
+  const { setUserData } = useGamAnalytics()
+  const FBQ = useFacebookPixel()
 
   const length = questions.length
 
@@ -143,6 +149,51 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
   const onGoToNextQuestion = () => {
     if (i + 1 > questions.length - 1) return
     else setIndex((prev) => prev + 1)
+  }
+
+  const registerUser = (dominantStyle: TStyle) => {
+    const email = questions.find(
+      (i) => (i as TQuizQuestion<'FormInput'>)?.formInputData?.autocomplete === 'email'
+    )?.userResponse as string | undefined
+    const name = questions.find(
+      (i) => (i as TQuizQuestion<'FormInput'>)?.formInputData?.autocomplete === 'name'
+    )?.userResponse as string | undefined
+    if (typeof email !== 'string' || typeof name !== 'string') return
+    const [firstName, lastName] = name?.split(' ')
+    FBQ?.trackLead({
+      email: email,
+    })
+    setUserData({ email, firstName, userStyle: dominantStyle })
+
+    const requestBody = {
+      tags: [`attachment-quiz-${dominantStyle}`],
+      firstName,
+      lastName,
+      email,
+      listIds: [2],
+    }
+
+    fetch(
+      process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register' ||
+        'https://strapi.personaldevelopmentschool.com/api/register',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.success) throw res?.message || 'An unexpected error occured'
+        else {
+          Mixpanel.track.SignUp({ distinct_id: email })
+        }
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   const endQuiz = useCallback(() => {
@@ -176,6 +227,7 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
         ? `/quiz/v2/result/${dominantStyle}/${i}/${j}/${k}/${l}`
         : `/quiz/${dominantStyle}`
     router.prefetch(url)
+    registerUser(dominantStyle)
     return url
   }, [getQuestionType, questions, router])
 
@@ -189,6 +241,43 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
     onGoToNextQuestion()
   }
 
+  const trackProgressMobile = useCallback(() => {
+    const progress = (i / questions.length) * 100
+    if (document.visibilityState === 'hidden' && progress < 100) {
+      Mixpanel.track.QuizProgress({
+        quiz_name: 'Main Funnel Quiz',
+        progress: `${Math.round(progress)}%`,
+        question: i,
+        total_questions: questions.length,
+      })
+    }
+  }, [i, questions.length])
+
+  const trackProgressDesktop = useCallback(() => {
+    const progress = (i / questions.length) * 100
+    if (progress < 100) {
+      Mixpanel.track.QuizProgress({
+        quiz_name: 'Main Funnel Quiz',
+        progress: `${Math.round(progress)}%`,
+        question: i,
+        total_questions: questions.length,
+      })
+    }
+  }, [i, questions.length])
+
+  useEffect(() => {
+    if (isMobile) {
+      window.addEventListener('visibilitychange', trackProgressMobile)
+    } else {
+      window.addEventListener('pagehide', trackProgressDesktop)
+    }
+
+    return () => {
+      window.removeEventListener('visibilitychange', trackProgressMobile)
+      window.removeEventListener('pagehide', trackProgressDesktop)
+    }
+  }, [i, trackProgressMobile, trackProgressDesktop])
+
   return {
     answerQuestion,
     currentQuestion,
@@ -201,10 +290,10 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
   }
 }
 
-const getHighest = (percentages: number[]) => {
+const getHighest = (percentages: number[]): { highest: number; dominantStyle: TStyle } => {
   let highest = percentages[0]
-  const styles = ['fa', 'ap', 'da', 'sa']
-  let dominantStyle = 'fa'
+  const styles = ['fa', 'ap', 'da', 'sa'] as const
+  let dominantStyle: TStyle = 'fa'
   for (const n of percentages) {
     if (n > highest) {
       highest = n

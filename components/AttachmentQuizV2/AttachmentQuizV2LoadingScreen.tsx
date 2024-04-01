@@ -33,11 +33,6 @@ export const AttachmentQuizV2LoadingScreen = ({
   const router = useRouter()
 
   useEffect(() => {
-    console.log(
-      index,
-      question.screens.length,
-      question.screens[index]?.duration * 1000 || question.duration * 1000
-    )
     if (index === question.screens.length) router.push(onEndLoading())
     if (index > question.screens.length - 1) return
     setTimeout(

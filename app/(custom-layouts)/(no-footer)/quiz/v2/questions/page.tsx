@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
 import dynamic from 'next/dynamic'
 import { Loader } from '@/components/Loader'
+import Mixpanel from '@/modules/Mixpanel'
 
 const AttachmentQuizV2 = dynamic(
   () =>
@@ -24,7 +25,13 @@ const AttachmentQuizV2 = dynamic(
 )
 
 export default function AttachmentQuizV2QuestionsPage() {
+  // ============ State ============
   const [viewQuiz, setViewQuiz] = useState(false)
+
+  const onBeginQuiz = () => {
+    Mixpanel.track.QuizStarted({ quiz_name: 'Main Funnel Quiz' })
+    setViewQuiz(true)
+  }
 
   return (
     <>
@@ -56,7 +63,7 @@ export default function AttachmentQuizV2QuestionsPage() {
                 a personalized roadmap to achieve your personal and relationship goals.
               </p>
 
-              <Button label="BEGIN QUIZ" onClick={() => setViewQuiz(true)} />
+              <Button label="BEGIN QUIZ" onClick={() => onBeginQuiz()} />
             </Section>
           </>
         )}

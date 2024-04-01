@@ -247,7 +247,7 @@ export default function AttachmentQuizV2Page() {
             reverseIcons
             includeHeading={false}
             faq={PAGE_CONFIG.FAQs}
-            className="!max-w-none grid gap-4 rounded !mb-0 !p-0 lg:grid-cols-2"
+            className="!max-w-none grid gap-4 rounded !mb-0 !p-0 lg:grid-cols-2 lg:items-start"
             classNameExpandable="bg-white !border-none rounded-lg"
             classNameQuestion="mb-0"
           />

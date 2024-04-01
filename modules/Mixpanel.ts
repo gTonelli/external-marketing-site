@@ -229,7 +229,7 @@ class Mixpanel {
       this.event('Quiz Started', props)
     },
 
-    SignUp: (props: { distinct_id: string; $insert_id: string }) => {
+    SignUp: (props: { distinct_id: string; $insert_id?: string }) => {
       this.event('$signup', props)
     },
 

@@ -70,7 +70,10 @@ export const SignupForm = ({
       .then((res) => res.json())
       .then((res) => {
         if (!res.success) throw res?.message || 'An unexpected error occured'
-        else setSubmitted(true)
+        else {
+          Mixpanel.track.SignUp({ distinct_id: email })
+          setSubmitted(true)
+        }
       })
       .catch((error) => {
         console.error(error)

@@ -12,13 +12,12 @@ import { Image } from '@/components/Image'
 // libraries
 import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SECONDARY_SALES_PAGE as SSP } from '@/app/(default-layout)/learn/config'
+import { SECONDARY_SALES_PAGE as SSP } from '@/app/(custom-layouts)/(no-nav)/learn/config'
 import cx from 'classnames'
 // modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { EExternalRoutes, ERoutes, EWindowWidth } from '@/utils/constants'
-// styles
 // styles
 import 'swiper/css'
 import 'swiper/css/pagination'

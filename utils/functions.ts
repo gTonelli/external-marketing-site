@@ -50,6 +50,13 @@ export const stopEvent = (e: React.MouseEvent | MouseEvent) => {
   e.stopPropagation()
 }
 
+export const getInitials = (str: string) =>
+  str
+    .split('')
+    .filter((a) => a.match(/[A-Z]/))
+    .join('')
+    .toUpperCase()
+
 /**
  * A custom implementation for sending Mixpanel data. This function is for use with the Edge runtime and should never be used in the browser.
  * @param mixpanelID the distinct ID of the user

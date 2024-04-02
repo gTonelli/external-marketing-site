@@ -7,7 +7,7 @@ import { Button } from '../Button/Button'
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
 import { Text } from '../Text/Text'
-import { IResultProps, IUserInfo, TQuizTrafficSources, TUserStyle } from './AttachmentQuiz'
+import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { AttachmentQuizForm } from './AttachmentQuizForm'
 // config
 import {
@@ -21,6 +21,7 @@ import _ from 'lodash'
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
+import { TStyle } from '@/utils/types'
 
 let modifiedQuestions = [...questions]
 
@@ -231,7 +232,7 @@ export const AttachmentQuizQuestions = ({
         <AttachmentQuizForm
           quiz_traffic_source={quiz_traffic_source}
           userInfo={userInfo}
-          userStyle={style as TUserStyle}
+          userStyle={style as TStyle}
         />
       )}
     </section>

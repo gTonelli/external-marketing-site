@@ -5,7 +5,7 @@ import { TextHeading } from './Text/variants/TextHeading'
 import { Icon } from './Icon'
 import Link from 'next/link'
 // config
-import { TRIAL_HEADSPACE as TH } from '@/app/(default-layout)/dream-life/config'
+import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 
 export const Articles = () => {
   return (

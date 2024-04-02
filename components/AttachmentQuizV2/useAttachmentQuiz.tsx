@@ -40,7 +40,7 @@ type TLoadingScreen = {
 type TQuizResultDataKeys =
   | 'quiz-discovery-method'
   | 'relationship-satisfaction'
-  | 'focus-area'
+  | 'focus-areas'
   | 'relationship-status'
   | 'gender'
   | 'attachment-knowledge'
@@ -193,10 +193,7 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
     // Strapi DB record creation
     const data = parseQuizResultAdditionalData()
 
-    console.log('Saving')
-    console.log({ ...data, ...userData })
-
-    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/save-quiz-result', {
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/save-attachment-quiz-result', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -161,7 +161,7 @@ export const defaultQuestions: TQuizQuestions = [
   },
   {
     type: 'PillSelect',
-    'data-key': 'focus-area',
+    'data-key': 'focus-areas',
     heading: 'Choose the areas you want to focus',
     subheading: "Select all that matter to you, and we'll explore them together.",
     options: quizPillSelectOptions,

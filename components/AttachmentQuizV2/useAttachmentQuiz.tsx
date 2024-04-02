@@ -8,6 +8,7 @@ import Mixpanel from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { isMobile } from 'react-device-detect'
+import { Maybe } from 'yup'
 
 export type TPossibleQuizQuestionValues = 0 | 0.5 | 1
 
@@ -34,6 +35,18 @@ type TOptionSelectData = {
 type TLoadingScreen = {
   readonly heading: string | JSX.Element
   readonly duration: number
+}
+
+type TQuizResultDataKeys =
+  | 'quiz-discovery-method'
+  | 'relationship-satisfaction'
+  | 'focus-area'
+  | 'relationship-status'
+  | 'gender'
+  | 'attachment-knowledge'
+
+type TQuizResultData = {
+  [key in TQuizResultDataKeys]?: TAnswerQuestionArgs
 }
 
 export type TOptions =
@@ -77,6 +90,7 @@ interface IQuizQuestionFormInput extends IQuestionRequiredProps {
 
 interface IQuizQuestionOptionSelect extends IQuestionRequiredProps {
   readonly type: 'OptionSelect'
+  readonly 'data-key': TQuizResultDataKeys
   readonly options: TOptions
 }
 
@@ -86,10 +100,21 @@ interface IQuizQuestionAttachmentStyle extends IQuestionRequiredProps {
 
 interface IQuizQuestionPillSelect extends IQuestionRequiredProps {
   readonly type: 'PillSelect'
+  readonly 'data-key': TQuizResultDataKeys
   readonly options: typeof quizPillSelectOptions
 }
 
-type TAnswerQuestionArgs = string[] | string | Date | TPossibleQuizQuestionValues
+type TAnswerQuestionArgs = string | TPossibleQuizQuestionValues
+
+type TUserData = {
+  firstName?: string
+  lastName?: string
+  email?: string
+  faPercentage: number
+  apPercentage: number
+  daPercentage: number
+  saPercentage: number
+}
 
 export interface IQuizComponentDefaultArgs<T = TQuizQuestionType> {
   readonly question: TQuizQuestion<T>
@@ -151,6 +176,35 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
     else setIndex((prev) => prev + 1)
   }
 
+  const parseQuizResultAdditionalData = () => {
+    const data: TQuizResultData = {}
+    questions.forEach((question, k) => {
+      const questionType = getQuestionType(k)
+      if (questionType !== 'OptionSelect' && questionType !== 'PillSelect') return
+      const q = question as TQuizQuestion<'OptionSelect' | 'PillSelect'>
+      data[q['data-key']] = q.userResponse
+    })
+
+    return data
+  }
+
+  const saveAttachmentResult = (userData: Maybe<TUserData>) => {
+    if (!userData?.email) return
+    // Strapi DB record creation
+    const data = parseQuizResultAdditionalData()
+
+    console.log('Saving')
+    console.log({ ...data, ...userData })
+
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/save-quiz-result', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...data, ...userData }),
+    })
+  }
+
   const registerUser = (dominantStyle: TStyle) => {
     const email = questions.find(
       (i) => (i as TQuizQuestion<'FormInput'>)?.formInputData?.autocomplete === 'email'
@@ -173,17 +227,13 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
       listIds: [2],
     }
 
-    fetch(
-      process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register' ||
-        'https://strapi.personaldevelopmentschool.com/api/register',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }
-    )
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    })
       .then((res) => res.json())
       .then((res) => {
         if (!res.success) throw res?.message || 'An unexpected error occured'
@@ -194,6 +244,8 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
       .catch((error) => {
         console.error(error)
       })
+
+    return { firstName, lastName, email }
   }
 
   const endQuiz = useCallback(() => {
@@ -221,13 +273,16 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
     const difference = 100 - totalPercentage
     percentages[indexOf(percentages, highest)] += difference
 
-    const [i, j, k, l] = percentages
+    const [faPercentage, apPercentage, daPercentage, saPercentage] = percentages
     const url =
-      dominantStyle === 'fa' || dominantStyle === 'ap'
-        ? `/quiz/v2/result/${dominantStyle}/${i}/${j}/${k}/${l}`
+      dominantStyle === 'fa'
+        ? `/quiz/v2/result/${dominantStyle}/${faPercentage}/${apPercentage}/${daPercentage}/${saPercentage}`
         : `/quiz/${dominantStyle}`
     router.prefetch(url)
-    registerUser(dominantStyle)
+    const userData = registerUser(dominantStyle)
+
+    saveAttachmentResult({ ...userData, faPercentage, apPercentage, daPercentage, saPercentage })
+
     return url
   }, [getQuestionType, questions, router])
 
@@ -297,7 +352,7 @@ const getHighest = (percentages: number[]): { highest: number; dominantStyle: TS
   for (const n of percentages) {
     if (n > highest) {
       highest = n
-      dominantStyle = styles[n]
+      dominantStyle = styles[percentages.indexOf(n)]
     }
   }
   return { highest, dominantStyle }

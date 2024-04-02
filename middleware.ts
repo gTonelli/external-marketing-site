@@ -4,18 +4,28 @@ import { sendEventUnsafe } from './utils/functions'
 
 export function middleware(request: NextRequest) {
   try {
-    if (!request.nextUrl.pathname.includes('/iat')) return NextResponse.next()
+    const pageData = getPageData(request)
+    if (
+      !pageData?.cookieKey ||
+      !pageData.experimentName ||
+      !pageData.pageName ||
+      !pageData.variantUrl ||
+      !pageData.variantRatio
+    ) {
+      return NextResponse.next()
+    }
+    const { cookieKey, experimentName, pageName, variantUrl, variantRatio } = pageData
 
     let showVariant = false
     let setCookie = false
-    const variantCookie = request.cookies.get('prod-2556-iat-nav')?.value
+    const variantCookie = request.cookies.get(cookieKey)?.value
     const mixpanelCookie = request.cookies.get(
       `mp_${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}_mixpanel`
     )
 
     if (!mixpanelCookie) {
       const response = NextResponse.next()
-      response.cookies.set('prod-2556-iat-nav', 'false')
+      response.cookies.set(cookieKey, 'false')
       return response
     }
 
@@ -24,24 +34,23 @@ export function middleware(request: NextRequest) {
     if (typeof variantCookie === 'string') {
       showVariant = JSON.parse(variantCookie)
     } else {
-      showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+      showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
       setCookie = true
-      const experimentName = 'PROD-2556-IAT-Nav'
       const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
       sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
         'Experiment name': experimentName,
         'Variant name': showVariant ? 'Variant 1' : 'Control',
-        page_name: 'External IAT Page',
+        page_name: pageName,
       })
     }
 
     const response = showVariant
-      ? NextResponse.redirect(new URL('/coaching', request.nextUrl.origin))
+      ? NextResponse.redirect(new URL(variantUrl, request.nextUrl.origin))
       : NextResponse.next()
 
     if (setCookie) {
       response.cookies.set({
-        name: 'prod-2556-iat-nav',
+        name: cookieKey,
         value: showVariant.toString(),
         httpOnly: false,
         maxAge: 7776000, // 3 Months
@@ -53,6 +62,28 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 }
+
 export const config = {
-  matcher: '/iat',
+  matcher: ['/iat', '/quiz'],
+}
+
+const getPageData = (request: NextRequest) => {
+  if (request.nextUrl.pathname.includes('/iat')) {
+    return {
+      cookieKey: 'prod-2556-iat-nav',
+      pageName: 'External IAT Page',
+      experimentName: 'PROD-2556-IAT-Nav',
+      variantUrl: '/coaching',
+      variantRatio: 0.5,
+    }
+  }
+  if (request.nextUrl.pathname.includes('/quiz')) {
+    return {
+      cookieKey: 'prod-2577-quiz',
+      pageName: 'Main Funnel Quiz',
+      experimentName: 'PROD-2577-Quiz',
+      variantUrl: '/quiz/v2',
+      variantRatio: 0.2,
+    }
+  }
 }

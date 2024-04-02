@@ -92,6 +92,7 @@ export const defaultQuestions: TQuizQuestions = [
   {
     type: 'OptionSelect',
     heading: 'When it comes to attachment styles, you are:',
+    'data-key': 'attachment-knowledge',
     subheading: 'Why we ask?',
     options: [
       {
@@ -133,6 +134,7 @@ export const defaultQuestions: TQuizQuestions = [
   },
   {
     type: 'OptionSelect',
+    'data-key': 'gender',
     heading: 'What is your gender?',
     subheading: 'Why we ask?',
     options: [
@@ -143,6 +145,7 @@ export const defaultQuestions: TQuizQuestions = [
   },
   {
     type: 'OptionSelect',
+    'data-key': 'relationship-status',
     heading: 'What is your current situation?',
     subheading: 'Why we ask?',
     options: [
@@ -158,12 +161,14 @@ export const defaultQuestions: TQuizQuestions = [
   },
   {
     type: 'PillSelect',
+    'data-key': 'focus-area',
     heading: 'Choose the areas you want to focus',
     subheading: "Select all that matter to you, and we'll explore them together.",
     options: quizPillSelectOptions,
   },
   {
     type: 'OptionSelect',
+    'data-key': 'relationship-satisfaction',
     heading: 'How would you rate your current satisfaction in your relationship?',
     options: [
       {
@@ -327,6 +332,7 @@ export const defaultQuestions: TQuizQuestions = [
   },
   {
     type: 'OptionSelect',
+    'data-key': 'quiz-discovery-method',
     heading: 'How did you discover the quiz or learn about the Personal Development School?',
     subheading: 'Why we ask?',
     options: [

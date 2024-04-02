@@ -7,6 +7,7 @@ import { isMobile } from 'react-device-detect'
 
 interface IAnimationProps extends IDefaultWrapperProps {
   delay?: number
+  disabled?: boolean
   direction?: 'fromLeft' | 'fromRight' | 'fromTop' | 'fromBottom'
   onClick?: () => void
   onAnimationComplete?: () => void
@@ -15,6 +16,7 @@ interface IAnimationProps extends IDefaultWrapperProps {
 export const Animation = ({
   delay = 0,
   direction = 'fromLeft',
+  disabled = false,
   className,
   children,
   onClick,
@@ -26,7 +28,7 @@ export const Animation = ({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, x, y }}
+      initial={disabled ? false : { opacity: 0, x, y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       transition={{ delay: isMobile ? 0 : delay }}
       exit={{

@@ -23,7 +23,7 @@ import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from './config'
 // libraries
 import cx from 'classnames'
-import { Form, Formik, FormikConfig } from 'formik'
+import { Form, Formik, FormikConfig, FormikHelpers } from 'formik'
 import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import * as Yup from 'yup'
@@ -33,6 +33,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { RegistrationForm } from '@/components/Forms/RegistrationForm'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -47,7 +48,7 @@ const TRUSTBAR = [
   `yahoo-news-logo.png`,
 ]
 
-export const IATPage = () => {
+export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean }) => {
   const page_name = 'External IAT Page'
 
   // ============== Hooks =================
@@ -128,7 +129,7 @@ export const IATPage = () => {
       </div>
 
       {/* VIDEO SECTION */}
-      <Section className="py-9 lg:py-16">
+      <Section className="pt-9 lg:pt-16">
         <Video.Large
           className="mx-auto shadow-centered max-w-3xl lg:p-8"
           srcUrl="https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4"
@@ -143,6 +144,27 @@ export const IATPage = () => {
           onClick={onClickPurchase}
         />
       </Section>
+
+      {showLeadGenForm && (
+        <Section classNameInner="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8 !text-left">
+          <div className="lg:order-2">
+            <Text.Heading
+              content="Ignite Your Entrepreneurial Passion: Get Your FREE E-Book to Kickstart Your Relationship Coaching Business!"
+              className="mb-4"
+            />
+
+            <Text.Paragraph content="Take the first step towards success today by joining our email community. Receive exclusive offers, expert tips, and a complimentary copy of the Relationship Coaching eBook by renowned author Thais Gibson - don't miss out on this valuable resource!" />
+
+            <IATRegistrationForm />
+          </div>
+
+          <Image
+            alt="A mockup of the ebook 'Transform Your Coaching Practice"
+            className="w-full max-w-xl"
+            src="IATPage/iat-ebook-mockup.png"
+          />
+        </Section>
+      )}
 
       {/* BECOME A RELATIONSHIP COACH SECTION */}
       <Section className="pt-0 lg:py-0" classNameInner="max-w-3xl">
@@ -1334,5 +1356,99 @@ const IATTestimonialSection = () => {
         </div>
       </div>
     </Section>
+  )
+}
+
+const RegistrationFormValidationSchema = Yup.object()
+  .shape({
+    firstName: Yup.string().defined().ensure().required(' First name required'),
+    email: Yup.string()
+      .defined()
+      .ensure()
+      .required('Email required')
+      .email('Valid email required.'),
+  })
+  .defined()
+
+export interface IRegistrationFormSchema
+  extends Yup.InferType<typeof RegistrationFormValidationSchema> {}
+
+const registrationFormInitialValues: IRegistrationFormSchema =
+  RegistrationFormValidationSchema.cast({})
+
+const IATRegistrationForm = () => {
+  const [formSubmissionSuccess, setFormSubmissionSuccess] = useState(false)
+  const [formSubmissionError, setFormSubmissionError] = useState('')
+
+  const onSubmit = async (values: IRegistrationFormSchema, formikHelpers: FormikHelpers<any>) => {
+    setFormSubmissionError('')
+    await fetch('https://strapi.personaldevelopmentschool.com/api/register', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: values.email,
+        firstName: values.firstName,
+        tags: ['iat-tips-ebook'],
+        listIds: [54],
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.success) {
+          throw typeof data.message === 'string' ? data.message : 'An unexpected error occured!'
+        }
+        formikHelpers.setSubmitting(false)
+        setFormSubmissionSuccess(true)
+
+        Mixpanel.setUser(values.email)
+        Mixpanel.track.SignUp({ distinct_id: values.email })
+      })
+      .catch((err: any) => {
+        formikHelpers.setSubmitting(false)
+        setFormSubmissionError(typeof err === 'string' ? err : 'An unexpected error occured!')
+      })
+  }
+
+  if (formSubmissionSuccess)
+    return (
+      <div className="p-4 bg-success text-white mt-4 rounded-lg">
+        <Text.Heading className="mb-2" content="Welcome to our email community!" size={4} />
+
+        <Text.Paragraph content="Your free ebook is en route to your inbox! Stay tuned for more exciting updates, exclusive offers, and valuable content. And most of all enjoy!" />
+      </div>
+    )
+
+  return (
+    <Formik
+      initialValues={registrationFormInitialValues}
+      validateOnBlur={false}
+      validationSchema={RegistrationFormValidationSchema}
+      onSubmit={onSubmit}>
+      {({ isSubmitting }) => (
+        <Form className="w-full max-w-xl mx-auto">
+          <div className="flex">
+            <Input.Field className="mx-0 mr-4 flex-1" label="Your First name" name="firstName" />
+
+            <Input.Field className="mx-0 flex-1" label="Email Address" name="email" />
+          </div>
+
+          {formSubmissionError && (
+            <div className="flex items-center p-4 bg-danger text-white mt-4 rounded-lg">
+              <Icon className="mr-4" name="xmark-circle" type="light" />
+
+              <Text.Paragraph content={formSubmissionError} />
+            </div>
+          )}
+
+          <Button.Submit
+            className="block w-full font-bold text-base self-start text-center rounded-full tracking-widest mt-4"
+            disabled={isSubmitting}
+            label={'SUBMIT'}
+          />
+        </Form>
+      )}
+    </Formik>
   )
 }

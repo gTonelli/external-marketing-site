@@ -4,12 +4,12 @@
 import React from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
-import { Button } from './Button/Button'
-import { Captcha } from './Captcha'
-import { IUserInfo } from './AttachmentQuiz/AttachmentQuiz'
-import { Input } from './Input/Input'
-import { Text } from './Text/Text'
-import { IDefaultProps } from '.'
+import { Button } from '../Button/Button'
+import { Captcha } from '../Captcha'
+import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
+import { Input } from '../Input/Input'
+import { Text } from '../Text/Text'
+import { IDefaultProps } from '..'
 // libraries
 import { MD5 } from 'crypto-js'
 import { Form, Formik } from 'formik'

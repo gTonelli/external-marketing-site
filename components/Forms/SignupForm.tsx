@@ -53,7 +53,7 @@ export const SignupForm = ({
     })
 
     const requestBody = {
-      userTags,
+      tags: userTags,
       firstName,
       email,
       listIds,

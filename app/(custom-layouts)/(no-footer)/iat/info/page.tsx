@@ -68,18 +68,18 @@ export default function IATInfoPage() {
         <CarouselTestimonialPlain />
       </Section>
 
-      <Section className="!pt-0">
+      <Section className="!py-0">
         <TrustbarSlider
           brandLogosList={trustbarSlides}
-          className="items-stretch"
+          className="items-stretch !pb-0"
           classNameImage="!mx-0"
           classNameSlides="flex flex-col flex-1 items-center justify-center"
         />
       </Section>
 
       <Section
-        className="shadow-center-light lg:shadow-none"
-        classNameInner="!max-w-screen-xl lg:p-20 lg:rounded-4xl lg:shadow-md">
+        className="shadow-center-light lg:!pt-4 lg:shadow-none"
+        classNameInner="!max-w-screen-xl lg:p-16 lg:px-20 lg:rounded-4xl lg:shadow-center-light">
         <h2 className="text-left lg:text-center">
           What is Stopping You from Living the Life You've Always Wanted?
         </h2>

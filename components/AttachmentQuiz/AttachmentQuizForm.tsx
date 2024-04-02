@@ -4,7 +4,7 @@
 import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
-import { RegistrationForm } from '../RegistrationForm'
+import { RegistrationForm } from '../Forms/RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
 import { TStyle } from '@/utils/types'

@@ -39,13 +39,13 @@ export const InputField = ({
   const error = submitCount > 0 && get(errors, name)
 
   return (
-    <Field name={name}>
+    <Field className="rounded-xl" name={name}>
       {(fieldProps: FieldProps) => (
         <div className={cx('relative m-4 rounded-xl group text-left', className)}>
           <input
             {...fieldProps.field}
             autoComplete={autocomplete}
-            className="w-full outline-none border-none focus:ring-transparent peer py-2 px-4"
+            className="w-full outline-none border-none focus:ring-transparent peer py-2 px-4 rounded-xl"
             placeholder=" "
             type={type}
           />
@@ -119,7 +119,7 @@ type TAutocompleteValues =
   | 'name'
   | 'additional-name'
   | 'family-name'
-  | 'give-name'
+  | 'given-name'
   | 'honoric-prefix'
   | 'honoric-suffix'
   | 'nickname'

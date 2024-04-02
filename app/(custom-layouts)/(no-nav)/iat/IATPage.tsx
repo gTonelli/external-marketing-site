@@ -33,7 +33,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { RegistrationForm } from '@/components/RegistrationForm'
+import { RegistrationForm } from '@/components/Forms/RegistrationForm'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,

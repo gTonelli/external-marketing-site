@@ -145,28 +145,21 @@ export const CarouselTestimonial = forwardRef(
             3xl:max-w-1/2">
           {/* LEFT QUOTE */}
           {showQuotations ? (
-            // <ScrollInAnimation animateIn="animFadeInRight" delay={headingAnimationDelay}>
             <div>
               <Image className="hidden lg:block" src="homepage_quote_left.png" />
             </div>
-          ) : // </ScrollInAnimation>
-
-          null}
+          ) : null}
 
           {/* HEADING */}
-          {/* <ScrollInAnimation animateIn="animFadeInDown" delay={headingAnimationDelay}> */}
           <Text.Heading
             className={cx('block text-center', classNameHeader)}
             content={headingText}
           />
-          {/* </ScrollInAnimation> */}
 
           {/* RIGHT QUOTE */}
           {showQuotations ? (
-            // <ScrollInAnimation animateIn="animFadeInLeft" delay={headingAnimationDelay}>
             <Image className="hidden lg:block" src="homepage_quote_right.png" />
-          ) : // </ScrollInAnimation>
-          null}
+          ) : null}
         </div>
 
         {/* SLIDER */}
@@ -192,13 +185,11 @@ export const CarouselTestimonial = forwardRef(
               <SwiperSlide
                 key={`review_${index}`}
                 className={cx('flex justify-evenly self-start', classNameSlide)}>
-                {/* <ScrollInAnimation animateIn="animFadeInUp" className="flex" delay={index * 100}> */}
                 {isPrimary ? (
                   <Testimonial className={classNameCard} review={review} />
                 ) : (
                   <Testimonial.Tertiary className={classNameCard} review={review} />
                 )}
-                {/* </ScrollInAnimation> */}
               </SwiperSlide>
             ))}
           </Swiper>

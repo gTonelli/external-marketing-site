@@ -1,0 +1,26 @@
+.bg-mobile {
+  position: absolute;
+  width: 100%;
+}
+
+.iRomantic {
+  background-color: #d35592;
+}
+.iFamily {
+  background-color: #71c2c1;
+}
+.iFriends {
+  background-color: #d35e4a;
+}
+
+.iFriends path,
+.iFamily path,
+.iRomantic path {
+  fill: white !important;
+}
+
+@media (min-width: 1024px) {
+  .bg-mobile {
+    display: none;
+  }
+}

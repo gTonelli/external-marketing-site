@@ -5,7 +5,7 @@ import { IDefaultProps } from '.'
 import { Button } from './Button/Button'
 import { Text } from './Text/Text'
 // config
-import { TRIAL_HEADSPACE as TH } from '@/app/(default-layout)/dream-life/config'
+import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import cx from 'classnames'
 // modules

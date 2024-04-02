@@ -8,10 +8,13 @@ import { Button } from './Button/Button'
 import { Captcha } from './Captcha'
 import { IUserInfo } from './AttachmentQuiz/AttachmentQuiz'
 import { Input } from './Input/Input'
+import { Text } from './Text/Text'
+import { IDefaultProps } from '.'
 // libraries
 import { MD5 } from 'crypto-js'
 import { Form, Formik } from 'formik'
 import * as yup from 'yup'
+import cx from 'classnames'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -19,9 +22,8 @@ import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
 import { TStyle } from '@/utils/types'
-import { Text } from './Text/Text'
 
-interface IRegistrationFormProps {
+interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
   onAfterSubmit?(): void
   /** String or function that retuirns a string for generating client tags */
@@ -38,6 +40,7 @@ interface IRegistrationFormProps {
 
 export const RegistrationForm = ({
   onAfterSubmit,
+  className,
   clientTag,
   newQuiz = false,
   userInfo,
@@ -137,7 +140,11 @@ export const RegistrationForm = ({
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
       {({ setFieldValue, isSubmitting }) => (
-        <Form className="w-full max-w-xl flex-col justify-center px-2 mx-auto xxs:!px-3 xs:!px-4 md:pt-8">
+        <Form
+          className={cx(
+            'w-full max-w-xl flex-col justify-center px-2 mx-auto xxs:!px-3 xs:!px-4 md:pt-8',
+            className
+          )}>
           <div className="md:px-4">
             {newQuiz ? (
               <div>

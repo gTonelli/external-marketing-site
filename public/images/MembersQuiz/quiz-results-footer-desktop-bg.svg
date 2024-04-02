@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1370.562" height="523.895" viewBox="0 0 1370.562 523.895">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_68332" data-name="Path 68332" d="M0,74.715H1370.562V556.882S759.413,650.771,0,556.882C1.808,556.042,0,74.715,0,74.715Z" transform="translate(0 0)" fill="#c3d7db"/>
+    </clipPath>
+  </defs>
+  <g id="Group_50155" data-name="Group 50155" transform="translate(1370.562 598.61) rotate(180)" clip-path="url(#clip-path)">
+    <path id="PDS-Header-Banner" d="M0,0H1370.562V1243.269H0Z" transform="translate(0 -621.634)" fill="#c3d7db"/>
+    <ellipse id="Ellipse_8" data-name="Ellipse 8" cx="14.234" cy="23.01" rx="14.234" ry="23.01" transform="translate(635.122 -742.163)" fill="#c3d7db"/>
+  </g>
+</svg>

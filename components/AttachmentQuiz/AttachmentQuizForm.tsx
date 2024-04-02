@@ -3,13 +3,14 @@
 //core
 import { useRouter } from 'next/navigation'
 // components
-import { TUserStyle, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
+import { TStyle } from '@/utils/types'
 
 interface IAttachmentQuizFormProps {
-  userStyle: TUserStyle
+  userStyle: TStyle
   userInfo?: IUserInfo
   quiz_traffic_source: TQuizTrafficSources
 }

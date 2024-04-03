@@ -104,7 +104,7 @@ interface IQuizQuestionPillSelect extends IQuestionRequiredProps {
   readonly options: typeof quizPillSelectOptions
 }
 
-type TAnswerQuestionArgs = string | TPossibleQuizQuestionValues
+type TAnswerQuestionArgs = string | string[] | number | TPossibleQuizQuestionValues
 
 type TUserData = {
   firstName?: string

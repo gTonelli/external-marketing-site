@@ -66,7 +66,7 @@ export const AttachmentQuizV2FormInput = ({
 type TFormValues = {
   name?: string
   email?: string
-  age?: Date | string
+  age?: string | number
 }
 
 const getInputSchema = (autocomplete: 'age' | 'email' | 'name') => {

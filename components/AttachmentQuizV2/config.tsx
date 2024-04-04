@@ -122,7 +122,6 @@ export const defaultQuestions: TQuizQuestions = [
         (q) => (q as TQuizQuestion<'OptionSelect'>)['data-key'] === 'attachment-knowledge'
       )
       if (!q) return
-      console.log('Found', q)
       switch (q.userResponse) {
         case 'informed':
           return "Great! You know what's coming then. But before that, let's get to know you."

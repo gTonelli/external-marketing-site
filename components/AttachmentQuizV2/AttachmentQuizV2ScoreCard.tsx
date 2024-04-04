@@ -1,9 +1,11 @@
 'use client'
 
-import { Storage } from '@/modules/Storage'
-import { orderBy } from 'lodash'
+// core
 import { useEffect, useState } from 'react'
+// components
 import { Icon } from '../Icon'
+// libraries
+import { orderBy } from 'lodash'
 
 type TAttachmentStyle = {
   style: string

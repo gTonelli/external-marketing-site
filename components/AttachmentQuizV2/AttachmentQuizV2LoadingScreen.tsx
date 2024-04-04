@@ -4,11 +4,11 @@ import { useRouter } from 'next/navigation'
 // components
 import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
 import { Animation } from '../Animation'
-// utils
-import { ERoutes } from '@/utils/constants'
 // libraries
 import { motion } from 'framer-motion'
 import { useTime, useTransform } from 'framer-motion'
+// utils
+import { ERoutes } from '@/utils/constants'
 
 interface IAttachmentQuizV2LoadingScreenProps extends IQuizComponentDefaultArgs<'LoadingScreen'> {
   onEndLoading: () => string | ERoutes
@@ -18,8 +18,11 @@ export const AttachmentQuizV2LoadingScreen = ({
   question,
   onEndLoading,
 }: IAttachmentQuizV2LoadingScreenProps) => {
+  // ========== State ==========
   const [header, setHeader] = useState(question.heading)
   const [index, setIndex] = useState(-1)
+  const [url, setUrl] = useState<string | ERoutes>('')
+  // ========== Hooks ==========
   const totalDuration = question.screens.reduce(
     (prev, curr) => prev + curr.duration,
     question.duration
@@ -33,7 +36,11 @@ export const AttachmentQuizV2LoadingScreen = ({
   const router = useRouter()
 
   useEffect(() => {
-    if (index === question.screens.length) router.push(onEndLoading())
+    setUrl(onEndLoading())
+  }, [onEndLoading])
+
+  useEffect(() => {
+    if (index === question.screens.length) router.push(url)
     if (index > question.screens.length - 1) return
     setTimeout(
       () => setIndex(index + 1),
@@ -41,7 +48,7 @@ export const AttachmentQuizV2LoadingScreen = ({
     )
     if (index < 0) return
     setHeader(question.screens[index].heading)
-  }, [index, onEndLoading, question.duration, question.screens, router])
+  }, [index, onEndLoading, question.duration, question.screens, router, url])
 
   return (
     <>

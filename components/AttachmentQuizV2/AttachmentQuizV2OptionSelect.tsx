@@ -1,8 +1,10 @@
+// components
 import { Animation } from '../Animation'
 import { Icon } from '../Icon'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
-import cx from 'classnames'
 import { IQuizComponentDefaultArgs, TPossibleQuizQuestionValues } from './useAttachmentQuiz'
+// libraries
+import cx from 'classnames'
 
 export const AttachmentQuizV2OptionSelect = ({
   question,

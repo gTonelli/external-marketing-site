@@ -1,12 +1,14 @@
 'use client'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { offerSectionSelfImprovementSlides } from './config'
+// components
 import { AttachmentQuizV2SelfImprovementCard } from './AttachmentQuizV2SelfImprovementCard'
+// libraries
+import { Swiper, SwiperSlide } from 'swiper/react'
+// config
+import { offerSectionSelfImprovementSlides } from './config'
 
 // styles
 import 'swiper/css'
-import { Section } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/v2/config'
 
 export const AttachmentQuizV2SelfImprovementSlider = () => {
   return (

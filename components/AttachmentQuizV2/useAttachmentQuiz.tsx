@@ -1,14 +1,22 @@
-import { TStyle } from '@/utils/types'
-import { IconName } from '@fortawesome/fontawesome-common-types'
-import { defaultQuestions, quizPillSelectOptions } from './config'
+'use client'
+
+// core
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+// components
+import { TStyle } from '@/utils/types'
+// config
+import { defaultQuestions, quizPillSelectOptions } from './config'
+// libraries
+import { IconName } from '@fortawesome/fontawesome-common-types'
 import { indexOf } from 'lodash'
+import { isMobile } from 'react-device-detect'
+import { Maybe } from 'yup'
+// modules
 import Mixpanel from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
-import { isMobile } from 'react-device-detect'
-import { Maybe } from 'yup'
+// utils
 
 export type TPossibleQuizQuestionValues = 0 | 0.5 | 1
 
@@ -174,8 +182,7 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
   }
 
   const onGoToNextQuestion = () => {
-    if (i + 1 > questions.length - 1) return
-    else setIndex((prev) => prev + 1)
+    if (i < questions.length - 1) setIndex((prev) => prev + 1)
   }
 
   const parseQuizResultAdditionalData = () => {

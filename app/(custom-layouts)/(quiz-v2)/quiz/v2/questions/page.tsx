@@ -1,13 +1,16 @@
 'use client'
 
+// core
+import { useState } from 'react'
+// components
 import { Page } from '@/components/Page'
 import { Section } from '../../../../(no-nav)/quiz/(variants)/v2/config'
 import { Button } from '@/components/Button/Button'
 import Image from 'next/image'
-import { useState } from 'react'
 import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
 import dynamic from 'next/dynamic'
 import { Loader } from '@/components/Loader'
+// modules
 import Mixpanel from '@/modules/Mixpanel'
 
 const AttachmentQuizV2 = dynamic(
@@ -38,12 +41,12 @@ export default function AttachmentQuizV2QuestionsPage() {
       <Page
         className="relative flex flex-col flex-1 min-h-[100vh] overflow-hidden"
         page_name="Attachment Style Quiz Questions">
-        {!viewQuiz && <AttachmentQuizV2Navigation />}
-
         {viewQuiz ? (
           <AttachmentQuizV2 setViewQuiz={setViewQuiz} />
         ) : (
           <>
+            <AttachmentQuizV2Navigation />
+
             <Image
               alt="A couple sitting on the coach on their phones and smiling"
               className="absolute top-0 left-0 w-full h-full object-cover z-5 object-bottom"

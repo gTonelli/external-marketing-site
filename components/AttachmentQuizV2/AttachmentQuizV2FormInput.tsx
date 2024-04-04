@@ -1,10 +1,13 @@
-import { Field, Form, Formik } from 'formik'
-import { Icon } from '../Icon'
-import * as Yup from 'yup'
+// components
 import { Button } from '../Button/Button'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
 import { Animation } from '../Animation'
 import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
+import { Icon } from '../Icon'
+// libraries
+import { Field, Form, Formik } from 'formik'
+import * as Yup from 'yup'
+// modules
 import { Storage } from '@/modules/Storage'
 
 export const AttachmentQuizV2FormInput = ({

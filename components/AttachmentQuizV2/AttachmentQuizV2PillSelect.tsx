@@ -1,11 +1,14 @@
-import cx from 'classnames'
+// core
 import { useRef, useState } from 'react'
+// components
 import { Animation } from '../Animation'
 import { Button } from '../Button/Button'
 import { Icon } from '../Icon'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
-import { AnimatePresence } from 'framer-motion'
 import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
+//libraries
+import cx from 'classnames'
+import { AnimatePresence } from 'framer-motion'
 
 export const AttachmentQuizV2PillSelect = ({
   question,

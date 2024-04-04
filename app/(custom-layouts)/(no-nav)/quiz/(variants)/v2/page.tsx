@@ -59,7 +59,7 @@ export default function AttachmentQuizV2Page() {
 
       <Section className="bg-black text-white lg:mb-8" classNameInner="!text-left">
         <Animation direction="fromBottom">
-          <CarouselSocialProof className="animFadeInBottom" slides={PAGE_CONFIG.slides} />
+          <CarouselSocialProof slides={PAGE_CONFIG.slides} />
         </Animation>
       </Section>
 

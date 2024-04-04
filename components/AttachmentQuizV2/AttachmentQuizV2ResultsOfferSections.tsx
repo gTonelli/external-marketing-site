@@ -1,9 +1,19 @@
+// components
 import { Section } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/v2/config'
 import { EExternalRoutes } from '@/utils/constants'
 import Link from 'next/link'
 import { Button } from '../Button/Button'
 import Image from 'next/image'
 import { AttachmentQuizV2SelfImprovementSlider } from './AttachmentQuizV2SelfImprovementSlider'
+import { Icon } from '../Icon'
+import { Animation } from '../Animation'
+import { Trustbar } from '../Trustbar/Trustbar'
+import { VideoYoutube } from '../Video/variants/VideoYoutube'
+import { PricingSection } from '../PricingSection'
+import { IconName } from '@fortawesome/fontawesome-common-types'
+import { CarouselTestimonial } from '../Carousel/variants/CarouselTestimonial'
+import { Faq } from '../Faq/Faq'
+// config
 import {
   aapWhatsIncluded,
   courseCommunityOutcomes,
@@ -12,17 +22,8 @@ import {
   mockupSectionCards,
   toolsStrategies,
 } from './config'
-import { Icon } from '../Icon'
-import { Animation } from '../Animation'
-import { Trustbar } from '../Trustbar/Trustbar'
-import { VideoYoutube } from '../Video/variants/VideoYoutube'
-import { PricingSection } from '../PricingSection'
-import { IconName } from '@fortawesome/fontawesome-common-types'
+// libraries
 import cx from 'classnames'
-import { CarouselTestimonial } from '../Carousel/variants/CarouselTestimonial'
-import { CarouselTestimonialAlt } from '../Carousel/variants/CarouselTestimonialAlt'
-import { CarouselSocialProof } from '../Carousel/variants/CarouselSocialProof'
-import { Faq } from '../Faq/Faq'
 
 export const AttachmentQuizV2ResultsOfferSections = () => {
   return (

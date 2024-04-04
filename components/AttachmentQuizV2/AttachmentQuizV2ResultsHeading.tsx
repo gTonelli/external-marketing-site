@@ -11,6 +11,7 @@ export const AttachmentQuizV2ResultsHeading = () => {
   useEffect(() => {
     const name = Storage.get('userFullName')
     if (name) setTitle(`Made For ${name}`)
+    else setTitle('Made For You')
   }, [])
 
   return <h1>{title}</h1>

@@ -1,5 +1,10 @@
-import { AttachmentQuizV2Navigation } from './AttachmentQuizV2Navigation'
+'use client'
+
+// core
 import { Dispatch, SetStateAction, useState } from 'react'
+// components
+import { TQuizQuestion, useAttachmentQuiz } from './useAttachmentQuiz'
+import { AttachmentQuizV2Navigation } from './AttachmentQuizV2Navigation'
 import { motion } from 'framer-motion'
 import { Section } from '../Section'
 import { AttachmentQuizV2Heading as AttachmentQuizV2Screen } from './AttachmentQuizV2Heading'
@@ -8,7 +13,6 @@ import { AttachmentQuizV2FormInput } from './AttachmentQuizV2FormInput'
 import { AttachmentQuizV2OptionSelect } from './AttachmentQuizV2OptionSelect'
 import { AttachmentQuizV2PillSelect } from './AttachmentQuizV2PillSelect'
 import { AttachmentQuizV2QuizQuestion } from './AttachmentQuizV2QuizQuestion'
-import { TQuizQuestion, useAttachmentQuiz } from './useAttachmentQuiz'
 import { AttachmentQuizV2LoadingScreen } from './AttachmentQuizV2LoadingScreen'
 
 export const AttachmentQuizV2 = ({

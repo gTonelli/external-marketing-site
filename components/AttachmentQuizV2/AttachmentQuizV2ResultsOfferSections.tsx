@@ -1,5 +1,5 @@
 // components
-import { Section } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/v2/config'
+import { Section } from '@/app/(custom-layouts)/(quiz-v2)/quiz/v2/config'
 import { EExternalRoutes } from '@/utils/constants'
 import Link from 'next/link'
 import { Button } from '../Button/Button'
@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { AttachmentQuizV2SelfImprovementSlider } from './AttachmentQuizV2SelfImprovementSlider'
 import { Icon } from '../Icon'
 import { Animation } from '../Animation'
-import { Trustbar } from '../Trustbar/Trustbar'
+import { TrustbarSlider } from '../Trustbar/variants/TrustbarSlider'
 import { VideoYoutube } from '../Video/variants/VideoYoutube'
 import { PricingSection } from '../PricingSection'
 import { IconName } from '@fortawesome/fontawesome-common-types'
@@ -29,7 +29,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
   return (
     <>
       <Section className="!px-0 !pt-0">
-        <div className="default-padding !pb-0 mb-8">
+        <div className="default-padding !pb-0 !pt-0 mb-8">
           <Animation>
             <h3 className="mb-6">
               Become a better version of yourself with courses, global community and live coaching
@@ -101,7 +101,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
 
       <Section classNameInner="default-padding bg-gradient-to-b from-blue-lightest/50 to-blue-light/50 rounded-20 !text-left lg:shadow-md">
         <Animation>
-          <h3 className="mb-4">A Guided 7-Day Roadmap to Self-Improvement</h3>
+          <h3 className="mb-4">Your Guided 7-Day Roadmap to Self-Improvement</h3>
         </Animation>
 
         <Animation delay={0.15}>
@@ -156,7 +156,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
       </Section>
 
       <Animation>
-        <Trustbar />
+        <TrustbarSlider />
       </Animation>
 
       <Section>
@@ -166,8 +166,8 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
 
         <Animation delay={0.15}>
           <p className="lg:mb-8">
-            Our average members tell us that 10 minutes a day for 90 days is all you to need these
-            transformations
+            Our average members tell us that 10 minutes a day for 90 days is all you need experience
+            these transformations
           </p>
         </Animation>
 
@@ -247,10 +247,19 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
               key={`tool_strategy_${i}`}
               className="p-4 bg-green-light flex flex-col flex-1 rounded-2xl lg:shadow-md"
               delay={i * 0.1}>
-              <Icon
-                name={(i + 1).toString() as unknown as IconName}
-                className="w-max text-green-light text-xs bg-black px-2 py-1 rounded-md mb-3 md:text-base lg:mb-4"
-              />
+              <div className="w-max relative flex p-1 mb-3 lg:mb-4">
+                <Icon
+                  name={(i + 1).toString() as unknown as IconName}
+                  className="w-max text-green-light text-xs bg-black px-2 py-1 rounded-md md:text-base"
+                />{' '}
+                {data.youAreHere && (
+                  <div className="absolute -top-1 -left-1 z-5 w-[calc(100%+0.5rem)] h-[calc(100%+0.5rem)] rounded-md bg-yellow-tertiary/75">
+                    <strong className="relative left-[calc(100%+1rem)] top-[10px] block w-max text-primary text-sm">
+                      You are here
+                    </strong>
+                  </div>
+                )}
+              </div>
 
               <p className="text-xs font-bold mb-3 md:text-base">{data.heading}</p>
 

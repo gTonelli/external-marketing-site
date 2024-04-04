@@ -4,7 +4,7 @@
 import { useState } from 'react'
 // components
 import { Page } from '@/components/Page'
-import { Section } from '../../../../(no-nav)/quiz/(variants)/v2/config'
+import { Section } from '../config'
 import { Button } from '@/components/Button/Button'
 import Image from 'next/image'
 import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'

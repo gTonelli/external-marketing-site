@@ -4,11 +4,13 @@ import { AttachmentQuizV2ScoreCard } from '@/components/AttachmentQuizV2/Attachm
 import { AttachmentQuizV2ResultsOfferSections } from '@/components/AttachmentQuizV2/AttachmentQuizV2ResultsOfferSections'
 import { AttachmentQuizV2ResultsHeading } from '@/components/AttachmentQuizV2/AttachmentQuizV2ResultsHeading'
 import { Animation } from '@/components/Animation'
-import { Section } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/v2/config'
+import { Section } from '@/app/(custom-layouts)/(quiz-v2)/quiz/v2/config'
+import { AttachmentQuizV2Navigation } from './AttachmentQuizV2Navigation'
 
 type TPageConfig = {
   heroCopy: string
   bodyCopy: string
+  bodyCopy2: string | JSX.Element
   style: string
 }
 
@@ -23,6 +25,12 @@ export const AttachmentQuizV2ResultsPage = ({
 }: IAttachmentQuizV2ResultsPageProps) => {
   return (
     <>
+      <AttachmentQuizV2Navigation
+        includeContinueButton
+        className="sticky top-0"
+        showBackButton={false}
+      />
+
       <Section
         className="bg-gradient-to-r from-blue-lightest to-primary-light/20 lg:bg-gradient-to-b lg:to-primary-light"
         classNameInner="lg:grid lg:grid-cols-[1fr_384px] lg:gap-8 xl:gap-56">
@@ -84,7 +92,7 @@ export const AttachmentQuizV2ResultsPage = ({
         </Animation>
 
         <Animation className="lg:col-start-1 lg:row-start-1">
-          <h3 className="hidden mb-8 lg:block">
+          <h3 className="hidden mb-4 lg:block">
             It’s Time to Learn Your Attachment Style & How It Will Empower Your Future Relationships
           </h3>
 
@@ -113,10 +121,7 @@ export const AttachmentQuizV2ResultsPage = ({
 
           <p>That’s where our courses come in. </p>
 
-          <p>
-            They will guide you in overcoming your deep-rooted fears of abandonment and betrayal and
-            empower you to strive for your relationship or personal development goals.
-          </p>
+          <p>{config.bodyCopy2}</p>
         </Animation>
       </Section>
       <AttachmentQuizV2ResultsOfferSections />

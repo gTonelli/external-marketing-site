@@ -50,6 +50,16 @@ export const AttachmentQuizV2 = ({
     <>
       <AttachmentQuizV2Navigation onGoBack={onGoBack} />
 
+      <ProgressBar
+        key={`progress_bar`}
+        noBorder
+        color="primary"
+        className="w-full bg-transparent rounded-none h-4"
+        classNameFill="rounded-none h-4"
+        percentage={((index + 1) / length) * 100}
+        showPercentage
+      />
+
       <Section
         key={`section_1`}
         className="flex flex-col flex-1 bg-gradient-to-r from-green-light to-primary-light/50 relative z-10 !pb-0"
@@ -84,8 +94,10 @@ export const AttachmentQuizV2 = ({
         )}
 
         {currentQuestionType === 'Screen' && (
-          <div className="relative flex items-center justify-center mt-auto mb-8 h-11 lg:mb-12">
-            <span className="underline cursor-pointer" onClick={onGoToNextQuestion}>
+          <div className="relative flex items-center justify-center mt-auto mb-20 h-11 lg:mb-28">
+            <span
+              className="underline cursor-pointer px-4 py-2 rounded-full lg:hover:bg-grey/10 lg:hover:text-primary"
+              onClick={onGoToNextQuestion}>
               Next Question
             </span>
 
@@ -117,15 +129,6 @@ export const AttachmentQuizV2 = ({
           </div>
         )}
       </Section>
-
-      <ProgressBar
-        key={`progress_bar`}
-        noBorder
-        color="primary"
-        className="w-full bg-transparent rounded-none h-4"
-        classNameFill="rounded-none h-4"
-        percentage={((index + 1) / length) * 100}
-      />
     </>
   )
 }

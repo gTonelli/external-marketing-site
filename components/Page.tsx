@@ -5,6 +5,8 @@ import { useEffect } from 'react'
 import { IDefaultWrapperProps } from '.'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+// libraries
+import cx from 'classnames'
 // utils
 import { PageContext, ScrollContext, ViewportContext } from '@/utils/contexts'
 import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/utils/hooks'
@@ -29,7 +31,7 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
     <ViewportContext.Provider value={viewportValues}>
       <ScrollContext.Provider value={{ scrollPercentage }}>
         <PageContext.Provider value={{ page_name }}>
-          <main ref={scrollRef} className={className}>
+          <main ref={scrollRef} className={cx('', className)}>
             {children}
           </main>
         </PageContext.Provider>

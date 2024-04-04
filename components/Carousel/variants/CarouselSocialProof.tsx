@@ -28,7 +28,7 @@ export const CarouselSocialProof = ({ className, slides }: ICarouselSocialProofP
       1280: { slidesPerView: 5 },
     }}>
     {slides.map((slide, i) => (
-      <SwiperSlide key={`slide_${i}`}>
+      <SwiperSlide key={`slide_${i}`} className="text-center lg:text-left">
         <strong className="mb-4">{slide.topText}</strong>
 
         <h2 className="text-yellow">{slide.midText}</h2>

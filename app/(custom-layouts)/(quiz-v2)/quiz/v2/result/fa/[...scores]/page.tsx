@@ -8,7 +8,9 @@ import '../../../styles.css'
 
 export default function AttachmentQuizV2ResultsPage({ params }: { params: { scores: string[] } }) {
   return (
-    <Page page_name={'Attachment Style Results - FA'}>
+    <Page
+      className="overflow-x-hidden lg:overflow-x-visible"
+      page_name={'Attachment Style Results - FA'}>
       <_Page config={config} params={params} />
     </Page>
   )

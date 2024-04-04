@@ -51,7 +51,7 @@ export const ProgressBar = ({
       {/* PERCENTAGE VALUE */}
       {showPercentage && (
         <span className="absolute top-0 right-2 bottom-0 font-effra text-xs text-right">
-          {percentage}%
+          {percentage.toFixed(0)}%
         </span>
       )}
     </div>

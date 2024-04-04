@@ -60,7 +60,7 @@ export const PAGE_CONFIG = {
       botText: 'People Have Taken Our Quiz',
     },
     {
-      topText: 'Men & Women From',
+      topText: 'People From',
       midText: '195',
       botText: 'Countries Around The World',
     },

@@ -14,10 +14,13 @@ import { IconName } from '@fortawesome/fontawesome-common-types'
 
 // styles
 import './styles.css'
+import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
 
 export default function AttachmentQuizV2Page() {
   return (
     <Page page_name="Attachment Style Quiz">
+      <AttachmentQuizV2Navigation showBackButton={false} />
+
       <Section
         className="!pb-0 from-green-light bg-gradient-to-r to-primary-light/20"
         classNameInner="!text-left lg:grid lg:grid-cols-[1fr_500px] lg:gap-8">
@@ -37,7 +40,7 @@ export default function AttachmentQuizV2Page() {
             roadmap to guide you toward achieving your relationship and personal development goals. 
           </p>
 
-          <p>
+          <p className="lg:mb-8">
             Transform your life and elevate your relationships with Thais Gibson and The Personal
             Development School.
           </p>
@@ -77,7 +80,7 @@ export default function AttachmentQuizV2Page() {
             direction="fromBottom"
             delay={i * 0.2}
             key={`card_${i}`}
-            className="bg-[#F1F2F4] p-8 flex flex-col items-center gap-2 rounded-lg lg:gap-4">
+            className="bg-[#F1F2F4] p-4 flex flex-col items-center gap-2 rounded-lg lg:gap-4">
             <Icon className="text-primary text-4xl" name={card.name} />
 
             <strong>{card.text}</strong>
@@ -189,7 +192,7 @@ export default function AttachmentQuizV2Page() {
             insights designed just for you.
           </strong>
 
-          <StartQuizButton />
+          <StartQuizButton label="BEGIN MY QUIZ" />
         </Animation>
       </Section>
 

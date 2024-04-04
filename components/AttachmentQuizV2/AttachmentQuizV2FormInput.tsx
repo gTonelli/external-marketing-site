@@ -32,7 +32,7 @@ export const AttachmentQuizV2FormInput = ({
 
       <Animation
         key={`form_input_${question.formInputData.autocomplete}`}
-        className="relative mx-auto w-full max-w-96"
+        className="relative mx-auto w-full max-w-lg"
         direction={question.subheading ? 'fromLeft' : 'fromRight'}
         delay={question.subheading ? 0.3 : 0.15}>
         <Formik initialValues={initialValues} validationSchema={schema} onSubmit={onSubmit}>
@@ -41,7 +41,7 @@ export const AttachmentQuizV2FormInput = ({
               <Form>
                 <Field
                   name={question.formInputData.autocomplete}
-                  className="w-full border border-grey rounded-lg overflow-hidden text-xl leading-7 py-[9px] px-4"
+                  className="w-full border border-grey rounded-lg overflow-hidden text-xl leading-7 py-[9px] px-4 lg:hover:bg-transparent"
                   type={question.formInputData.type}
                   placeholder={question.formInputData.placeholder}
                   autoComplete={question.formInputData.autocomplete}

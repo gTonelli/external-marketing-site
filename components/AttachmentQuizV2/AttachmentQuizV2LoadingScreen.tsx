@@ -31,7 +31,7 @@ export const AttachmentQuizV2LoadingScreen = ({
   const width = useTransform(
     time,
     [0, totalDuration * 1000],
-    [0, Math.min(window.innerWidth - 32, 576)]
+    [0, Math.min(window.innerWidth - 16, 576)]
   )
   const router = useRouter()
 

@@ -66,8 +66,8 @@ export const defaultQuestions: TQuizQuestions = [
     heading: 'What is your email address?',
     subheading: (
       <i>
-        Your email saves your personalized report so you can see it later. We store your information
-        securely, in line with our{' '}
+        Your email is how we save your personalized report so you can see it later. We store your
+        information securely, in line with our{' '}
         <Link
           className="underline"
           href="https://university.personaldevelopmentschool.com/pages/privacy"
@@ -159,7 +159,6 @@ export const defaultQuestions: TQuizQuestions = [
     type: 'OptionSelect',
     'data-key': 'relationship-status',
     heading: 'What is your current situation?',
-    subheading: 'Why we ask?',
     options: [
       { heading: "I'm Single", iconName: 'user', value: 'single' },
       { heading: "I'm in a relationship", iconName: 'heart', value: 'relationship' },
@@ -179,7 +178,7 @@ export const defaultQuestions: TQuizQuestions = [
   {
     heading: 'Goals',
     subheading:
-      "Share your goals with us, and let's pinpoint the areas where you need assistance, ensuring tailored recommendations to support your journey.",
+      "Share your goals with us, and together let's identify the areas where you could use some assistance. This way, we can offer personalized recommendations to support you on your journey.",
   },
   {
     type: 'PillSelect',
@@ -381,7 +380,7 @@ export const defaultQuestions: TQuizQuestions = [
         well-being is our priority.
       </>
     ),
-    duration: 3,
+    duration: 2.5,
     screens: [
       {
         heading: (
@@ -389,7 +388,7 @@ export const defaultQuestions: TQuizQuestions = [
             We reference over <strong>1000 case studies</strong> when we develop our products
           </>
         ),
-        duration: 3,
+        duration: 2.5,
       },
       {
         heading: (
@@ -398,7 +397,7 @@ export const defaultQuestions: TQuizQuestions = [
             joining The Personal Development School
           </>
         ),
-        duration: 3,
+        duration: 2.5,
       },
     ],
   },
@@ -508,6 +507,7 @@ export const toolsStrategies = [
     body: 'Scroll down for insights and check your email for your free personalized report.',
   },
   {
+    youAreHere: true,
     heading: 'Learn Powerful Tools',
     body: 'Take our suggested courses to practice powerful tools to change your attachment style.',
   },

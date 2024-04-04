@@ -183,7 +183,7 @@ export const CarouselTestimonial = forwardRef(
               clickable: true,
               bulletActiveClass: '!opacity-100 !w-6 !h-6 !my-0',
               bulletClass:
-                'inline-block w-4 h-4 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer',
+                'inline-block w-4 h-4 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer lg:hover:opacity-100',
             }}
             slidesPerGroup={noOfslides}
             slidesPerView={noOfslides}
@@ -204,14 +204,16 @@ export const CarouselTestimonial = forwardRef(
           {/* LEFT ARROW ICON */}
           <div
             ref={(node) => setPrevEl(node)}
-            className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-20 absolute top-1/2 lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
+            className="hidden w-10 h-10 flex-center rounded-full bg-grey/20 absolute top-1/2 border border-transparent 
+            lg:hover:border-primary lg:cursor-pointer lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
             <Icon className="text-primary" name="chevron-left" size="lg" />
           </div>
 
           {/* RIGHT ARROW ICON */}
           <div
             ref={(node) => setNextEl(node)}
-            className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-20 absolute top-1/2 lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
+            className="hidden w-10 h-10 flex-center rounded-full bg-grey/20 absolute top-1/2 border border-transparent 
+            lg:hover:border-primary lg:cursor-pointer lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
             <Icon className="text-primary" name="chevron-right" size="lg" />
           </div>
         </div>

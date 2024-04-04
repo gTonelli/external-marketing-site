@@ -115,7 +115,7 @@ export const defaultQuestions: TQuizQuestions = [
     ],
   },
   {
-    heading: `Let's get to know you!`,
+    heading: `Great thanks, now let's get to know you!`,
     headingConstructor: (questions?: TQuizQuestions) => {
       if (!questions) return
       const q = questions.find(

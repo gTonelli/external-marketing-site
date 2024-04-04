@@ -9,7 +9,7 @@ import cx from 'classnames'
 export const AttachmentQuizV2OptionSelect = ({
   question,
   answerQuestion,
-}: Required<IQuizComponentDefaultArgs<'OptionSelect'>>) => {
+}: Required<Omit<IQuizComponentDefaultArgs<'OptionSelect'>, 'questions'>>) => {
   const onSelectOption = (val: string | TPossibleQuizQuestionValues) => {
     answerQuestion(val)
   }

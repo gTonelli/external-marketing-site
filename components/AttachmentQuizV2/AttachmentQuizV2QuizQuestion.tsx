@@ -11,7 +11,7 @@ import cx from 'classnames'
 export const AttachmentQuizV2QuizQuestion = ({
   question,
   answerQuestion,
-}: Required<IQuizComponentDefaultArgs<'AttachmentStyleQuestion'>>) => {
+}: Required<Omit<IQuizComponentDefaultArgs<'AttachmentStyleQuestion'>, 'questions'>>) => {
   return (
     <>
       <AttachmentQuizV2Heading question={question} />

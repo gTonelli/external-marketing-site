@@ -85,7 +85,7 @@ export type TQuizQuestion<T = TQuizQuestionType> = T extends 'Screen'
 interface IQuizQuestionScreen extends IQuestionRequiredProps {
   readonly imgSrc?: string
   readonly duration?: number
-  readonly headingConstructor?: () => string | void
+  readonly headingConstructor?: (questions?: TQuizQuestions) => string | void
 }
 
 interface IQuizQuestionLoadingScreen extends IQuestionRequiredProps {
@@ -127,6 +127,7 @@ type TUserData = {
 
 export interface IQuizComponentDefaultArgs<T = TQuizQuestionType> {
   readonly question: TQuizQuestion<T>
+  readonly questions?: TQuizQuestions
   answerQuestion?: (val: TAnswerQuestionArgs) => void
 }
 
@@ -341,13 +342,14 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
 
   return {
     answerQuestion,
+    onGoBack,
+    onGoToNextQuestion,
+    endQuiz,
     currentQuestion,
     index: i,
     length,
     currentQuestionType,
-    onGoBack,
-    onGoToNextQuestion,
-    endQuiz,
+    questions,
   }
 }
 

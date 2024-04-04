@@ -13,7 +13,7 @@ import { Storage } from '@/modules/Storage'
 export const AttachmentQuizV2FormInput = ({
   answerQuestion,
   question,
-}: Required<IQuizComponentDefaultArgs<'FormInput'>>) => {
+}: Required<Omit<IQuizComponentDefaultArgs<'FormInput'>, 'questions'>>) => {
   const onSubmit = (values: TFormValues) => {
     if (values?.name) {
       answerQuestion(values.name)

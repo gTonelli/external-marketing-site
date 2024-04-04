@@ -29,6 +29,7 @@ export const AttachmentQuizV2 = ({
     currentQuestionType,
     index,
     length,
+    questions,
     onGoBack: _onGoBack,
     onGoToNextQuestion: _onGoToNextQuestion,
     endQuiz,
@@ -54,7 +55,7 @@ export const AttachmentQuizV2 = ({
         className="flex flex-col flex-1 bg-gradient-to-r from-green-light to-primary-light/50 relative z-10 !pb-0"
         classNameInner="flex flex-col flex-1 pt-8 lg:pt-24 !max-w-[792px]">
         {currentQuestionType === 'Screen' ? (
-          <AttachmentQuizV2Screen question={currentQuestion} />
+          <AttachmentQuizV2Screen questions={questions} question={currentQuestion} />
         ) : currentQuestionType === 'AttachmentStyleQuestion' ? (
           <AttachmentQuizV2QuizQuestion
             answerQuestion={answerQuestion}

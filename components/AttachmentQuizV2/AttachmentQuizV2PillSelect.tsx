@@ -13,7 +13,7 @@ import { AnimatePresence } from 'framer-motion'
 export const AttachmentQuizV2PillSelect = ({
   question,
   answerQuestion,
-}: Required<IQuizComponentDefaultArgs<'PillSelect'>>) => {
+}: Required<Omit<IQuizComponentDefaultArgs<'PillSelect'>, 'questions'>>) => {
   // ============= State ================
   const [selectedPills, setSelectedPills] = useState<string[]>([])
   const otherFocusArea = useRef('')

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { TOptions, TQuizQuestions } from './useAttachmentQuiz'
+import { TOptions, TQuizQuestion, TQuizQuestions } from './useAttachmentQuiz'
 import { Storage } from '@/modules/Storage'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 
@@ -115,7 +115,23 @@ export const defaultQuestions: TQuizQuestions = [
     ],
   },
   {
-    heading: `We'll reward that curiosity. But first, let's get to know you!`,
+    heading: `Let's get to know you!`,
+    headingConstructor: (questions?: TQuizQuestions) => {
+      if (!questions) return
+      const q = questions.find(
+        (q) => (q as TQuizQuestion<'OptionSelect'>)['data-key'] === 'attachment-knowledge'
+      )
+      if (!q) return
+      console.log('Found', q)
+      switch (q.userResponse) {
+        case 'informed':
+          return "Great! You know what's coming then. But before that, let's get to know you."
+        case 'curious':
+          return "The rewards for curiosity are endless! But first, let's get to know you."
+        case 'skeptical':
+          return "Okay, we'll explain it all in a bit. But first, tell us about yourself."
+      }
+    },
   },
   {
     heading: 'Getting to Know You: Unveiling the Basics',

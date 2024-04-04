@@ -93,7 +93,6 @@ export const defaultQuestions: TQuizQuestions = [
     type: 'OptionSelect',
     heading: 'When it comes to attachment styles, you are:',
     'data-key': 'attachment-knowledge',
-    subheading: 'Why we ask?',
     options: [
       {
         heading: 'Informed',
@@ -125,7 +124,6 @@ export const defaultQuestions: TQuizQuestions = [
   },
   {
     heading: 'How old are you?',
-    subheading: 'Why we ask?',
     formInputData: {
       autocomplete: 'age',
       placeholder: 'Type your age here',
@@ -136,7 +134,6 @@ export const defaultQuestions: TQuizQuestions = [
     type: 'OptionSelect',
     'data-key': 'gender',
     heading: 'What is your gender?',
-    subheading: 'Why we ask?',
     options: [
       { heading: 'Male', iconName: 'user-vneck-hair', value: 'male' },
       { heading: 'Female', iconName: 'user-vneck-hair-long', value: 'female' },
@@ -152,6 +149,16 @@ export const defaultQuestions: TQuizQuestions = [
       { heading: "I'm Single", iconName: 'user', value: 'single' },
       { heading: "I'm in a relationship", iconName: 'heart', value: 'relationship' },
       { heading: "I'm married", iconName: 'rings-wedding', value: 'married' },
+    ],
+  },
+  {
+    type: 'OptionSelect',
+    'data-key': 'learning-style',
+    heading: 'What is your preferred learning style?',
+    options: [
+      { heading: 'Visual', iconName: 'image', value: 'visual' },
+      { heading: 'Tactile', iconName: 'hand', value: 'tactile' },
+      { heading: 'Auditory', iconName: 'headphones-simple', value: 'auditory' },
     ],
   },
   {
@@ -334,7 +341,6 @@ export const defaultQuestions: TQuizQuestions = [
     type: 'OptionSelect',
     'data-key': 'quiz-discovery-method',
     heading: 'How did you discover the quiz or learn about the Personal Development School?',
-    subheading: 'Why we ask?',
     options: [
       {
         heading: 'Online Search',

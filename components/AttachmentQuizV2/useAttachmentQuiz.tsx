@@ -44,6 +44,7 @@ type TQuizResultDataKeys =
   | 'relationship-status'
   | 'gender'
   | 'attachment-knowledge'
+  | 'learning-style'
 
 type TQuizResultData = {
   [key in TQuizResultDataKeys]?: TAnswerQuestionArgs
@@ -130,6 +131,7 @@ export type TQuizQuestions = [
   TQuizQuestion<'Screen'>,
   TQuizQuestion<'Screen'>,
   TQuizQuestion<'FormInput'>,
+  TQuizQuestion<'OptionSelect'>,
   TQuizQuestion<'OptionSelect'>,
   TQuizQuestion<'OptionSelect'>,
   TQuizQuestion<'Screen'>,

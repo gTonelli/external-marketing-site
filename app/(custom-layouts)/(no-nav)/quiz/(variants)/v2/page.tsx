@@ -89,7 +89,7 @@ export default function AttachmentQuizV2Page() {
         <Animation>
           <Image
             alt="An image of a couple sitting on a couch working together on a computer"
-            className="mb-4 rounded-20 lg:mb-0 lg:w-full lg:self-stretch lg:object-cover"
+            className="mb-4 rounded-20 lg:mb-0 lg:self-stretch lg:object-cover lg:h-full lg:w-auto"
             src="/images/AttachmentQuiz/V2/connections.png"
             width={393}
             height={262}

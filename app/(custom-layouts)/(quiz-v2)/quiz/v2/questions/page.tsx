@@ -45,16 +45,25 @@ export default function AttachmentQuizV2QuestionsPage() {
         ) : (
           <>
             <Image
-              alt="Two women sitting on a coach smiling at each other"
-              className="absolute top-0 left-0 w-full h-full object-cover object-top z-5"
-              src="/images/AttachmentQuiz/V2/quiz-bg.png"
+              alt="A couple sitting on the coach on their phones and smiling"
+              className="absolute top-0 left-0 w-full h-full object-cover z-5 object-bottom"
+              src="/images/AttachmentQuiz/V2/quiz-background.png"
+              width={375}
+              height={578}
+              sizes="100vw"
+            />
+
+            <Image
+              alt="A couple sitting on the coach on their phones and smiling"
+              className="hidden absolute top-0 left-0 w-full h-full object-cover z-5 object-top lg:block"
+              src="/images/AttachmentQuiz/V2/quiz-background-desktop.png"
               width={1200}
               height={802}
               sizes="100vw"
             />
 
             <Section
-              className="flex flex-col flex-1 bg-gradient-to-r from-green-light to-primary-light/50 relative z-10"
+              className="flex flex-col flex-1 bg-gradient-to-r from-green-light to-primary-light/75 relative z-10 lg:to-primary-light/50"
               classNameInner="pt-8 lg:pt-24 !max-w-[792px]">
               <h1 className="mb-4">Attachment Style Quiz</h1>
 

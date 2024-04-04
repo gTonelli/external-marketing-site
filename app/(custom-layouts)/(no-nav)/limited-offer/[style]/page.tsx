@@ -588,7 +588,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         <div className="max-w-5xl w-full mx-auto my-8">
           <div className="flex flex-center flex-col justify-end md:flex-row md:px-8">
             <div>
-              <Video.Youtube iframeClassName="rounded-10" videoId="3xQhjx7pB84" />
+              <Video.Youtube iframeClassName="rounded-10" videoId={pageCopy.videoSrc} />
             </div>
             <div className="flex flex-col text-center m-4 p-2 md:text-left md:w-1/2">
               <Text.Heading

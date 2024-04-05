@@ -269,7 +269,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
               <Icon
                 className={cx(
                   'text-lg w-max ml-auto mt-auto lg:text-3xl',
-                  i > 2 ? 'text-primary-light' : 'text-primary'
+                  i > 2 ? 'text-primary' : 'text-blue'
                 )}
                 name={i > 2 ? 'flag' : 'arrow-right'}
               />

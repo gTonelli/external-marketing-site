@@ -88,6 +88,7 @@ export const AttachmentQuizV2PillSelect = ({
       <Button
         className="w-max mx-auto mt-auto mb-8 lg:mb-12"
         label="CONTINUE"
+        disabled={selectedPills.length < 1}
         onClick={onContinue}
       />
     </>

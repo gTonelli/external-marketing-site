@@ -11,12 +11,12 @@ import { useTime, useTransform } from 'framer-motion'
 import { ERoutes } from '@/utils/constants'
 
 interface IAttachmentQuizV2LoadingScreenProps extends IQuizComponentDefaultArgs<'LoadingScreen'> {
-  onEndLoading: () => string | ERoutes
+  onEndLoadingUrl: () => string | ERoutes
 }
 
 export const AttachmentQuizV2LoadingScreen = ({
   question,
-  onEndLoading,
+  onEndLoadingUrl,
 }: IAttachmentQuizV2LoadingScreenProps) => {
   // ========== State ==========
   const [header, setHeader] = useState(question.heading)
@@ -36,8 +36,8 @@ export const AttachmentQuizV2LoadingScreen = ({
   const router = useRouter()
 
   useEffect(() => {
-    setUrl(onEndLoading())
-  }, [onEndLoading])
+    setUrl(onEndLoadingUrl())
+  }, [onEndLoadingUrl])
 
   useEffect(() => {
     if (index === question.screens.length) router.push(url)
@@ -48,7 +48,7 @@ export const AttachmentQuizV2LoadingScreen = ({
     )
     if (index < 0) return
     setHeader(question.screens[index].heading)
-  }, [index, onEndLoading, question.duration, question.screens, router, url])
+  }, [index, onEndLoadingUrl, question.duration, question.screens, router, url])
 
   return (
     <>

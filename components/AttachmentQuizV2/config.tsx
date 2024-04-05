@@ -152,6 +152,12 @@ export const defaultQuestions: TQuizQuestions = [
     options: [
       { heading: 'Male', iconName: 'user-vneck-hair', value: 'male' },
       { heading: 'Female', iconName: 'user-vneck-hair-long', value: 'female' },
+      { heading: 'Transgender', iconName: 'user-hair-buns', value: 'transgender' },
+      {
+        heading: 'Non-binary/non-conforming',
+        iconName: 'user-tie',
+        value: 'non-binary',
+      },
       { heading: 'Other', iconName: 'user-vneck', value: 'other' },
     ],
   },
@@ -161,7 +167,9 @@ export const defaultQuestions: TQuizQuestions = [
     heading: 'What is your current situation?',
     options: [
       { heading: "I'm Single", iconName: 'user', value: 'single' },
-      { heading: "I'm in a relationship", iconName: 'heart', value: 'relationship' },
+      { heading: "I'm in a relationship", iconName: 'people', value: 'relationship' },
+      { heading: "I'm widowed", iconName: 'user-vneck', value: 'widowed' },
+      { heading: "I'm seperated", iconName: 'heart-crack', value: 'seperated' },
       { heading: "I'm married", iconName: 'rings-wedding', value: 'married' },
     ],
   },
@@ -240,117 +248,117 @@ export const defaultQuestions: TQuizQuestions = [
     heading: 'I feel very upset when others infringe on my need for space or time alone. ',
     association: 'da',
   },
-  {
-    heading:
-      "I am willing to work through challenges in a relationship before suddenly trying to leave the relationship itself. (If you're not in a relationship, think of how you would handle conflict in a partnership.)",
-    association: 'sa',
-  },
-  {
-    heading: 'I tend to be out of touch with my emotions quite frequently.',
-    association: 'da',
-  },
-  {
-    heading:
-      "I am very attuned to others' needs and often put them before my own and resent it later.",
-    association: 'fa',
-  },
-  {
-    heading:
-      'I constantly want to be emotionally closer to my partner. This can also apply to my close friendships or romantic interests.',
-    association: 'ap',
-  },
-  {
-    heading: 'I am effective at compromising and communicating.',
-    association: 'sa',
-  },
-  {
-    heading:
-      'It is very difficult for me to set boundaries unless I am angry. I can sometimes set excessive boundaries and push people away too dramatically out of anger.',
-    association: 'fa',
-  },
-  {
-    heading:
-      'If I notice my partner showing any signs of coldness, I panic and want to get closer as quickly as possible. This often happens to me in friendships as well.',
-    association: 'ap',
-  },
-  {
-    heading:
-      'It is not uncommon for me to experience inward emotional turbulence throughout the duration of my romantic relationship. This applies to close family members as well.',
-    association: 'fa',
-  },
-  {
-    heading:
-      'I often feel very hot or very cold towards my partner or family members. I tend to operate in extremes in how I relate to others.',
-    association: 'fa',
-  },
-  {
-    heading: 'I know that I am worthy of a healthy, happy relationship. ',
-    association: 'sa',
-  },
-  {
-    heading:
-      'When I feel hurt by a loved one, I often have a strong fight or flight response. I find myself wanting to push this person as far away as possible. (Friends, family, romantic relationship).',
-    association: 'fa',
-  },
-  {
-    heading:
-      'I do not feel as though I need anything from my romantic partner or loved ones. It can be difficult to conceptualize how others would meet a lot of my needs.',
-    association: 'da',
-  },
-  {
-    heading: 'I do not enjoy being out of romantic relationships. I often fear being alone.',
-    association: 'ap',
-  },
-  {
-    heading:
-      "If a loved one's behavior hurts me, I will express my feelings and try to understand what caused them to act that way. ",
-    association: 'sa',
-  },
-  {
-    heading:
-      'I hunger for closeness, but I fear the emotional difficulty of it at the same time (friends, family, romantic partners). ',
-    association: 'fa',
-  },
-  {
-    heading:
-      'I do not like making social plans with others in advance. I often fear being trapped by commitments with other people. ',
-    association: 'da',
-  },
-  {
-    heading: 'I find that setting boundaries comes naturally to me. ',
-    association: 'sa',
-  },
-  {
-    heading: 'I focus much more on the relationships in my life than I do on myself.',
-    association: 'ap',
-  },
-  {
-    heading: 'I often feel protective over my space, privacy and belongings. ',
-    association: 'da',
-  },
-  {
-    heading:
-      'I generally feel invaded when my partner or loved ones demand too much physical affection. ',
-    association: 'da',
-  },
-  {
-    heading:
-      'I would prefer to spend most of my free time with my partner if I were to be in a romantic relationship. It would be hard for me to want to do things separately.',
-    association: 'ap',
-  },
-  {
-    heading: 'I feel that it is easy to be vulnerable with my romantic partner or loved ones.',
-    association: 'sa',
-  },
-  {
-    heading:
-      'I find that my partner or loved ones usually emotionally recover from conflict before I do. ',
-    association: 'da',
-  },
-  {
-    heading: 'I deeply fear being abandoned by my partner or love interests. ',
-    association: 'ap',
-  },
+  // {
+  //   heading:
+  //     "I am willing to work through challenges in a relationship before suddenly trying to leave the relationship itself. (If you're not in a relationship, think of how you would handle conflict in a partnership.)",
+  //   association: 'sa',
+  // },
+  // {
+  //   heading: 'I tend to be out of touch with my emotions quite frequently.',
+  //   association: 'da',
+  // },
+  // {
+  //   heading:
+  //     "I am very attuned to others' needs and often put them before my own and resent it later.",
+  //   association: 'fa',
+  // },
+  // {
+  //   heading:
+  //     'I constantly want to be emotionally closer to my partner. This can also apply to my close friendships or romantic interests.',
+  //   association: 'ap',
+  // },
+  // {
+  //   heading: 'I am effective at compromising and communicating.',
+  //   association: 'sa',
+  // },
+  // {
+  //   heading:
+  //     'It is very difficult for me to set boundaries unless I am angry. I can sometimes set excessive boundaries and push people away too dramatically out of anger.',
+  //   association: 'fa',
+  // },
+  // {
+  //   heading:
+  //     'If I notice my partner showing any signs of coldness, I panic and want to get closer as quickly as possible. This often happens to me in friendships as well.',
+  //   association: 'ap',
+  // },
+  // {
+  //   heading:
+  //     'It is not uncommon for me to experience inward emotional turbulence throughout the duration of my romantic relationship. This applies to close family members as well.',
+  //   association: 'fa',
+  // },
+  // {
+  //   heading:
+  //     'I often feel very hot or very cold towards my partner or family members. I tend to operate in extremes in how I relate to others.',
+  //   association: 'fa',
+  // },
+  // {
+  //   heading: 'I know that I am worthy of a healthy, happy relationship. ',
+  //   association: 'sa',
+  // },
+  // {
+  //   heading:
+  //     'When I feel hurt by a loved one, I often have a strong fight or flight response. I find myself wanting to push this person as far away as possible. (Friends, family, romantic relationship).',
+  //   association: 'fa',
+  // },
+  // {
+  //   heading:
+  //     'I do not feel as though I need anything from my romantic partner or loved ones. It can be difficult to conceptualize how others would meet a lot of my needs.',
+  //   association: 'da',
+  // },
+  // {
+  //   heading: 'I do not enjoy being out of romantic relationships. I often fear being alone.',
+  //   association: 'ap',
+  // },
+  // {
+  //   heading:
+  //     "If a loved one's behavior hurts me, I will express my feelings and try to understand what caused them to act that way. ",
+  //   association: 'sa',
+  // },
+  // {
+  //   heading:
+  //     'I hunger for closeness, but I fear the emotional difficulty of it at the same time (friends, family, romantic partners). ',
+  //   association: 'fa',
+  // },
+  // {
+  //   heading:
+  //     'I do not like making social plans with others in advance. I often fear being trapped by commitments with other people. ',
+  //   association: 'da',
+  // },
+  // {
+  //   heading: 'I find that setting boundaries comes naturally to me. ',
+  //   association: 'sa',
+  // },
+  // {
+  //   heading: 'I focus much more on the relationships in my life than I do on myself.',
+  //   association: 'ap',
+  // },
+  // {
+  //   heading: 'I often feel protective over my space, privacy and belongings. ',
+  //   association: 'da',
+  // },
+  // {
+  //   heading:
+  //     'I generally feel invaded when my partner or loved ones demand too much physical affection. ',
+  //   association: 'da',
+  // },
+  // {
+  //   heading:
+  //     'I would prefer to spend most of my free time with my partner if I were to be in a romantic relationship. It would be hard for me to want to do things separately.',
+  //   association: 'ap',
+  // },
+  // {
+  //   heading: 'I feel that it is easy to be vulnerable with my romantic partner or loved ones.',
+  //   association: 'sa',
+  // },
+  // {
+  //   heading:
+  //     'I find that my partner or loved ones usually emotionally recover from conflict before I do. ',
+  //   association: 'da',
+  // },
+  // {
+  //   heading: 'I deeply fear being abandoned by my partner or love interests. ',
+  //   association: 'ap',
+  // },
   {
     type: 'OptionSelect',
     'data-key': 'quiz-discovery-method',

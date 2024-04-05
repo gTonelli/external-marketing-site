@@ -84,7 +84,7 @@ export const AttachmentQuizV2 = ({
         ) : currentQuestionType === 'LoadingScreen' ? (
           <AttachmentQuizV2LoadingScreen
             question={currentQuestion as TQuizQuestion<'LoadingScreen'>}
-            onEndLoading={endQuiz}
+            onEndLoadingUrl={endQuiz}
           />
         ) : (
           <AttachmentQuizV2PillSelect

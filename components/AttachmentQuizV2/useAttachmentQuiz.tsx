@@ -256,6 +256,7 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
   }
 
   const endQuiz = useCallback(() => {
+    Mixpanel.track.QuizFinished({ quiz_name: 'Main Funnel Quiz' })
     const { fa, ap, da, sa } = questions.reduce(
       (prev, curr, index) => {
         if (getQuestionType(index) === 'AttachmentStyleQuestion') {

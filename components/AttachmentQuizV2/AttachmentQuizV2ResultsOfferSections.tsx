@@ -288,8 +288,10 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
       <Animation>
         <Faq
           classNameHeading="text-center"
+          classNameAnswer="whitespace-normal"
           faq={faqCopy}
           subheading={`We always get asked: "I've tried many different approaches to changing my life. What makes Thais and The Personal Development School different?" Here's why...`}
+          useMD={false}
         />
       </Animation>
 

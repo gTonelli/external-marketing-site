@@ -16,6 +16,8 @@ export interface IFAQs {
 }
 
 export interface IFAQsProps extends IDefaultProps {
+  /** Classnames for the answer text */
+  classNameAnswer?: string
   /**
    * Classname for the expandable component
    */
@@ -47,6 +49,11 @@ export interface IFAQsProps extends IDefaultProps {
   reverseIcons?: boolean
   /** Subheading text */
   subheading?: string
+  /**
+   * Use Markdown?
+   * @default true
+   */
+  useMD?: boolean
 }
 
 const DEFAULT_FAQs = [
@@ -70,12 +77,14 @@ const DEFAULT_FAQs = [
 
 export const FaqDefault = ({
   className,
+  classNameAnswer,
   classNameExpandable,
   classNameHeading,
   classNameIcon,
   classNameQuestion,
   includeHeading = true,
   faq = DEFAULT_FAQs,
+  useMD = true,
   reverseIcons,
   subheading,
 }: IFAQsProps) => {
@@ -98,8 +107,10 @@ export const FaqDefault = ({
           classNameExpandable={classNameExpandable}
           classNameIcon={classNameIcon}
           classNameQuestion={classNameQuestion}
+          classNameAnswer={classNameAnswer}
           question={data.question}
           reverseIcon={reverseIcons}
+          useMD={useMD}
         />
       ))}
     </section>
@@ -109,11 +120,12 @@ export const FaqDefault = ({
 export interface IFAQProps extends IDefaultProps {
   question: string
   answer: string | string[]
-  classNameAnswerFAQ?: string
+  classNameAnswer?: string
   classNameExpandable?: string
   classNameIcon?: string
   classNameQuestion?: string
   reverseIcon?: boolean
+  useMD?: boolean
 }
 
 const FAQ = ({
@@ -121,8 +133,10 @@ const FAQ = ({
   classNameExpandable,
   classNameIcon,
   classNameQuestion,
+  classNameAnswer,
   question,
   reverseIcon,
+  useMD,
 }: IFAQProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -154,10 +168,18 @@ const FAQ = ({
       onOpening={() => setIsOpen(true)}>
       <div className="w-full flex flex-col pb-4 px-4">
         {typeof answer === 'string' ? (
-          <Text.Paragraph useMD className="text-left" content={answer} />
+          <Text.Paragraph
+            useMD={useMD}
+            className={cx('text-left', classNameAnswer)}
+            content={answer}
+          />
         ) : (
           answer.map((data) => (
-            <Text.Paragraph key={data} className="text-left mb-4" content={data} />
+            <Text.Paragraph
+              key={data}
+              className={cx('text-left mb-4', classNameAnswer)}
+              content={data}
+            />
           ))
         )}
       </div>

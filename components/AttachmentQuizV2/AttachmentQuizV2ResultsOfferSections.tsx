@@ -245,7 +245,10 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
           {toolsStrategies.map((data, i) => (
             <Animation
               key={`tool_strategy_${i}`}
-              className="p-4 bg-green-light flex flex-col flex-1 rounded-2xl lg:shadow-md"
+              className={cx(
+                'p-4 flex flex-col flex-1 rounded-2xl lg:shadow-md',
+                data.youAreHere ? 'bg-blue-light' : 'bg-green-light'
+              )}
               delay={i * 0.1}>
               <div className="w-max relative flex p-1 mb-3 lg:mb-4">
                 <Icon

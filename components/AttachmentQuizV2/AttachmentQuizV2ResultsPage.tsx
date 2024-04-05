@@ -25,12 +25,6 @@ export const AttachmentQuizV2ResultsPage = ({
 }: IAttachmentQuizV2ResultsPageProps) => {
   return (
     <>
-      <AttachmentQuizV2Navigation
-        includeContinueButton
-        className="sticky top-0"
-        showBackButton={false}
-      />
-
       <Section
         className="bg-gradient-to-r from-blue-lightest to-primary-light/20 lg:bg-gradient-to-b lg:to-primary-light"
         classNameInner="lg:grid lg:grid-cols-[1fr_384px] lg:gap-8 xl:gap-56">
@@ -71,6 +65,7 @@ export const AttachmentQuizV2ResultsPage = ({
           <AttachmentQuizV2ScoreCard style={config.style} scores={params.scores} />
         </Animation>
       </Section>
+
       <Section classNameInner="!text-left lg:grid lg:grid-cols-[1fr_588px] lg:gap-6">
         <Animation>
           <h3 className="mb-4 lg:hidden">

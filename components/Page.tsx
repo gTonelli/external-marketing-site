@@ -31,7 +31,7 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
     <ViewportContext.Provider value={viewportValues}>
       <ScrollContext.Provider value={{ scrollPercentage }}>
         <PageContext.Provider value={{ page_name }}>
-          <main ref={scrollRef} className={cx('', className)}>
+          <main ref={scrollRef} className={cx('overflow-x-hidden', className)}>
             {children}
           </main>
         </PageContext.Provider>

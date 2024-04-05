@@ -253,11 +253,9 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
                   className="w-max text-green-light text-xs bg-black px-2 py-1 rounded-md md:text-base"
                 />{' '}
                 {data.youAreHere && (
-                  <div className="absolute -top-1 -left-1 z-5 w-[calc(100%+0.5rem)] h-[calc(100%+0.5rem)] rounded-md bg-yellow-tertiary/75">
-                    <strong className="relative left-[calc(100%+1rem)] top-[10px] block w-max text-primary text-sm">
-                      You are here
-                    </strong>
-                  </div>
+                  <strong className="absolute top-[3px] left-12 z-5 block w-max text-white bg-success px-2 py-1 mb-0 rounded-md text-sm">
+                    You are here!
+                  </strong>
                 )}
               </div>
 

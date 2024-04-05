@@ -25,7 +25,7 @@ interface IFaqSecondaryProps extends IFAQsProps {
   /**
    * Classname for FAQ answer
    */
-  classNameAnswerFAQ?: string
+  classNameAnswer?: string
   /**
    * Classname for subheading
    */
@@ -92,7 +92,7 @@ export const FaqSecondary = ({
   className,
   classNameFAQ,
   classNameSecondary,
-  classNameAnswerFAQ,
+  classNameAnswer,
   classNameIcon,
   classNameHeading,
   classNameHeadingPrimary,
@@ -128,7 +128,7 @@ export const FaqSecondary = ({
             key={`${index}`}
             answer={data.answer}
             className={classNameFAQ}
-            classNameAnswerFAQ={classNameAnswerFAQ}
+            classNameAnswer={classNameAnswer}
             classNameIcon={classNameIcon}
             classNameQuestion={classNameQuestionFAQ}
             question={data.question}
@@ -145,7 +145,7 @@ const FAQ = ({
   className,
   classNameIcon,
   classNameQuestion,
-  classNameAnswerFAQ,
+  classNameAnswer,
 }: IFAQProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -171,7 +171,7 @@ const FAQ = ({
         <div
           className={cx(
             'w-full flex flex-col text-black bg-white rounded-lg px-4 pb-4',
-            classNameAnswerFAQ
+            classNameAnswer
           )}>
           {typeof answer === 'string' ? (
             <Text.Paragraph useMD className="text-left" content={answer} />

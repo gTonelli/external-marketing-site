@@ -41,7 +41,7 @@ export const AttachmentQuizV2FormInput = ({
               <Form>
                 <Field
                   name={question.formInputData.autocomplete}
-                  className="w-full border border-grey rounded-lg overflow-hidden text-xl leading-7 py-[9px] px-4 lg:hover:bg-transparent"
+                  className="w-full border border-grey rounded-lg overflow-hidden text-xl leading-7 py-[9px] px-4 md:hover:bg-transparent"
                   type={question.formInputData.type}
                   placeholder={question.formInputData.placeholder}
                   autoComplete={question.formInputData.autocomplete}

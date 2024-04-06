@@ -153,15 +153,17 @@ export const CarouselTestimonial = forwardRef(
             </div>
           ) : null}
 
-          {/* HEADING */}
-          {headingText && (
-            <Text.Heading
-              className={cx('block text-center', classNameHeader)}
-              content={headingText}
-            />
-          )}
+          <div className="default-padding text-center">
+            {/* HEADING */}
+            {headingText && (
+              <Text.Heading
+                className={cx('block text-center', classNameHeader)}
+                content={headingText}
+              />
+            )}
 
-          {subheadingText && <Text className="mt-4" content={subheadingText} />}
+            {subheadingText && <Text className="mt-4" content={subheadingText} />}
+          </div>
 
           {/* RIGHT QUOTE */}
           {showQuotations ? (

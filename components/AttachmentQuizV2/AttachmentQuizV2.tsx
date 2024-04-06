@@ -54,8 +54,9 @@ export const AttachmentQuizV2 = ({
         key={`progress_bar`}
         noBorder
         color="primary"
-        className="w-full bg-transparent rounded-none h-4"
-        classNameFill="rounded-none h-4"
+        className="w-full bg-transparent rounded-none h-6"
+        classNameFill="rounded-none h-6"
+        classNamePercentage="!text-base"
         percentage={((index + 1) / length) * 100}
         showPercentage
       />
@@ -94,7 +95,7 @@ export const AttachmentQuizV2 = ({
         )}
 
         {currentQuestionType === 'Screen' && (
-          <div className="relative flex items-center justify-center mt-auto mb-20 h-11 lg:mb-28">
+          <div className="relative flex items-center justify-center mt-auto mb-20 h-11 lg:mb-44">
             <span
               className="underline cursor-pointer px-4 py-2 rounded-full lg:hover:bg-grey/10 lg:hover:text-primary"
               onClick={onGoToNextQuestion}>

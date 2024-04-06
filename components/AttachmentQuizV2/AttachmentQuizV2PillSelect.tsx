@@ -46,7 +46,9 @@ export const AttachmentQuizV2PillSelect = ({
             key={`pill_${i}`}
             className={cx(
               'py-2 px-3 flex items-center bg-white rounded-full cursor-pointer border border-white transition-all',
-              selectedPills.includes(option) ? '!border-primary' : 'hover:border-primary'
+              selectedPills.includes(option)
+                ? '!border-primary !bg-primary-light'
+                : 'hover:border-primary hover:bg-primary-light'
             )}
             onClick={() => onSelectOption(option)}>
             <Icon
@@ -61,7 +63,9 @@ export const AttachmentQuizV2PillSelect = ({
         <div
           className={cx(
             'py-2 px-3 flex items-center bg-white rounded-full cursor-pointer border border-white transition-all',
-            selectedPills.includes('Other') ? '!border-primary' : 'hover:border-primary'
+            selectedPills.includes('Other')
+              ? '!border-primary bg-primary-light'
+              : 'hover:border-primary hover:bg-primary-light'
           )}
           onClick={() => onSelectOption('Other')}>
           <Icon

@@ -142,8 +142,8 @@ const FAQ = ({
 
   return (
     <Expandable
-      className={cx('border-b border-black lg:hover:bg-grey/10', classNameExpandable)}
-      openedClassName={cx('border-b border-black lg:hover:bg-grey/10', classNameExpandable)}
+      className={cx('border-b border-black md:hover:bg-grey/10', classNameExpandable)}
+      openedClassName={cx('border-b border-black md:hover:bg-grey/10', classNameExpandable)}
       open={isOpen}
       trigger={
         <div

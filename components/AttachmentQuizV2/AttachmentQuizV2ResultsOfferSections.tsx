@@ -133,7 +133,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
           <Animation key={`mockup_section_card_${i}`} direction="fromBottom">
             <Image
               alt={data.imgAlt}
-              className="mb-4 w-2/5 max-w-[300px] mx-auto lg:w-full"
+              className="mb-4 w-2/3 max-w-[300px] mx-auto lg:w-full"
               src={data.imgSrc}
               width={300}
               height={200}

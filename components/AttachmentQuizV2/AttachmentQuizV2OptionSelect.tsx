@@ -34,7 +34,7 @@ export const AttachmentQuizV2OptionSelect = ({
             key={`option_${i}`}
             className={cx(
               `w-full flex flex-1 my-1 py-2 px-4 items-center text-left rounded-lg cursor-pointer transition-all border border-primary
-               xxs:py-3 lg:py-8 lg:my-0 lg:flex-col lg:text-center lg:hover:text-primary lg:hover:bg-primary-light/25 lg:hover:shadow-md`,
+               xxs:py-3 lg:py-8 lg:my-0 lg:flex-col lg:text-center lg:hover:text-primary lg:hover:bg-primary-light/50 lg:hover:shadow-md`,
               question.options.length === 3 ? '' : 'lg:border-none'
             )}
             onClick={() => onSelectOption(option.value)}>

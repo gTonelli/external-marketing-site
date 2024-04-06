@@ -41,6 +41,8 @@ export const AttachmentQuizV2ResultsPage = ({
           </Animation>
 
           <Animation delay={0.3}>
+            <h4 className="mb-2">What is my style?</h4>
+
             <p>{config.heroCopy}</p>
           </Animation>
 

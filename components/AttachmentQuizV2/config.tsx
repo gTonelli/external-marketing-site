@@ -42,7 +42,7 @@ export const defaultQuestions: TQuizQuestions = [
   {
     heading: 'Introduce Yourself',
     subheading:
-      'Share your name, email, and tell us about your attachment style knowledge, so we can create you a personalized experience.',
+      'Share your name, email, and tell us about your attachment style knowledge, so we can deliver a personalized experience.',
   },
   {
     heading: "What's your name?",
@@ -164,13 +164,13 @@ export const defaultQuestions: TQuizQuestions = [
   {
     type: 'OptionSelect',
     'data-key': 'relationship-status',
-    heading: 'What is your current situation?',
+    heading: 'What is your current relationship status?',
     options: [
-      { heading: "I'm Single", iconName: 'user', value: 'single' },
-      { heading: "I'm in a relationship", iconName: 'people', value: 'relationship' },
-      { heading: "I'm widowed", iconName: 'user-vneck', value: 'widowed' },
-      { heading: "I'm seperated", iconName: 'heart-crack', value: 'seperated' },
-      { heading: "I'm married", iconName: 'rings-wedding', value: 'married' },
+      { heading: 'Single', iconName: 'user', value: 'single' },
+      { heading: 'In a relationship', iconName: 'people', value: 'relationship' },
+      { heading: 'Married', iconName: 'rings-wedding', value: 'married' },
+      { heading: 'Divorced', iconName: 'heart-crack', value: 'divorced' },
+      { heading: 'Borken Up', iconName: 'user-vneck', value: 'broken-up' },
     ],
   },
   {
@@ -206,6 +206,7 @@ export const defaultQuestions: TQuizQuestions = [
         value: 'unsatisfied',
       },
       {
+        heading: 'Somewhat Unsatisfied',
         iconName: 'circle',
         value: 'somewhat-unsatisfied',
       },
@@ -215,6 +216,7 @@ export const defaultQuestions: TQuizQuestions = [
         value: 'neutral',
       },
       {
+        heading: 'Somewhat Satisfied',
         iconName: 'circle',
         value: 'somewhat-satisfied',
       },

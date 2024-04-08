@@ -2,6 +2,7 @@ import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import Link from 'next/link'
 import cx from 'classnames'
+import { Icon } from './Icon'
 
 const todaysDate = new Date()
 const year = todaysDate.getFullYear()
@@ -26,42 +27,41 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
           <div className="flex px-4">
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
-              <Image
-                alt="Youtube's play icon"
-                src="/icons/footer-youtube.svg"
-                width={24}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="youtube"
+                type="brands"
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
-              <Image
-                alt="Tiktoks's musical note icon"
-                src="/icons/footer-tiktok.svg"
-                width={22}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="tiktok"
+                type="brands"
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
-              <Image alt="Facebook icon" src="/icons/footer-facebook.svg" width={24} height={24} />
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="facebook"
+                type="brands"
+              />{' '}
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
-              <Image
-                alt="Instagram's icon"
-                src="/icons/footer-instagram.svg"
-                width={24}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="instagram"
+                type="brands"
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
-              <Image
-                alt="Web podcast icon"
-                src="/icons/footer-podcast.svg"
-                width={24}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="podcast"
               />
             </Link>
           </div>

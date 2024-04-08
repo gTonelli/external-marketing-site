@@ -19,6 +19,7 @@ export const defaultQuizQuestionOptions: TOptions = [
     value: 0,
   },
   {
+    heading: 'Somewhat Disagree',
     iconName: 'circle',
     value: 0,
   },
@@ -28,6 +29,7 @@ export const defaultQuizQuestionOptions: TOptions = [
     value: 0,
   },
   {
+    heading: 'Somewhat Agree',
     iconName: 'circle',
     value: 0.5,
   },
@@ -170,7 +172,7 @@ export const defaultQuestions: TQuizQuestions = [
       { heading: 'In a relationship', iconName: 'people', value: 'relationship' },
       { heading: 'Married', iconName: 'rings-wedding', value: 'married' },
       { heading: 'Divorced', iconName: 'heart-crack', value: 'divorced' },
-      { heading: 'Borken Up', iconName: 'user-vneck', value: 'broken-up' },
+      { heading: 'Broken Up', iconName: 'user-vneck', value: 'broken-up' },
     ],
   },
   {
@@ -206,7 +208,7 @@ export const defaultQuestions: TQuizQuestions = [
         value: 'unsatisfied',
       },
       {
-        heading: 'Somewhat Unsatisfied',
+        heading: 'Partly Unsatisfied',
         iconName: 'circle',
         value: 'somewhat-unsatisfied',
       },
@@ -216,7 +218,7 @@ export const defaultQuestions: TQuizQuestions = [
         value: 'neutral',
       },
       {
-        heading: 'Somewhat Satisfied',
+        heading: 'Partly Satisfied',
         iconName: 'circle',
         value: 'somewhat-satisfied',
       },
@@ -410,6 +412,48 @@ export const defaultQuestions: TQuizQuestions = [
         duration: 2.5,
       },
     ],
+  },
+]
+
+export const FAQs = [
+  {
+    question: 'Discover True Love',
+    answer:
+      'Learn how dating stages, communication, and attachment styles can help you find the right partner.',
+  },
+  {
+    question: 'Empower Your Relationships',
+    answer:
+      'Take our specialized courses to learn tools and strategies to save or heal your relationships.',
+  },
+  {
+    question: 'Develop Healthy Patterns',
+    answer: 'Thais will teach you how to develop healthy habits so you can strive in life.',
+  },
+  {
+    question: 'Manage Conflict',
+    answer:
+      'Thais will teach you to handle and resolve conflict to build long-lasting and honest relationships.',
+  },
+  {
+    question: 'Overcome Your Fears',
+    answer:
+      'Learn why and how your fears impact your romantic relationships and how to overcome them.',
+  },
+  {
+    question: 'Stop Self-Sabotage',
+    answer:
+      "We'll teach you how to stop self-sabotaging your love life with powerful subconscious reprogramming tools.",
+  },
+  {
+    question: 'Improve Communication',
+    answer:
+      'Improve your communication and responses to all scenarios by practicing and using our communication scripts.',
+  },
+  {
+    question: 'Make Your Relationships Stronger',
+    answer:
+      'Thais will explain what tears relationships apart, why it happens, and how to avoid it.',
   },
 ]
 

@@ -339,7 +339,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
           />
 
           <div>
-            <h3 className="mb-4 text-center lg:text-left">The Cancel-Anytime Guarantee</h3>
+            <h3 className="mb-4 text-center lg:text-left">Our Money-Back Guarantee</h3>
 
             <p>
               The Personal Development School always wants what is best for you. Join today and get

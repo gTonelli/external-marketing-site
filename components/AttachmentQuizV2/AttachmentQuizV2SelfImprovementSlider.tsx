@@ -52,7 +52,7 @@ export const AttachmentQuizV2SelfImprovementSlider = () => {
         ))}
       </div>
 
-      <div className="flex justify-center gap-12">
+      <div className="flex justify-center gap-12 lg:hidden">
         {/* LEFT ARROW ICON */}
         <div ref={(node) => setPrevEl(node)} className="">
           <Icon className="text-primary" name="arrow-left-long" size="2x" />

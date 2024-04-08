@@ -5,8 +5,8 @@ import { Page } from '@/components/Page'
 import { CarouselSocialProof } from '@/components/Carousel/variants/CarouselSocialProof'
 import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
-import { Faq } from '@/components/Faq/Faq'
 import { Animation } from '@/components/Animation'
+import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
 // config
 import { Section, StartQuizButton, PAGE_CONFIG } from './config'
 // libraries
@@ -14,7 +14,7 @@ import { IconName } from '@fortawesome/fontawesome-common-types'
 
 // styles
 import './styles.css'
-import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
+import { AttachmentQuizV2Faq } from '@/components/AttachmentQuizV2/AttachmentQuizV2Faq'
 
 export default function AttachmentQuizV2Page() {
   return (
@@ -136,7 +136,7 @@ export default function AttachmentQuizV2Page() {
           <p>And it all begins with taking our quiz.</p>
 
           <strong className="block mb-8 text-primary">
-            Get a glimpse of a Live Webinar with Thais Gibson after taking the quiz!
+            Get a glimpse of a recorded Live Webinar with Thais Gibson after taking the quiz!
           </strong>
 
           <StartQuizButton />
@@ -239,21 +239,7 @@ export default function AttachmentQuizV2Page() {
         <Animation
           direction="fromRight"
           className="default-padding bg-primary-light bg-opacity-30 rounded-lg !py-4 text-left">
-          <strong className="block mb-4">Get my exclusive sneak peak</strong>
-
-          <p>
-            Thais will guide you through our unique courses to help you understand your attachment
-            style.
-          </p>
-
-          <Faq
-            reverseIcons
-            includeHeading={false}
-            faq={PAGE_CONFIG.FAQs}
-            className="!max-w-none grid gap-4 rounded !mb-0 !p-0 lg:grid-cols-2 lg:items-start"
-            classNameExpandable="bg-white !border-none rounded-lg"
-            classNameQuestion="mb-0"
-          />
+          <AttachmentQuizV2Faq />
         </Animation>
       </Section>
     </Page>

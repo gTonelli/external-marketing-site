@@ -30,17 +30,17 @@ export const PricingSection = () => {
         ))}
       </div>
 
-      <div className="relative text-left overflow-hidden rounded-20 shadow-md p-4 bg-white">
+      <div className="relative text-left overflow-hidden rounded-20 shadow-md p-4 bg-white md:text-center">
         <h3 className="mb-2">All-Access Pass</h3>
 
         <p className="mb-6">Everything you need, all in one place</p>
 
-        <div className="grid grid-cols-[27px_1fr] gap-x-4 items-center mb-2 lg:mb-6 lg:flex">
-          <s className="text-danger">${defaultData[selectedIndex].initialPrice}</s>
+        <div className="grid grid-cols-[27px_1fr] gap-x-4 items-center mb-2 md:mb-6 md:grid-cols-[1fr_160px_1fr] md:gap-0">
+          <s className="text-danger md:text-right">${defaultData[selectedIndex].initialPrice}</s>
 
           <h2 className="!text-5xl text-success">${defaultData[selectedIndex].finalPrice}</h2>
 
-          <p className="col-span-2 lg:col-span-1 lg:self-end lg:mb-0">
+          <p className="col-span-2 md:col-span-1 md:self-end md:mb-0 md:text-left">
             billed {defaultData[selectedIndex].billingFrequency}
           </p>
         </div>

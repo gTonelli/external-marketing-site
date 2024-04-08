@@ -1,19 +1,21 @@
 import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import Link from 'next/link'
+import cx from 'classnames'
 
 const todaysDate = new Date()
 const year = todaysDate.getFullYear()
 
 interface IFooterProps {
   includeLinks?: boolean
+  centered?: boolean
 }
 
-export const Footer = ({ includeLinks }: IFooterProps) => (
+export const Footer = ({ includeLinks, centered }: IFooterProps) => (
   <footer className="bg-[#252334] relative z-15 pb-0 lg:pt-14 lg:px-4 p-[19px]">
     <div className="relative flex flex-col text-white z-20 px-5 lg:px-0 lg:flex-row lg:pb-[75px] lg:max-w-[1120px] lg:mx-auto">
       <div className="flex flex-col lg:flex-1">
-        <div className="flex flex-col items-center mb-5 lg:items-start">
+        <div className={cx('flex flex-col items-center mb-5', !centered && 'lg:items-start')}>
           <Image
             alt="PDS Logo - Tree of Life"
             className="mb-5 lg:ml-[30px] lg:w-[320px]"
@@ -66,7 +68,7 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
         </div>
       </div>
 
-      <div className="flex flex-wrap lg:flex-[1.5] lg:justify-between">
+      <div className={cx('flex flex-wrap lg:flex-[1.5] lg:justify-between', centered && 'hidden')}>
         {includeLinks && (
           <>
             <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">

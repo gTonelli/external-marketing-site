@@ -14,7 +14,8 @@ export function middleware(request: NextRequest) {
     ) {
       return NextResponse.next()
     }
-    const { cookieKey, experimentName, pageName, variantUrl, variantRatio } = pageData
+    const { cookieKey, experimentName, pageName, variantUrl, variantRatio, forceControlOnNewUser } =
+      pageData
 
     let showVariant = false
     let setCookie = false
@@ -24,9 +25,17 @@ export function middleware(request: NextRequest) {
     )
 
     if (!mixpanelCookie) {
-      const response = NextResponse.next()
-      response.cookies.set(cookieKey, 'false')
-      return response
+      if (forceControlOnNewUser) {
+        const response = NextResponse.next()
+        response.cookies.set(cookieKey, 'false')
+        return response
+      } else {
+        showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
+        const response = showVariant
+          ? NextResponse.redirect(new URL(variantUrl, request.nextUrl.origin))
+          : NextResponse.next()
+        return response
+      }
     }
 
     const mixpanelID = JSON.parse(mixpanelCookie.value)?.distinct_id
@@ -67,23 +76,44 @@ export const config = {
   matcher: ['/iat', '/quiz'],
 }
 
-const getPageData = (request: NextRequest) => {
+const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   if (request.nextUrl.pathname.includes('/iat')) {
-    return {
-      cookieKey: 'prod-2556-iat-nav',
-      pageName: 'External IAT Page',
-      experimentName: 'PROD-2556-IAT-Nav',
-      variantUrl: '/coaching',
-      variantRatio: 0.5,
-    }
+    return splitTestConfigs.iatTest
   }
   if (request.nextUrl.pathname.includes('/quiz')) {
-    return {
-      cookieKey: 'prod-2577-quiz',
-      pageName: 'Main Funnel Quiz',
-      experimentName: 'PROD-2577-Quiz',
-      variantUrl: '/quiz/v2',
-      variantRatio: 0.2,
-    }
+    return splitTestConfigs.quizTest
   }
+}
+
+export const splitTestConfigs: TSplitTestConfigs = {
+  iatTest: {
+    cookieKey: 'prod-2556-iat-nav',
+    pageName: 'External IAT Page',
+    experimentName: 'PROD-2556-IAT-Nav',
+    variantUrl: '/coaching',
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
+
+  quizTest: {
+    cookieKey: 'prod-2577-quiz',
+    pageName: 'Main Funnel Quiz',
+    experimentName: 'PROD-2577-Quiz',
+    variantUrl: '/quiz/v2',
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+}
+
+type TSplitTestConfigs = {
+  [key: string]: TSplitTestConfig | undefined
+}
+
+type TSplitTestConfig = {
+  cookieKey: string
+  pageName: string
+  experimentName: string
+  variantUrl: string
+  variantRatio: number
+  forceControlOnNewUser: boolean
 }

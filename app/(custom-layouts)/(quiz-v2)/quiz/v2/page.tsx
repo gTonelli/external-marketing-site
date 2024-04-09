@@ -7,6 +7,8 @@ import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { Animation } from '@/components/Animation'
 import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
+import { AttachmentQuizV2Faq } from '@/components/AttachmentQuizV2/AttachmentQuizV2Faq'
+import { AttachmentQuizV2SplitTestTracker } from '@/components/AttachmentQuizV2/AttachmentQuizV2SplitTestTracker'
 // config
 import { Section, StartQuizButton, PAGE_CONFIG } from './config'
 // libraries
@@ -14,11 +16,12 @@ import { IconName } from '@fortawesome/fontawesome-common-types'
 
 // styles
 import './styles.css'
-import { AttachmentQuizV2Faq } from '@/components/AttachmentQuizV2/AttachmentQuizV2Faq'
 
 export default function AttachmentQuizV2Page() {
   return (
     <Page page_name="Attachment Style Quiz">
+      <AttachmentQuizV2SplitTestTracker showingVariant={false} />
+
       <AttachmentQuizV2Navigation showBackButton={false} />
 
       <Section

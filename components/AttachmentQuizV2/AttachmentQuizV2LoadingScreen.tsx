@@ -42,8 +42,8 @@ export const AttachmentQuizV2LoadingScreen = ({
 
   const setPercentageTimer = useCallback(() => {
     const progress = Date.now() - start
-    const percentage = (100 * (progress / (totalDuration * 1000))).toFixed(1)
-    setPercentage(percentage)
+    const percentage = Math.min(100 * (progress / (totalDuration * 1000)), 100)
+    setPercentage(percentage.toFixed(1))
   }, [start, totalDuration])
 
   useEffect(() => {

@@ -225,6 +225,7 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
       email: email,
     })
     setUserData({ email, firstName, userStyle: dominantStyle })
+    Mixpanel.track.SignUp({ distinct_id: email })
 
     const requestBody = {
       tags: [`attachment-quiz-${dominantStyle}`],

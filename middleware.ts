@@ -100,7 +100,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'Main Funnel Quiz',
     experimentName: 'PROD-2577-Quiz',
     variantUrl: '/quiz/v2',
-    variantRatio: 0.5,
+    variantRatio: 0.2,
     forceControlOnNewUser: false,
   },
 }

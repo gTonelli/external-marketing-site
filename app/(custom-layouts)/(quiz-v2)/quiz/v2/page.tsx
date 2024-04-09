@@ -20,7 +20,7 @@ import './styles.css'
 export default function AttachmentQuizV2Page() {
   return (
     <Page page_name="Attachment Style Quiz">
-      <AttachmentQuizV2SplitTestTracker showingVariant={false} />
+      <AttachmentQuizV2SplitTestTracker showingVariant={true} />
 
       <AttachmentQuizV2Navigation showBackButton={false} />
 

@@ -25,7 +25,7 @@ interface IFaqSecondaryProps extends IFAQsProps {
   /**
    * Classname for FAQ answer
    */
-  classNameAnswerFAQ?: string
+  classNameAnswer?: string
   /**
    * Classname for subheading
    */
@@ -92,7 +92,7 @@ export const FaqSecondary = ({
   className,
   classNameFAQ,
   classNameSecondary,
-  classNameAnswerFAQ,
+  classNameAnswer,
   classNameIcon,
   classNameHeading,
   classNameHeadingPrimary,
@@ -128,9 +128,9 @@ export const FaqSecondary = ({
             key={`${index}`}
             answer={data.answer}
             className={classNameFAQ}
-            classNameAnswerFAQ={classNameAnswerFAQ}
+            classNameAnswer={classNameAnswer}
             classNameIcon={classNameIcon}
-            classNameQuestionFAQ={classNameQuestionFAQ}
+            classNameQuestion={classNameQuestionFAQ}
             question={data.question}
           />
         ))}
@@ -144,8 +144,8 @@ const FAQ = ({
   answer,
   className,
   classNameIcon,
-  classNameQuestionFAQ,
-  classNameAnswerFAQ,
+  classNameQuestion,
+  classNameAnswer,
 }: IFAQProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -156,7 +156,7 @@ const FAQ = ({
           <div
             className={cx(
               'flex justify-between items-center text-black transition-all bg-white rounded-lg  p-4',
-              classNameQuestionFAQ
+              classNameQuestion
             )}>
             <Text.Paragraph className="font-bold mb-0 md:text-lg" content={question} />
 
@@ -171,9 +171,15 @@ const FAQ = ({
         <div
           className={cx(
             'w-full flex flex-col text-black bg-white rounded-lg px-4 pb-4',
-            classNameAnswerFAQ
+            classNameAnswer
           )}>
-          <Text.Paragraph useMD content={answer} />
+          {typeof answer === 'string' ? (
+            <Text.Paragraph useMD className="text-left" content={answer} />
+          ) : (
+            answer.map((data) => (
+              <Text.Paragraph key={data} className="text-left mb-4" content={data} />
+            ))
+          )}
         </div>
       </Expandable>
     </div>

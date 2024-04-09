@@ -1,21 +1,61 @@
 'use client'
 
-//
 // Documentation: https://bitbucket.org/growtham/gam-user-analytics-v2/src/main/
-
+// core
 import { useEffect } from 'react'
-var gamUserTracking: TGAM
+// modules
+import Mixpanel from './Mixpanel'
+import { Storage } from './Storage'
+// utils
+import { TStyle } from '@/utils/types'
 
-export const useGamAnalytics = (): TGAM | undefined => {
+var gamUserTracking: TGAM | undefined
+
+interface ISetUserDataArgs {
+  email: string
+  firstName?: string
+  userStyle?: TStyle
+}
+
+export const useGamAnalytics = () => {
+  const setUserData = ({ email, firstName, userStyle }: ISetUserDataArgs) => {
+    // Creating an identity of user in mixpanel
+    Mixpanel.setUser(email)
+    Storage.set('userFirstName', firstName)
+    Storage.set('lastUserEmail', email)
+
+    // Setting up the first touch of the user
+    const gamFirstTouchData = {
+      utm_campaign_first: gamUserTracking?.utm_campaign_first,
+      utm_medium_first: gamUserTracking?.utm_medium_first,
+      utm_source_first: gamUserTracking?.utm_source_first,
+      utm_content_first: gamUserTracking?.utm_content_first,
+      utm_term_first: gamUserTracking?.utm_term_first,
+      wicked_source_first: gamUserTracking?.wickedsource_first,
+      wicked_id_first: gamUserTracking?.wickedid_first,
+    }
+
+    // Setting up the last touch of the user
+    const gamLastTouchData = {
+      utm_campaign_last: gamUserTracking?.utm_campaign_last,
+      utm_medium_last: gamUserTracking?.utm_medium_last,
+      utm_source_last: gamUserTracking?.utm_source_last,
+      utm_content_last: gamUserTracking?.utm_content_last,
+      utm_term_last: gamUserTracking?.utm_term_last,
+      wicked_source_last: gamUserTracking?.wickedsource_last,
+      wicked_id_last: gamUserTracking?.wickedid_last,
+    }
+
+    Mixpanel.setPeople(gamLastTouchData)
+    Mixpanel.setPeopleOnce(gamFirstTouchData)
+    if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
+    return { gamFirstTouchData, gamLastTouchData }
+  }
+
   useEffect(() => {
     const gam = {
       internalConfig: {
         sessionLength: 30, // minutes
-      },
-      init: () => {
-        if (gam.config.debug) {
-          console.info('Gam initialized')
-        }
       },
       config: {
         debug: false,
@@ -85,9 +125,6 @@ export const useGamAnalytics = (): TGAM | undefined => {
             '; path=/;' +
             (gam.config.topDomain ? ' domain=' + gam.config.topDomain + ';' : '')
         }
-        if (gam.config.debug) {
-          //   console.log('GAM: addToStorage: ' + key + ' => ' + val) // # DEV
-        }
       },
       removeFromStorage(key: string) {
         gam.addToStorage(key, '')
@@ -100,21 +137,12 @@ export const useGamAnalytics = (): TGAM | undefined => {
             : null,
           cookieData: any = gam.readCookie(key)
         if (!localStorageData && !cookieData) {
-          if (gam.config.debug) {
-            // console.log('GAM: Get Storage: Storage is empty')// # DEV
-          }
           return '{}'
         }
         if (localStorageData && !cookieData) {
-          if (gam.config.debug) {
-            // console.log('GAM: Get Storage: Local Storage')// # DEV
-          }
           return localStorageData
         }
         if (cookieData && !localStorageData) {
-          if (gam.config.debug) {
-            // console.log('GAM: Get Storage: Cookie')// # DEV
-          }
           return cookieData
         }
         if (
@@ -123,13 +151,7 @@ export const useGamAnalytics = (): TGAM | undefined => {
             typeof cookieData?.first_visit_time === 'undefined' ||
             localStorageData.first_visit_time <= cookieData.first_visit_time)
         ) {
-          if (gam.config.debug) {
-            // console.log('GAM: Get Storage: Local Storage') // # DEV
-          }
           return localStorageData
-        }
-        if (gam.config.debug) {
-          //   console.log('GAM: Get Storage: Cookie')   // # DEV
         }
         return cookieData
       },
@@ -188,16 +210,13 @@ export const useGamAnalytics = (): TGAM | undefined => {
         if (!user_id) {
           user_id = gam.getParameterByName('user_id')
         }
-        if (gam.config.debug) {
-          //   console.log('GAM: Setting user_id: ' + user_id)    // # DEV
-        }
         return user_id
       },
       decorateUrl(url: string) {
         let _url = url
         const collectedParams: string[] = []
         gam.config.urlParams.forEach(function (urlParam) {
-          if (gamUserTracking[urlParam + '_last']) {
+          if (gamUserTracking?.[urlParam + '_last']) {
             collectedParams.push(
               urlParam + '=' + encodeURIComponent(gamUserTracking[urlParam + '_last'])
             )
@@ -240,20 +259,12 @@ export const useGamAnalytics = (): TGAM | undefined => {
         if (cookieDataRaw) {
           cookieData = JSON.parse(cookieDataRaw)
           for (const key in cookieData) {
-            if (gam.config.debug) {
-              //   console.log(
-              //     'GAM: Populating local storage with cookie data: ' + key + ' => ' + cookieData[key]
-              //   ) // # DEV
-            }
             gam.addToStorage(key, cookieData[key], true)
           }
         }
       }
       // user tracking routine
       gamUserTracking = gam.getObjectFromStorage('gam_user_tracking')
-      if (gam.config.debug) {
-        // console.log('GAM: gamUserTracking', gamUserTracking)    // # DEV
-      }
       let referrer = ''
       if (document.referrer) {
         if (new URL(document.referrer).hostname !== window.location.hostname) {
@@ -264,16 +275,11 @@ export const useGamAnalytics = (): TGAM | undefined => {
       }
       if (typeof referrer !== 'undefined') {
         gam.addToStorage('referrer', referrer)
-        if (gam.config.debug) {
-          //   console.log('GAM: Setting referrer to: ' + referrer)  // # DEV
-        }
-      } else if (gam.config.debug) {
-        // console.log('GAM: Referrer is internal, not setting')   // # DEV
       }
       gam.storeUrlParams(gamUserTracking, typeof referrer !== 'undefined' ? referrer : '')
       const xmlHttp = new XMLHttpRequest()
       if (
-        typeof gamUserTracking.lastGeo === 'undefined' ||
+        typeof gamUserTracking?.lastGeo === 'undefined' ||
         Date.now() - gamUserTracking.lastGeo > 86400000
       ) {
         xmlHttp.onreadystatechange = function () {
@@ -283,12 +289,7 @@ export const useGamAnalytics = (): TGAM | undefined => {
               gam.addToStorage('country', data.country)
               gam.addToStorage('city', data.city)
               gam.addToStorage('ip', data.query)
-              if (gam.config.debug) {
-                // console.log(data)   // # DEV
-              }
               gam.addToStorage('lastGeo', Date.now())
-            } else if (gam.config.debug) {
-              //   console.log('GAM: IP Lookup failed', xmlHttp) // # DEV
             }
             gam.geoExecuted = true
           }
@@ -298,30 +299,27 @@ export const useGamAnalytics = (): TGAM | undefined => {
       } else {
         gam.geoExecuted = false
       }
-      if (!gamUserTracking.landing_page_first) {
+      if (!gamUserTracking?.landing_page_first) {
         gam.addToStorage('landing_page_first', window.location.pathname)
       }
       if (
-        !gamUserTracking.last_visit_time ||
+        !gamUserTracking?.last_visit_time ||
         Date.now() - Date.parse(gamUserTracking.last_visit_time) >
           gam.internalConfig.sessionLength * 60000
       ) {
         gam.addToStorage('landing_page_last', window.location.pathname)
       }
       gam.addToStorage('last_page_seen', window.location.pathname)
-      if (!gamUserTracking.first_visit_time) {
+      if (!gamUserTracking?.first_visit_time) {
         gam.addToStorage('first_visit_time', new Date())
       }
       gam.addToStorage('last_visit_time', new Date())
-      gam.addToStorage('pageviews', gamUserTracking.pageviews ? gamUserTracking.pageviews + 1 : 1)
+      gam.addToStorage('pageviews', gamUserTracking?.pageviews ? gamUserTracking.pageviews + 1 : 1)
       gam.addToStorage('user_agent', navigator.userAgent)
       const ga_cid = gam.readCookie('_ga')
       gam.addToStorage('ga_cid', typeof ga_cid !== 'undefined' ? ga_cid : '')
       // refresh the variable
       gamUserTracking = gam.getObjectFromStorage('gam_user_tracking')
-      if (gam.config.debug) {
-        // console.log('GAM: Updated gamUserTracking', gamUserTracking)    // # DEV
-      }
       // insert the values into the main gam variable as well
       for (const key in gamUserTracking) {
         // @ts-ignore
@@ -369,7 +367,7 @@ export const useGamAnalytics = (): TGAM | undefined => {
     }, 100)
   }, [])
 
-  return gamUserTracking
+  return { gamUserTracking, setUserData }
 }
 
 type TGAM = {

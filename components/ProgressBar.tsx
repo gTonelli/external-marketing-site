@@ -8,6 +8,8 @@ import cx from 'classnames'
 interface IProgressBarProps extends IDefaultProps {
   /** Classnames for the filled portion of the bar */
   classNameFill?: string
+  /** Classnames for the percentage text */
+  classNamePercentage?: string
   /** Color of the filled portion of the bar */
   color: 'primary' | 'pink' | 'teal' | 'orange' | 'blue' | 'white'
   /**
@@ -31,6 +33,7 @@ interface IProgressBarProps extends IDefaultProps {
 export const ProgressBar = ({
   className,
   classNameFill,
+  classNamePercentage,
   color,
   noBorder,
   percentage = 0,
@@ -50,8 +53,12 @@ export const ProgressBar = ({
 
       {/* PERCENTAGE VALUE */}
       {showPercentage && (
-        <span className="absolute top-0 right-2 bottom-0 font-effra text-xs text-right">
-          {percentage}%
+        <span
+          className={cx(
+            'absolute top-0 right-2 bottom-0 font-effra text-xs text-right',
+            classNamePercentage
+          )}>
+          {percentage.toFixed(0)}%
         </span>
       )}
     </div>

@@ -31,11 +31,7 @@ export const Animation = ({
       initial={disabled ? false : { opacity: 0, x, y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       transition={{ delay: isMobile ? 0 : delay }}
-      exit={{
-        opacity: 0,
-        x: x === '-100%' ? '100%' : '-100%',
-        y: y === '-100%' ? '100%' : '-100%',
-      }}
+      exit={{ opacity: 0, x, y }}
       viewport={{ once: true }}
       onClick={onClick}
       onAnimationComplete={onAnimationComplete}>

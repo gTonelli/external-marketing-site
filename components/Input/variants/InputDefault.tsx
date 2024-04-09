@@ -12,6 +12,7 @@ import cx from 'classnames'
 type TInput =
   | 'checkbox'
   | 'color'
+  | 'date'
   | 'email'
   | 'file'
   | 'number'
@@ -23,6 +24,8 @@ type TInput =
   | 'text'
 
 export interface IInputDefaultProps<T = string> extends IDefaultProps {
+  /** Autocomplete attribute */
+  autocomplete?: string
   /**
    * Color scheme of the input, change them based on the background the Input is on
    *
@@ -171,6 +174,7 @@ export interface IInputDefaultProps<T = string> extends IDefaultProps {
 }
 
 export const InputDefault = <T,>({
+  autocomplete,
   className,
   classNameError,
   classNameIcon,
@@ -265,6 +269,7 @@ export const InputDefault = <T,>({
 
         <input
           ref={input as React.Ref<HTMLInputElement>}
+          autoComplete={autocomplete}
           autoFocus={isFocused || isFocusedHighlight}
           // @ts-ignore
           className={inputCSS()}

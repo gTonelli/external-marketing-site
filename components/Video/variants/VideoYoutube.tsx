@@ -46,6 +46,10 @@ interface IYouTubeProps extends YouTubeProps {
   thumbnailWidth?: number
   /** Height in px of the thumbnail */
   thumbnailHeight?: number
+  /** Thubmnail quality
+   * @default 80
+   */
+  thumbnailQuality?: number
   /* Event called when play button is clicked */
   onClick?(): void
   /* Event called when the video starts to play */
@@ -62,6 +66,7 @@ export const VideoYoutube = ({
   thumbnailAlt,
   thumbnailWidth,
   thumbnailHeight,
+  thumbnailQuality = 80,
   buttonLabel,
   buttonType,
   className,
@@ -163,6 +168,7 @@ export const VideoYoutube = ({
                   tabIndex={-1}
                   width={thumbnailWidth || 768}
                   height={thumbnailHeight || 453}
+                  quality={thumbnailQuality}
                 />
                 <Image
                   alt="Play Video Button"

@@ -5,7 +5,7 @@ import { IDefaultWrapperProps } from '@/components'
 // libraries
 import cx from 'classnames'
 
-interface ISectionProps extends IDefaultWrapperProps {
+export interface ISectionProps extends IDefaultWrapperProps {
   /** CSS for the section's content wrapper */
   classNameInner?: string
 }

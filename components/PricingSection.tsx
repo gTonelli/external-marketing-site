@@ -35,7 +35,7 @@ export const PricingSection = () => {
 
         <p className="mb-6">Everything you need, all in one place</p>
 
-        <div className="grid grid-cols-[27px_1fr] gap-x-4 items-center mb-2 md:mb-6 md:grid-cols-[1fr_160px_1fr] md:gap-0">
+        <div className="grid grid-cols-[27px_1fr] gap-x-4 items-center mb-2 md:mb-6 md:grid-cols-[1fr_180px_1fr] md:gap-0">
           <s className="text-danger md:text-right">${defaultData[selectedIndex].initialPrice}</s>
 
           <h2 className="!text-5xl text-success">${defaultData[selectedIndex].finalPrice}</h2>

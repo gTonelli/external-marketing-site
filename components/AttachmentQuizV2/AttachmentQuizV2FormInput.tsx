@@ -52,7 +52,9 @@ export const AttachmentQuizV2FormInput = ({
                   </p>
                 )}
 
-                <div className="absolute cursor-pointer flex items-center justify-center right-2 top-2 text-white bg-primary rounded-full w-8 h-8 text-xl">
+                <div
+                  className="absolute cursor-pointer flex items-center justify-center right-2 top-2 text-white bg-primary rounded-full w-8 h-8 text-xl transition-colors
+                  lg:border lg:border-transparent lg:hover:bg-primary-light lg:hover:border-primary">
                   <Button className="bg-transparent text-transparent border-transparent absolute w-full h-full" />
 
                   <Icon name="chevron-right" />

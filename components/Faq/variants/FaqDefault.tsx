@@ -98,7 +98,7 @@ export const FaqDefault = ({
         />
       )}
 
-      {subheading && <Text className="mt-4" content={subheading} />}
+      {subheading && <Text className="my-4" content={subheading} />}
 
       {faq.map((data, index) => (
         <FAQ

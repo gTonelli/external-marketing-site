@@ -131,16 +131,6 @@ const config: Config = {
         10: '2px',
         0.325: '0.325rem',
       },
-      cursor: {
-        auto: 'auto !important',
-        default: 'default !important',
-        help: 'help !important',
-        move: 'move !important',
-        'not-allowed': 'not-allowed !important',
-        pointer: 'pointer !important',
-        text: 'text !important',
-        wait: 'wait !important',
-      },
       fontFamily: {
         effra: ['var(--font-effra)'],
         ssp: ['var(--font-source-serif-pro)'],

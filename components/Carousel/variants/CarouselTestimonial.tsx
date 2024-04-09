@@ -177,10 +177,13 @@ export const CarouselTestimonial = forwardRef(
             isPrimary ? 'max-w-[1184px]' : 'max-w-6xl'
           }`}>
           <Swiper
-            loop
             className={cx('!pb-12', classNameSwiper)}
             modules={[Navigation, Pagination]}
-            navigation={{ prevEl, nextEl }}
+            navigation={{
+              prevEl,
+              nextEl,
+              disabledClass: 'opacity-25 !cursor-not-allowed',
+            }}
             pagination={{
               clickable: true,
               bulletActiveClass: '!opacity-100 !w-6 !h-6 !my-0',
@@ -206,8 +209,8 @@ export const CarouselTestimonial = forwardRef(
           {/* LEFT ARROW ICON */}
           <div
             ref={(node) => setPrevEl(node)}
-            className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 left-1/3
-            lg:top-1/2 lg:hover:border-primary lg:cursor-pointer lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
+            className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 left-1/3 cursor-pointer
+            lg:top-1/2 lg:hover:border-primary lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
             <Icon className="text-primary" name="chevron-left" size="lg" />
           </div>
 

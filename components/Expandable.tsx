@@ -7,8 +7,6 @@ import { IDefaultWrapperProps } from '@/components'
 // libraries
 import cx from 'classnames'
 import Collapsible, { CollapsibleProps } from 'react-collapsible'
-// utils
-// import {} from 'utils'
 
 interface IExpandableProps
   extends Omit<CollapsibleProps, 'id' | 'children'>,

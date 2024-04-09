@@ -50,41 +50,11 @@ export const RegistrationForm = ({
   // =========== Hooks =========
   const searchParams = useSearchParams()
   const FBQ = useFacebookPixel()
-  const gamUserTracking = useGamAnalytics()
+  const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
     const { email, firstName, lastName, captcha } = values
-
-    // Creating an identity of user in mixpanel
-    Mixpanel.setUser(email)
-    Storage.set('userFirstName', firstName)
-    Storage.set('lastUserEmail', email)
-
-    // Setting up the first touch of the user
-    const gamFirstTouchData = {
-      utm_campaign_first: gamUserTracking?.utm_campaign_first,
-      utm_medium_first: gamUserTracking?.utm_medium_first,
-      utm_source_first: gamUserTracking?.utm_source_first,
-      utm_content_first: gamUserTracking?.utm_content_first,
-      utm_term_first: gamUserTracking?.utm_term_first,
-      wicked_source_first: gamUserTracking?.wickedsource_first,
-      wicked_id_first: gamUserTracking?.wickedid_first,
-    }
-
-    // Setting up the last touch of the user
-    const gamLastTouchData = {
-      utm_campaign_last: gamUserTracking?.utm_campaign_last,
-      utm_medium_last: gamUserTracking?.utm_medium_last,
-      utm_source_last: gamUserTracking?.utm_source_last,
-      utm_content_last: gamUserTracking?.utm_content_last,
-      utm_term_last: gamUserTracking?.utm_term_last,
-      wicked_source_last: gamUserTracking?.wickedsource_last,
-      wicked_id_last: gamUserTracking?.wickedid_last,
-    }
-
-    Mixpanel.setPeople(gamLastTouchData)
-    Mixpanel.setPeopleOnce(gamFirstTouchData)
-    if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
+    const { gamFirstTouchData, gamLastTouchData } = setUserData({ email, firstName, userStyle })
 
     const utmDataRaw: IUtmData = {}
     searchParams.forEach((value, key) => {

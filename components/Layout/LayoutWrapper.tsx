@@ -29,10 +29,10 @@ export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
           `}
       </Script>
 
-      <body className="relative">
-        <main className="flex flex-col min-h-screen relative bg-white overflow-x-hidden base-typography lg:overflow-x-visible">
+      <body>
+        <div className="flex flex-col min-h-screen relative bg-white base-typography">
           {children}
-        </main>
+        </div>
       </body>
 
       <GoogleTagManager gtmId="GTM-T49JFVN" />

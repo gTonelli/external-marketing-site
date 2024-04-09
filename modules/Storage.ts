@@ -4,6 +4,7 @@
 export type TStorageKeys =
   | 'lastUserEmail'
   | 'userFirstName'
+  | 'userFullName'
   | 'canViewResults'
   | 'userTag'
   | 'prod-2320-checkout-test'

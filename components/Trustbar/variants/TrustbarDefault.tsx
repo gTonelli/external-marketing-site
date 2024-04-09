@@ -19,7 +19,7 @@ interface ILogo extends IDefaultProps {
   img: string
 }
 
-const DEFAULT_TRUSTBAR: ILogo[] = [
+export const DEFAULT_TRUSTBAR: ILogo[] = [
   { img: 'psychology-today-logo.png', className: 'max-h-[30px] xxs:max-h-[40px]' },
   { img: 'forbes-logo.png', className: 'max-h-[24px] xxs:max-h-[33px]' },
   { img: 'amazon-com-logo.png', className: 'max-h-[30px] xxs:max-h-[39px]' },

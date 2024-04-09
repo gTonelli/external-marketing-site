@@ -16,3 +16,17 @@
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
 }
+
+@keyframes animFadeInLeft {
+  from {
+    left: '100%';
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+.animFadeInLeft {
+  animation: animFadeInLeft 1s ease-in;
+}

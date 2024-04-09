@@ -6,6 +6,8 @@ import { EWindowWidth } from './constants'
 import { IViewport } from './interfaces'
 import { throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import Cookies from 'universal-cookie'
+import { splitTestConfigs } from '@/middleware'
 
 // ==============================
 //          R E S I Z E
@@ -126,4 +128,19 @@ function getScrollPercentage(
   }
   const height = element.scrollHeight - element.clientHeight
   return Math.round((element.scrollTop / height) * 100)
+}
+
+export function useAttachmentQuizSplitTest(showingVariant: boolean) {
+  useEffect(() => {
+    const cookies = new Cookies()
+    const config = splitTestConfigs.quizTest
+    const testCookie = cookies.get(config?.cookieKey || '')
+    if (testCookie !== undefined || !config) return
+    cookies.set(config.cookieKey, showingVariant)
+    Mixpanel.track.ExperimentStarted({
+      'Experiment name': config.experimentName,
+      'Variant name': showingVariant ? 'Variant 1' : 'Control',
+      page_name: config.pageName as Pages,
+    })
+  })
 }

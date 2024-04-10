@@ -19,9 +19,9 @@ import cx from 'classnames'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
 import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 // utils
 import { TStyle } from '@/utils/types'
+import { Regexes } from '@/utils/constants'
 
 interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
@@ -199,7 +199,7 @@ const RegistrationFormValidationSchema = yup
       .defined()
       .ensure()
       .required('Email required')
-      .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid'),
+      .matches(Regexes.email, 'Email must be valid'),
     captcha: yup.string().defined().ensure().required(),
   })
   .defined()

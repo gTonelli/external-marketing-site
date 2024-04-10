@@ -15,7 +15,7 @@ import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { EExternalRoutes, ERoutes, Regexes } from '@/utils/constants'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
@@ -1240,7 +1240,7 @@ const schema: Yup.Schema<ContactUsVariables> = Yup.object({
     .defined()
     .ensure()
     .required('E-mail is required')
-    .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid')
+    .matches(Regexes.email, 'Email must be valid')
     .default(''),
   captcha: Yup.string().defined().ensure().required(),
 })
@@ -1366,7 +1366,7 @@ const RegistrationFormValidationSchema = Yup.object()
       .defined()
       .ensure()
       .required('Email required')
-      .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid'),
+      .matches(Regexes.email, 'Email must be valid'),
   })
   .defined()
 

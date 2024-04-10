@@ -9,6 +9,8 @@ import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
 // modules
 import { Storage } from '@/modules/Storage'
+// utils
+import { Regexes } from '@/utils/constants'
 
 export const AttachmentQuizV2FormInput = ({
   answerQuestion,
@@ -92,7 +94,7 @@ const formInputEmailSchema = Yup.object({
   email: Yup.string()
     .defined()
     .ensure()
-    .email('Email must be valid')
+    .matches(Regexes.email, 'Email must be valid')
     .required('E-mail is required'),
 })
 const formInputAgeSchema = Yup.object({

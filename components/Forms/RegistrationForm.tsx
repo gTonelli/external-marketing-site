@@ -19,9 +19,9 @@ import cx from 'classnames'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
 import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 // utils
 import { TStyle } from '@/utils/types'
+import { Regexes } from '@/utils/constants'
 
 interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
@@ -192,14 +192,14 @@ export const RegistrationForm = ({
 const RegistrationFormValidationSchema = yup
   .object()
   .shape({
-    firstName: yup.string().defined().ensure().required(' First name required'),
+    firstName: yup.string().defined().ensure().required('First name required'),
     lastName: yup.string().defined().ensure().required('Last name required'),
     email: yup
       .string()
       .defined()
       .ensure()
       .required('Email required')
-      .email('Valid email required.'),
+      .matches(Regexes.email, 'Email must be valid'),
     captcha: yup.string().defined().ensure().required(),
   })
   .defined()

@@ -17,6 +17,8 @@ import cx from 'classnames'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
+// utils
+import { Regexes } from '@/utils/constants'
 
 interface ISignupFormProps extends IDefaultProps {
   /** String or function that retuirns a string for generating client tags */
@@ -131,7 +133,7 @@ const SignupFormValidationSchema = yup
       .defined()
       .ensure()
       .required('Email required')
-      .email('Valid email required.'),
+      .matches(Regexes.email, 'Email must be valid'),
   })
   .defined()
 

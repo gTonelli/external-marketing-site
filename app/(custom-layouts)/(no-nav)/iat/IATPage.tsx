@@ -1238,9 +1238,9 @@ const schema: Yup.Schema<ContactUsVariables> = Yup.object({
   name: Yup.string().defined().ensure().required('Name is required').default(''),
   email: Yup.string()
     .defined()
-    .email('Email must be valid')
     .ensure()
     .required('E-mail is required')
+    .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid')
     .default(''),
   captcha: Yup.string().defined().ensure().required(),
 })
@@ -1361,12 +1361,12 @@ const IATTestimonialSection = () => {
 
 const RegistrationFormValidationSchema = Yup.object()
   .shape({
-    firstName: Yup.string().defined().ensure().required(' First name required'),
+    firstName: Yup.string().defined().ensure().required('First name required'),
     email: Yup.string()
       .defined()
       .ensure()
       .required('Email required')
-      .email('Valid email required.'),
+      .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid'),
   })
   .defined()
 

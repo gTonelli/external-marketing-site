@@ -131,7 +131,7 @@ const SignupFormValidationSchema = yup
       .defined()
       .ensure()
       .required('Email required')
-      .email('Valid email required.'),
+      .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid'),
   })
   .defined()
 

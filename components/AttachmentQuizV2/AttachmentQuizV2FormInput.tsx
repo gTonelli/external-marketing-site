@@ -92,7 +92,7 @@ const formInputEmailSchema = Yup.object({
   email: Yup.string()
     .defined()
     .ensure()
-    .email('Email must be valid')
+    .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid')
     .required('E-mail is required'),
 })
 const formInputAgeSchema = Yup.object({

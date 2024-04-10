@@ -192,14 +192,14 @@ export const RegistrationForm = ({
 const RegistrationFormValidationSchema = yup
   .object()
   .shape({
-    firstName: yup.string().defined().ensure().required(' First name required'),
+    firstName: yup.string().defined().ensure().required('First name required'),
     lastName: yup.string().defined().ensure().required('Last name required'),
     email: yup
       .string()
       .defined()
       .ensure()
       .required('Email required')
-      .email('Valid email required.'),
+      .matches(/\w+@\w+\.+\w{2,}/, 'Email must be valid'),
     captcha: yup.string().defined().ensure().required(),
   })
   .defined()

@@ -154,9 +154,10 @@ export type TQuizQuestions = [
 
 export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) => {
   // =========== State ===========
-  const [i, setIndex] = useState(0)
+  const [i, setIndex] = useState(15)
   const [currentQuestion, setCurrentQuestion] = useState<TQuizQuestion>(questions[0])
-  const [currentQuestionType, setCurrentQuestionType] = useState<TQuizQuestionType>('Screen')
+  const [currentQuestionType, setCurrentQuestionType] =
+    useState<TQuizQuestionType>('AttachmentStyleQuestion')
   // =========== Hooks ===========
   const router = useRouter()
   const { setUserData } = useGamAnalytics()

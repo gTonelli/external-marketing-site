@@ -12,7 +12,7 @@ import { ProgressBar } from '../ProgressBar'
 import { AttachmentQuizV2FormInput } from './AttachmentQuizV2FormInput'
 import { AttachmentQuizV2OptionSelect } from './AttachmentQuizV2OptionSelect'
 import { AttachmentQuizV2PillSelect } from './AttachmentQuizV2PillSelect'
-import { AttachmentQuizV2QuizQuestion } from './AttachmentQuizV2QuizQuestion'
+import { AttachmentQuizV2QuizQuestionGroup } from './AttachmentQuizV2QuizQuestionGroup'
 import { AttachmentQuizV2LoadingScreen } from './AttachmentQuizV2LoadingScreen'
 
 export const AttachmentQuizV2 = ({
@@ -68,9 +68,10 @@ export const AttachmentQuizV2 = ({
         {currentQuestionType === 'Screen' ? (
           <AttachmentQuizV2Screen questions={questions} question={currentQuestion} />
         ) : currentQuestionType === 'AttachmentStyleQuestion' ? (
-          <AttachmentQuizV2QuizQuestion
+          <AttachmentQuizV2QuizQuestionGroup
             answerQuestion={answerQuestion}
-            question={currentQuestion as TQuizQuestion<'AttachmentStyleQuestion'>}
+            index={index}
+            questions={questions}
           />
         ) : currentQuestionType === 'OptionSelect' ? (
           <AttachmentQuizV2OptionSelect

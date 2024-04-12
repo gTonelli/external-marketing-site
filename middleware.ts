@@ -73,15 +73,12 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/iat', '/quiz'],
+  matcher: ['/iat'],
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   if (request.nextUrl.pathname.includes('/iat')) {
     return splitTestConfigs.iatTest
-  }
-  if (request.nextUrl.pathname.includes('/quiz')) {
-    return splitTestConfigs.quizTest
   }
 }
 

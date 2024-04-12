@@ -245,9 +245,6 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
       .then((res) => res.json())
       .then((res) => {
         if (!res.success) throw res?.message || 'An unexpected error occured'
-        else {
-          Mixpanel.track.SignUp({ distinct_id: email })
-        }
       })
       .catch((error) => {
         console.error(error)

@@ -64,9 +64,9 @@ const defaultData = [
   },
   {
     pillText: 'QUARTERLY',
-    percentageSavings: 42,
+    percentageSavings: 50,
     initialPrice: 297,
-    finalPrice: '169.00',
+    finalPrice: '149.00',
     billingFrequency: 'quarterly',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
   },

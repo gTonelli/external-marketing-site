@@ -1,13 +1,14 @@
 // components
-import { Form, Formik, FormikHandlers, FormikHelpers } from 'formik'
 import { AttachmentQuizV2FormInput } from './AttachmentQuizV2FormInput'
 import { IQuizComponentDefaultArgs, TQuizQuestion, TQuizQuestionType } from './useAttachmentQuiz'
 import { Button } from '../Button/Button'
 import { AttachmentQuizV2OptionSelect } from './AttachmentQuizV2OptionSelect'
 import { AttachmentQuizV2PillSelect } from './AttachmentQuizV2PillSelect'
+// libraries
+import { Form, Formik, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
+// utils
 import { Regexes } from '@/utils/constants'
-
 interface IAttachmentQuizV2UserDataGroupProps extends Required<IQuizComponentDefaultArgs> {
   onSubmitted: () => void
   getQuestionType: (question: TQuizQuestion) => TQuizQuestionType

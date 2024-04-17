@@ -19,7 +19,6 @@ export const AttachmentQuizV2OptionSelect = ({ question }: IAttachmentQuizV2Opti
     <>
       <AttachmentQuizV2Heading question={question} />
 
-      {/* @import grid-cols-5 */}
       <Field
         name={question['data-key']}
         component="div"

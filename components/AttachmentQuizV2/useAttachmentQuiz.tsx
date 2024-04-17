@@ -15,9 +15,14 @@ import { Maybe } from 'yup'
 import Mixpanel from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
-import { add, indexOf, mergeWith } from 'lodash'
+import { indexOf } from 'lodash'
 import { Storage } from '@/modules/Storage'
 // utils
+
+export interface IQuizComponentDefaultArgs {
+  readonly questionGroup?: IAttachmentStyleQuestionGroup | IUserDataGroup
+  answerQuestion?: (question: TQuizQuestion, val: any) => void
+}
 
 export type TPossibleQuizQuestionValues = 0 | 0.5 | 1
 
@@ -39,11 +44,6 @@ type TOptionSelectData = {
   readonly iconName: IconName
   readonly value: string | TPossibleQuizQuestionValues
   readonly subheading?: string
-}
-
-type TLoadingScreen = {
-  readonly heading: string | JSX.Element
-  readonly duration: number
 }
 
 type TQuizResultDataKeys =
@@ -109,23 +109,6 @@ type TUserData = {
   saPercentage: number
 }
 
-export interface IQuizComponentDefaultArgs {
-  readonly questionGroup?: IAttachmentStyleQuestionGroup | IUserDataGroup
-  answerQuestion?: (question: TQuizQuestion, val: any) => void
-}
-
-export type TQuizQuestions = [
-  IAttachmentStyleQuestionGroup,
-  IAttachmentStyleQuestionGroup,
-  IAttachmentStyleQuestionGroup,
-  IAttachmentStyleQuestionGroup,
-  IUserDataGroup
-]
-
-////////////////////////////
-//          GROUPS
-////////////////////////////
-
 export interface IAttachmentStyleQuestionGroup {
   readonly type: 'AttachmentStyleQuestions'
   questions: [
@@ -153,6 +136,14 @@ interface IUserDataGroup {
     TQuizQuestion<'FormInput'>
   ]
 }
+
+export type TQuizQuestions = [
+  IAttachmentStyleQuestionGroup,
+  IAttachmentStyleQuestionGroup,
+  IAttachmentStyleQuestionGroup,
+  IAttachmentStyleQuestionGroup,
+  IUserDataGroup
+]
 
 export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
   // =========== State ===========

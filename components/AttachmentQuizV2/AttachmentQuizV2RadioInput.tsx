@@ -5,11 +5,11 @@ import { Field, useFormikContext } from 'formik'
 import { get } from 'lodash'
 import cx from 'classnames'
 
-interface IAttachmentQuizV2RadioInputPRops {
+interface IAttachmentQuizV2RadioInputProps {
   number: number
 }
 
-export const AttachmentQuizV2RadioInput = ({ number }: IAttachmentQuizV2RadioInputPRops) => {
+export const AttachmentQuizV2RadioInput = ({ number }: IAttachmentQuizV2RadioInputProps) => {
   const { errors, submitCount } = useFormikContext()
   const error = submitCount > 0 && get(errors, `question_${number}`)
   const defaultInputClasses = 'block !text-primary !border-2 !border-primary lg:cursor-pointer'

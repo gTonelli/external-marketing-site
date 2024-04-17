@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import { TOptions, TQuizQuestion, TQuizQuestions } from './useAttachmentQuiz'
-import { Storage } from '@/modules/Storage'
 import { IconName } from '@fortawesome/fontawesome-common-types'
+import { TQuizQuestions } from './useAttachmentQuiz'
 
 export const quizPillSelectOptions = [
   'Anxiety',
@@ -12,404 +11,324 @@ export const quizPillSelectOptions = [
   'Relationship Challenge',
 ] as const
 
-export const defaultQuizQuestionOptions: TOptions = [
+export const defaultQuestionGroups: TQuizQuestions = [
   {
-    heading: 'Disagree',
-    iconName: 'face-frown',
-    value: 0,
+    type: 'AttachmentStyleQuestions',
+    questions: [
+      {
+        heading:
+          'I can be very emotionally present with others (friends, family, partners, strangers), but it takes me a while to build trust and share vulnerable things about myself.',
+        association: 'fa',
+      },
+      {
+        heading:
+          'I often put other people in my life on a big pedestal. (Partner, friends, family)',
+        association: 'ap',
+      },
+      {
+        heading:
+          'I feel naturally comfortable and safe expressing my feelings and needs to loved ones.',
+        association: 'sa',
+      },
+      {
+        heading: 'I feel very upset when others infringe on my need for space or time alone. ',
+        association: 'da',
+      },
+      {
+        heading:
+          "I am willing to work through challenges in a relationship before suddenly trying to leave the relationship itself. (If you're not in a relationship, think of how you would handle conflict in a partnership.)",
+        association: 'sa',
+      },
+      {
+        heading: 'I tend to be out of touch with my emotions quite frequently.',
+        association: 'da',
+      },
+      {
+        heading:
+          "I am very attuned to others' needs and often put them before my own and resent it later.",
+        association: 'fa',
+      },
+    ],
   },
   {
-    heading: 'Somewhat Disagree',
-    iconName: 'circle',
-    value: 0,
+    type: 'AttachmentStyleQuestions',
+    questions: [
+      {
+        heading:
+          'I constantly want to be emotionally closer to my partner. This can also apply to my close friendships or romantic interests.',
+        association: 'ap',
+      },
+      {
+        heading: 'I am effective at compromising and communicating.',
+        association: 'sa',
+      },
+      {
+        heading:
+          'It is very difficult for me to set boundaries unless I am angry. I can sometimes set excessive boundaries and push people away too dramatically out of anger.',
+        association: 'fa',
+      },
+      {
+        heading:
+          'If I notice my partner showing any signs of coldness, I panic and want to get closer as quickly as possible. This often happens to me in friendships as well.',
+        association: 'ap',
+      },
+      {
+        heading:
+          'It is not uncommon for me to experience inward emotional turbulence throughout the duration of my romantic relationship. This applies to close family members as well.',
+        association: 'fa',
+      },
+      {
+        heading:
+          'I often feel very hot or very cold towards my partner or family members. I tend to operate in extremes in how I relate to others.',
+        association: 'fa',
+      },
+      {
+        heading: 'I know that I am worthy of a healthy, happy relationship. ',
+        association: 'sa',
+      },
+    ],
   },
   {
-    heading: 'Neutral',
-    iconName: 'face-meh',
-    value: 0,
+    type: 'AttachmentStyleQuestions',
+    questions: [
+      {
+        heading:
+          'When I feel hurt by a loved one, I often have a strong fight or flight response. I find myself wanting to push this person as far away as possible. (Friends, family, romantic relationship).',
+        association: 'fa',
+      },
+      {
+        heading:
+          'I do not feel as though I need anything from my romantic partner or loved ones. It can be difficult to conceptualize how others would meet a lot of my needs.',
+        association: 'da',
+      },
+      {
+        heading: 'I do not enjoy being out of romantic relationships. I often fear being alone.',
+        association: 'ap',
+      },
+      {
+        heading:
+          "If a loved one's behavior hurts me, I will express my feelings and try to understand what caused them to act that way. ",
+        association: 'sa',
+      },
+      {
+        heading:
+          'I hunger for closeness, but I fear the emotional difficulty of it at the same time (friends, family, romantic partners). ',
+        association: 'fa',
+      },
+      {
+        heading:
+          'I do not like making social plans with others in advance. I often fear being trapped by commitments with other people. ',
+        association: 'da',
+      },
+      {
+        heading: 'I find that setting boundaries comes naturally to me. ',
+        association: 'sa',
+      },
+    ],
   },
   {
-    heading: 'Somewhat Agree',
-    iconName: 'circle',
-    value: 0.5,
+    type: 'AttachmentStyleQuestions',
+    questions: [
+      {
+        heading: 'I focus much more on the relationships in my life than I do on myself.',
+        association: 'ap',
+      },
+      {
+        heading: 'I often feel protective over my space, privacy and belongings. ',
+        association: 'da',
+      },
+      {
+        heading:
+          'I generally feel invaded when my partner or loved ones demand too much physical affection. ',
+        association: 'da',
+      },
+      {
+        heading:
+          'I would prefer to spend most of my free time with my partner if I were to be in a romantic relationship. It would be hard for me to want to do things separately.',
+        association: 'ap',
+      },
+      {
+        heading: 'I feel that it is easy to be vulnerable with my romantic partner or loved ones.',
+        association: 'sa',
+      },
+      {
+        heading:
+          'I find that my partner or loved ones usually emotionally recover from conflict before I do. ',
+        association: 'da',
+      },
+      {
+        heading: 'I deeply fear being abandoned by my partner or love interests. ',
+        association: 'ap',
+      },
+    ],
   },
   {
-    heading: 'Agree',
-    iconName: 'face-smile',
-    value: 1,
-  },
-]
+    type: 'UserDataQuestions',
+    questions: [
+      {
+        type: 'OptionSelect',
+        heading: 'When it comes to attachment styles, you are:',
+        'data-key': 'attachment-knowledge',
+        options: [
+          {
+            heading: 'Informed',
+            subheading: 'You know more than the average person.',
+            iconName: 'face-smile',
+            value: 'informed',
+          },
+          {
+            heading: 'Curious',
+            subheading: 'You know a bit, but want to know more.',
+            iconName: 'face-raised-eyebrow',
+            value: 'curious',
+          },
+          {
+            heading: 'Skeptical',
+            subheading: 'You’re not convinced yet.',
+            iconName: 'face-confused',
+            value: 'skeptical',
+          },
+        ],
+      },
+      {
+        type: 'OptionSelect',
+        'data-key': 'quiz-discovery-method',
+        heading: 'How did you discover the quiz or learn about the Personal Development School?',
+        options: [
+          {
+            heading: 'Online Search',
+            iconName: 'search-plus',
+            value: 'online-search',
+          },
+          {
+            heading: 'Friend/Family Referral',
+            iconName: 'face-smile-plus',
+            value: 'referral',
+          },
+          {
+            heading: 'Other',
+            iconName: 'plus-circle',
+            value: 'other',
+          },
+        ],
+      },
+      {
+        type: 'OptionSelect',
+        'data-key': 'gender',
+        heading: 'What is your gender?',
+        options: [
+          { heading: 'Man', iconName: 'user-vneck-hair', value: 'male' },
+          { heading: 'Woman', iconName: 'user-vneck-hair-long', value: 'female' },
+          { heading: 'Transgender', iconName: 'user-hair-buns', value: 'transgender' },
+          {
+            heading: 'Non-binary/non-conforming',
+            iconName: 'user-tie',
+            value: 'non-binary',
+          },
+          {
+            heading: 'Prefer not to answer',
+            iconName: 'user-vneck',
+            value: 'prefer-not-to-answer',
+          },
+        ],
+      },
+      {
+        type: 'OptionSelect',
+        'data-key': 'relationship-status',
+        heading: 'What is your current relationship status?',
+        options: [
+          { heading: 'Single', iconName: 'user', value: 'single' },
+          { heading: 'In a relationship', iconName: 'people', value: 'relationship' },
+          { heading: 'Married', iconName: 'rings-wedding', value: 'married' },
+          { heading: 'Divorced', iconName: 'heart-crack', value: 'divorced' },
+          { heading: 'Broken Up', iconName: 'user-vneck', value: 'broken-up' },
+        ],
+      },
+      {
+        type: 'OptionSelect',
+        'data-key': 'learning-style',
+        heading: 'What is your preferred learning style?',
+        options: [
+          { heading: 'Visual', iconName: 'image', value: 'visual' },
+          { heading: 'Tactile', iconName: 'hand', value: 'tactile' },
+          { heading: 'Auditory', iconName: 'headphones-simple', value: 'auditory' },
+        ],
+      },
 
-export const defaultQuestions: TQuizQuestions = [
-  {
-    heading: 'Introduce Yourself',
-    subheading:
-      'Share your name, email, and tell us about your attachment style knowledge, so we can deliver a personalized experience.',
-  },
-  {
-    heading: "What's your name?",
-    subheading: "We'll use this to personalize your experience.",
-    formInputData: {
-      type: 'text',
-      autocomplete: 'name',
-      placeholder: 'Type your name here',
-    },
-  },
-  {
-    heading: 'Nice to meet you!',
-    imgSrc: '/icons/wink-face.svg',
-    duration: 2,
-    headingConstructor: () => {
-      const userFullName = Storage.get('userFullName')
-      if (userFullName) return `Nice to meet you ${userFullName}!`
-    },
-  },
-  {
-    heading: 'What is your email address?',
-    subheading: (
-      <i>
-        Your email is how we save your personalized report so you can see it later. We store your
-        information securely, in line with our{' '}
-        <Link
-          className="underline"
-          href="https://university.personaldevelopmentschool.com/pages/privacy"
-          target="_blank">
-          privacy policy
-        </Link>{' '}
-        and{' '}
-        <Link
-          className="underline"
-          href="https://university.personaldevelopmentschool.com/pages/terms"
-          target="_blank">
-          terms & conditions.
-        </Link>
-      </i>
-    ),
-    formInputData: {
-      type: 'email',
-      autocomplete: 'email',
-      placeholder: 'Type your email here',
-    },
-  },
-  {
-    type: 'OptionSelect',
-    heading: 'When it comes to attachment styles, you are:',
-    'data-key': 'attachment-knowledge',
-    options: [
       {
-        heading: 'Informed',
-        subheading: 'You know more than the average person.',
-        iconName: 'face-smile',
-        value: 'informed',
+        type: 'OptionSelect',
+        'data-key': 'relationship-satisfaction',
+        heading: 'How would you rate your current satisfaction in your relationship?',
+        options: [
+          {
+            heading: 'Unsatisfied',
+            iconName: 'face-frown',
+            value: 'unsatisfied',
+          },
+          {
+            heading: 'Partly Unsatisfied',
+            iconName: 'circle',
+            value: 'somewhat-unsatisfied',
+          },
+          {
+            heading: 'Neutral',
+            iconName: 'face-meh',
+            value: 'neutral',
+          },
+          {
+            heading: 'Partly Satisfied',
+            iconName: 'circle',
+            value: 'somewhat-satisfied',
+          },
+          {
+            heading: 'Satisfied',
+            iconName: 'face-smile',
+            value: 'satisfied',
+          },
+        ],
       },
       {
-        heading: 'Curious',
-        subheading: 'You know a bit, but want to know more.',
-        iconName: 'face-raised-eyebrow',
-        value: 'curious',
+        type: 'PillSelect',
+        'data-key': 'focus-areas',
+        heading: 'Choose the areas you want to focus',
+        subheading: "Select all that matter to you, and we'll explore them together.",
+        options: quizPillSelectOptions,
       },
       {
-        heading: 'Skeptical',
-        subheading: 'You’re not convinced yet.',
-        iconName: 'face-confused',
-        value: 'skeptical',
-      },
-    ],
-  },
-  {
-    heading: `Great thanks, now let's get to know you!`,
-    headingConstructor: (questions?: TQuizQuestions) => {
-      if (!questions) return
-      const q = questions.find(
-        (q) => (q as TQuizQuestion<'OptionSelect'>)['data-key'] === 'attachment-knowledge'
-      )
-      if (!q) return
-      switch (q.userResponse) {
-        case 'informed':
-          return "Great! You know what's coming then. But before that, let's get to know you."
-        case 'curious':
-          return "The rewards for curiosity are endless! But first, let's get to know you."
-        case 'skeptical':
-          return "Okay, we'll explain it all in a bit. But first, tell us about yourself."
-      }
-    },
-  },
-  {
-    heading: 'Getting to Know You: Unveiling the Basics',
-    subheading:
-      'Unveil the essentials and shape your personalized journey by sharing your age, gender, and relationship status!',
-  },
-  {
-    heading: 'How old are you?',
-    formInputData: {
-      autocomplete: 'age',
-      placeholder: 'Type your age here',
-      type: 'number',
-    },
-  },
-  {
-    type: 'OptionSelect',
-    'data-key': 'gender',
-    heading: 'What is your gender?',
-    options: [
-      { heading: 'Man', iconName: 'user-vneck-hair', value: 'male' },
-      { heading: 'Woman', iconName: 'user-vneck-hair-long', value: 'female' },
-      { heading: 'Transgender', iconName: 'user-hair-buns', value: 'transgender' },
-      {
-        heading: 'Non-binary/non-conforming',
-        iconName: 'user-tie',
-        value: 'non-binary',
-      },
-      { heading: 'Prefer not to answer', iconName: 'user-vneck', value: 'prefer-not-to-answer' },
-    ],
-  },
-  {
-    type: 'OptionSelect',
-    'data-key': 'relationship-status',
-    heading: 'What is your current relationship status?',
-    options: [
-      { heading: 'Single', iconName: 'user', value: 'single' },
-      { heading: 'In a relationship', iconName: 'people', value: 'relationship' },
-      { heading: 'Married', iconName: 'rings-wedding', value: 'married' },
-      { heading: 'Divorced', iconName: 'heart-crack', value: 'divorced' },
-      { heading: 'Broken Up', iconName: 'user-vneck', value: 'broken-up' },
-    ],
-  },
-  {
-    type: 'OptionSelect',
-    'data-key': 'learning-style',
-    heading: 'What is your preferred learning style?',
-    options: [
-      { heading: 'Visual', iconName: 'image', value: 'visual' },
-      { heading: 'Tactile', iconName: 'hand', value: 'tactile' },
-      { heading: 'Auditory', iconName: 'headphones-simple', value: 'auditory' },
-    ],
-  },
-  {
-    heading: 'Goals',
-    subheading:
-      "Share your goals with us, and together let's identify the areas where you could use some assistance. This way, we can offer personalized recommendations to support you on your journey.",
-  },
-  {
-    type: 'PillSelect',
-    'data-key': 'focus-areas',
-    heading: 'Choose the areas you want to focus',
-    subheading: "Select all that matter to you, and we'll explore them together.",
-    options: quizPillSelectOptions,
-  },
-  {
-    type: 'OptionSelect',
-    'data-key': 'relationship-satisfaction',
-    heading: 'How would you rate your current satisfaction in your relationship?',
-    options: [
-      {
-        heading: 'Unsatisfied',
-        iconName: 'face-frown',
-        value: 'unsatisfied',
+        heading: "What's your name?",
+        subheading: "We'll use this to personalize your experience.",
+        formInputData: {
+          type: 'text',
+          autocomplete: 'name',
+          placeholder: 'Type your name here',
+        },
       },
       {
-        heading: 'Partly Unsatisfied',
-        iconName: 'circle',
-        value: 'somewhat-unsatisfied',
-      },
-      {
-        heading: 'Neutral',
-        iconName: 'face-meh',
-        value: 'neutral',
-      },
-      {
-        heading: 'Partly Satisfied',
-        iconName: 'circle',
-        value: 'somewhat-satisfied',
-      },
-      {
-        heading: 'Satisfied',
-        iconName: 'face-smile',
-        value: 'satisfied',
-      },
-    ],
-  },
-  {
-    heading: 'The Attachment Quiz',
-    subheading: 'Answer each question as best as you can to uncover your attachment style!',
-    duration: 2,
-  },
-  {
-    heading:
-      'I can be very emotionally present with others (friends, family, partners, strangers), but it takes me a while to build trust and share vulnerable things about myself.',
-    association: 'fa',
-  },
-  {
-    heading: 'I often put other people in my life on a big pedestal. (Partner, friends, family)',
-    association: 'ap',
-  },
-  {
-    heading:
-      'I feel naturally comfortable and safe expressing my feelings and needs to loved ones.',
-    association: 'sa',
-  },
-  {
-    heading: 'I feel very upset when others infringe on my need for space or time alone. ',
-    association: 'da',
-  },
-  {
-    heading:
-      "I am willing to work through challenges in a relationship before suddenly trying to leave the relationship itself. (If you're not in a relationship, think of how you would handle conflict in a partnership.)",
-    association: 'sa',
-  },
-  {
-    heading: 'I tend to be out of touch with my emotions quite frequently.',
-    association: 'da',
-  },
-  {
-    heading:
-      "I am very attuned to others' needs and often put them before my own and resent it later.",
-    association: 'fa',
-  },
-  {
-    heading:
-      'I constantly want to be emotionally closer to my partner. This can also apply to my close friendships or romantic interests.',
-    association: 'ap',
-  },
-  {
-    heading: 'I am effective at compromising and communicating.',
-    association: 'sa',
-  },
-  {
-    heading:
-      'It is very difficult for me to set boundaries unless I am angry. I can sometimes set excessive boundaries and push people away too dramatically out of anger.',
-    association: 'fa',
-  },
-  {
-    heading:
-      'If I notice my partner showing any signs of coldness, I panic and want to get closer as quickly as possible. This often happens to me in friendships as well.',
-    association: 'ap',
-  },
-  {
-    heading:
-      'It is not uncommon for me to experience inward emotional turbulence throughout the duration of my romantic relationship. This applies to close family members as well.',
-    association: 'fa',
-  },
-  {
-    heading:
-      'I often feel very hot or very cold towards my partner or family members. I tend to operate in extremes in how I relate to others.',
-    association: 'fa',
-  },
-  {
-    heading: 'I know that I am worthy of a healthy, happy relationship. ',
-    association: 'sa',
-  },
-  {
-    heading:
-      'When I feel hurt by a loved one, I often have a strong fight or flight response. I find myself wanting to push this person as far away as possible. (Friends, family, romantic relationship).',
-    association: 'fa',
-  },
-  {
-    heading:
-      'I do not feel as though I need anything from my romantic partner or loved ones. It can be difficult to conceptualize how others would meet a lot of my needs.',
-    association: 'da',
-  },
-  {
-    heading: 'I do not enjoy being out of romantic relationships. I often fear being alone.',
-    association: 'ap',
-  },
-  {
-    heading:
-      "If a loved one's behavior hurts me, I will express my feelings and try to understand what caused them to act that way. ",
-    association: 'sa',
-  },
-  {
-    heading:
-      'I hunger for closeness, but I fear the emotional difficulty of it at the same time (friends, family, romantic partners). ',
-    association: 'fa',
-  },
-  {
-    heading:
-      'I do not like making social plans with others in advance. I often fear being trapped by commitments with other people. ',
-    association: 'da',
-  },
-  {
-    heading: 'I find that setting boundaries comes naturally to me. ',
-    association: 'sa',
-  },
-  {
-    heading: 'I focus much more on the relationships in my life than I do on myself.',
-    association: 'ap',
-  },
-  {
-    heading: 'I often feel protective over my space, privacy and belongings. ',
-    association: 'da',
-  },
-  {
-    heading:
-      'I generally feel invaded when my partner or loved ones demand too much physical affection. ',
-    association: 'da',
-  },
-  {
-    heading:
-      'I would prefer to spend most of my free time with my partner if I were to be in a romantic relationship. It would be hard for me to want to do things separately.',
-    association: 'ap',
-  },
-  {
-    heading: 'I feel that it is easy to be vulnerable with my romantic partner or loved ones.',
-    association: 'sa',
-  },
-  {
-    heading:
-      'I find that my partner or loved ones usually emotionally recover from conflict before I do. ',
-    association: 'da',
-  },
-  {
-    heading: 'I deeply fear being abandoned by my partner or love interests. ',
-    association: 'ap',
-  },
-  {
-    type: 'OptionSelect',
-    'data-key': 'quiz-discovery-method',
-    heading: 'How did you discover the quiz or learn about the Personal Development School?',
-    options: [
-      {
-        heading: 'Online Search',
-        iconName: 'search-plus',
-        value: 'online-search',
-      },
-      {
-        heading: 'Friend/Family Referral',
-        iconName: 'face-smile-plus',
-        value: 'referral',
-      },
-      {
-        heading: 'Other',
-        iconName: 'plus-circle',
-        value: 'other',
-      },
-    ],
-  },
-  {
-    heading: (
-      <>
-        We're crafting <strong>your personalized results</strong> – just a moment longer! Your
-        well-being is our priority.
-      </>
-    ),
-    duration: 2.5,
-    screens: [
-      {
-        heading: (
-          <>
-            We reference over <strong>1000 case studies</strong> when we develop our products
-          </>
+        heading: 'What is your email address?',
+        subheading: (
+          <i>
+            Your email is how we save your personalized report so you can see it later. We store
+            your information securely, in line with our{' '}
+            <Link
+              className="underline"
+              href="https://university.personaldevelopmentschool.com/pages/privacy"
+              target="_blank">
+              privacy policy
+            </Link>{' '}
+            and{' '}
+            <Link
+              className="underline"
+              href="https://university.personaldevelopmentschool.com/pages/terms"
+              target="_blank">
+              terms & conditions.
+            </Link>
+          </i>
         ),
-        duration: 2.5,
-      },
-      {
-        heading: (
-          <>
-            <strong>98% of our customers</strong> say their relationships are getting better after
-            joining The Personal Development School
-          </>
-        ),
-        duration: 2.5,
+        formInputData: {
+          type: 'email',
+          autocomplete: 'email',
+          placeholder: 'Type your email here',
+        },
       },
     ],
   },

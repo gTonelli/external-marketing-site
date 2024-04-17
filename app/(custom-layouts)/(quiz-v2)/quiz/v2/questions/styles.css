@@ -1,0 +1,8 @@
+input[type='radio']:checked {
+  color: #8a50a0;
+}
+
+input[type='radio']:checked + label {
+  background-color: rgb(213 184 216 / 0.5) !important;
+  color: #8a50a0;
+}

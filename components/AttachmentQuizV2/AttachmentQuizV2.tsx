@@ -42,12 +42,14 @@ export const AttachmentQuizV2 = () => {
         classNameInner="flex flex-col flex-1 !max-w-[700px]">
         {currentQuestionGroup.type === 'AttachmentStyleQuestions' ? (
           <AttachmentQuizV2QuizQuestionGroup
+            key={`question_group_${index}`}
             questionGroup={currentQuestionGroup}
             answerQuestion={answerQuestion}
             onSubmitted={onGoToNextQuestion}
           />
         ) : (
           <AttachmentQuizV2UserDataGroup
+            key={`question_group_${index}`}
             questionGroup={currentQuestionGroup}
             answerQuestion={answerQuestion}
             onSubmitted={endQuiz}

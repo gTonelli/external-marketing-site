@@ -26,7 +26,7 @@ export const AttachmentQuizV2FormInput = ({ question }: IAttachmentQuizV2FormInp
           autoComplete={question.formInputData.autocomplete}
         />
 
-        {error && <p className="w-full absolute -bottom-4 text-danger text-left">{error}</p>}
+        {error && <p className="w-full absolute -bottom-8 text-danger text-left">{error}</p>}
       </div>
     </>
   )

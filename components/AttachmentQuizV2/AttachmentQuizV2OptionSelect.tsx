@@ -58,7 +58,7 @@ export const AttachmentQuizV2OptionSelect = ({ question }: IAttachmentQuizV2Opti
           </div>
         ))}
 
-        {error && <p className="w-full absolute -bottom-4 text-danger text-left">{error}</p>}
+        {error && <p className="w-full absolute -bottom-6 text-danger text-left">{error}</p>}
       </Field>
     </>
   )

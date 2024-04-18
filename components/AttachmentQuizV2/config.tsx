@@ -222,12 +222,12 @@ export const defaultQuestionGroups: TQuizQuestions = [
           { heading: 'Transgender', iconName: 'user-hair-buns', value: 'transgender' },
           {
             heading: 'Non-binary/non-conforming',
-            iconName: 'user-tie',
+            iconName: 'user',
             value: 'non-binary',
           },
           {
             heading: 'Prefer not to answer',
-            iconName: 'user-vneck',
+            iconName: 'user-xmark',
             value: 'prefer-not-to-answer',
           },
         ],
@@ -238,10 +238,10 @@ export const defaultQuestionGroups: TQuizQuestions = [
         heading: 'What is your current relationship status?',
         options: [
           { heading: 'Single', iconName: 'user', value: 'single' },
-          { heading: 'In a relationship', iconName: 'people', value: 'relationship' },
+          { heading: 'In a relationship', iconName: 'user-group-simple', value: 'relationship' },
           { heading: 'Married', iconName: 'rings-wedding', value: 'married' },
           { heading: 'Divorced', iconName: 'heart-crack', value: 'divorced' },
-          { heading: 'Broken Up', iconName: 'user-vneck', value: 'broken-up' },
+          { heading: 'Broken Up', iconName: 'wine-glass-crack', value: 'broken-up' },
         ],
       },
       {
@@ -267,7 +267,7 @@ export const defaultQuestionGroups: TQuizQuestions = [
           },
           {
             heading: 'Partly Unsatisfied',
-            iconName: 'circle',
+            iconName: 'face-frown-slight',
             value: 'somewhat-unsatisfied',
           },
           {
@@ -277,12 +277,12 @@ export const defaultQuestionGroups: TQuizQuestions = [
           },
           {
             heading: 'Partly Satisfied',
-            iconName: 'circle',
+            iconName: 'face-smile',
             value: 'somewhat-satisfied',
           },
           {
             heading: 'Satisfied',
-            iconName: 'face-smile',
+            iconName: 'face-smile-beam',
             value: 'satisfied',
           },
         ],

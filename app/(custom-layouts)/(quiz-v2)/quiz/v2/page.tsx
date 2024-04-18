@@ -22,7 +22,7 @@ export default function AttachmentQuizV2Page() {
     <Page page_name="Attachment Style Quiz">
       <AttachmentQuizV2SplitTestTracker showingVariant={true} />
 
-      <AttachmentQuizV2Navigation showBackButton={false} />
+      <AttachmentQuizV2Navigation />
 
       <Section
         className="!pb-0 from-green-light bg-gradient-to-r to-primary-light/20"

@@ -47,14 +47,14 @@ export const AttachmentQuizV2PillSelect = ({
           <div
             key={`pill_${i}`}
             className={cx(
-              'py-2 px-3 flex items-center bg-white rounded-full cursor-pointer border border-primary transition-all',
+              'py-2 px-3 flex items-center rounded-full cursor-pointer border transition-all',
               selectedPills.includes(option)
-                ? '!border-primary !bg-primary-light'
-                : 'hover:border-primary hover:bg-primary-light'
+                ? 'border-primary bg-primary text-white'
+                : 'border-primary-light bg-white hover:border-primary hover:bg-primary-light/30'
             )}
             onClick={() => onSelectOption(option)}>
             <Icon
-              className="text-primary mr-2"
+              className={cx('mr-2', selectedPills.includes(option) ? 'text-white' : 'text-primary')}
               name={selectedPills.includes(option) ? 'minus' : 'plus'}
             />
 
@@ -64,14 +64,14 @@ export const AttachmentQuizV2PillSelect = ({
 
         <div
           className={cx(
-            'py-2 px-3 flex items-center bg-white rounded-full cursor-pointer border border-primary transition-all',
+            'py-2 px-3 flex items-center rounded-full cursor-pointer border transition-all',
             selectedPills.includes('Other')
-              ? '!border-primary !bg-primary-light'
-              : 'hover:border-primary hover:bg-primary-light'
+              ? 'border-primary bg-primary text-white'
+              : 'border-primary-light bg-white hover:border-primary hover:bg-primary-light/30'
           )}
           onClick={() => onSelectOption('Other')}>
           <Icon
-            className="text-primary mr-2"
+            className={cx('mr-2', selectedPills.includes('Other') ? 'text-white' : 'text-primary')}
             name={selectedPills.includes('Other') ? 'minus' : 'plus'}
           />
 

@@ -68,7 +68,11 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
         </div>
       </div>
 
-      <div className={cx('flex flex-wrap lg:flex-[1.5] lg:justify-between', centered && 'hidden')}>
+      <div
+        className={cx(
+          'flex flex-wrap lg:flex-[1.5] lg:justify-between',
+          centered && !includeLinks && 'hidden'
+        )}>
         {includeLinks && (
           <>
             <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
@@ -182,7 +186,7 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
     </div>
 
     <div className="text-white py-4 border-t border-gray-500 lg:text-right lg:max-w-[calc(100%-340px)] lg:mx-auto">
-      <p>
+      <p className={centered ? 'text-center' : ''}>
         © Copyright {year} <strong>PDS: The Personal Development School,</strong> All rights
         Reserved
       </p>

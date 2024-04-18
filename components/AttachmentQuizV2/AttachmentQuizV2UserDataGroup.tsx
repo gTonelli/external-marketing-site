@@ -4,11 +4,13 @@ import { IQuizComponentDefaultArgs, TQuizQuestion, TQuizQuestionType } from './u
 import { Button } from '../Button/Button'
 import { AttachmentQuizV2OptionSelect } from './AttachmentQuizV2OptionSelect'
 import { AttachmentQuizV2PillSelect } from './AttachmentQuizV2PillSelect'
+import { Icon } from '../Icon'
 // libraries
 import { Form, Formik, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 // utils
 import { Regexes } from '@/utils/constants'
+
 interface IAttachmentQuizV2UserDataGroupProps extends Required<IQuizComponentDefaultArgs> {
   onSubmitted: () => void
   getQuestionType: (question: TQuizQuestion) => TQuizQuestionType
@@ -17,8 +19,10 @@ interface IAttachmentQuizV2UserDataGroupProps extends Required<IQuizComponentDef
 export const AttachmentQuizV2UserDataGroup = ({
   answerQuestion,
   questionGroup,
+  onGoBack,
   onSubmitted,
   getQuestionType,
+  step,
 }: IAttachmentQuizV2UserDataGroupProps) => {
   const onSubmit = (
     values: IUserDataFormSchema,
@@ -68,7 +72,17 @@ export const AttachmentQuizV2UserDataGroup = ({
             )
           })}
 
-          <Button disabled={isSubmitting} label="SUBMIT" />
+          <div className="flex">
+            <div
+              className="flex items-center text-grey cursor-pointer rounded-full transition-colors lg:bg-transparent lg:px-4 lg:py-2 lg:w-max lg:hover:text-primary lg:hover:bg-grey/20"
+              onClick={() => onGoBack()}>
+              <Icon className="mr-2" name="chevron-left" />
+
+              <strong>BACK</strong>
+            </div>
+
+            <Button disabled={isSubmitting} label="SUBMIT" />
+          </div>
         </Form>
       )}
     </Formik>

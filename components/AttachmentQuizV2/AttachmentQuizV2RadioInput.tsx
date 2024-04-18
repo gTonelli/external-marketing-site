@@ -13,7 +13,7 @@ export const AttachmentQuizV2RadioInput = ({ number }: IAttachmentQuizV2RadioInp
   const { errors, submitCount } = useFormikContext()
   const error = submitCount > 0 && get(errors, `question_${number}`)
   const defaultInputClasses =
-    'block !border-2 !border-primary cursor-pointer dark bg-white rounded-full hover:bg-primary-light transition-colors mx-auto'
+    'block !border-2 !border-primary cursor-pointer bg-white rounded-full hover:bg-primary-light/50 transition-colors mx-auto cursor-pointer'
 
   return (
     <div className="relative border-b border-grey">

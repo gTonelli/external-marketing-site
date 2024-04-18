@@ -23,7 +23,7 @@ export const AttachmentQuizV2 = () => {
 
   return (
     <>
-      <AttachmentQuizV2Navigation onGoBack={onGoBack} />
+      <AttachmentQuizV2Navigation />
 
       <ProgressBar
         key={`progress_bar`}
@@ -36,6 +36,18 @@ export const AttachmentQuizV2 = () => {
         showPercentage
       />
 
+      <Section className="border-b border-grey !p-0" classNameInner="!text-left !max-w-[700px]">
+        <p className="text-grey mt-4">
+          {index + 1} of {length} steps
+        </p>
+
+        <h3>
+          {currentQuestionGroup.type === 'AttachmentStyleQuestions'
+            ? 'Attachment Deepdive'
+            : "Let's Get To Know You"}
+        </h3>
+      </Section>
+
       <Section
         key={`section_1`}
         className="flex flex-col flex-1 relative z-10"
@@ -45,7 +57,9 @@ export const AttachmentQuizV2 = () => {
             key={`question_group_${index}`}
             questionGroup={currentQuestionGroup}
             answerQuestion={answerQuestion}
+            onGoBack={onGoBack}
             onSubmitted={onGoToNextQuestion}
+            step={index + 1}
           />
         ) : (
           <AttachmentQuizV2UserDataGroup
@@ -53,7 +67,9 @@ export const AttachmentQuizV2 = () => {
             questionGroup={currentQuestionGroup}
             answerQuestion={answerQuestion}
             onSubmitted={endQuiz}
+            onGoBack={onGoBack}
             getQuestionType={getQuestionType}
+            step={index + 1}
           />
         )}
       </Section>

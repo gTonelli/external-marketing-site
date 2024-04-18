@@ -3,10 +3,10 @@ input[type='radio']:checked {
 }
 
 input[type='radio']:checked + label {
-  background-color: rgb(213 184 216 / 0.5) !important;
-  color: #8a50a0;
+  background-color: #8a50a0;
+  color: white;
 }
 
-input[type='radio']:checked + label.dark {
-  background-color: #8a50a0 !important;
+input[type='radio']:checked + label i {
+  color: white !important;
 }

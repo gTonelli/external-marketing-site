@@ -22,6 +22,8 @@ import { Storage } from '@/modules/Storage'
 export interface IQuizComponentDefaultArgs {
   readonly questionGroup?: IAttachmentStyleQuestionGroup | IUserDataGroup
   answerQuestion?: (question: TQuizQuestion, val: any) => void
+  onGoBack: () => void
+  step: number
 }
 
 export type TPossibleQuizQuestionValues = 0 | 0.5 | 1

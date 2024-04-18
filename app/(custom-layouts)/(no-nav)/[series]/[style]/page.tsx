@@ -77,7 +77,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
             />
           </div>
           <div className="mt-6">
-            <Video.Youtube
+            {/* <Video.Youtube
               className="!rounded-20 shadow-centered"
               iframeClassName="w-full aspect-video rounded-10"
               maxHeight={498}
@@ -85,6 +85,15 @@ export default function AttachmentStyleNeedsBeliefsPage({
               thumbnailHeight={234}
               videoId={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
               onPlay={onVideoStarted}
+            /> */}
+            {/* <Video
+              thumbnailUrl="/images/RoyalRumblePage/rr-video-thumbnail.png"
+              thumbnailAlt="YT Thumbnail"
+              srcUrl="https://platform.thinkific.com/videoproxy/v1/play/bp4qu7q894no2mlci340"
+            /> */}
+            <Video.Thinkific
+              srcUrl="https://platform.thinkific.com/videoproxy/v1/play/bp4qu7q894no2mlci340"
+              thumbnailAlt="YT THumbnail"
             />
           </div>
         </section>

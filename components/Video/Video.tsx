@@ -5,12 +5,14 @@ import { IVideoDefaultProps, VideoDefault } from './variants/VideoDefault'
 import { VideoLarge } from './variants/VideoLarge'
 import { VideoThumbnail } from './variants/VideoThumbnail'
 import { VideoYoutube } from './variants/VideoYoutube'
+import { VideoThinkific } from './variants/VideoThinkific'
 import VideoTeaser from './variants/VideoTeaser'
 
 export class Video extends React.Component<IVideoDefaultProps> {
   static Thumbnail = VideoThumbnail
   static Large = VideoLarge
   static Youtube = VideoYoutube
+  static Thinkific = VideoThinkific
   static Teaser = VideoTeaser
 
   render() {

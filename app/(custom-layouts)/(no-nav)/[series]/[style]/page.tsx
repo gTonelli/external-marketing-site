@@ -81,7 +81,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
               content={EMAIL_RESULTS[seriesParam][styleParam].body}
             />
           </div>
-          <div className="mt-6">
+          <div className="w-[inherit] mt-6">
             {isVariant ? (
               <Video.Thinkific
                 srcUrl={EMAIL_RESULTS[seriesParam][styleParam].videoVariantUrl}

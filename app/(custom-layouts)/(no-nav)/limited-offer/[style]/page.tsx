@@ -48,20 +48,21 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
-    if (style === 'fa') {
-      let storageVar = 'gm-962-video-split' as TStorageKeys
-      let showVariant: string | null | boolean = Storage.get(storageVar)
-      if (showVariant === null) {
-        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-        Storage.set(storageVar, showVariant)
-        Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-962-video-split',
-          'Variant name': showVariant ? 'Variant 1' : 'Control',
-          page_name: page_name,
-        })
-      }
-      setIsVariant(showVariant === 'true' || showVariant === true)
+    
+    if (style !== 'fa') return
+    
+    let storageVar: TStorageKeys = 'gm-962-video-split'
+    let showVariant: string | null | boolean = Storage.get(storageVar)
+    if (showVariant === null) {
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      Storage.set(storageVar, showVariant)
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': 'GM-962-video-split',
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
+        page_name: page_name,
+      })
     }
+    setIsVariant(showVariant === 'true' || showVariant === true)
   }, [page_name, style])
 
   const onGoToCheckout = useCallback(

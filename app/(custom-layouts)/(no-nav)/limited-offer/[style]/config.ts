@@ -394,7 +394,7 @@
 
   fa: {
     videoSrc: '3xQhjx7pB84',
-    videoSrcVariant: 'bNok_9EEQxo',
+    videoSrcVariant: 'fXXOld1z1DE',
     HERO: {
       headline:
         'Are You Ready To Have Deeply Connected Relationships Without Losing Your Freedom And Independence?',

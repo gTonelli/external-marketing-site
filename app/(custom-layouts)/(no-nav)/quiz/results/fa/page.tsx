@@ -33,7 +33,7 @@ export default function RoyalRumbleResultsPage() {
   const [isVariant, setIsVariant] = useState<boolean>()
 
   useEffect(() => {
-      let storageVar = 'gm-962-video-split' as TStorageKeys
+      let storageVar: TStorageKeys = 'gm-962-video-split'
       let showVariant: string | null | boolean = Storage.get(storageVar)
       if (showVariant === null) {
         showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2

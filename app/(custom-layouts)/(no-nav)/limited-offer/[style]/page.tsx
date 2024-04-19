@@ -11,6 +11,7 @@ import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
+import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Page } from '@/components/Page'
@@ -20,6 +21,7 @@ import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
@@ -41,11 +43,27 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
   // ==================== State ====================
   const pageCopy = LIMITED_OFFER[style]
+  const [isVariant, setIsVariant] = useState<boolean>(false)
   const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
-  }, [])
+    
+    if (style !== 'fa') return
+    
+    let storageVar: TStorageKeys = 'gm-962-video-split'
+    let showVariant: string | null | boolean = Storage.get(storageVar)
+    if (showVariant === null) {
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      Storage.set(storageVar, showVariant)
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': 'GM-962-video-split',
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
+        page_name: page_name,
+      })
+    }
+    setIsVariant(showVariant === 'true' || showVariant === true)
+  }, [page_name, style])
 
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, seq_no: number) => {
@@ -588,7 +606,15 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         <div className="max-w-5xl w-full mx-auto my-8">
           <div className="flex flex-center flex-col justify-end md:flex-row md:px-8">
             <div>
-              <Video.Youtube iframeClassName="rounded-10" videoId={pageCopy.videoSrc} />
+              <VideoYoutube
+                maxHeight={512}
+                iframeClassName="rounded-20"
+                thumbnail="/images/RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
+                thumbnailWidth={465}
+                thumbnailHeight={265}
+                videoId={isVariant ? pageCopy.videoSrcVariant : pageCopy.videoSrc}
+                type="default"
+              />
             </div>
             <div className="flex flex-col text-center m-4 p-2 md:text-left md:w-1/2">
               <Text.Heading

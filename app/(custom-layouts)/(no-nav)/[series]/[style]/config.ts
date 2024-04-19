@@ -100,7 +100,7 @@ export const EMAIL_RESULTS = {
       },
       body: 'Watch this video to learn why your secondary attachment style matters and some of the ways it might be showing up in your relationships.',
       videoUrlID: '62yf6QOogSI',
-      videoVariantUrl: 'coh993v96tqs72vr7qc0',
+      videoVariantUrl: 'cohcq07vn8rc72pbipig',
       cardText:
         'Uncover your secondary attachment style and learn how to heal it when you enroll in The Personal Development School’s All-Access Program.',
     },

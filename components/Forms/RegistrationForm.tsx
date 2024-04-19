@@ -177,7 +177,7 @@ export const RegistrationForm = ({
           </div>
 
           {errors.captcha && submitCount > 0 && (
-            <p className="text-danger text-left">{errors.captcha}</p>
+            <p className="text-danger text-left lg:text-center">{errors.captcha}</p>
           )}
 
           <div className="flex justify-center">

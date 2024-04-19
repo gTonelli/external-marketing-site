@@ -44,7 +44,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
       showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
       Storage.set(storageVar, showVariant)
       Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'GM-958-video-split',
+        'Experiment name': `GM-958-video-split-${styleParam}`,
         'Variant name': showVariant ? 'Variant 1' : 'Control',
         page_name: pageName,
       })

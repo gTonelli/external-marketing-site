@@ -10,6 +10,7 @@ export type TStorageKeys =
   | 'prod-2320-checkout-test'
   | 'gm-845-checkout-test'
   | `gm-958-video-split-${string}`
+  | 'gm-962-video-split'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

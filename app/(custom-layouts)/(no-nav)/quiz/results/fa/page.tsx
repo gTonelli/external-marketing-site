@@ -1,3 +1,6 @@
+'use client'
+//core
+import { useEffect, useState } from 'react'
 // components
 import { Page } from '@/components/Page'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
@@ -13,17 +16,37 @@ import { CheckoutButton } from '@/components/CheckoutButton'
 // config
 import { RESULTS } from './config'
 // modules
-import { Pages } from '@/modules/Mixpanel'
+import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 // utils
 import { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Your Attachment Style Results | Fearful Avoidant',
 }
 
 export default function RoyalRumbleResultsPage() {
   const style = 'fa'
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
+
+  // =================== State ======================
+  const [isVariant, setIsVariant] = useState<boolean>()
+
+  useEffect(() => {
+      let storageVar: TStorageKeys = 'gm-962-video-split'
+      let showVariant: string | null | boolean = Storage.get(storageVar)
+      if (showVariant === null) {
+        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+        Storage.set(storageVar, showVariant)
+        Mixpanel.track.ExperimentStarted({
+          'Experiment name': 'GM-962-video-split',
+          'Variant name': showVariant ? 'Variant 1' : 'Control',
+          page_name: page_name,
+        })
+      }
+      setIsVariant(showVariant === 'true' || showVariant === true)
+  }, [page_name])
+
 
   return (
     <Page className="w-full text-center" page_name={page_name}>
@@ -47,7 +70,7 @@ export default function RoyalRumbleResultsPage() {
                     thumbnail="/images/RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
                     thumbnailWidth={465}
                     thumbnailHeight={265}
-                    videoId={RESULTS[style].HERO_SECTION.videoURL}
+                    videoId={isVariant ? RESULTS[style].HERO_SECTION.videoURLVariant : RESULTS[style].HERO_SECTION.videoURL}
                     type="default"
                   />
                 </div>

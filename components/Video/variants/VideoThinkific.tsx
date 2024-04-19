@@ -19,8 +19,6 @@ interface IThinkificProps {
   className?: string
   /** Classname of youtube Iframe */
   classNameIframe?: string
-  /** Maxium height for iframe */
-  maxHeight?: number
   /**
    * The size of the play button
    * Different video players have different play btn sizes
@@ -45,8 +43,6 @@ interface IThinkificProps {
   thumbnailQuality?: number
   /* Event called when play button is clicked */
   onClick?(): void
-  /* Event called when the video starts to play */
-  onPlay?(): void
   /** ID for recording whether the video has been played */
   type?: string
   /* Thinkific video URL */
@@ -60,10 +56,8 @@ export const VideoThinkific = ({
   thumbnailQuality = 80,
   className,
   classNameIframe,
-  onPlay,
   srcUrl,
   playButtonSize,
-  maxHeight = 300,
   thumbnail = '/images/RoyalRumblePage/rr-video-thumbnail.png',
   type,
 }: IThinkificProps) => {
@@ -89,11 +83,6 @@ export const VideoThinkific = ({
     setIsDialogShown(!isDialogShown)
   }, [isDialogShown, setIsDialogShown])
 
-  const _onPlay = () => {
-    onPlay?.()
-    onVideoStarted()
-  }
-
   return (
     <>
       {/* POP-OUT DIALOG */}
@@ -101,7 +90,10 @@ export const VideoThinkific = ({
         className={cx('w-full overflow-hidden max-w-4xl bg-white !p-3', className)}
         isShown={isDialogShown}
         onToggle={onToggleDialog}>
-        <iframe className={cx('w-full', classNameIframe)} src={srcUrl}></iframe>
+        <iframe
+          allowFullScreen
+          className={cx('!w-full !h-auto !aspect-video', classNameIframe)}
+          src={srcUrl}></iframe>
       </Dialog>
 
       <div
@@ -111,8 +103,8 @@ export const VideoThinkific = ({
           alt={thumbnailAlt || 'Thinkific Video Thumbnail'}
           className="w-full h-auto rounded-10"
           src={thumbnail}
-          width={300 || thumbnailWidth}
-          height={450 || thumbnailHeight}
+          width={415 || thumbnailWidth}
+          height={234 || thumbnailHeight}
           tabIndex={-1}
           quality={thumbnailQuality}
         />
@@ -129,6 +121,7 @@ export const VideoThinkific = ({
           src="/images/play_icon.svg"
           width={32}
           height={32}
+          onClick={onVideoStarted}
         />
       </div>
     </>

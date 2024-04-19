@@ -38,7 +38,6 @@ export interface ILimitedOfferPageParams {
 export default function LimitedOfferPage({ params }: { params: { style: TStyle } }) {
   const style = params.style
   // ==================== Hook ====================
-  const router = useRouter()
   const page_name = `Limited Offer - ${style}` as Pages
 
   // ==================== State ====================
@@ -48,9 +47,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
-    
+
     if (style !== 'fa') return
-    
+
     let storageVar: TStorageKeys = 'gm-962-video-split'
     let showVariant: string | null | boolean = Storage.get(storageVar)
     if (showVariant === null) {

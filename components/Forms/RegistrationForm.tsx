@@ -109,10 +109,10 @@ export const RegistrationForm = ({
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ setFieldValue, isSubmitting }) => (
+      {({ setFieldValue, isSubmitting, errors, submitCount }) => (
         <Form
           className={cx(
-            'w-full max-w-xl flex-col justify-center px-2 mx-auto xxs:!px-3 xs:!px-4 md:pt-8',
+            'w-full max-w-xl flex-col justify-center mx-auto xxs:!px-3 xs:!px-4 md:pt-8',
             className
           )}>
           <div className="md:px-4">
@@ -176,6 +176,10 @@ export const RegistrationForm = ({
             />
           </div>
 
+          {errors.captcha && submitCount > 0 && (
+            <p className="text-danger text-left">{errors.captcha}</p>
+          )}
+
           <div className="flex justify-center">
             <Button.Submit
               className="font-bold text-base self-start text-center rounded-full bg-primary-old tracking-widest mt-4 py-4 px-12 lg:text-xl"
@@ -200,7 +204,7 @@ const RegistrationFormValidationSchema = yup
       .ensure()
       .required('Email required')
       .matches(Regexes.email, 'Email must be valid'),
-    captcha: yup.string().defined().ensure().required(),
+    captcha: yup.string().defined().ensure().required('Please fill in the Captcha'),
   })
   .defined()
 

@@ -3,16 +3,12 @@
 // core
 import React, { useCallback, useContext, useState } from 'react'
 // components
-import { Button } from '@/components/Button/Button'
-import { Text } from '@/components/Text/Text'
 import Image from 'next/image'
 import { Dialog } from '@/components/Dialog/Dialog'
 // libraries
 import cx from 'classnames'
-import YouTube, { YouTubeProps } from 'react-youtube'
-// utils
-import { useWindowWidth } from '@/utils/hooks'
 import Mixpanel from '@/modules/Mixpanel'
+// utils
 import { PageContext } from '@/utils/contexts'
 
 interface IThinkificProps {
@@ -41,8 +37,6 @@ interface IThinkificProps {
    * @default 80
    */
   thumbnailQuality?: number
-  /* Event called when play button is clicked */
-  onClick?(): void
   /** ID for recording whether the video has been played */
   type?: string
   /* Thinkific video URL */
@@ -93,7 +87,7 @@ export const VideoThinkific = ({
         <iframe
           allowFullScreen
           className={cx('!w-full !h-auto !aspect-video', classNameIframe)}
-          src={srcUrl}></iframe>
+          src={`https://platform.thinkific.com/videoproxy/v1/play/${srcUrl}`}></iframe>
       </Dialog>
 
       <div

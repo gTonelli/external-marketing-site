@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
 import { Text } from '@/components/Text/Text'
@@ -14,6 +14,12 @@ import YouTube, { YouTubeProps } from 'react-youtube'
 import { useWindowWidth } from '@/utils/hooks'
 import Mixpanel from '@/modules/Mixpanel'
 import { PageContext } from '@/utils/contexts'
+import { Storage, TStorageKeys } from '@/modules/Storage'
+
+type TVariantData = {
+  key: TStorageKeys
+  videoId: string
+}
 
 interface IYouTubeProps extends YouTubeProps {
   /** Button label */
@@ -60,6 +66,8 @@ interface IYouTubeProps extends YouTubeProps {
   type?: string
   /* Youtube video id */
   videoId: string
+  /** Data for running split tested videos */
+  variantVideoData?: TVariantData
 }
 
 export const VideoYoutube = ({
@@ -74,16 +82,34 @@ export const VideoYoutube = ({
   classNameIframe,
   onPlay,
   videoId,
+  variantVideoData,
   playButtonSize,
   maxHeight = 300,
   thumbnail = '/images/RoyalRumblePage/rr-video-thumbnail.png',
   type,
 }: IYouTubeProps) => {
   // ==================== State ====================
-  const [isDialogShown, setIsDialogShown] = useState<boolean>(false)
+  const [isDialogShown, setIsDialogShown] = useState(false)
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
+  const [isVariant, setIsVariant] = useState(false)
+
   // ==================== Context ====================
   const page_name = useContext(PageContext)?.page_name
+
+  useEffect(() => {
+    if (!variantVideoData) return
+    let showVariant: string | null | boolean = Storage.get(variantVideoData.key)
+    if (showVariant === null) {
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      Storage.set(variantVideoData.key, showVariant)
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': variantVideoData.key,
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
+        page_name: page_name,
+      })
+    }
+    setIsVariant(showVariant === 'true' || showVariant === true)
+  }, [page_name, variantVideoData])
 
   const onVideoStarted = () => {
     if (!type) return
@@ -128,7 +154,7 @@ export const VideoYoutube = ({
               origin: 'https://attachment.personaldevelopmentschool.com',
             },
           }}
-          videoId={videoId}
+          videoId={isVariant && variantVideoData ? variantVideoData.videoId : videoId}
           onPlay={_onPlay}
           onReady={onPlayerReady}
         />

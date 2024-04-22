@@ -10,13 +10,14 @@ import { Dialog } from '@/components/Dialog/Dialog'
 // libraries
 import cx from 'classnames'
 import YouTube, { YouTubeProps } from 'react-youtube'
+// modules
+import { Storage, TStorageKeys } from '@/modules/Storage'
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { useWindowWidth } from '@/utils/hooks'
-import Mixpanel from '@/modules/Mixpanel'
 import { PageContext } from '@/utils/contexts'
-import { Storage, TStorageKeys } from '@/modules/Storage'
 
-type TVariantData = {
+type TVariantVideoData = {
   key: TStorageKeys
   videoId: string
 }
@@ -67,7 +68,7 @@ interface IYouTubeProps extends YouTubeProps {
   /* Youtube video id */
   videoId: string
   /** Data for running split tested videos */
-  variantVideoData?: TVariantData
+  variantVideoData?: TVariantVideoData
 }
 
 export const VideoYoutube = ({
@@ -92,7 +93,6 @@ export const VideoYoutube = ({
   const [isDialogShown, setIsDialogShown] = useState(false)
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const [isVariant, setIsVariant] = useState(false)
-
   // ==================== Context ====================
   const page_name = useContext(PageContext)?.page_name
 

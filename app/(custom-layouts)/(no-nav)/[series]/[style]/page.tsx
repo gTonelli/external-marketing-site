@@ -50,18 +50,21 @@ export default function AttachmentStyleNeedsBeliefsPage({
       })
     }
     setIsVariant(showVariant === 'true' || showVariant === true)
-  }, [pageName])
+  }, [pageName, styleParam])
 
-  const onGoToCheckout = useCallback((event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: pageName,
-    })
+  const onGoToCheckout = useCallback(
+    (event: React.MouseEvent<Element, MouseEvent>) => {
+      Mixpanel.track.ButtonClicked({
+        button_label: (event.target as HTMLButtonElement).innerText,
+        page_name: pageName,
+      })
 
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
-  }, [])
+      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    },
+    [pageName]
+  )
 
-  if (!EMAIL_RESULTS[seriesParam][styleParam]) return <NotFound />
+  if (!EMAIL_RESULTS?.[seriesParam]?.[styleParam]) return <NotFound />
 
   return (
     <Page page_name={pageName}>

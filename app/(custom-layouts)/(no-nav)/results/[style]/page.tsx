@@ -18,6 +18,12 @@ import { TStyle } from '@/utils/types'
 // styles
 import './styles.css'
 
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }, { style: 'sa' }]
+}
+
 export default function ResultsPage({ params }: { params: { style: TStyle } }) {
   const copy = RESULTS_COPY[params.style]
 

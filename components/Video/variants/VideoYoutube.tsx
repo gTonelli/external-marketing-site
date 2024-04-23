@@ -18,7 +18,7 @@ import { useWindowWidth } from '@/utils/hooks'
 import { PageContext } from '@/utils/contexts'
 
 type TVariantVideoData = {
-  key: TStorageKeys
+  key: string
   videoId: string
 }
 
@@ -98,10 +98,12 @@ export const VideoYoutube = ({
 
   useEffect(() => {
     if (!variantVideoData) return
-    let showVariant: string | null | boolean = Storage.get(variantVideoData.key)
+    let showVariant: string | null | boolean = Storage.get(
+      variantVideoData.key.toLowerCase() as TStorageKeys
+    )
     if (showVariant === null) {
       showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-      Storage.set(variantVideoData.key, showVariant)
+      Storage.set(variantVideoData.key.toLowerCase() as TStorageKeys, showVariant)
       Mixpanel.track.ExperimentStarted({
         'Experiment name': variantVideoData.key,
         'Variant name': showVariant ? 'Variant 1' : 'Control',

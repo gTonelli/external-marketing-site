@@ -2,7 +2,6 @@
 
 // core
 import React, { useCallback, useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import { LIMITED_OFFER } from './config'
 import { IconName } from '@fortawesome/fontawesome-common-types'
@@ -50,13 +49,13 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
     if (style !== 'fa') return
 
-    let storageVar: TStorageKeys = 'gm-962-video-split'
-    let showVariant: string | null | boolean = Storage.get(storageVar)
+    const storageVar = 'GM-962-video-split'
+    let showVariant: string | null | boolean = Storage.get(storageVar.toLowerCase() as TStorageKeys)
     if (showVariant === null) {
       showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-      Storage.set(storageVar, showVariant)
+      Storage.set(storageVar.toLowerCase() as TStorageKeys, showVariant)
       Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'GM-962-video-split',
+        'Experiment name': storageVar,
         'Variant name': showVariant ? 'Variant 1' : 'Control',
         page_name: page_name,
       })
@@ -74,7 +73,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
       window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
-    []
+    [page_name]
   )
 
   return (

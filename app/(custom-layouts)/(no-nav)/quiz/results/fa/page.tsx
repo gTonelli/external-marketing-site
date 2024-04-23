@@ -48,6 +48,10 @@ export default function RoyalRumbleResultsPage() {
                     thumbnailWidth={465}
                     thumbnailHeight={265}
                     videoId={RESULTS[style].HERO_SECTION.videoURL}
+                    variantVideoData={{
+                      key: 'GM-962-video-split',
+                      videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
+                    }}
                     type="default"
                   />
                 </div>

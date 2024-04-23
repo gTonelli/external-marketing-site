@@ -50,11 +50,11 @@ const TRUSTBAR = [
 
 export const IATPage = ({
   page_name,
-  pageUrl,
+  pageUrl = 'other',
   showLeadGenForm = false,
 }: {
   page_name: Pages
-  pageUrl: 'home' | 'ebook'
+  pageUrl?: 'other' | 'ebook'
   showLeadGenForm?: boolean
 }) => {
   // ============== Hooks =================

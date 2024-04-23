@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
 import { Text } from '@/components/Text/Text'
@@ -13,6 +13,8 @@ import { Page } from '@/components/Page'
 import { EMAIL_RESULTS } from './config'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
+import { TStorageKeys } from '@/modules/Storage'
 // utils
 import { TStyle } from '@/utils/types'
 import { EExternalRoutes } from '@/utils/constants'
@@ -29,23 +31,26 @@ export default function AttachmentStyleNeedsBeliefsPage({
   params: { series: TSeriesParam; style: TStyle }
 }) {
   const [seriesParam, styleParam] = [params.series, params.style]
-
-  // ==================== State ====================
-  const [watched, setWatched] = useState<boolean>(false)
-
   const pageName = `Attachment Styles Email Page - ${seriesParam} ${styleParam}` as Pages
 
+  // ================== State =====================
+  const [isVariant, setIsVariant] = useState<boolean>()
+
   // ================== Events =====================
-  //Only register the Video Started event once for Mixpanel
-  const onVideoStarted = () => {
-    if (!watched) {
-      Mixpanel.track.VideoStarted({
-        video_type: `YouTube - Attachment Styles Email Series Video - ${seriesParam} ${styleParam}`,
+  useEffect(() => {
+    let storageVar: TStorageKeys = `gm-958-video-split-${styleParam}`
+    let showVariant: string | null | boolean = Storage.get(storageVar)
+    if (showVariant === null) {
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+      Storage.set(storageVar, showVariant)
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': `GM-958-video-platform-${styleParam}`,
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
         page_name: pageName,
       })
     }
-    setWatched((prev) => !prev)
-  }
+    setIsVariant(showVariant === 'true' || showVariant === true)
+  }, [pageName])
 
   const onGoToCheckout = useCallback((event: React.MouseEvent<Element, MouseEvent>) => {
     Mixpanel.track.ButtonClicked({
@@ -59,7 +64,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
   if (!EMAIL_RESULTS[seriesParam][styleParam]) return <NotFound />
 
   return (
-    <Page page_name="Attachment Style Needs Beliefs Page">
+    <Page page_name={pageName}>
       <div className="flex flex-col h-full items-start px-4 lg:flex-row lg:px-8 lg:space-x-16 lg:my-16 ">
         <section className="flex flex-col items-center my-6 mx-auto lg:w-1/2 lg:mt-0">
           <div className="max-w-lg">
@@ -76,16 +81,24 @@ export default function AttachmentStyleNeedsBeliefsPage({
               content={EMAIL_RESULTS[seriesParam][styleParam].body}
             />
           </div>
-          <div className="mt-6">
-            <Video.Youtube
-              className="!rounded-20 shadow-centered"
-              iframeClassName="w-full aspect-video rounded-10"
-              maxHeight={498}
-              thumbnailWidth={415}
-              thumbnailHeight={234}
-              videoId={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
-              onPlay={onVideoStarted}
-            />
+          <div className="w-[inherit] mt-6">
+            {isVariant ? (
+              <Video.Thinkific
+                srcUrl={EMAIL_RESULTS[seriesParam][styleParam].videoVariantUrl}
+                thumbnailAlt={`Thinkific video ${styleParam} thumbnail`}
+                type="Thinkific"
+              />
+            ) : (
+              <Video.Youtube
+                className="!rounded-20 shadow-centered"
+                iframeClassName="w-full aspect-video rounded-10"
+                maxHeight={498}
+                thumbnailWidth={415}
+                thumbnailHeight={234}
+                videoId={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
+                type="YouTube"
+              />
+            )}
           </div>
         </section>
         <section className="mx-auto mb-6 lg:w-1/2 ">

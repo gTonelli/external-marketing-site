@@ -17,7 +17,7 @@ import { Pages } from '@/modules/Mixpanel'
 // utils
 import { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Your Attachment Style Results | Fearful Avoidant',
 }
 
@@ -48,6 +48,10 @@ export default function RoyalRumbleResultsPage() {
                     thumbnailWidth={465}
                     thumbnailHeight={265}
                     videoId={RESULTS[style].HERO_SECTION.videoURL}
+                    variantVideoData={{
+                      key: 'GM-962-video-split',
+                      videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
+                    }}
                     type="default"
                   />
                 </div>

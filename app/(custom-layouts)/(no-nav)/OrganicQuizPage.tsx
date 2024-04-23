@@ -96,7 +96,7 @@ export default function OrganicQuizPage() {
           self-awareness.
         </p>
 
-        <div ref={quizSectionRef} className="w-full px-4">
+        <div ref={quizSectionRef} className="w-full">
           {viewQuiz && (
             <div className="w-full flex justify-center mx-auto py-16">
               <AttachmentQuiz

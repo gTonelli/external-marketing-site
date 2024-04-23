@@ -73,28 +73,16 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/iat', '/quiz'],
+  matcher: [],
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
-  if (request.nextUrl.pathname.includes('/iat')) {
-    return splitTestConfigs.iatTest
-  }
   if (request.nextUrl.pathname.includes('/quiz')) {
     return splitTestConfigs.quizTest
   }
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  iatTest: {
-    cookieKey: 'prod-2556-iat-nav',
-    pageName: 'External IAT Page',
-    experimentName: 'PROD-2556-IAT-Nav',
-    variantUrl: '/coaching',
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-
   quizTest: {
     cookieKey: 'prod-2577-quiz',
     pageName: 'Main Funnel Quiz',
@@ -106,7 +94,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
 }
 
 type TSplitTestConfigs = {
-  [key: string]: TSplitTestConfig | undefined
+  [key: string]: TSplitTestConfig
 }
 
 type TSplitTestConfig = {

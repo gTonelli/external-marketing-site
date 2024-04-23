@@ -44,7 +44,7 @@ export const AttachmentQuizForm = ({
 
   return (
     <section className="flex justify-center">
-      <div className="max-w-5xl w-full rounded-2xl py-12 mt-6 mx-2 xxs:shadow-centered md:mx-4">
+      <div className="max-w-5xl w-full text-center rounded-2xl py-12 mt-6 mx-2 xxs:shadow-centered md:mx-4">
         <h2 className="font-bold font-sspb mx-4 text-center">
           Fill Out the Form Below to View Your Free Results!
         </h2>

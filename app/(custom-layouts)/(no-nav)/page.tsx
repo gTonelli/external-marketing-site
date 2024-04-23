@@ -4,8 +4,9 @@ import { Metadata } from 'next'
 import OrganicQuizPage from './OrganicQuizPage'
 
 export const metadata: Metadata = {
-  title: 'The Attachment Style Quiz',
-  description: 'Take the leading Attachment Style Quiz by Thais Gibson for Free!',
+  title: 'Attachment Style Quiz | Take Our Free Attachment Style Test',
+  description:
+    'Take our free and fast attachment style quiz to discover yours. Get a free personalized report with everything you need to know about your attachment style.',
   robots: 'all',
 }
 

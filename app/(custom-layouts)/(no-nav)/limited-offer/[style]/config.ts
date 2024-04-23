@@ -12,6 +12,8 @@
   },
 
   ap: {
+    videoSrc: 'rg0tm16tLYQ',
+    videoSrcVariant: '',
     HERO: {
       headline:
         'Are You Ready To Experience Profound Relationships That Give You The Reassurance And Confidence You Need?',
@@ -205,6 +207,8 @@
   },
 
   da: {
+    videoSrc: '46LShiTH07c',
+    videoSrcVariant: '',
     HERO: {
       headline:
         'Are You Ready To Experience Relationships That Give You Your Space, Freedom, And Independence?',
@@ -389,6 +393,8 @@
   },
 
   fa: {
+    videoSrc: '3xQhjx7pB84',
+    videoSrcVariant: 'fXXOld1z1DE',
     HERO: {
       headline:
         'Are You Ready To Have Deeply Connected Relationships Without Losing Your Freedom And Independence?',
@@ -565,6 +571,8 @@
     },
   },
   sa: {
+    videoSrc: 'RBhxl6xR69U',
+    videoSrcVariant: '',
     HERO: {
       headline:
         'Are You Ready To Experience The Balanced, Harmonious, And Fulfilling Relationships That You Deserve?',

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function NoHeaderLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header clickableLogo={false} navLinks={[]} />
+      <Header clickableLogo={false} />
 
       {children}
 

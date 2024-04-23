@@ -33,7 +33,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { RegistrationForm } from '@/components/Forms/RegistrationForm'
+import { IATBanner } from './IATBanner'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -48,9 +48,15 @@ const TRUSTBAR = [
   `yahoo-news-logo.png`,
 ]
 
-export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean }) => {
-  const page_name = 'External IAT Page'
-
+export const IATPage = ({
+  page_name,
+  pageUrl,
+  showLeadGenForm = false,
+}: {
+  page_name: Pages
+  pageUrl: 'home' | 'ebook'
+  showLeadGenForm?: boolean
+}) => {
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
 
@@ -90,28 +96,7 @@ export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean
     <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
       <Section className="w-full relative z-10 bg-blue-lightest 3xl:pb-0">
-        <Text.Heading
-          className="font-effra font-bold text-black !text-[48px] leading-[50px]"
-          content={IAT.hero_section.heading}
-        />
-
-        <Text.Heading
-          className="font-effra font-bold text-black mt-3 text-[24px]"
-          content={IAT.hero_section.subheading}
-          spacing="tracking-0.325"
-        />
-
-        <Text.Paragraph
-          useMD
-          className="max-w-[676px] mt-8 font-bold lg:mx-auto lg:mt-11"
-          content={IAT.hero_section.copy}
-        />
-
-        <Button
-          className="trial-btn relative mt-11 md:top-6 md:mt-0 lg:mt-8"
-          label="GET STARTED NOW"
-          onClick={onClickPurchase}
-        />
+        <IATBanner page={pageUrl} onClickPurchase={onClickPurchase} />
       </Section>
 
       <div className="relative">

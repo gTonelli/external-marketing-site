@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function IATSalePage() {
-  return <IATPage />
+  return <IATPage page_name="External IAT Page" pageUrl="home" />
 }

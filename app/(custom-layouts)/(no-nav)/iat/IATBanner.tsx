@@ -12,15 +12,16 @@ export const IATBanner = ({ page, onClickPurchase }: IIATBannerProps) => {
     return (
       <>
         <p className="max-w-[676px] mt-8 mb-8 text-lg font-bold lg:mx-auto lg:mt-11">
-          While We’re Sending Our Ebook, Scroll Down to Learn More Life-Changing Information
+          While we’re sending you your E-book, scroll down to learn more life-changing information
         </p>
 
         <h1 className="font-effra font-bold text-black uppercase !text-[48px] leading-[50px]">
-          TRANSFORM YOUR CAREER, FINANCES, & LIFE
+          It’s Time to Transform Your Career, Life and Secure your Future
         </h1>
 
         <h3 className="font-effra font-bold text-black uppercase tracking-33 mt-3 text-[24px]">
-          By Being a Certified Relationship Coach
+          Become a Certified Relationship Coach in Just 12 Weeks and Create Your Own Thriving
+          Practice
         </h3>
 
         <Text.Paragraph

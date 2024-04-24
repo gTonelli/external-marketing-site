@@ -73,7 +73,7 @@ export const TRIAL_HEADSPACE = {
     },
     article6: {
       name: `5 Steps to Cultivating Secure Attachment`,
-      url: 'https://blog.personaldevelopmentschool.com/15/5-steps-to-cultivating-secure-attachment',
+      url: 'https://blog.personaldevelopmentschool.com/20/5-steps-to-cultivating-secure-attachment',
     },
   },
   COMMUNITY: {

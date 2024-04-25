@@ -7,21 +7,12 @@ export const IATEbookForm = ({ id }: { id?: string }) => {
   const router = useRouter()
 
   return (
-    <>
-      <SignupForm
-        id={id}
-        userTags={['iat-tips-ebook']}
-        listIds={[54]}
-        successMessage="Your e-book is on the way!"
-        onSuccess={() => router.push('/iat/ebook?signup=success')}
-      />
-
-      <div
-        role="button"
-        className="bg-primary p-2"
-        onClick={() => router.push('/iat/ebook?signup=success')}>
-        CLICK
-      </div>
-    </>
+    <SignupForm
+      id={id}
+      userTags={['iat-tips-ebook']}
+      listIds={[54]}
+      successMessage="Your e-book is on the way!"
+      onSuccess={() => router.push('/iat/ebook?signup=success')}
+    />
   )
 }

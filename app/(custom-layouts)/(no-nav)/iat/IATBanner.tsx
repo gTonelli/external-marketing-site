@@ -16,7 +16,7 @@ export const IATBanner = ({ page, onClickPurchase }: IIATBannerProps) => {
         </p>
 
         <h1 className="font-effra font-bold text-black uppercase !text-[48px] leading-[50px]">
-          It’s Time to Transform Your Career, Life and Secure your Future
+          It’s Time to Transform Your Career, Life, and Secure Your Future
         </h1>
 
         <h3 className="font-effra font-bold text-black uppercase tracking-33 mt-3 text-[24px]">

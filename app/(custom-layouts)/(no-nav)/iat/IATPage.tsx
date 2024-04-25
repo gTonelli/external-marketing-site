@@ -2,7 +2,8 @@
 
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
@@ -57,11 +58,14 @@ export const IATPage = ({
   pageUrl?: 'other' | 'ebook'
   showLeadGenForm?: boolean
 }) => {
+  const searchParams = useSearchParams()
+
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
 
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
+  const [modalSuccess, setModalSuccess] = useState(false)
 
   const onVideoStarted = (type: string) => {
     if (!watchedVideos.has(type)) {
@@ -92,9 +96,36 @@ export const IATPage = ({
     })
   }
 
+  useEffect(() => {
+    if (pageUrl === 'ebook') {
+      if (searchParams.get('signup') === 'success') setModalSuccess(true)
+    }
+  }, [])
+
   return (
     <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
+      <Dialog
+        className="max-w-xl p-4"
+        isShown={modalSuccess}
+        onToggle={() => setModalSuccess(!modalSuccess)}>
+        <div className="w-full flex justify-end mb-2">
+          <Icon
+            className="cursor-pointer hover:scale-125"
+            name="close"
+            onClick={() => setModalSuccess(false)}
+          />
+        </div>
+        <h2 className="text-4xl text-left mb-2">Thanks for Downloading Our Ebook!</h2>
+
+        <p>
+          Congratulations on starting your journey towards becoming a certified relationship coach!
+          Our eBook is on its way. <br />
+          <br /> I’ll be sending you the best resources and latest updates about our IAT™
+          Relationship Coaching Program. Stay tuned!
+        </p>
+      </Dialog>
+
       <Section className="w-full relative z-10 bg-blue-lightest 3xl:pb-0">
         <IATBanner page={pageUrl} onClickPurchase={onClickPurchase} />
       </Section>
@@ -590,7 +621,11 @@ export const IATPage = ({
 
         <Text.Heading
           className="text-black text-[26px] mt-4 mb-8 mx-6"
-          content="Schedule a Free Call to Learn More"
+          content={
+            pageUrl === 'ebook'
+              ? 'Schedule a  Free Call with our Coaching Specialist to Learn More'
+              : 'Schedule a Free Call to Learn More'
+          }
         />
 
         <Button className="trial-btn xxs:inline" label="BOOK NOW" onClick={onBookNow} />

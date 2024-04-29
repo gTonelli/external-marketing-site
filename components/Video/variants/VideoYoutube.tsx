@@ -16,11 +16,7 @@ import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { useWindowWidth } from '@/utils/hooks'
 import { PageContext } from '@/utils/contexts'
-
-type TVariantVideoData = {
-  key: string
-  videoId: string
-}
+import { TVariantVideoData } from '@/utils/types'
 
 interface IYouTubeProps extends YouTubeProps {
   /** Button label */

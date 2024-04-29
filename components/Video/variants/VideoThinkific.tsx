@@ -1,12 +1,13 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 // components
 import Image from 'next/image'
 import { Dialog } from '@/components/Dialog/Dialog'
 // libraries
 import cx from 'classnames'
+// modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { PageContext } from '@/utils/contexts'

@@ -1,5 +1,6 @@
 // components
 import { Page } from '@/components/Page'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Icon } from '@/components/Icon'
@@ -41,18 +42,14 @@ export default function RoyalRumbleResultsPage() {
             <div className="max-w-5xl w-full my-8">
               <div className="flex flex-col md:flex-row-reverse md:px-8">
                 <div>
-                  <VideoYoutube
-                    maxHeight={512}
-                    iframeClassName="rounded-20"
-                    thumbnail="/images/RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
-                    thumbnailWidth={465}
-                    thumbnailHeight={265}
-                    videoId={RESULTS[style].HERO_SECTION.videoURL}
+                  <VideoThumbnail
+                    srcUrl={RESULTS[style].HERO_SECTION.videoURL}
+                    thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
+                    thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                     variantVideoData={{
                       key: 'GM-962-video-split',
                       videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
                     }}
-                    type="default"
                   />
                 </div>
 

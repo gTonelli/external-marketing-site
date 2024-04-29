@@ -12,7 +12,6 @@ import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { PageContext } from '@/utils/contexts'
 
-
 interface IThinkificProps {
   className?: string
   /** Classname of youtube Iframe */
@@ -89,7 +88,7 @@ export const VideoThinkific = ({
         <iframe
           allowFullScreen
           className={cx('!w-full !h-auto !aspect-video', classNameIframe)}
-          src={srcUrl}></iframe>
+          src={`https://platform.thinkific.com/videoproxy/v1/play/${srcUrl}`}></iframe>
       </Dialog>
 
       <div

@@ -78,7 +78,7 @@ export const VideoDefault = ({
   srcUrl,
   style,
   thumbnailAlt,
-  thumbnailUrl,
+  thumbnailUrl = 'RoyalRumblePage/rr-video-thumbnail.png',
   variantVideoData,
   onClick,
   onPlay,
@@ -126,7 +126,6 @@ export const VideoDefault = ({
       })
     }
     setIsVariant(showVariant === 'true' || showVariant === true)
-
   }, [isPlaying, page_name, variantVideoData])
 
   return (
@@ -137,7 +136,12 @@ export const VideoDefault = ({
           className="overflow-hidden lg:max-w-[75%]"
           isShown={isDialogShown}
           onToggle={onToggleDialog}>
-          <VideoPlayer ref={videoEl} controls src={isVariant && variantVideoData ? variantVideoData.videoId : srcUrl} onPlay={onPlay} />
+          <VideoPlayer
+            ref={videoEl}
+            controls
+            src={isVariant && variantVideoData ? variantVideoData.videoId : srcUrl}
+            onPlay={onPlay}
+          />
         </Dialog>
       )}
 

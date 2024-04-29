@@ -38,13 +38,13 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
   // ================== Events =====================
   useEffect(() => {
-    let storageVar: TStorageKeys = `gm-958-video-split-${styleParam}`
+    let storageVar: TStorageKeys = `gm-976-platform-split-${styleParam}`
     let showVariant: string | null | boolean = Storage.get(storageVar)
     if (showVariant === null) {
       showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
       Storage.set(storageVar, showVariant)
       Mixpanel.track.ExperimentStarted({
-        'Experiment name': `GM-958-video-platform-${styleParam}`,
+        'Experiment name': `GM-976-video-platform-${styleParam}`,
         'Variant name': showVariant ? 'Variant 1' : 'Control',
         page_name: pageName,
       })
@@ -86,10 +86,10 @@ export default function AttachmentStyleNeedsBeliefsPage({
           </div>
           <div className="w-[inherit] mt-6">
             {isVariant ? (
-              <Video.Thinkific
+              <Video.Thumbnail
                 srcUrl={EMAIL_RESULTS[seriesParam][styleParam].videoVariantUrl}
-                thumbnailAlt={`Thinkific video ${styleParam} thumbnail`}
-                type="Thinkific"
+                thumbnailAlt={`Video ${styleParam} thumbnail`}
+                type="GCP"
               />
             ) : (
               <Video.Youtube

@@ -42,11 +42,11 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
   // ==================== State ====================
   const pageCopy = LIMITED_OFFER[style]
   const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
-  const [videoThinkificProps, setVideothinkificProps] = useState({
+  const [videoGCPProps, setVideoGCPProps] = useState({
     srcUrl: pageCopy.videoSrc,
-    thumbnailAlt: `Thinkific video ${style} thumbnail`,
+    thumbnailAlt: `Fearful Avoidant video ${style} thumbnail`,
     thumbnailUrl: 'RoyalRumblePage/rr-video-thumbnail.png',
-    type: 'Thinkific',
+    type: 'default',
   })
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
     if (!pageCopy.videoSrcVariant) return
 
-    setVideothinkificProps((prevProps) => ({
+    setVideoGCPProps((prevProps) => ({
       ...prevProps,
       variantVideoData: {
         key: 'GM-962-video-split',
@@ -605,7 +605,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
           <div className="flex flex-center flex-col justify-end md:flex-row md:px-8">
             <div>
               {pageCopy.videoSrcVariant ? (
-                <VideoThumbnail {...videoThinkificProps} />
+                <VideoThumbnail {...videoGCPProps} />
               ) : (
                 <VideoYoutube
                   maxHeight={512}

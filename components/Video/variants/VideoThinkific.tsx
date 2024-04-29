@@ -1,15 +1,17 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 // components
 import Image from 'next/image'
 import { Dialog } from '@/components/Dialog/Dialog'
 // libraries
 import cx from 'classnames'
+// modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { PageContext } from '@/utils/contexts'
+
 
 interface IThinkificProps {
   className?: string
@@ -87,7 +89,7 @@ export const VideoThinkific = ({
         <iframe
           allowFullScreen
           className={cx('!w-full !h-auto !aspect-video', classNameIframe)}
-          src={`https://platform.thinkific.com/videoproxy/v1/play/${srcUrl}`}></iframe>
+          src={srcUrl}></iframe>
       </Dialog>
 
       <div

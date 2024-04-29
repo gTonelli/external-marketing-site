@@ -8,6 +8,7 @@ import { IVideoDefaultProps, VideoDefault } from './VideoDefault'
 import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { PageContext } from '@/utils/contexts'
+import { TVariantVideoData } from '@/utils/types'
 
 interface IVideoThumbnailProps extends IVideoDefaultProps {
   /**
@@ -15,24 +16,27 @@ interface IVideoThumbnailProps extends IVideoDefaultProps {
    * @default undefined
    */
   url?: string
+  /** Data for running split test */
+  variantVideoData?: TVariantVideoData
 }
 
-export const VideoThumbnail = ({ url, ...defaultProps }: IVideoThumbnailProps) => {
+export const VideoThumbnail = ({ url, variantVideoData, ...defaultProps }: IVideoThumbnailProps) => {
   const { page_name } = useContext(PageContext)
+  const mergedProps = {...defaultProps, variantVideoData}
 
   const _onClick = () => {
     defaultProps.onClick?.()
     Mixpanel.track.VideoStarted({
-      video_type: `default - ${page_name}}`,
+      video_type: `default - ${page_name}`,
       page_name: page_name,
     })
   }
 
   return url ? (
     <a className={defaultProps.className} href={url}>
-      <VideoDefault playButtonSize="medium" {...defaultProps} onClick={_onClick} />
+      <VideoDefault playButtonSize="medium" {...mergedProps} onClick={_onClick} />
     </a>
   ) : (
-    <VideoDefault playButtonSize="medium" {...defaultProps} onClick={_onClick} />
+    <VideoDefault playButtonSize="medium" {...mergedProps} onClick={_onClick} />
   )
 }

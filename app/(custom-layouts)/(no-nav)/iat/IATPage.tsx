@@ -2,7 +2,8 @@
 
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
@@ -33,7 +34,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { RegistrationForm } from '@/components/Forms/RegistrationForm'
+import { IATBanner } from './IATBanner'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -48,14 +49,23 @@ const TRUSTBAR = [
   `yahoo-news-logo.png`,
 ]
 
-export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean }) => {
-  const page_name = 'External IAT Page'
+export const IATPage = ({
+  page_name,
+  pageUrl = 'other',
+  showLeadGenForm = false,
+}: {
+  page_name: Pages
+  pageUrl?: 'other' | 'ebook'
+  showLeadGenForm?: boolean
+}) => {
+  const searchParams = useSearchParams()
 
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
 
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
+  const [modalSuccess, setModalSuccess] = useState(false)
 
   const onVideoStarted = (type: string) => {
     if (!watchedVideos.has(type)) {
@@ -86,32 +96,38 @@ export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean
     })
   }
 
+  useEffect(() => {
+    if (pageUrl === 'ebook') {
+      if (searchParams.get('signup') === 'success') setModalSuccess(true)
+    }
+  }, [])
+
   return (
     <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
+      <Dialog
+        className="max-w-xl p-4"
+        isShown={modalSuccess}
+        onToggle={() => setModalSuccess(!modalSuccess)}>
+        <div className="w-full flex justify-end mb-2">
+          <Icon
+            className="cursor-pointer hover:scale-125"
+            name="close"
+            onClick={() => setModalSuccess(false)}
+          />
+        </div>
+        <h2 className="text-4xl text-left mb-2">Thanks for Downloading Our Ebook!</h2>
+
+        <p>
+          Congratulations on starting your journey towards becoming a certified relationship coach!
+          Our eBook is on its way. <br />
+          <br /> I’ll be sending you the best resources and latest updates about our IAT™
+          Relationship Coaching Program. Stay tuned!
+        </p>
+      </Dialog>
+
       <Section className="w-full relative z-10 bg-blue-lightest 3xl:pb-0">
-        <Text.Heading
-          className="font-effra font-bold text-black !text-[48px] leading-[50px]"
-          content={IAT.hero_section.heading}
-        />
-
-        <Text.Heading
-          className="font-effra font-bold text-black mt-3 text-[24px]"
-          content={IAT.hero_section.subheading}
-          spacing="tracking-0.325"
-        />
-
-        <Text.Paragraph
-          useMD
-          className="max-w-[676px] mt-8 font-bold lg:mx-auto lg:mt-11"
-          content={IAT.hero_section.copy}
-        />
-
-        <Button
-          className="trial-btn relative mt-11 md:top-6 md:mt-0 lg:mt-8"
-          label="GET STARTED NOW"
-          onClick={onClickPurchase}
-        />
+        <IATBanner page={pageUrl} onClickPurchase={onClickPurchase} />
       </Section>
 
       <div className="relative">
@@ -605,7 +621,11 @@ export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean
 
         <Text.Heading
           className="text-black text-[26px] mt-4 mb-8 mx-6"
-          content="Schedule a Free Call to Learn More"
+          content={
+            pageUrl === 'ebook'
+              ? 'Schedule a  Free Call with our Coaching Specialist to Learn More'
+              : 'Schedule a Free Call to Learn More'
+          }
         />
 
         <Button className="trial-btn xxs:inline" label="BOOK NOW" onClick={onBookNow} />

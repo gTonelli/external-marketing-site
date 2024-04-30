@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function IATSalePage() {
-  return <IATPage showLeadGenForm />
+  return <IATPage showLeadGenForm page_name="External IAT Coaching Page" />
 }

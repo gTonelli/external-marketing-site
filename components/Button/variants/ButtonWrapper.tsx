@@ -112,7 +112,7 @@ export const ButtonWrapper = ({
       if (!allowEventPropagation) stopEvent(event)
       onClick?.(event)
     },
-    [isDisabled || isLoading, onClick]
+    [allowEventPropagation, isDisabled, isLoading, onClick]
   )
 
   /**

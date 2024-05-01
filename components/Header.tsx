@@ -15,6 +15,20 @@ interface IHeaderProps {
    */
   clickableLogo?: boolean
   /**
+   * Back button className
+   */
+  classNameBackButton?: string
+  /**
+   * Logo Image element
+   * @default <PDSLogo />
+   */
+  logoElement?: JSX.Element
+  /**
+   * On click back button callback.
+   * @default router.back()
+   */
+  onClickBack?: () => void
+  /**
    * Include a button to go back to the previous page?
    * @default false
    */
@@ -26,30 +40,43 @@ interface IHeaderProps {
   includeSideMenu?: boolean
   /** Go back button text. Only renders if @includeGoBackButton is set to true */
   goBackButtonText?: string
+  /**
+   * Use the members quiz link
+   * @default false
+   */
+  useMembersQuiz?: boolean
   /** Nav Links */
   navLinks?: INavLinkProps[]
 }
 
 export const Header = ({
+  classNameBackButton,
   clickableLogo = true,
+  logoElement,
   navLinks = NavLinks,
   includeGoBackButton = false,
   includeSideMenu = false,
+  onClickBack,
+  useMembersQuiz = false,
   goBackButtonText = 'Back',
 }: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
+  if (useMembersQuiz && navLinks == PDSDefaultNavLinks) {
+    navLinks[0].link = ERoutes.MEMBERS_QUIZ
+    if (includeSideMenu) SideMenuLinks[0].link = ERoutes.MEMBERS_QUIZ
+  }
 
   return (
     <>
       {/* DESKTOP NAVIGATION */}
-      <div className="py-3 px-5 flex items-center bg-[#f5f5f5] xl:px-24 2xl:px-48 3xl:px-72">
+      <header className="py-3 px-5 flex items-center bg-[#f5f5f5] xl:px-24 2xl:px-48 3xl:px-72">
         <div className="min-w-[108px] text-center">
           {clickableLogo ? (
             <a href="https://university.personaldevelopmentschool.com/collections">
-              <PDSLogo />
+              {logoElement || <PDSLogo />}
             </a>
           ) : (
-            <PDSLogo />
+            logoElement || <PDSLogo />
           )}
         </div>
 
@@ -59,7 +86,13 @@ export const Header = ({
           ))}
         </nav>
 
-        {includeGoBackButton && <GoBackButton label={goBackButtonText} />}
+        {includeGoBackButton && (
+          <GoBackButton
+            className={classNameBackButton}
+            label={goBackButtonText}
+            onClick={onClickBack}
+          />
+        )}
 
         {includeSideMenu && (
           <div className="min-w-[108px] ml-auto text-right">
@@ -73,7 +106,7 @@ export const Header = ({
             />
           </div>
         )}
-      </div>
+      </header>
 
       {/* SIDEMENU */}
       <div
@@ -92,7 +125,7 @@ export const Header = ({
           <Image
             alt="PDS Logo, the Tree of Life"
             className="w-[40px] h-[40px] ml-0 mr-auto cursor-pointer"
-            src="/images/pds-logo.png"
+            src="/images/pds-icon.png"
             height={40}
             width={40}
           />
@@ -126,13 +159,28 @@ const PDSLogo = () => (
   <Image
     alt="PDS Logo, the Tree of Life"
     className="w-[40px] h-[40px] ml-0 lg:w-[70px] lg:h-[70px] lg:mx-auto"
-    src="/images/pds-logo.png"
+    src="/images/pds-icon.png"
     height={70}
     width={70}
   />
 )
 
-const GoBackButton = ({ label }: { label: string }) => {
+export const PDSLogoStacked = () => (
+  <Image
+    alt="PDS Logo - Tree of Life"
+    className="w-auto h-10 ml-0 lg:h-[70px] lg:mx-auto"
+    src="/images/pds-logo-stacked-right-primary.png"
+    height={70}
+    width={193}
+  />
+)
+
+interface IGoBackButtonProps extends IDefaultProps {
+  onClick?: () => void
+  label: string
+}
+
+const GoBackButton = ({ className, label, onClick }: IGoBackButtonProps) => {
   const [showButton, setShowButton] = useState(true)
   const router = useRouter()
 
@@ -140,13 +188,18 @@ const GoBackButton = ({ label }: { label: string }) => {
     if (!document.referrer) setShowButton(false)
   }, [])
 
-  return showButton ? (
-    <p
-      className="ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white"
-      onClick={() => router.back()}>
-      {label}
-    </p>
-  ) : null
+  return (
+    showButton && (
+      <p
+        className={cx(
+          'ml-auto text-primary font-bold cursor-pointer px-4 py-2 rounded-full bg-transparent transition-all hover:bg-white',
+          className
+        )}
+        onClick={() => onClick?.() ?? router.back()}>
+        {label}
+      </p>
+    )
+  )
 }
 
 interface INavLinkProps extends IDefaultProps {
@@ -161,6 +214,37 @@ const NavLink = ({ className, link, text }: INavLinkProps) => (
 )
 
 const NavLinks: INavLinkProps[] = []
+
+export const PDSDefaultNavLinks = [
+  {
+    link: ERoutes.ATTACHMENT_QUIZ,
+    text: 'Attachment Quiz',
+  },
+  {
+    link: EExternalRoutes.PDS_COURSES,
+    text: 'View Courses',
+  },
+  {
+    link: ERoutes.IAT_SALES_PAGE,
+    text: 'Certification',
+  },
+  {
+    link: EExternalRoutes.COLLECTIONS,
+    text: 'Memberships',
+  },
+  {
+    link: ERoutes.LEARNING_LOVE_PAGE,
+    text: 'Book',
+  },
+  {
+    link: EExternalRoutes.ABOUT,
+    text: 'About',
+  },
+  {
+    link: EExternalRoutes.BLOG,
+    text: 'Blog',
+  },
+]
 
 interface ISideMenuLinkProps {
   link: string

@@ -9,13 +9,12 @@ import { Button } from '../Button/Button'
 import { Text } from '../Text/Text'
 import { Loader } from '../Loader'
 // config
-import { REGULAR_COPY } from '@/app/(default-layout)/config'
+import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 // libraries
 import _ from 'lodash'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-// utils
 
 const AttachmentQuizQuestions = dynamic(
   () => import('./AttachmentQuizQuestions').then((mod) => mod.AttachmentQuizQuestions),
@@ -41,8 +40,6 @@ export interface IResultProps extends IDefaultProps {
   sa: number
 }
 
-export type TUserStyle = 'fa' | 'da' | 'sa' | 'ap'
-
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean
   quiz_traffic_source: TQuizTrafficSources
@@ -64,7 +61,7 @@ export const AttachmentQuiz = ({
       quiz_name: quizName,
     })
     setViewQuiz(true)
-  }, [viewQuiz, quizName])
+  }, [quizName])
 
   if (!viewQuiz) {
     return (
@@ -74,6 +71,7 @@ export const AttachmentQuiz = ({
           className="max-w-3xl mt-4 mx-10 lg:mx-0"
           content={REGULAR_COPY.copy}
         />
+
         <Button
           className="mt-7 px-20 py-4 lg:mt-8"
           label={REGULAR_COPY.button_label}

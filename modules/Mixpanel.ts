@@ -1,5 +1,3 @@
-'use client'
-import { TStyle } from '@/utils/types'
 // libraries
 import mixpanel, { Dict } from 'mixpanel-browser'
 
@@ -45,6 +43,8 @@ export type Pages =
   | `Attachment Style Quiz`
   | `Attachment Style Report New - ${string}`
   | `Attachment Style Report Old - ${string}`
+  | `Attachment Style Quiz Questions`
+  | `Attachment Style Results`
   | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
@@ -55,9 +55,12 @@ export type Pages =
   | `Corporate Quiz Results Page`
   | `Dreamlife Results Page FA`
   | `External IAT Page`
+  | `External IAT Ebook Page`
+  | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `Find My Courses`
   | `IAT Attachment Quiz`
+  | `IAT Info Page`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`
@@ -69,9 +72,14 @@ export type Pages =
   | `Main Funnel Quiz Variant D`
   | `Main Funnel Quiz Variant E`
   | `Main Funnel Quiz Variant F`
+  | `Members Quiz`
+  | `Members Quiz Questions`
+  | `Members Quiz Form`
+  | `Members Quiz Results`
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `Site Links`
   | `Speaker Gift`
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`
@@ -175,7 +183,7 @@ class Mixpanel {
     ExperimentStarted: (props: {
       'Experiment name': string
       'Variant name': ExperimentVariant
-      'page_name'?: Pages,
+      page_name?: Pages
     }) => {
       this.event('$experiment_started', props)
     },
@@ -209,7 +217,7 @@ class Mixpanel {
       this.event('Page Viewed', { page_name: props.page_name || window.location.pathname })
     },
 
-    QuizFinished: (props: { quiz_name: string }) => {
+    QuizFinished: (props: { quiz_name: string; quiz_type?: 'romantic' | 'friends' | 'family' }) => {
       this.event('Quiz Finished', props)
     },
 
@@ -222,11 +230,11 @@ class Mixpanel {
       this.event('Quiz Progress', props)
     },
 
-    QuizStarted: (props: { quiz_name: string }) => {
+    QuizStarted: (props: { quiz_name: string; quiz_type?: 'romantic' | 'friends' | 'family' }) => {
       this.event('Quiz Started', props)
     },
 
-    SignUp: (props: { distinct_id: string; $insert_id: string }) => {
+    SignUp: (props: { distinct_id: string; $insert_id?: string }) => {
       this.event('$signup', props)
     },
 

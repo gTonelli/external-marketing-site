@@ -45,3 +45,8 @@ export type TZIndexValues =
   | 'z-55'
   | 'z-60'
   | 'z-65'
+
+export type TVariantVideoData = {
+    key: string
+    videoId: string
+  }

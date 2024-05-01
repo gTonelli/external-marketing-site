@@ -47,9 +47,9 @@ export interface IButtonDefaultProps extends IDefaultProps {
 
   /**
    * Theme representing various TW classes
-   * @import bg-primary bg-black border-primary border-black
+   * @import bg-primary bg-black bg-orange bg-pink bg-teal border-primary border-black border-orange border-pink border-teal
    */
-  theme?: 'primary' | 'secondary' | 'black'
+  theme?: 'primary' | 'secondary' | 'black' | 'orange' | 'pink' | 'teal'
   type?: 'button' | 'reset' | 'submit'
 }
 
@@ -79,7 +79,9 @@ export const ButtonDefault = ({
           theme === 'secondary'
             ? 'text-primary bg-white border-primary active:!bg-primary lg:hover:!bg-primary'
             : `bg-${theme} border-${theme} text-white active:bg-opacity-50 lg:hover:bg-opacity-50`,
-          disabled && 'bg-opacity-25 border-opacity-25',
+          disabled
+            ? 'bg-opacity-25 border-opacity-25 lg:hover:!bg-opacity-25 lg:hover:!shadow-none cursor-not-allowed'
+            : 'cursor-pointer',
           className
         )
       )}

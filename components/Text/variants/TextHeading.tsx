@@ -5,7 +5,7 @@ import { ITextDefaultProps } from './TextDefault'
 // libraries
 import cx from 'classnames'
 
-type TTextHeadingSize = 1 | 2 | 3 | 4 | 5
+type TTextHeadingSize = 1 | 2 | 3 | 4 | 5 | 5
 
 interface ITextHeadingProps extends Omit<ITextDefaultProps, 'size'> {
   /**
@@ -62,7 +62,13 @@ export const TextHeading = ({
 
     case 5:
       return (
-        <h5 className={cx('font-bold uppercase !tracking-33 leading-6', font, spacing, className)}>
+        <h5
+          className={cx(
+            'font-effra font-bold uppercase leading-6 !tracking-33',
+            font,
+            spacing,
+            className
+          )}>
           {content}
         </h5>
       )

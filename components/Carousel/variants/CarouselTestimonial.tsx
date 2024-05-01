@@ -1,9 +1,13 @@
+'use client'
+
 // core
 import React, { forwardRef, useContext, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Icon } from '@/components/Icon'
 import { Testimonial } from '@/components/Testimonial/Testimonial'
+import { Image } from '@/components/Image'
+import { Text } from '@/components/Text/Text'
 // libraries
 import cx from 'classnames'
 import { Navigation, Pagination } from 'swiper/modules'
@@ -11,10 +15,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { TTestimonial } from '../../Testimonial/variants/TestimonialDefault'
-
 import { ViewportContext } from '@/utils/contexts'
-import { Image } from '@/components/Image'
-import { Text } from '@/components/Text/Text'
+// styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+
 interface ICarouselTestimonialProps extends IDefaultProps {
   /** Classnames for carousel children (cards) */
   classNameCard?: string
@@ -29,6 +35,8 @@ interface ICarouselTestimonialProps extends IDefaultProps {
    * @default "Here's What Our Students Say:"
    */
   headingText?: string
+  /** Subheading text */
+  subheadingText?: string
   /**
    * Show stylized quotations surrounding header text
    * @default true
@@ -99,6 +107,7 @@ export const CarouselTestimonial = forwardRef(
       classNameSlide,
       classNameSwiper,
       headingText = "Here's What Our Students Say:",
+      subheadingText,
       showQuotations = true,
       testimonials = DEFAULT_TESTIMONIALS,
       testimonialType = 'primary',
@@ -139,45 +148,47 @@ export const CarouselTestimonial = forwardRef(
             3xl:max-w-1/2">
           {/* LEFT QUOTE */}
           {showQuotations ? (
-            // <ScrollInAnimation animateIn="animFadeInRight" delay={headingAnimationDelay}>
             <div>
               <Image className="hidden lg:block" src="homepage_quote_left.png" />
             </div>
-          ) : // </ScrollInAnimation>
+          ) : null}
 
-          null}
+          <div className="default-padding text-center">
+            {/* HEADING */}
+            {headingText && (
+              <Text.Heading
+                className={cx('block text-center', classNameHeader)}
+                content={headingText}
+              />
+            )}
 
-          {/* HEADING */}
-          {/* <ScrollInAnimation animateIn="animFadeInDown" delay={headingAnimationDelay}> */}
-          <Text.Heading
-            className={cx('block text-center', classNameHeader)}
-            content={headingText}
-          />
-          {/* </ScrollInAnimation> */}
+            {subheadingText && <Text className="mt-4" content={subheadingText} />}
+          </div>
 
           {/* RIGHT QUOTE */}
           {showQuotations ? (
-            // <ScrollInAnimation animateIn="animFadeInLeft" delay={headingAnimationDelay}>
             <Image className="hidden lg:block" src="homepage_quote_right.png" />
-          ) : // </ScrollInAnimation>
-          null}
+          ) : null}
         </div>
 
         {/* SLIDER */}
         <div
-          className={`w-full flex items-start relative ${
+          className={`w-full items-start relative lg:flex ${
             isPrimary ? 'max-w-[1184px]' : 'max-w-6xl'
           }`}>
           <Swiper
-            loop
             className={cx('!pb-12', classNameSwiper)}
             modules={[Navigation, Pagination]}
-            navigation={{ prevEl, nextEl }}
+            navigation={{
+              prevEl,
+              nextEl,
+              disabledClass: 'opacity-25 !cursor-not-allowed',
+            }}
             pagination={{
               clickable: true,
               bulletActiveClass: '!opacity-100 !w-6 !h-6 !my-0',
               bulletClass:
-                'inline-block w-4 h-4 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer',
+                'inline-block w-4 h-4 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer lg:hover:opacity-100',
             }}
             slidesPerGroup={noOfslides}
             slidesPerView={noOfslides}
@@ -186,13 +197,11 @@ export const CarouselTestimonial = forwardRef(
               <SwiperSlide
                 key={`review_${index}`}
                 className={cx('flex justify-evenly self-start', classNameSlide)}>
-                {/* <ScrollInAnimation animateIn="animFadeInUp" className="flex" delay={index * 100}> */}
                 {isPrimary ? (
                   <Testimonial className={classNameCard} review={review} />
                 ) : (
                   <Testimonial.Tertiary className={classNameCard} review={review} />
                 )}
-                {/* </ScrollInAnimation> */}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -200,14 +209,16 @@ export const CarouselTestimonial = forwardRef(
           {/* LEFT ARROW ICON */}
           <div
             ref={(node) => setPrevEl(node)}
-            className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-20 absolute top-1/2 lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
+            className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 left-1/3 cursor-pointer
+            lg:top-1/2 lg:hover:border-primary lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
             <Icon className="text-primary" name="chevron-left" size="lg" />
           </div>
 
           {/* RIGHT ARROW ICON */}
           <div
             ref={(node) => setNextEl(node)}
-            className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-20 absolute top-1/2 lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
+            className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 right-1/3
+            lg:top-1/2 lg:hover:border-primary lg:cursor-pointer lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
             <Icon className="text-primary" name="chevron-right" size="lg" />
           </div>
         </div>

@@ -7,7 +7,7 @@ import { Button } from '../Button/Button'
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
 import { Text } from '../Text/Text'
-import { IResultProps, IUserInfo, TQuizTrafficSources, TUserStyle } from './AttachmentQuiz'
+import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { AttachmentQuizForm } from './AttachmentQuizForm'
 // config
 import {
@@ -21,6 +21,7 @@ import _ from 'lodash'
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
+import { TStyle } from '@/utils/types'
 
 let modifiedQuestions = [...questions]
 
@@ -65,7 +66,7 @@ export const AttachmentQuizQuestions = ({
         total_questions: modifiedQuestions.length,
       })
     }
-  }, [currentIndex, modifiedQuestions, Mixpanel])
+  }, [currentIndex, quizName])
 
   const trackProgressDesktop = useCallback(() => {
     const progress = (currentIndex / modifiedQuestions.length) * 100
@@ -77,7 +78,7 @@ export const AttachmentQuizQuestions = ({
         total_questions: modifiedQuestions.length,
       })
     }
-  }, [currentIndex, modifiedQuestions, Mixpanel])
+  }, [currentIndex, quizName])
 
   useEffect(() => {
     if (isMobile) {
@@ -90,7 +91,7 @@ export const AttachmentQuizQuestions = ({
       window.removeEventListener('visibilitychange', trackProgressMobile)
       window.removeEventListener('pagehide', trackProgressDesktop)
     }
-  }, [isMobile, currentIndex, modifiedQuestions, Mixpanel])
+  }, [currentIndex, trackProgressMobile, trackProgressDesktop])
 
   const onQuestionAnswer = useCallback(
     (answer: string) => () => {
@@ -153,15 +154,7 @@ export const AttachmentQuizQuestions = ({
       }
       setCurrentIndex(currentIndex + 1)
     },
-    [
-      currentIndex,
-      faPoints,
-      apPoints,
-      saPoints,
-      daPoints,
-      trackProgressDesktop,
-      trackProgressMobile,
-    ]
+    [apPoints, faPoints, daPoints, saPoints, currentIndex, userInfo, quizName, tagManager]
   )
 
   let options = null
@@ -237,13 +230,9 @@ export const AttachmentQuizQuestions = ({
         </div>
       ) : (
         <AttachmentQuizForm
-          ap={apPoints}
-          da={daPoints}
-          fa={faPoints}
-          sa={saPoints}
           quiz_traffic_source={quiz_traffic_source}
           userInfo={userInfo}
-          userStyle={style as TUserStyle}
+          userStyle={style as TStyle}
         />
       )}
     </section>

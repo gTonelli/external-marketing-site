@@ -1,13 +1,13 @@
 'use client'
 
-import { useState, useEffect, MutableRefObject, useRef, use } from 'react'
-import { TBreakpoints, TStyle } from './types'
-import { EExternalRoutes, ERoutes, EWindowWidth } from './constants'
+import { useState, useEffect, MutableRefObject, useRef } from 'react'
+import { TBreakpoints } from './types'
+import { EWindowWidth } from './constants'
 import { IViewport } from './interfaces'
-import { result, throttle } from 'lodash'
+import { throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import { Storage, TStorageKeys } from '@/modules/Storage'
-import { Maybe } from 'yup'
+import Cookies from 'universal-cookie'
+import { splitTestConfigs } from '@/middleware'
 
 // ==============================
 //          R E S I Z E
@@ -88,7 +88,7 @@ export function useScrollPercentage(): [MutableRefObject<any>, number] {
         node.removeEventListener('scroll', throttleScroll)
       }
     }
-  })
+  }, [scrollPercentage])
 
   return [scrollRef, Number.isNaN(scrollPercentage) ? 0 : scrollPercentage]
 }
@@ -130,80 +130,17 @@ function getScrollPercentage(
   return Math.round((element.scrollTop / height) * 100)
 }
 
-interface IUseCheckoutSplitTestProps {
-  /**
-   * The users attachment style, for AS specific split tests
-   * @default undefined if left undefind then split test is set normally
-   */
-  userStyle?: TStyle
-  /**
-   * The URL of the control price
-   * @default EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
-   */
-  controlPriceUrl?:
-    | EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
-    | EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR
-  /**
-   * The URL of the variant price
-   * @default ERoutes.STRIPE_CHECKOUT_MONTHLY_67
-   */
-  variantPriceUrl?: ERoutes.STRIPE_CHECKOUT_MONTHLY_67 | ERoutes.STRIPE_CHECKOUT_MONTHLY_59
-  /**
-   * Key for both localStorage and Mixpanel event's Variant Name
-   * @default 'prod-2320-checkout-test'
-   */
-  storageKey?: TStorageKeys
-  /**
-   * Amount of traffic to run to variant. Should be a range from 0 - 1
-   * @default 0.5
-   */
-  trafficRatio?: number
-}
-
-export function useCheckoutSplitTest({
-  userStyle,
-  controlPriceUrl = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
-  variantPriceUrl = ERoutes.STRIPE_CHECKOUT_MONTHLY_67,
-  storageKey = 'prod-2320-checkout-test',
-  trafficRatio = 0.5,
-}: IUseCheckoutSplitTestProps) {
-  // ============= State ===========
-  const [checkoutLink, setCheckoutLink] = useState<Maybe<string>>()
-  const [usingVariant, setUsingVariant] = useState<Maybe<boolean>>()
-
-  const variantTrafficRatio =
-    process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'production' ? trafficRatio : 0.5
-
+export function useAttachmentQuizSplitTest(showingVariant: boolean) {
   useEffect(() => {
-    if (userStyle && userStyle !== 'ap') {
-      setUsingVariant(false)
-      return setCheckoutLink(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
-    }
-    const checkoutVariantLock = Storage.get(storageKey)
-    let useCheckoutVariant: boolean
-
-    if (!checkoutVariantLock) {
-      useCheckoutVariant =
-        window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantTrafficRatio
-      Storage.set(storageKey, useCheckoutVariant.toString())
-
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': storageKey,
-        'Variant name': useCheckoutVariant ? 'Variant 1' : 'Control',
-      })
-    } else {
-      useCheckoutVariant = checkoutVariantLock
-    }
-
-    let destination: string
-    if (useCheckoutVariant) {
-      destination = variantPriceUrl
-    } else {
-      destination = controlPriceUrl
-    }
-    setCheckoutLink(destination)
-    setUsingVariant(useCheckoutVariant)
-  }, [])
-
-  return { checkoutLink, usingVariant }
+    const cookies = new Cookies()
+    const config = splitTestConfigs.quizTest
+    const testCookie = cookies.get(config?.cookieKey || '')
+    if (testCookie !== undefined || !config) return
+    cookies.set(config.cookieKey, showingVariant)
+    Mixpanel.track.ExperimentStarted({
+      'Experiment name': config.experimentName,
+      'Variant name': showingVariant ? 'Variant 1' : 'Control',
+      page_name: config.pageName as Pages,
+    })
+  })
 }

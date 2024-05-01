@@ -2,19 +2,16 @@
 
 import { Loader } from '@/components/Loader'
 import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import { useEffect, useState } from 'react'
 import { Maybe } from 'yup'
 import { captureMessage } from '@sentry/nextjs'
 import { useSearchParams } from 'next/navigation'
-import { NotFound } from '@/components/NotFound'
 
 const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '')
 
 export default function CheckoutPage({ params }: { params: { price_id: string } }) {
-  return <NotFound />
   const [clientSecret, setClientSecret] = useState<Maybe<string>>()
   const discount_id = useSearchParams().get('discount_id')
 
@@ -51,7 +48,6 @@ export default function CheckoutPage({ params }: { params: { price_id: string } 
   if (!clientSecret) return <Loader className="!py-48 lg:!py-72" />
 
   return (
-    // @ts-ignore
     <EmbeddedCheckoutProvider stripe={stripe} options={{ clientSecret }}>
       <EmbeddedCheckout className="pb-12 flex flex-grow lg:py-12 bg-blue-lightest" />
     </EmbeddedCheckoutProvider>

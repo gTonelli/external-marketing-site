@@ -4,11 +4,9 @@ import React from 'react'
 import { IDefaultWrapperProps } from '@/components'
 // libraries
 import cx from 'classnames'
-// utils
-// import {} from 'utils'
 
-interface ISectionProps extends IDefaultWrapperProps {
-  /** CSS for the section's content wrapper - the grid (max 1024px) limiter */
+export interface ISectionProps extends IDefaultWrapperProps {
+  /** CSS for the section's content wrapper */
   classNameInner?: string
 }
 

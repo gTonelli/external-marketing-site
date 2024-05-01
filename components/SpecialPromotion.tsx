@@ -21,14 +21,14 @@ import cx from 'classnames'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { useWindowWidth } from '@/utils/hooks'
+import { PageContext } from '@/utils/contexts'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { PageContext } from '@/utils/contexts'
 
 export const SpecialPromotion = () => {
   // ==================== Hooks ====================
@@ -529,7 +529,7 @@ export const SpecialPromotion = () => {
           className=" rounded-10 mx-auto"
           iframeClassName="rounded-10"
           maxHeight={432}
-          thumbnail="BlackFridayPage/mha-video-thumbnail.png"
+          thumbnail="/images/BlackFridayPage/mha-video-thumbnail.png"
           videoId="zpwXtAyKl6Q"
           onPlay={() => onVideoStarted('testimonial')}
         />
@@ -539,7 +539,7 @@ export const SpecialPromotion = () => {
       <Section className="bg-blue-lightest 2xl:py-24">
         <Faq.Secondary
           className="bg-transparent py-0"
-          faq={FAQs}
+          faq={ValentinesFAQs}
           subheaderTextDesktop="BEFORE STARTING YOUR FREE TRIAL"
         />
       </Section>
@@ -547,7 +547,7 @@ export const SpecialPromotion = () => {
   )
 }
 
-const MHAPageText = ({ className, content }: ITextDefaultProps) => (
+export const MHAPageText = ({ className, content }: ITextDefaultProps) => (
   <Text.Paragraph useMD className={cx('text-lg my-4', className)} content={content} />
 )
 
@@ -664,7 +664,7 @@ const CarouselCourses = () => {
   )
 }
 
-const FAQs = [
+export const ValentinesFAQs = [
   {
     question:
       'The trial includes access to over 60 courses! Where should I start to make the most of my 14-day free trial?',
@@ -688,7 +688,7 @@ const FAQs = [
   },
   {
     question: 'Can you remind me what I get access to?',
-    answer: `Sure! You get access to over 45 courses to reprogram your attachment style, improve your relationships and gain emotional mastery. You also get 
+    answer: `Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships and gain emotional mastery. You also get 
     access to weekly live webinars and Q&A calls, and all of our past recordings. Plus, access to our members-only forum and Facebook group, as well as online 
     study groups and social events so you can get additional support and connect with likeminded members.`,
   },

@@ -1,0 +1,12 @@
+p,
+li {
+  font-size: 1.125rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+li p {
+  margin-bottom: 0;
+}

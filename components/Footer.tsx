@@ -1,72 +1,74 @@
 import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import Image from 'next/image'
 import Link from 'next/link'
+import cx from 'classnames'
+import { Icon } from './Icon'
 
 const todaysDate = new Date()
 const year = todaysDate.getFullYear()
 
 interface IFooterProps {
   includeLinks?: boolean
+  centered?: boolean
 }
 
-export const Footer = ({ includeLinks }: IFooterProps) => (
+export const Footer = ({ includeLinks, centered }: IFooterProps) => (
   <footer className="bg-[#252334] relative z-15 pb-0 lg:pt-14 lg:px-4 p-[19px]">
     <div className="relative flex flex-col text-white z-20 px-5 lg:px-0 lg:flex-row lg:pb-[75px] lg:max-w-[1120px] lg:mx-auto">
       <div className="flex flex-col lg:flex-1">
-        <div className="flex flex-col items-center mb-5 lg:items-start">
+        <div className={cx('flex flex-col items-center mb-5', !centered && 'lg:items-start')}>
           <Image
             alt="PDS Logo - Tree of Life"
-            className="mb-5 lg:ml-[30px] lg:w-[219px]"
-            src="/images/pds-logo-stacked-right.svg"
-            height={48}
-            width={131}
+            className="mb-5 lg:ml-[30px] lg:w-[320px]"
+            src="/images/pds-logo-stacked-right-alt.png"
+            height={43}
+            width={221}
           />
 
           <div className="flex px-4">
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
-              <Image
-                alt="Youtube's play icon"
-                src="/icons/footer-youtube.svg"
-                width={24}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="youtube"
+                type="brands"
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
-              <Image
-                alt="Tiktoks's musical note icon"
-                src="/icons/footer-tiktok.svg"
-                width={22}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="tiktok"
+                type="brands"
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
-              <Image alt="Facebook icon" src="/icons/footer-facebook.svg" width={24} height={24} />
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="facebook"
+                type="brands"
+              />{' '}
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
-              <Image
-                alt="Instagram's icon"
-                src="/icons/footer-instagram.svg"
-                width={24}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="instagram"
+                type="brands"
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
-              <Image
-                alt="Web podcast icon"
-                src="/icons/footer-podcast.svg"
-                width={24}
-                height={24}
+              <Icon
+                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                name="podcast"
               />
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-wrap lg:flex-[1.5] lg:justify-between">
+      <div className={cx('flex flex-wrap lg:flex-[1.5] lg:justify-between', centered && 'hidden')}>
         {includeLinks && (
           <>
             <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
@@ -180,7 +182,10 @@ export const Footer = ({ includeLinks }: IFooterProps) => (
     </div>
 
     <div className="text-white py-4 border-t border-gray-500 lg:text-right lg:max-w-[calc(100%-340px)] lg:mx-auto">
-      <p>© Copyright {year} Personal Development School All rights Reserved</p>
+      <p>
+        © Copyright {year} <strong>PDS: The Personal Development School,</strong> All rights
+        Reserved
+      </p>
     </div>
   </footer>
 )

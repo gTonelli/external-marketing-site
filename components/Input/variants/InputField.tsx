@@ -14,6 +14,7 @@ import { get } from 'lodash'
 interface IInputFieldMUIProps extends IInputDefaultProps {
   className?: string
   name: string
+  autocomplete?: TAutocompleteValues
 }
 
 /**
@@ -26,6 +27,7 @@ interface IInputFieldMUIProps extends IInputDefaultProps {
  * and throws an error if it doesn't find one
  */
 export const InputField = ({
+  autocomplete,
   className,
   label,
   name,
@@ -37,12 +39,13 @@ export const InputField = ({
   const error = submitCount > 0 && get(errors, name)
 
   return (
-    <Field name={name}>
+    <Field className="rounded-xl" name={name}>
       {(fieldProps: FieldProps) => (
         <div className={cx('relative m-4 rounded-xl group text-left', className)}>
           <input
             {...fieldProps.field}
-            className="w-full outline-none border-none focus:ring-transparent peer py-2 px-4"
+            autoComplete={autocomplete}
+            className="w-full outline-none border-none focus:ring-transparent peer py-2 px-4 rounded-xl"
             placeholder=" "
             type={type}
           />
@@ -98,3 +101,61 @@ export const InputField = ({
     </Field>
   )
 }
+
+type TAutocompleteValues =
+  | 'on'
+  | 'off'
+  | 'address-line1'
+  | 'address-line2'
+  | 'address-line3'
+  | 'address-level1'
+  | 'address-level2'
+  | 'address-level3'
+  | 'address-level4'
+  | 'street-address'
+  | 'country'
+  | 'country-name'
+  | 'postal-code'
+  | 'name'
+  | 'additional-name'
+  | 'family-name'
+  | 'given-name'
+  | 'honoric-prefix'
+  | 'honoric-suffix'
+  | 'nickname'
+  | 'organization-title'
+  | 'username'
+  | 'new-password'
+  | 'current-password'
+  | 'bday'
+  | 'bday-day'
+  | 'bday-month'
+  | 'bday-year'
+  | 'sex'
+  | 'one-time-code'
+  | 'organization'
+  | 'cc-name'
+  | 'cc-given-name'
+  | 'cc-additional-name'
+  | 'cc-family-name'
+  | 'cc-number'
+  | 'cc-exp'
+  | 'cc-exp-month'
+  | 'cc-exp-year'
+  | 'cc-csc'
+  | 'cc-type'
+  | 'transaction-currency'
+  | 'transaction-amount'
+  | 'language'
+  | 'url'
+  | 'email'
+  | 'photo'
+  | 'tel'
+  | 'tel-country-code'
+  | 'tel-national'
+  | 'tel-area-code'
+  | 'tel-local'
+  | 'tel-local-prefix'
+  | 'tel-local-suffix'
+  | 'tel-extension'
+  | 'impp'

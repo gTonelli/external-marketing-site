@@ -1,3 +1,5 @@
+'use client'
+
 // core
 import React, { useState } from 'react'
 // components

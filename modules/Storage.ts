@@ -4,11 +4,13 @@
 export type TStorageKeys =
   | 'lastUserEmail'
   | 'userFirstName'
+  | 'userFullName'
+  | 'canViewResults'
+  | 'userTag'
   | 'prod-2320-checkout-test'
   | 'gm-845-checkout-test'
-  | 'gm-860-rr-split-test-ap'
-  | 'gm-860-rr-split-test-da'
-  | 'gm-860-rr-split-test-sa'
+  | `gm-976-platform-split-${string}`
+  | 'gm-962-video-split'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

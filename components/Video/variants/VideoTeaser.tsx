@@ -7,7 +7,7 @@ import { IDefaultProps } from '@/components'
 import { Text } from '@/components/Text/Text'
 import { Video } from '../Video'
 // config
-import { TRIAL_HEADSPACE as TH } from '@/app/(default-layout)/dream-life/config'
+import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import cx from 'classnames'
 

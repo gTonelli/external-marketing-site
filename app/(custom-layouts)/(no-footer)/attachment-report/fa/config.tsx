@@ -3,6 +3,7 @@ export const REPORT_COPY = {
     banner: {
       style: 'Fearful Avoidant',
       video: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      vector: 'couple-vector-fa.svg',
     },
     copy1: {
       header: 'A few things about you:',
@@ -149,8 +150,9 @@ export const REPORT_COPY = {
     footer: {
       title: (
         <>
-          <span>The Fearful Avoidant to Securely Attached Program</span> is the quickest, most
-          results-oriented, and most affordable way to restart your love life in a matter of weeks.
+          <span className="text-primary">The Fearful Avoidant to Securely Attached Program</span> is
+          the quickest, most results-oriented, and most affordable way to restart your love life in
+          a matter of weeks.
         </>
       ),
       copy: 'Are you ready to start over and start enjoying relationships that make you feel alive, worthy, and certain?',

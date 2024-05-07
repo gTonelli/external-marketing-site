@@ -3,6 +3,8 @@ import { REPORT_COPY } from './config'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
+import { Button } from '@/components/Button/Button'
+import Image from 'next/image'
 
 export default function AttachmentReport() {
   const COPY = REPORT_COPY['fa']
@@ -53,9 +55,282 @@ export default function AttachmentReport() {
         </div>
 
         <div className="text-left md:order-1">
-          <p>Image</p>
+          <Image
+            src={`/images/ReportsNew/${COPY.banner.vector}`}
+            alt="A vector image of a couple"
+            width={350}
+            height={300}
+          />
         </div>
       </Section>
+
+      <Section className="max-w-5xl my-8 mx-auto">
+        <h2 className="text-primary mb-4">{COPY.copy3.header}</h2>
+
+        <div className="grid grid-cols-1 mt-8 md:grid-cols-2 md:gap-4">
+          <div className="flex flex-col justify-between text-left">
+            {COPY.copy3.leftCopy.map((listItem, idx) => (
+              <div key={`copy_${idx}`}>
+                <p className="mb-2 font-bold">{listItem.title}</p>
+                <p className="mb-4">{listItem.copy}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col justify-between text-left">
+            {COPY.copy3.rightCopy.map((listItem, idx) => (
+              <div key={idx}>
+                <p className="mb-2 font-bold">{listItem.title}</p>
+                <p className="mb-4">{listItem.copy}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section className="max-w-5xl my-8 mx-auto">
+        <h2 className="text-primary mb-4">{COPY.copy4.header}</h2>
+
+        <div className="grid grid-cols-2 gap-4 my-8 md:grid-cols-4">
+          {COPY.copy4.list.map((listItem, idx) => (
+            <div
+              key={idx}
+              className="flex justify-center items-center font-bold bg-teal-light rounded-3xl p-8">
+              {listItem}
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="text-left mb-4">
+            <p className="font-bold mb-4">{COPY.copy5.leftCopy.header}</p>
+
+            <List
+              iconName="heart"
+              iconSize="xs"
+              className="mb-8"
+              classNameIcon="mt-2"
+              classNameListItems="mb-2"
+              listItems={COPY.copy5.leftCopy.list}
+            />
+          </div>
+
+          <div className="text-left mb-4">
+            <p className="font-bold mb-4">{COPY.copy5.rightCopy.header}</p>
+
+            <List
+              iconName="circle"
+              iconSize="2xs"
+              classNameIcon="mt-2"
+              classNameListItems="mb-2"
+              listItems={COPY.copy5.rightCopy.list}
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        className="bg-primary-light"
+        classNameInner="max-w-5xl grid grid-cols-1 gap-4 my-8 mx-auto md:grid-cols-2">
+        <div className="text-left mb-4">
+          <p className="font-bold mb-4">{COPY.copy6.header}</p>
+
+          <List
+            iconName="circle"
+            iconSize="2xs"
+            className="mb-8"
+            classNameIcon="mt-2"
+            classNameListItems="mb-2"
+            listItems={COPY.copy6.list}
+          />
+
+          <p className="font-bold mb-4">{COPY.copy7.header}</p>
+
+          <List
+            iconName="circle"
+            iconSize="2xs"
+            classNameIcon="mt-2"
+            classNameListItems="mb-2"
+            listItems={COPY.copy7.list}
+          />
+        </div>
+
+        <div className="flex justify-center">
+          <Image
+            src="/images/ReportsNew/couple-vector.svg"
+            alt="A vector of a couple"
+            width={270}
+            height={700}
+          />
+        </div>
+      </Section>
+
+      <Section className="max-w-5xl my-8 mx-auto">
+        <h2 className="text-primary mb-8">{COPY.copy8.header}</h2>
+
+        <div className="grid grid-cols-1 gap-4 items-center mb-8 md:grid-cols-2">
+          <div>
+            <Image
+              src="/images/ReportsNew/pds-platform-1.jpg"
+              alt="PDS is available across multiple devices"
+              width={626}
+              height={288}
+            />
+          </div>
+
+          <div className="text-left">
+            <p className="mb-4">{COPY.copy8.p1}</p>
+
+            <p>{COPY.copy8.p2}</p>
+          </div>
+        </div>
+
+        <p className="max-w-2xl font-bold mb-8 mx-auto">{COPY.copy8.p3}</p>
+
+        <div className="rounded-3xl border-2 border-blue-lightest my-8">
+          <div className="bg-blue-lightest rounded-t-3xl p-12">
+            Using the scientifically proven techniques I teach in this program, I’ve helped over
+            20,000 students break the same relationship patterns that you have and:
+          </div>
+
+          <div className="flex flex-col justify-center items-center gap-4 p-12 md:flex-row">
+            <div className="flex-1 flex justify-center">
+              <Image
+                src="/images/ReportsNew/heart-o-meter.jpg"
+                alt="A vector of a heart-o-meter"
+                width={285}
+                height={150}
+              />
+            </div>
+
+            <div className="flex-1 text-left">
+              <p className="mb-4">
+                Experience a{' '}
+                <span className="font-bold">50% improvement in their relationship</span> (if they
+                were in a relationship during the program).
+              </p>
+
+              <p>
+                Experience <span className="font-bold">3x more success in their dating lives.</span>{' '}
+                (if they were in a relationship during the program).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center my-16">
+          <Image
+            src="/images/ReportsNew/pds-platform-2.jpg"
+            alt="PDS courses"
+            width={809}
+            height={311}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="text-left">
+            <p className="font-bold mb-4">{COPY.copy9.leftCopy.header}</p>
+
+            <List
+              iconName="check-circle"
+              iconType="light"
+              iconSize="sm"
+              classNameIcon="!text-green-check mt-2"
+              classNameListItems="mb-4"
+              listItems={COPY.copy9.leftCopy.list}
+            />
+          </div>
+
+          <div className="text-left">
+            <p className="font-bold mb-4">{COPY.copy9.rightCopy.header}</p>
+
+            <List
+              iconName="star"
+              iconSize="sm"
+              classNameIcon="mt-2"
+              classNameListItems="mb-4"
+              listItems={COPY.copy9.rightCopy.list}
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        className="max-w-5xl my-8 mx-auto"
+        classNameInner="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="text-left">
+          <div className="relative rounded-tl-3xl rounded-br-3xl border-4 border-primary p-8">
+            <div className="absolute w-[80%] rounded-20 -top-12 left-0 right-0 bg-gradient-to-r from-beige to-primary-light text-left mx-auto py-4 px-8">
+              <h4>
+                We have a 99.7% <br />
+                satisfaction score!
+              </h4>
+            </div>
+
+            <p className="mt-4">
+              Because of the{' '}
+              <span className="underline">
+                <a
+                  href="https://university.personaldevelopmentschool.com/pages/testimonials?utm_source=quiz_results&utm_medium=email&utm_campaign=pdf-report"
+                  target="_blank">
+                  incredible results
+                </a>
+              </span>{' '}
+              our students are seeing as they work their way from anxious preoccupied to secure
+              attachments, almost all of them agreed that they would gladly recommend us to their
+              friends.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-center">
+          <Image
+            src="/images/ReportsNew/pds-platform-3.jpg"
+            alt="PDS platform"
+            width={345}
+            height={216}
+          />
+        </div>
+      </Section>
+
+      <Section className="max-w-5xl mx-auto">
+        <h2 className="mb-8">{COPY.footer.title}</h2>
+
+        <div className="max-w-2xl mx-auto mb-16">
+          <div className="flex flex-col justify-center items-center gap-4 mb-8 md:flex-row">
+            <div>
+              <Image
+                src="/images/ReportsNew/money-back.jpg"
+                alt="Money back guarantee"
+                width={188}
+                height={157}
+              />
+            </div>
+
+            <div className="flex-1">
+              <p className="text-left">
+                We’re so confident that this program will get you the results you’re looking for
+                that we even offer a 7-day money-back guarantee. <br />
+                <br />
+                If you’re not loving the program, request a refund within your first week of
+                starting, and we’ll give you a full refund.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-primary font-bold tracking-33 uppercase">{COPY.footer.copy}</p>
+        </div>
+
+        <Button link={COPY.footer.ctaLink} label="TRANSFORM MY LIFE" />
+      </Section>
+
+      <Image
+        className="w-screen"
+        src="/images/ReportsNew/footer-fa-couple.jpg"
+        alt="A couple"
+        width={1440}
+        height={960}
+      />
     </Page>
   )
 }

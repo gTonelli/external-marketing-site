@@ -16,7 +16,7 @@ import {
 } from './config'
 // libraries
 import cx from 'classnames'
-import _ from 'lodash'
+import { orderBy } from 'lodash'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
@@ -171,7 +171,7 @@ export const AttachmentQuizQuestions = ({
       { style: 'da', score: da },
       { style: 'sa', score: sa },
     ]
-    const _style = _.orderBy(attachmentStyleScores, ['score'], ['desc'])[0].style
+    const _style = orderBy(attachmentStyleScores, ['score'], ['desc'])[0].style
 
     return _style
   }

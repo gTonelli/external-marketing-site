@@ -7,8 +7,6 @@ import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/Brea
 import Image from 'next/image'
 import { REGULAR_COPY } from '../config'
 import { AttachmentQuizV2SplitTestTracker } from '@/components/AttachmentQuizV2/AttachmentQuizV2SplitTestTracker'
-// libraries
-import _ from 'lodash'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -45,6 +43,7 @@ export default function AttachmentQuizPage() {
         width={1920}
         height={243}
         tabIndex={-1}
+        sizes="100vw"
       />
       <Image
         alt=""

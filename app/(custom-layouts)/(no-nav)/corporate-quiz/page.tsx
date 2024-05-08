@@ -9,13 +9,14 @@ import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
 // libraries
 import cx from 'classnames'
-
 //modules
 import { Pages } from '@/modules/Mixpanel'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Page } from '@/components/Page'
 import { ERoutes } from '@/utils/constants'
+// styles
+import './style.css'
 
 interface IAttachmentStyleImageProps extends IDefaultProps {
   type: '1' | '2' | '3'

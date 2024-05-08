@@ -16,6 +16,8 @@ import { Pages } from '@/modules/Mixpanel'
 import { QUESTIONS, RESULTS } from '../config'
 import { ERoutes } from '@/utils/constants'
 import { Page } from '@/components/Page'
+// styles
+import '../style.css'
 
 export default function CorporateQuizQuestionsPage() {
   const page_name = 'Corporate Quiz Questions Page' as Pages

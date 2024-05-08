@@ -8,11 +8,11 @@ import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
 // libraries
 import ReCAPTCHA from 'react-google-recaptcha'
-// modules
-import { Pages } from '@/modules/Mixpanel'
 // utils
 import { RESULTS } from '../../config'
 import { Page } from '@/components/Page'
+// styles
+import '../../style.css'
 
 export interface ICorporateQuizResultsPageParams {
   params: { data: [keyof typeof RESULTS, string, string, string, string] }

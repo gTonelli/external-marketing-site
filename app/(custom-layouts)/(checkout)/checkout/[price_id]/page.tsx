@@ -6,7 +6,6 @@ import { EmbeddedCheckout, EmbeddedCheckoutProvider } from '@stripe/react-stripe
 import { loadStripe } from '@stripe/stripe-js'
 import { useEffect, useState } from 'react'
 import { Maybe } from 'yup'
-import { captureMessage } from '@sentry/nextjs'
 import { useSearchParams } from 'next/navigation'
 
 const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '')
@@ -41,7 +40,6 @@ export default function CheckoutPage({ params }: { params: { price_id: string } 
       .catch((error) => {
         alert('Something has gone wrong! Please try again.')
         console.error(error)
-        captureMessage(`Error with custom checkout`)
       })
   }, [])
 

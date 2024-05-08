@@ -9,13 +9,15 @@ import { Button } from '@/components/Button/Button'
 import { Image } from '@/components/Image'
 // libraries
 import cx from 'classnames'
-import _ from 'lodash'
+import { orderBy } from 'lodash'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { QUESTIONS, RESULTS } from '../config'
 import { ERoutes } from '@/utils/constants'
 import { Page } from '@/components/Page'
+// styles
+import '../style.css'
 
 export default function CorporateQuizQuestionsPage() {
   const page_name = 'Corporate Quiz Questions Page' as Pages
@@ -47,7 +49,7 @@ export default function CorporateQuizQuestionsPage() {
       { style: 'DA', score: daPoints },
       { style: 'SA', score: saPoints },
     ]
-    const _style: keyof typeof RESULTS = _.orderBy(attachmentStyleScores, ['score'], ['desc'])[0]
+    const _style: keyof typeof RESULTS = orderBy(attachmentStyleScores, ['score'], ['desc'])[0]
       .style as any
     localStorage.setItem('userTag', `corp-attachment-quiz-${_style}`.toLowerCase())
     return _style

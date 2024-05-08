@@ -7,7 +7,6 @@ import { IDefaultProps } from '@/components'
 // utils
 import cx from 'classnames'
 // modules
-import { ERoutes } from '@/utils/constants'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 

@@ -11,7 +11,6 @@ import { Loader } from '../Loader'
 // config
 import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 // libraries
-import _ from 'lodash'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'

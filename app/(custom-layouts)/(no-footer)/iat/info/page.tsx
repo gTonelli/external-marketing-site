@@ -14,6 +14,7 @@ import './style.css'
 import type { Metadata } from 'next'
 import { CarouselTestimonialPlain } from '@/components/Carousel/variants/CarouselTestimonialPlain'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
+import { IATEbookForm } from '@/components/IATEbookForm'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
@@ -44,7 +45,7 @@ export default function IATInfoPage() {
             <i> Note: It's only free for a limited time, so act fast!</i>
           </p>
 
-          <EbookForm />
+          <IATEbookForm />
         </Animation>
 
         <Animation direction="fromRight">
@@ -207,7 +208,7 @@ export default function IATInfoPage() {
             quality={95}
           />
 
-          <EbookForm id="form" />
+          <IATEbookForm id="form" />
         </div>
 
         <Image
@@ -223,12 +224,3 @@ export default function IATInfoPage() {
     </Page>
   )
 }
-
-const EbookForm = ({ id }: { id?: string }) => (
-  <SignupForm
-    id={id}
-    userTags={['iat-tips-ebook']}
-    listIds={[54]}
-    successMessage="Your e-book is on the way!"
-  />
-)

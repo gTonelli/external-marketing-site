@@ -4,7 +4,8 @@ export const RESULTS = {
       headline:
         'ARE YOU READY TO FEEL CONNECTED AND EMPOWERED IN YOUR LOVE LIFE - WITHOUT THE CONFLICT AND STRESS?',
       subheadline: `Learn Your Relationship Patterns - And They're Shockingly Accurate!`,
-      videoURL: '3xQhjx7pB84',
+      videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
+      videoURLVariant: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Variant.mp4',
       title: 'Who Is The Fearful Avoidant?',
       copy: "You have a Fearful Avoidant attachment style, and in the next few minutes, I'm going to reveal what this means.",
     },

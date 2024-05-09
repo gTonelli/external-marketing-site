@@ -53,6 +53,8 @@ export type Pages =
   | `Corporate Quiz Results Page`
   | `Dreamlife Results Page FA`
   | `External IAT Page`
+  | `External IAT Ebook Page`
+  | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `Find My Courses`
   | `IAT Attachment Quiz`

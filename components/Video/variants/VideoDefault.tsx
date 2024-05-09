@@ -1,15 +1,21 @@
 'use client'
 
-// // core
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
-// // components
+// core
+import React, { forwardRef, useCallback, useContext, useEffect, useRef, useState } from 'react'
+// components
 import { IDefaultProps } from '@/components'
 import { Dialog } from '@/components/Dialog/Dialog'
 import { Image } from '@/components/Image'
-// // libraries
+// libraries
 import cx from 'classnames'
 import { overrideTailwindClasses as two } from 'tailwind-override'
 import { Regexes } from '@/utils/constants'
+// modules
+import Mixpanel from '@/modules/Mixpanel'
+import { Storage, TStorageKeys } from '@/modules/Storage'
+// utils
+import { TVariantVideoData } from '@/utils/types'
+import { PageContext } from '@/utils/contexts'
 
 export interface IVideoDefaultProps extends IDefaultProps {
   /**
@@ -54,6 +60,8 @@ export interface IVideoDefaultProps extends IDefaultProps {
    * @default undefined
    */
   thumbnailUrl?: string
+  /** Data for running split test */
+  variantVideoData?: TVariantVideoData
   /* Event called when play button is clicked */
   onClick?(): void
   /* Event called when the video starts to play */
@@ -70,16 +78,21 @@ export const VideoDefault = ({
   srcUrl,
   style,
   thumbnailAlt,
-  thumbnailUrl,
+  thumbnailUrl = 'RoyalRumblePage/rr-video-thumbnail.png',
+  variantVideoData,
   onClick,
   onPlay,
 }: IVideoDefaultProps) => {
+  // ==================== Context ====================
+  const page_name = useContext(PageContext)?.page_name
+
   // ==================== Refs ====================
   const videoEl = useRef<HTMLVideoElement>(null)
 
   // ==================== State ====================
   const [isDialogShown, setIsDialogShown] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
+  const [isVariant, setIsVariant] = useState(false)
 
   const onToggleDialog = useCallback(() => {
     if (playInline) return
@@ -98,7 +111,22 @@ export const VideoDefault = ({
 
   useEffect(() => {
     isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
-  }, [isPlaying])
+
+    if (!variantVideoData) return
+    let showVariant: string | null | boolean = Storage.get(
+      variantVideoData.key.toLowerCase() as TStorageKeys
+    )
+    if (showVariant === null) {
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      Storage.set(variantVideoData.key.toLowerCase() as TStorageKeys, showVariant)
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': variantVideoData.key,
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
+        page_name: page_name,
+      })
+    }
+    setIsVariant(showVariant === 'true' || showVariant === true)
+  }, [isPlaying, page_name, variantVideoData])
 
   return (
     <>
@@ -108,7 +136,12 @@ export const VideoDefault = ({
           className="overflow-hidden lg:max-w-[75%]"
           isShown={isDialogShown}
           onToggle={onToggleDialog}>
-          <VideoPlayer ref={videoEl} controls src={srcUrl} onPlay={onPlay} />
+          <VideoPlayer
+            ref={videoEl}
+            controls
+            src={isVariant && variantVideoData ? variantVideoData.videoId : srcUrl}
+            onPlay={onPlay}
+          />
         </Dialog>
       )}
 
@@ -132,7 +165,7 @@ export const VideoDefault = ({
               playsInline
               classNameVideo={classNameVideo}
               controls={!hideVideoControlsOnPlay}
-              src={srcUrl}
+              src={isVariant && variantVideoData ? variantVideoData.videoId : srcUrl}
               onPlay={onPlay}
             />
           ) : (

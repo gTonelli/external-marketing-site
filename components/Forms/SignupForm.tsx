@@ -31,6 +31,8 @@ interface ISignupFormProps extends IDefaultProps {
   submitButtonLabel?: string
   /** Success message */
   successMessage?: string
+  /** onSuccess callback function */
+  onSuccess?: () => void
 }
 
 export const SignupForm = ({
@@ -40,6 +42,7 @@ export const SignupForm = ({
   submitButtonLabel,
   listIds,
   successMessage = 'Thank you for your submission!',
+  onSuccess,
 }: ISignupFormProps) => {
   // =========== State =========
   const [submitted, setSubmitted] = useState(false)
@@ -77,6 +80,7 @@ export const SignupForm = ({
         if (!res.success) throw res?.message || 'An unexpected error occured'
         else {
           Mixpanel.track.SignUp({ distinct_id: email })
+          onSuccess?.()
           setSubmitted(true)
         }
       })

@@ -1,25 +1,13 @@
-'use client'
-
-// core
-import { useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 // components
 import Image from 'next/image'
 import { Button } from './Button/Button'
 // modules
 import { SocialMediaLinks } from '@/components/SocialMediaLinks'
 import { ERoutes } from '@/utils/constants'
-import { Link } from './Link'
+import Link from 'next/link'
 import { Page } from './Page'
 
 export const NotFound = () => {
-  // ==================== Hooks ====================
-  const router = useRouter()
-
-  const onClickHome = useCallback(() => {
-    router.push(ERoutes.HOME)
-  }, [router])
-
   return (
     <Page className="w-full flex flex-auto justify-center items-center" page_name="Not Found Page">
       <div className="flex-grow-1 my-8 lg:my-24 2xl:my-28">
@@ -40,13 +28,16 @@ export const NotFound = () => {
               We couldn't find the page you were looking for. Reach out to{' '}
               <Link
                 className="text-primary font-medium"
-                label="Customer Service"
-                url="mailto:info@personaldevelopmentschool.com"
-              />{' '}
+                href="mailto:info@personaldevelopmentschool.com">
+                Customer Service
+              </Link>{' '}
               for further assistance.
             </p>
 
-            <Button className="w-fit mt-8" label="BACK TO HOMEPAGE" onClick={onClickHome} />
+            <Link href={ERoutes.HOME}>
+              <Button className="w-fit mt-8" label="BACK TO HOMEPAGE" />
+            </Link>
+
             <div className="w-full flex flex-col justify-between items-center mt-4 md:flex-row md:items-end md:mt-[auto]">
               <p className="mb-2 md:mb-0">Follow us on social media</p>
 

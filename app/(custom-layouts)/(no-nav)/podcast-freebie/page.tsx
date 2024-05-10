@@ -5,12 +5,29 @@ import { Page } from '@/components/Page'
 import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
 import { Section } from '@/components/Section'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
+import './style.css'
 
 export default function PodcastFreebiePage() {
   return (
     <Page page_name="Podcast Freebie">
-      <Section className="w-full" classNameInner="grid grid-cols-12 py-16">
-        <div className="text-left col-span-6">
+      <Section className="bg-hero-mobile min-h-[44rem] z-15 lg:hidden">
+        <div className="text-black text-left relative z-20 lg:col-span-7">
+          <h1 className="mb-4">The Thais Gibson Podcast</h1>
+
+          <p>
+            Join Thais Gibson as she discusses life, love, relationships, and personal development
+            in her all new podcast series. Episodes will explore exclusive strategies ad tools,
+            personal stories, the latest trending topics, and special interviews with renowned
+            guests. This podcast will empower you with the skills to have the life you always
+            wanted.
+          </p>
+        </div>
+      </Section>
+
+      <Section
+        className={`bg-hero w-full hidden min-h-80 z-10 lg:block lg:py-32 xl:py-28 2xl:py-36 3xl:py-72`}
+        classNameInner="relative z-10 lg:grid lg:grid-cols-12">
+        <div className="text-black text-left lg:col-span-7">
           <h1 className="mb-4">The Thais Gibson Podcast</h1>
 
           <p>
@@ -26,32 +43,32 @@ export default function PodcastFreebiePage() {
       <Section
         className="w-full bg-primary-light"
         classNameInner="max-w-5xl flex flex-col justify-start align-center mx-auto lg:flex-row lg:justify-around">
-        <div className="flex items-center mb-4 lg:mb-0">
+        <div className="flex items-center mb-6 lg:mb-0">
           <Icon name="spotify" size="2x" className="mr-4" />
 
           <p className="font-bold tracking-33">SPOTIFY</p>
         </div>
 
-        <div className="flex items-center mb-4 lg:mb-0">
+        <div className="flex items-center mb-6 lg:mb-0">
           <Icon name="spotify" size="2x" className="mr-4" />
 
           <p className="font-bold tracking-33">YOUTUBE</p>
         </div>
 
-        <div className="flex items-center mb-4 lg:mb-0">
+        <div className="flex items-center mb-6 lg:mb-0">
           <Icon name="spotify" size="2x" className="mr-4" />
 
           <p className="font-bold tracking-33">APPLE PODCAST</p>
         </div>
 
-        <div className="flex items-center mb-4 lg:mb-0">
+        <div className="flex items-center mb-6 lg:mb-0">
           <Icon name="spotify" size="2x" className="mr-4" />
 
           <p className="font-bold tracking-33">GOOGLE PODCAST</p>
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto" classNameInner="flex flex-col gap-4 my-8 md:flex-row">
+      <Section className="max-w-5xl mx-auto" classNameInner="flex flex-col gap-4 my-8 lg:flex-row">
         <div className="flex-1 flex items-center">Image</div>
 
         <div className="flex-1 text-left">
@@ -74,8 +91,31 @@ export default function PodcastFreebiePage() {
         </div>
       </Section>
 
-      <Section className="w-full" classNameInner="grid grid-cols-12">
-        <div className="text-left col-span-5">
+      <Section className="bg-about-mobile min-h-screen z-15 lg:hidden">
+        <div className="text-black text-left relative z-20 pb-96 lg:col-span-7">
+          <h2 className="mb-4">Hey, I'm Thais Gibson.</h2>
+
+          <p className="font-bold tracking-33 mb-4">HERE'S ALL ABOUT ME!</p>
+
+          <p>
+            I'm a regular girl turned best-selling author, counselor, and personal development
+            leader. My journey started with wanting to uncover and change my attachment style. It
+            led to a decade of self-discovery, academic training, client-based research, and the
+            creation of The Personal Development School.
+            <br />
+            <br />
+            What I've discovered throughout my journey is that people want an easy, accessible way
+            to learn how to experience profound transformations in their lives. That's why I created
+            this podcast: to teach you how to make the life you want with the best practices
+            possible.
+          </p>
+        </div>
+      </Section>
+
+      <Section
+        className={`bg-about w-full hidden min-h-80 z-10 lg:block lg:py-32 xl:py-28 2xl:py-36 3xl:py-44`}
+        classNameInner="relative z-10 lg:grid lg:grid-cols-12">
+        <div className="text-black text-left lg:col-span-7">
           <h2 className="mb-4">Hey, I'm Thais Gibson.</h2>
 
           <p className="font-bold tracking-33 mb-4">HERE'S ALL ABOUT ME!</p>
@@ -102,7 +142,7 @@ export default function PodcastFreebiePage() {
       <Section className="w-full bg-blue-lightest" classNameInner="max-w-5xl mx-auto my-8">
         <h2 className="mb-16">What’s Stopping You From Having the Life You Always Wanted?</h2>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="text-left">
             <p className="font-bold mb-4">
               Here’s Why You Can Improve Your Life &amp; Relationships

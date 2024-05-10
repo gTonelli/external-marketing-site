@@ -1,10 +1,10 @@
+import Image from 'next/image'
 import { Page } from '@/components/Page'
-import { REPORT_COPY } from './config'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
 import { Button } from '@/components/Button/Button'
-import Image from 'next/image'
+import { REPORT_COPY } from './config'
 
 export default function AttachmentReport() {
   const COPY = REPORT_COPY['fa']
@@ -13,7 +13,7 @@ export default function AttachmentReport() {
     <Page page_name="Attachment Style Report Old - fa">
       <Section
         className="max-w-5xl mx-auto"
-        classNameInner="grid grid-cols-1 gap-4 py-16 md:grid-cols-2">
+        classNameInner="grid grid-cols-1 gap-4 pt-4 pb-0 md:grid-cols-2">
         <div className="text-left">
           <p className="font-bold tracking-33">YOUR ATTACHMENT STYLE IS</p>
 
@@ -28,9 +28,7 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section
-        className="max-w-5xl my-8 mx-auto"
-        classNameInner="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="text-left mb-4 md:order-2">
           <p className="font-bold mb-4">{COPY.copy1.header}</p>
 
@@ -64,7 +62,7 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl my-8 mx-auto">
+      <Section className="max-w-5xl mx-auto">
         <h2 className="text-primary mb-4">{COPY.copy3.header}</h2>
 
         <div className="grid grid-cols-1 mt-8 md:grid-cols-2 md:gap-4">
@@ -88,7 +86,7 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl my-8 mx-auto">
+      <Section className="max-w-5xl mx-auto">
         <h2 className="text-primary mb-4">{COPY.copy4.header}</h2>
 
         <div className="grid grid-cols-2 gap-4 my-8 md:grid-cols-4">
@@ -131,7 +129,7 @@ export default function AttachmentReport() {
 
       <Section
         className="bg-primary-light"
-        classNameInner="max-w-5xl grid grid-cols-1 gap-4 my-8 mx-auto md:grid-cols-2">
+        classNameInner="max-w-5xl grid grid-cols-1 gap-4 mx-auto md:grid-cols-2">
         <div className="text-left mb-4">
           <p className="font-bold mb-4">{COPY.copy6.header}</p>
 
@@ -165,7 +163,7 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl my-8 mx-auto">
+      <Section className="max-w-5xl mx-auto">
         <h2 className="text-primary mb-8">{COPY.copy8.header}</h2>
 
         <div className="grid grid-cols-1 gap-4 items-center mb-8 md:grid-cols-2">
@@ -255,9 +253,7 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section
-        className="max-w-5xl my-8 mx-auto"
-        classNameInner="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="text-left">
           <div className="relative rounded-tl-3xl rounded-br-3xl border-4 border-primary p-8">
             <div className="absolute w-[80%] rounded-20 -top-12 left-0 right-0 bg-gradient-to-r from-beige to-primary-light text-left mx-auto py-4 px-8">

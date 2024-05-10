@@ -2,7 +2,7 @@ export const REPORT_COPY = {
   fa: {
     banner: {
       style: 'Fearful Avoidant',
-      video: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      video: 'https://storage.googleapis.com/pds_videos/FA_pdf_50.mp4',
       vector: 'couple-vector-fa.svg',
     },
     copy1: {

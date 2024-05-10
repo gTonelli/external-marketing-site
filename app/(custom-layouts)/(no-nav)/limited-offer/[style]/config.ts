@@ -12,7 +12,7 @@
   },
 
   ap: {
-    videoSrc: 'rg0tm16tLYQ',
+    videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
     videoSrcVariant: '',
     HERO: {
       headline:
@@ -207,7 +207,7 @@
   },
 
   da: {
-    videoSrc: '46LShiTH07c',
+    videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
     videoSrcVariant: '',
     HERO: {
       headline:
@@ -571,7 +571,7 @@
     },
   },
   sa: {
-    videoSrc: 'RBhxl6xR69U',
+    videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
     videoSrcVariant: '',
     HERO: {
       headline:

@@ -60,6 +60,11 @@ export interface IVideoDefaultProps extends IDefaultProps {
    * @default undefined
    */
   thumbnailUrl?: string
+  /**
+   * If provided, will let us separate events based on the video that has been played given that there are more than 1 videos
+   * @default undefined
+   */
+  type?: string
   /** Data for running split test */
   variantVideoData?: TVariantVideoData
   /* Event called when play button is clicked */
@@ -79,6 +84,7 @@ export const VideoDefault = ({
   style,
   thumbnailAlt,
   thumbnailUrl = 'RoyalRumblePage/rr-video-thumbnail.png',
+  type,
   variantVideoData,
   onClick,
   onPlay,
@@ -137,10 +143,12 @@ export const VideoDefault = ({
           isShown={isDialogShown}
           onToggle={onToggleDialog}>
           <VideoPlayer
+            trackable
             ref={videoEl}
             controls
             src={isVariant && variantVideoData ? variantVideoData.videoId : srcUrl}
             onPlay={onPlay}
+            type={type}
           />
         </Dialog>
       )}
@@ -150,7 +158,7 @@ export const VideoDefault = ({
         style={style}
         onClick={onClick}>
         {/* THUMBNAIL */}
-        {thumbnailUrl && <Image alt={thumbnailAlt} src={thumbnailUrl} />}
+        {thumbnailUrl && !playInline && <Image alt={thumbnailAlt} src={thumbnailUrl} />}
 
         {/* VIDEO */}
 
@@ -160,16 +168,24 @@ export const VideoDefault = ({
             <VideoPlayer
               ref={videoEl}
               autoPlay
-              loop
               muted
+              loop
               playsInline
               classNameVideo={classNameVideo}
               controls={!hideVideoControlsOnPlay}
               src={isVariant && variantVideoData ? variantVideoData.videoId : srcUrl}
               onPlay={onPlay}
+              trackable={false}
+              type={type}
             />
           ) : (
-            <VideoPlayer ref={videoEl} controls={!hideVideoControlsOnPlay} src={srcUrl} />
+            <VideoPlayer
+              trackable
+              ref={videoEl}
+              controls={!hideVideoControlsOnPlay}
+              src={srcUrl}
+              type={type}
+            />
           ))}
 
         {/* PLAY BUTTON */}
@@ -197,18 +213,60 @@ export const VideoDefault = ({
 interface IVideoPlayer extends Omit<React.VideoHTMLAttributes<HTMLVideoElement>, 'src'> {
   src?: string
   classNameVideo?: string
+  trackable: boolean
+  type?: string
 }
 
-export const VideoPlayer = forwardRef(
-  (
-    { src = '', classNameVideo = '', ...otherProps }: IVideoPlayer,
-    ref: React.Ref<HTMLVideoElement>
-  ) => {
+export const VideoPlayer = forwardRef<HTMLVideoElement, IVideoPlayer>(
+  ({ src = '', classNameVideo = '', trackable = true, type = 'default', ...otherProps }, ref) => {
+    // ==================== Context ====================
+    const page_name = useContext(PageContext)?.page_name
+    const videoRef = useRef<HTMLVideoElement>(null)
+    // ==================== State ====================
+    const [currentThreshold, setCurrentThreshold] = useState<number>(0)
+
+    useEffect(() => {
+      const video = videoRef.current
+      const onTimeUpdate = () => {
+        if (video && trackable) {
+          const currentTime = video.currentTime
+          const duration = video.duration
+
+          if (duration > 0) {
+            const precentageWatched = (currentTime / duration) * 100
+
+            const thresholds = [25, 50, 75, 100]
+            const nextThreshold = thresholds.find((threshold) => {
+              return precentageWatched >= threshold && threshold > currentThreshold
+            })
+
+            if (nextThreshold && nextThreshold !== currentThreshold) {
+              Mixpanel.track.VideoProgress({
+                progress: nextThreshold,
+                page_name: page_name,
+                video_type: `${type} - ${page_name}`,
+              })
+
+              setCurrentThreshold(nextThreshold)
+            }
+          }
+        }
+      }
+
+      if (video && trackable) {
+        video.addEventListener('timeupdate', onTimeUpdate)
+
+        return () => {
+          video.removeEventListener('timeupdate', onTimeUpdate)
+        }
+      }
+    }, [currentThreshold, page_name, trackable, type])
+
     // Checks whether the src is an actual URL or a local asset
     const isSrcLink = new RegExp(Regexes.url).test(src)
     return (
       <video
-        ref={ref}
+        ref={videoRef || ref}
         className={classNameVideo}
         {...otherProps}
         controlsList="nodownload"

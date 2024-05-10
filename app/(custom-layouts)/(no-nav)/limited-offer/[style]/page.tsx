@@ -11,7 +11,6 @@ import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Page } from '@/components/Page'
@@ -42,26 +41,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
   // ==================== State ====================
   const pageCopy = LIMITED_OFFER[style]
   const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
-  const [videoGCPProps, setVideoGCPProps] = useState({
-    srcUrl: pageCopy.videoSrc,
-    thumbnailAlt: `Fearful Avoidant video ${style} thumbnail`,
-    thumbnailUrl: 'RoyalRumblePage/rr-video-thumbnail.png',
-    type: 'default',
-  })
 
   useEffect(() => {
     setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
-
-    if (!pageCopy.videoSrcVariant) return
-
-    setVideoGCPProps((prevProps) => ({
-      ...prevProps,
-      variantVideoData: {
-        key: 'GM-962-video-split',
-        videoId: pageCopy.videoSrcVariant,
-      },
-    }))
-  }, [page_name, style, pageCopy.videoSrcVariant])
+  }, [page_name])
 
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, seq_no: number) => {
@@ -604,19 +587,12 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         <div className="max-w-5xl w-full mx-auto my-8">
           <div className="flex flex-center flex-col justify-end md:flex-row md:px-8">
             <div>
-              {pageCopy.videoSrcVariant ? (
-                <VideoThumbnail {...videoGCPProps} />
-              ) : (
-                <VideoYoutube
-                  maxHeight={512}
-                  iframeClassName="rounded-20"
-                  thumbnail="/images/RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
-                  thumbnailWidth={465}
-                  thumbnailHeight={265}
-                  videoId={pageCopy.videoSrc}
-                  type="default"
-                />
-              )}
+              <VideoThumbnail
+                srcUrl={pageCopy.videoSrc}
+                thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
+                thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
+                type="default"
+              />
             </div>
             <div className="flex flex-col text-center m-4 p-2 md:text-left md:w-1/2">
               <Text.Heading

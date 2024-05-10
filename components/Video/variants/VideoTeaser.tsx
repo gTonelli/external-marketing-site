@@ -42,15 +42,17 @@ export default function VideoTeaser({ className }: IDefaultProps) {
           content="Learn to communicate more effectively, connect deeply, and repair any relationship in a matter of weeks."
         />
 
-        <Video.Thumbnail
-          playAuto
-          playInline
-          className="mt-5 lg:mx-auto lg:mt-10"
-          classNameVideo="object-fit"
-          playButtonSize="none"
-          srcUrl={TH.VIDEO_CATEGORIES[videoIndex].url}
-          style={{ maxWidth: '100%', height: 'auto' }}
-        />
+        <div>
+          <Video.Thumbnail
+            playAuto
+            playInline
+            className="mt-5 lg:mx-auto lg:mt-10"
+            classNameVideo="object-fit"
+            playButtonSize="none"
+            srcUrl={TH.VIDEO_CATEGORIES[videoIndex].url}
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+        </div>
       </div>
     </section>
   )

@@ -9,6 +9,12 @@ export const RESULTS = {
       title: 'Who Is The Fearful Avoidant?',
       copy: "You have a Fearful Avoidant attachment style, and in the next few minutes, I'm going to reveal what this means.",
     },
+    HERO_SECTION_VARIANT: {
+      headline: 'Are you ready to start having the best relationships of your life?',
+      subheadline: 'The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!',
+      copy: 'While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.',
+      offer: 'Get 30% off a month for our All-Access Pass. Available for a limited time.'
+    },
     STYLE_TRAITS: {
       bullets_left: [
         'You often want to connect deeply with others but can get cold feet when things become more serious.',
@@ -181,7 +187,7 @@ export const RESULTS = {
       copy6:
         'So go ahead, click the button below to get the magic formula to improve your love life once and for all today.',
     },
-    TESTIMONIAL_VIDEO_URL: 'u7UNmXt0dDQ',
+    TESTIMONIAL_VIDEO_URL: 'https://storage.googleapis.com/pds_videos/Testimonial-Video-original-long.mp4',
     CAROUSEL_COURSES: [
       {
         title: `Fearful Avoidant to Securely Attached`,

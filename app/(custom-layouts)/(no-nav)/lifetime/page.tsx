@@ -28,6 +28,7 @@ import { formatPrice, getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 
 interface IPricingPlan {
   title: string
@@ -663,12 +664,11 @@ export default function LifeTimePage() {
           spacing="tracking-0.325"
         />
 
-        <Video.Youtube
-          className="shadow-centered rounded-20 max-w-none"
-          maxHeight={512}
-          playButtonSize="medium"
-          thumbnail="/images/course-emotional-mastery.jpg"
-          videoId="1_GbEDgwgqE"
+        <VideoThumbnail
+          thumbnailUrl="course-emotional-mastery.jpg"
+          thumbnailAlt='emotional mastery thumbanil'
+          srcUrl="https://storage.googleapis.com/pds_videos/Emotional_mastery_trailer.mp4"
+          type='testimonial'
         />
       </section>
 

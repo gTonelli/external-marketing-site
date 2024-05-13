@@ -1,11 +1,15 @@
-import { Button } from '@/components/Button/Button'
-import { Icon } from '@/components/Icon'
-import { List } from '@/components/List'
+// core
+import Image from 'next/image'
+// components
 import { Page } from '@/components/Page'
-import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
 import { Section } from '@/components/Section'
+import { List } from '@/components/List'
+import { Button } from '@/components/Button/Button'
+import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
+// style
 import './style.css'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 
 export default function PodcastFreebiePage() {
   return (
@@ -44,34 +48,65 @@ export default function PodcastFreebiePage() {
         className="w-full bg-primary-light"
         classNameInner="max-w-5xl flex flex-col justify-start align-center mx-auto lg:flex-row lg:justify-around">
         <div className="flex items-center mb-6 lg:mb-0">
-          <Icon name="spotify" size="2x" className="mr-4" />
+          <Image
+            src="/icons/icon-spotify.svg"
+            alt="Spotify icon"
+            width={56}
+            height={68}
+            className="mr-4"
+          />
 
           <p className="font-bold tracking-33">SPOTIFY</p>
         </div>
 
         <div className="flex items-center mb-6 lg:mb-0">
-          <Icon name="spotify" size="2x" className="mr-4" />
+          <Image
+            src="/icons/icon-youtube.svg"
+            alt="YouTube icon"
+            width={57}
+            height={51}
+            className="mr-4"
+          />
 
           <p className="font-bold tracking-33">YOUTUBE</p>
         </div>
 
         <div className="flex items-center mb-6 lg:mb-0">
-          <Icon name="spotify" size="2x" className="mr-4" />
+          <Image
+            src="/icons/icon-apple-podcast.svg"
+            alt="Podcast icon"
+            width={48}
+            height={55}
+            className="mr-4"
+          />
 
           <p className="font-bold tracking-33">APPLE PODCAST</p>
         </div>
 
         <div className="flex items-center mb-6 lg:mb-0">
-          <Icon name="spotify" size="2x" className="mr-4" />
+          <Image
+            src="/icons/icon-google-podcast.svg"
+            alt="Icon for Google podcast"
+            width={60}
+            height={60}
+            className="mr-4"
+          />
 
           <p className="font-bold tracking-33">GOOGLE PODCAST</p>
         </div>
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="flex flex-col gap-4 my-8 lg:flex-row">
-        <div className="flex-1 flex items-center">Image</div>
+        <div className="flex-1 flex items-center justify-center md:justify-start">
+          <Image
+            src="/images/PodcastFreebie/subconscious-reprogramming.jpg"
+            alt="Subconscious Reprogramming Workbook Mockup"
+            width={278}
+            height={309}
+          />
+        </div>
 
-        <div className="flex-1 text-left">
+        <div className="flex-1 flex flex-col justify-center text-left">
           <h2 className="mb-4">Sign Up Now For Our Podcast List</h2>
 
           <p className="font-bold uppercase mb-4">
@@ -135,7 +170,9 @@ export default function PodcastFreebiePage() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto">
+      <CarouselTestimonialThinkific className="mt-14" />
+
+      <Section className="max-w-full w-full" classNameInner="max-w-full">
         <TrustbarSlider />
       </Section>
 

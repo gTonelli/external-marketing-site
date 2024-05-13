@@ -14,6 +14,7 @@ import { Faq } from '@/components/Faq/Faq'
 import { Page } from '@/components/Page'
 import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
 import { EExternalRoutes, ERoutes, Regexes } from '@/utils/constants'
@@ -35,6 +36,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { IATBanner } from './IATBanner'
+
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -760,14 +762,11 @@ export const IATPage = ({
           content="Here's What Our Students Say:"
         />
 
-        <Video.Youtube
-          className=" rounded-10 mx-auto"
-          iframeClassName="rounded-10"
-          maxHeight={432}
-          thumbnail="/images/IATPage/IAT-testimonial-thumbnail.png"
+        <VideoThumbnail
+          thumbnailUrl="IATPage/IAT-testimonial-thumbnail.png"
           thumbnailAlt="IAT Testimonial Thumbnail"
-          videoId="tUUHFJw-VrI"
-          onPlay={() => onVideoStarted('testimonial')}
+          srcUrl="https://storage.googleapis.com/pds_videos/Integrated_attachment_theory_coaching_training_testimonials.mp4"
+          type='testimonial'
         />
       </Section>
 

@@ -525,13 +525,11 @@ export const SpecialPromotion = () => {
           content="Curious to See How the All-Access Pass Can Change Your Life? Hit Play to Find Out What Awaits You."
         />
 
-        <Video.Youtube
-          className=" rounded-10 mx-auto"
-          iframeClassName="rounded-10"
-          maxHeight={432}
-          thumbnail="/images/BlackFridayPage/mha-video-thumbnail.png"
-          videoId="zpwXtAyKl6Q"
-          onPlay={() => onVideoStarted('testimonial')}
+        <Video.Thumbnail 
+          srcUrl='https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4'
+          thumbnailAlt={`Video ${page_name} thumbnail`}
+          thumbnailUrl='BlackFridayPage/mha-video-thumbnail.png'
+          type='testimonial'
         />
       </Section>
 

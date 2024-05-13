@@ -7,8 +7,7 @@ export const EMAIL_RESULTS = {
         text_end: '',
       },
       body: 'Watch this video to learn about some of your most common behaviors as an anxious preoccupied, what this says about your needs, and how to start meeting those needs in a healthier way.',
-      videoUrlID: '_wjIupW5FEI',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/NeedsAP_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsAP_AttachmentStyleSeries.mp4',
       cardText:
         'Discover what you need in your relationships and learn how to get it from your partner when you enroll in The Personal Development School’s All-Access Program.',
     },
@@ -20,8 +19,7 @@ export const EMAIL_RESULTS = {
         text_end: '',
       },
       body: 'Watch this video to learn about some of your most common behaviors as a dismissive avoidant, what this says about your needs, and how to start meeting those needs in a healthier way.',
-      videoUrlID: 'NMAsszzJoY0',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/NeedsDA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsDA_AttachmentStyleSeries.mp4',
       cardText:
         'Discover what you need in your relationships and learn how to get it from your partner when you enroll in The Personal Development School’s All-Access Program.',
     },
@@ -33,8 +31,7 @@ export const EMAIL_RESULTS = {
         text_end: '',
       },
       body: 'Watch this video to learn about some of your most common behaviors as a fearful avoidant, what this says about your needs, and how to start meeting those needs in a healthier way.',
-      videoUrlID: 'etAj77oR0As',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
       cardText:
         'Discover what you need in your relationships and learn how to get it from your partner when you enroll in The Personal Development School’s All-Access Program.',
     },
@@ -46,8 +43,7 @@ export const EMAIL_RESULTS = {
         text_end: '',
       },
       body: 'Watch this video to learn what your needs are as a securely attached person and why it is that you may be having trouble connecting to other attachment styles.',
-      videoUrlID: '9ehxGH3_xlk',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/NeedsSA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsSA_AttachmentStyleSeries.mp4',
       cardText:
         'Learn how to understand people better and start building more harmonious relationships immediately when you enroll in The Personal Development School’s All-Access Program.',
     },
@@ -61,8 +57,7 @@ export const EMAIL_RESULTS = {
         text_end: 'You Can Start Doing To Heal It.',
       },
       body: 'Watch this video to learn a powerful reprogramming technique that will help you change the beliefs that are holding you back in your relationships.',
-      videoUrlID: 'Qppr37rnkqI',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/BeliefsAPFADA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/BeliefsAPFADA_AttachmentStyleSeries.mp4',
       cardText:
         'Learn more effective tools and techniques for creating lasting change in your life when you enroll in The Personal Development School’s All-Access Program.',
     },
@@ -73,8 +68,7 @@ export const EMAIL_RESULTS = {
         text_end: 'You Can Start Doing to Heal it.',
       },
       body: 'Watch this video to learn a powerful reprogramming technique that will help you change the beliefs that are holding you back in your relationships.',
-      videoUrlID: 'Qppr37rnkqI',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/BeliefsAPFADA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/BeliefsAPFADA_AttachmentStyleSeries.mp4',
       cardText:
         'Learn more effective tools and techniques for creating lasting change in your life when you enroll in The Personal Development School’s All-Access Program.',
     },
@@ -86,8 +80,7 @@ export const EMAIL_RESULTS = {
         text_end: 'You Can Start Doing To Heal It.',
       },
       body: 'Watch this video to learn a powerful reprogramming technique that will help you change the beliefs that are holding you back in your relationships.',
-      videoUrlID: 'Qppr37rnkqI',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/BeliefsAPFADA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/BeliefsAPFADA_AttachmentStyleSeries.mp4',
       cardText:
         'Learn more effective tools and techniques for creating lasting change in your life when you enroll in The Personal Development School’s All-Access Program.',
     },
@@ -99,8 +92,7 @@ export const EMAIL_RESULTS = {
         text_end: 'Getting Activated and Affecting Your Relationships?',
       },
       body: 'Watch this video to learn why your secondary attachment style matters and some of the ways it might be showing up in your relationships.',
-      videoUrlID: '62yf6QOogSI',
-      videoVariantUrl: 'https://storage.googleapis.com/pds_videos/BeliefsSA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/BeliefsSA_AttachmentStyleSeries.mp4',
       cardText:
         'Uncover your secondary attachment style and learn how to heal it when you enroll in The Personal Development School’s All-Access Program.',
     },

@@ -33,25 +33,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
   const [seriesParam, styleParam] = [params.series, params.style]
   const pageName = `Attachment Styles Email Page - ${seriesParam} ${styleParam}` as Pages
 
-  // ================== State =====================
-  const [isVariant, setIsVariant] = useState<boolean>()
-
   // ================== Events =====================
-  useEffect(() => {
-    let storageVar: TStorageKeys = `gm-976-platform-split-${styleParam}`
-    let showVariant: string | null | boolean = Storage.get(storageVar)
-    if (showVariant === null) {
-      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
-      Storage.set(storageVar, showVariant)
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': `GM-976-video-platform-${styleParam}`,
-        'Variant name': showVariant ? 'Variant 1' : 'Control',
-        page_name: pageName,
-      })
-    }
-    setIsVariant(showVariant === 'true' || showVariant === true)
-  }, [pageName, styleParam])
-
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<Element, MouseEvent>) => {
       Mixpanel.track.ButtonClicked({
@@ -85,23 +67,11 @@ export default function AttachmentStyleNeedsBeliefsPage({
             />
           </div>
           <div className="w-[inherit] mt-6">
-            {isVariant ? (
-              <Video.Thumbnail
-                srcUrl={EMAIL_RESULTS[seriesParam][styleParam].videoVariantUrl}
-                thumbnailAlt={`Video ${styleParam} thumbnail`}
-                type="GCP"
-              />
-            ) : (
-              <Video.Youtube
-                className="!rounded-20 shadow-centered"
-                iframeClassName="w-full aspect-video rounded-10"
-                maxHeight={498}
-                thumbnailWidth={415}
-                thumbnailHeight={234}
-                videoId={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
-                type="YouTube"
-              />
-            )}
+            <Video.Thumbnail
+              srcUrl={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
+              thumbnailAlt={`Video ${styleParam} thumbnail`}
+              type="GCP"
+            />
           </div>
         </section>
         <section className="mx-auto mb-6 lg:w-1/2 ">
@@ -109,6 +79,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
             <Image
               className="w-full object-cover object-top sm:max-h-60"
               src="attachment-style-email-series.jpg"
+              alt="needs-mockup"
             />
 
             <div className="px-6 py-4 bg-purple-dark lg:py-8">

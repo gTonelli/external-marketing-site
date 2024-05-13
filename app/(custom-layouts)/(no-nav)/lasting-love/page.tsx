@@ -11,12 +11,13 @@ import { List } from '@/components/List'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import Link from 'next/link'
 import { Button } from '@/components/Button/Button'
-import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { FaqSecondary } from '@/components/Faq/variants/FaqSecondary'
 // utils
 import { ERoutes } from '@/utils/constants'
 // styles
 import './styles.css'
+
 
 export const metadata: Metadata = {
   title:
@@ -644,12 +645,10 @@ export default function LastingLovePage() {
           Awaits You.
         </h2>
 
-        <VideoYoutube
-          className=" rounded-10 mx-auto"
-          iframeClassName="rounded-10"
-          maxHeight={432}
-          thumbnail="/images/BlackFridayPage/mha-video-thumbnail.png"
-          videoId="zpwXtAyKl6Q"
+        <VideoThumbnail
+          srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
+          thumbnailAlt={`Video lasting-love thumbnail`}
+          thumbnailUrl='BlackFridayPage/mha-video-thumbnail.png'
           type="testimonial"
         />
       </Section>

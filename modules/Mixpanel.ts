@@ -30,6 +30,7 @@ type Events =
   | 'Trial Ended'
   | 'Trial Started'
   | 'Video Started'
+  | 'Video Progress'
 
 /* Collection of all page names tracked throughout the app */
 export type Pages =
@@ -242,6 +243,13 @@ class Mixpanel {
         page_name: props.page_name || window.location.pathname,
       })
     },
+
+    VideoProgress: (props: {progress: number; page_name?: Pages; video_type: string}) => {
+      this.event('Video Progress',  {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    }
   }
 }
 

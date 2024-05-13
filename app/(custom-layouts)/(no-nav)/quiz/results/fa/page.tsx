@@ -1,22 +1,22 @@
 // components
-import { Page } from '@/components/Page'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
+import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
+import { CheckoutButton } from '@/components/CheckoutButton'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Icon } from '@/components/Icon'
 import Image from 'next/image'
 import { List } from '@/components/List'
+import { Page } from '@/components/Page'
+import { ResultsPageHeader } from '@/components/ResultsPageHeader'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoDefault } from '@/components/Video/variants/VideoDefault'
-import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
-import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // config
 import { RESULTS } from './config'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { Metadata } from 'next'
+
 
 const metadata: Metadata = {
   title: 'Your Attachment Style Results | Fearful Avoidant',
@@ -31,40 +31,7 @@ export default function RoyalRumbleResultsPage() {
       {/* HERO_SECTION */}
       <section className="w-full">
         <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
-          <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
-            <AttachmentQuizHeading />
-
-            <p className="max-w-3xl uppercase font-bold !tracking-0.325 mt-8 mb-8 md:mb-10">
-              {RESULTS[style].HERO_SECTION.subheadline}
-            </p>
-
-            {/* BANNER BACKGROUND */}
-            <div className="max-w-5xl w-full my-8">
-              <div className="flex flex-col md:flex-row-reverse md:px-8">
-                <div>
-                  <VideoThumbnail
-                    srcUrl={RESULTS[style].HERO_SECTION.videoURL}
-                    thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
-                    thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
-                    variantVideoData={{
-                      key: 'GM-962-video-split',
-                      videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
-                    }}
-                  />
-                </div>
-
-                <div className="m-4 p-2 md:text-left md:w-1/2">
-                  <h2 className="text-purple-dark text-2xl">{RESULTS[style].HERO_SECTION.title}</h2>
-
-                  <p className="font-bold mt-4">
-                    Congratulations on taking the Attachment Style Quiz!
-                  </p>
-
-                  <p className="mt-4">{RESULTS[style].HERO_SECTION.copy}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ResultsPageHeader />
         </div>
       </section>
 
@@ -405,12 +372,10 @@ export default function RoyalRumbleResultsPage() {
           {/* VIDEO TESTIMONIAL */}
           <div className="w-full flex flex-col justify-center mt-8 lg:mt-12">
             <div className="mx-auto">
-              <VideoYoutube
-                maxHeight={512}
-                thumbnail="/images/RoyalRumbleResultsPage/testimonial_thumbnail.jpg"
-                thumbnailWidth={503}
-                thumbnailHeight={287}
-                videoId={RESULTS[style].TESTIMONIAL_VIDEO_URL}
+              <VideoThumbnail
+                thumbnailUrl="RoyalRumbleResultsPage/testimonial_thumbnail.jpg"
+                thumbnailAlt='testimonial thumbnail'
+                srcUrl={RESULTS[style].TESTIMONIAL_VIDEO_URL}
                 type="testimonial"
               />
             </div>

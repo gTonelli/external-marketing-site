@@ -6,7 +6,7 @@
 }
 
 .bg-hero-mobile {
-    background: url('/images/PodcastFreebie/podcast-freebie-hero.jpg') no-repeat left 70% / cover;
+    background: url('/images/PodcastFreebie/podcast-freebie-hero.jpg') no-repeat left 0% / cover;
 }
 
 .bg-about-mobile {
@@ -20,7 +20,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(180deg, rgba(227, 237, 237, 0.00) 0%, #E3EDED 25.49%, rgba(213, 184, 216, 0.50) 100%);
+    background: linear-gradient(180deg, #E3EDED 0%, rgba(213, 184, 216, 0.50) 100%);
 }
 
 @media screen and (min-width: 1024px) {

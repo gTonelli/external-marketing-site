@@ -70,14 +70,16 @@ export const CarouselTestimonialThinkific = forwardRef(
     const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
 
     const noOfslides = windowWidth <= EWindowWidth.md ? 1 : 'auto'
-    const spaceBetween = windowWidth <= EWindowWidth.md ? 0 : 80
+    const spaceBetween = windowWidth <= EWindowWidth.md ? 0 : 36
     const centeredSlides = windowWidth > EWindowWidth.md
 
     return (
       <section ref={ref} className={cx(`w-full relative overflow-hidden`, className)}>
         {/* SLIDER */}
         <Swiper
+          loop
           className={cx('!pb-12', classNameSwiper)}
+          wrapperClass="!items-stretch"
           modules={[Navigation, Pagination]}
           navigation={{
             prevEl,

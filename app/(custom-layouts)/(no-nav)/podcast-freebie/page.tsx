@@ -14,7 +14,7 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 export default function PodcastFreebiePage() {
   return (
     <Page page_name="Podcast Freebie">
-      <Section className="bg-hero-mobile min-h-[44rem] z-15 lg:hidden">
+      <Section className="bg-hero-mobile min-h-[24rem] z-15 lg:hidden">
         <div className="text-black text-left relative z-20 lg:col-span-7">
           <h1 className="mb-4">The Thais Gibson Podcast</h1>
 

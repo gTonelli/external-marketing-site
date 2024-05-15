@@ -7,14 +7,15 @@ import { List } from '@/components/List'
 import { Button } from '@/components/Button/Button'
 import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
+import { Icon } from '@/components/Icon'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 // style
 import './style.css'
-import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 
 export default function PodcastFreebiePage() {
   return (
     <Page page_name="Podcast Freebie">
-      <Section className="bg-hero-mobile min-h-[24rem] z-15 lg:hidden">
+      <Section className="bg-hero-mobile min-h-[26rem] z-15 lg:hidden">
         <div className="text-black text-left relative z-20 lg:col-span-7">
           <h1 className="mb-4">The Thais Gibson Podcast</h1>
 
@@ -48,51 +49,27 @@ export default function PodcastFreebiePage() {
         className="w-full bg-primary-light"
         classNameInner="max-w-5xl flex flex-col justify-start align-center mx-auto lg:flex-row lg:justify-around">
         <div className="flex items-center mb-6 lg:mb-0">
-          <Image
-            src="/icons/icon-spotify.svg"
-            alt="Spotify icon"
-            width={56}
-            height={68}
-            className="mr-4"
-          />
+          <Icon name="spotify" size="3x" type="brands" className="text-black mr-4" />
 
           <p className="font-bold tracking-33">SPOTIFY</p>
         </div>
 
         <div className="flex items-center mb-6 lg:mb-0">
-          <Image
-            src="/icons/icon-youtube.svg"
-            alt="YouTube icon"
-            width={57}
-            height={51}
-            className="mr-4"
-          />
+          <Icon name="youtube" size="3x" type="brands" className="text-black mr-4" />
 
           <p className="font-bold tracking-33">YOUTUBE</p>
         </div>
 
         <div className="flex items-center mb-6 lg:mb-0">
-          <Image
-            src="/icons/icon-apple-podcast.svg"
-            alt="Podcast icon"
-            width={48}
-            height={55}
-            className="mr-4"
-          />
+          <Icon name="podcast" size="3x" type="solid" className="text-black mr-4" />
 
           <p className="font-bold tracking-33">APPLE PODCAST</p>
         </div>
 
         <div className="flex items-center mb-6 lg:mb-0">
-          <Image
-            src="/icons/icon-google-podcast.svg"
-            alt="Icon for Google podcast"
-            width={60}
-            height={60}
-            className="mr-4"
-          />
+          <Icon name="audible" size="3x" type="brands" className="text-black mr-4" />
 
-          <p className="font-bold tracking-33">GOOGLE PODCAST</p>
+          <p className="font-bold tracking-33">AUDIBLE</p>
         </div>
       </Section>
 

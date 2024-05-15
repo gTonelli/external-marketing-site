@@ -6,21 +6,23 @@
 }
 
 .bg-hero-mobile {
-    background: url('/images/PodcastFreebie/podcast-freebie-hero.jpg') no-repeat left 0% / cover;
+    background: url('/images/PodcastFreebie/podcast-freebie-hero.jpg') no-repeat center center / cover;
 }
 
 .bg-about-mobile {
     background: url('/images/PodcastFreebie/about-thais.jpg') no-repeat center 75% / cover;
 }
 
-.bg-hero-mobile::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: linear-gradient(180deg, #E3EDED 0%, rgba(213, 184, 216, 0.50) 100%);
+@media screen and (min-width: 425px) {
+    .bg-hero-mobile {
+        background-position: center 70%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bg-hero-mobile {
+        background-position: center 80%;
+    }
 }
 
 @media screen and (min-width: 1024px) {

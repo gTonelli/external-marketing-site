@@ -5,9 +5,7 @@ import React, { forwardRef, useContext, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Icon } from '@/components/Icon'
-import { Testimonial } from '@/components/Testimonial/Testimonial'
 import { Image } from '@/components/Image'
-import { Text } from '@/components/Text/Text'
 import { DEFAULT_TESTIMONIALS } from './CarouselTestimonial'
 // libraries
 import cx from 'classnames'
@@ -25,30 +23,14 @@ import 'swiper/css/navigation'
 interface ICarouselTestimonialProps extends IDefaultProps {
   /** Classnames for carousel children (cards) */
   classNameCard?: string
-  /** Classnames for carousel children (cards) */
-  classNameHeader?: string
   /** Classnames for swiper slides */
   classNameSlide?: string
   /** Classnames for swiper wrapper */
   classNameSwiper?: string
   /**
-   * Top heading text
-   * @default "Here's What Our Students Say:"
-   */
-  headingText?: string
-  /** Subheading text */
-  subheadingText?: string
-  /**
-   * Show stylized quotations surrounding header text
-   * @default true
-   */
-  showQuotations?: boolean
-  /**
    * Testimonials to show
    */
   testimonials?: TTestimonial[]
-  /** Testimonial slides type */
-  testimonialType?: string
 }
 
 export const CarouselTestimonialThinkific = forwardRef(
@@ -66,8 +48,8 @@ export const CarouselTestimonialThinkific = forwardRef(
     const { windowWidth } = useContext(ViewportContext)
 
     // ==================== State ====================
-    const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
-    const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
+    const [prevEl, _] = useState<HTMLElement | null>(null)
+    const [nextEl, __] = useState<HTMLElement | null>(null)
 
     const noOfslides = windowWidth <= EWindowWidth.md ? 1 : 'auto'
     const spaceBetween = windowWidth <= EWindowWidth.md ? 0 : 36

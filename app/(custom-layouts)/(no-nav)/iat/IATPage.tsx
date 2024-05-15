@@ -37,7 +37,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { IATBanner } from './IATBanner'
 
-
 const TRUSTBAR = [
   `psychology-today-logo.png`,
   `forbes-logo.png`,
@@ -108,7 +107,7 @@ export const IATPage = ({
     <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
       <Dialog
-        className="max-w-xl p-4"
+        className="max-w-xl p-4 bg-white rounded-20"
         isShown={modalSuccess}
         onToggle={() => setModalSuccess(!modalSuccess)}>
         <div className="w-full flex justify-end mb-2">
@@ -766,7 +765,7 @@ export const IATPage = ({
           thumbnailUrl="IATPage/IAT-testimonial-thumbnail.png"
           thumbnailAlt="IAT Testimonial Thumbnail"
           srcUrl="https://storage.googleapis.com/pds_videos/Integrated_attachment_theory_coaching_training_testimonials.mp4"
-          type='testimonial'
+          type="testimonial"
         />
       </Section>
 

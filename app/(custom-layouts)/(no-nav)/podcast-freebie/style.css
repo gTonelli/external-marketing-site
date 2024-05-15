@@ -6,7 +6,7 @@
 }
 
 .bg-hero-mobile {
-    background: url('/images/PodcastFreebie/podcast-freebie-hero.jpg') no-repeat center center / cover;
+    background: url('/images/PodcastFreebie/podcast-freebie-hero.jpg') no-repeat center 60% / cover;
 }
 
 .bg-about-mobile {

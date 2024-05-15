@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { forwardRef, useContext, useState } from 'react'
+import React, { forwardRef, useContext } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Icon } from '@/components/Icon'
@@ -9,7 +9,7 @@ import { Image } from '@/components/Image'
 import { DEFAULT_TESTIMONIALS } from './CarouselTestimonial'
 // libraries
 import cx from 'classnames'
-import { Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // utils
 import { EWindowWidth } from '@/utils/constants'
@@ -47,10 +47,6 @@ export const CarouselTestimonialThinkific = forwardRef(
     // ==================== Context ====================
     const { windowWidth } = useContext(ViewportContext)
 
-    // ==================== State ====================
-    const [prevEl, _] = useState<HTMLElement | null>(null)
-    const [nextEl, __] = useState<HTMLElement | null>(null)
-
     const noOfslides = windowWidth <= EWindowWidth.md ? 1 : 'auto'
     const spaceBetween = windowWidth <= EWindowWidth.md ? 0 : 36
     const centeredSlides = windowWidth > EWindowWidth.md
@@ -61,13 +57,7 @@ export const CarouselTestimonialThinkific = forwardRef(
         <Swiper
           loop
           className={cx('!pb-12', classNameSwiper)}
-          wrapperClass="!items-stretch"
-          modules={[Navigation, Pagination]}
-          navigation={{
-            prevEl,
-            nextEl,
-            disabledClass: 'opacity-25 !cursor-not-allowed',
-          }}
+          modules={[Autoplay, Pagination]}
           pagination={{
             clickable: true,
             bulletActiveClass: '!opacity-100',
@@ -84,10 +74,10 @@ export const CarouselTestimonialThinkific = forwardRef(
           {testimonials.map((review, index) => (
             <SwiperSlide
               key={`review_${index}`}
-              className={cx('!w-full overflow-hidden md:!w-1/2', classNameSlide)}>
+              className={cx('!w-full !h-auto overflow-hidden md:!w-1/2', classNameSlide)}>
               <div
                 className={cx(
-                  'bg-gradient-to-tl from-blue-lightest-50 to-primary-light-50 rounded-3xl text-left p-9',
+                  'h-full bg-gradient-to-tl from-blue-lightest-50 to-primary-light-50 rounded-3xl text-left p-9',
                   classNameCard
                 )}>
                 <div>

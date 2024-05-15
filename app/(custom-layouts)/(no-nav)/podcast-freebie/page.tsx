@@ -1,25 +1,33 @@
 // core
 import Image from 'next/image'
+import { Metadata } from 'next'
 // components
-import { Page } from '@/components/Page'
-import { Section } from '@/components/Section'
-import { List } from '@/components/List'
 import { Button } from '@/components/Button/Button'
-import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
-import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
-import { Icon } from '@/components/Icon'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { Icon } from '@/components/Icon'
+import { List } from '@/components/List'
+import { Page } from '@/components/Page'
+import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
+import { Section } from '@/components/Section'
+import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 // style
 import './style.css'
+
+export const metadata: Metadata = {
+  title: 'Get Your Freebie from The Thais Gibson Podcast',
+  description:
+    'Listen to The Thais Gibson Podcast, then sign up for our exclusive podcast list to get your freebie.',
+  robots: 'all',
+}
 
 export default function PodcastFreebiePage() {
   return (
     <Page page_name="Podcast Freebie">
-      <Section className="bg-hero-mobile min-h-[26rem] z-15 lg:hidden">
+      <Section className="bg-hero-mobile z-15 lg:hidden">
         <div className="text-black text-left relative z-20 lg:col-span-7">
           <h1 className="mb-4">The Thais Gibson Podcast</h1>
 
-          <p>
+          <p className="pb-12">
             Join Thais Gibson as she discusses life, love, relationships, and personal development
             in her all new podcast series. Episodes will explore exclusive strategies ad tools,
             personal stories, the latest trending topics, and special interviews with renowned

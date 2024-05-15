@@ -5,7 +5,7 @@ export const PodcastFreebieForm = ({ id }: { id?: string }) => {
     <SignupForm
       id={id}
       userTags={['podcast-freebie']}
-      listIds={[54, 55]}
+      listIds={[55]}
       successMessage="Thank you for joining!"
     />
   )

@@ -1,23 +1,34 @@
+// core
 import Image from 'next/image'
+import { Metadata } from 'next'
+// components
+import { Link } from '@/components/Link'
+import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { List } from '@/components/List'
-import { Button } from '@/components/Button/Button'
+// config
 import { REPORT_COPY } from './config'
 
-export default function AttachmentReport() {
+export const metadata: Metadata = {
+  title: 'Discover & Learn About Your Attachment Style',
+  description:
+    'Discover, learn, and take the first steps to having your dream life by uncovering your attachment style. Get all the essential information you need!',
+  robots: 'noindex',
+}
+
+export default function AttachmentReportPage() {
   const COPY = REPORT_COPY['fa']
 
   return (
     <Page page_name="Attachment Style Report Old - fa">
       <Section
-        className="max-w-5xl mx-auto"
-        classNameInner="grid grid-cols-1 gap-4 pt-4 pb-0 md:grid-cols-2">
-        <div className="text-left">
-          <p className="font-bold tracking-33">YOUR ATTACHMENT STYLE IS</p>
+        className="max-w-5xl mx-auto !pb-0"
+        classNameInner="grid grid-cols-1 gap-4 pt-4 pb-0 lg:grid-cols-2">
+        <div className="flex flex-col justify-center lg:text-left">
+          <p className="font-bold text-lg tracking-33 mb-2">YOUR ATTACHMENT STYLE IS</p>
 
-          <h1 className="text-primary">{COPY.banner.style}</h1>
+          <h1 className="text-primary lg:!text-6xl">{COPY.banner.style}</h1>
         </div>
 
         <div>
@@ -28,7 +39,9 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <Section
+        className="max-w-5xl mx-auto !pb-0"
+        classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="text-left mb-4 md:order-2">
           <p className="font-bold mb-4">{COPY.copy1.header}</p>
 
@@ -52,7 +65,7 @@ export default function AttachmentReport() {
           />
         </div>
 
-        <div className="text-left md:order-1">
+        <div className="flex text-left justify-center lg:justify-start lg:order-1">
           <Image
             src={`/images/ReportsNew/${COPY.banner.vector}`}
             alt="A vector image of a couple"
@@ -62,10 +75,10 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto">
+      <Section className="max-w-5xl mx-auto !pb-0">
         <h2 className="text-primary mb-4">{COPY.copy3.header}</h2>
 
-        <div className="grid grid-cols-1 mt-8 md:grid-cols-2 md:gap-4">
+        <div className="grid grid-cols-1 mt-8 lg:grid-cols-2 lg:gap-4">
           <div className="flex flex-col justify-between text-left">
             {COPY.copy3.leftCopy.map((listItem, idx) => (
               <div key={`copy_${idx}`}>
@@ -86,10 +99,10 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto">
+      <Section className="max-w-5xl mx-auto !pb-0">
         <h2 className="text-primary mb-4">{COPY.copy4.header}</h2>
 
-        <div className="grid grid-cols-2 gap-4 my-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 my-8 lg:grid-cols-4">
           {COPY.copy4.list.map((listItem, idx) => (
             <div
               key={idx}
@@ -99,7 +112,7 @@ export default function AttachmentReport() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="text-left mb-4">
             <p className="font-bold mb-4">{COPY.copy5.leftCopy.header}</p>
 
@@ -129,7 +142,7 @@ export default function AttachmentReport() {
 
       <Section
         className="bg-primary-light"
-        classNameInner="max-w-5xl grid grid-cols-1 gap-4 mx-auto md:grid-cols-2">
+        classNameInner="max-w-5xl grid grid-cols-1 gap-4 mx-auto lg:grid-cols-2">
         <div className="text-left mb-4">
           <p className="font-bold mb-4">{COPY.copy6.header}</p>
 
@@ -166,7 +179,7 @@ export default function AttachmentReport() {
       <Section className="max-w-5xl mx-auto">
         <h2 className="text-primary mb-8">{COPY.copy8.header}</h2>
 
-        <div className="grid grid-cols-1 gap-4 items-center mb-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 items-center mb-8 lg:grid-cols-2">
           <div>
             <Image
               src="/images/ReportsNew/pds-platform-1.jpg"
@@ -191,7 +204,7 @@ export default function AttachmentReport() {
             20,000 students break the same relationship patterns that you have and:
           </div>
 
-          <div className="flex flex-col justify-center items-center gap-4 p-12 md:flex-row">
+          <div className="flex flex-col justify-center items-center gap-4 p-12 lg:flex-row">
             <div className="flex-1 flex justify-center">
               <Image
                 src="/images/ReportsNew/heart-o-meter.jpg"
@@ -225,7 +238,7 @@ export default function AttachmentReport() {
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <div className="text-left">
             <p className="font-bold mb-4">{COPY.copy9.leftCopy.header}</p>
 
@@ -253,7 +266,7 @@ export default function AttachmentReport() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="text-left">
           <div className="relative rounded-tl-3xl rounded-br-3xl border-4 border-primary p-8">
             <div className="absolute w-[80%] rounded-20 -top-12 left-0 right-0 bg-gradient-to-r from-beige to-primary-light text-left mx-auto py-4 px-8">
@@ -266,11 +279,11 @@ export default function AttachmentReport() {
             <p className="mt-4">
               Because of the{' '}
               <span className="underline">
-                <a
-                  href="https://university.personaldevelopmentschool.com/pages/testimonials?utm_source=quiz_results&utm_medium=email&utm_campaign=pdf-report"
-                  target="_blank">
-                  incredible results
-                </a>
+                <Link
+                  label="incredible results"
+                  url="https://university.personaldevelopmentschool.com/pages/testimonials"
+                  target="_blank"
+                />
               </span>{' '}
               our students are seeing as they work their way from anxious preoccupied to secure
               attachments, almost all of them agreed that they would gladly recommend us to their
@@ -293,7 +306,7 @@ export default function AttachmentReport() {
         <h2 className="mb-8">{COPY.footer.title}</h2>
 
         <div className="max-w-2xl mx-auto mb-16">
-          <div className="flex flex-col justify-center items-center gap-4 mb-8 md:flex-row">
+          <div className="flex flex-col justify-center items-center gap-4 mb-8 lg:flex-row">
             <div>
               <Image
                 src="/images/ReportsNew/money-back.jpg"
@@ -317,7 +330,11 @@ export default function AttachmentReport() {
           <p className="text-primary font-bold tracking-33 uppercase">{COPY.footer.copy}</p>
         </div>
 
-        <Button link={COPY.footer.ctaLink} label="TRANSFORM MY LIFE" />
+        <Link
+          className="border-2 rounded-full tracking-10 px-4 py-2 transition-colors active:shadow-md !no-underline lg:hover:text-white lg:hover:shadow-md bg-primary border-primary text-white active:bg-opacity-50 lg:hover:bg-opacity-50 cursor-pointer"
+          label="TRANSFORM MY LIFE"
+          url={COPY.footer.ctaLink}
+        />
       </Section>
 
       <Image

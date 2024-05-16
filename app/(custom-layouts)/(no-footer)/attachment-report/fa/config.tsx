@@ -1,3 +1,5 @@
+import { Link } from '@/components/Link'
+
 export const REPORT_COPY = {
   fa: {
     banner: {
@@ -103,11 +105,11 @@ export const REPORT_COPY = {
         <>
           This is what I teach you how to do in{' '}
           <u>
-            <a
-              href="https://attachment.personaldevelopmentschool.com/limited-offer/fa?utm_medium=email&utm_source=fa_results&utm_campaign=pdf-report-fa"
-              target="_blank">
-              The Fearful Avoidant to Securely Attached Program
-            </a>
+            <Link
+              label="The Fearful Avoidant to Securely Attached Program"
+              url="https://attachment.personaldevelopmentschool.com/limited-offer/fa"
+              target="_blank"
+            />
           </u>{' '}
           at The Personal Development School.
         </>
@@ -156,8 +158,7 @@ export const REPORT_COPY = {
         </>
       ),
       copy: 'Are you ready to start over and start enjoying relationships that make you feel alive, worthy, and certain?',
-      ctaLink:
-        'https://attachment.personaldevelopmentschool.com/limited-offer/fa?utm_medium=email&utm_source=fa_results&utm_campaign=pdf-report-fa',
+      ctaLink: 'https://attachment.personaldevelopmentschool.com/limited-offer/fa',
       image: '',
     },
   },

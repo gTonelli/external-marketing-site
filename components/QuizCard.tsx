@@ -21,7 +21,7 @@ export const QuizCard = ({ color, title, description, image, isNew, type }: IQui
     <Card
       style={{ width: '290px', height: '365px' }}
       className={cx(
-        `group justify-start relative rounded-lg border transform transition ease-in-out py-6 px-5
+        `group justify-start relative rounded-lg border transform transition ease-in-out py-6 px-5 bg-white 
             hover:scale-105 hover:shadow-lg`,
         borderColor
       )}>

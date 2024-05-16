@@ -25,7 +25,7 @@ type TAuthor = {
   picture: string
 }
 
-export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IReviewProps) => {
+export const  TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IReviewProps) => {
   return (
     // <div className="flex flex-col items-center">
     // mb-14

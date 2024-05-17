@@ -327,7 +327,7 @@ export default function AttachmentReportPage() {
             </div>
           </div>
 
-          <p className="text-primary font-bold tracking-33 uppercase">{COPY.footer.copy}</p>
+          <p className="text-primary font-bold tracking-33">{COPY.footer.copy}</p>
         </div>
 
         <Link
@@ -339,8 +339,8 @@ export default function AttachmentReportPage() {
 
       <Image
         className="w-screen"
-        src="/images/ReportsNew/footer-fa-couple.jpg"
-        alt="A couple"
+        src={`/images/ReportsNew/${COPY.footer.image.name}`}
+        alt={COPY.footer.image.altText}
         width={1440}
         height={960}
       />

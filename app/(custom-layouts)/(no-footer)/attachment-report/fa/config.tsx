@@ -157,9 +157,9 @@ export const REPORT_COPY = {
           a matter of weeks.
         </>
       ),
-      copy: 'Are you ready to start over and start enjoying relationships that make you feel alive, worthy, and certain?',
+      copy: 'ARE YOU READY TO START OVER AND START ENJOYING RELATIONSHIPS THAT MAKE YOU FEEL ALIVE, WORTHY, AND CERTAIN?',
       ctaLink: 'https://attachment.personaldevelopmentschool.com/limited-offer/fa',
-      image: '',
+      image: { name: 'footer-fa-couple.jpg', altText: 'A happy couple' },
     },
   },
 }

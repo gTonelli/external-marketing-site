@@ -5,7 +5,7 @@ import { ITextDefaultProps } from './TextDefault'
 // libraries
 import cx from 'classnames'
 
-type TTextHeadingSize = 1 | 2 | 3 | 4 | 5
+type TTextHeadingSize = 1 | 2 | 3 | 4 | 5 | 5
 
 interface ITextHeadingProps extends Omit<ITextDefaultProps, 'size'> {
   /**

@@ -1,13 +1,17 @@
+'use client'
 // core
-import React from 'react'
+import { default as NextLink } from 'next/link'
+import React, { useCallback, useContext } from 'react'
 // components
 import { IDefaultProps, IDefaultWrapperProps } from '@/components'
 import { Icon, IIconProps } from './Icon'
 // libraries
 import cx from 'classnames'
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+// modules
+import Mixpanel from '@/modules/Mixpanel'
 // utils
-// import {} from 'utils'
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { PageContext } from '@/utils/contexts'
 
 export interface ILink {
   /**
@@ -34,7 +38,7 @@ export interface ILink {
   /**
    * onClick listener for tracking MixPanel Event
    */
-  onClick?(): void
+  onClick?(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void
 }
 
 interface ILinkDefaultProps extends ILink, IDefaultProps {}
@@ -48,8 +52,20 @@ export const LinkDefault = ({
   target,
   onClick,
 }: ILinkDefaultProps) => {
+  const { page_name } = useContext(PageContext)
+
+  const _onClick = useCallback(
+    (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      Mixpanel.track.ButtonClicked({
+        button_label: event.currentTarget.innerText,
+        page_name,
+      })
+      onClick?.(event)
+    },
+    [onClick]
+  )
   return (
-    <a
+    <NextLink
       className={cx(
         'cursor-pointer no-underline hover:underline',
         hoverType === 'primary' && 'hover:text-primary',
@@ -57,9 +73,9 @@ export const LinkDefault = ({
       )}
       href={url}
       target={target}
-      onClick={onClick}>
+      onClick={_onClick}>
       {assetUrl ? <img alt={label} src={assetUrl} /> : label}
-    </a>
+    </NextLink>
   )
 }
 

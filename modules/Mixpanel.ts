@@ -40,6 +40,7 @@ export type Pages =
   | `7 Day Trial + 50% off first month`
   | `7 Days Trial Page Funnel - FA`
   | `7-Day Trial Page (Variant)`
+  | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
   | `Attachment Style Quiz Questions`

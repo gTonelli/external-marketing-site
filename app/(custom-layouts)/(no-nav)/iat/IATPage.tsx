@@ -117,7 +117,7 @@ export const IATPage = ({
             onClick={() => setModalSuccess(false)}
           />
         </div>
-        <h1 className="text-4xl text-left mb-2">Thanks for Downloading Our Ebook!</h1>
+        <h2 className="text-4xl text-left mb-2">Thanks for Downloading Our Ebook!</h2>
 
         <p>
           Congratulations on starting your journey towards becoming a certified relationship coach!

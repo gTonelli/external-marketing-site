@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react'
 // components
 import { AttachmentQuizHeading } from './AttachmentQuiz/AttachmentQuizHeading'
-import { CheckoutButton } from '@/components/CheckoutButton'
 import { RESULTS } from '@/app/(custom-layouts)/(no-nav)/quiz/results/fa/config'
 import { VideoThumbnail } from './Video/variants/VideoThumbnail'
 // modules
@@ -17,12 +16,12 @@ export const ResultsPageHeader = () => {
   const style = 'fa'
 
     useEffect(() => {
-      let showVariant: string | null | boolean = Storage.get('gm-1050-video-header' as TStorageKeys)
+      let showVariant: string | null | boolean = Storage.get('gm-1055-video-header' as TStorageKeys)
       if (showVariant === null) {
-        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-        Storage.set('gm-1050-video-header' as TStorageKeys, showVariant)
+        showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+        Storage.set('gm-1055-video-header' as TStorageKeys, showVariant)
         Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-1050-Video-Header',
+          'Experiment name': 'GM-1055-Video-Header',
           'Variant name': showVariant ? 'Variant 1' : 'Control',
           page_name: 'VSL Royal Rumble Results - fa',
         })
@@ -59,14 +58,6 @@ export const ResultsPageHeader = () => {
                 <h2 className="text-purple-dark !text-3xl hidden md:block">{RESULTS[style].HERO_SECTION.title}</h2>
 
                 <p className="mt-4 hidden md:block">{RESULTS[style].HERO_SECTION_VARIANT.copy}</p>
-
-                <CheckoutButton
-                  className="mt-6"
-                  label="Claim Your Special Offer"
-                  theme="secondary"
-                />
-
-                <p className="font-bold mt-4">{RESULTS[style].HERO_SECTION_VARIANT.offer}</p>
 
                 <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">{RESULTS[style].HERO_SECTION.title}</h2>
 

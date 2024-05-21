@@ -1,5 +1,6 @@
 // core
 import { Metadata } from 'next'
+import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
@@ -64,7 +65,14 @@ export default function AttachmentBootcampPage() {
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div>IMAGE</div>
+        <div>
+          <Image
+            src="/images/AttachmentBootcamp/a-couple.jpg"
+            alt="A happy couple"
+            width={510}
+            height={504}
+          />
+        </div>
 
         <div className="text-left">
           <h2 className="mb-4">Unlock the Best Relationships of Your Life in Just 90 Days!</h2>
@@ -283,7 +291,14 @@ export default function AttachmentBootcampPage() {
 
       <Section className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <div>IMAGE</div>
+          <div>
+            <Image
+              src="/images/AttachmentBootcamp/upset-woman.jpg"
+              alt="An upset woman"
+              width={588}
+              height={508}
+            />
+          </div>
 
           <div className="text-left mb-8">
             <h2 className="mb-4">What’s the Cost of Not Taking Action?</h2>
@@ -328,6 +343,115 @@ export default function AttachmentBootcampPage() {
       </Section>
 
       <CarouselTestimonialThinkific />
+
+      <Section className="w-full bg-blue-lightest" classNameInner="max-w-5xl mx-auto">
+        <h2 className="mb-4">Become the Best Version of You Ever</h2>
+
+        <p className="mb-8">
+          Our 90-Day Attachment Style Bootcamp will rewrite your love life, unlock your
+          relationships, and make you securely attached.
+        </p>
+
+        <div className="bg-white rounded-3xl p-4 lg:p-12">
+          <div className="grid grid-cols-3 gap-x-4 gap-y-8 pb-8 border-b border-black">
+            <div>
+              <p className="text-left">
+                <strong>What You're Getting</strong>
+              </p>
+            </div>
+            <div>
+              <p>
+                <strong>Cost Separately</strong>
+              </p>
+            </div>
+            <div>
+              <p>
+                <strong>Included in 90-day Bootcamp</strong>
+              </p>
+            </div>
+            <div>
+              <p className="text-left">Personalized Attachment Style Program</p>
+            </div>
+            <div>
+              <p>
+                $119 per course
+                <br />
+                (on avg) 7 courses per program
+              </p>
+            </div>
+            <div>
+              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
+            </div>
+            <div>
+              <p className="text-left">Proven Exercises & Downloadable and Lifelong Workbooks</p>
+            </div>
+            <div>
+              <p>$100</p>
+            </div>
+            <div>
+              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
+            </div>
+            <div>
+              <p className="text-left">Daily Live Webinars & Q&As With Thais Gibson</p>
+            </div>
+            <div>
+              <p>$500</p>
+            </div>
+            <div>
+              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
+            </div>
+            <div>
+              <p className="text-left">Daily Peer Support Groups With Trained Coaches</p>
+            </div>
+            <div>
+              <p>$200</p>
+            </div>
+            <div>
+              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
+            </div>
+            <div>
+              <p className="text-left">Online Community Access</p>
+            </div>
+            <div>
+              <p>$99</p>
+            </div>
+            <div>
+              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-4 pt-8">
+            <div>
+              <p className="text-3xl text-left font-bold">Total Cost</p>
+            </div>
+
+            <div>
+              <p className="text-3xl font-bold">$1700</p>
+              <p>on average</p>
+            </div>
+
+            <div>
+              <p className="text-3xl text-green-check font-bold">$149</p>
+              <p>Up to 85% off</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 my-12 lg:grid-cols-2">
+          <div className="text-left">
+            <h2 className="mb-4">Join Our Bootcamp Now!</h2>
+
+            <p>
+              *Offer valid for a limited time only. Pay $149 for the first 90 days. After 90 days,
+              you’ll auto-renew to our All-Access Pass – which gives you access to everything in the
+              school – for <strong>$149 per quarter!</strong> That’s <strong>25%</strong> off the
+              regular price. You can cancel at any time with no commitment.
+            </p>
+          </div>
+
+          <BootcampPriceCard />
+        </div>
+      </Section>
 
       <Section className="bg-about-mobile min-h-screen z-15 lg:hidden">
         <div className="text-black text-left relative z-20 pb-96 lg:col-span-7">
@@ -568,6 +692,42 @@ export default function AttachmentBootcampPage() {
           </p>
         </div>
       </Section>
+
+      <Section className="bg-pricing-mobile min-h-screen z-15 lg:hidden">
+        <div className="relative z-20 pb-96 lg:col-span-5">
+          <BootcampPriceCard />
+        </div>
+      </Section>
+
+      <Section
+        className={`bg-pricing w-full hidden min-h-80 z-10 lg:block lg:py-16 xl:py-18 2xl:py-20 3xl:py-22`}
+        classNameInner="relative z-10 lg:grid lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <BootcampPriceCard />
+        </div>
+      </Section>
     </Page>
   )
 }
+
+const BootcampPriceCard = () => (
+  <div className="bg-white rounded-3xl p-8">
+    <p className="mb-8">
+      <span className="text-3xl line-through mr-4">$1700</span>
+
+      <span className="text-3xl font-bold mr-4">$149</span>
+
+      <span>per quarter</span>
+    </p>
+
+    <Button className="mb-8" label="PAY $149 & SAVE 85%" />
+
+    <div className="flex flex-wrap justify-around">
+      <Icon name="cc-amex" type="brands" size="2x" />
+      <Icon name="cc-discover" type="brands" size="2x" />
+      <Icon name="cc-mastercard" type="brands" size="2x" />
+      <Icon name="cc-paypal" type="brands" size="2x" />
+      <Icon name="cc-visa" type="brands" size="2x" />
+    </div>
+  </div>
+)

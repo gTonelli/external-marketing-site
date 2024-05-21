@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react'
 // components
 import { AttachmentQuizHeading } from './AttachmentQuiz/AttachmentQuizHeading'
-import { CheckoutButton } from '@/components/CheckoutButton'
 import { RESULTS } from '@/app/(custom-layouts)/(no-nav)/quiz/results/fa/config'
 import { VideoThumbnail } from './Video/variants/VideoThumbnail'
 // modules

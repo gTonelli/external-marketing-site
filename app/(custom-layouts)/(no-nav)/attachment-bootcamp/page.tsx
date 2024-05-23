@@ -4,8 +4,6 @@ import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-// style
-import './style.css'
 import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { Faq } from '@/components/Faq/Faq'
@@ -13,6 +11,9 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { Link } from '@/components/Link'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { Icon } from '@/components/Icon'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+// style
+import './style.css'
 
 export const metadata: Metadata = {
   title: 'Join Our 90-Day Secure Attachment Bootcamp',
@@ -20,6 +21,29 @@ export const metadata: Metadata = {
     'Are you ready to transform your insecure attachment style to rewrite your love life? Join our exclusive 90-Day Secure Attachment Bootcamp for only $149!',
   robots: 'noindex',
 }
+
+const BootcampPricing = [
+  {
+    perk: 'Personalized Attachment Style Program',
+    cost: '$300',
+  },
+  {
+    perk: 'Proven Exercises & Downloadable and Lifelong Workbooks',
+    cost: '$100',
+  },
+  {
+    perk: 'Daily Live Webinars & Q&As With Thais Gibson',
+    cost: '$400',
+  },
+  {
+    perk: 'Daily Peer Support Groups With Trained Coaches',
+    cost: '$100',
+  },
+  {
+    perk: 'Online Community Access',
+    cost: '$50',
+  },
+]
 
 export default function AttachmentBootcampPage() {
   return (
@@ -89,6 +113,12 @@ export default function AttachmentBootcampPage() {
             your relationships and discover true fulfillment.
             <br />
             <br />
+            Our 90-Day Secure Attachment Bootcamp offers a personalized roadmap, consisting of
+            courses, guided exercises, proven scientific theory, daily webinars and study groups,
+            and access to our community. Altogether, this comprehensive bundle roadmaps transforming
+            your attachment style and unlocking the best relationships in your life.
+            <br />
+            <br />
             With our proven and revolutionary method, you'll experience major breakthroughs in
             growth within the first 7 days and start building the most meaningful relationships
             you've ever had.
@@ -97,12 +127,20 @@ export default function AttachmentBootcampPage() {
             Say goodbye to uncertainty and hello to thriving connections in just three months!
           </p>
 
-          <Button label="JOIN OUR BOOTCAMP TODAY" className="mb-4" />
+          <Button label="JOIN BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join now.</small>
           </p>
         </div>
+      </Section>
+
+      <Section className="max-w-3xl mx-auto">
+        <h2 className="mb-8">
+          Watch This Video to See How Our Bootcamp Will Change Your Life & Relationships
+        </h2>
+
+        <VideoThumbnail thumbnailUrl="AttachmentBootcamp/thais-video-thumbnail.jpg" />
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="w-full bg-blue-lightest p-12">
@@ -230,7 +268,7 @@ export default function AttachmentBootcampPage() {
             becoming securely attached.
           </p>
 
-          <Button label="JOIN OUR BOOTCAMP TODAY" className="mb-4" />
+          <Button label="START YOUR BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join Now.</small>
@@ -311,7 +349,7 @@ export default function AttachmentBootcampPage() {
               listItems={[
                 'Missing out on the relationships you want',
                 'Believing you don’t deserve true love and connection',
-                'Allowing your core fears to consume you and your relationships',
+                'Allowing your fears to impact you and your relationships',
                 'Letting your self-sabotaging habits ruin any potential happiness',
                 'Never understanding your or your partner’s needs',
                 'Allowing people to cross your boundaries',
@@ -369,55 +407,19 @@ export default function AttachmentBootcampPage() {
                 <strong>Included in 90-day Bootcamp</strong>
               </p>
             </div>
-            <div>
-              <p className="text-left">Personalized Attachment Style Program</p>
-            </div>
-            <div>
-              <p>
-                $119 per course
-                <br />
-                (on avg) 7 courses per program
-              </p>
-            </div>
-            <div>
-              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
-            </div>
-            <div>
-              <p className="text-left">Proven Exercises & Downloadable and Lifelong Workbooks</p>
-            </div>
-            <div>
-              <p>$100</p>
-            </div>
-            <div>
-              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
-            </div>
-            <div>
-              <p className="text-left">Daily Live Webinars & Q&As With Thais Gibson</p>
-            </div>
-            <div>
-              <p>$500</p>
-            </div>
-            <div>
-              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
-            </div>
-            <div>
-              <p className="text-left">Daily Peer Support Groups With Trained Coaches</p>
-            </div>
-            <div>
-              <p>$200</p>
-            </div>
-            <div>
-              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
-            </div>
-            <div>
-              <p className="text-left">Online Community Access</p>
-            </div>
-            <div>
-              <p>$99</p>
-            </div>
-            <div>
-              <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
-            </div>
+            {BootcampPricing.map((item) => (
+              <>
+                <div>
+                  <p className="text-left">{item.perk}</p>
+                </div>
+                <div>
+                  <p>{item.cost}</p>
+                </div>
+                <div>
+                  <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
+                </div>
+              </>
+            ))}
           </div>
 
           <div className="grid grid-cols-3 gap-4 pt-8">
@@ -426,7 +428,7 @@ export default function AttachmentBootcampPage() {
             </div>
 
             <div>
-              <p className="text-3xl font-bold">$1700</p>
+              <p className="text-3xl font-bold">$1000</p>
               <p>on average</p>
             </div>
 
@@ -474,9 +476,12 @@ export default function AttachmentBootcampPage() {
             She’s featured on many popular podcasts, including The Mel Robbins Podcast. And is
             launching her brand new podcast soon – The Thais Gibson Podcast – which will include
             special guests, such as Dr. Caroline Leaf, Dr. Isabella Wentz, Kevin Miller, host of
-            What's Driving You, and Jemma Sbeg, the host of Psychology of Your 20s. You can find her
-            best-selling book,{' '}
+            What's Driving You, and Jemma Sbeg, the host of Psychology of Your 20s.
+            <br />
+            <br />
+            You can find her best-selling book,{' '}
             <Link
+              className="!underline"
               url="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH"
               label="Learning Love"
             />
@@ -516,9 +521,12 @@ export default function AttachmentBootcampPage() {
             She’s featured on many popular podcasts, including The Mel Robbins Podcast. And is
             launching her brand new podcast soon – The Thais Gibson Podcast – which will include
             special guests, such as Dr. Caroline Leaf, Dr. Isabella Wentz, Kevin Miller, host of
-            What's Driving You, and Jemma Sbeg, the host of Psychology of Your 20s. You can find her
-            best-selling book,{' '}
+            What's Driving You, and Jemma Sbeg, the host of Psychology of Your 20s.
+            <br />
+            <br />
+            You can find her best-selling book,{' '}
             <Link
+              className="!underline"
               url="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH"
               label="Learning Love"
             />
@@ -573,6 +581,16 @@ export default function AttachmentBootcampPage() {
       <Section className="w-full bg-blue-lightest" classNameInner="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 gap-8 text-left mb-8 lg:grid-cols-3">
           <div>
+            <p>
+              <Image
+                className="mb-4"
+                src="/images/AttachmentBootcamp/vector-1.svg"
+                alt="A happy couple"
+                width={176}
+                height={136}
+              />
+            </p>
+
             <p className="font-bold tracking-33 mb-4">WHY YOU NEED US</p>
 
             <p>
@@ -589,6 +607,16 @@ export default function AttachmentBootcampPage() {
           </div>
 
           <div>
+            <p>
+              <Image
+                className="mb-4"
+                src="/images/AttachmentBootcamp/vector-2.svg"
+                alt="A unique idea"
+                width={176}
+                height={136}
+              />
+            </p>
+
             <p className="font-bold tracking-33 mb-4">WHY WE'RE UNIQUE</p>
 
             <p>
@@ -606,6 +634,16 @@ export default function AttachmentBootcampPage() {
           </div>
 
           <div>
+            <p>
+              <Image
+                className="mb-4"
+                src="/images/AttachmentBootcamp/vector-3.svg"
+                alt="We are in demand"
+                width={176}
+                height={136}
+              />
+            </p>
+
             <p className="font-bold tracking-33 mb-4">WHY WE'RE IN-DEMAND</p>
 
             <p>
@@ -713,7 +751,7 @@ export default function AttachmentBootcampPage() {
 const BootcampPriceCard = () => (
   <div className="bg-white rounded-3xl p-8">
     <p className="mb-8">
-      <span className="text-3xl line-through mr-4">$1700</span>
+      <span className="text-3xl line-through mr-4">$1000</span>
 
       <span className="text-3xl font-bold mr-4">$149</span>
 

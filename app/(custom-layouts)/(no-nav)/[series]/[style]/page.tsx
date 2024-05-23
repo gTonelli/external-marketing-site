@@ -19,11 +19,41 @@ import { TStorageKeys } from '@/modules/Storage'
 import { TStyle } from '@/utils/types'
 import { EExternalRoutes } from '@/utils/constants'
 
-export type TSeriesParam = 'needs' | 'beliefs'
+export type TSeriesParam =
+  | 'needs'
+  | 'beliefs'
+  | 'attachment-style'
+  | 'signs'
+  | 'top-needs'
+  | 'healing'
+  | 'key-tools'
+  | 'trust-wounds'
 export interface IAttachmentSeriesPageParams {
   seriesParam: TSeriesParam
   styleParam: TStyle
 }
+
+// export function generateStaticParams(): {
+//   series: TSeriesParam
+//   style: TStyle
+// }[] {
+//   return [
+//     { series: 'needs', style: 'fa' },
+//     { series: 'needs', style: 'ap' },
+//     { series: 'needs', style: 'da' },
+//     { series: 'needs', style: 'sa' },
+//     { series: 'beliefs', style: 'fa' },
+//     { series: 'beliefs', style: 'ap' },
+//     { series: 'beliefs', style: 'da' },
+//     { series: 'beliefs', style: 'sa' },
+//     { series: 'attachment-style', style: 'fa' },
+//     { series: 'signs', style: 'fa' },
+//     { series: 'top-needs', style: 'fa' },
+//     { series: 'healing', style: 'fa' },
+//     { series: 'key-tools', style: 'fa' },
+//     { series: 'trust-wounds', style: 'fa' },
+//   ]
+// }
 
 export default function AttachmentStyleNeedsBeliefsPage({
   params,
@@ -45,8 +75,6 @@ export default function AttachmentStyleNeedsBeliefsPage({
     },
     [pageName]
   )
-
-  if (!EMAIL_RESULTS?.[seriesParam]?.[styleParam]) return <NotFound />
 
   return (
     <Page page_name={pageName}>

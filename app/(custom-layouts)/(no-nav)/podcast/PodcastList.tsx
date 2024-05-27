@@ -1,19 +1,21 @@
 'use client'
 
+// core
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Icon } from '@/components/Icon'
+// components
 import { Button } from '@/components/Button/Button'
-import { useState } from 'react'
-import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
+import { Icon } from '@/components/Icon'
 
-interface IPodcast {
+export interface IPodcast {
   episodeNo: number
   title: string
   releaseDate: string
-  host: string
   thumbnailUrl: string
   thumbnailAlt: string
+  host?: string
+  guestName?: string
   youtubePodcastId?: string
   spotifyPodcastId?: string
 }
@@ -177,7 +179,7 @@ export const PodcastList = () => {
             <iframe
               width="100%"
               height="152"
-              src={`https://open.spotify.com/embed/episode/3zGBKXkqx7v2VuGhU4t0su?&t=0`}
+              src={`https://open.spotify.com/embed/episode/${currentAudioId}?&t=0`}
               allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             />

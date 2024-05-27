@@ -81,6 +81,7 @@ export type Pages =
   | `Order Complete`
   | `mha-month`
   | `Podcast Page`
+  | `Podcast Episode Page - ${string}`
   | `Podcast Freebie`
   | `Site Links`
   | `Speaker Gift`

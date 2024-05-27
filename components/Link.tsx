@@ -120,17 +120,30 @@ export const LinkWrapper = ({
   url,
   onClick,
 }: ILinkWrapperProps) => {
+  const { page_name } = useContext(PageContext)
+
+  const _onClick = useCallback(
+    (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      Mixpanel.track.ButtonClicked({
+        button_label: event.currentTarget.innerText,
+        page_name,
+      })
+      onClick?.(event)
+    },
+    [onClick]
+  )
+
   return (
-    <a
+    <NextLink
       className={cx(
         'cursor-pointer no-underline hover:underline',
         hoverType === 'primary' && 'hover:text-primary',
         className
       )}
       href={url}
-      onClick={onClick}>
+      onClick={_onClick}>
       {children}
-    </a>
+    </NextLink>
   )
 }
 

@@ -14,33 +14,39 @@ import { CSSProperties } from 'react'
 import { PodcastList } from './PodcastList'
 import { PodcastForm } from '@/components/PodcastForm'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { LinkWrapper } from '@/components/Link'
 
 interface IPodcastPlatform {
   name: string
   icon: IconName
+  link: string
   iconColor: string
   iconType?: 'brands' | 'solid'
 }
 
-const PODCAST_PLATFORMS: IPodcastPlatform[] = [
+export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   {
     name: 'YOUTUBE',
+    link: '',
     icon: 'youtube',
     iconColor: 'text-[#FF0000]',
   },
   {
     name: 'APPLE',
+    link: '',
     icon: 'podcast',
     iconColor: 'text-[#AA1DD3]',
     iconType: 'solid',
   },
   {
     name: 'SPOTIFY',
+    link: '',
     icon: 'spotify',
     iconColor: 'text-[#1ED760]',
   },
   {
     name: 'AUDIBLE',
+    link: '',
     icon: 'audible',
     iconColor: 'text-[#FF9800]',
   },
@@ -130,8 +136,9 @@ export default function PodcastPage() {
 
         <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
           {PODCAST_PLATFORMS.map((item, idx) => (
-            <div
-              className="flex justify-center items-center border border-solid border-black rounded-10 px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:cursor-pointer"
+            <LinkWrapper
+              url={item.link}
+              className="flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline"
               key={idx}>
               <Icon
                 name={item.icon}
@@ -140,7 +147,7 @@ export default function PodcastPage() {
               />
 
               <p className="font-bold tracking-33">{item.name}</p>
-            </div>
+            </LinkWrapper>
           ))}
         </div>
       </Section>

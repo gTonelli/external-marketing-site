@@ -29,6 +29,8 @@ interface IYouTubeProps extends YouTubeProps {
   classNameYoutube?: string
   /** Classname of youtube Iframe */
   classNameIframe?: string
+  /** Classname of thumbnail */
+  classNameThumbnail?: string
   /** Maxium height for iframe */
   maxHeight?: number
   /**
@@ -77,6 +79,7 @@ export const VideoYoutube = ({
   className,
   classNameYoutube,
   classNameIframe,
+  classNameThumbnail,
   onPlay,
   videoId,
   variantVideoData,
@@ -187,7 +190,7 @@ export const VideoYoutube = ({
                 onClick={() => setIsDialogShown(true)}>
                 <Image
                   alt={thumbnailAlt || 'Youtube Video Thumbnail'}
-                  className="rounded-10"
+                  className={cx('rounded-10', classNameThumbnail)}
                   src={thumbnail}
                   tabIndex={-1}
                   width={thumbnailWidth || 768}

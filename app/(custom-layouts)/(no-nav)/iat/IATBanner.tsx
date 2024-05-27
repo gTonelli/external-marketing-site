@@ -44,6 +44,7 @@ export const IATBanner = ({ page, onClickPurchase }: IIATBannerProps) => {
       <Text.Heading
         className="font-effra font-bold text-black !text-[48px] leading-[50px]"
         content={IAT.hero_section.heading}
+        size={1}
       />
 
       <Text.Heading

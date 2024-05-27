@@ -63,7 +63,7 @@ export default function AttachmentBootcampPage() {
             <strong>Only for $149 – up to 85% off the total price!</strong>
           </p>
 
-          <Button label="SIGN UP FOR BOOTCAMP" />
+          <Button track label="SIGN UP FOR BOOTCAMP" />
         </div>
       </Section>
 
@@ -84,7 +84,7 @@ export default function AttachmentBootcampPage() {
             <strong>Only for $149 – up to 85% off the total price!</strong>
           </p>
 
-          <Button label="SIGN UP FOR BOOTCAMP" />
+          <Button track label="SIGN UP FOR BOOTCAMP" />
         </div>
       </Section>
 
@@ -127,7 +127,7 @@ export default function AttachmentBootcampPage() {
             Say goodbye to uncertainty and hello to thriving connections in just 90 days!
           </p>
 
-          <Button label="JOIN BOOTCAMP TODAY" className="mb-4" />
+          <Button track label="JOIN BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join now.</small>
@@ -247,7 +247,7 @@ export default function AttachmentBootcampPage() {
           can cancel at any time with no commitment.
         </p>
 
-        <Button label="SIGN UP NOW" />
+        <Button track label="SIGN UP NOW" />
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -271,7 +271,7 @@ export default function AttachmentBootcampPage() {
             becoming securely attached.
           </p>
 
-          <Button label="START YOUR BOOTCAMP TODAY" className="mb-4" />
+          <Button track label="START YOUR BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join Now.</small>
@@ -440,7 +440,7 @@ export default function AttachmentBootcampPage() {
           </div>
         </div>
 
-        <Button label="START YOUR TRANSFORMATION" className="mb-4" />
+        <Button track label="START YOUR TRANSFORMATION" className="mb-4" />
 
         <p>
           <small>*Offer valid for a limited time only. Join now.</small>
@@ -666,7 +666,7 @@ export default function AttachmentBootcampPage() {
           </div>
         </div>
 
-        <Button label="START YOUR BOOTCAMP NOW" className="mb-8" />
+        <Button track label="START YOUR BOOTCAMP NOW" className="mb-8" />
 
         <div className="max-w-2xl mx-auto">
           <p>
@@ -761,7 +761,7 @@ const BootcampPriceCard = () => (
       <span>per quarter</span>
     </p>
 
-    <Button className="mb-8" label="PAY $149 & SAVE 85%" />
+    <Button track className="mb-8" label="PAY $149 & SAVE 85%" />
 
     <div className="flex flex-wrap justify-around">
       <Icon name="cc-amex" type="brands" size="2x" />

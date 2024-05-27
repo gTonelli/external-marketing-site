@@ -80,6 +80,7 @@ export type Pages =
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `Podcast Page`
   | `Podcast Freebie`
   | `Site Links`
   | `Speaker Gift`

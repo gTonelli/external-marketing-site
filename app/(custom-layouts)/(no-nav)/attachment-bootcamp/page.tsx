@@ -49,7 +49,7 @@ export default function AttachmentBootcampPage() {
   return (
     <Page page_name="Attachment Bootcamp">
       <Section className="bg-hero-mobile z-15 lg:hidden">
-        <div className="text-black text-left relative z-20 pb=12 lg:col-span-7">
+        <div className="text-black text-left relative z-20 pb-40 lg:col-span-7">
           <h1 className="mb-4">
             Do You Want to Rewrite Your Love Life & Become Securely Attached?
           </h1>
@@ -68,7 +68,7 @@ export default function AttachmentBootcampPage() {
       </Section>
 
       <Section
-        className={`bg-hero w-full hidden min-h-80 z-10 lg:block lg:py-32 xl:py-28 2xl:py-36 3xl:py-72`}
+        className={`bg-hero w-full hidden min-h-80 z-10 lg:block lg:py-28 xl:py-32 2xl:py-36 3xl:py-64`}
         classNameInner="relative z-10 lg:grid lg:grid-cols-12">
         <div className="text-black text-left lg:col-span-7">
           <h1 className="mb-4">
@@ -88,7 +88,7 @@ export default function AttachmentBootcampPage() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <div>
           <Image
             src="/images/AttachmentBootcamp/a-couple.jpg"
@@ -124,7 +124,7 @@ export default function AttachmentBootcampPage() {
             you've ever had.
             <br />
             <br />
-            Say goodbye to uncertainty and hello to thriving connections in just three months!
+            Say goodbye to uncertainty and hello to thriving connections in just 90 days!
           </p>
 
           <Button label="JOIN BOOTCAMP TODAY" className="mb-4" />
@@ -140,7 +140,10 @@ export default function AttachmentBootcampPage() {
           Watch This Video to See How Our Bootcamp Will Change Your Life & Relationships
         </h2>
 
-        <VideoThumbnail thumbnailUrl="AttachmentBootcamp/thais-video-thumbnail.jpg" />
+        <VideoThumbnail
+          thumbnailUrl="AttachmentBootcamp/thais-video-thumbnail.jpg"
+          srcUrl="https://storage.googleapis.com/pds_videos/AttachmentBootcampIntro.mp4"
+        />
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="w-full bg-blue-lightest p-12">
@@ -199,7 +202,7 @@ export default function AttachmentBootcampPage() {
 
           <p>
             Whether you’re a dismissive or fearful avoidant, or an anxious preoccupied individual,
-            at the end of the three months of our exclusive and in-demand bootcamp, you can:
+            at the end of the 90 days of our exclusive and in-demand bootcamp, you can:
           </p>
         </div>
 
@@ -315,7 +318,7 @@ export default function AttachmentBootcampPage() {
               {
                 question: '90-Day Roadmap',
                 answer:
-                  'You’ll never lose track of your progress with our comprehensive roadmap. This ensures you stay on your path, never lose sight of your goal, and see all the gains you’ve made over the three months.',
+                  'You’ll never lose track of your progress with our comprehensive roadmap. This ensures you stay on your path, never lose sight of your goal, and see all the gains you’ve made over 90 days.',
               },
               {
                 question: 'Completion Certificate',
@@ -326,61 +329,6 @@ export default function AttachmentBootcampPage() {
           />
         </div>
       </Section>
-
-      <Section className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <div>
-            <Image
-              src="/images/AttachmentBootcamp/upset-woman.jpg"
-              alt="An upset woman"
-              width={588}
-              height={508}
-            />
-          </div>
-
-          <div className="text-left mb-8">
-            <h2 className="mb-4">What’s the Cost of Not Taking Action?</h2>
-
-            <List
-              classNameIcon="!text-primary mt-1 mr-4"
-              classNameListItems="mb-4"
-              iconName="face-disappointed"
-              iconType="light"
-              listItems={[
-                'Missing out on the relationships you want',
-                'Believing you don’t deserve true love and connection',
-                'Allowing your fears to impact you and your relationships',
-                'Letting your self-sabotaging habits ruin any potential happiness',
-                'Never understanding your or your partner’s needs',
-                'Allowing people to cross your boundaries',
-                'Struggle to communicate your emotions and feelings healthily',
-              ]}
-            />
-
-            <p>
-              But you have the chance to take control of your life and relationships with our
-              exclusive 90-Day Attachment Style Bootcamp. Your chance is now:
-            </p>
-          </div>
-        </div>
-
-        <Button label="START YOUR TRANSFORMATION" className="mb-4" />
-
-        <p>
-          <small>*Offer valid for a limited time only. Join now.</small>
-        </p>
-      </Section>
-
-      <Section className="max-w-5xl mx-auto">
-        <h2 className="mb-4">Don't Just Take Our Word For It</h2>
-
-        <p>
-          Here's what our students have to say about their experience with the 90-Day Attachment
-          Style Bootcamp
-        </p>
-      </Section>
-
-      <CarouselTestimonialThinkific />
 
       <Section className="w-full bg-blue-lightest" classNameInner="max-w-5xl mx-auto">
         <h2 className="mb-4">Become the Best Version of You Ever</h2>
@@ -455,10 +403,65 @@ export default function AttachmentBootcampPage() {
         </div>
       </Section>
 
+      <Section className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div>
+            <Image
+              src="/images/AttachmentBootcamp/upset-woman.jpg"
+              alt="An upset woman"
+              width={588}
+              height={508}
+            />
+          </div>
+
+          <div className="text-left mb-8">
+            <h2 className="mb-4">What’s the Cost of Not Taking Action?</h2>
+
+            <List
+              classNameIcon="!text-primary mt-1 mr-4"
+              classNameListItems="mb-4"
+              iconName="face-disappointed"
+              iconType="light"
+              listItems={[
+                'Missing out on the relationships you want',
+                'Believing you don’t deserve true love and connection',
+                'Allowing your fears to impact you and your relationships',
+                'Letting your self-sabotaging habits ruin any potential happiness',
+                'Never understanding your or your partner’s needs',
+                'Allowing people to cross your boundaries',
+                'Struggle to communicate your emotions and feelings healthily',
+              ]}
+            />
+
+            <p>
+              But you have the chance to take control of your life and relationships with our
+              exclusive 90-Day Attachment Style Bootcamp. Your chance is now:
+            </p>
+          </div>
+        </div>
+
+        <Button label="START YOUR TRANSFORMATION" className="mb-4" />
+
+        <p>
+          <small>*Offer valid for a limited time only. Join now.</small>
+        </p>
+      </Section>
+
+      <Section className="max-w-5xl mx-auto">
+        <h2 className="mb-4">Don't Just Take Our Word For It</h2>
+
+        <p>
+          Here's what our students have to say about their experience with the 90-Day Attachment
+          Style Bootcamp
+        </p>
+      </Section>
+
+      <CarouselTestimonialThinkific />
+
       <Section className="bg-about-mobile min-h-screen z-15 lg:hidden">
         <div className="text-black text-left relative z-20 pb-96 lg:col-span-7">
           <h2 className="mb-4">
-            Meet Your Mentor:
+            Meet Your Instructor:
             <br />
             Thais Gibson, PhD
           </h2>
@@ -570,7 +573,7 @@ export default function AttachmentBootcampPage() {
               'Personalized program tracks tailored to your specific attachment style and goals',
               '30,000+ people experiencing significant change in their lives thanks to the program',
               'A stunning 99.7 NPS score (student recommending the program) from students from over 200+ countries',
-              'Groundbreaking research and methodologies rooted in Gibson Integrated Attachment Theory, proven to deliver results in record time',
+              'Groundbreaking research and methodologies rooted in Gibson Integrated Attachment Theory™, proven to deliver results in record time',
               'Daily support in small and large group formats, led by trained and certified counselors and coaches',
               'A supportive online community of like-minded individuals committed to growth and connection',
             ]}

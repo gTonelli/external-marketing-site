@@ -127,7 +127,7 @@ export const Articles = () => {
 
             <Link
               href={TH.ARTICLES['article3'].url}
-              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8">
+              className="flex row items-center justify-between border-grey-7 border-b-[5px] cursor-pointer mx-4 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8">
               <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
                 <TextParagraph
                   className="w-40 font-bold !text-lg lg:w-64"
@@ -185,7 +185,7 @@ export const Articles = () => {
 
             <Link
               href={TH.ARTICLES['article6'].url}
-              className="flex row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8">
+              className="flex row items-center justify-between border-grey-7 border-b-[5px] cursor-pointer mx-4 py-5 transition-all hover:bg-gray-100 lg:px-4 lg:pt-8">
               <div className="flex row items-center justify-between space-x-5 lg:space-x-20">
                 <TextParagraph
                   className="w-40 font-bold !text-lg lg:w-64"

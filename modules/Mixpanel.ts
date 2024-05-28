@@ -43,6 +43,8 @@ export type Pages =
   | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
+  | `Attachment Style Report New - ${string}`
+  | `Attachment Style Report Old - ${string}`
   | `Attachment Style Quiz Questions`
   | `Attachment Style Results`
   | `Attachment Style Results - ${string}`

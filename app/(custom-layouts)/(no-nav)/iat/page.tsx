@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
   description: 'Become an Integrated Attachment Coach through PDS',
   robots: 'all',
+  metadataBase: new URL('https://attachment.personaldevelopmentschool.com/iat'),
+  alternates: {
+    languages: {
+      en: '/',
+    },
+  },
 }
 
 export default function IATSalePage() {

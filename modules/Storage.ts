@@ -11,6 +11,7 @@ export type TStorageKeys =
   | 'gm-845-checkout-test'
   | `gm-976-platform-split-${string}`
   | 'gm-962-video-split'
+  | 'gm-1055-video-header'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

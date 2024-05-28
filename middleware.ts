@@ -73,22 +73,43 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [],
+  matcher: ['/quiz/ap', '/quiz/da', '/quiz/sa'],
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
-  if (request.nextUrl.pathname.includes('/quiz')) {
-    return splitTestConfigs.quizTest
-  }
+  const path = request.nextUrl.pathname
+  const configs = [
+    { key: '/quiz/ap', config: splitTestConfigs.apTest },
+    { key: '/quiz/da', config: splitTestConfigs.daTest },
+    { key: '/quiz/sa', config: splitTestConfigs.saTest },
+  ]
+
+  return configs.find(({ key }) => path.includes(key))?.config
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  quizTest: {
-    cookieKey: 'prod-2577-quiz',
-    pageName: 'Main Funnel Quiz',
-    experimentName: 'PROD-2577-Quiz',
-    variantUrl: '/quiz/v2',
-    variantRatio: 0.2,
+  apTest: {
+    cookieKey: 'gm-1065-ap-video-header',
+    pageName: 'vsl-variant-ap',
+    experimentName: 'GM-1055-AP-Video-Header',
+    variantUrl: '/quiz/versions/ap',
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  daTest: {
+    cookieKey: 'gm-1065-da-video-header',
+    pageName: 'vsl-variant-da',
+    experimentName: 'GM-1055-DA-Video-Header',
+    variantUrl: '/quiz/versions/da',
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  saTest: {
+    cookieKey: 'gm-1065-sa-video-header',
+    pageName: 'vsl-variant-sa',
+    experimentName: 'GM-1055-SA-Video-Header',
+    variantUrl: '/quiz/versions/sa',
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
 }

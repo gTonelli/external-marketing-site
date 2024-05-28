@@ -3,18 +3,17 @@ import Image from 'next/image'
 // components
 import { Button } from '@/components/Button/Button'
 import { Page } from '@/components/Page'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Section } from '@/components/Section'
+import { Icon } from '@/components/Icon'
 import { IconName } from '@fortawesome/fontawesome-common-types'
+import { LinkWrapper } from '@/components/Link'
+import { PodcastForm } from '@/components/PodcastForm'
+import { PodcastList } from './PodcastList'
 // libraries
 import cx from 'classnames'
 // style
 import './style.css'
-import { Icon } from '@/components/Icon'
-import { CSSProperties } from 'react'
-import { PodcastList } from './PodcastList'
-import { PodcastForm } from '@/components/PodcastForm'
-import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { LinkWrapper } from '@/components/Link'
 
 interface IPodcastPlatform {
   name: string
@@ -43,12 +42,6 @@ export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
     link: '',
     icon: 'spotify',
     iconColor: 'text-[#1ED760]',
-  },
-  {
-    name: 'AUDIBLE',
-    link: '',
-    icon: 'audible',
-    iconColor: 'text-[#FF9800]',
   },
 ]
 
@@ -134,7 +127,7 @@ export default function PodcastPage() {
       <Section className="max-w-5xl mx-auto">
         <p className="font-bold tracking-33 mb-4">LISTEN OR WATCH NEW EPISODES EVERY WEEK ON</p>
 
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 lg:grid-cols-3">
           {PODCAST_PLATFORMS.map((item, idx) => (
             <LinkWrapper
               url={item.link}

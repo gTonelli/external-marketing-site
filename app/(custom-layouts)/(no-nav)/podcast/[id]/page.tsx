@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { ButtonBack } from '@/components/Button/variants/ButtonBack'
 import { Icon } from '@/components/Icon'
 import { LinkWrapper } from '@/components/Link'
@@ -7,6 +8,8 @@ import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { IPodcast } from '../PodcastList'
 import { PODCAST_PLATFORMS } from '../page'
 import cx from 'classnames'
+import { ShareIcons } from '@/components/ShareIcons'
+import { IATEbookForm } from '@/components/IATEbookForm'
 
 export default function PodcastEpisodePage({ params }: { params: { id: number } }) {
   const id = params.id
@@ -82,7 +85,7 @@ export default function PodcastEpisodePage({ params }: { params: { id: number } 
           <h3 className="mb-4">Listen to Episode #{id} on</h3>
 
           <div className="flex flex-col justify-center gap-4 mb-4 lg:flex-row">
-            {PODCAST_PLATFORMS.slice(1).map((item, idx) => (
+            {PODCAST_PLATFORMS.map((item, idx) => (
               <LinkWrapper
                 url={item.link}
                 className="w-full flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline lg:w-max"
@@ -104,7 +107,71 @@ export default function PodcastEpisodePage({ params }: { params: { id: number } 
 
           <div className="flex flex-col justify-center items-center gap-4 lg:flex-row">
             <p className="font-bold tracking-33">SHARE THIS EPISODE</p>
+
+            <div>
+              <ShareIcons />
+            </div>
           </div>
+        </div>
+      </Section>
+
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-12 gap-0 lg:gap-8">
+        <div className="col-span-12 text-left pb-4 lg:col-span-8">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+
+        <div className="col-span-12 lg:col-span-4">
+          <div className="w-full h-full bg-blue-lightest rounded-20 overflow-hidden px-6 pt-8">
+            <h3 className="mb-4">Get a FREE E-Book on Coaching Business</h3>
+
+            <p className="mb-4">
+              Sign up to our email list to receive exclusive offers, valuable tips, and most
+              importantly the <strong>Coaching Business Ebook</strong> from Thais.
+            </p>
+
+            <IATEbookForm classNameFields="xxs:!flex-col gap-y-4" />
+
+            <Image
+              src="/images/Podcast/iat-ebook.png"
+              alt="IAT Ebook mockup"
+              className="mt-4"
+              width={607}
+              height={695}
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section
+        className="max-w-5xl mx-auto"
+        classNameInner="w-full bg-gray-light rounded-20 px-6 py-8">
+        <h2 className="mb-4">Listen, Watch, and Subscribe</h2>
+
+        <p className="mb-4">
+          Stay connected with us on social media and be the first to know about our latest episodes,
+          upcoming events, and exclusive content. Follow us today and join the conversation!
+        </p>
+
+        <div className="flex flex-col justify-center gap-4 mb-4 lg:flex-row">
+          {PODCAST_PLATFORMS.map((item, idx) => (
+            <LinkWrapper
+              url={item.link}
+              className="w-full flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline lg:w-max"
+              key={idx}>
+              <Icon
+                name={item.icon}
+                type={item.iconType ?? 'brands'}
+                className={cx('mr-4 group-hover:text-white', item.iconColor)}
+              />
+
+              <p className="font-bold tracking-33">{item.name}</p>
+            </LinkWrapper>
+          ))}
         </div>
       </Section>
     </Page>

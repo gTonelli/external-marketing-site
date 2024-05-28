@@ -16,8 +16,6 @@ export default function AttachmentQuizPage() {
 
   return (
     <Page className="w-full text-center relative z-10" page_name="Main Funnel Quiz">
-      <AttachmentQuizV2SplitTestTracker showingVariant={false} />
-
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}

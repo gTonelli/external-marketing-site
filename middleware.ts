@@ -9,13 +9,21 @@ export function middleware(request: NextRequest) {
       !pageData?.cookieKey ||
       !pageData.experimentName ||
       !pageData.pageName ||
-      !pageData.variantUrl ||
+      !pageData.variantPath ||
       !pageData.variantRatio
     ) {
       return NextResponse.next()
     }
-    const { cookieKey, experimentName, pageName, variantUrl, variantRatio, forceControlOnNewUser } =
-      pageData
+    const {
+      cookieKey,
+      experimentName,
+      pageName,
+      variantPath,
+      variantRatio,
+      forceControlOnNewUser,
+      controlUrl,
+      variantBase,
+    } = pageData
 
     let showVariant = false
     let setCookie = false
@@ -32,7 +40,7 @@ export function middleware(request: NextRequest) {
       } else {
         showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
         const response = showVariant
-          ? NextResponse.redirect(new URL(variantUrl, request.nextUrl.origin))
+          ? NextResponse.redirect(new URL(variantPath, request.nextUrl.origin))
           : NextResponse.next()
         return response
       }
@@ -53,9 +61,23 @@ export function middleware(request: NextRequest) {
       })
     }
 
-    const response = showVariant
-      ? NextResponse.redirect(new URL(variantUrl, request.nextUrl.origin))
-      : NextResponse.next()
+    let response: NextResponse
+    if (showVariant) {
+      response = NextResponse.redirect(new URL(variantPath, request.nextUrl.origin))
+    } else if (controlUrl) {
+      let controlHref = controlUrl.base + controlUrl.path
+      let searchParams = new URLSearchParams(request.nextUrl.searchParams)
+
+      controlUrl?.params?.forEach((param) => {
+        controlHref += request.nextUrl.searchParams.get(param)
+        searchParams.delete(param)
+      })
+
+      if (searchParams.size) controlHref += `?${searchParams.toString()}`
+      response = NextResponse.redirect(new URL(controlHref))
+    } else {
+      response = NextResponse.next()
+    }
 
     if (setCookie) {
       response.cookies.set({
@@ -73,7 +95,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/quiz/ap', '/quiz/da', '/quiz/sa', '/quiz/results/fa'],
+  matcher: ['/quiz/ap', '/quiz/da', '/quiz/sa', '/quiz/results/fa', '/checkout/v2'],
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
@@ -83,7 +105,8 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     { regex: /^\/quiz\/da(\/|$)/, config: splitTestConfigs.daTest },
     { regex: /^\/quiz\/sa(\/|$)/, config: splitTestConfigs.saTest },
     { regex: /^\/quiz\/results\/fa(\/|$)/, config: splitTestConfigs.faTest },
-  ];
+    { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest },
+  ]
 
   return configs.find(({ regex }) => regex.test(path))?.config
 }
@@ -93,7 +116,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'gm-1065-ap-video-header',
     pageName: 'vsl-ap',
     experimentName: 'GM-1055-AP-Video-Header',
-    variantUrl: '/quiz/versions/ap',
+    variantPath: '/quiz/versions/ap',
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -101,7 +124,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'gm-1065-da-video-header',
     pageName: 'vsl-da',
     experimentName: 'GM-1055-DA-Video-Header',
-    variantUrl: '/quiz/versions/da',
+    variantPath: '/quiz/versions/da',
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -109,7 +132,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'gm-1055-video-header',
     pageName: 'VSL Royal Rumble Results - fa',
     experimentName: 'GM-1055-Video-Header',
-    variantUrl: '/quiz/results/fa/v2',
+    variantPath: '/quiz/results/fa/v2',
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -117,8 +140,22 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'gm-1065-sa-video-header',
     pageName: 'vsl-sa',
     experimentName: 'GM-1055-SA-Video-Header',
-    variantUrl: '/quiz/versions/sa',
+    variantPath: '/quiz/versions/sa',
     variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  checkoutTest: {
+    cookieKey: 'GM-1058-bootcamp-checkout',
+    pageName: 'Checkout V2',
+    experimentName: 'GM-1058-Bootcamp-Checkout',
+    controlUrl: {
+      path: '/enroll/2996140?price_id=3853225',
+      base: 'https://university.personaldevelopmentschool.com',
+      params: ['productId'],
+    },
+    variantPath: '/pages/checkout',
+    variantBase: 'https://university.personaldevelopmentschool.com',
+    variantRatio: 1,
     forceControlOnNewUser: false,
   },
 }
@@ -131,7 +168,14 @@ type TSplitTestConfig = {
   cookieKey: string
   pageName: string
   experimentName: string
-  variantUrl: string
+  controlUrl?: {
+    path: string
+    base?: string
+    /** These parameters will be pulled from searchParams and converted to urlParams */
+    params?: string[]
+  }
+  variantPath: string
+  variantBase?: string
   variantRatio: number
   forceControlOnNewUser: boolean
 }

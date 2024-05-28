@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
       !pageData?.cookieKey ||
       !pageData.experimentName ||
       !pageData.pageName ||
-      !pageData.variantPath ||
+      !pageData.variantUrl ||
       !pageData.variantRatio
     ) {
       return NextResponse.next()
@@ -18,15 +18,15 @@ export function middleware(request: NextRequest) {
       cookieKey,
       experimentName,
       pageName,
-      variantPath,
+      variantUrl,
       variantRatio,
       forceControlOnNewUser,
       controlUrl,
-      variantBase,
     } = pageData
 
     let showVariant = false
     let setCookie = false
+    let searchParams = new URLSearchParams(request.nextUrl.searchParams)
     const variantCookie = request.cookies.get(cookieKey)?.value
     const mixpanelCookie = request.cookies.get(
       `mp_${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}_mixpanel`
@@ -34,14 +34,24 @@ export function middleware(request: NextRequest) {
 
     if (!mixpanelCookie) {
       if (forceControlOnNewUser) {
-        const response = NextResponse.next()
+        const response = generateResponse({
+          showVariant: false,
+          variantUrl,
+          searchParams,
+          request,
+          controlUrl,
+        })
         response.cookies.set(cookieKey, 'false')
         return response
       } else {
         showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
-        const response = showVariant
-          ? NextResponse.redirect(new URL(variantPath, request.nextUrl.origin))
-          : NextResponse.next()
+        const response = generateResponse({
+          showVariant,
+          variantUrl,
+          searchParams,
+          request,
+          controlUrl,
+        })
         return response
       }
     }
@@ -61,23 +71,13 @@ export function middleware(request: NextRequest) {
       })
     }
 
-    let response: NextResponse
-    if (showVariant) {
-      response = NextResponse.redirect(new URL(variantPath, request.nextUrl.origin))
-    } else if (controlUrl) {
-      let controlHref = controlUrl.base + controlUrl.path
-      let searchParams = new URLSearchParams(request.nextUrl.searchParams)
-
-      controlUrl?.params?.forEach((param) => {
-        controlHref += request.nextUrl.searchParams.get(param)
-        searchParams.delete(param)
-      })
-
-      if (searchParams.size) controlHref += `?${searchParams.toString()}`
-      response = NextResponse.redirect(new URL(controlHref))
-    } else {
-      response = NextResponse.next()
-    }
+    const response = generateResponse({
+      showVariant,
+      variantUrl,
+      searchParams,
+      request,
+      controlUrl,
+    })
 
     if (setCookie) {
       response.cookies.set({
@@ -111,12 +111,43 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   return configs.find(({ regex }) => regex.test(path))?.config
 }
 
+interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {
+  showVariant: boolean
+  searchParams: URLSearchParams
+  request: NextRequest
+}
+
+/** Generates a response based on the provided values */
+function generateResponse({
+  showVariant,
+  variantUrl,
+  searchParams,
+  request,
+  controlUrl,
+}: IGenerateResponse): NextResponse {
+  if (showVariant) {
+    let path = variantUrl.path
+    if (searchParams.size) path += `?${searchParams.toString()}`
+    return NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
+  } else if (controlUrl) {
+    let controlHref = (controlUrl?.base || request.nextUrl.origin) + controlUrl.path
+    controlUrl?.urlParams?.forEach((param) => {
+      controlHref += `/${request.nextUrl.searchParams.get(param)}`
+      searchParams.delete(param)
+    })
+    if (searchParams.size) controlHref += `?${searchParams.toString()}`
+    return NextResponse.redirect(new URL(controlHref))
+  } else {
+    return NextResponse.next()
+  }
+}
+
 export const splitTestConfigs: TSplitTestConfigs = {
   apTest: {
     cookieKey: 'gm-1065-ap-video-header',
     pageName: 'vsl-ap',
     experimentName: 'GM-1055-AP-Video-Header',
-    variantPath: '/quiz/versions/ap',
+    variantUrl: { path: '/quiz/versions/ap' },
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -124,7 +155,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'gm-1065-da-video-header',
     pageName: 'vsl-da',
     experimentName: 'GM-1055-DA-Video-Header',
-    variantPath: '/quiz/versions/da',
+    variantUrl: { path: '/quiz/versions/da' },
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -132,7 +163,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'gm-1055-video-header',
     pageName: 'VSL Royal Rumble Results - fa',
     experimentName: 'GM-1055-Video-Header',
-    variantPath: '/quiz/results/fa/v2',
+    variantUrl: { path: '/quiz/results/fa/v2' },
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -140,7 +171,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'gm-1065-sa-video-header',
     pageName: 'vsl-sa',
     experimentName: 'GM-1055-SA-Video-Header',
-    variantPath: '/quiz/versions/sa',
+    variantUrl: { path: '/quiz/versions/sa' },
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -149,14 +180,17 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'Checkout V2',
     experimentName: 'GM-1058-Bootcamp-Checkout',
     controlUrl: {
-      path: '/enroll/2996140?price_id=3853225',
+      path: '/enroll',
       base: 'https://university.personaldevelopmentschool.com',
-      params: ['productId'],
+      urlParams: ['product_id'],
     },
-    variantPath: '/pages/checkout',
-    variantBase: 'https://university.personaldevelopmentschool.com',
-    variantRatio: 1,
-    forceControlOnNewUser: false,
+    variantUrl: {
+      path: '/pages/checkout',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
   },
 }
 
@@ -171,11 +205,13 @@ type TSplitTestConfig = {
   controlUrl?: {
     path: string
     base?: string
-    /** These parameters will be pulled from searchParams and converted to urlParams */
-    params?: string[]
+    /** These parameters will be pulled from searchParams and converted to urlParams in the order that they appear in the config */
+    urlParams?: string[]
   }
-  variantPath: string
-  variantBase?: string
+  variantUrl: {
+    path: string
+    base?: string
+  }
   variantRatio: number
   forceControlOnNewUser: boolean
 }

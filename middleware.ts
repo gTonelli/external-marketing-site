@@ -79,12 +79,12 @@ export const config = {
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
   const configs = [
-    { key: '/quiz/ap', config: splitTestConfigs.apTest },
-    { key: '/quiz/da', config: splitTestConfigs.daTest },
-    { key: '/quiz/sa', config: splitTestConfigs.saTest },
-  ]
+    { regex: /^\/quiz\/ap(\/|$)/, config: splitTestConfigs.apTest },
+    { regex: /^\/quiz\/da(\/|$)/, config: splitTestConfigs.daTest },
+    { regex: /^\/quiz\/sa(\/|$)/, config: splitTestConfigs.saTest },
+  ];
 
-  return configs.find(({ key }) => path.includes(key))?.config
+  return configs.find(({ regex }) => regex.test(path))?.config
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {

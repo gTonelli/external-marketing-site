@@ -33,7 +33,7 @@ export default function DreamLifePage() {
   return (
     <Page className="relative w-full overflow-hidden" page_name="7 Day Free Trial Headspace">
       {/**HERO SECTION */}
-      <section className="w-full text-center bg-[#DEEAEA] pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
+      <section className="w-full text-center bg-grey-7 pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <Image
           className="w-full mx-auto sm:w-3/4 md:w-1/2 lg:hidden"
           src="TrialHeadspace/hero-left-mockup.png"

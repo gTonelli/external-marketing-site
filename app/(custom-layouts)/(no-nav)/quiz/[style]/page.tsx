@@ -316,7 +316,7 @@ export default function RoyalRumble({ params }: TParams) {
           </div>
 
           <div className="mt-8 md:mt-10 text-left">
-            <p className="md:text-lg font-bold font-effra text-white uppercase tracking-0.325">
+            <p className="md:text-lg font-bold text-white uppercase tracking-0.325">
               program overview
             </p>
 

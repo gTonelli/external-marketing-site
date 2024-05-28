@@ -73,7 +73,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/quiz/ap', '/quiz/da', '/quiz/sa'],
+  matcher: ['/quiz/ap', '/quiz/da', '/quiz/sa', '/quiz/results/fa'],
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
@@ -82,6 +82,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     { regex: /^\/quiz\/ap(\/|$)/, config: splitTestConfigs.apTest },
     { regex: /^\/quiz\/da(\/|$)/, config: splitTestConfigs.daTest },
     { regex: /^\/quiz\/sa(\/|$)/, config: splitTestConfigs.saTest },
+    { regex: /^\/quiz\/results\/fa(\/|$)/, config: splitTestConfigs.faTest },
   ];
 
   return configs.find(({ regex }) => regex.test(path))?.config
@@ -90,7 +91,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 export const splitTestConfigs: TSplitTestConfigs = {
   apTest: {
     cookieKey: 'gm-1065-ap-video-header',
-    pageName: 'vsl-variant-ap',
+    pageName: 'vsl-ap',
     experimentName: 'GM-1055-AP-Video-Header',
     variantUrl: '/quiz/versions/ap',
     variantRatio: 0.5,
@@ -98,15 +99,23 @@ export const splitTestConfigs: TSplitTestConfigs = {
   },
   daTest: {
     cookieKey: 'gm-1065-da-video-header',
-    pageName: 'vsl-variant-da',
+    pageName: 'vsl-da',
     experimentName: 'GM-1055-DA-Video-Header',
     variantUrl: '/quiz/versions/da',
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
+  faTest: {
+    cookieKey: 'gm-1055-video-header',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1055-Video-Header',
+    variantUrl: '/quiz/results/fa/v2',
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
   saTest: {
     cookieKey: 'gm-1065-sa-video-header',
-    pageName: 'vsl-variant-sa',
+    pageName: 'vsl-sa',
     experimentName: 'GM-1055-SA-Video-Header',
     variantUrl: '/quiz/versions/sa',
     variantRatio: 0.5,

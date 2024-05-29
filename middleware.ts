@@ -1,9 +1,8 @@
-import { NextResponse } from 'next/server'
+import { NextFetchEvent, NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest) {
+export function middleware(request: NextRequest, context: NextFetchEvent) {
   try {
-    console.log('\n====\nMiddleWare\n====\n')
     const pageData = getPageData(request)
     if (
       !pageData?.cookieKey ||
@@ -64,11 +63,13 @@ export function middleware(request: NextRequest) {
       showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
       setCookie = true
       const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
-      sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
-        'Experiment name': experimentName,
-        'Variant name': showVariant ? 'Variant 1' : 'Control',
-        page_name: pageName,
-      })
+      context.waitUntil(
+        sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
+          'Experiment name': experimentName,
+          'Variant name': showVariant ? 'Variant 1' : 'Control',
+          page_name: pageName,
+        })
+      )
     }
 
     const response = generateResponse({
@@ -149,14 +150,8 @@ function generateResponse({
  * @param event string name of the event
  * @param props key value pairs to be sent as event properties
  */
-const sendEventUnsafe = async (
-  mixpanelID: string,
-  insert_id: string,
-  event: string,
-  props: any
-) => {
-  console.log('sendEventUnsafe running')
-  return await fetch('https://api.mixpanel.com/track', {
+const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, props: any) => {
+  return fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

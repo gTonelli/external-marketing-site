@@ -184,7 +184,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   apTest: {
     cookieKey: 'gm-1065-ap-video-header',
     pageName: 'vsl-ap',
-    experimentName: 'GM-1055-AP-Video-Header',
+    experimentName: 'GM-1065-AP-Video-Header',
     variantUrl: { path: '/quiz/versions/ap' },
     variantRatio: 0.2,
     forceControlOnNewUser: false,
@@ -192,7 +192,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   daTest: {
     cookieKey: 'gm-1065-da-video-header',
     pageName: 'vsl-da',
-    experimentName: 'GM-1055-DA-Video-Header',
+    experimentName: 'GM-1065-DA-Video-Header',
     variantUrl: { path: '/quiz/versions/da' },
     variantRatio: 0.2,
     forceControlOnNewUser: false,
@@ -208,7 +208,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   saTest: {
     cookieKey: 'gm-1065-sa-video-header',
     pageName: 'vsl-sa',
-    experimentName: 'GM-1055-SA-Video-Header',
+    experimentName: 'GM-1065-SA-Video-Header',
     variantUrl: { path: '/quiz/versions/sa' },
     variantRatio: 0.2,
     forceControlOnNewUser: false,

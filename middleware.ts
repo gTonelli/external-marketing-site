@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
-import { sendEventUnsafe } from './utils/functions'
 
 export function middleware(request: NextRequest) {
   try {
@@ -141,6 +140,49 @@ function generateResponse({
   } else {
     return NextResponse.next()
   }
+}
+
+/**
+ * A custom implementation for sending Mixpanel data. This function is for use with the Edge runtime and should never be used in the browser.
+ * @param mixpanelID the distinct ID of the user
+ * @param insert_id required for [de-duplication.](https://developer.mixpanel.com/reference/track-event) **The request will not be retried if it fails.**
+ * @param event string name of the event
+ * @param props key value pairs to be sent as event properties
+ */
+const sendEventUnsafe = async (
+  mixpanelID: string,
+  insert_id: string,
+  event: string,
+  props: any
+) => {
+  console.log('sendEventUnsafe running')
+  return await fetch('https://api.mixpanel.com/track', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify([
+      {
+        event,
+        properties: {
+          token:
+            process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
+          time: Date.now(),
+          distinct_id: mixpanelID,
+          $insert_id: insert_id.slice(0, 36),
+          ...props,
+        },
+      },
+    ]),
+  })
+    .then((res) => res.text())
+    .then((res) => {
+      console.log('sendEventUnsafe Response:', res)
+      if (res !== '1') throw `An unepxected error occured. Response was ${res}`
+    })
+    .catch((error) => {
+      console.error('Error sending mixpanel event', error)
+    })
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {

@@ -186,7 +186,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'vsl-ap',
     experimentName: 'GM-1055-AP-Video-Header',
     variantUrl: { path: '/quiz/versions/ap' },
-    variantRatio: 0.5,
+    variantRatio: 0.2,
     forceControlOnNewUser: false,
   },
   daTest: {
@@ -194,7 +194,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'vsl-da',
     experimentName: 'GM-1055-DA-Video-Header',
     variantUrl: { path: '/quiz/versions/da' },
-    variantRatio: 0.5,
+    variantRatio: 0.2,
     forceControlOnNewUser: false,
   },
   faTest: {
@@ -210,7 +210,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'vsl-sa',
     experimentName: 'GM-1055-SA-Video-Header',
     variantUrl: { path: '/quiz/versions/sa' },
-    variantRatio: 0.5,
+    variantRatio: 0.2,
     forceControlOnNewUser: false,
   },
   checkoutTest: {

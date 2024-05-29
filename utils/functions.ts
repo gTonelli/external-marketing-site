@@ -70,6 +70,7 @@ export const sendEventUnsafe = (
   event: string,
   props: any
 ) => {
+  console.log('sendEventUnsafe running')
   return fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {

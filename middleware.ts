@@ -4,6 +4,7 @@ import { sendEventUnsafe } from './utils/functions'
 
 export function middleware(request: NextRequest) {
   try {
+    console.log('\n====\nMiddleWare\n====\n')
     const pageData = getPageData(request)
     if (
       !pageData?.cookieKey ||

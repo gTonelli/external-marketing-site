@@ -1,8 +1,7 @@
-import { NextResponse } from 'next/server'
+import { NextFetchEvent, NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
-import { sendEventUnsafe } from './utils/functions'
 
-export function middleware(request: NextRequest) {
+export function middleware(request: NextRequest, context: NextFetchEvent) {
   try {
     const pageData = getPageData(request)
     if (
@@ -14,11 +13,19 @@ export function middleware(request: NextRequest) {
     ) {
       return NextResponse.next()
     }
-    const { cookieKey, experimentName, pageName, variantUrl, variantRatio, forceControlOnNewUser } =
-      pageData
+    const {
+      cookieKey,
+      experimentName,
+      pageName,
+      variantUrl,
+      variantRatio,
+      forceControlOnNewUser,
+      controlUrl,
+    } = pageData
 
     let showVariant = false
     let setCookie = false
+    let searchParams = new URLSearchParams(request.nextUrl.searchParams)
     const variantCookie = request.cookies.get(cookieKey)?.value
     const mixpanelCookie = request.cookies.get(
       `mp_${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}_mixpanel`
@@ -26,14 +33,24 @@ export function middleware(request: NextRequest) {
 
     if (!mixpanelCookie) {
       if (forceControlOnNewUser) {
-        const response = NextResponse.next()
+        const response = generateResponse({
+          showVariant: false,
+          variantUrl,
+          searchParams,
+          request,
+          controlUrl,
+        })
         response.cookies.set(cookieKey, 'false')
         return response
       } else {
         showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
-        const response = showVariant
-          ? NextResponse.redirect(new URL(variantUrl, request.nextUrl.origin))
-          : NextResponse.next()
+        const response = generateResponse({
+          showVariant,
+          variantUrl,
+          searchParams,
+          request,
+          controlUrl,
+        })
         return response
       }
     }
@@ -46,16 +63,22 @@ export function middleware(request: NextRequest) {
       showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
       setCookie = true
       const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
-      sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
-        'Experiment name': experimentName,
-        'Variant name': showVariant ? 'Variant 1' : 'Control',
-        page_name: pageName,
-      })
+      context.waitUntil(
+        sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
+          'Experiment name': experimentName,
+          'Variant name': showVariant ? 'Variant 1' : 'Control',
+          page_name: pageName,
+        })
+      )
     }
 
-    const response = showVariant
-      ? NextResponse.redirect(new URL(variantUrl, request.nextUrl.origin))
-      : NextResponse.next()
+    const response = generateResponse({
+      showVariant,
+      variantUrl,
+      searchParams,
+      request,
+      controlUrl,
+    })
 
     if (setCookie) {
       response.cookies.set({
@@ -73,23 +96,139 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [],
+  matcher: ['/quiz/ap', '/quiz/da', '/quiz/sa', '/quiz/results/fa', '/checkout/v2'],
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
-  if (request.nextUrl.pathname.includes('/quiz')) {
-    return splitTestConfigs.quizTest
+  const path = request.nextUrl.pathname
+  const configs = [
+    { regex: /^\/quiz\/ap(\/|$)/, config: splitTestConfigs.apTest },
+    { regex: /^\/quiz\/da(\/|$)/, config: splitTestConfigs.daTest },
+    { regex: /^\/quiz\/sa(\/|$)/, config: splitTestConfigs.saTest },
+    { regex: /^\/quiz\/results\/fa(\/|$)/, config: splitTestConfigs.faTest },
+    { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest },
+  ]
+
+  return configs.find(({ regex }) => regex.test(path))?.config
+}
+
+interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {
+  showVariant: boolean
+  searchParams: URLSearchParams
+  request: NextRequest
+}
+
+/** Generates a response based on the provided values */
+function generateResponse({
+  showVariant,
+  variantUrl,
+  searchParams,
+  request,
+  controlUrl,
+}: IGenerateResponse): NextResponse {
+  if (showVariant) {
+    let path = variantUrl.path
+    if (searchParams.size) path += `?${searchParams.toString()}`
+    return NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
+  } else if (controlUrl) {
+    let controlHref = (controlUrl?.base || request.nextUrl.origin) + controlUrl.path
+    controlUrl?.urlParams?.forEach((param) => {
+      controlHref += `/${request.nextUrl.searchParams.get(param)}`
+      searchParams.delete(param)
+    })
+    if (searchParams.size) controlHref += `?${searchParams.toString()}`
+    return NextResponse.redirect(new URL(controlHref))
+  } else {
+    return NextResponse.next()
   }
 }
 
+/**
+ * A custom implementation for sending Mixpanel data. This function is for use with the Edge runtime and should never be used in the browser.
+ * @param mixpanelID the distinct ID of the user
+ * @param insert_id required for [de-duplication.](https://developer.mixpanel.com/reference/track-event) **The request will not be retried if it fails.**
+ * @param event string name of the event
+ * @param props key value pairs to be sent as event properties
+ */
+const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, props: any) => {
+  return fetch('https://api.mixpanel.com/track', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify([
+      {
+        event,
+        properties: {
+          token:
+            process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
+          time: Date.now(),
+          distinct_id: mixpanelID,
+          $insert_id: insert_id.slice(0, 36),
+          ...props,
+        },
+      },
+    ]),
+  })
+    .then((res) => res.text())
+    .then((res) => {
+      console.log('sendEventUnsafe Response:', res)
+      if (res !== '1') throw `An unepxected error occured. Response was ${res}`
+    })
+    .catch((error) => {
+      console.error('Error sending mixpanel event', error)
+    })
+}
+
 export const splitTestConfigs: TSplitTestConfigs = {
-  quizTest: {
-    cookieKey: 'prod-2577-quiz',
-    pageName: 'Main Funnel Quiz',
-    experimentName: 'PROD-2577-Quiz',
-    variantUrl: '/quiz/v2',
-    variantRatio: 0.2,
+  apTest: {
+    cookieKey: 'gm-1065-ap-video-header',
+    pageName: 'vsl-ap',
+    experimentName: 'GM-1055-AP-Video-Header',
+    variantUrl: { path: '/quiz/versions/ap' },
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
+  },
+  daTest: {
+    cookieKey: 'gm-1065-da-video-header',
+    pageName: 'vsl-da',
+    experimentName: 'GM-1055-DA-Video-Header',
+    variantUrl: { path: '/quiz/versions/da' },
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  faTest: {
+    cookieKey: 'gm-1055-video-header',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1055-Video-Header',
+    variantUrl: { path: '/quiz/results/fa/v2' },
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  saTest: {
+    cookieKey: 'gm-1065-sa-video-header',
+    pageName: 'vsl-sa',
+    experimentName: 'GM-1055-SA-Video-Header',
+    variantUrl: { path: '/quiz/versions/sa' },
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  checkoutTest: {
+    cookieKey: 'GM-1058-bootcamp-checkout',
+    pageName: 'Checkout V2',
+    experimentName: 'GM-1058-Bootcamp-Checkout',
+    controlUrl: {
+      path: '/enroll',
+      base: 'https://university.personaldevelopmentschool.com',
+      urlParams: ['product_id'],
+    },
+    variantUrl: {
+      path: '/pages/checkout',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
   },
 }
 
@@ -101,7 +240,16 @@ type TSplitTestConfig = {
   cookieKey: string
   pageName: string
   experimentName: string
-  variantUrl: string
+  controlUrl?: {
+    path: string
+    base?: string
+    /** These parameters will be pulled from searchParams and converted to urlParams in the order that they appear in the config */
+    urlParams?: string[]
+  }
+  variantUrl: {
+    path: string
+    base?: string
+  }
   variantRatio: number
   forceControlOnNewUser: boolean
 }

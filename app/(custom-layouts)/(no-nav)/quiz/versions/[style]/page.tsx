@@ -49,38 +49,51 @@ export default function RoyalRumble({ params }: TParams) {
   const style = params.style
 
   return (
-    <Page className="w-full text-center z-10" page_name={`vsl-${style}`}>
+    <Page className="w-full text-center z-10" page_name={`vsl-variant-${style}`}>
       {/* BANNER SECTION */}
       {style === 'da' || style === 'sa' ? (
         <RoyalRumbleHeadline style={style} />
       ) : (
         <section className="w-full">
-          <div className="relative max-w-[1008px] mt-10 md:mt-20 mx-4 md:w-calc(100%-2rem) lg:mx-auto px-9 md:px-22 py-10">
-            {/* INTRO BACKGROUND */}
-            <div className="bg-grey opacity-10 inset-0 rounded-20 absolute w-full"> </div>
-            {/* TITLE + VIDEO */}
-            <div className="text-left flex flex-center flex-col md:grid md:grid-cols-2 md:gap-8">
-              <div className="my-auto">
-                <AttachmentQuizHeading
-                  className="!text-h2 !text-black !capitalize !font-ssp"
-                  copy={`You Have A${style === 'ap' ? 'n' : ''}`}
-                />
+          <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
+            <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
+              <AttachmentQuizHeading
+                copy={ROYAL_RUMBLE[style].HERO_SECTION.headline}
+                className="!font-ssp !text-3xl capitalize"
+              />
 
-                <h2 className="inline capitalize text-primary lg:block">
-                  {ROYAL_RUMBLE[style].TITLE + ' '}
-                </h2>
+              <p className="max-w-3xl uppercase font-bold my-4">
+                {ROYAL_RUMBLE[style].HERO_SECTION.subheadline}
+              </p>
 
-                <h2 className="inline capitalize lg:block">Attachment Style</h2>
-              </div>
+              {/* BANNER BACKGROUND */}
+              <div className="max-w-5xl w-full md:my-8">
+                <div className="flex flex-col md:flex-row justify-center items-center space-x-6 md:px-8">
+                  <div>
+                    <VideoThumbnail
+                      srcUrl={ROYAL_RUMBLE[style].HERO_SECTION.videoURL}
+                      thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
+                      thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
+                      type="default"
+                    />
+                  </div>
 
-              <div className="mt-10 md:mt-0">
-                <VideoThumbnail
-                  playButtonSize="medium"
-                  srcUrl={ROYAL_RUMBLE[style].YOUTUBE_URL}
-                  style={{ maxWidth: '415px', borderRadius: '20px' }}
-                  thumbnailAlt="A picture of Thais teaching"
-                  thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
-                />
+                  <div className="m-4 md:text-left md:w-1/2">
+                    <h2 className="text-purple-dark !text-3xl hidden md:block">
+                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                    </h2>
+
+                    <p className="mt-4 hidden md:block">
+                      {ROYAL_RUMBLE[style].HERO_SECTION.copy}
+                    </p>
+
+                    <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">
+                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                    </h2>
+
+                    <p className="mt-4 md:hidden">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

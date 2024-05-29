@@ -140,8 +140,8 @@ export default function SecondarySalesPage() {
       <main className="w-full">
         {/* BANNER SECTION */}
         <section
-          className="relative w-full bg-[#DEEAEA] z-10
-                     lg:bg-gradient-to-r lg:from-[#DEEAEA] lg:to-[#BDD7D1]">
+          className="relative w-full bg-grey-7 z-10
+                     lg:bg-gradient-to-r lg:from-grey-7 lg:to-[#BDD7D1]">
           <div
             className="relative max-w-screen-lg mx-auto
                        lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">

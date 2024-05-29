@@ -2,6 +2,8 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 // components
+import NextLink from 'next/link'
+import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
@@ -14,6 +16,8 @@ import { Icon } from '@/components/Icon'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // style
 import './style.css'
+// utils
+import { ERoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Join Our 90-Day Secure Attachment Bootcamp',
@@ -63,7 +67,7 @@ export default function AttachmentBootcampPage() {
             <strong>Only for $149 – up to 85% off the total price!</strong>
           </p>
 
-          <Button track label="SIGN UP FOR BOOTCAMP" />
+          <CheckoutButton track label="SIGN UP FOR BOOTCAMP" />
         </div>
       </Section>
 
@@ -84,7 +88,7 @@ export default function AttachmentBootcampPage() {
             <strong>Only for $149 – up to 85% off the total price!</strong>
           </p>
 
-          <Button track label="SIGN UP FOR BOOTCAMP" />
+          <CheckoutButton track label="SIGN UP FOR BOOTCAMP" />
         </div>
       </Section>
 
@@ -127,7 +131,7 @@ export default function AttachmentBootcampPage() {
             Say goodbye to uncertainty and hello to thriving connections in just 90 days!
           </p>
 
-          <Button track label="JOIN BOOTCAMP TODAY" className="mb-4" />
+          <CheckoutButton track label="JOIN BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join now.</small>
@@ -247,7 +251,7 @@ export default function AttachmentBootcampPage() {
           can cancel at any time with no commitment.
         </p>
 
-        <Button track label="SIGN UP NOW" />
+        <CheckoutButton track label="SIGN UP NOW" />
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -271,7 +275,7 @@ export default function AttachmentBootcampPage() {
             becoming securely attached.
           </p>
 
-          <Button track label="START YOUR BOOTCAMP TODAY" className="mb-4" />
+          <CheckoutButton track label="START YOUR BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join Now.</small>
@@ -440,7 +444,7 @@ export default function AttachmentBootcampPage() {
           </div>
         </div>
 
-        <Button track label="START YOUR TRANSFORMATION" className="mb-4" />
+        <CheckoutButton track label="START YOUR TRANSFORMATION" className="mb-4" />
 
         <p>
           <small>*Offer valid for a limited time only. Join now.</small>
@@ -666,7 +670,7 @@ export default function AttachmentBootcampPage() {
           </div>
         </div>
 
-        <Button track label="START YOUR BOOTCAMP NOW" className="mb-8" />
+        <CheckoutButton track label="START YOUR BOOTCAMP NOW" className="mb-8" />
 
         <div className="max-w-2xl mx-auto">
           <p>
@@ -761,7 +765,7 @@ const BootcampPriceCard = () => (
       <span>per quarter</span>
     </p>
 
-    <Button track className="mb-8" label="PAY $149 & SAVE 85%" />
+    <CheckoutButton track className="mb-8" label="PAY $149 & SAVE 85%" />
 
     <div className="flex flex-wrap justify-around">
       <Icon name="cc-amex" type="brands" size="2x" />
@@ -772,3 +776,11 @@ const BootcampPriceCard = () => (
     </div>
   </div>
 )
+
+const CheckoutButton = ({ className, label }: IButtonDefaultProps) => {
+  return (
+    <NextLink href={ERoutes.CHECKOUT_ATTACHMENT_BOOTCAMP}>
+      <Button track className={className} label={label} />
+    </NextLink>
+  )
+}

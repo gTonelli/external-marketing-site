@@ -90,6 +90,9 @@ export const sendEventUnsafe = (
     ]),
   })
     .then((res) => res.text())
+    .then((res) => {
+      if (res !== '1') throw `An unepxected error occured. Response was ${res}`
+    })
     .catch((error) => {
       console.error('Error sending mixpanel event', error)
     })

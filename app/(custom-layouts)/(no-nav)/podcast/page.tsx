@@ -1,5 +1,3 @@
-// core
-import Image from 'next/image'
 // components
 import { Button } from '@/components/Button/Button'
 import { Page } from '@/components/Page'
@@ -10,10 +8,65 @@ import { IconName } from '@fortawesome/fontawesome-common-types'
 import { LinkWrapper } from '@/components/Link'
 import { PodcastForm } from '@/components/PodcastForm'
 import { PodcastList } from './PodcastList'
+import { FeaturedPodcast } from './FeaturedPodcast'
 // libraries
 import cx from 'classnames'
+import qs from 'qs'
 // style
 import './style.css'
+import Image from 'next/image'
+
+export interface IStrapiThumbnail {
+  data: [
+    {
+      id: number
+      attributes: {
+        name: string
+        alternativeText: string
+        url: string
+        width: number
+        height: number
+      }
+    }
+  ]
+}
+
+export interface IStrapiFetchProps<T> {
+  data: T
+  meta: {
+    pagination: {
+      start: number
+      limit: number
+      total: number
+    }
+  }
+}
+export interface IStrapiResponse<T> {
+  id: string
+  attributes: T
+}
+
+export interface IPodcastAttributes {
+  title: string
+  releaseDate: string
+  youtubeId?: string
+  spotifyId?: string
+  applePodcastUrl?: string
+  thumbnail?: IStrapiThumbnail
+  isFeatured?: boolean
+  guestName?: string
+  description?: string
+  seoTitle?: string
+  seoDescription?: string
+}
+
+export interface IPodcastCategoryAttributes {
+  name: string
+}
+
+export interface IPodcastTypeAttributes {
+  name: string
+}
 
 interface IPodcastPlatform {
   name: string
@@ -26,46 +79,132 @@ interface IPodcastPlatform {
 export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   {
     name: 'YOUTUBE',
-    link: '',
+    link: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
     icon: 'youtube',
     iconColor: 'text-[#FF0000]',
   },
   {
     name: 'APPLE',
-    link: '',
+    link: 'https://podcasts.apple.com/us/podcast/personal-development-school/id1478580185?uo=4',
     icon: 'podcast',
     iconColor: 'text-[#AA1DD3]',
     iconType: 'solid',
   },
   {
     name: 'SPOTIFY',
-    link: '',
+    link: 'https://open.spotify.com/show/2pf5IbQB9F4OLW9FWyjzaz',
     icon: 'spotify',
     iconColor: 'text-[#1ED760]',
   },
 ]
 
-export default function PodcastPage() {
+const FETCH_PODCASTS_QUERY = qs.stringify({
+  fields: ['title', 'youtubeId', 'spotifyId', 'host', 'releaseDate'],
+  populate: ['thumbnail'],
+  sort: ['releaseDate:desc'],
+  pagination: {
+    limit: 5,
+  },
+})
+
+const FETCH_FEATURED_PODCAST_QUERY = qs.stringify({
+  fields: ['title', 'youtubeId'],
+  populate: ['thumbnail'],
+  filters: {
+    isFeatured: {
+      $eq: true,
+    },
+  },
+  pagination: {
+    limit: 1,
+  },
+})
+
+async function fetchPodcasts(): Promise<IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>[]>> {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY}`,
+      {
+        next: { tags: ['podcasts'], revalidate: 1 },
+      }
+    )
+    const res = await response.json()
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+async function fetchFeaturedPodcasts(): Promise<
+  IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>[]>
+> {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_FEATURED_PODCAST_QUERY}`,
+      {
+        next: { tags: ['podcasts'], revalidate: 1 },
+      }
+    )
+    const res = await response.json()
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+async function fetchPodcastCategories(): Promise<
+  IStrapiFetchProps<IStrapiResponse<IPodcastCategoryAttributes>[]>
+> {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-categories`, {
+      next: { tags: ['podcast-categories'], revalidate: 1 },
+    })
+    const res = await response.json()
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+async function fetchPodcastTypes(): Promise<
+  IStrapiFetchProps<IStrapiResponse<IPodcastTypeAttributes>[]>
+> {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-types`, {
+      next: { tags: ['podcast-types'], revalidate: 1 },
+    })
+    const res = await response.json()
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+export default async function PodcastPage() {
+  const podcastsData = await fetchPodcasts()
+  const featuredPodcast = await fetchFeaturedPodcasts()
+  const podcastCategories = await fetchPodcastCategories()
+  const podcastTypes = await fetchPodcastTypes()
+
   return (
     <Page page_name="Podcast Page" className="relative">
       <Section className="bg-hero-mobile z-15 lg:hidden">
         <div className="text-black text-left relative z-20 lg:col-span-7">
           <p className="font-bold tracking-33 mb-4">THE THAIS GIBSON PODCAST</p>
+
           <h1 className="mb-4">Inner Strength with Thais Gibson</h1>
 
           <p className="mb-8">
             Discover new paths to personal growth through attachment exploration, enriched by the
             perspectives of our Thai guests.
           </p>
-
-          <Button label="START WATCHING" />
         </div>
       </Section>
 
       <Section
-        className={`bg-hero w-full hidden min-h-80 z-10 lg:block lg:py-32 xl:py-28 2xl:py-36 3xl:py-72`}
+        className={`w-full min-h-52 z-10 bg-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
         classNameInner="relative z-10 lg:grid lg:grid-cols-12">
-        <div className="text-black text-left lg:col-span-7">
+        <div className="text-black text-left hidden lg:col-span-7 lg:block">
           <p className="font-bold tracking-33 mb-4">THE THAIS GIBSON PODCAST</p>
 
           <h1 className="mb-4">Inner Strength with Thais Gibson</h1>
@@ -74,60 +213,15 @@ export default function PodcastPage() {
             Discover new paths to personal growth through attachment exploration, enriched by the
             perspectives of our Thai guests.
           </p>
-
-          <Button label="START WATCHING" />
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto mt-16 lg:mt-0" classNameInner="relative">
-        <div className="absolute hidden top-0 left-0 w-max bg-primary-light rounded-10 -rotate-45 p-3 z-20 lg:block">
-          Check out the featured episode!
-        </div>
-
-        <div className="absolute hidden -top-12 left-1/4 z-20 lg:block">
-          <Image src="/images/Podcast/arrow.svg" alt="arrow" width={120} height={45} />
-        </div>
-
-        <div className="absolute -top-6 flex -mb-6 z-20 xs:-top-12 lg:hidden">
-          <div className="bg-primary-light rounded-10 -rotate-12 z-20 p-2">
-            Check out the featured episode!
-          </div>
-
-          <div className="hidden xs:block">
-            <Image src="/images/Podcast/arrow.svg" alt="arrow" width={120} height={45} />
-          </div>
-        </div>
-
-        <div className="max-w-3xl bg-white shadow-lg rounded-3xl mx-auto p-2 lg:p-4">
-          <div className="relative">
-            <Image
-              className="w-full h-auto rounded-3xl"
-              src="/images/RoyalRumbleResultsPage/intro_video_thais_thumbnail.png"
-              alt="Featured Podcast Thumbnail"
-              width={600}
-              height={400}
-            />
-
-            <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center lg:hidden">
-              <Icon name="play-circle" className="!text-white shadow-md" size="3x" />
-            </div>
-
-            <div className="absolute hidden top-0 left-0 w-full h-full flex-col items-center justify-end bg-gradient-to-b from-transparent to-black-transparent rounded-4xl z-1 lg:flex">
-              <h2 className="text-white mb-8">
-                Why Do I Love the Way That I Love: The 4 Attachment Styles Explained With Mel
-                Robbins
-              </h2>
-
-              <Button label="START WATCHING" className="mb-16" />
-            </div>
-          </div>
-        </div>
-      </Section>
+      <FeaturedPodcast featuredPodcast={featuredPodcast} />
 
       <Section className="max-w-5xl mx-auto">
         <p className="font-bold tracking-33 mb-4">LISTEN OR WATCH NEW EPISODES EVERY WEEK ON</p>
 
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {PODCAST_PLATFORMS.map((item, idx) => (
             <LinkWrapper
               url={item.link}
@@ -146,12 +240,23 @@ export default function PodcastPage() {
       </Section>
 
       <Section className="max-w-6xl mx-auto" classNameInner="!w-full !max-w-full !m-0">
-        <PodcastList />
+        <PodcastList
+          podcasts={podcastsData}
+          podcastCategories={podcastCategories}
+          podcastTypes={podcastTypes}
+        />
       </Section>
 
       <Section className="w-full bg-gray-light" classNameInner="max-w-5xl mx-auto">
         <div className="flex flex-col items-center gap-8 lg:flex-row">
-          <div className="w-full lg:w-60">Image</div>
+          <div className="w-full lg:w-60">
+            <Image
+              src="/images/Podcast/men-announcing.svg"
+              alt="Man announcing vector"
+              width={280}
+              height={144}
+            />
+          </div>
 
           <div className="w-full text-left">
             <h2 className="mb-4">Be the First to Hear Our Freebie Episode!</h2>

@@ -67,6 +67,10 @@ interface IYouTubeProps extends YouTubeProps {
   videoId: string
   /** Data for running split tested videos */
   variantVideoData?: TVariantVideoData
+  /** flag if video needs to be played inline */
+  playInline?: boolean
+  /** flag if video needs to be autoplay inline */
+  autoPlayInline?: boolean
 }
 
 export const VideoYoutube = ({
@@ -84,12 +88,15 @@ export const VideoYoutube = ({
   videoId,
   variantVideoData,
   playButtonSize,
+  autoPlayInline = false,
+  playInline = false,
   maxHeight = 300,
   thumbnail = '/images/RoyalRumblePage/rr-video-thumbnail.png',
   type,
 }: IYouTubeProps) => {
   // ==================== State ====================
   const [isDialogShown, setIsDialogShown] = useState(false)
+  const [playVideoInline, setPlayVideoInline] = useState(false)
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const [isVariant, setIsVariant] = useState(false)
   // ==================== Context ====================
@@ -161,60 +168,73 @@ export const VideoYoutube = ({
         />
       </Dialog>
 
-      {/* Thumbnail */}
-      {(() => {
-        switch (buttonType) {
-          case 'button':
+      {autoPlayInline || playVideoInline
+        ? (() => {
             return (
-              <Button
-                className={cx('', className)}
-                label={buttonLabel}
-                onClick={() => setIsDialogShown(true)}
+              <YouTube
+                className={cx('w-full', className)}
+                iframeClassName={cx('w-full h-auto aspect-video', classNameIframe)}
+                videoId={isVariant && variantVideoData ? variantVideoData.videoId : videoId}
+                onPlay={_onPlay}
+                onReady={onPlayerReady}
               />
             )
-          case 'text':
-            return (
-              <Text.Paragraph
-                className={cx('cursor-pointer', className)}
-                content={buttonLabel}
-                onClick={() => setIsDialogShown(true)}
-              />
-            )
-          default:
-            return (
-              <div
-                className={cx(
-                  'cursor-pointer relative flex-center rounded-md overflow-hidden',
-                  className
-                )}
-                onClick={() => setIsDialogShown(true)}>
-                <Image
-                  alt={thumbnailAlt || 'Youtube Video Thumbnail'}
-                  className={cx('rounded-10', classNameThumbnail)}
-                  src={thumbnail}
-                  tabIndex={-1}
-                  width={thumbnailWidth || 768}
-                  height={thumbnailHeight || 453}
-                  quality={thumbnailQuality}
-                />
-                <Image
-                  alt="Play Video Button"
-                  className={cx(
-                    'clickable absolute z-10',
-                    playButtonSize === 'small' && 'w-8 h-8',
-                    playButtonSize === 'medium' && 'w-10 h-10 lg:w-16 lg:h-16',
-                    playButtonSize === 'large' && 'w-12 h-12 2xl:w-28 2xl:h-28',
-                    // default - size adjusts based on the screen size
-                    !playButtonSize && 'w-8 h-8 lg:w-16 lg:h-16 '
-                  )}
-                  src="/images/play_icon.svg"
-                  width={32}
-                  height={32}
-                />
-              </div>
-            )
-        }
-      })()}
+          })()
+        : (() => {
+            switch (buttonType) {
+              case 'button':
+                return (
+                  <Button
+                    className={cx('', className)}
+                    label={buttonLabel}
+                    onClick={() => setIsDialogShown(true)}
+                  />
+                )
+              case 'text':
+                return (
+                  <Text.Paragraph
+                    className={cx('cursor-pointer', className)}
+                    content={buttonLabel}
+                    onClick={() => setIsDialogShown(true)}
+                  />
+                )
+              default:
+                return (
+                  <div
+                    className={cx(
+                      'cursor-pointer relative flex-center rounded-md overflow-hidden',
+                      className
+                    )}
+                    onClick={() =>
+                      playInline ? setPlayVideoInline(true) : setIsDialogShown(true)
+                    }>
+                    <Image
+                      alt={thumbnailAlt || 'Youtube Video Thumbnail'}
+                      className={cx('rounded-10', classNameThumbnail)}
+                      src={thumbnail}
+                      tabIndex={-1}
+                      width={thumbnailWidth || 768}
+                      height={thumbnailHeight || 453}
+                      quality={thumbnailQuality}
+                    />
+                    <Image
+                      alt="Play Video Button"
+                      className={cx(
+                        'clickable absolute z-10',
+                        playButtonSize === 'small' && 'w-8 h-8',
+                        playButtonSize === 'medium' && 'w-10 h-10 lg:w-16 lg:h-16',
+                        playButtonSize === 'large' && 'w-12 h-12 2xl:w-28 2xl:h-28',
+                        // default - size adjusts based on the screen size
+                        !playButtonSize && 'w-8 h-8 lg:w-16 lg:h-16 '
+                      )}
+                      src="/images/play_icon.svg"
+                      width={32}
+                      height={32}
+                    />
+                  </div>
+                )
+            }
+          })()}
     </>
   )
 }

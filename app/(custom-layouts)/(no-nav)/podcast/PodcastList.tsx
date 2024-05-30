@@ -154,8 +154,9 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
               height="152"
               src={`https://open.spotify.com/embed/episode/${currentAudioId}?&t=0`}
               allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
+              loading="lazy">
+              <script>var b = 1;</script>
+            </iframe>
           </div>
         </div>
       )}

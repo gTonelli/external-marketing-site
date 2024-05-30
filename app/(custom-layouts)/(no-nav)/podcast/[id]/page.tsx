@@ -9,8 +9,11 @@ import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { ShareIcons } from '@/components/ShareIcons'
 import { IATEbookForm } from '@/components/IATEbookForm'
 import { IPodcastAttributes, IStrapiFetchProps, IStrapiResponse, PODCAST_PLATFORMS } from '../page'
+import { PluggableList } from 'react-markdown/lib/react-markdown'
+import rehypeRaw from 'rehype-raw'
 import cx from 'classnames'
 import qs from 'qs'
+import ReactMarkdown from 'react-markdown'
 
 const FETCH_PODCAST_EPISODE_QUERY = qs.stringify({
   fields: [
@@ -32,6 +35,8 @@ export async function generateStaticParams() {
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id`
   ).then((res) => res.json())
 
+  console.log(podcasts)
+
   return podcasts.data.map((podcast) => ({
     id: podcast.id.toString(),
   }))
@@ -42,7 +47,7 @@ export async function generateMetadata({ params }: { params: { id: number } }) {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts/${params.id}?${FETCH_PODCAST_EPISODE_QUERY}`,
       {
-        next: { tags: [`podcast-${params.id}`], revalidate: 0 },
+        next: { tags: [`podcast-${params.id}`], revalidate: 1 },
       }
     )
     const res = await response.json()
@@ -76,7 +81,7 @@ async function fetchPodcastEpisode(
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts/${id}?${FETCH_PODCAST_EPISODE_QUERY}`,
       {
-        next: { tags: [`podcast-${id}`], revalidate: 0 },
+        next: { tags: [`podcast-${id}`], revalidate: 1 },
       }
     )
     const res = await response.json()
@@ -91,14 +96,14 @@ async function fetchPodcastPrevNext(id: number, releaseDate: string) {
     const prevRes = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id&filters[releaseDate][$lt]=${releaseDate}&sort=releaseDate:desc&pagination[limit]=1`,
       {
-        next: { tags: [`podcast-${id}`], revalidate: 0 },
+        next: { tags: [`podcast-${id}`], revalidate: 1 },
       }
     )
     const prev = await prevRes.json()
     const nextRes = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id&filters[releaseDate][$gt]=${releaseDate}&pagination[limit]=1`,
       {
-        next: { tags: [`podcast-${id}`], revalidate: 0 },
+        next: { tags: [`podcast-${id}`], revalidate: 1 },
       }
     )
     const next = await nextRes.json()
@@ -126,6 +131,12 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
   } = await fetchPodcastEpisode(id)
 
   const { prev, next } = await fetchPodcastPrevNext(id, releaseDate)
+
+  const getLinkUrl = (id: number): string => {
+    if (id === 0) return `https://www.youtube.com/watch?v=${youtubeId!}`
+    else if (id === 1) return applePodcastUrl!
+    else return `https://open.spotify.com/episode/${spotifyId!}`
+  }
 
   return (
     <Page page_name={`Podcast Episode Page - ${id}`}>
@@ -188,7 +199,7 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
           <div className="flex flex-col justify-center gap-4 mb-4 lg:flex-row">
             {PODCAST_PLATFORMS.map((item, idx) => (
               <LinkWrapper
-                url={item.link}
+                url={getLinkUrl(idx)}
                 className="w-full flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline lg:w-max"
                 key={idx}>
                 <Icon
@@ -217,7 +228,13 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-12 gap-0 lg:gap-8">
-        <div className="col-span-12 text-left pb-4 lg:col-span-8">{description}</div>
+        <div className="col-span-12 text-left pb-4 lg:col-span-8">
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw] as PluggableList}
+            remarkRehypeOptions={{ allowDangerousHtml: true }}>
+            {description!}
+          </ReactMarkdown>
+        </div>
 
         <div className="col-span-12 lg:col-span-4">
           <div className="w-full h-full bg-blue-lightest rounded-20 overflow-hidden px-6 pt-8">

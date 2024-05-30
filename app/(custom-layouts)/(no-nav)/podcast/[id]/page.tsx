@@ -27,6 +27,16 @@ const FETCH_PODCAST_EPISODE_QUERY = qs.stringify({
   populate: ['thumbnail'],
 })
 
+export async function generateStaticParams() {
+  const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>[]> = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id`
+  ).then((res) => res.json())
+
+  return podcasts.data.map((podcast) => ({
+    id: podcast.id.toString(),
+  }))
+}
+
 export async function generateMetadata({ params }: { params: { id: number } }) {
   try {
     const response = await fetch(

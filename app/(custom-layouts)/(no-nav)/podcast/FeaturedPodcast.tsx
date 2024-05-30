@@ -18,7 +18,7 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
   if (playVideo)
     return (
       <Section className="max-w-5xl mx-auto mt-16 lg:mt-0">
-        <VideoYoutube autoPlayInline videoId={featuredPodcast.data[0].attributes.youtubeId!} />
+        <VideoYoutube autoPlayInline videoId={featuredPodcast.data[0]?.attributes.youtubeId!} />
       </Section>
     )
 
@@ -46,9 +46,9 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
         <div className="relative">
           <Image
             className="w-full h-auto rounded-3xl"
-            src={featuredPodcast.data[0].attributes.thumbnail!.data[0].attributes.url}
+            src={featuredPodcast.data[0]?.attributes.thumbnail!.data[0]?.attributes.url}
             alt={
-              featuredPodcast.data[0].attributes.thumbnail?.data[0].attributes.alternativeText ||
+              featuredPodcast.data[0]?.attributes.thumbnail?.data[0]?.attributes.alternativeText ||
               'Featured Podcast Thumbnail'
             }
             width={600}

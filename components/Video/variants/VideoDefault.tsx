@@ -143,6 +143,7 @@ export const VideoDefault = ({
           isShown={isDialogShown}
           onToggle={onToggleDialog}>
           <VideoPlayer
+            autoPlay
             trackable
             ref={videoEl}
             controls

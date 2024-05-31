@@ -94,9 +94,12 @@ export enum ERoutes {
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
 
-  // Stripe Checkout
+  // Stripe Embedded Checkout
   STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthly?discount_id=30off',
   STRIPE_CHECKOUT_39_FIRST_MONTH = '/checkout/67monthly?discount_id=28off1mo',
+
+  // Custom Checkout on Thinkific
+  CHECKOUT_ATTACHMENT_BOOTCAMP = '/checkout/v2?product_id=2996140&price_id=3853225&coupon=148off',
 }
 
 export enum EExternalRoutes {

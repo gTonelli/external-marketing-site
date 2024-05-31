@@ -1,3 +1,4 @@
+import Mixpanel from '@/modules/Mixpanel'
 import { IDefaultProps } from '..'
 import { Button } from '../Button/Button'
 
@@ -15,10 +16,18 @@ export const PodcastListCTA = ({
   spotifyId,
 }: IPodcastListCTAProps) => {
   const _onClickVideo = () => {
+    Mixpanel.track.VideoStarted({
+      video_type: `Podcast List Ep - ${id}`,
+      page_name: 'Podcast Page',
+    })
     setCurrentVideoId(id)
   }
 
   const _onClickAudio = () => {
+    Mixpanel.track.AudioStarted({
+      audio_type: `Podcast List Ep - ${id}`,
+      page_name: 'Podcast Page',
+    })
     setCurrentAudioId(spotifyId)
   }
 

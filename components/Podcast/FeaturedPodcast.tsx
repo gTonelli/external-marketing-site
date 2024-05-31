@@ -21,7 +21,11 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
   if (playVideo)
     return (
       <Section className="max-w-5xl mx-auto mt-16 lg:mt-0">
-        <VideoYoutube autoPlayInline videoId={featuredPodcast.attributes.youtubeId} />
+        <VideoYoutube
+          autoPlayInline
+          videoId={featuredPodcast.attributes.youtubeId}
+          type="Featured Podcast"
+        />
       </Section>
     )
 

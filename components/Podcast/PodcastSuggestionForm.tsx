@@ -58,9 +58,9 @@ export const PodcastSuggestionForm = ({
       lastName: '',
       reason: podcastRecommendation,
       message: `Message: ${podcastSuggestion}`,
-      to: 'michael@personaldevelopmentschool.com',
+      to: 'info@personaldevelopmentschool.com',
       templateReferenceId: '5',
-      subject: 'Podcast Page Suggestion Submission',
+      subject: 'Podcast Page Form - Suggestion Submission',
     }
 
     fetch('https://strapi.personaldevelopmentschool.com/api/contact-us', {

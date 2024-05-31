@@ -52,7 +52,7 @@ interface IPodcastPlatform {
 export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   {
     name: 'YOUTUBE',
-    link: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
+    link: 'https://www.youtube.com/@TheThaisGibsonPodcast',
     icon: 'youtube',
     iconColor: 'text-[#FF0000]',
   },
@@ -168,12 +168,12 @@ export default async function PodcastPage() {
 
           <p className="mb-8">
             Discover new paths to personal growth through attachment exploration, enriched by the
-            perspectives of our Thai guests.
+            perspectives of Thais' guests.
           </p>
         </div>
       </Section>
 
-      <FeaturedPodcast featuredPodcast={featuredPodcast} />
+      {featuredPodcast && <FeaturedPodcast featuredPodcast={featuredPodcast} />}
 
       <Section className="max-w-5xl mx-auto">
         <p className="font-bold tracking-33 mb-4">LISTEN OR WATCH NEW EPISODES EVERY WEEK ON</p>
@@ -241,8 +241,32 @@ export default async function PodcastPage() {
         </p>
 
         <PodcastSuggestionForm submitButtonLabel="SUBMIT REQUEST" />
+      </Section>
 
-        <div className="my-8">
+      <Section
+        className="max-w-5xl mx-auto"
+        classNameInner="w-full flex flex-col items-center gap-8 rounded-3xl bg-blue-lightest lg:flex-row p-8">
+        <div className="flex-1 ">
+          <Image
+            src="/images/Podcast/reddit.jpg"
+            alt="Reddit Thread"
+            width={384}
+            height={250}
+            className="w-full h-auto rounded-3xl object-cover"
+          />
+        </div>
+
+        <div className="flex-1 text-left">
+          <h2 className="mb-4">r/CanThisBeFixed</h2>
+
+          <p className="mb-4">
+            Are you struggling with a repeating pattern in your life? Whether you can never stick to
+            your fitness routine or you end up sabotaging your relationships, tell us what you’re
+            looking to change and we’ll tell you how with science-backed solutions. Answers are
+            provided by members and featured on The Thais Gibson Podcast, where personal development
+            leader Thais herself will give you valuable feedback on your situation.
+          </p>
+
           <Link
             target="_blank"
             href="https://www.reddit.com/r/CanThisBeFixed/"

@@ -9,9 +9,10 @@ import { Icon } from '@/components/Icon'
 
 interface IButtonBackProps extends IDefaultProps {
   label?: string
+  goBackUrl?: string
 }
 
-export const ButtonBack = ({ label = 'GO BACK', className }: IButtonBackProps) => {
+export const ButtonBack = ({ label = 'GO BACK', goBackUrl, className }: IButtonBackProps) => {
   const router = useRouter()
   return (
     <div
@@ -20,8 +21,9 @@ export const ButtonBack = ({ label = 'GO BACK', className }: IButtonBackProps) =
         className
       )}
       role="button"
-      onClick={() => router.back()}>
+      onClick={() => (goBackUrl ? router.push(goBackUrl) : router.back())}>
       <Icon name="chevron-left" className="mr-4" />
+
       <span className="font-bold tracking-33">{label}</span>
     </div>
   )

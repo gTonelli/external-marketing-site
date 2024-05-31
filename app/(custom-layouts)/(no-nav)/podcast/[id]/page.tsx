@@ -75,7 +75,7 @@ async function fetchPodcastEpisode(id: number): Promise<IStrapiResponse<IPodcast
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts/${id}?populate=thumbnail`,
       {
-        next: { tags: [`podcast-${id}`], revalidate: 86400 },
+        next: { tags: ['podcasts', `podcast-${id}`], revalidate: 86400 },
       }
     )
     const res = await response.json()
@@ -161,7 +161,7 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
       />
 
       <Section className="max-w-5xl mx-auto">
-        <ButtonBack />
+        <ButtonBack goBackUrl="/podcast" />
 
         <div className="w-full my-8">
           <VideoYoutube
@@ -170,6 +170,7 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
             videoId={youtubeId}
             thumbnail={thumbnail.data.attributes.url}
             thumbnailAlt={thumbnail.data.attributes.alternativeText || 'Video thumbnail'}
+            type="Podcast Episode Video"
           />
         </div>
 

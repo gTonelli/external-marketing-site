@@ -40,6 +40,8 @@ export interface ILink {
    * onClick listener for tracking MixPanel Event
    */
   onClick?(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void
+  /** additional mixpanel props */
+  mpProps?: { [key: string]: string }
 }
 
 interface ILinkDefaultProps extends ILink, IDefaultProps {}
@@ -52,6 +54,7 @@ export const LinkDefault = ({
   url,
   target,
   onClick,
+  mpProps,
 }: ILinkDefaultProps) => {
   const { page_name } = useContext(PageContext)
 
@@ -60,6 +63,7 @@ export const LinkDefault = ({
       Mixpanel.track.ButtonClicked({
         button_label: event.currentTarget.innerText,
         page_name,
+        ...mpProps,
       })
       onClick?.(event)
     },
@@ -120,6 +124,7 @@ export const LinkWrapper = ({
   hoverType,
   url,
   onClick,
+  mpProps,
 }: ILinkWrapperProps) => {
   const { page_name } = useContext(PageContext)
 
@@ -128,6 +133,7 @@ export const LinkWrapper = ({
       Mixpanel.track.ButtonClicked({
         button_label: event.currentTarget.innerText,
         page_name,
+        ...mpProps,
       })
       onClick?.(event)
     },

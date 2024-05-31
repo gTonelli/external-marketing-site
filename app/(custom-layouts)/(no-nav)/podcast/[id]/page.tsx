@@ -11,13 +11,15 @@ import { Section } from '@/components/Section'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { ShareIcons } from '@/components/ShareIcons'
 import { IATEbookForm } from '@/components/IATEbookForm'
-import { IPodcast, IStrapiFetchProps, IStrapiResponse, PODCAST_PLATFORMS } from '../page'
+import { IPodcast, PODCAST_PLATFORMS } from '../page'
 // libraries
 import cx from 'classnames'
 import rehypeRaw from 'rehype-raw'
 import { PluggableList } from 'react-markdown/lib/react-markdown'
 import ReactMarkdown from 'react-markdown'
 import { PodcastEpisode, WithContext } from 'schema-dts'
+// utils
+import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 
 export async function generateStaticParams() {
   const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await fetch(

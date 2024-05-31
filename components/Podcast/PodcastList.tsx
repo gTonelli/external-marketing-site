@@ -11,11 +11,11 @@ import {
   IPodcast,
   IPodcastCategory,
   IPodcastType,
-  IStrapiFetchProps,
-  IStrapiResponse,
 } from '../../app/(custom-layouts)/(no-nav)/podcast/page'
 // libraries
 import _ from 'lodash'
+// utils
+import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 
 interface IPodcastListProps {
   podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>

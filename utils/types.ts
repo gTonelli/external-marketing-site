@@ -47,6 +47,32 @@ export type TZIndexValues =
   | 'z-65'
 
 export type TVariantVideoData = {
-    key: string
-    videoId: string
+  key: string
+  videoId: string
+}
+
+export interface IStrapiThumbnail {
+  id: number
+  attributes: {
+    name: string
+    alternativeText: string
+    url: string
+    width: number
+    height: number
   }
+}
+
+export interface IStrapiFetchProps<T> {
+  data: T
+  meta: {
+    pagination: {
+      start: number
+      limit: number
+      total: number
+    }
+  }
+}
+export interface IStrapiResponse<T> {
+  id: string
+  attributes: T
+}

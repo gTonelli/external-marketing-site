@@ -1,11 +1,15 @@
 'use client'
 
+// core
 import Image from 'next/image'
 import { useState } from 'react'
+// components
 import { Icon } from '@/components/Icon'
 import { Section } from '@/components/Section'
-import { IPodcast, IStrapiResponse } from './page'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
+import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
+// utils
+import { IStrapiResponse } from '@/utils/types'
 
 interface IFeaturedPodcastProps {
   featuredPodcast: IStrapiResponse<IPodcast>

@@ -13,7 +13,7 @@ import {
   IPodcastType,
   IStrapiFetchProps,
   IStrapiResponse,
-} from './page'
+} from '../../app/(custom-layouts)/(no-nav)/podcast/page'
 // libraries
 import _ from 'lodash'
 
@@ -70,7 +70,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
           <select
             ref={categoryRef}
             name="podcastCategory"
-            className="w-full flex-1 bg-gray-200 rounded-10 p-3 lg:w-max"
+            className="w-full rounded-lg px-4 py-2 border border-[#6b7280] lg:w-max"
             onChange={handleChange}>
             <option value="all">All Categories</option>
 
@@ -84,7 +84,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
           <select
             ref={typeRef}
             name="podcastType"
-            className="w-full bg-gray-200 rounded-10 p-3 lg:w-max"
+            className="w-full rounded-lg px-4 py-2 border border-[#6b7280] lg:w-max"
             onChange={handleChange}>
             <option value="all">All Types</option>
 
@@ -98,7 +98,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
           <select
             ref={sortRef}
             name="podcastSort"
-            className="w-full bg-gray-200 rounded-10 p-3 lg:w-max"
+            className="w-full rounded-lg px-4 py-2 border border-[#6b7280] lg:w-max"
             onChange={handleChange}>
             <option value="desc">Newest to Oldest</option>
 
@@ -106,7 +106,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
           </select>
         </div>
 
-        <div className="w-full flex items-center rounded-full border border-solid border-black px-4 lg:w-72">
+        <div className="w-full flex items-center rounded-full border border-solid border-[#6b7280] px-4 lg:w-72">
           <Icon name="magnifying-glass" />
 
           <input
@@ -121,7 +121,10 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
       </div>
 
       <div className="flex flex-col gap-8 my-8">
-        {!podcastsList.data.length && <p>Your search does not match any results.</p>}
+        {!podcastsList.data.length && (
+          <p className="text-left">Your search does not match any results.</p>
+        )}
+
         {podcastsList.data.map((item, idx) => (
           <div
             key={idx}

@@ -1,16 +1,17 @@
 // core
 import Image from 'next/image'
+import Link from 'next/link'
 // components
-import { Button } from '@/components/Button/Button'
 import { Page } from '@/components/Page'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Section } from '@/components/Section'
 import { Icon } from '@/components/Icon'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 import { LinkWrapper } from '@/components/Link'
-import { PodcastForm } from '@/components/PodcastForm'
-import { PodcastList } from './PodcastList'
-import { FeaturedPodcast } from './FeaturedPodcast'
+import { PodcastList } from '@/components/Podcast/PodcastList'
+import { FeaturedPodcast } from '@/components/Podcast/FeaturedPodcast'
+import { PodcastSuggestionForm } from '@/components/Podcast/PodcastSuggestionForm'
+import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
 // libraries
 import cx from 'classnames'
 import qs from 'qs'
@@ -177,23 +178,14 @@ export default async function PodcastPage() {
 
   return (
     <Page page_name="Podcast Page" className="relative">
-      <Section className="bg-hero-mobile z-15 lg:hidden">
-        <div className="text-black text-left relative z-20 lg:col-span-7">
-          <p className="font-bold tracking-33 mb-4">THE THAIS GIBSON PODCAST</p>
-
-          <h1 className="mb-4">Inner Strength with Thais Gibson</h1>
-
-          <p className="mb-8">
-            Discover new paths to personal growth through attachment exploration, enriched by the
-            perspectives of our Thai guests.
-          </p>
-        </div>
-      </Section>
-
       <Section
-        className={`w-full min-h-52 z-10 bg-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
-        classNameInner="relative z-10 lg:grid lg:grid-cols-12">
-        <div className="text-black text-left hidden lg:col-span-7 lg:block">
+        className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
+
+        <div className="bg-hero-mobile lg:hidden" />
+
+        <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
           <p className="font-bold tracking-33 mb-4">THE THAIS GIBSON PODCAST</p>
 
           <h1 className="mb-4">Inner Strength with Thais Gibson</h1>
@@ -256,14 +248,13 @@ export default async function PodcastPage() {
               now to stay in the loop and be part of our growing community.
             </p>
 
-            <PodcastForm />
+            <PodcastFreebieForm />
           </div>
         </div>
       </Section>
 
       <CarouselTestimonialThinkific className="mt-16" />
 
-      {/* TODO: form submission */}
       <Section className="max-w-3xl mx-auto">
         <h2 className="mb-8">Suggest A Topic</h2>
 
@@ -273,32 +264,16 @@ export default async function PodcastPage() {
           we'll consider them for future episodes.
         </p>
 
-        <div className="w-full flex flex-col items-center gap-4">
-          <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-2">
-            <input type="text" name="name" className="rounded-lg" placeholder="Your Name" />
+        <PodcastSuggestionForm submitButtonLabel="SUBMIT REQUEST" />
 
-            <input type="email" name="email" className="rounded-lg" placeholder="Your Email" />
-          </div>
-
-          <select className="w-full rounded-lg px-4 py-2 border border-[#6b7280]">
-            <option defaultValue="" disabled value="">
-              Have an idea for our next episode? Select an option below:
-            </option>
-
-            <option value="recommend-a-guest">Recommend a Guest</option>
-
-            <option value="suggest-a-topic">Suggest a Topic</option>
-          </select>
-
-          <textarea
-            className="w-full rounded-lg px-4 py-2 border border-[#6b7280]"
-            rows={4}
-            placeholder="Enter your suggestion here..."
-          />
-
-          <Button label="SUBMIT REQUEST" />
+        <div className="my-8">
+          <Link
+            target="_blank"
+            href="https://www.reddit.com/r/CanThisBeFixed/"
+            className="border-2 border-black bg-black text-white rounded-full tracking-10 !no-underline cursor-pointer px-4 py-2 hover:text-white hover:bg-black-transparent">
+            DIRECT TO REDDIT
+          </Link>
         </div>
-        {/* TODO: redirect to reddit */}
       </Section>
     </Page>
   )

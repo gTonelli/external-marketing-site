@@ -17,11 +17,11 @@ import cx from 'classnames'
 import rehypeRaw from 'rehype-raw'
 import { PluggableList } from 'react-markdown/lib/react-markdown'
 import ReactMarkdown from 'react-markdown'
+import { PodcastEpisode, WithContext } from 'schema-dts'
 
 export async function generateStaticParams() {
-  /* TODO: implement recursive approach */
   const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id`,
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id&pagination[pageSize]=100`,
     { next: { tags: ['podcasts'], revalidate: 86400 } }
   ).then((res) => res.json())
 
@@ -127,8 +127,23 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
 
   const [prev, next] = await fetchPodcastPrevNext(id, releaseDate)
 
-  /* TODO: add structured data */
-  const jsonLd = {}
+  const jsonLd: WithContext<PodcastEpisode> = {
+    '@context': 'https://schema.org',
+    '@type': 'PodcastEpisode',
+    name: title,
+    description: description,
+    datePublished: releaseDate,
+    url: `https://attachment.personaldevelopmentschool.com/podcast/${id}`,
+    image: thumbnail.data.attributes.url,
+    thumbnailUrl: thumbnail.data.attributes.url,
+    author: {
+      '@type': 'Person',
+      name: 'Thais Gibson',
+      description:
+        'Thais Gibson is a best-selling author, counselor, speaker, and leader in the personal development field. She has a Ph.D. and is certified in over 13 modalities, including Cognitive Behavioral Therapy, NLP, Somatic Processing, and Trauma Work. Her scientific research, personal experience, and compassionate approach led to her founding the Gibson Integrated Attachment Theory™.',
+      image: 'https://cdn-themes.thinkific.com/208694/380362/BnNTgjnfSomBQfuE3vcg_thais-seated.jpg',
+    },
+  }
 
   const getLinkUrl = (id: number) =>
     [
@@ -220,7 +235,8 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
           </div>
 
           <p className="font-bold mb-4">
-            Listen to the Thais Gibson Podcast twice per week - every Monday and Thursday.
+            Listen to the Thais Gibson Podcast thrice per week - every Monday, Thursday and
+            Saturday.
           </p>
 
           <div className="flex flex-col justify-center items-center gap-4 lg:flex-row">

@@ -128,11 +128,11 @@ export const PodcastSuggestionForm = ({
               <option disabled value="">
                 Have an idea for our next episode? Select an option below:
               </option>
-              <option value="Recommend a Guest">Recommend a Guest</option>
+              <option value="Recommend a Podcast Guest">Recommend a Podcast Guest</option>
 
-              <option value="Suggest a Topic">Suggest a Topic</option>
+              <option value="Suggest a Podcast Topic">Suggest a Podcast Topic</option>
 
-              <option value="Become a Guest">Become a Guest</option>
+              <option value="Come on the Podcast">Come on the Podcast</option>
             </select>
 
             {touched.podcastRecommendation && errors.podcastRecommendation && (

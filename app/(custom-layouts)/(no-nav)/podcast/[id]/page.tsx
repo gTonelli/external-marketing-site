@@ -1,7 +1,6 @@
 // core
 import Image from 'next/image'
 import { Metadata } from 'next'
-import Head from 'next/head'
 // components
 import { ButtonBack } from '@/components/Button/variants/ButtonBack'
 import { Icon } from '@/components/Icon'
@@ -156,12 +155,10 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
 
   return (
     <Page page_name={`Podcast Episode Page - ${id}`}>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <Section className="max-w-5xl mx-auto">
         <ButtonBack />

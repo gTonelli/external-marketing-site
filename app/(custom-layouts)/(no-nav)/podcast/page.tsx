@@ -232,12 +232,12 @@ export default async function PodcastPage() {
       <CarouselTestimonialThinkific className="mt-16" />
 
       <Section className="max-w-3xl mx-auto">
-        <h2 className="mb-8">Suggest A Topic</h2>
+        <h2 className="mb-8">Suggest a Topic Or A Guest Or Come on the Show</h2>
 
         <p className="mb-8">
-          Have a topic in mind? Let us know! Submit your suggestions here - We value your input and
-          want to hear what topics you're interested in exploring. Share your ideas with us, and
-          we'll consider them for future episodes.
+          Have a topic or a guest in mind? Or do you want to come to the show? Let us know! Submit
+          your suggestions here - We value your input and want to hear what topics you're interested
+          in exploring. Share your ideas with us, and we'll consider them for future episodes.
         </p>
 
         <PodcastSuggestionForm submitButtonLabel="SUBMIT REQUEST" />

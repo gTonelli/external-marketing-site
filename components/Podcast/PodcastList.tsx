@@ -16,6 +16,7 @@ import {
 import _ from 'lodash'
 // utils
 import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
+import { PodcastListCTA } from './PodcastListCTA'
 
 interface IPodcastListProps {
   podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>
@@ -182,20 +183,12 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
               </p>
             </div>
 
-            <div className="w-full flex justify-center items-center flex-col gap-4 lg:w-60">
-              <Button
-                label="WATCH NOW"
-                className="w-full"
-                onClick={() => setCurrentVideoId(+item.id)}
-              />
-
-              <Button
-                label="LISTEN NOW"
-                theme="black"
-                className="w-full"
-                onClick={() => setCurrentAudioId(item.attributes.spotifyId!)}
-              />
-            </div>
+            <PodcastListCTA
+              id={+item.id}
+              setCurrentVideoId={setCurrentVideoId}
+              setCurrentAudioId={setCurrentAudioId}
+              spotifyId={item.attributes.spotifyId}
+            />
           </div>
         ))}
       </div>

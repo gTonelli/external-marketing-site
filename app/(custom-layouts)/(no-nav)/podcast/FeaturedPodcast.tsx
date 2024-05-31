@@ -1,15 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import { Button } from '@/components/Button/Button'
+import { useState } from 'react'
 import { Icon } from '@/components/Icon'
 import { Section } from '@/components/Section'
-import { IPodcastAttributes, IStrapiFetchProps, IStrapiResponse } from './page'
-import { useState } from 'react'
+import { IPodcast, IStrapiResponse } from './page'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 
 interface IFeaturedPodcastProps {
-  featuredPodcast: IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>[]>
+  featuredPodcast: IStrapiResponse<IPodcast>
 }
 
 export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
@@ -18,7 +17,7 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
   if (playVideo)
     return (
       <Section className="max-w-5xl mx-auto mt-16 lg:mt-0">
-        <VideoYoutube autoPlayInline videoId={featuredPodcast.data[0]?.attributes.youtubeId!} />
+        <VideoYoutube autoPlayInline videoId={featuredPodcast.attributes.youtubeId} />
       </Section>
     )
 
@@ -46,9 +45,9 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
         <div className="relative">
           <Image
             className="w-full h-auto rounded-3xl"
-            src={featuredPodcast.data[0]?.attributes.thumbnail!.data[0]?.attributes.url}
+            src={featuredPodcast.attributes.thumbnail.data.attributes.url}
             alt={
-              featuredPodcast.data[0]?.attributes.thumbnail?.data[0]?.attributes.alternativeText ||
+              featuredPodcast.attributes.thumbnail.data.attributes.alternativeText ||
               'Featured Podcast Thumbnail'
             }
             width={600}

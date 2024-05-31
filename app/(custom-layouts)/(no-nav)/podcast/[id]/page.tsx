@@ -1,5 +1,8 @@
+// core
 import Image from 'next/image'
 import { Metadata } from 'next'
+import Head from 'next/head'
+// components
 import { ButtonBack } from '@/components/Button/variants/ButtonBack'
 import { Icon } from '@/components/Icon'
 import { LinkWrapper } from '@/components/Link'
@@ -8,53 +11,38 @@ import { Section } from '@/components/Section'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { ShareIcons } from '@/components/ShareIcons'
 import { IATEbookForm } from '@/components/IATEbookForm'
-import { IPodcastAttributes, IStrapiFetchProps, IStrapiResponse, PODCAST_PLATFORMS } from '../page'
-import { PluggableList } from 'react-markdown/lib/react-markdown'
-import rehypeRaw from 'rehype-raw'
+import { IPodcast, IStrapiFetchProps, IStrapiResponse, PODCAST_PLATFORMS } from '../page'
+// libraries
 import cx from 'classnames'
-import qs from 'qs'
+import rehypeRaw from 'rehype-raw'
+import { PluggableList } from 'react-markdown/lib/react-markdown'
 import ReactMarkdown from 'react-markdown'
 
-const FETCH_PODCAST_EPISODE_QUERY = qs.stringify({
-  fields: [
-    'title',
-    'seoTitle',
-    'seoDescription',
-    'youtubeId',
-    'spotifyId',
-    'applePodcastUrl',
-    'description',
-    'guestName',
-    'releaseDate',
-  ],
-  populate: ['thumbnail'],
-})
-
 export async function generateStaticParams() {
-  const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>[]> = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id`
+  /* TODO: implement recursive approach */
+  const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id`,
+    { next: { tags: ['podcasts'], revalidate: 86400 } }
   ).then((res) => res.json())
-
-  console.log(podcasts)
 
   return podcasts.data.map((podcast) => ({
     id: podcast.id.toString(),
   }))
 }
 
-export async function generateMetadata({ params }: { params: { id: number } }) {
+export async function generateMetadata({ params }: { params: { id: number } }): Promise<Metadata> {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts/${params.id}?${FETCH_PODCAST_EPISODE_QUERY}`,
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts/${params.id}?populate=thumbnail`,
       {
-        next: { tags: [`podcast-${params.id}`], revalidate: 1 },
+        next: { tags: [`podcast-${params.id}`], revalidate: 86400 },
       }
     )
     const res = await response.json()
-    const podcast = res.data
+    const podcast: IStrapiResponse<IPodcast> = res.data
     const metadata: Metadata = {
       metadataBase: new URL('https://attachment.personaldevelopmentschool.com/podcast'),
-      title: podcast.attributes.seoTitle || podcast.attributes.title,
+      title: podcast.attributes.seoTitle,
       description: podcast.attributes.seoDescription,
       alternates: {
         canonical: `/${podcast.id}`,
@@ -66,6 +54,13 @@ export async function generateMetadata({ params }: { params: { id: number } }) {
         description: podcast.attributes.seoDescription,
         siteName: 'Personal Development School',
         url: `https://attachment.personaldevelopmentschool.com/podcast/${podcast.id}`,
+        images: [
+          {
+            url: podcast.attributes.thumbnail.data.attributes.url,
+            width: podcast.attributes.thumbnail.data.attributes.width,
+            height: podcast.attributes.thumbnail.data.attributes.height,
+          },
+        ],
       },
     }
     return metadata
@@ -74,40 +69,41 @@ export async function generateMetadata({ params }: { params: { id: number } }) {
   }
 }
 
-async function fetchPodcastEpisode(
-  id: number
-): Promise<IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>>> {
+async function fetchPodcastEpisode(id: number): Promise<IStrapiResponse<IPodcast>> {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts/${id}?${FETCH_PODCAST_EPISODE_QUERY}`,
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts/${id}?populate=thumbnail`,
       {
-        next: { tags: [`podcast-${id}`], revalidate: 1 },
+        next: { tags: [`podcast-${id}`], revalidate: 86400 },
       }
     )
     const res = await response.json()
-    return res
+    return res.data
   } catch (error) {
     throw error
   }
 }
 
-async function fetchPodcastPrevNext(id: number, releaseDate: string) {
+async function fetchPodcastPrevNext(
+  id: number,
+  releaseDate: string
+): Promise<IStrapiResponse<IPodcast>[]> {
   try {
     const prevRes = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id&filters[releaseDate][$lt]=${releaseDate}&sort=releaseDate:desc&pagination[limit]=1`,
       {
-        next: { tags: [`podcast-${id}`], revalidate: 1 },
+        next: { tags: [`podcast-${id}`], revalidate: 86400 },
       }
     )
     const prev = await prevRes.json()
     const nextRes = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id&filters[releaseDate][$gt]=${releaseDate}&pagination[limit]=1`,
       {
-        next: { tags: [`podcast-${id}`], revalidate: 1 },
+        next: { tags: [`podcast-${id}`], revalidate: 86400 },
       }
     )
     const next = await nextRes.json()
-    return { prev, next }
+    return [prev.data.pop(), next.data.pop()]
   } catch (error) {
     throw error
   }
@@ -115,31 +111,41 @@ async function fetchPodcastPrevNext(id: number, releaseDate: string) {
 
 export default async function PodcastEpisodePage({ params }: { params: { id: number } }) {
   const id = params.id
+
   const {
-    data: {
-      attributes: {
-        title,
-        description,
-        guestName,
-        youtubeId,
-        spotifyId,
-        applePodcastUrl,
-        thumbnail,
-        releaseDate,
-      },
+    attributes: {
+      title,
+      description,
+      guestName,
+      youtubeId,
+      spotifyId,
+      applePodcastUrl,
+      thumbnail,
+      releaseDate,
     },
   } = await fetchPodcastEpisode(id)
 
-  const { prev, next } = await fetchPodcastPrevNext(id, releaseDate)
+  const [prev, next] = await fetchPodcastPrevNext(id, releaseDate)
 
-  const getLinkUrl = (id: number): string => {
-    if (id === 0) return `https://www.youtube.com/watch?v=${youtubeId!}`
-    else if (id === 1) return applePodcastUrl!
-    else return `https://open.spotify.com/episode/${spotifyId!}`
-  }
+  /* TODO: add structured data */
+  const jsonLd = {}
+
+  const getLinkUrl = (id: number) =>
+    [
+      `https://www.youtube.com/watch?v=${youtubeId}`,
+      applePodcastUrl,
+      `https://open.spotify.com/episode/${spotifyId}`,
+    ].at(id)
 
   return (
     <Page page_name={`Podcast Episode Page - ${id}`}>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
+
       <Section className="max-w-5xl mx-auto">
         <ButtonBack />
 
@@ -147,18 +153,18 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
           <VideoYoutube
             playInline
             classNameThumbnail="w-full"
-            videoId="15k9AahVAhE"
-            thumbnail={thumbnail!.data[0].attributes.url}
-            thumbnailAlt={thumbnail?.data[0].attributes.alternativeText || 'Video thumbnail'}
+            videoId={youtubeId}
+            thumbnail={thumbnail.data.attributes.url}
+            thumbnailAlt={thumbnail.data.attributes.alternativeText || 'Video thumbnail'}
           />
         </div>
 
         <div className="flex justify-between items-center">
           <div className="flex-1">
-            {prev.data[0]?.id && (
+            {prev && (
               <LinkWrapper
                 className="w-max flex items-center border border-solid border-gray-light rounded-10 px-4 py-2 hover:text-white hover:no-underline hover:bg-primary"
-                url={`/podcast/${+prev.data[0].id}`}>
+                url={`/podcast/${+prev.id}`}>
                 <Icon name="chevron-left" className="mr-2" />
 
                 <span className="font-bold tracking-33">PREV</span>
@@ -173,10 +179,10 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
           )}
 
           <div className="flex flex-1 justify-end">
-            {next.data[0]?.id && (
+            {next && (
               <LinkWrapper
                 className="w-max flex items-center border border-solid border-gray-light rounded-10 px-4 py-2 hover:text-white hover:no-underline hover:bg-primary"
-                url={`/podcast/${+next.data[0].id}`}>
+                url={`/podcast/${+next.id}`}>
                 <span className="font-bold tracking-33 mr-2">NEXT</span>
 
                 <Icon name="chevron-right" />
@@ -199,7 +205,7 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
           <div className="flex flex-col justify-center gap-4 mb-4 lg:flex-row">
             {PODCAST_PLATFORMS.map((item, idx) => (
               <LinkWrapper
-                url={getLinkUrl(idx)}
+                url={getLinkUrl(idx)!}
                 className="w-full flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline lg:w-max"
                 key={idx}>
                 <Icon
@@ -232,12 +238,12 @@ export default async function PodcastEpisodePage({ params }: { params: { id: num
           <ReactMarkdown
             rehypePlugins={[rehypeRaw] as PluggableList}
             remarkRehypeOptions={{ allowDangerousHtml: true }}>
-            {description!}
+            {description}
           </ReactMarkdown>
         </div>
 
         <div className="col-span-12 lg:col-span-4">
-          <div className="w-full h-full bg-blue-lightest rounded-20 overflow-hidden px-6 pt-8">
+          <div className="w-full h-max bg-blue-lightest rounded-20 overflow-hidden px-6 pt-8">
             <h3 className="mb-4">Get a FREE E-Book on Coaching Business</h3>
 
             <p className="mb-4">

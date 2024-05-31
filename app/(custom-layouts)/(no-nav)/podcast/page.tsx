@@ -1,3 +1,5 @@
+// core
+import Image from 'next/image'
 // components
 import { Button } from '@/components/Button/Button'
 import { Page } from '@/components/Page'
@@ -14,21 +16,16 @@ import cx from 'classnames'
 import qs from 'qs'
 // style
 import './style.css'
-import Image from 'next/image'
 
 export interface IStrapiThumbnail {
-  data: [
-    {
-      id: number
-      attributes: {
-        name: string
-        alternativeText: string
-        url: string
-        width: number
-        height: number
-      }
-    }
-  ]
+  id: number
+  attributes: {
+    name: string
+    alternativeText: string
+    url: string
+    width: number
+    height: number
+  }
 }
 
 export interface IStrapiFetchProps<T> {
@@ -46,25 +43,24 @@ export interface IStrapiResponse<T> {
   attributes: T
 }
 
-export interface IPodcastAttributes {
+export interface IPodcast {
   title: string
   releaseDate: string
-  youtubeId?: string
-  spotifyId?: string
-  applePodcastUrl?: string
-  thumbnail?: IStrapiThumbnail
-  isFeatured?: boolean
+  youtubeId: string
+  spotifyId: string
+  applePodcastUrl: string
+  thumbnail: { data: IStrapiThumbnail }
+  isFeatured: boolean
+  description: string
+  seoTitle: string
+  seoDescription: string
   guestName?: string
-  description?: string
-  seoTitle?: string
-  seoDescription?: string
 }
-
-export interface IPodcastCategoryAttributes {
+export interface IPodcastCategory {
   name: string
 }
 
-export interface IPodcastTypeAttributes {
+export interface IPodcastType {
   name: string
 }
 
@@ -99,33 +95,32 @@ export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
 ]
 
 const FETCH_PODCASTS_QUERY = qs.stringify({
-  fields: ['title', 'youtubeId', 'spotifyId', 'host', 'releaseDate'],
+  fields: ['title', 'youtubeId', 'spotifyId', 'releaseDate', 'guestName'],
   populate: ['thumbnail'],
   sort: ['releaseDate:desc'],
   pagination: {
-    limit: 5,
+    page: 1,
+    pageSize: 5,
   },
 })
 
 const FETCH_FEATURED_PODCAST_QUERY = qs.stringify({
-  fields: ['title', 'youtubeId'],
+  fields: ['youtubeId'],
   populate: ['thumbnail'],
   filters: {
-    isFeatured: {
-      $eq: true,
-    },
+    isFeatured: true,
   },
   pagination: {
     limit: 1,
   },
 })
 
-async function fetchPodcasts(): Promise<IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>[]>> {
+async function fetchPodcasts(): Promise<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>> {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY}`,
       {
-        next: { tags: ['podcasts'], revalidate: 1 },
+        next: { tags: ['podcasts'], revalidate: 86400 },
       }
     )
     const res = await response.json()
@@ -135,46 +130,40 @@ async function fetchPodcasts(): Promise<IStrapiFetchProps<IStrapiResponse<IPodca
   }
 }
 
-async function fetchFeaturedPodcasts(): Promise<
-  IStrapiFetchProps<IStrapiResponse<IPodcastAttributes>[]>
-> {
+async function fetchFeaturedPodcast(): Promise<IStrapiResponse<IPodcast>> {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_FEATURED_PODCAST_QUERY}`,
       {
-        next: { tags: ['podcasts'], revalidate: 1 },
+        next: { tags: ['podcasts'], revalidate: 86400 },
       }
     )
     const res = await response.json()
-    return res
+    return res.data.pop()
   } catch (error) {
     throw error
   }
 }
 
-async function fetchPodcastCategories(): Promise<
-  IStrapiFetchProps<IStrapiResponse<IPodcastCategoryAttributes>[]>
-> {
+async function fetchPodcastCategories(): Promise<IStrapiResponse<IPodcastCategory>[]> {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-categories`, {
-      next: { tags: ['podcast-categories'], revalidate: 1 },
+      next: { tags: ['podcast-categories'], revalidate: 86400 },
     })
     const res = await response.json()
-    return res
+    return res.data
   } catch (error) {
     throw error
   }
 }
 
-async function fetchPodcastTypes(): Promise<
-  IStrapiFetchProps<IStrapiResponse<IPodcastTypeAttributes>[]>
-> {
+async function fetchPodcastTypes(): Promise<IStrapiResponse<IPodcastType>[]> {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-types`, {
-      next: { tags: ['podcast-types'], revalidate: 1 },
+      next: { tags: ['podcast-types'], revalidate: 86400 },
     })
     const res = await response.json()
-    return res
+    return res.data
   } catch (error) {
     throw error
   }
@@ -182,7 +171,7 @@ async function fetchPodcastTypes(): Promise<
 
 export default async function PodcastPage() {
   const podcastsData = await fetchPodcasts()
-  const featuredPodcast = await fetchFeaturedPodcasts()
+  const featuredPodcast = await fetchFeaturedPodcast()
   const podcastCategories = await fetchPodcastCategories()
   const podcastTypes = await fetchPodcastTypes()
 
@@ -274,6 +263,7 @@ export default async function PodcastPage() {
 
       <CarouselTestimonialThinkific className="mt-16" />
 
+      {/* TODO: form submission */}
       <Section className="max-w-3xl mx-auto">
         <h2 className="mb-8">Suggest A Topic</h2>
 
@@ -308,6 +298,7 @@ export default async function PodcastPage() {
 
           <Button label="SUBMIT REQUEST" />
         </div>
+        {/* TODO: redirect to reddit */}
       </Section>
     </Page>
   )

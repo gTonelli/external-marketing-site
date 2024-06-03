@@ -21,6 +21,7 @@ import Mixpanel from '@/modules/Mixpanel'
 import { Regexes } from '@/utils/constants'
 
 interface ISignupFormProps extends IDefaultProps {
+  classNameFields?: string
   /** String or function that retuirns a string for generating client tags */
   userTags?: string[]
   /** Form ID */
@@ -37,6 +38,7 @@ interface ISignupFormProps extends IDefaultProps {
 
 export const SignupForm = ({
   className,
+  classNameFields,
   id,
   userTags,
   submitButtonLabel,
@@ -103,7 +105,7 @@ export const SignupForm = ({
       onSubmit={onSubmit}>
       {({ isSubmitting }) => (
         <Form className={cx('w-full flex-col', className)} id={id}>
-          <div className="flex flex-col xxs:flex-row gap-x-4 mb-4 max-w-2xl">
+          <div className={cx('flex flex-col xxs:flex-row gap-x-4 mb-4 max-w-2xl', classNameFields)}>
             <Input.Field
               autocomplete="given-name"
               className="!mt-0 !mx-0 mb-2 xxs:!mb-0 w-full"

@@ -60,6 +60,8 @@ export interface IButtonDefaultProps extends IDefaultProps {
    * boolean specifying whether or not track Mixpanel event
    */
   track?: boolean
+  /** additional mixpanel props */
+  mpProps?: { [key: string]: string }
 }
 
 export const ButtonDefault = ({
@@ -73,6 +75,7 @@ export const ButtonDefault = ({
   theme = 'primary',
   type,
   track,
+  mpProps,
 }: IButtonDefaultProps) => {
   const { page_name } = useContext(PageContext)
 
@@ -82,6 +85,7 @@ export const ButtonDefault = ({
       Mixpanel.track.ButtonClicked({
         button_label: event.currentTarget.innerText,
         page_name,
+        ...mpProps,
       })
     }
     onClick?.(event)

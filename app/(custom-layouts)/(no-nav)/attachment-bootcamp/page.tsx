@@ -2,7 +2,6 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 // components
-import NextLink from 'next/link'
 import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
@@ -779,8 +778,8 @@ const BootcampPriceCard = () => (
 
 const CheckoutButton = ({ className, label }: IButtonDefaultProps) => {
   return (
-    <NextLink href={ERoutes.CHECKOUT_ATTACHMENT_BOOTCAMP}>
+    <a href={ERoutes.CHECKOUT_ATTACHMENT_BOOTCAMP}>
       <Button track className={className} label={label} />
-    </NextLink>
+    </a>
   )
 }

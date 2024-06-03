@@ -1,0 +1,280 @@
+// core
+import Image from 'next/image'
+import Link from 'next/link'
+// components
+import { Page } from '@/components/Page'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { Section } from '@/components/Section'
+import { Icon } from '@/components/Icon'
+import { IconName } from '@fortawesome/fontawesome-common-types'
+import { LinkWrapper } from '@/components/Link'
+import { PodcastList } from '@/components/Podcast/PodcastList'
+import { FeaturedPodcast } from '@/components/Podcast/FeaturedPodcast'
+import { PodcastSuggestionForm } from '@/components/Podcast/PodcastSuggestionForm'
+import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
+// libraries
+import cx from 'classnames'
+import qs from 'qs'
+// style
+import './style.css'
+// utils
+import { IStrapiThumbnail, IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
+
+export interface IPodcast {
+  title: string
+  releaseDate: string
+  youtubeId: string
+  spotifyId: string
+  applePodcastUrl: string
+  thumbnail: { data: IStrapiThumbnail }
+  isFeatured: boolean
+  description: string
+  seoTitle: string
+  seoDescription: string
+  guestName?: string
+}
+export interface IPodcastCategory {
+  name: string
+}
+
+export interface IPodcastType {
+  name: string
+}
+
+interface IPodcastPlatform {
+  name: string
+  icon: IconName
+  link: string
+  iconColor: string
+  iconType?: 'brands' | 'solid'
+}
+
+export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
+  {
+    name: 'YOUTUBE',
+    link: 'https://www.youtube.com/@TheThaisGibsonPodcast',
+    icon: 'youtube',
+    iconColor: 'text-[#FF0000]',
+  },
+  {
+    name: 'APPLE',
+    link: 'https://podcasts.apple.com/us/podcast/personal-development-school/id1478580185?uo=4',
+    icon: 'podcast',
+    iconColor: 'text-[#AA1DD3]',
+    iconType: 'solid',
+  },
+  {
+    name: 'SPOTIFY',
+    link: 'https://open.spotify.com/show/2pf5IbQB9F4OLW9FWyjzaz',
+    icon: 'spotify',
+    iconColor: 'text-[#1ED760]',
+  },
+]
+
+const FETCH_PODCASTS_QUERY = qs.stringify({
+  fields: ['title', 'youtubeId', 'spotifyId', 'releaseDate', 'guestName'],
+  populate: ['thumbnail'],
+  sort: ['releaseDate:desc'],
+  pagination: {
+    page: 1,
+    pageSize: 5,
+  },
+})
+
+const FETCH_FEATURED_PODCAST_QUERY = qs.stringify({
+  fields: ['youtubeId'],
+  populate: ['thumbnail'],
+  filters: {
+    isFeatured: true,
+  },
+  pagination: {
+    limit: 1,
+  },
+})
+
+async function fetchPodcasts(): Promise<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>> {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY}`,
+      {
+        next: { tags: ['podcasts'], revalidate: 86400 },
+      }
+    )
+    const res = await response.json()
+    return res
+  } catch (error) {
+    throw error
+  }
+}
+
+async function fetchFeaturedPodcast(): Promise<IStrapiResponse<IPodcast>> {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_FEATURED_PODCAST_QUERY}`,
+      {
+        next: { tags: ['podcasts'], revalidate: 86400 },
+      }
+    )
+    const res = await response.json()
+    return res.data.pop()
+  } catch (error) {
+    throw error
+  }
+}
+
+async function fetchPodcastCategories(): Promise<IStrapiResponse<IPodcastCategory>[]> {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-categories`, {
+      next: { tags: ['podcast-categories'], revalidate: 86400 },
+    })
+    const res = await response.json()
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+async function fetchPodcastTypes(): Promise<IStrapiResponse<IPodcastType>[]> {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-types`, {
+      next: { tags: ['podcast-types'], revalidate: 86400 },
+    })
+    const res = await response.json()
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export default async function PodcastPage() {
+  const podcastsData = await fetchPodcasts()
+  const featuredPodcast = await fetchFeaturedPodcast()
+  const podcastCategories = await fetchPodcastCategories()
+  const podcastTypes = await fetchPodcastTypes()
+
+  return (
+    <Page page_name="Podcast Page" className="relative">
+      <Section
+        className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
+
+        <div className="bg-hero-mobile lg:hidden" />
+
+        <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
+          <p className="font-bold tracking-33 mb-4">THE THAIS GIBSON PODCAST</p>
+
+          <h1 className="mb-4">Inner Strength with Thais Gibson</h1>
+
+          <p className="mb-8">
+            Discover new paths to personal growth through attachment exploration, enriched by the
+            perspectives of Thais' guests.
+          </p>
+        </div>
+      </Section>
+
+      {featuredPodcast && <FeaturedPodcast featuredPodcast={featuredPodcast} />}
+
+      <Section className="max-w-5xl mx-auto">
+        <p className="font-bold tracking-33 mb-4">LISTEN OR WATCH NEW EPISODES EVERY WEEK ON</p>
+
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+          {PODCAST_PLATFORMS.map((item, idx) => (
+            <LinkWrapper
+              url={item.link}
+              className="flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline"
+              key={idx}>
+              <Icon
+                name={item.icon}
+                type={item.iconType ?? 'brands'}
+                className={cx('mr-4 group-hover:text-white', item.iconColor)}
+              />
+
+              <p className="font-bold tracking-33">{item.name}</p>
+            </LinkWrapper>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="max-w-6xl mx-auto" classNameInner="!w-full !max-w-full !m-0">
+        <PodcastList
+          podcasts={podcastsData}
+          podcastCategories={podcastCategories}
+          podcastTypes={podcastTypes}
+        />
+      </Section>
+
+      <Section className="w-full bg-gray-light" classNameInner="max-w-5xl mx-auto">
+        <div className="flex flex-col items-center gap-8 lg:flex-row">
+          <div className="w-full lg:w-60">
+            <Image
+              src="/images/Podcast/men-announcing.svg"
+              alt="Man announcing vector"
+              width={280}
+              height={144}
+            />
+          </div>
+
+          <div className="w-full text-left">
+            <h2 className="mb-4">Be the First to Hear Our Freebie Episode!</h2>
+
+            <p className="mb-4">
+              Stay updated with the latest episodes! Enter your email below and hit subscribe -
+              Don't miss out on our latest episodes, exclusive content, and special offers. Sign up
+              now to stay in the loop and be part of our growing community.
+            </p>
+
+            <PodcastFreebieForm />
+          </div>
+        </div>
+      </Section>
+
+      <CarouselTestimonialThinkific className="mt-16" />
+
+      <Section className="max-w-3xl mx-auto">
+        <h2 className="mb-8">Suggest a Topic Or A Guest Or Come on the Show</h2>
+
+        <p className="mb-8">
+          Have a topic or a guest in mind? Or do you want to come to the show? Let us know! Submit
+          your suggestions here - We value your input and want to hear what topics you're interested
+          in exploring. Share your ideas with us, and we'll consider them for future episodes.
+        </p>
+
+        <PodcastSuggestionForm submitButtonLabel="SUBMIT REQUEST" />
+      </Section>
+
+      <Section
+        className="max-w-5xl mx-auto"
+        classNameInner="w-full flex flex-col items-center gap-8 rounded-3xl bg-blue-lightest lg:flex-row p-8">
+        <div className="flex-1 ">
+          <Image
+            src="/images/Podcast/reddit.jpg"
+            alt="Reddit Thread"
+            width={384}
+            height={250}
+            className="w-full h-auto rounded-3xl object-cover"
+          />
+        </div>
+
+        <div className="flex-1 text-left">
+          <h2 className="mb-4">r/CanThisBeFixed</h2>
+
+          <p className="mb-4">
+            Are you struggling with a repeating pattern in your life? Whether you can never stick to
+            your fitness routine or you end up sabotaging your relationships, tell us what you’re
+            looking to change and we’ll tell you how with science-backed solutions. Answers are
+            provided by members and featured on The Thais Gibson Podcast, where personal development
+            leader Thais herself will give you valuable feedback on your situation.
+          </p>
+
+          <Link
+            target="_blank"
+            href="https://www.reddit.com/r/CanThisBeFixed/"
+            className="border-2 border-black bg-black text-white rounded-full tracking-10 !no-underline cursor-pointer px-4 py-2 hover:text-white hover:bg-black-transparent">
+            DIRECT TO REDDIT
+          </Link>
+        </div>
+      </Section>
+    </Page>
+  )
+}

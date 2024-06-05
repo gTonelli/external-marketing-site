@@ -21,6 +21,7 @@ import './style.css'
 import { IStrapiThumbnail, IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 
 export interface IPodcast {
+  epNo: string
   title: string
   releaseDate: string
   youtubeId: string
@@ -31,6 +32,7 @@ export interface IPodcast {
   description: string
   seoTitle: string
   seoDescription: string
+  urlSlug: string
   guestName?: string
 }
 export interface IPodcastCategory {
@@ -52,7 +54,7 @@ interface IPodcastPlatform {
 export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   {
     name: 'YOUTUBE',
-    link: 'https://www.youtube.com/@TheThaisGibsonPodcast',
+    link: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
     icon: 'youtube',
     iconColor: 'text-[#FF0000]',
   },
@@ -72,9 +74,9 @@ export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
 ]
 
 const FETCH_PODCASTS_QUERY = qs.stringify({
-  fields: ['title', 'youtubeId', 'spotifyId', 'releaseDate', 'guestName'],
+  fields: ['epNo', 'title', 'youtubeId', 'spotifyId', 'releaseDate', 'guestName', 'urlSlug'],
   populate: ['thumbnail'],
-  sort: ['releaseDate:desc'],
+  sort: 'releaseDate:desc',
   pagination: {
     page: 1,
     pageSize: 5,
@@ -84,6 +86,7 @@ const FETCH_PODCASTS_QUERY = qs.stringify({
 const FETCH_FEATURED_PODCAST_QUERY = qs.stringify({
   fields: ['youtubeId'],
   populate: ['thumbnail'],
+  sort: 'releaseDate:desc',
   filters: {
     isFeatured: true,
   },
@@ -176,14 +179,17 @@ export default async function PodcastPage() {
       {featuredPodcast && <FeaturedPodcast featuredPodcast={featuredPodcast} />}
 
       <Section className="max-w-5xl mx-auto">
-        <p className="font-bold tracking-33 mb-4">LISTEN OR WATCH NEW EPISODES EVERY WEEK ON</p>
+        <p className="font-bold tracking-33 mb-4">
+          LISTEN OR WATCH NEW EPISODES THREE TIMES A WEEK ON:
+        </p>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           {PODCAST_PLATFORMS.map((item, idx) => (
             <LinkWrapper
               url={item.link}
               className="flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline"
-              key={idx}>
+              key={idx}
+              target="_blank">
               <Icon
                 name={item.icon}
                 type={item.iconType ?? 'brands'}
@@ -208,10 +214,10 @@ export default async function PodcastPage() {
         <div className="flex flex-col items-center gap-8 lg:flex-row">
           <div className="w-full lg:w-60">
             <Image
-              src="/images/Podcast/men-announcing.svg"
-              alt="Man announcing vector"
-              width={280}
-              height={144}
+              src="/images/PodcastFreebie/subconscious-reprogramming.jpg"
+              alt="Subconscious Reprogramming Workbook Mockup"
+              width={278}
+              height={309}
             />
           </div>
 
@@ -229,10 +235,10 @@ export default async function PodcastPage() {
         </div>
       </Section>
 
-      <CarouselTestimonialThinkific className="mt-16" />
+      <CarouselTestimonialThinkific className="mt-16" initialSlide={1} />
 
       <Section className="max-w-3xl mx-auto">
-        <h2 className="mb-8">Suggest a Topic Or A Guest Or Come on the Show</h2>
+        <h2 className="mb-8">Suggest a Topic Or A Guest Or Come on the Podcast</h2>
 
         <p className="mb-8">
           Have a topic or a guest in mind? Or do you want to come to the show? Let us know! Submit
@@ -250,8 +256,8 @@ export default async function PodcastPage() {
           <Image
             src="/images/Podcast/reddit.jpg"
             alt="Reddit Thread"
-            width={384}
-            height={250}
+            width={768}
+            height={500}
             className="w-full h-auto rounded-3xl object-cover"
           />
         </div>

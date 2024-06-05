@@ -1,19 +1,19 @@
-import Mixpanel from '@/modules/Mixpanel'
 import { IDefaultProps } from '..'
 import { Button } from '../Button/Button'
+import Mixpanel from '@/modules/Mixpanel'
 
 interface IPodcastListCTAProps extends IDefaultProps {
   id: number
+  spotifyId: string
   setCurrentVideoId: (id: number) => void
   setCurrentAudioId: (spotifyId: string) => void
-  spotifyId: string
 }
 
 export const PodcastListCTA = ({
   id,
+  spotifyId,
   setCurrentVideoId,
   setCurrentAudioId,
-  spotifyId,
 }: IPodcastListCTAProps) => {
   const _onClickVideo = () => {
     Mixpanel.track.VideoStarted({

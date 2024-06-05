@@ -68,43 +68,49 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
     <>
       <div className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:gap-8">
         <div className="w-full flex flex-col items-center gap-4 lg:w-max lg:flex-row lg:gap-8">
-          <select
-            ref={categoryRef}
-            name="podcastCategory"
-            className="w-full rounded-lg px-4 py-2 border border-[#6b7280] lg:w-max"
-            onChange={handleChange}>
-            <option value="all">All Categories</option>
+          <div className="w-full rounded-lg border border-[#6b7280] lg:w-max">
+            <select
+              ref={categoryRef}
+              name="podcastCategory"
+              className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
+              onChange={handleChange}>
+              <option value="all">All Categories</option>
 
-            {podcastCategories.map((item, idx) => (
-              <option key={idx} value={item.attributes.name}>
-                {item.attributes.name}
-              </option>
-            ))}
-          </select>
+              {podcastCategories.map((item, idx) => (
+                <option key={idx} value={item.attributes.name}>
+                  {item.attributes.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-          <select
-            ref={typeRef}
-            name="podcastType"
-            className="w-full rounded-lg px-4 py-2 border border-[#6b7280] lg:w-max"
-            onChange={handleChange}>
-            <option value="all">All Types</option>
+          <div className="w-full rounded-lg border border-[#6b7280] lg:w-max">
+            <select
+              ref={typeRef}
+              name="podcastType"
+              className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
+              onChange={handleChange}>
+              <option value="all">All Types</option>
 
-            {podcastTypes.map((item, idx) => (
-              <option key={idx} value={item.attributes.name}>
-                {item.attributes.name}
-              </option>
-            ))}
-          </select>
+              {podcastTypes.map((item, idx) => (
+                <option key={idx} value={item.attributes.name}>
+                  {item.attributes.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-          <select
-            ref={sortRef}
-            name="podcastSort"
-            className="w-full rounded-lg px-4 py-2 border border-[#6b7280] lg:w-max"
-            onChange={handleChange}>
-            <option value="desc">Newest to Oldest</option>
+          <div className="w-full rounded-lg border border-[#6b7280] lg:w-max">
+            <select
+              ref={sortRef}
+              name="podcastSort"
+              className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
+              onChange={handleChange}>
+              <option value="desc">Newest to Oldest</option>
 
-            <option value="asc">Oldest to Newest</option>
-          </select>
+              <option value="asc">Oldest to Newest</option>
+            </select>
+          </div>
         </div>
 
         <div className="w-full flex items-center rounded-full border border-solid border-[#6b7280] px-4 lg:w-72">
@@ -131,7 +137,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
             key={idx}
             className="w-full flex flex-col gap-4 border border-gray-light rounded-2xl p-4 lg:flex-row">
             <div className="w-full flex lg:w-64">
-              {currentVideoId === +item.id ? (
+              {currentVideoId === +item.attributes.epNo ? (
                 <iframe
                   allowFullScreen
                   className="w-full min-w-64 h-auto aspect-video rounded-xl lg:mr-4"
@@ -156,7 +162,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
 
             <div className="w-full flex flex-col flex-1 gap-4 text-left lg:pl-4">
               <p>
-                EP {item.id} - {item.attributes.releaseDate.replaceAll('-', '.')}{' '}
+                EP {item.attributes.epNo} - {item.attributes.releaseDate.replaceAll('-', '.')}{' '}
                 {item.attributes.guestName && (
                   <>
                     <span className="mx-2">—</span>
@@ -167,7 +173,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
               </p>
 
               <h2 className="!text-lg">
-                <Link href={`/podcast/${item.id}`}>
+                <Link href={`/podcast/${item.attributes.urlSlug}`}>
                   <strong>{item.attributes.title}</strong>
                 </Link>
               </h2>
@@ -177,14 +183,14 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
                   <Icon name="external-link" />
                 </span>
 
-                <Link className="underline font-bold" href={`/podcast/${item.id}`}>
+                <Link className="underline font-bold" href={`/podcast/${item.attributes.urlSlug}`}>
                   Read More
                 </Link>
               </p>
             </div>
 
             <PodcastListCTA
-              id={+item.id}
+              id={+item.attributes.epNo}
               setCurrentVideoId={setCurrentVideoId}
               setCurrentAudioId={setCurrentAudioId}
               spotifyId={item.attributes.spotifyId}

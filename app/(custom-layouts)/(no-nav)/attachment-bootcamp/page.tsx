@@ -379,7 +379,7 @@ export default function AttachmentBootcampPage() {
             </div>
 
             <div>
-              <p className="text-3xl font-bold">$1000</p>
+              <p className="text-3xl font-bold">$297</p>
               <p>as per industry averages*</p>
             </div>
 
@@ -674,7 +674,7 @@ export default function AttachmentBootcampPage() {
         <div className="max-w-2xl mx-auto">
           <p>
             *Pay $149 for the first 90 days. After 90 days, you’ll auto-renew to our All-Access Pass
-            – which gives you access to everything in the school – for $149 per quarter! That’s 25%
+            – which gives you access to everything in the school – for $149 per quarter! That’s 50%
             off the regular price. You can cancel at any time with no commitment.
           </p>
         </div>
@@ -757,7 +757,7 @@ export default function AttachmentBootcampPage() {
 const BootcampPriceCard = () => (
   <div className="bg-white rounded-3xl p-8">
     <p className="mb-8">
-      <span className="text-3xl line-through mr-4">$1000</span>
+      <span className="text-3xl line-through mr-4">$297</span>
 
       <span className="text-3xl font-bold mr-4">$149</span>
 

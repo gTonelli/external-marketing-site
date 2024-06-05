@@ -63,7 +63,7 @@ export default function AttachmentBootcampPage() {
             intimacy, and mutual respect by becoming securely attached!
             <br />
             <br />
-            <strong>Only for $149 – up to 85% off the total price!</strong>
+            <strong>Only for $149 – up to 50% off the total price!</strong>
           </p>
 
           <CheckoutButton track label="SIGN UP FOR BOOTCAMP" />
@@ -84,7 +84,7 @@ export default function AttachmentBootcampPage() {
             intimacy, and mutual respect by becoming securely attached!
             <br />
             <br />
-            <strong>Only for $149 – up to 85% off the total price!</strong>
+            <strong>Only for $149 – up to 50% off the total price!</strong>
           </p>
 
           <CheckoutButton track label="SIGN UP FOR BOOTCAMP" />
@@ -246,7 +246,7 @@ export default function AttachmentBootcampPage() {
           <br />
           *Pay $149 for the first 90 days. After 90 days, you’ll auto-renew to our All-Access Pass –
           which gives you access to everything in the school – for{' '}
-          <strong>$149 per quarter!</strong> That’s <strong>25% off</strong> the regular price. You
+          <strong>$149 per quarter!</strong> That’s <strong>50% off</strong> the regular price. You
           can cancel at any time with no commitment.
         </p>
 
@@ -380,12 +380,12 @@ export default function AttachmentBootcampPage() {
 
             <div>
               <p className="text-3xl font-bold">$1000</p>
-              <p>on average</p>
+              <p>as per industry averages*</p>
             </div>
 
             <div>
               <p className="text-3xl text-green-check font-bold">$149</p>
-              <p>Up to 85% off</p>
+              <p>Up to 50% off</p>
             </div>
           </div>
         </div>
@@ -397,7 +397,7 @@ export default function AttachmentBootcampPage() {
             <p>
               *Offer valid for a limited time only. Pay $149 for the first 90 days. After 90 days,
               you’ll auto-renew to our All-Access Pass – which gives you access to everything in the
-              school – for <strong>$149 per quarter!</strong> That’s <strong>25%</strong> off the
+              school – for <strong>$149 per quarter!</strong> That’s <strong>50%</strong> off the
               regular price. You can cancel at any time with no commitment.
             </p>
           </div>
@@ -764,7 +764,7 @@ const BootcampPriceCard = () => (
       <span>per quarter</span>
     </p>
 
-    <CheckoutButton track className="mb-8" label="PAY $149 & SAVE 85%" />
+    <CheckoutButton track className="mb-8" label="PAY $149 & SAVE 50%" />
 
     <div className="flex flex-wrap justify-around">
       <Icon name="cc-amex" type="brands" size="2x" />

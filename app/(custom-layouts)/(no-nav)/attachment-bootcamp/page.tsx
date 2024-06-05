@@ -379,7 +379,7 @@ export default function AttachmentBootcampPage() {
             </div>
 
             <div>
-              <p className="text-3xl font-bold">$297</p>
+              <p className="text-3xl font-bold">$1000</p>
               <p>as per industry averages*</p>
             </div>
 

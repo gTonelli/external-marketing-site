@@ -27,6 +27,8 @@ interface ICarouselTestimonialProps extends IDefaultProps {
   classNameSlide?: string
   /** Classnames for swiper wrapper */
   classNameSwiper?: string
+  /** index of slide where swiper starts (default 0) */
+  initialSlide?: number
   /**
    * Testimonials to show
    */
@@ -40,6 +42,7 @@ export const CarouselTestimonialThinkific = forwardRef(
       classNameCard,
       classNameSlide,
       classNameSwiper,
+      initialSlide = 0,
       testimonials = DEFAULT_TESTIMONIALS,
     }: ICarouselTestimonialProps,
     ref: React.Ref<HTMLDivElement>
@@ -57,6 +60,7 @@ export const CarouselTestimonialThinkific = forwardRef(
         <Swiper
           loop
           className={cx('!pb-12', classNameSwiper)}
+          initialSlide={initialSlide}
           modules={[Autoplay, Pagination]}
           pagination={{
             clickable: true,

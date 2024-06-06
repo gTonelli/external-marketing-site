@@ -72,7 +72,7 @@ const config: Config = {
         'grey-10': 'rgba(136, 138, 149, 0.1)', // same as above but  with 10% opacity
         'grey-primary': '#ECECEC',
         'grey-secondary': '#888A95',
-
+        'grey-border': '#6b7280',
         'grey-darker': '#CACCD6',
 
         orange: '#D35E4A',

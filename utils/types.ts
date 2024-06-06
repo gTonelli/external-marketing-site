@@ -66,8 +66,9 @@ export interface IStrapiFetchProps<T> {
   data: T
   meta: {
     pagination: {
-      start: number
-      limit: number
+      page: number
+      pageSize: number
+      pageCount: number
       total: number
     }
   }

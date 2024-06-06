@@ -67,7 +67,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
     <>
       <div className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:gap-8">
         <div className="w-full flex flex-col items-center gap-4 lg:w-max lg:flex-row lg:gap-8">
-          <div className="w-full rounded-lg border border-[#6b7280] lg:w-max">
+          <div className="w-full rounded-lg border border-grey-border lg:w-max">
             <select
               ref={categoryRef}
               name="podcastCategory"
@@ -83,7 +83,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
             </select>
           </div>
 
-          <div className="w-full rounded-lg border border-[#6b7280] lg:w-max">
+          <div className="w-full rounded-lg border border-grey-border lg:w-max">
             <select
               ref={typeRef}
               name="podcastType"
@@ -99,7 +99,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
             </select>
           </div>
 
-          <div className="w-full rounded-lg border border-[#6b7280] lg:w-max">
+          <div className="w-full rounded-lg border border-grey-border lg:w-max">
             <select
               ref={sortRef}
               name="podcastSort"
@@ -112,7 +112,7 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
           </div>
         </div>
 
-        <div className="w-full flex items-center rounded-full border border-solid border-[#6b7280] px-4 lg:w-72">
+        <div className="w-full flex items-center rounded-full border border-solid border-grey-border px-4 lg:w-72">
           <Icon name="magnifying-glass" />
 
           <input

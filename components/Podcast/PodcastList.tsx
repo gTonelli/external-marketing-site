@@ -5,7 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback, useRef, useState } from 'react'
 // components
-import { Button } from '@/components/Button/Button'
 import { Icon } from '@/components/Icon'
 import {
   IPodcast,

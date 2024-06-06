@@ -238,7 +238,7 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
           </div>
 
           <p className="font-bold mb-4">
-            Listen to the Thais Gibson Podcast thrice per week - every Monday, Thursday and
+            Listen to the Thais Gibson Podcast three times a week - every Monday, Thursday and
             Saturday.
           </p>
 

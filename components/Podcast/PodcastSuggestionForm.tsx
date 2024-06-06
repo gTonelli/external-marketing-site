@@ -121,7 +121,7 @@ export const PodcastSuggestionForm = ({
               required
               value={values.podcastRecommendation}
               name="podcastRecommendation"
-              className={`w-full rounded-lg px-4 py-2 border border-[#6b7280] ${
+              className={`w-full rounded-lg px-4 py-2 border border-grey-border ${
                 touched.podcastRecommendation && errors.podcastRecommendation && 'border-danger'
               }`}
               onChange={(e) => setFieldValue('podcastRecommendation', e.target.value.toString())}>
@@ -144,7 +144,7 @@ export const PodcastSuggestionForm = ({
             <textarea
               name="podcastSuggestion"
               value={values.podcastSuggestion}
-              className="w-full rounded-lg px-4 py-2 border border-[#6b7280] mb-4"
+              className="w-full rounded-lg px-4 py-2 border border-grey-border mb-4"
               rows={4}
               placeholder="Enter your suggestion here..."
               onChange={handleChange}

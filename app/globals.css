@@ -87,6 +87,17 @@ a {
   animation-direction: reverse !important;
 }
 
+select:required:invalid {
+  color: gray;
+}
+option[value=''][disabled] {
+  display: none;
+}
+
+option {
+  @apply text-black;
+}
+
 /* ======================================== */
 
 /*                   FONTS                  */

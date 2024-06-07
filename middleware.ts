@@ -105,7 +105,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     { regex: /^\/quiz\/ap(\/|$)/, config: splitTestConfigs.apTest },
     { regex: /^\/quiz\/da(\/|$)/, config: splitTestConfigs.daTest },
     { regex: /^\/quiz\/sa(\/|$)/, config: splitTestConfigs.saTest },
-    { regex: /^\/quiz\/results\/fa(\/|$)/, config: splitTestConfigs.faTest },
     { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest },
   ]
 
@@ -186,7 +185,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'vsl-ap',
     experimentName: 'GM-1065-AP-Video-Header',
     variantUrl: { path: '/quiz/versions/ap' },
-    variantRatio: 0.2,
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
   daTest: {
@@ -194,14 +193,6 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'vsl-da',
     experimentName: 'GM-1065-DA-Video-Header',
     variantUrl: { path: '/quiz/versions/da' },
-    variantRatio: 0.2,
-    forceControlOnNewUser: false,
-  },
-  faTest: {
-    cookieKey: 'gm-1055-video-header',
-    pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1055-Video-Header',
-    variantUrl: { path: '/quiz/results/fa/v2' },
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
@@ -210,7 +201,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'vsl-sa',
     experimentName: 'GM-1065-SA-Video-Header',
     variantUrl: { path: '/quiz/versions/sa' },
-    variantRatio: 0.2,
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
   checkoutTest: {

@@ -32,32 +32,40 @@ export default function RoyalRumbleResultsPage() {
       <section className="w-full">
         <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
         <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
-          <AttachmentQuizHeading />
+          <AttachmentQuizHeading
+            copy={RESULTS[style].HERO_SECTION_VARIANT.headline}
+            className="!font-ssp !text-3xl capitalize"
+          />
 
-          <p className="max-w-3xl uppercase font-bold !tracking-0.325 mt-8 mb-8 md:mb-10">
-            {RESULTS[style].HERO_SECTION.subheadline}
+          <p className="max-w-3xl uppercase font-bold my-4">
+            {RESULTS[style].HERO_SECTION_VARIANT.subheadline}
           </p>
 
           {/* BANNER BACKGROUND */}
-          <div className="max-w-5xl w-full my-8">
-            <div className="flex flex-col md:flex-row-reverse md:px-8">
+          <div className="max-w-5xl w-full md:my-8">
+            <div className="flex flex-col md:flex-row justify-center items-center space-x-6 md:px-8">
               <div>
                 <VideoThumbnail
                   srcUrl={RESULTS[style].HERO_SECTION.videoURL}
                   thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
                   thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                   type="default"
+                  variantVideoData={{
+                    key: "GM-1060-FA-Video",
+                    videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
+                    splitRatio: 0.5
+                  }}
                 />
               </div>
 
-              <div className="m-4 p-2 md:text-left md:w-1/2">
-                <h2 className="text-purple-dark text-2xl">{RESULTS[style].HERO_SECTION.title}</h2>
+              <div className="m-4 md:text-left md:w-1/2">
+                <h2 className="text-purple-dark !text-3xl hidden md:block">{RESULTS[style].HERO_SECTION.title}</h2>
 
-                <p className="font-bold mt-4">
-                  Congratulations on taking the Attachment Style Quiz!
-                </p>
+                <p className="mt-4 hidden md:block">{RESULTS[style].HERO_SECTION_VARIANT.copy}</p>
 
-                <p className="mt-4">{RESULTS[style].HERO_SECTION.copy}</p>
+                <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">{RESULTS[style].HERO_SECTION.title}</h2>
+
+                <p className="mt-4 md:hidden">{RESULTS[style].HERO_SECTION_VARIANT.copy}</p>
               </div>
             </div>
           </div>

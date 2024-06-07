@@ -49,6 +49,7 @@ export type TZIndexValues =
 export type TVariantVideoData = {
   key: string
   videoId: string
+  splitRatio?: number
 }
 
 export interface IStrapiThumbnail {

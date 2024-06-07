@@ -52,8 +52,7 @@ export default function RoyalRumbleResultsPage() {
                   type="default"
                   variantVideoData={{
                     key: "GM-1060-FA-Video",
-                    videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
-                    splitRatio: 0.5
+                    videoId: RESULTS[style].HERO_SECTION.videoURLVariant
                   }}
                 />
               </div>

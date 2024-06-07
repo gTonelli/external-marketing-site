@@ -90,6 +90,7 @@ export enum ERoutes {
   LIFE_TIME_PAGE = '/lifetime',
   MARKETING_QUIZ_B = '/quiz/b',
   MENTAL_HEALTH_AWARENESS_PAGE = '/mha-month',
+  PODCAST = '/podcast',
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
@@ -105,6 +106,7 @@ export enum ERoutes {
 export enum EExternalRoutes {
   // External
   ABOUT = 'https://university.personaldevelopmentschool.com/pages/about',
+  ATTACHMENT_BOOTCAMP = 'https://university.personaldevelopmentschool.com/pages/attachment-bootcamp',
   BLOG = 'https://blog.personaldevelopmentschool.com/',
   COLLECTIONS = 'https://university.personaldevelopmentschool.com/collections',
   FAQ = 'https://university.personaldevelopmentschool.com/pages/faq',
@@ -150,8 +152,10 @@ export enum EExternalRoutes {
   INSTAGRAM = 'https://www.instagram.com/thepersonaldevelopmentschool',
   IOS_APP = 'https://apps.apple.com/us/app/personal-development-school/id6459618663',
   PODCASTS = 'https://podcasts.apple.com/us/podcast/personal-development-school/id1478580185',
+  PRESS_AND_MEDIA = 'https://university.personaldevelopmentschool.com/pages/press-and-media',
   PRIVACY = 'https://university.personaldevelopmentschool.com/pages/privacy',
   SUPPORT = 'info@personaldevelopmentschool.com',
+  SUPPORT_PAGE = 'https://support.personaldevelopmentschool.com/en/',
   TERMS = 'https://university.personaldevelopmentschool.com/pages/terms',
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',

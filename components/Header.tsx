@@ -225,6 +225,10 @@ export const PDSDefaultNavLinks = [
     text: 'View Courses',
   },
   {
+    link: EExternalRoutes.ATTACHMENT_BOOTCAMP,
+    text: 'Bootcamp',
+  },
+  {
     link: ERoutes.IAT_SALES_PAGE,
     text: 'Certification',
   },
@@ -236,6 +240,11 @@ export const PDSDefaultNavLinks = [
     link: ERoutes.LEARNING_LOVE_PAGE,
     text: 'Book',
   },
+  {
+    link: ERoutes.PODCAST,
+    text: 'Podcast',
+  },
+
   {
     link: EExternalRoutes.ABOUT,
     text: 'About',

@@ -165,7 +165,7 @@ export const REPORT_COPY = {
   ap: {
     banner: {
       style: 'Anxious Preoccupied',
-      video: 'https://storage.googleapis.com/pds_videos/FA_pdf_50.mp4',
+      video: 'https://storage.googleapis.com/pds_videos/AP_pdf_50.mp4',
       vector: 'couple-vector-ap.svg',
     },
     copy1: {
@@ -322,7 +322,7 @@ export const REPORT_COPY = {
   da: {
     banner: {
       style: 'Dismissive Avoidant',
-      video: 'https://storage.googleapis.com/pds_videos/FA_pdf_50.mp4',
+      video: 'https://storage.googleapis.com/pds_videos/DA_pdf_50.mp4',
       vector: 'couple-vector-da.svg',
     },
     copy1: {
@@ -478,7 +478,7 @@ export const REPORT_COPY = {
   sa: {
     banner: {
       style: 'Secure Attached',
-      video: 'https://storage.googleapis.com/pds_videos/FA_pdf_50.mp4',
+      video: 'https://storage.googleapis.com/pds_videos/SA_pdf_50.mp4',
       vector: 'couple-vector-sa.svg',
     },
     copy1: {

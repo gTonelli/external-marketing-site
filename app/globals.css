@@ -370,7 +370,6 @@ option {
 .trial-text-stroke {
   color: #ffc123;
   -webkit-text-fill-color: #ffc123; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: #3f2a96;
 }
 

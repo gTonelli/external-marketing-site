@@ -3,6 +3,7 @@ import mixpanel, { Dict } from 'mixpanel-browser'
 
 /* Collection of all Mixpanel event names tracked throughout the app */
 type Events =
+  | 'Audio Started'
   | 'Button Clicked'
   | 'Checkout Step Started'
   | 'Course Filterd'
@@ -40,6 +41,7 @@ export type Pages =
   | `7 Day Trial + 50% off first month`
   | `7 Days Trial Page Funnel - FA`
   | `7-Day Trial Page (Variant)`
+  | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
   | `Attachment Style Report New - ${string}`
@@ -80,6 +82,8 @@ export type Pages =
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `Podcast Page`
+  | `Podcast Episode Page - ${string}`
   | `Podcast Freebie`
   | `Site Links`
   | `Speaker Gift`
@@ -151,6 +155,13 @@ class Mixpanel {
   }
 
   track = {
+    AudioStarted: (props: { audio_type: string; page_name?: Pages }) => {
+      this.event('Audio Started', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
     ButtonClicked: (props: {
       button_label?: string
       page_name?: Pages
@@ -247,12 +258,12 @@ class Mixpanel {
       })
     },
 
-    VideoProgress: (props: {progress: number; page_name?: Pages; video_type: string}) => {
-      this.event('Video Progress',  {
+    VideoProgress: (props: { progress: number; page_name?: Pages; video_type: string }) => {
+      this.event('Video Progress', {
         ...props,
         page_name: props.page_name || window.location.pathname,
       })
-    }
+    },
   }
 }
 

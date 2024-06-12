@@ -1,4 +1,5 @@
 // components
+import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { CountdownTimer } from '@/components/CountDownTimer'
@@ -6,7 +7,6 @@ import { Icon } from '@/components/Icon'
 import Image from 'next/image'
 import { List } from '@/components/List'
 import { Page } from '@/components/Page'
-import { ResultsPageHeader } from '@/components/ResultsPageHeader'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoDefault } from '@/components/Video/variants/VideoDefault'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
@@ -31,7 +31,44 @@ export default function RoyalRumbleResultsPage() {
       {/* HERO_SECTION */}
       <section className="w-full">
         <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
-          <ResultsPageHeader />
+        <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
+          <AttachmentQuizHeading
+            copy={RESULTS[style].HERO_SECTION.headline}
+            className="!font-ssp !text-3xl capitalize"
+          />
+
+          <p className="max-w-3xl uppercase font-bold my-4">
+            {RESULTS[style].HERO_SECTION.subheadline}
+          </p>
+
+          {/* BANNER BACKGROUND */}
+          <div className="max-w-5xl w-full md:my-8">
+            <div className="flex flex-col md:flex-row justify-center items-center space-x-6 md:px-8">
+              <div>
+                <VideoThumbnail
+                  srcUrl={RESULTS[style].HERO_SECTION.videoURL}
+                  thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
+                  thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
+                  type="default"
+                  variantVideoData={{
+                    key: "GM-1060-FA-Video",
+                    videoId: RESULTS[style].HERO_SECTION.videoURLVariant
+                  }}
+                />
+              </div>
+
+              <div className="m-4 md:text-left md:w-1/2">
+                <h2 className="text-purple-dark !text-3xl hidden md:block">{RESULTS[style].HERO_SECTION.title}</h2>
+
+                <p className="mt-4 hidden md:block">{RESULTS[style].HERO_SECTION.copy}</p>
+
+                <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">{RESULTS[style].HERO_SECTION.title}</h2>
+
+                <p className="mt-4 md:hidden">{RESULTS[style].HERO_SECTION.copy}</p>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       </section>
 

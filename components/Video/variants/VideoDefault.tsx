@@ -123,7 +123,8 @@ export const VideoDefault = ({
       variantVideoData.key.toLowerCase() as TStorageKeys
     )
     if (showVariant === null) {
-      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+      const splitRatio = variantVideoData.splitRatio ?? 0.2
+      showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < splitRatio
       Storage.set(variantVideoData.key.toLowerCase() as TStorageKeys, showVariant)
       Mixpanel.track.ExperimentStarted({
         'Experiment name': variantVideoData.key,
@@ -143,6 +144,7 @@ export const VideoDefault = ({
           isShown={isDialogShown}
           onToggle={onToggleDialog}>
           <VideoPlayer
+            autoPlay
             trackable
             ref={videoEl}
             controls

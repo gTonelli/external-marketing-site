@@ -2,18 +2,12 @@ export const RESULTS = {
   fa: {
     HERO_SECTION: {
       headline:
-        'ARE YOU READY TO FEEL CONNECTED AND EMPOWERED IN YOUR LOVE LIFE - WITHOUT THE CONFLICT AND STRESS?',
-      subheadline: `Learn Your Relationship Patterns - And They're Shockingly Accurate!`,
+        'Are you ready to start having the best relationships of your life?',
+      subheadline: `The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
       videoURLVariant: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Variant.mp4',
       title: 'Who Is The Fearful Avoidant?',
-      copy: "You have a Fearful Avoidant attachment style, and in the next few minutes, I'm going to reveal what this means.",
-    },
-    HERO_SECTION_VARIANT: {
-      headline: 'Are you ready to start having the best relationships of your life?',
-      subheadline: 'The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!',
-      copy: 'While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.',
-      offer: 'Get 30% off a month for our All-Access Pass. Available for a limited time.'
+      copy: "While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.",
     },
     STYLE_TRAITS: {
       bullets_left: [

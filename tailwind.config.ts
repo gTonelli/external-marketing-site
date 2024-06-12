@@ -63,6 +63,7 @@ const config: Config = {
         'grey-4': '#ECEAEB',
         'grey-5': '#7D7B84',
         'grey-6': '#9D9D9D',
+        'grey-7': '#DEEAEA',
         'gray-light': '#F5F4FB',
         'gray-lightest': '#F5F5F5',
         'gray-dark': '#BFBFBF',
@@ -71,7 +72,7 @@ const config: Config = {
         'grey-10': 'rgba(136, 138, 149, 0.1)', // same as above but  with 10% opacity
         'grey-primary': '#ECECEC',
         'grey-secondary': '#888A95',
-
+        'grey-border': '#6b7280',
         'grey-darker': '#CACCD6',
 
         orange: '#D35E4A',

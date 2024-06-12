@@ -17,10 +17,6 @@ import cx from 'classnames'
 import { ROYAL_RUMBLE } from './config'
 import { TStyle } from '@/utils/types'
 
-export interface IAttachmentStylePageParams {
-  style: TStyle
-}
-
 type TParams = { params: { style: TStyle } }
 
 export async function generateMetadata({ params }: TParams) {
@@ -91,7 +87,7 @@ export default function RoyalRumble({ params }: TParams) {
 
           <div className="max-w-5xl mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
             <div className="text-left">
-              <p className="font-effra font-bold uppercase tracking-0.325 md:text-lg">
+              <p className="font-effra font-bold tracking-0.325 md:text-lg">
                 {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
               </p>
 
@@ -155,7 +151,7 @@ export default function RoyalRumble({ params }: TParams) {
                           {content.title}
                         </p>
                       </div>
-                      <p className="max-w-[415px] font-effra md:text-lg mt-2 text-left ml-6">
+                      <p className="max-w-106 font-effra md:text-lg mt-2 text-left ml-6">
                         {content.copy}
                       </p>
                     </div>
@@ -174,12 +170,12 @@ export default function RoyalRumble({ params }: TParams) {
               {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadlineMobile.map((copy, index) => (
                 <p
                   key={`familiar_segment_copy_${index}`}
-                  className="font-sspb capitalize font-bold mt-4 md:hidden md:text-lg">
+                  className="font-sspb font-bold mt-4 md:hidden md:text-lg">
                   {copy}
                 </p>
               ))}
 
-              <p className="md:text-lg capitalize hidden font-bold md:block">
+              <p className="md:text-lg hidden font-bold md:block">
                 {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadline}
               </p>
 
@@ -320,12 +316,12 @@ export default function RoyalRumble({ params }: TParams) {
           </div>
 
           <div className="mt-8 md:mt-10 text-left">
-            <p className="md:text-lg font-bold font-effra text-white uppercase tracking-0.325">
+            <p className="md:text-lg font-bold text-white uppercase tracking-0.325">
               program overview
             </p>
 
             {ROYAL_RUMBLE[style].GAINACCESS_SEGMENT.map((copy, index) => (
-              <p key={`gain_access_${index}`} className="md:text-lg font-effra mt-4 text-white">
+              <p key={`gain_access_${index}`} className="md:text-lg mt-4 text-white">
                 {copy}
               </p>
             ))}
@@ -382,7 +378,7 @@ export default function RoyalRumble({ params }: TParams) {
       {/*LEARN HOWTO SECTION */}
       <section className="w-full">
         <Image
-          alt="A ffull width image of 5 mockups of PDS courses, products, quizzes and social events."
+          alt="A full width image of 5 mockups of PDS courses, products, quizzes and social events."
           className="w-full"
           src="/images/RoyalRumblePage/royal-rumble-mockup.png"
           width={425}
@@ -390,7 +386,7 @@ export default function RoyalRumble({ params }: TParams) {
           sizes="100vw"
         />
 
-        <div className="bg-[#DEEAEA] pb-14 md:pb-20">
+        <div className="bg-grey-7 pb-14 md:pb-20">
           <div className="max-w-[1024px] mx-4 md:mx-auto inset-0 pt-14 md:pt-0">
             <h2 className="capitalize text-h3-mobile">You will learn how to:</h2>
 
@@ -400,7 +396,7 @@ export default function RoyalRumble({ params }: TParams) {
 
                 return (
                   <div key={`learn_${index}`} className="mb-8 md:mb-10">
-                    <div className="flex row max-w-[677px] items-center md:mx-auto mx-4 justify-between space-x-5 md:space-[107px]">
+                    <div className="flex row max-w-2xl items-center md:mx-auto mx-4 justify-between space-x-5 md:space-[107px]">
                       <div className="w-full max-w-96">
                         <Image
                           alt={image.alt}
@@ -629,7 +625,7 @@ export default function RoyalRumble({ params }: TParams) {
       {/* REGISTER NOW SECTION */}
       <section className="w-full mt-20 md:mt-32">
         <div className="bg-gradient-to-b from-blue-lightest/50 to-primary-light/50 py-10 md:py-20">
-          <div className="max-w-[1024px] mx-4 md:mx-auto">
+          <div className="max-w-5xl mx-4 md:mx-auto">
             <h2 className="capitalize text-2xl text-primary">
               {style !== 'sa'
                 ? `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} to Secure Attachment Program`

@@ -94,9 +94,12 @@ export enum ERoutes {
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
 
-  // Stripe Checkout
+  // Stripe Embedded Checkout
   STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthly?discount_id=30off',
   STRIPE_CHECKOUT_39_FIRST_MONTH = '/checkout/67monthly?discount_id=28off1mo',
+
+  // Custom Checkout on Thinkific
+  CHECKOUT_ATTACHMENT_BOOTCAMP = '/checkout/v2?product_id=2996140&price_id=3853225&coupon=148off',
 }
 
 export enum EExternalRoutes {
@@ -127,10 +130,10 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
   // IAT Spring 2024
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713788&coupon=iatbundleupfrontlive',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713854&coupon=iatbundle3molive',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713855&coupon=iatbundle6molive',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713857&coupon=iatbundle12molive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871049&coupon=iatbundleupfrontlive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871126&coupon=iatbundle3molive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871125&coupon=iatbundle6molive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871124&coupon=iatbundle12molive',
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',

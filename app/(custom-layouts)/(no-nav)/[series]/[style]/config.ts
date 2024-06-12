@@ -111,7 +111,7 @@ export const FA_EMAIL_RESULTS = {
         text_end: 'Here’s Why…',
       },
       body: 'This video gives a detailed breakdown of the key components of each of the four attachment styles, including their childhood and adult behaviors, thoughts, and beliefs. You’ll learn more about your fearful attachment style and how it interacts with others.',
-      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/FA_email2_60.mp4',
       cardText:
         'You have the opportunity to learn how your attachment style affects your life and relationships – and how you can change it – with our All-Access Pass.',
     },
@@ -124,7 +124,7 @@ export const FA_EMAIL_RESULTS = {
         text_end: '',
       },
       body: 'Watch this video to get your answers! I talk about the 8 major signs, including intense behavior patterns, swinging boundaries, and more, that indicate if you or your partner (or friend, family member) is a fearful avoidant.',
-      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/FA_email3_60.mp4',
       cardText:
         'Our accessible & affordable courses provide the tools and strategies to change your fearful avoidant patterns, thoughts, and beliefs. Just sign up for our All-Access Pass.',
     },
@@ -137,7 +137,7 @@ export const FA_EMAIL_RESULTS = {
         text_end: 'Watch to learn more.',
       },
       body: "Knowing your subconscious needs can improve your relationships in leaps and bounds. This video explains your fearful avoidant's emotional and romantic needs, how they come from things you missed out on in childhood, and how they will help you in relationships.",
-      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/FA_email4_60.mp4',
       cardText:
         'Our All-Access Pass is the platform that gives you the tools, extensive knowledge, and supportive community to help you meet your personal and relationship needs.',
     },
@@ -150,7 +150,7 @@ export const FA_EMAIL_RESULTS = {
         text_end: '',
       },
       body: 'In this short video, I take a deep dive into the core wounds, emotions, boundaries, and needs of your fearful avoidant attachment style and how they’re holding you back from finding and embracing the loving, valued, and open relationship you desire.',
-      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/FA_email5_60.mp4',
       cardText:
         'Do you want to learn to finally overcome your fears of abandonment, betrayal, and feeling unloved or trapped? Our All-Access Pass gives you everything you need.',
     },
@@ -163,7 +163,7 @@ export const FA_EMAIL_RESULTS = {
         text_end: '',
       },
       body: 'It’s all about using the power of subconscious reprogramming (reconditioning) to heal your fearful avoidant style. I’ll walk through one of our most powerful tools, step-by-step, uncovering the roadblocks and how to use it to become securely attached. It’s a toolbox you can use for life!',
-      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/FA_email6_60.mp4',
       cardText:
         'Our All-Access Pass offers the eye-opening and life-changing opportunity to learn more subconscious reprogramming tools to help you become securely attached.',
     },
@@ -176,7 +176,7 @@ export const FA_EMAIL_RESULTS = {
         text_end: 'Here’s The 3 Key Ways You Can Start Heal Yourself.',
       },
       body: "What’s internal trust? Where do your trust wounds come from? Most importantly, how do you repair them? I explain three key ways you can repair your trust wounds in this short video. This might get uncomfortable, but it means you're actually healing!",
-      videoUrlID: 'https://storage.googleapis.com/pds_videos/NeedsFA_AttachmentStyleSeries.mp4',
+      videoUrlID: 'https://storage.googleapis.com/pds_videos/FA_email7_60.mp4',
       cardText:
         'Why stop healing your trust wounds? Go deeper with our All-Access Pass. We’ll teach you how to create the life and relationships you desire.',
     },

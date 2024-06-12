@@ -1,15 +1,15 @@
 // components
-import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Page } from '@/components/Page'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { Button } from '@/components/Button/Button'
 // config
 import { EMAIL_RESULTS as SERIES_BELIEFS_RESULTS, FA_EMAIL_RESULTS } from './config'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { TStyle } from '@/utils/types'
-import { CheckoutButton } from '@/components/CheckoutButton'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { EExternalRoutes } from '@/utils/constants'
 
 export type TSeriesParam =
   | 'needs'
@@ -72,19 +72,6 @@ export default function AttachmentStyleNeedsBeliefsPage({
   const EMAIL_RESULTS: IEmailResults =
     seriesParam === 'needs' || seriesParam === 'beliefs' ? SERIES_BELIEFS_RESULTS : FA_EMAIL_RESULTS
 
-  // // ================== Events =====================
-  // const onGoToCheckout = useCallback(
-  //   (event: React.MouseEvent<Element, MouseEvent>) => {
-  //     Mixpanel.track.ButtonClicked({
-  //       button_label: (event.target as HTMLButtonElement).innerText,
-  //       page_name: pageName,
-  //     })
-
-  //     window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
-  //   },
-  //   [pageName]
-  // )
-
   return (
     <Page page_name={pageName}>
       <div className="flex flex-col h-full items-start px-4 lg:flex-row lg:px-8 lg:space-x-16 lg:my-16 ">
@@ -131,8 +118,12 @@ export default function AttachmentStyleNeedsBeliefsPage({
                 </p>
               )}
 
-              <div className="flex justify-center">
-                <CheckoutButton track label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`} />
+              <div className="flex justify-center mt-4">
+                <Button
+                  track
+                  link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
+                />
               </div>
             </div>
           </div>

@@ -19,6 +19,13 @@ import qs from 'qs'
 import './style.css'
 // utils
 import { IStrapiThumbnail, IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
+import { Metadata } from 'next'
+
+type Props = {
+  searchParams: {
+    page: number
+  }
+}
 
 export interface IPodcast {
   epNo: string
@@ -73,16 +80,6 @@ export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   },
 ]
 
-const FETCH_PODCASTS_QUERY = qs.stringify({
-  fields: ['epNo', 'title', 'youtubeId', 'spotifyId', 'releaseDate', 'guestName', 'urlSlug'],
-  populate: ['thumbnail'],
-  sort: 'releaseDate:desc',
-  pagination: {
-    page: 1,
-    pageSize: 5,
-  },
-})
-
 const FETCH_FEATURED_PODCAST_QUERY = qs.stringify({
   fields: ['youtubeId'],
   populate: ['thumbnail'],
@@ -94,21 +91,6 @@ const FETCH_FEATURED_PODCAST_QUERY = qs.stringify({
     limit: 1,
   },
 })
-
-async function fetchPodcasts(): Promise<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>> {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY}`,
-      {
-        next: { tags: ['podcasts'], revalidate: 86400 },
-      }
-    )
-    const res = await response.json()
-    return res
-  } catch (error) {
-    throw error
-  }
-}
 
 async function fetchFeaturedPodcast(): Promise<IStrapiResponse<IPodcast>> {
   try {
@@ -149,8 +131,41 @@ async function fetchPodcastTypes(): Promise<IStrapiResponse<IPodcastType>[]> {
   }
 }
 
-export default async function PodcastPage() {
-  const podcastsData = await fetchPodcasts()
+export async function generateMetadata({ searchParams: { page } }: Props): Promise<Metadata> {
+  const baseUrl = 'https://attachment.personaldevelopmentschool.com/podcast'
+
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id&pagination[pageSize]=1`,
+    {
+      next: { tags: ['podcasts'], revalidate: 86400 },
+    }
+  )
+  const res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await response.json()
+  const lastPage = Math.ceil(res.meta.pagination.total / 5)
+  let otherMetaData: { rel: 'prev' | 'next'; url: string }[] = []
+  if (page) {
+    if (+page === 2) otherMetaData.push({ rel: 'prev', url: `${baseUrl}` })
+    else otherMetaData.push({ rel: 'prev', url: `${baseUrl}?page=${+page - 1}` })
+    if (+page !== lastPage) otherMetaData.push({ rel: 'next', url: `${baseUrl}?page=${+page + 1}` })
+  } else otherMetaData.push({ rel: 'next', url: `${baseUrl}?page=2` })
+
+  const metadata: Metadata = {
+    metadataBase: new URL(baseUrl),
+    title: 'Listen to The Thais Gibson Podcast',
+    description:
+      'Experience personal growth with The Thais Gibson Podcast. Episodes are available on all popular podcast platforms three times a week.',
+    robots: 'all',
+    alternates: {
+      canonical: '/',
+    },
+    icons: {
+      other: otherMetaData,
+    },
+  }
+  return metadata
+}
+
+export default async function PodcastPage({ searchParams: { page } }: Props) {
   const featuredPodcast = await fetchFeaturedPodcast()
   const podcastCategories = await fetchPodcastCategories()
   const podcastTypes = await fetchPodcastTypes()
@@ -165,13 +180,14 @@ export default async function PodcastPage() {
         <div className="bg-hero-mobile lg:hidden" />
 
         <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
-          <p className="font-bold tracking-33 mb-4">THE THAIS GIBSON PODCAST</p>
+          <p className="font-bold tracking-33 mb-4">INNER STRENGTH WITH THAIS GIBSON</p>
 
-          <h1 className="mb-4">Inner Strength with Thais Gibson</h1>
+          <h1 className="mb-4">The Thais Gibson Podcast</h1>
 
           <p className="mb-8">
-            Discover new paths to personal growth through attachment exploration, enriched by the
-            perspectives of Thais' guests.
+            Discover new paths, concepts, and approaches to personal and relationship growth through
+            Q&As, inspiring stories, exclusive strategies, and special interviews with prominent
+            guests, on The Thais Gibson Podcast.
           </p>
         </div>
       </Section>
@@ -204,7 +220,7 @@ export default async function PodcastPage() {
 
       <Section className="max-w-6xl mx-auto" classNameInner="!w-full !max-w-full !m-0">
         <PodcastList
-          podcasts={podcastsData}
+          page={page}
           podcastCategories={podcastCategories}
           podcastTypes={podcastTypes}
         />
@@ -225,9 +241,9 @@ export default async function PodcastPage() {
             <h2 className="mb-4">Be the First to Hear Our Freebie Episode!</h2>
 
             <p className="mb-4">
-              Stay updated with the latest episodes! Enter your email below and hit subscribe -
-              Don't miss out on our latest episodes, exclusive content, and special offers. Sign up
-              now to stay in the loop and be part of our growing community.
+              Enter your email below and hit submit so you don't miss out on the latest episodes,
+              exclusive content, and special offers. Sign up now to stay in the loop and be part of
+              our growing community.
             </p>
 
             <PodcastFreebieForm />
@@ -238,12 +254,14 @@ export default async function PodcastPage() {
       <CarouselTestimonialThinkific className="mt-16" initialSlide={1} />
 
       <Section className="max-w-3xl mx-auto">
-        <h2 className="mb-8">Suggest a Topic Or A Guest Or Come on the Podcast</h2>
+        <h2 className="mb-8">
+          Suggest a Captivating Topic, an Engaging Guest, or Appear on the Podcast
+        </h2>
 
         <p className="mb-8">
-          Have a topic or a guest in mind? Or do you want to come to the show? Let us know! Submit
-          your suggestions here - We value your input and want to hear what topics you're interested
-          in exploring. Share your ideas with us, and we'll consider them for future episodes.
+          Have a topic or a guest in mind? Or do you want to come on the podcast? Let us know! We
+          want to hear what topics you're interested in exploring, so submit your suggestions, and
+          we'll consider them for future episodes.
         </p>
 
         <PodcastSuggestionForm submitButtonLabel="SUBMIT REQUEST" />
@@ -266,11 +284,11 @@ export default async function PodcastPage() {
           <h2 className="mb-4">r/CanThisBeFixed</h2>
 
           <p className="mb-4">
-            Are you struggling with a repeating pattern in your life? Whether you can never stick to
-            your fitness routine or you end up sabotaging your relationships, tell us what you’re
-            looking to change and we’ll tell you how with science-backed solutions. Answers are
-            provided by members and featured on The Thais Gibson Podcast, where personal development
-            leader Thais herself will give you valuable feedback on your situation.
+            Whether you can never stick to your fitness routine, end up sabotaging your
+            relationships, or need advice on transforming your life, submit your questions via our
+            Reddit Subthread, and they might be featured on The Thais Gibson Podcast. Personal
+            development leader Thais Gibson herself will give you valuable feedback on your
+            situation with science-backed solutions.
           </p>
 
           <Link

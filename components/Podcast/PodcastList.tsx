@@ -3,7 +3,7 @@
 // core
 import Image from 'next/image'
 import Link from 'next/link'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 // components
 import { Icon } from '@/components/Icon'
 import {
@@ -13,24 +13,57 @@ import {
 } from '../../app/(custom-layouts)/(no-nav)/podcast/page'
 // libraries
 import _ from 'lodash'
+import qs from 'qs'
 // utils
 import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 import { PodcastListCTA } from './PodcastListCTA'
+import { PodcastPagination } from './PodcastPagination'
 
 interface IPodcastListProps {
-  podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>
+  page: number
   podcastCategories: IStrapiResponse<IPodcastCategory>[]
   podcastTypes: IStrapiResponse<IPodcastType>[]
 }
 
-export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodcastListProps) => {
+const FETCH_PODCASTS_QUERY = (page: number) =>
+  qs.stringify({
+    fields: ['epNo', 'title', 'youtubeId', 'spotifyId', 'releaseDate', 'guestName', 'urlSlug'],
+    populate: ['thumbnail'],
+    sort: 'releaseDate:desc',
+    pagination: {
+      page,
+      pageSize: 5,
+    },
+  })
+
+export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastListProps) => {
   const [currentVideoId, setCurrentVideoId] = useState(-1)
   const [currentAudioId, setCurrentAudioId] = useState('')
-  const [podcastsList, setPodcastsList] = useState(podcasts)
+  const [podcastsList, setPodcastsList] = useState<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>>()
   const categoryRef = useRef<HTMLSelectElement>(null)
   const typeRef = useRef<HTMLSelectElement>(null)
   const sortRef = useRef<HTMLSelectElement>(null)
   const searchRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    async function fetchPodcasts(
+      page: number = 1
+    ): Promise<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>> {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY(page)}`,
+          {
+            next: { tags: ['podcasts'], revalidate: 86400 },
+          }
+        )
+        const res = await response.json()
+        return res
+      } catch (error) {
+        throw error
+      }
+    }
+    fetchPodcasts(page).then((response) => setPodcastsList(response))
+  }, [page])
 
   const constructQuery = useCallback(
     (page: number = 1) => {
@@ -127,75 +160,89 @@ export const PodcastList = ({ podcasts, podcastCategories, podcastTypes }: IPodc
       </div>
 
       <div className="flex flex-col gap-8 my-8">
-        {!podcastsList.data.length && (
-          <p className="text-left">Your search does not match any results.</p>
-        )}
+        {!podcastsList ||
+          (!podcastsList.data.length && (
+            <p className="text-left">Your search does not match any results.</p>
+          ))}
 
-        {podcastsList.data.map((item, idx) => (
-          <div
-            key={idx}
-            className="w-full flex flex-col gap-4 border border-gray-light rounded-2xl p-4 lg:flex-row">
-            <div className="w-full flex lg:w-64">
-              {currentVideoId === +item.attributes.epNo ? (
-                <iframe
-                  allowFullScreen
-                  className="w-full min-w-64 h-auto aspect-video rounded-xl lg:mr-4"
-                  width="100%"
-                  src={`https://www.youtube.com/embed/${item.attributes.youtubeId}?autoplay=1`}
-                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                />
-              ) : (
-                <Image
-                  src={item.attributes.thumbnail.data.attributes.url}
-                  alt={
-                    item.attributes.thumbnail.data.attributes.alternativeText || 'Video Thumbnail'
-                  }
-                  width={240}
-                  height={140}
-                  className="min-w-64 w-full h-auto rounded-xl lg:mr-4"
-                />
-              )}
-              <div className="w-4 h-full border-r-2 border-gray-light hidden lg:block" />
-            </div>
-
-            <div className="w-full flex flex-col flex-1 gap-4 text-left lg:pl-4">
-              <p>
-                EP {item.attributes.epNo} - {item.attributes.releaseDate.replaceAll('-', '.')}{' '}
-                {item.attributes.guestName && (
-                  <>
-                    <span className="mx-2">—</span>
-                    <span>with </span>
-                    <strong>{item.attributes.guestName}</strong>{' '}
-                  </>
+        {podcastsList &&
+          podcastsList.data.map((item, idx) => (
+            <div
+              key={idx}
+              className="w-full flex flex-col gap-4 border border-gray-light rounded-2xl p-4 lg:flex-row">
+              <div className="w-full flex lg:w-64">
+                {currentVideoId === +item.attributes.epNo ? (
+                  <iframe
+                    allowFullScreen
+                    className="w-full min-w-64 h-auto aspect-video rounded-xl lg:mr-4"
+                    width="100%"
+                    src={`https://www.youtube.com/embed/${item.attributes.youtubeId}?autoplay=1`}
+                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  />
+                ) : (
+                  <Image
+                    src={item.attributes.thumbnail.data.attributes.url}
+                    alt={
+                      item.attributes.thumbnail.data.attributes.alternativeText || 'Video Thumbnail'
+                    }
+                    width={240}
+                    height={140}
+                    className="min-w-64 w-full h-auto rounded-xl lg:mr-4"
+                  />
                 )}
-              </p>
+                <div className="w-4 h-full border-r-2 border-gray-light hidden lg:block" />
+              </div>
 
-              <h2 className="!text-lg">
-                <Link href={`/podcast/${item.attributes.urlSlug}`}>
-                  <strong>{item.attributes.title}</strong>
-                </Link>
-              </h2>
+              <div className="w-full flex flex-col flex-1 gap-4 text-left lg:pl-4">
+                <p>
+                  EP {item.attributes.epNo} - {item.attributes.releaseDate.replaceAll('-', '.')}{' '}
+                  {item.attributes.guestName && (
+                    <>
+                      <span className="mx-2">—</span>
+                      <span>with </span>
+                      <strong>{item.attributes.guestName}</strong>{' '}
+                    </>
+                  )}
+                </p>
 
-              <p className="text-primary">
-                <span className="mr-2">
-                  <Icon name="external-link" />
-                </span>
+                <h2 className="!text-lg">
+                  <Link href={`/podcast/${item.attributes.urlSlug}`}>
+                    <strong>{item.attributes.title}</strong>
+                  </Link>
+                </h2>
 
-                <Link className="underline font-bold" href={`/podcast/${item.attributes.urlSlug}`}>
-                  Read More
-                </Link>
-              </p>
+                <p className="text-primary">
+                  <span className="mr-2">
+                    <Icon name="external-link" />
+                  </span>
+
+                  <Link
+                    className="underline font-bold"
+                    href={`/podcast/${item.attributes.urlSlug}`}>
+                    Read More
+                  </Link>
+                </p>
+              </div>
+
+              <PodcastListCTA
+                id={+item.attributes.epNo}
+                setCurrentVideoId={setCurrentVideoId}
+                setCurrentAudioId={setCurrentAudioId}
+                spotifyId={item.attributes.spotifyId}
+              />
             </div>
+          ))}
+      </div>
 
-            <PodcastListCTA
-              id={+item.attributes.epNo}
-              setCurrentVideoId={setCurrentVideoId}
-              setCurrentAudioId={setCurrentAudioId}
-              spotifyId={item.attributes.spotifyId}
-            />
-          </div>
-        ))}
+      <div>
+        {podcastsList && (
+          <PodcastPagination
+            pageSize={5}
+            currPage={page ?? 1}
+            pageCount={Math.ceil(podcastsList.meta.pagination.total / 5)}
+          />
+        )}
       </div>
 
       {/* TODO: Pagination */}

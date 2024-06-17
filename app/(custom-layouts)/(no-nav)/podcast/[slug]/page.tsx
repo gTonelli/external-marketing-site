@@ -19,6 +19,8 @@ import ReactMarkdown from 'react-markdown'
 import { PodcastEpisode, WithContext } from 'schema-dts'
 // utils
 import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
+// style
+import '../style.css'
 
 export async function generateStaticParams() {
   const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await fetch(
@@ -256,7 +258,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
         <div className="col-span-12 text-left pb-4 lg:col-span-8">
           <ReactMarkdown
             rehypePlugins={[rehypeRaw] as PluggableList}
-            remarkRehypeOptions={{ allowDangerousHtml: true }}>
+            remarkRehypeOptions={{ allowDangerousHtml: true }}
+            className="podcast-description">
             {description}
           </ReactMarkdown>
         </div>

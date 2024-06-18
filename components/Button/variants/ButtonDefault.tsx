@@ -74,7 +74,7 @@ export const ButtonDefault = ({
   onClick,
   theme = 'primary',
   type,
-  track,
+  track = false,
   mpProps,
 }: IButtonDefaultProps) => {
   const { page_name } = useContext(PageContext)

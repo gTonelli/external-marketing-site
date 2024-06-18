@@ -19,6 +19,8 @@ import ReactMarkdown from 'react-markdown'
 import { PodcastEpisode, WithContext } from 'schema-dts'
 // utils
 import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
+// style
+import '../style.css'
 
 export async function generateStaticParams() {
   const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await fetch(
@@ -238,7 +240,7 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
           </div>
 
           <p className="font-bold mb-4">
-            Listen to the Thais Gibson Podcast three times a week - every Monday, Thursday and
+            Listen to The Thais Gibson Podcast three times a week - every Monday, Thursday and
             Saturday.
           </p>
 
@@ -256,7 +258,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
         <div className="col-span-12 text-left pb-4 lg:col-span-8">
           <ReactMarkdown
             rehypePlugins={[rehypeRaw] as PluggableList}
-            remarkRehypeOptions={{ allowDangerousHtml: true }}>
+            remarkRehypeOptions={{ allowDangerousHtml: true }}
+            className="podcast-description">
             {description}
           </ReactMarkdown>
         </div>
@@ -289,8 +292,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
         <h2 className="mb-4">Listen, Watch, and Subscribe</h2>
 
         <p className="mb-4">
-          Stay connected with us on social media and be the first to know about our latest episodes,
-          upcoming events, and exclusive content. Follow us today and join the conversation!
+          Subscribe and follow us on your favorite podcast platforms to keep track of the latest
+          episodes, upcoming events, and exclusive content from The Thais Gibson Podcast.
         </p>
 
         <div className="flex flex-col justify-center gap-4 mb-4 lg:flex-row">

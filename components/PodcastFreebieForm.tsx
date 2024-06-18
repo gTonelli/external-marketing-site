@@ -7,6 +7,7 @@ export const PodcastFreebieForm = ({ id }: { id?: string }) => {
       userTags={['podcast-freebie']}
       listIds={[55]}
       successMessage="Thank you for joining!"
+      submitButtonLabel="SUBSCRIBE NOW"
     />
   )
 }

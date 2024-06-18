@@ -21,6 +21,11 @@
   );
 }
 
+.podcast-description a {
+  font-weight: bold;
+  color: #8a50a0;
+}
+
 @media screen and (min-width: 1024px) {
   .bg-hero::after {
     position: absolute;

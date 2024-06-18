@@ -7,8 +7,9 @@ export const metadata: Metadata = {
   robots: 'all',
   metadataBase: new URL('https://attachment.personaldevelopmentschool.com/iat'),
   alternates: {
+    canonical: '/',
     languages: {
-      en: '/',
+      'en-US': '/',
     },
   },
 }

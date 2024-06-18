@@ -4361,7 +4361,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prop-types@15.8.1, prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@15.8.1, prop-types@^15, prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -4488,6 +4488,13 @@ react-markdown@^8.0.7:
     unified "^10.0.0"
     unist-util-visit "^4.0.0"
     vfile "^5.0.0"
+
+react-paginate@^8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-8.2.0.tgz#947c3dcb444a6c16c1bcf8361871aa135baa3dcd"
+  integrity sha512-sJCz1PW+9PNIjUSn919nlcRVuleN2YPoFBOvL+6TPgrH/3lwphqiSOgdrLafLdyLDxsgK+oSgviqacF4hxsDIw==
+  dependencies:
+    prop-types "^15"
 
 react-share@^5.1.0:
   version "5.1.0"

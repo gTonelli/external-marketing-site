@@ -28,7 +28,7 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
           <div className="flex px-4">
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
               <Icon
-                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                className="text-2xl text-primary-light transition-colors hover:text-primary"
                 name="youtube"
                 type="brands"
               />
@@ -36,7 +36,7 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
               <Icon
-                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                className="text-2xl text-primary-light transition-colors hover:text-primary"
                 name="tiktok"
                 type="brands"
               />
@@ -44,7 +44,7 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
               <Icon
-                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                className="text-2xl text-primary-light transition-colors hover:text-primary"
                 name="facebook"
                 type="brands"
               />{' '}
@@ -52,7 +52,7 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
               <Icon
-                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                className="text-2xl text-primary-light transition-colors hover:text-primary"
                 name="instagram"
                 type="brands"
               />
@@ -60,7 +60,7 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
               <Icon
-                className="text-3xl text-primary-light transition-colors hover:text-primary"
+                className="text-2xl text-primary-light transition-colors hover:text-primary"
                 name="podcast"
               />
             </Link>
@@ -87,6 +87,12 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
               </Link>
 
               <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.ATTACHMENT_BOOTCAMP}>
+                Bootcamp
+              </Link>
+
+              <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4 lg:max-w-[200px]"
                 href={ERoutes.IAT_SALES_PAGE}>
                 Integrated Attachment Theory<sup>TM</sup> Certification
@@ -104,26 +110,32 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.SUPPORT_PAGE}>
+                Support
+              </Link>
+
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
                 href={EExternalRoutes.ABOUT}>
                 About Us
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={ERoutes.LEARNING_LOVE_PAGE}>
-                Book
+                href={EExternalRoutes.PODCASTS}>
+                Podcast
+              </Link>
+
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.PRESS_AND_MEDIA}>
+                Press & Media
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
                 href={EExternalRoutes.BLOG}>
                 Blog
-              </Link>
-
-              <Link
-                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.FAQ}>
-                FAQ
               </Link>
             </div>
 
@@ -138,12 +150,6 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.GIFT_CARDS}>
-                Gift Cards
-              </Link>
-
-              <Link
-                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
                 href={EExternalRoutes.PRIVACY}>
                 Privacy Policy
               </Link>
@@ -152,6 +158,12 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
                 href={EExternalRoutes.TERMS}>
                 Terms & Conditions
+              </Link>
+
+              <Link
+                className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+                href={EExternalRoutes.GIFT_CARDS}>
+                Gift Cards
               </Link>
             </div>
 

@@ -116,7 +116,14 @@ export const ROYAL_RUMBLE = {
   ap: {
     TITLE: 'Anxious Preoccupied',
 
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
+    HERO_SECTION: {
+      headline:
+        'Are You Ready For A Committed, Intimate, And Loving Relationship With Someone Who Values And Prioritizes You?',
+      subheadline: `The First Step Is Watching The Short Video Below To Learn And Understand Your Relationship Patterns – And How They’re Shockingly Accurate!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
+      title: 'Who Is The Anxious Preoccupied?',
+      copy: 'As we send over your personalized report, take a few moments to watch this short video and read on to discover your anxious preoccupied attachment style. You’ll learn about your relationship and personal patterns and how to start your healing journey to become securely attached.',
+    },
 
     BANNER_SEGMENT: {
       headline: `YOUR FEAR OF ABANDONMENT MAY BE GETTING IN THE WAY OF YOU FORMING HEALTHY RELATIONSHIPS THAT LAST`,
@@ -410,7 +417,14 @@ export const ROYAL_RUMBLE = {
   da: {
     TITLE: 'Dismissive Avoidant',
 
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
+    HERO_SECTION: {
+      headline:
+        'Do You Want A Happy, Harmonious Relationship That Still Allows You To Be Independent And Have Free Time?',
+      subheadline: `The First Step Is Watching The Short Video Below To Learn And Understand Your Relationship Patterns – And How They’re Shockingly Accurate!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
+      title: 'Who Is The Dismissive Avoidant?',
+      copy: "While we send your personalized report, watch this short video and read on to learn about your dismissive avoidant attachment style, including your relationship patterns and fears, and how you can start your healing journey to become securely attached.",
+    },
 
     BANNER_SEGMENT: {
       headline: `YOUR FEAR OF VULNERABILITY MAY BE GETTING IN THE WAY OF YOU FORMING HEALTHY RELATIONSHIPS THAT LAST`,
@@ -735,7 +749,14 @@ export const ROYAL_RUMBLE = {
   fa: {
     TITLE: 'Fearful Avoidant',
 
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleFAshortvideo.mp4',
+    HERO_SECTION: {
+      headline:
+        'Are you ready to start having the best relationships of your life?',
+      subheadline: `The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
+      title: 'Who Is The Fearful Avoidant?',
+      copy: "While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.",
+    },
 
     BANNER_SEGMENT: {
       headline: `YOUR FEAR OF BETRAYAL MAY BE GETTING IN THE WAY OF YOU FORMING HEALTHY RELATIONSHIPS THAT LAST`,
@@ -1029,8 +1050,15 @@ export const ROYAL_RUMBLE = {
   },
   sa: {
     TITLE: 'Secure',
-
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
+    
+    HERO_SECTION: {
+      headline:
+        'Are You Ready To Find That Spark In Your Love Life Again – And Meet A Loving And Secure Partner?',
+      subheadline: `The First Step Is Watching This Short – And Shockingly Accurate – Video About Being A Securely Attached Person!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
+      title: 'Who Is The Securely Attached?',
+      copy: "While we email your personalized report, watch this video and read on to discover your secure attachment style, how it impacts your relationships and patterns, and how to use it to find, nurture, and maintain a long-lasting and loving relationship.",
+    },
 
     BANNER_SEGMENT: {
       headline: `BUT WITHOUT KNOWING HOW TO COMMUNICATE BEST WITH DIFFERENT TYPES OF PARTNERS, YOU MAY KEEP ENDING UP IN UNFULFILLING RELATIONSHIPS`,

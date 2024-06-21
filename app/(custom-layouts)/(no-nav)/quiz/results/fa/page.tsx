@@ -50,10 +50,6 @@ export default function RoyalRumbleResultsPage() {
                   thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
                   thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                   type="default"
-                  variantVideoData={{
-                    key: "GM-1060-FA-Video",
-                    videoId: RESULTS[style].HERO_SECTION.videoURLVariant
-                  }}
                 />
               </div>
 

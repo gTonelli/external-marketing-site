@@ -96,15 +96,12 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 }
 
 export const config = {
-  matcher: ['/quiz/ap', '/quiz/da', '/quiz/sa', '/quiz/results/fa', '/checkout/v2'],
+  matcher: ['/checkout/v2'],
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
   const configs = [
-    { regex: /^\/quiz\/ap(\/|$)/, config: splitTestConfigs.apTest },
-    { regex: /^\/quiz\/da(\/|$)/, config: splitTestConfigs.daTest },
-    { regex: /^\/quiz\/sa(\/|$)/, config: splitTestConfigs.saTest },
     { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest },
   ]
 
@@ -180,30 +177,6 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  apTest: {
-    cookieKey: 'gm-1065-ap-video-header',
-    pageName: 'vsl-ap',
-    experimentName: 'GM-1065-AP-Video-Header',
-    variantUrl: { path: '/quiz/versions/ap' },
-    variantRatio: 0.5,
-    forceControlOnNewUser: false,
-  },
-  daTest: {
-    cookieKey: 'gm-1065-da-video-header',
-    pageName: 'vsl-da',
-    experimentName: 'GM-1065-DA-Video-Header',
-    variantUrl: { path: '/quiz/versions/da' },
-    variantRatio: 0.5,
-    forceControlOnNewUser: false,
-  },
-  saTest: {
-    cookieKey: 'gm-1065-sa-video-header',
-    pageName: 'vsl-sa',
-    experimentName: 'GM-1065-SA-Video-Header',
-    variantUrl: { path: '/quiz/versions/sa' },
-    variantRatio: 0.5,
-    forceControlOnNewUser: false,
-  },
   checkoutTest: {
     cookieKey: 'GM-1058-bootcamp-checkout',
     pageName: 'Checkout V2',

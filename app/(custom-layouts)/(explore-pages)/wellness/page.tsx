@@ -301,6 +301,7 @@ const CarouselSlider = ({ sliderType }: { sliderType: string }) => {
         sliderType === 'courses' && '-mt-8 md:-mt-24 2xl:-mt-40'
       }`}>
       <Swiper
+        className="!overflow-hidden"
         autoplay={{ delay: 6000 }}
         modules={[Autoplay, Pagination]}
         pagination={{

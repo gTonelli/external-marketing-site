@@ -25,11 +25,11 @@ type TAuthor = {
   picture: string
 }
 
-export const  TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IReviewProps) => {
+export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IReviewProps) => {
   return (
     // <div className="flex flex-col items-center">
     // mb-14
-    <div className={cx('relative 2xl:mb-0 flex flex-col items-center', className)}>
+    <div className={cx('relative 2xl:mb-0 h-full flex flex-col items-center', className)}>
       {/* REVIEW AUTHOR */}
       <div className="flex items-center relative top-6 left-8">
         <Image
@@ -52,7 +52,7 @@ export const  TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IR
       </div>
 
       {/* CARD */}
-      <div className="reviewCard h-full min-h-[430px]">
+      <div className="reviewCard !h-full min-h-[430px]">
         <div className="flex mb-6 space-x-2">
           {Array(review.score || 5)
             .fill(1)

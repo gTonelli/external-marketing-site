@@ -22,7 +22,7 @@ export const AttachmentQuizV2SelfImprovementSlider = () => {
   return (
     <>
       <Swiper
-        className="!pr-20 lg:!hidden"
+        className="!overflow-hidden !pr-20 lg:!hidden"
         spaceBetween={32}
         modules={[Navigation]}
         navigation={{ prevEl, nextEl }}

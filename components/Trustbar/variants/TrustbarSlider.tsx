@@ -63,7 +63,7 @@ export const TrustbarSlider = ({
           spaceBetween: 35,
         },
       }}
-      className={cx('!py-5 !px-2 lg:!px-18', className)}
+      className={cx('!overflow-hidden !py-5 !px-2 lg:!px-18', className)}
       wrapperClass="items-center"
       modules={[Autoplay]}
       slidesPerView={1}

@@ -317,7 +317,7 @@ export default function LifeTimePage() {
         <div className="relative w-full max-w-[400px] flex mx-auto lg:hidden">
           <Swiper
             autoplay={{ delay: 6000 }}
-            className="!pb-14"
+            className="!overflow-hidden !pb-14"
             initialSlide={pricingPlan.findIndex((i) => i.isRecommended)}
             modules={[Navigation, Pagination]}
             pagination={{

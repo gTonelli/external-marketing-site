@@ -7,6 +7,7 @@ import { IDefaultWrapperProps } from '@/components'
 // libraries
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import cx from 'classnames'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { ViewportContext } from '@/utils/contexts'
@@ -39,7 +40,7 @@ export const CarouselDefault = ({
   return (
     <Swiper
       loop
-      className={className}
+      className={cx('!overflow-hidden', className)}
       modules={[Pagination]}
       pagination={{
         clickable: true,

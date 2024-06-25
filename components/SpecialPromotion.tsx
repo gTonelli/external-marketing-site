@@ -525,11 +525,11 @@ export const SpecialPromotion = () => {
           content="Curious to See How the All-Access Pass Can Change Your Life? Hit Play to Find Out What Awaits You."
         />
 
-        <Video.Thumbnail 
-          srcUrl='https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4'
+        <Video.Thumbnail
+          srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
           thumbnailAlt={`Video ${page_name} thumbnail`}
-          thumbnailUrl='BlackFridayPage/mha-video-thumbnail.png'
-          type='testimonial'
+          thumbnailUrl="BlackFridayPage/mha-video-thumbnail.png"
+          type="testimonial"
         />
       </Section>
 
@@ -623,7 +623,8 @@ const CarouselCourses = () => {
               spaceBetween: 36,
             },
           }}
-          className="w-full py-12 lg:px-8 lg:pb-20"
+          className="w-full !overflow-hidden py-12 lg:px-8 lg:pb-20"
+          wrapperClass="pb-12"
           modules={[Autoplay, Navigation, Pagination]}
           navigation={{ prevEl, nextEl }}
           pagination={{

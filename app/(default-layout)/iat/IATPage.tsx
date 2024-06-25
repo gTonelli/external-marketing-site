@@ -1333,16 +1333,17 @@ const IATTestimonialSection = () => {
             spaceBetween: 24,
           },
         }}
-        className="!px-4 mb-4"
+        className="!overflow-hidden !px-4 mb-4"
+        wrapperClass="!pb-4"
         modules={[Autoplay, Navigation]}
         navigation={{ prevEl, nextEl }}
         slidesPerView={1}
         spaceBetween={16}>
         {IAT.testimonials.map((testimonial, index) => (
-          <SwiperSlide key={`iat_testimonial_${index}`}>
+          <SwiperSlide key={`iat_testimonial_${index}`} className="!h-auto">
             {({ isActive }) => (
               <div
-                className={`w-full self-stretch ${
+                className={`w-full h-full ${
                   !isActive && 'bg-gray-bg-primary opacity-50'
                 } rounded-3xl shadow-lg transition-colors my-2 p-8`}>
                 <Image

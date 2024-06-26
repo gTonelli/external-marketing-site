@@ -1,7 +1,7 @@
 import { Page } from '@/components/Page'
 import { TStyle } from '@/utils/types'
-import { FAResultsPage } from '../../fa/FAResultsPage'
-import { QuizResultsPage } from '../../../[style]/QuizResultsPage'
+import { FAResultsPage } from '../../quiz/results/fa/FAResultsPage'
+import { QuizResultsPage } from '../../quiz/[style]/QuizResultsPage'
 
 export function generateStaticParams() {
   return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }, { style: 'sa' }]

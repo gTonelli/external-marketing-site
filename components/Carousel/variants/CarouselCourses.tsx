@@ -133,7 +133,7 @@ export const CarouselCourses = ({
                 spaceBetween: 20,
               },
             }}
-            className="!py-6 !px-2 lg:!px-18"
+            className="!overflow-hidden !py-6 !px-2 lg:!px-18"
             modules={[Autoplay, Navigation]}
             slidesPerView={1}
             spaceBetween={10}>

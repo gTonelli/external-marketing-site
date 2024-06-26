@@ -40,7 +40,7 @@ export const CarouselQuiz = ({ slides, theme = 'primary' }: ICarouselQuizProps) 
           spaceBetween: 8,
         },
       }}
-      className="max-w-screen-lg mx-auto"
+      className="max-w-screen-lg !overflow-hidden mx-auto"
       modules={[Autoplay, Pagination]}
       pagination={{
         clickable: true,

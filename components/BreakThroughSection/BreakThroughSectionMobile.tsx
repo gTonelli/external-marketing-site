@@ -14,6 +14,7 @@ export const BreakThroughSectionMobile = () => {
       <Swiper
         loop
         autoplay={{ delay: 3000 }}
+        className="!overflow-hidden"
         modules={[Autoplay, Pagination]}
         pagination={{
           bulletActiveClass: '!opacity-100 !w-3 !h-3 !my-[2px]',

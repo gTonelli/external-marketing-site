@@ -59,7 +59,7 @@ export const CarouselTestimonialThinkific = forwardRef(
         {/* SLIDER */}
         <Swiper
           loop
-          className={cx('!pb-12', classNameSwiper)}
+          className={cx('!overflow-hidden !pb-12', classNameSwiper)}
           initialSlide={initialSlide}
           modules={[Autoplay, Pagination]}
           pagination={{

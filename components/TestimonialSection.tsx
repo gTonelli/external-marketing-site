@@ -25,7 +25,7 @@ export const TestimonialSection = () => {
           delay: 6000,
           reverseDirection: true,
         }}
-        className="!py-2 xxs:!py-3 xs:!py-6 !px-2 lg:!px-18"
+        className="!overflow-hidden !py-2 xxs:!py-3 xs:!py-6 !px-2 lg:!px-18"
         modules={[Autoplay, Navigation, Pagination]}
         navigation={{ prevEl, nextEl }}
         pagination={{

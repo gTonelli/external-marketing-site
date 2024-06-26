@@ -21,7 +21,7 @@ export const CarouselTestimonialAlt = () => {
           delay: 6000,
           reverseDirection: true,
         }}
-        className="!py-6 !px-2 lg:!px-18"
+        className="!overflow-hidden !py-6 !px-2 lg:!px-18"
         modules={[Autoplay, Pagination]}
         pagination={{
           bulletActiveClass: '!bg-black',

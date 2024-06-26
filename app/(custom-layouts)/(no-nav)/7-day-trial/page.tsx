@@ -429,7 +429,7 @@ const CourseSlider = () => {
           delay: 5000,
           disableOnInteraction: true,
         }}
-        className="!pb-8"
+        className="!overflow-hidden !pb-8"
         modules={[Autoplay, Navigation, Pagination]}
         navigation={{ prevEl, nextEl }}
         pagination={{

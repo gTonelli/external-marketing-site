@@ -185,7 +185,7 @@ export const CarouselTestimonial = forwardRef(
             isPrimary ? 'max-w-[1184px]' : 'max-w-6xl'
           }`}>
           <Swiper
-            className={cx('!pb-12', classNameSwiper)}
+            className={cx('!overflow-hidden !pb-12', classNameSwiper)}
             modules={[Navigation, Pagination]}
             navigation={{
               prevEl,
@@ -202,9 +202,7 @@ export const CarouselTestimonial = forwardRef(
             slidesPerView={noOfslides}
             spaceBetween={16}>
             {testimonials.map((review, index) => (
-              <SwiperSlide
-                key={`review_${index}`}
-                className={cx('flex justify-evenly self-start', classNameSlide)}>
+              <SwiperSlide key={`review_${index}`} className={cx('flex !h-auto', classNameSlide)}>
                 {isPrimary ? (
                   <Testimonial className={classNameCard} review={review} />
                 ) : (

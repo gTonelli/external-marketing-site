@@ -96,16 +96,27 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 }
 
 export const config = {
-  matcher: ['/checkout/v2'],
+  matcher: [],
+}
+
+interface IConfigWithRegex {
+  regex: RegExp;
+  config: TSplitTestConfig;
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const configs = [
-    { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest },
+  const configs: Array<Partial<IConfigWithRegex>> = [
+    // { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest }, Sample regex for future ref
+    // Add configurations here when needed
   ]
 
-  return configs.find(({ regex }) => regex.test(path))?.config
+  // Type guard to check if an object has a regex property
+  const isConfigWithRegex = (config: Partial<IConfigWithRegex>): config is IConfigWithRegex => {
+    return 'regex' in config && config.regex instanceof RegExp
+  }
+
+  return configs.find(isConfigWithRegex)?.regex.test(path) ? configs.find(isConfigWithRegex)?.config : undefined
 }
 
 interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {
@@ -177,23 +188,6 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  checkoutTest: {
-    cookieKey: 'GM-1058-bootcamp-checkout',
-    pageName: 'Checkout V2',
-    experimentName: 'GM-1058-Bootcamp-Checkout',
-    controlUrl: {
-      path: '/enroll',
-      base: 'https://university.personaldevelopmentschool.com',
-      urlParams: ['product_id'],
-    },
-    variantUrl: {
-      path: '/pages/checkout',
-      base: 'https://university.personaldevelopmentschool.com',
-    },
-
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
 }
 
 type TSplitTestConfigs = {

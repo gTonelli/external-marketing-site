@@ -137,6 +137,10 @@ export const AttachmentQuizQuestions = ({
         if (question.hasOwnProperty('options')) {
           setUserInfo({ ...userInfo, [question.association]: answer })
         }
+        if (question.association === 'age' && answer === '18-24') {
+          /* TODO: Add split test logic and set a cookie */
+          console.log('========================== age funnel user ==============================')
+        }
       }
       // Check if the question was last - go to the ResultsPage
       if (currentIndex === modifiedQuestions.length - 1) {

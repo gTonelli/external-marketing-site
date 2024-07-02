@@ -3,15 +3,18 @@ import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQui
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { List } from '@/components/List'
-import { ROYAL_RUMBLE } from './config'
+import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG } from './config'
 // utils
 import { TStyle } from '@/utils/types'
 
 type Props = {
   style: Extract<TStyle, 'da' | 'sa'>
+  ageVariant?: boolean
 }
 
-export const RoyalRumbleHeadline = ({ style }: Props) => {
+export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
+  const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : CONFIG
+
   return (
     <section className="w-full">
       <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
@@ -21,7 +24,7 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
             className="!font-ssp !text-3xl capitalize"
           />
 
-          <p className="max-w-3xl uppercase font-bold my-4">
+          <p className="max-w-3xl uppercase font-bold tracking-33 my-4">
             {ROYAL_RUMBLE[style].HERO_SECTION.subheadline}
           </p>
 
@@ -56,7 +59,7 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
       </div>
 
       <div className="max-w-[850px] text-left mx-4 mt-8 md:w-calc(100%-2rem) lg:mx-auto lg:max-w-[1008px]">
-        <h3>{ROYAL_RUMBLE[style].BANNER_SEGMENT.variantSubheader}</h3>
+        <h2>{ROYAL_RUMBLE[style].BANNER_SEGMENT.variantSubheader}</h2>
 
         <h4 className="my-8">Does this sound like you?</h4>
 
@@ -75,7 +78,10 @@ export const RoyalRumbleHeadline = ({ style }: Props) => {
           </p>
         ))}
 
-        <h3 className="my-8">Our Personalized Courses Can Guide You to Achieve These Goals</h3>
+        <h2 className="my-8">
+          Our Personalized {ageVariant ? 'Course Bundle' : 'Courses'} Can Guide You to Achieve These
+          Goals
+        </h2>
 
         {ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy3.map((copy, index) => (
           <p key={`banner_segment_copy_v_${index}`} className="mb-4 md:text-lg">

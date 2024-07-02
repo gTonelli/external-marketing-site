@@ -101,9 +101,7 @@ export const config = {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const configs = [
-    { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest },
-  ]
+  const configs = [{ regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest }]
 
   return configs.find(({ regex }) => regex.test(path))?.config
 }
@@ -217,3 +215,9 @@ type TSplitTestConfig = {
   variantRatio: number
   forceControlOnNewUser: boolean
 }
+
+/**
+ * if cookie present:
+ * /quiz/results/fa -> /results-bundle/fa
+ * /quiz/[style] -> /results-bundle/[style]
+ */

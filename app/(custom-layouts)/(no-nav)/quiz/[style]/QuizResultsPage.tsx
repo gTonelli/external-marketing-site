@@ -5,25 +5,32 @@ import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselT
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Icon } from '@/components/Icon'
+import { List } from '@/components/List'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { RoyalRumbleHeadline } from './RoyalRumbleHeadline'
 // libraries
 import cx from 'classnames'
 // utils
-import { ROYAL_RUMBLE } from './config'
 import { TStyle } from '@/utils/types'
+import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG, AGE_PRICING } from './config'
+import { EExternalRoutes } from '@/utils/constants'
 
 interface IQuizResultsPageProps {
   style: TStyle
-  isVariant?: boolean
+  ageVariant?: boolean
 }
 
-export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPageProps) => {
+export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageProps) => {
+  const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : CONFIG
+  const checkoutUrl = ageVariant
+    ? AGE_PRICING[style].checkoutUrl
+    : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+
   return (
     <>
       {/* BANNER SECTION */}
       {style === 'da' || style === 'sa' ? (
-        <RoyalRumbleHeadline style={style} />
+        <RoyalRumbleHeadline style={style} ageVariant={ageVariant} />
       ) : (
         <section className="w-full">
           <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
@@ -33,7 +40,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
                 className="!font-ssp !text-3xl capitalize"
               />
 
-              <p className="max-w-3xl uppercase font-bold my-4">
+              <p className="max-w-3xl uppercase font-bold tracking-33 my-4">
                 {ROYAL_RUMBLE[style].HERO_SECTION.subheadline}
               </p>
 
@@ -81,17 +88,38 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
                 </p>
               ))}
 
-              <p className="font-effra mt-8 md:mt-10 md:text-lg">
-                At The Personal Development School, we have a tailored program and suite of tools to
-                assist you in changing these patterns in as little as 30 days. This will allow you
-                to improve existing relationships, create lasting love and build new relationships
-                with emotionally available people. Click the button below to enroll in exclusive
-                access.
-                <strong> This is 30% off for a limited time.</strong>
-              </p>
+              {ageVariant ? (
+                <p className="mt-8 md:mt-10 md:text-lg">
+                  At The Personal Development School, we have created a personalized bundle of
+                  Anxious Preoccupied courses that will assist you in changing these patterns in as
+                  little as 7 days. These courses are easy-to-watch, and can be taken completely at
+                  your own pace, at any time that works for you.
+                  <br /> <br />
+                  This will allow you to improve existing relationships, create lasting love and
+                  build new relationships with emotionally available people. Click the button below
+                  to enroll in exclusive access.
+                  <br /> <br />
+                  <strong>
+                    This bundle is an additional 50% off of the sale price for a limited time.
+                  </strong>
+                </p>
+              ) : (
+                <p className="font-effra mt-8 md:mt-10 md:text-lg">
+                  At The Personal Development School, we have a tailored program and suite of tools
+                  to assist you in changing these patterns in as little as 30 days. This will allow
+                  you to improve existing relationships, create lasting love and build new
+                  relationships with emotionally available people. Click the button below to enroll
+                  in exclusive access.
+                  <strong> This is 30% off for a limited time.</strong>
+                </p>
+              )}
             </div>
 
-            <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
+            <CheckoutButton
+              href={checkoutUrl}
+              className="mt-8 xxs:px-16 md:mt-10"
+              label="UNLOCK MY DISCOUNT"
+            />
           </div>
         </section>
       )}
@@ -109,9 +137,9 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
 
         <div className="w-full overflow-hidden bg-blue-lightest/60">
           <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 inset-0 mb-12 md:mb-20">
-            <p className="capitalize mb-8 md:mb-10 text-2xl text-primary">
+            <h2 className="capitalize mb-8 md:mb-10 text-2xl text-primary">
               Does any of this sound familiar?
-            </p>
+            </h2>
 
             {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.traits.map((object, index) => (
               <div
@@ -148,7 +176,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
               </p>
             </div>
 
-            <div className="mt-4 rounded-10 text-left">
+            <div className="mt-4 rounded-10">
               {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadlineMobile.map((copy, index) => (
                 <p
                   key={`familiar_segment_copy_${index}`}
@@ -167,7 +195,11 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
                 </p>
               )}
 
-              <CheckoutButton className="mt-4 px-16 md:mt-10" label="GET STARTED" />
+              <CheckoutButton
+                href={checkoutUrl}
+                className="mt-4 px-16 md:mt-10"
+                label="GET STARTED"
+              />
             </div>
           </div>
         </div>
@@ -207,7 +239,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
               {ROYAL_RUMBLE[style].ATTACHMENT_ORIGIN_SEGMENT.heading1}
             </p>
 
-            <p className="md:text-lg font-bold font-effra text-primary mb-4">
+            <p className="md:text-lg font-bold font-effra mb-4">
               {ROYAL_RUMBLE[style].ATTACHMENT_ORIGIN_SEGMENT.heading2}
             </p>
 
@@ -217,7 +249,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
               </p>
             )}
 
-            <CheckoutButton className="px-16" label="GET STARTED" />
+            <CheckoutButton href={checkoutUrl} className="px-16" label="GET STARTED" />
           </div>
         </div>
       </section>
@@ -294,51 +326,132 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
           <div className="flex flex-col md:flex-row -space-y-2 md:space-y-0 space-x-2 justify-center">
             <h2 className="capitalize text-2xl text-white">Gain access to your</h2>
 
-            <h2 className="capitalize text-2xl text-teal">personalized program</h2>
+            <h2 className="capitalize text-2xl text-teal">
+              {ageVariant ? 'personalized course bundle' : 'personalized program'}
+            </h2>
           </div>
 
           <div className="mt-8 md:mt-10 text-left">
-            <p className="md:text-lg font-bold text-white uppercase tracking-0.325">
-              program overview
-            </p>
+            {ageVariant ? (
+              <>
+                <p className="md:text-lg font-bold text-white uppercase tracking-0.325">overview</p>
 
-            {ROYAL_RUMBLE[style].GAINACCESS_SEGMENT.map((copy, index) => (
-              <p key={`gain_access_${index}`} className="md:text-lg mt-4 text-white">
-                {copy}
-              </p>
-            ))}
+                <p className="text-white mt-4 md:text-lg">
+                  This online course bundle is designed to show you, step by step, how to reprogram
+                  your attachment style by teaching you highly-targeted and effective tools based on
+                  the latest research and my decades of experience counseling couples and
+                  individuals.
+                  <br />
+                  <br />
+                  My system differs from other personal development programs because it’s designed
+                  to work directly with your subconscious mind – which is ESSENTIAL for any lasting
+                  change to occur.
+                </p>
 
-            <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
-              How do the programs work?
-            </p>
+                <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
+                  How do the courses work?
+                </p>
 
-            <ul className="mt-4 ml-6 text-white font-effra list-decimal">
-              {ROYAL_RUMBLE[style].HOWPROGRAMWORK_SEGMENT.map((copy, index) => (
-                <li key={`programwork_${index}`}>
-                  <p className="md:text-lg">{copy} </p>
-                </li>
-              ))}
-            </ul>
+                <ul className="mt-4 ml-6 text-white font-effra list-decimal">
+                  <li>
+                    <p className="md:text-lg">
+                      Sign up for the course bundle. You get access to three personalized courses in
+                      your bundle: The{' '}
+                      {style !== 'sa'
+                        ? `${ROYAL_RUMBLE[style].TITLE} Introductory Course`
+                        : 'The Repair Any Relationship Course'}
+                      , The Handbook for a Better Life Course, and the Discover, Embrace and Fulfill
+                      Your Personal Needs Course.
+                    </p>
+                  </li>
 
-            <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
-              What Does The Program Cover?
-            </p>
+                  <li>
+                    <p className="md:text-lg">
+                      Make your way through the bundle’s online videos at your own pace.
+                    </p>
+                  </li>
 
-            <p className="font-bold text-blue mt-4">
-              In the very first hour of your program, you will learn three simple steps to leave
-              your painful attachment style patterns behind.
-            </p>
+                  <li>
+                    <p className="md:text-lg">Access your workbooks and complete your exercises.</p>
+                  </li>
 
-            <p className="font-bold text-blue mt-4">
-              This will empower you to create more attraction, chemistry and deeper connection in
-              your love life - without the fear of losing yourself in relationships.
-            </p>
-            {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.copy.map((copy, index) => (
-              <p key={`program_copy_${index}`} className="md:text-lg font-effra mt-4 text-white ">
-                {copy}
-              </p>
-            ))}
+                  <li>
+                    <p className="md:text-lg">Get your certificate of completion.</p>
+                  </li>
 
+                  <li>
+                    <p className="md:text-lg">
+                      Access your course materials again whenever you need a refresh.
+                    </p>
+                  </li>
+                </ul>
+
+                <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
+                  What Do The Courses Cover?
+                </p>
+
+                <p className="font-bold text-blue mt-4">
+                  In the very first hour of your first course, you will learn three simple steps to
+                  leave your painful attachment style patterns behind.
+                  <br /> <br />
+                  This will empower you to create more attraction, chemistry and deeper connection
+                  in your love life - without the fear of losing yourself in relationships.
+                </p>
+
+                <p className="md:text-lg font-effra mt-4 text-white ">
+                  The {ROYAL_RUMBLE[style].TITLE} Course Bundle gives you access to three tailored
+                  online courses that you can complete on your own schedule. Through videos, highly
+                  effective exercises, and community support, we'll tackle a list of other emotional
+                  issues that you might deal with in your life that come from your attachment
+                  trauma, like:
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="md:text-lg font-bold text-white uppercase tracking-0.325">
+                  program overview
+                </p>
+
+                {ROYAL_RUMBLE[style].GAINACCESS_SEGMENT.map((copy, index) => (
+                  <p key={`gain_access_${index}`} className="md:text-lg mt-4 text-white">
+                    {copy}
+                  </p>
+                ))}
+
+                <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
+                  How do the programs work?
+                </p>
+
+                <ul className="mt-4 ml-6 text-white font-effra list-decimal">
+                  {ROYAL_RUMBLE[style].HOWPROGRAMWORK_SEGMENT.map((copy, index) => (
+                    <li key={`programwork_${index}`}>
+                      <p className="md:text-lg">{copy} </p>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
+                  What Does The Program Cover?
+                </p>
+
+                <p className="font-bold text-blue mt-4">
+                  In the very first hour of your program, you will learn three simple steps to leave
+                  your painful attachment style patterns behind.
+                </p>
+
+                <p className="font-bold text-blue mt-4">
+                  This will empower you to create more attraction, chemistry and deeper connection
+                  in your love life - without the fear of losing yourself in relationships.
+                </p>
+                {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.copy.map((copy, index) => (
+                  <p
+                    key={`program_copy_${index}`}
+                    className="md:text-lg font-effra mt-4 text-white ">
+                    {copy}
+                  </p>
+                ))}
+              </>
+            )}
             <ul className="mt-4 !ml-6 fa-ul text-white font-effra md:text-lg">
               {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.bullets.map((copy, index) => (
                 <li key={`programcover_${index}`}>
@@ -353,7 +466,11 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
               ))}
             </ul>
 
-            <CheckoutButton className="mt-8 md:mt-10 px-16" label="SIGN UP NOW" />
+            <CheckoutButton
+              href={checkoutUrl}
+              className="mt-8 md:mt-10 px-16"
+              label="SIGN UP NOW"
+            />
           </div>
         </div>
       </section>
@@ -407,9 +524,10 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
             </div>
 
             <div className="max-w-[850px] mt-20 md:mt-32 md:px-4 md:mx-auto">
-              <h2 className="capitalize text-2xl text-primary text-left lg:!text-3xl">
-                Use the 3 Step Formula to Create Deep Attachment Style Healing in 30 Days AND Get
-                Access to These Exclusive Bonuses:
+              <h2 className="capitalize text-2xl text-primary lg:!text-3xl">
+                Use the 3 Step Formula {ageVariant && 'In Your Course Bundle'} To Create Deep
+                Attachment Style Healing in {ageVariant ? '7' : '30'} Days AND Get Access to These
+                Exclusive Bonuses:
               </h2>
 
               <div className="mt-8 md:mt-10 flex flex-col md:grid md:grid-cols-2 md:gap-4 text-left justify-between">
@@ -444,7 +562,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
                   ))}
 
                   <li className="mt-8 md:mt-10">
-                    <CheckoutButton label="ENROLL NOW" />
+                    <CheckoutButton href={checkoutUrl} label="ENROLL NOW" />
                   </li>
                 </ul>
               </div>
@@ -457,7 +575,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
         <div className="max-w-[850px] mt-6 md:mx-auto text-left md:mt-32">
           <div className="px-2 xxs:px-3 xs:px-4">
             <h2 className="capitalize text-2xl text-primary">
-              Still not sure if our programs are right for you?
+              Still not sure if our {ageVariant ? 'courses' : 'programs'} are right for you?
             </h2>
 
             <div className="mt-6 md:mt-10 flex flex-center flex-col md:grid md:gap-9 md:grid-cols-[1fr_264px]">
@@ -478,9 +596,17 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
               />
             </div>
 
-            <div className="mt-5">
-              <p className="font-effra md:text-lg">
-                {ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2}
+            <div className="mt-4">
+              <p className="font-effra mb-4 md:text-lg">
+                {Array.isArray(ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2)
+                  ? ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2.map((copy, index) => (
+                      <p
+                        key={`still_not_sure_copy_${index}`}
+                        className="mb-4 md:text-lg font-effra">
+                        {copy}
+                      </p>
+                    ))
+                  : ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2}
               </p>
 
               <p className="font-bold font-effra md:text-lg">
@@ -491,17 +617,20 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
 
           <div className="mt-20 md:mt-32 text-center">
             <h2 className="capitalize text-xl px-2">
-              Our Programs have helped Thousands of People Transform Their Lives
+              Our {ageVariant ? 'Course Bundles' : 'Programs'} have helped Thousands of People
+              Transform Their Lives
             </h2>
 
             <CarouselTestimonialAlt />
 
             <CheckoutButton
+              href={checkoutUrl}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
             <CheckoutButton
+              href={checkoutUrl}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
             />
@@ -554,7 +683,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
               </div>
             ))}
 
-            <CheckoutButton className="mt-2" label="I WANT THIS" />
+            <CheckoutButton href={checkoutUrl} className="mt-2" label="I WANT THIS" />
           </div>
         </div>
       </section>
@@ -596,22 +725,41 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
           </div>
 
           <div className="mt-6">
-            <p className="font-effra md:text-lg">
-              {ROYAL_RUMBLE[style].MYQUESTION_SEGMENT.subheading2}
+            <p className="mb-4 md:text-lg">
+              <strong>The biggest risk you can take is doing nothing at all.</strong>
+            </p>
+
+            <p className="mb-4 md:text-lg">
+              Signing up for a {ageVariant ? 'course bundle' : 'program'} at The Personal
+              Development School is your chance to step in and put an end to your vicious attachment
+              cycles.
+            </p>
+
+            <p className="md:text-lg">
+              <strong>
+                Too many people let their attachment styles, their beliefs, and their subconscious
+                relationship patterns control their whole lives. But not you. It doesn’t have to be
+                you too.
+              </strong>
             </p>
           </div>
 
-          <CheckoutButton className="mt-6 md:mt-8" label="SIGN ME UP" />
+          <CheckoutButton href={checkoutUrl} className="mt-6 md:mt-8" label="SIGN ME UP" />
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
+      {/* TODO: New Pricing / Section Revamp */}
       <section className="w-full mt-20 md:mt-32">
         <div className="bg-gradient-to-b from-blue-lightest/50 to-primary-light/50 py-10 md:py-20">
           <div className="max-w-5xl mx-4 md:mx-auto">
             <h2 className="capitalize text-2xl text-primary">
               {style !== 'sa'
-                ? `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} to Secure Attachment Program`
-                : `Start Building the Relationships you Deserve with the All-Access Program`}
+                ? ageVariant
+                  ? `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} Course Bundle`
+                  : `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} to Secure Attachment Program`
+                : `Start Building the Relationships you Deserve with ${
+                    ageVariant ? 'Secure Attachment Course Bundle' : 'the All-Access Program'
+                  }`}
             </h2>
 
             <div
@@ -621,38 +769,53 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
                 <p className="font-effra font-bold tracking-0.325 md:text-lg">WHAT'S INCLUDED?</p>
 
                 <p className="font-effra font-bold md:text-lg mt-3 md:mt-2">
-                  {style !== 'sa'
+                  {ageVariant
+                    ? AGE_PRICING[style].copy1
+                    : style !== 'sa'
                     ? `Heal Your Attachment Style in 30 Days with the ${ROYAL_RUMBLE[style].TITLE} to Securely Attached program.`
                     : `All the tools you need to create the relationship you deserve.`}
                 </p>
 
-                <ul className="font-effra mt-4 ml-3 list-decimal">
-                  <li>
-                    <p className="md:text-lg">
-                      {style !== 'sa'
-                        ? `The ${ROYAL_RUMBLE[style].TITLE} to Securely Attached program + coursework`
-                        : `The Securely Attached program + coursework`}
-                    </p>
-                  </li>
-                  <li>
-                    <p className="md:text-lg">
-                      All-access pass to The Personal Development School’s offering, granting you
-                      access to:
-                    </p>
-                  </li>
-                  <ul className="font-effra !ml-4 fa-ul">
-                    {ROYAL_RUMBLE[style].OFFER_SEGMENT.bullets.map((copy, index) => (
-                      <li key={`offer_${index}`}>
-                        <Icon
-                          className="text-primary my-auto w-4 h-4 fa-li"
-                          name="check-circle"
-                          type="regular"
-                        />
-                        <p className="md:text-lg my-2 lg:my-1">{copy} </p>
-                      </li>
-                    ))}
+                {ageVariant ? (
+                  <List
+                    iconName="circle-check"
+                    iconType="regular"
+                    iconSize="lg"
+                    className="mt-4"
+                    classNameIcon="text-primary !mt-4"
+                    classNameListItems="mb-4"
+                    classNameText="md:text-lg"
+                    listItems={AGE_PRICING[style].list}
+                  />
+                ) : (
+                  <ul className="font-effra mt-4 ml-3 list-decimal">
+                    <li>
+                      <p className="md:text-lg">
+                        {style !== 'sa'
+                          ? `The ${ROYAL_RUMBLE[style].TITLE} to Securely Attached program + coursework`
+                          : `The Securely Attached program + coursework`}
+                      </p>
+                    </li>
+                    <li>
+                      <p className="md:text-lg">
+                        All-access pass to The Personal Development School’s offering, granting you
+                        access to:
+                      </p>
+                    </li>
+                    <ul className="font-effra !ml-4 fa-ul">
+                      {ROYAL_RUMBLE[style].OFFER_SEGMENT.bullets.map((copy, index) => (
+                        <li key={`offer_${index}`}>
+                          <Icon
+                            className="text-primary my-auto w-4 h-4 fa-li"
+                            name="check-circle"
+                            type="regular"
+                          />
+                          <p className="md:text-lg my-2 lg:my-1">{copy} </p>
+                        </li>
+                      ))}
+                    </ul>
                   </ul>
-                </ul>
+                )}
               </div>
               <div className="max-w-[502px] rounded-20 bg-primary-light py-11 px-4 md:px-10 text-center">
                 <p
@@ -663,33 +826,43 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
 
                 <div className="max-w-[230px] mt-8 mx-auto">
                   <p className="font-effra font-bold md:text-lg text-center">
-                    {ROYAL_RUMBLE.OFFER_CARD.subheaing}
+                    {ROYAL_RUMBLE.OFFER_CARD.subheading}
                   </p>
 
-                  <p className="font-effra font-bold !text-[100px] text-primary after:content-['/month'] after:text-sm md:after:text-lg">
+                  <p className="font-effra font-bold !text-[72px] text-primary after:content-['/month'] after:text-sm md:after:text-lg">
                     {ROYAL_RUMBLE.OFFER_CARD.price}
                   </p>
 
-                  <p className="md:text-lg line-through">Regular Price = $97/month</p>
+                  <p className="md:text-lg line-through">
+                    Regular Price = {ageVariant ? '$299' : '$97'}/month
+                  </p>
                 </div>
                 <div className="mt-2">
                   <ul className="font-effra mt-8 ml-3 list-disc text-left">
                     <li>
                       <p className="md:text-lg">Special offer available for a limited time</p>
                     </li>
-                    <li>
-                      <p className="md:text-lg">
-                        Get 30% off of the All-Access Pass for life if you sign up today
-                      </p>
-                    </li>
+                    {!ageVariant && (
+                      <li>
+                        <p className="md:text-lg">
+                          Get 30% off of the All-Access Pass for life if you sign up today
+                        </p>
+                      </li>
+                    )}
                     <li>
                       <p className="md:text-lg">7-Day Money Back Guarantee, No Questions Asked!</p>
                     </li>
                   </ul>
 
-                  <CheckoutButton className="mt-6 md:mt-10" label="REGISTER NOW" />
+                  <CheckoutButton
+                    href={checkoutUrl}
+                    className="mt-6 md:mt-10"
+                    label="REGISTER NOW"
+                  />
 
-                  <p className="font-effra font-bold md:text-lg mt-2">SAVE 30% NOW</p>
+                  <p className="font-effra font-bold md:text-lg mt-2">
+                    {ageVariant ? 'SAVE AN ADDITIONAL 50% NOW' : 'SAVE 30% NOW'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -737,6 +910,7 @@ export const QuizResultsPage = ({ style, isVariant = false }: IQuizResultsPagePr
         </div>
 
         <CheckoutButton
+          href={checkoutUrl}
           className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
           label="REWRITE MY STORY"
         />

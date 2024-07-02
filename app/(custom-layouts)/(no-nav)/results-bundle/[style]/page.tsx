@@ -16,7 +16,7 @@ export default function AgeFunnelResultsPage({ params }: { params: { style: TSty
         </div>
       ) : (
         <div className="w-full text-center z-10">
-          <QuizResultsPage isVariant style={params.style} />
+          <QuizResultsPage ageVariant style={params.style} />
         </div>
       )}
     </Page>

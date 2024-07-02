@@ -100,8 +100,8 @@ export const config = {
 }
 
 interface IConfigWithRegex {
-  regex: RegExp;
-  config: TSplitTestConfig;
+  regex: RegExp
+  config: TSplitTestConfig
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {

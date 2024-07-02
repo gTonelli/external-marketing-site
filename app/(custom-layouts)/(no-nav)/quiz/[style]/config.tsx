@@ -1213,7 +1213,7 @@ export const ROYAL_RUMBLE = {
       },
     ],
 
-    STILLNOTSURE_SEGMENT: { copy2: `` },
+    STILLNOTSURE_SEGMENT: { copy2: [] },
 
     BESTSELF_SEGMENT: {
       subheading: `The Emotional Healing Program at The Personal Development School is the missing piece to help you get there.`,

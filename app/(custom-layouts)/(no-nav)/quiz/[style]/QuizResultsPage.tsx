@@ -598,15 +598,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
             <div className="mt-4">
               <p className="font-effra mb-4 md:text-lg">
-                {Array.isArray(ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2)
-                  ? ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2.map((copy, index) => (
-                      <p
-                        key={`still_not_sure_copy_${index}`}
-                        className="mb-4 md:text-lg font-effra">
-                        {copy}
-                      </p>
-                    ))
-                  : ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2}
+                {ROYAL_RUMBLE[style].STILLNOTSURE_SEGMENT.copy2.map((copy, index) => (
+                  <p key={`still_not_sure_copy_${index}`} className="mb-4 md:text-lg font-effra">
+                    {copy}
+                  </p>
+                ))}
               </p>
 
               <p className="font-bold font-effra md:text-lg">

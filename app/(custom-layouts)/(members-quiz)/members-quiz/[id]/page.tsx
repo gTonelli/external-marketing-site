@@ -167,7 +167,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
   return (
     <Page page_name="Members Quiz Questions">
       <Dialog
-        className="w-full rounded-4xl overflow-hidden m-5 lg:w-1/2 xl:1/3 border border-black"
+        className="w-full rounded-4xl overflow-hidden m-5 lg:w-1/2 xl:1/3 border border-black bg-white"
         isShown={Boolean(showLeaveConfirmationWithQuizId && window.innerWidth > 768)}
         onToggle={() => setShowLeaveConfirmationWithQuizId('')}>
         <div className="relative flex-center flex-col p-12 text-black">
@@ -389,11 +389,14 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
 
               <div className="w-full flex justify-center">
                 <button
-                  className="button w-8 h-8 flex items-center justify-center rounded-full bg-white shadow-lg p-0 tooltip"
+                  className="flex flex-col items-center justify-center p-0"
                   onClick={onGoToPreviousQuestion}>
-                  <Icon name="chevron-left" className="text-primary" />
+                  <Icon
+                    name="chevron-left"
+                    className="flex items-center justify-center w-8 h-8 p-2 text-primary rounded-full bg-white shadow-lg"
+                  />
 
-                  <span className="tooltiptext">
+                  <span className="w-max">
                     {currentIndex === 0 ? 'Go back' : 'Go to the previous question'}
                   </span>
                 </button>

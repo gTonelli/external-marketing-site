@@ -4,6 +4,7 @@ import { IDefaultProps } from '@/components'
 // libraries
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import cx from 'classnames'
 // styles
 import 'swiper/css'
 
@@ -17,7 +18,7 @@ export const CarouselSocialProof = ({ className, slides }: ICarouselSocialProofP
     autoplay={{
       delay: 3000,
     }}
-    className={className}
+    className={cx('!overflow-hidden', className)}
     modules={[Autoplay]}
     slidesPerView={1}
     spaceBetween={16}

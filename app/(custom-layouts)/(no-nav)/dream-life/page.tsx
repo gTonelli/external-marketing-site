@@ -33,10 +33,11 @@ export default function DreamLifePage() {
   return (
     <Page className="relative w-full overflow-hidden" page_name="7 Day Free Trial Headspace">
       {/**HERO SECTION */}
-      <section className="w-full text-center bg-[#DEEAEA] pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
+      <section className="w-full text-center bg-grey-7 pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <Image
           className="w-full mx-auto sm:w-3/4 md:w-1/2 lg:hidden"
           src="TrialHeadspace/hero-left-mockup.png"
+          alt='hero-mockup-left'
         />
 
         <Text.Heading
@@ -52,14 +53,16 @@ export default function DreamLifePage() {
       <Image
         className="hidden absolute w-1/2 top-20 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
         src="TrialHeadspace/hero-left-mockup.png"
+        alt='hero-mockup-left'
       />
 
       <Image
         className="hidden absolute w-1/2 lg:-right-56 top-20 lg:block xl:w-1/3 xl:-right-32"
         src="TrialHeadspace/hero-right-mockup.png"
+        alt='hero-mockup-right'
       />
 
-      <Image className="w-full" src="TrialHeadspace/hero-bg.png" />
+      <Image className="w-full" src="TrialHeadspace/hero-bg.png" alt='hero-mockup'/>
 
       {/** DREAMLIFE SECTION  */}
       <section className="pt-4 lg:pt-0">
@@ -68,7 +71,7 @@ export default function DreamLifePage() {
             <div
               key={`benefits_${index}`}
               className="flex row items-center space-x-4 mb-1 mx-auto md:justify-center lg:justify-start lg:space-x-14 lg:mb-12">
-              <Image className="w-[150px] h-[150px]" src={`TrialHeadspace/${benefit.image}`} />
+              <Image className="w-[150px] h-[150px]" src={`TrialHeadspace/${benefit.image}`} alt='attachment-style-benefits'/>
 
               <div className="flex flex-col space-y-1 lg:flex-row lg:space-x-20">
                 <Text.Heading className="lg:w-56" content={benefit.title} size={3} />
@@ -94,7 +97,7 @@ export default function DreamLifePage() {
               />
             </div>
 
-            <Image className="md:w-1/2" src="TrialHeadspace/dreamlife-mockup.jpg" />
+            <Image className="md:w-1/2" src="TrialHeadspace/dreamlife-mockup.jpg" alt='dreamlife-mockup'/>
           </div>
         </div>
       </section>

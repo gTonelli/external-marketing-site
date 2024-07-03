@@ -231,7 +231,7 @@ export const CarouselPopularCourses = ({
           <Swiper
             loop
             breakpoints={breakpoints}
-            className="!pb-12"
+            className="!overflow-hidden !pb-12"
             modules={[Navigation, Pagination]}
             navigation={{ prevEl: prevElCourses, nextEl: nextElCourses }}
             pagination={{

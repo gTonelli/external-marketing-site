@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { IATPage } from '@/app/(custom-layouts)/(no-nav)/iat/IATPage'
+import { IATPage } from '@/app/(default-layout)/iat/IATPage'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function IATSalePage() {
-  return <IATPage showLeadGenForm />
+  return <IATPage showLeadGenForm page_name="External IAT Coaching Page" />
 }

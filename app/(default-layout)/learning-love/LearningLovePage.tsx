@@ -236,7 +236,7 @@ export default function LearningLovePage() {
 
         <Swiper
           loop
-          className="!pb-8 lg:w-1/2 lg:pb-12 lg:overflow-visible"
+          className="!overflow-hidden !pb-8 lg:w-1/2 lg:pb-12"
           initialSlide={1}
           modules={[Pagination]}
           pagination={{
@@ -248,7 +248,7 @@ export default function LearningLovePage() {
           {TestimonialSlides.map((data, i) => (
             <SwiperSlide
               key={`testimonial_slide_${i}`}
-              className="p-3 lg:self-stretch lg:h-auto lg:flex lg:flex-col lg:cursor-pointer">
+              className="p-3 lg:self-stretch lg:!h-auto lg:flex lg:flex-col lg:cursor-pointer">
               <div className="shadow-center-light rounded-20 lg:h-full p-2 py-6 lg:p-6">
                 <div className="flex justify-center">
                   {Array(5)

@@ -116,10 +116,17 @@ export const ROYAL_RUMBLE = {
   ap: {
     TITLE: 'Anxious Preoccupied',
 
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
+    HERO_SECTION: {
+      headline:
+        'Are You Ready For A Committed, Intimate, And Loving Relationship With Someone Who Values And Prioritizes You?',
+      subheadline: `The First Step Is Watching The Short Video Below To Learn And Understand Your Relationship Patterns – And How They’re Shockingly Accurate!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
+      title: 'Who Is The Anxious Preoccupied?',
+      copy: 'As we send over your personalized report, take a few moments to watch this short video and read on to discover your anxious preoccupied attachment style. You’ll learn about your relationship and personal patterns and how to start your healing journey to become securely attached.',
+    },
 
     BANNER_SEGMENT: {
-      headline: `Your fear of abandonment may be getting in the way of you forming healthy relationships that last`,
+      headline: `YOUR FEAR OF ABANDONMENT MAY BE GETTING IN THE WAY OF YOU FORMING HEALTHY RELATIONSHIPS THAT LAST`,
       copy: [
         'You’re an extremely empathetic person who has mastered the art of connecting with others on a deep and real level. You may be a social butterfly or deeply value being in long-term relationships. You’re an expert at reading people and are the person your friends turn to when they need help. Yet, ironically, your relationships are often a huge source of your pain in your life.',
 
@@ -170,13 +177,13 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if it feels like your relationships have pushed you to the point of exhaustion, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `You are not broken! These are just your patterns - and your patterns can be changed.`,
+      subHeadline: `You Are Not Broken! These Are Just Your Patterns - And Your Patterns Can Be Changed.`,
       subheadlineTwo:
         'Use the Anxious Preoccupied to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
       subHeadlineMobile: [
-        'You are not broken!',
+        'You Are Not Broken!',
 
-        'These are just your patterns - and your patterns can be changed.',
+        'These Are Just Your Patterns - And Your Patterns Can Be Changed.',
       ],
     },
 
@@ -410,10 +417,17 @@ export const ROYAL_RUMBLE = {
   da: {
     TITLE: 'Dismissive Avoidant',
 
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
+    HERO_SECTION: {
+      headline:
+        'Do You Want A Happy, Harmonious Relationship That Still Allows You To Be Independent And Have Free Time?',
+      subheadline: `The First Step Is Watching The Short Video Below To Learn And Understand Your Relationship Patterns – And How They’re Shockingly Accurate!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
+      title: 'Who Is The Dismissive Avoidant?',
+      copy: "While we send your personalized report, watch this short video and read on to learn about your dismissive avoidant attachment style, including your relationship patterns and fears, and how you can start your healing journey to become securely attached.",
+    },
 
     BANNER_SEGMENT: {
-      headline: `Your fear of vulnerability may be getting in the way of you forming healthy relationships that last`,
+      headline: `YOUR FEAR OF VULNERABILITY MAY BE GETTING IN THE WAY OF YOU FORMING HEALTHY RELATIONSHIPS THAT LAST`,
       copy: [
         'You like to do your own thing and value your freedom, space, and independence. Because you thrive independently, you value your time spent out of romantic relationships. You are a very logical and practical person when it comes to making decisions and appreciate whenever people are direct, clear, and specific with what they need from you, be it at work, or in your friendships, family, or romantic relationships. Identifying as more of a “thinker” than a “feeler”, you are much more comfortable expressing what you think about situations to friends and family than what you feel about them. Being vulnerable with others is difficult for you and oversharing or being around intense emotions generally makes you feel uncomfortable. You feel a lot more in control and relaxed when you are able to choose when and where you’ll be with people, how close, and for how long. You’ve never been great at putting language to your feelings or sitting with them in the present so you might have a tendency to escape into your work, books, podcasts, video games, the news, or travel instead, enjoying the more mental rather than emotional investments they require from you.',
 
@@ -508,13 +522,13 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if you worry that you’ll never be able to feel safe, open up, truly connect, and have fulfilling relationships, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `You are not broken! These are just your patterns - and your patterns can be changed.`,
+      subHeadline: `You Are Not Broken! These Are Just Your Patterns - And Your Patterns Can Be Changed.`,
       subheadlineTwo:
         'Use the Dismissive Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
       subHeadlineMobile: [
-        'You are not broken!',
+        'You Are Not Broken!',
 
-        'These are just your patterns - and your patterns can be changed.',
+        'These Are Just Your Patterns - And Your Patterns Can Be Changed.',
       ],
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
@@ -735,10 +749,17 @@ export const ROYAL_RUMBLE = {
   fa: {
     TITLE: 'Fearful Avoidant',
 
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleFAshortvideo.mp4',
+    HERO_SECTION: {
+      headline:
+        'Are you ready to start having the best relationships of your life?',
+      subheadline: `The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
+      title: 'Who Is The Fearful Avoidant?',
+      copy: "While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.",
+    },
 
     BANNER_SEGMENT: {
-      headline: `Your fear of betrayal may be getting in the way of you forming healthy relationships that last`,
+      headline: `YOUR FEAR OF BETRAYAL MAY BE GETTING IN THE WAY OF YOU FORMING HEALTHY RELATIONSHIPS THAT LAST`,
       copy: [
         'You are a passionate, empathetic person who has been through some big challenges in life. You might feel that your life and relationships have always been a bit of a rollercoaster. While you are very strong and independent, a part of you longs to have someone care for you the way that you care for others.',
 
@@ -786,13 +807,13 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if you worry that you’ll never be able to feel safe, trust, and have fulfilling relationships, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `You are not broken! These are just your patterns - and your patterns can be changed.`,
+      subHeadline: `You Are Not Broken! These Are Just Your Patterns - And Your Patterns Can Be Changed.`,
       subheadlineTwo:
         'Use the Fearful Avoidant to Securely Attached Program to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 30 Days!',
       subHeadlineMobile: [
-        'You are not broken!',
+        'You Are Not Broken!',
 
-        'These are just your patterns - and your patterns can be changed.',
+        'These Are Just Your Patterns - And Your Patterns Can Be Changed.',
       ],
     },
     ATTACHMENT_ORIGIN_SEGMENT: {
@@ -1029,11 +1050,18 @@ export const ROYAL_RUMBLE = {
   },
   sa: {
     TITLE: 'Secure',
-
-    YOUTUBE_URL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
+    
+    HERO_SECTION: {
+      headline:
+        'Are You Ready To Find That Spark In Your Love Life Again – And Meet A Loving And Secure Partner?',
+      subheadline: `The First Step Is Watching This Short – And Shockingly Accurate – Video About Being A Securely Attached Person!`,
+      videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
+      title: 'Who Is The Securely Attached?',
+      copy: "While we email your personalized report, watch this video and read on to discover your secure attachment style, how it impacts your relationships and patterns, and how to use it to find, nurture, and maintain a long-lasting and loving relationship.",
+    },
 
     BANNER_SEGMENT: {
-      headline: `But without knowing how to communicate best with different types of partners, you may keep ending up in unfulfilling relationships`,
+      headline: `BUT WITHOUT KNOWING HOW TO COMMUNICATE BEST WITH DIFFERENT TYPES OF PARTNERS, YOU MAY KEEP ENDING UP IN UNFULFILLING RELATIONSHIPS`,
       copy: [
         'You’re a warm and friendly person who feels comfortable in relationships (both intimate and platonic). You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth. You are quite good at communicating your needs, feelings, and opinions to others. Letting people in is easy for you because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time. When faced with relationship problems with your partner, friends, family, or coworkers, you see most problems as solvable and have strong conflict resolution skills. When you are faced with situations that are triggering, you are able to sit with your emotions and regulate them appropriately. When it comes to supporting others, you are an empathetic listener and are happy to be their rock. Your romantic relationships are generally stable and you don’t have a problem with long-term commitments. However, you can sometimes end up in relationships that feel wildly out of balance and that can drain you. Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
       ],
@@ -1099,10 +1127,10 @@ export const ROYAL_RUMBLE = {
         ],
       ],
       headline: `If you relate to these statements and if it feels like your relationships have pushed you to the point of exhaustion, you’re not alone. And here's what you need to understand:`,
-      subHeadline: `With the right tools, you can make sure that your relationships always feel harmonious.`,
+      subHeadline: `With The Right Tools, You Can Make Sure That Your Relationships Always Feel Harmonious.`,
       subheadlineTwo: '',
       subHeadlineMobile: [
-        `With the right tools, you can make sure that your relationships always feel harmonious.`,
+        `With The Right Tools, You Can Make Sure That Your Relationships Always Feel Harmonious.`,
       ],
     },
     ATTACHMENT_ORIGIN_SEGMENT: {

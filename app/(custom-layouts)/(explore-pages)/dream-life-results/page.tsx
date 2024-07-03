@@ -361,7 +361,7 @@ export default function DreamLifePage() {
             </div>
 
             <div
-              className="flex flex-row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
+              className="flex flex-row items-center justify-between border-grey-7 border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
               onClick={() => onGoToBlog('article4')}>
               <div className="flex flex-row items-center justify-between space-x-5 lg:space-x-20">
                 <Text.Paragraph
@@ -411,7 +411,7 @@ export default function DreamLifePage() {
             </div>
 
             <div
-              className="flex flex-row items-center justify-between border-[#DEEAEA] border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
+              className="flex flex-row items-center justify-between border-grey-7 border-b-[5px] cursor-pointer mx-4 py-7 lg:pt-8"
               onClick={() => onGoToBlog('article6')}>
               <div className="flex flex-row items-center justify-between space-x-5 lg:space-x-20">
                 <Text.Paragraph

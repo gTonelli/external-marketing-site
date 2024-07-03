@@ -2,7 +2,8 @@
 
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
@@ -13,6 +14,7 @@ import { Faq } from '@/components/Faq/Faq'
 import { Page } from '@/components/Page'
 import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
 import { EExternalRoutes, ERoutes, Regexes } from '@/utils/constants'
@@ -33,7 +35,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { RegistrationForm } from '@/components/Forms/RegistrationForm'
+import { IATBanner } from './IATBanner'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -48,14 +50,23 @@ const TRUSTBAR = [
   `yahoo-news-logo.png`,
 ]
 
-export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean }) => {
-  const page_name = 'External IAT Page'
+export const IATPage = ({
+  page_name,
+  pageUrl = 'other',
+  showLeadGenForm = false,
+}: {
+  page_name: Pages
+  pageUrl?: 'other' | 'ebook'
+  showLeadGenForm?: boolean
+}) => {
+  const searchParams = useSearchParams()
 
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
 
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
+  const [modalSuccess, setModalSuccess] = useState(false)
 
   const onVideoStarted = (type: string) => {
     if (!watchedVideos.has(type)) {
@@ -86,32 +97,38 @@ export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean
     })
   }
 
+  useEffect(() => {
+    if (pageUrl === 'ebook') {
+      if (searchParams.get('signup') === 'success') setModalSuccess(true)
+    }
+  }, [])
+
   return (
     <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
+      <Dialog
+        className="max-w-xl p-4 bg-white rounded-20"
+        isShown={modalSuccess}
+        onToggle={() => setModalSuccess(!modalSuccess)}>
+        <div className="w-full flex justify-end mb-2">
+          <Icon
+            className="cursor-pointer hover:scale-125"
+            name="close"
+            onClick={() => setModalSuccess(false)}
+          />
+        </div>
+        <h2 className="text-4xl text-left mb-2">Thanks for Downloading Our Ebook!</h2>
+
+        <p>
+          Congratulations on starting your journey towards becoming a certified relationship coach!
+          Our eBook is on its way. <br />
+          <br /> I’ll be sending you the best resources and latest updates about our IAT™
+          Relationship Coaching Program. Stay tuned!
+        </p>
+      </Dialog>
+
       <Section className="w-full relative z-10 bg-blue-lightest 3xl:pb-0">
-        <Text.Heading
-          className="font-effra font-bold text-black !text-[48px] leading-[50px]"
-          content={IAT.hero_section.heading}
-        />
-
-        <Text.Heading
-          className="font-effra font-bold text-black mt-3 text-[24px]"
-          content={IAT.hero_section.subheading}
-          spacing="tracking-0.325"
-        />
-
-        <Text.Paragraph
-          useMD
-          className="max-w-[676px] mt-8 font-bold lg:mx-auto lg:mt-11"
-          content={IAT.hero_section.copy}
-        />
-
-        <Button
-          className="trial-btn relative mt-11 md:top-6 md:mt-0 lg:mt-8"
-          label="GET STARTED NOW"
-          onClick={onClickPurchase}
-        />
+        <IATBanner page={pageUrl} onClickPurchase={onClickPurchase} />
       </Section>
 
       <div className="relative">
@@ -605,7 +622,11 @@ export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean
 
         <Text.Heading
           className="text-black text-[26px] mt-4 mb-8 mx-6"
-          content="Schedule a Free Call to Learn More"
+          content={
+            pageUrl === 'ebook'
+              ? 'Schedule a  Free Call with our Coaching Specialist to Learn More'
+              : 'Schedule a Free Call to Learn More'
+          }
         />
 
         <Button className="trial-btn xxs:inline" label="BOOK NOW" onClick={onBookNow} />
@@ -740,14 +761,11 @@ export const IATPage = ({ showLeadGenForm = false }: { showLeadGenForm?: boolean
           content="Here's What Our Students Say:"
         />
 
-        <Video.Youtube
-          className=" rounded-10 mx-auto"
-          iframeClassName="rounded-10"
-          maxHeight={432}
-          thumbnail="/images/IATPage/IAT-testimonial-thumbnail.png"
+        <VideoThumbnail
+          thumbnailUrl="IATPage/IAT-testimonial-thumbnail.png"
           thumbnailAlt="IAT Testimonial Thumbnail"
-          videoId="tUUHFJw-VrI"
-          onPlay={() => onVideoStarted('testimonial')}
+          srcUrl="https://storage.googleapis.com/pds_videos/Integrated_attachment_theory_coaching_training_testimonials.mp4"
+          type="testimonial"
         />
       </Section>
 
@@ -798,25 +816,25 @@ const iatLivePrices: TIATPrice[] = [
     price: '$2,999.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2024_UPFRONT,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_UPFRONT,
   },
   {
     price: '$1,025.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2024_3_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_3_MONTH_PLAN,
   },
   {
     price: '$525.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2024_6_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_6_MONTH_PLAN,
   },
   {
     price: '$275.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2024_12_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_12_MONTH_PLAN,
   },
 ]
 
@@ -1315,16 +1333,17 @@ const IATTestimonialSection = () => {
             spaceBetween: 24,
           },
         }}
-        className="!px-4 mb-4"
+        className="!overflow-hidden !px-4 mb-4"
+        wrapperClass="!pb-4"
         modules={[Autoplay, Navigation]}
         navigation={{ prevEl, nextEl }}
         slidesPerView={1}
         spaceBetween={16}>
         {IAT.testimonials.map((testimonial, index) => (
-          <SwiperSlide key={`iat_testimonial_${index}`}>
+          <SwiperSlide key={`iat_testimonial_${index}`} className="!h-auto">
             {({ isActive }) => (
               <div
-                className={`w-full self-stretch ${
+                className={`w-full h-full ${
                   !isActive && 'bg-gray-bg-primary opacity-50'
                 } rounded-3xl shadow-lg transition-colors my-2 p-8`}>
                 <Image

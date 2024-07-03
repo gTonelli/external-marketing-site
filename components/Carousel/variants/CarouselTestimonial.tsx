@@ -50,11 +50,13 @@ interface ICarouselTestimonialProps extends IDefaultProps {
   testimonialType?: string
 }
 
-const DEFAULT_TESTIMONIALS = [
+export const DEFAULT_TESTIMONIALS = [
   {
     author: {
       name: 'Melissa K.',
       picture: 'avatar_melissa.png',
+      state: 'Colorado',
+      country: 'USA',
     },
     content:
       '“I’ve researched relationships most of my life. However, I couldn’t find anything that explained my dynamic in them. I thought about therapy until I stumbled upon Thais’s YouTube channel. She explained EXACTLY what I was experiencing. She literally read my mind! I’m usually a bit of a skeptic but I was hooked! I finally figured out my problem and how to solve it!”',
@@ -64,6 +66,8 @@ const DEFAULT_TESTIMONIALS = [
     author: {
       name: 'Tappy P.',
       picture: 'avatar_tappy.jpg',
+      state: 'England',
+      country: 'UK',
     },
     content:
       '“PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The community has so many brilliant, and like-minded individuals who I always look forward to talking to! The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself.”',
@@ -73,6 +77,8 @@ const DEFAULT_TESTIMONIALS = [
     author: {
       name: 'Athira D.',
       picture: 'avatar_athira.jpg',
+      state: 'San Francisco',
+      country: 'USA',
     },
     content:
       '“PDS replaced therapy for me. I was a Fearful Avoidant, and I could not explain why I struggled in relationships. The constant need for connection and the fear of having one was very draining. I am so grateful to PDS that finally I realize that my worth is not related to anything I achieve but to the person that I am. Also learning about other attachment styles helped me to become more compassionate to people around me.”',
@@ -82,6 +88,8 @@ const DEFAULT_TESTIMONIALS = [
     author: {
       name: 'Leona D.',
       picture: 'avatar_leona.jpg',
+      state: 'Belfast',
+      country: 'UK',
     },
     content:
       '"Joining PDS was the single best decision I made last year as it opened my eyes to the possibility that I could dramatically improve the quality of my relationships and that my past did not have to define my future. The PDS community is a truly supportive environment, my only regret is that I did not find all this out sooner as it has been truly life changing for me!"',
@@ -177,7 +185,7 @@ export const CarouselTestimonial = forwardRef(
             isPrimary ? 'max-w-[1184px]' : 'max-w-6xl'
           }`}>
           <Swiper
-            className={cx('!pb-12', classNameSwiper)}
+            className={cx('!overflow-hidden !pb-12', classNameSwiper)}
             modules={[Navigation, Pagination]}
             navigation={{
               prevEl,
@@ -194,9 +202,7 @@ export const CarouselTestimonial = forwardRef(
             slidesPerView={noOfslides}
             spaceBetween={16}>
             {testimonials.map((review, index) => (
-              <SwiperSlide
-                key={`review_${index}`}
-                className={cx('flex justify-evenly self-start', classNameSlide)}>
+              <SwiperSlide key={`review_${index}`} className={cx('flex !h-auto', classNameSlide)}>
                 {isPrimary ? (
                   <Testimonial className={classNameCard} review={review} />
                 ) : (

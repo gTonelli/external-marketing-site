@@ -3,6 +3,7 @@ import mixpanel, { Dict } from 'mixpanel-browser'
 
 /* Collection of all Mixpanel event names tracked throughout the app */
 type Events =
+  | 'Audio Started'
   | 'Button Clicked'
   | 'Checkout Step Started'
   | 'Course Filterd'
@@ -30,6 +31,7 @@ type Events =
   | 'Trial Ended'
   | 'Trial Started'
   | 'Video Started'
+  | 'Video Progress'
 
 /* Collection of all page names tracked throughout the app */
 export type Pages =
@@ -39,8 +41,11 @@ export type Pages =
   | `7 Day Trial + 50% off first month`
   | `7 Days Trial Page Funnel - FA`
   | `7-Day Trial Page (Variant)`
+  | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
+  | `Attachment Style Report New - ${string}`
+  | `Attachment Style Report Old - ${string}`
   | `Attachment Style Quiz Questions`
   | `Attachment Style Results`
   | `Attachment Style Results - ${string}`
@@ -53,6 +58,8 @@ export type Pages =
   | `Corporate Quiz Results Page`
   | `Dreamlife Results Page FA`
   | `External IAT Page`
+  | `External IAT Ebook Page`
+  | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `Find My Courses`
   | `IAT Attachment Quiz`
@@ -75,6 +82,9 @@ export type Pages =
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `Podcast Page`
+  | `Podcast Episode Page - ${string}`
+  | `Podcast Freebie`
   | `Site Links`
   | `Speaker Gift`
   | `Secondary Sales - ${string}`
@@ -145,6 +155,13 @@ class Mixpanel {
   }
 
   track = {
+    AudioStarted: (props: { audio_type: string; page_name?: Pages }) => {
+      this.event('Audio Started', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
     ButtonClicked: (props: {
       button_label?: string
       page_name?: Pages
@@ -236,6 +253,13 @@ class Mixpanel {
 
     VideoStarted: (props: { video_type: string; page_name?: Pages }) => {
       this.event('Video Started', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    VideoProgress: (props: { progress: number; page_name?: Pages; video_type: string }) => {
+      this.event('Video Progress', {
         ...props,
         page_name: props.page_name || window.location.pathname,
       })

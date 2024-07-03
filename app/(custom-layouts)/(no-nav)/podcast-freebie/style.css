@@ -1,0 +1,47 @@
+.bg-hero,
+.bg-about,
+.bg-hero-mobile,
+.bg-about-mobile {
+    position: relative;
+}
+
+.bg-hero-mobile {
+    background: url('/images/PodcastFreebie/podcast-freebie-hero.jpg') no-repeat center 60% / cover;
+}
+
+.bg-about-mobile {
+    background: url('/images/PodcastFreebie/about-thais.jpg') no-repeat center 75% / cover;
+}
+
+@media screen and (min-width: 425px) {
+    .bg-hero-mobile {
+        background-position: center 70%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bg-hero-mobile {
+        background-position: center 80%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .bg-hero::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        background: linear-gradient(108deg, #E3EDED 0%, rgba(213, 184, 216, 0.00) 71.01%);
+    }
+
+    .bg-hero {
+        background: url('/images/PodcastFreebie/podcast-freebie-hero-desktop.jpg') no-repeat center 30% / cover;
+    }
+
+    .bg-about {
+        background: url('/images/PodcastFreebie/about-thais-desktop.jpg') no-repeat center bottom / cover;;
+    }
+}

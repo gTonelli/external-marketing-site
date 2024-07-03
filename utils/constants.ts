@@ -90,18 +90,23 @@ export enum ERoutes {
   LIFE_TIME_PAGE = '/lifetime',
   MARKETING_QUIZ_B = '/quiz/b',
   MENTAL_HEALTH_AWARENESS_PAGE = '/mha-month',
+  PODCAST = '/podcast',
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
 
-  // Stripe Checkout
+  // Stripe Embedded Checkout
   STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthly?discount_id=30off',
   STRIPE_CHECKOUT_39_FIRST_MONTH = '/checkout/67monthly?discount_id=28off1mo',
+
+  // Custom Checkout on Thinkific
+  CHECKOUT_ATTACHMENT_BOOTCAMP = '/checkout/v2?product_id=2996140&price_id=3853225&coupon=148off',
 }
 
 export enum EExternalRoutes {
   // External
   ABOUT = 'https://university.personaldevelopmentschool.com/pages/about',
+  ATTACHMENT_BOOTCAMP = 'https://university.personaldevelopmentschool.com/pages/attachment-bootcamp',
   BLOG = 'https://blog.personaldevelopmentschool.com/',
   COLLECTIONS = 'https://university.personaldevelopmentschool.com/collections',
   FAQ = 'https://university.personaldevelopmentschool.com/pages/faq',
@@ -121,16 +126,17 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=3369055&coupon=withyouquarterly',
   THINKIFIC_CHECKOUT_QUARTERLY_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=withyouquarterly',
   THINKIFIC_CHECKOUT_ANNUAL_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1084476&coupon=withyouannually',
+  THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP = 'https://university.personaldevelopmentschool.com/enroll/2996140?price_id=3853225&coupon=148off',
   // IAT Recorded
   THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
   // IAT Spring 2024
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713788&coupon=iatbundleupfrontlive',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713854&coupon=iatbundle3molive',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713855&coupon=iatbundle6molive',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2872887?price_id=3713857&coupon=iatbundle12molive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871049&coupon=iatbundleupfrontlive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871126&coupon=iatbundle3molive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871125&coupon=iatbundle6molive',
+  THINKIFIC_CHECKOUT_IAT_FALL_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871124&coupon=iatbundle12molive',
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',
@@ -147,8 +153,10 @@ export enum EExternalRoutes {
   INSTAGRAM = 'https://www.instagram.com/thepersonaldevelopmentschool',
   IOS_APP = 'https://apps.apple.com/us/app/personal-development-school/id6459618663',
   PODCASTS = 'https://podcasts.apple.com/us/podcast/personal-development-school/id1478580185',
+  PRESS_AND_MEDIA = 'https://university.personaldevelopmentschool.com/pages/press-and-media',
   PRIVACY = 'https://university.personaldevelopmentschool.com/pages/privacy',
   SUPPORT = 'info@personaldevelopmentschool.com',
+  SUPPORT_PAGE = 'https://support.personaldevelopmentschool.com/en/',
   TERMS = 'https://university.personaldevelopmentschool.com/pages/terms',
   TIKTOK = 'https://www.tiktok.com/@thaisgibson',
   YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',

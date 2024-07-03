@@ -1,11 +1,16 @@
 'use client'
 
 // core
-import Mixpanel from '@/modules/Mixpanel'
+import { useContext } from 'react'
+// components
 import { IDefaultProps } from '@/components'
 // libraries
 import cx from 'classnames'
 import { overrideTailwindClasses as two } from 'tailwind-override'
+// modules
+import Mixpanel from '@/modules/Mixpanel'
+// utils
+import { PageContext } from '@/utils/contexts'
 
 export type TButtonColor =
   | 'primary'
@@ -51,6 +56,12 @@ export interface IButtonDefaultProps extends IDefaultProps {
    */
   theme?: 'primary' | 'secondary' | 'black' | 'orange' | 'pink' | 'teal'
   type?: 'button' | 'reset' | 'submit'
+  /**
+   * boolean specifying whether or not track Mixpanel event
+   */
+  track?: boolean
+  /** additional mixpanel props */
+  mpProps?: { [key: string]: string }
 }
 
 export const ButtonDefault = ({
@@ -63,9 +74,20 @@ export const ButtonDefault = ({
   onClick,
   theme = 'primary',
   type,
+  track = false,
+  mpProps,
 }: IButtonDefaultProps) => {
+  const { page_name } = useContext(PageContext)
+
   const _onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (isDisabled || isLoading) return
+    if (track) {
+      Mixpanel.track.ButtonClicked({
+        button_label: event.currentTarget.innerText,
+        page_name,
+        ...mpProps,
+      })
+    }
     onClick?.(event)
   }
 

@@ -72,7 +72,7 @@ export const AttachmentQuizV2RadioInput = ({ number }: IAttachmentQuizV2RadioInp
             id={`question_${number}_input_3`}
             name={`question_${number}`}
             type="radio"
-            value={0}
+            value={0.5}
           />
 
           <label
@@ -87,7 +87,7 @@ export const AttachmentQuizV2RadioInput = ({ number }: IAttachmentQuizV2RadioInp
             id={`question_${number}_input_4`}
             name={`question_${number}`}
             type="radio"
-            value={0}
+            value={1}
           />
 
           <label

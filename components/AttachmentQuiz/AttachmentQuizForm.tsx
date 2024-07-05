@@ -1,6 +1,7 @@
 'use client'
 
 //core
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
@@ -13,16 +14,23 @@ interface IAttachmentQuizFormProps {
   userStyle: TStyle
   userInfo?: IUserInfo
   quiz_traffic_source: TQuizTrafficSources
+  isYoung?: boolean
 }
 
 export const AttachmentQuizForm = ({
   quiz_traffic_source,
   userInfo,
   userStyle,
+  isYoung,
 }: IAttachmentQuizFormProps) => {
   // =================== Hooks ======================
+  const [isVariant, setIsVariant] = useState(false)
+
   const tagManager = useGoogleTagManager()
   const router = useRouter()
+
+  // TODO: useEffect with split logic
+  useEffect(() => {}, [])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -33,12 +41,15 @@ export const AttachmentQuizForm = ({
       eventLabel: 'Submit',
     })
 
+    // TODO: split based on isVariant not isYoung
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      router.push('/quiz/results/fa')
+      if (isYoung) router.push('/results-bundle/fa')
+      else router.push('/quiz/results/fa')
     } else {
-      router.push('/quiz/' + userStyle)
+      if (isYoung) router.push('/results-bundle/' + userStyle)
+      else router.push('/quiz/' + userStyle)
     }
   }
 
@@ -51,7 +62,13 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={`attachment-quiz-${userStyle}`}
+          clientTag={
+            isYoung
+              ? isVariant
+                ? `isYoung-${userStyle}-variant,attachment-quiz-${userStyle}`
+                : `isYoung-${userStyle}-control,attachment-quiz-${userStyle}`
+              : `attachment-quiz-${userStyle}`
+          }
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

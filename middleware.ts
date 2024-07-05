@@ -215,9 +215,3 @@ type TSplitTestConfig = {
   variantRatio: number
   forceControlOnNewUser: boolean
 }
-
-/**
- * if cookie present:
- * /quiz/results/fa -> /results-bundle/fa
- * /quiz/[style] -> /results-bundle/[style]
- */

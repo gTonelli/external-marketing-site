@@ -44,6 +44,7 @@ export const AttachmentQuizQuestions = ({
   const [faPoints, setFaPoints] = useState(0)
   const [saPoints, setSaPoints] = useState(0)
   const [style, setStyle] = useState('')
+  const [isYoung, setIsYoung] = useState(false)
   const [userInfo, setUserInfo] = useState<IUserInfo>({
     relationship: '',
     attachment: '',
@@ -138,8 +139,7 @@ export const AttachmentQuizQuestions = ({
           setUserInfo({ ...userInfo, [question.association]: answer })
         }
         if (question.association === 'age' && answer === '18-24') {
-          /* TODO: Add split test logic and set a cookie */
-          console.log('========================== age funnel user ==============================')
+          setIsYoung(true)
         }
       }
       // Check if the question was last - go to the ResultsPage
@@ -237,6 +237,7 @@ export const AttachmentQuizQuestions = ({
           quiz_traffic_source={quiz_traffic_source}
           userInfo={userInfo}
           userStyle={style as TStyle}
+          isYoung={isYoung}
         />
       )}
     </section>

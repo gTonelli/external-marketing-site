@@ -6,9 +6,12 @@ import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
+// libraries
+import Cookies from 'universal-cookie'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
 import { TStyle } from '@/utils/types'
+import Mixpanel from '@/modules/Mixpanel'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -29,8 +32,21 @@ export const AttachmentQuizForm = ({
   const tagManager = useGoogleTagManager()
   const router = useRouter()
 
-  // TODO: useEffect with split logic
-  useEffect(() => {}, [])
+  useEffect(() => {
+    if (isYoung) {
+      const cookies = new Cookies()
+      let isAgeVariant = cookies.get('gm-1079-age-funnel-split') === 'yes'
+      if (cookies.get('gm-1079-age-funnel-split') === null) {
+        isAgeVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+        cookies.set('gm-1079-age-funnel-split', isAgeVariant ? 'yes' : 'no')
+        Mixpanel.track.ExperimentStarted({
+          'Experiment name': 'GM-1079-Age-Funnel-Split',
+          'Variant name': isAgeVariant ? 'Variant 1' : 'Control',
+        })
+      }
+      setIsVariant(isAgeVariant)
+    }
+  }, [])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -41,14 +57,13 @@ export const AttachmentQuizForm = ({
       eventLabel: 'Submit',
     })
 
-    // TODO: split based on isVariant not isYoung
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      if (isYoung) router.push('/results-bundle/fa')
+      if (isVariant) router.push('/results-bundle/fa')
       else router.push('/quiz/results/fa')
     } else {
-      if (isYoung) router.push('/results-bundle/' + userStyle)
+      if (isVariant) router.push('/results-bundle/' + userStyle)
       else router.push('/quiz/' + userStyle)
     }
   }

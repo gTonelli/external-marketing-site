@@ -744,7 +744,6 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
-      {/* TODO: New Pricing / Section Revamp */}
       <section className="w-full mt-20 md:mt-32">
         <div className="bg-gradient-to-b from-blue-lightest/50 to-primary-light/50 py-10 md:py-20">
           <div className="max-w-5xl mx-4 md:mx-auto">

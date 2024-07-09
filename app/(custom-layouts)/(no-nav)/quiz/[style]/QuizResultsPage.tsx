@@ -856,7 +856,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   />
 
                   <p className="font-effra font-bold md:text-lg mt-2">
-                    {ageVariant ? 'SAVE AN ADDITIONAL 50% NOW' : 'SAVE 30% NOW'}
+                    {ageVariant
+                      ? 'SAVE AN ADDITIONAL 50% OFF OF THE ORIGINAL SALE PRICE NOW'
+                      : 'SAVE 30% NOW'}
                   </p>
                 </div>
               </div>

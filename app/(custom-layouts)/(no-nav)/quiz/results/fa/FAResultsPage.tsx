@@ -22,7 +22,7 @@ interface IFAResultsPageProps {
 export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
   const style = 'fa'
   const checkoutUrl = ageVariant
-    ? 'https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146'
+    ? 'https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off'
     : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
 
   return (
@@ -304,8 +304,8 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 {ageVariant ? (
                   <>
                     <p className="font-bold mb-4">
-                      If you join today, you’ll get these courses for an additional 50% off for
-                      life!
+                      If you join today, you’ll get these courses for a one time fee of just $34.99,
+                      that's an an additional 50% off and you get to keep the courses for life!
                     </p>
 
                     <p className="my-4">

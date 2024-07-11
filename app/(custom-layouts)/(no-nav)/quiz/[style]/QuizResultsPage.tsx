@@ -875,9 +875,13 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               <div className="max-w-[502px] text-left">
                 <p className="mb-2 md:text-lg">{`${
                   style !== 'sa'
-                    ? `Enroll in The ${ROYAL_RUMBLE[style].TITLE} to Securely`
-                    : 'Enroll in The Securely'
-                } Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.`}</p>
+                    ? `Enroll in The ${ROYAL_RUMBLE[style].TITLE} ${
+                        ageVariant ? '' : 'to Securely'
+                      }`
+                    : `Enroll in The Secure${ageVariant ? ' Attachment ' : 'ly'}`
+                } ${
+                  ageVariant ? 'Course Bundle' : 'Attached Program'
+                } now and prepare to create the safe home within yourself you’ve been looking for all along.`}</p>
 
                 <p className="font-bold mb-2">
                   If you change your mind or are unable to commit we have a full 7-day money back

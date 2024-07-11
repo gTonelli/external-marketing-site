@@ -61,6 +61,9 @@ export const RegistrationForm = ({
       utmDataRaw[key] = value
     })
 
+    Mixpanel.setUser(values.email)
+    Mixpanel.setPeopleOnce({ ...userInfo })
+
     // De-duplicate the signup event. 36 byte limit
     const signup_insert_id = MD5(Date.now() + JSON.stringify(values)).toString()
     Mixpanel.track.SignUp({

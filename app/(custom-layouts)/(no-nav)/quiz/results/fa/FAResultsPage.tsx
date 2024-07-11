@@ -33,7 +33,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
           <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
             <AttachmentQuizHeading
               copy={RESULTS[style].HERO_SECTION.headline}
-              className="!font-ssp !text-3xl capitalize"
+              className="!font-ssp !text-3xl capitalize lg:!text-4xl"
             />
 
             <p className="max-w-3xl uppercase font-bold my-4">
@@ -217,9 +217,6 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   In less than an hour, you will learn the insights about your attachment style and
                   the 3 key ingredients you need to empower any relationship in your life that feels
                   stuck.
-                  <br /> <br />
-                  You can join over 45,000 other users who have taken this course and have given us
-                  a 99.7% satisfaction score!
                 </p>
               </div>
             ) : (
@@ -253,7 +250,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
         <div className="w-full flex flex-col items-center justify-center ">
           <div className="max-w-5xl flex flex-col items-center mx-4">
             <h1 className="max-w-2x uppercase font-effra font-bold l mb-8">
-              {RESULTS[style].PROMOTION_1.title}
+              {ageVariant
+                ? 'BY TAKING OUR FEARFUL AVOIDANT COURSE BUNDLE, YOU WILL LEARN...'
+                : RESULTS[style].PROMOTION_1.title}
             </h1>
 
             {/* STAR BULLET */}
@@ -393,21 +392,62 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             {/* RIGHT COL */}
             <div className="lg:w-1/2 lg:flex lg:flex-col lg:justify-start lg:px-8">
               <div className="flex flex-col items-center text-left lg:leading-snug lg:items-start">
-                <p className="font-bold mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy1}</p>
+                {ageVariant ? (
+                  <>
+                    <p className="font-bold mb-4">
+                      When you join today, you’ll also get access to our supportive community of
+                      members through live chat or our Facebook-style forum. Here, you can ask your
+                      relationship questions and receive guidance from others who are on the same
+                      journey.
+                    </p>
 
-                <p className="font-bold mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy2}</p>
+                    <p className="font-bold mb-4">
+                      With the Fearful Avoidant Attachment Style Bundle, you will learn the secret
+                      ingredients to understand your attachment style, your needs, and what
+                      motivates you to invest in relationships.
+                    </p>
 
-                <p className="w-full font-bold text-xl text-purple-dark mb-4">
-                  {RESULTS[style].PROMOTION_2.special_bonus.copy3}
-                </p>
+                    <p className="font-bold text-primary mb-4">
+                      You might be wondering why I'm offering you access to these breakthrough
+                      courses and our community for such a low price.
+                    </p>
 
-                <p className="mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy4}</p>
+                    <p className="mb-4">
+                      The short answer is because I know that these techniques actually work, so I
+                      want to help you overcome painful attachment style patterns, just like I did.
+                      I also know that once you've taken a first course, you will likely be excited
+                      about diving into more of them so I can support you in other areas of your
+                      life.
+                    </p>
 
-                <p className="mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy5}</p>
+                    <p>
+                      Use the Fearful Avoidant Course Bundle to Create Deep Inner Healing, Lasting
+                      Connection and Success in Your Love Life!
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-bold mb-4">
+                      {RESULTS[style].PROMOTION_2.special_bonus.copy1}
+                    </p>
 
-                <p className="mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy6}</p>
+                    <p className="font-bold mb-4">
+                      {RESULTS[style].PROMOTION_2.special_bonus.copy2}
+                    </p>
 
-                <p className="font-bold mb-4">{RESULTS[style].PROMOTION_2.copy2}</p>
+                    <p className="w-full font-bold text-xl text-purple-dark mb-4">
+                      {RESULTS[style].PROMOTION_2.special_bonus.copy3}
+                    </p>
+
+                    <p className="mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy4}</p>
+
+                    <p className="mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy5}</p>
+
+                    <p className="mb-4">{RESULTS[style].PROMOTION_2.special_bonus.copy6}</p>
+
+                    <p className="font-bold mb-4">{RESULTS[style].PROMOTION_2.copy2}</p>
+                  </>
+                )}
               </div>
             </div>
           </div>

@@ -126,7 +126,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 </p>
 
                 <p className="max-w-2xl mx-auto font-bold mb-4 lg:mb-8">
-                  This bundle is an additional 50% off of the sale price for a limited time.
+                  This exclusive course bundle is available for only $34.99, down from the original
+                  price of $299! But because of this astounding discount, it’s available for a very
+                  limited time only!
                 </p>
               </>
             ) : (
@@ -303,8 +305,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 {ageVariant ? (
                   <>
                     <p className="font-bold mb-4">
-                      If you join today, you’ll get these courses for a one time fee of just $34.99,
-                      that's an an additional 50% off and you get to keep the courses for life!
+                      If you join today, you’ll get these courses for a one-time fee of just $34.99,
+                      which is an additional $265 off of the original price—and you’ll get to keep
+                      the courses for life!
                     </p>
 
                     <p className="my-4">

@@ -100,7 +100,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   to enroll in exclusive access.
                   <br /> <br />
                   <strong>
-                    This bundle is an additional 50% off of the sale price for a limited time.
+                    This exclusive course bundle is available for only $34.99, down from the
+                    original price of $299! But because of this astounding discount, it’s available
+                    for a very limited time only!
                   </strong>
                 </p>
               ) : (
@@ -857,7 +859,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
                   <p className="font-effra font-bold md:text-lg mt-2">
                     {ageVariant
-                      ? 'SAVE AN ADDITIONAL 50% OFF OF THE ORIGINAL SALE PRICE NOW'
+                      ? 'Save an Additional $265 Off The Original Price For a Limited Time Only!!'
                       : 'SAVE 30% NOW'}
                   </p>
                 </div>

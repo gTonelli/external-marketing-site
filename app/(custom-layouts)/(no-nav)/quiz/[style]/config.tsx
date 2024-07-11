@@ -1372,7 +1372,7 @@ AGE_CONFIG.FAQs = [
 
 Firstly, healing your attachment style takes time, practice, and understanding the concepts behind transforming it. As much as one course can help make very powerful and positive changes quickly, it takes an integrated approach to uncover your style, heal it, and become securely attached. Our bundle offers everything you need to make a marvelous start to your journey.
 
-Secondly, buying each course individually is costlier than the bundle package. Each course is, on average, $199 ($119 with a discount). You’re getting three courses for a grand total of $34.99. 
+Secondly, buying each course individually is costlier than the bundle package. Add all these courses together and you’re looking at around $299. You’re getting three courses for a grand total of $34.99. But this is for a limited time only – so sign up before it’s gone!  
 
 It’s a steal of a deal and will prepare you to make substantial changes in your life and relationships.`,
   },
@@ -1488,7 +1488,7 @@ export const AGE_PRICING = {
   },
   ap: {
     copy1:
-      'Heal Your Attachment Style in 7 Days with the Anxious Preoccupied Course Bundle, Now Available for an additional 50% Off Of The Original Sale Price!',
+      'Heal Your Attachment Style in 7 Days with the Anxious Preoccupied Course Bundle For Only $34.99 – An Extra Special Discount of $265 Off The Original Price!',
     list: [
       'The Anxious Preoccupied Introductory Course, which will answer all of your questions about your attachment style',
       'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',
@@ -1503,7 +1503,7 @@ export const AGE_PRICING = {
   },
   da: {
     copy1:
-      'Heal Your Attachment Style in 30 Days with the Dismissive Avoidant Course Bundle, Now Available for an additional 50% Off Of The Original Sale Price!',
+      'Heal Your Attachment Style in 7 Days with the Dismissive Avoidant Course Bundle For Only $34.99 – An Extra Special Discount of $265 Off The Original Price!',
     list: [
       'The Dismissive Avoidant Introductory Course, which will answer all of your questions about your attachment style',
       'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',
@@ -1518,7 +1518,7 @@ export const AGE_PRICING = {
   },
   sa: {
     copy1:
-      'Heal Your Attachment Style in 30 Days with the Secure Attachment Course Bundle, Now Available for an additional 50% Off Of The Original Sale Price!',
+      'Heal Your Attachment Style in 7 Days with the Secure Attachment Course Bundle For Only $34.99 – An Extra Special Discount of $265 Off The Original Price!',
     list: [
       'The Repair Any Relationship Course, which teaches you everything you need to know about how to build healthy relationships and fix broken ones',
       'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',

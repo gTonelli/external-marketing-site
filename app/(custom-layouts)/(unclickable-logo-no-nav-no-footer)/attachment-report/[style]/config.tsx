@@ -608,3 +608,101 @@ export const REPORT_COPY = {
     },
   },
 }
+
+export const AGE_REPORT_COPY = {
+  fa: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Fearful Avoidant Course Bundle"
+            url="https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off"
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Fearful Avoidant Course Bundle</span> is the quickest,
+        most results-oriented, and most affordable way to restart your love life in a matter of
+        weeks.
+      </>
+    ),
+    checkoutUrl:
+      'https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off',
+  },
+  ap: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Anxious Preoccupied Course Bundle"
+            url="https://university.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off"
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Anxious Preoccupied Course Bundle</span> is the quickest,
+        most results-oriented, and most affordable way to restart your love life in a matter of
+        weeks.
+      </>
+    ),
+    checkoutUrl:
+      'https://university.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off',
+  },
+  da: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Dismissive Avoidant Course Bundle"
+            url="https://university.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off"
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Dismissive Avoidant Course Bundle</span> is the quickest,
+        most specific, and most affordable way to restart your love life in a matter of weeks.
+      </>
+    ),
+    checkoutUrl:
+      'https://university.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off',
+  },
+  sa: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Secure Attachment Course Bundle"
+            url="https://university.personaldevelopmentschool.com/enroll/3032419?price_id=3894819&coupon=265off"
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Secure Attachment Course Bundle</span> is the quickest,
+        most results-oriented, and most affordable way to transform your love life into its truest
+        potential in a matter of weeks.
+      </>
+    ),
+    checkoutUrl:
+      'https://university.personaldevelopmentschool.com/enroll/3032419?price_id=3894819&coupon=265off',
+  },
+}

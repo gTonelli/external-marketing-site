@@ -2,9 +2,9 @@
 import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
-import { AttachmentReport } from './AttachmentReport'
 // utils
 import { TStyle } from '@/utils/types'
+import { AttachmentReport } from '../../attachment-report/[style]/AttachmentReport'
 
 export const dynamicParams = false
 
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function AttachmentReportPage({ params }: { params: { style: TStyle } }) {
   return (
-    <Page page_name={`Attachment Style Report Old - ${params.style}`}>
-      <AttachmentReport style={params.style} />
+    <Page page_name={`Attachment Style Bundle Report - ${params.style}`}>
+      <AttachmentReport ageVariant style={params.style} />
     </Page>
   )
 }

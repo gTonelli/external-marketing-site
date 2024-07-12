@@ -33,7 +33,7 @@ export const AttachmentQuizForm = ({
   const router = useRouter()
 
   useEffect(() => {
-    if (isYoung) {
+    if (isYoung && quiz_traffic_source === 'paid') {
       const cookies = new Cookies()
       let isAgeVariant = cookies.get('gm-1079-age-funnel-split') === 'yes'
       if (cookies.get('gm-1079-age-funnel-split') === null) {
@@ -42,6 +42,11 @@ export const AttachmentQuizForm = ({
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-1079-Age-Funnel-Split',
           'Variant name': isAgeVariant ? 'Variant 1' : 'Control',
+          page_name: isAgeVariant
+            ? `Age Funnel - ${userStyle}`
+            : userStyle === 'fa'
+            ? `VSL Royal Rumble Results - fa`
+            : `vsl-${userStyle}`,
         })
       }
       setIsVariant(isAgeVariant)
@@ -78,7 +83,7 @@ export const AttachmentQuizForm = ({
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
           clientTag={
-            isYoung
+            isYoung && quiz_traffic_source === 'paid'
               ? isVariant
                 ? `isYoung-${userStyle}-variant,attachment-quiz-${userStyle}`
                 : `isYoung-${userStyle}-control,attachment-quiz-${userStyle}`

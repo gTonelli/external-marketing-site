@@ -334,7 +334,11 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             <div className="my-4">
               <h2 className="text-white mb-8">{RESULTS[style].PROMOTION_2.title}</h2>
 
-              <p className="max-w-xl mx-auto mb-8 text-white">{RESULTS[style].PROMOTION_2.copy1}</p>
+              <p className="max-w-xl mx-auto mb-8 text-white">
+                {ageVariant
+                  ? 'Because the course bundle is only an hour long - easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!'
+                  : RESULTS[style].PROMOTION_2.copy1}
+              </p>
 
               <CheckoutButton
                 href={checkoutUrl}
@@ -385,7 +389,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
               </div>
 
               <Image
-                alt=""
+                alt="Promotion Course Thumbnail for FA"
                 className="mt-4 sm:mt-8"
                 src="/images/RoyalRumbleResultsPage/promo2.png"
                 width={288}
@@ -468,9 +472,17 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
           <div className="flex flex-col items-center md:flex-row mt-8">
             <div className="max-w-md md:w-1/2 md:mr-8">
               <Image
-                alt={RESULTS[style].PROMOTION_2.special_bonus.thumbnail.alt}
+                alt={
+                  ageVariant
+                    ? 'Introduction to Fearful Avoidant'
+                    : RESULTS[style].PROMOTION_2.special_bonus.thumbnail.alt
+                }
                 className="rounded-3xl w-full"
-                src={`/images/${RESULTS[style].PROMOTION_2.special_bonus.thumbnail.src}`}
+                src={
+                  ageVariant
+                    ? '/images/AgeProduct/fearful-avoidant-thumbnail.jpg'
+                    : `/images/${RESULTS[style].PROMOTION_2.special_bonus.thumbnail.src}`
+                }
                 width={288}
                 height={163}
               />

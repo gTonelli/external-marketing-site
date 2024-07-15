@@ -30,6 +30,7 @@ import { NotFound } from '@/components/NotFound'
 import { Storage } from '@/modules/Storage'
 import Link from 'next/link'
 import { Page } from '@/components/Page'
+import { Section } from '@/components/Section'
 
 type TStyleUnabbreviated =
   | 'Anxious Preoccupied'
@@ -60,6 +61,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
   const onAfterSubmit = () => {
     Storage.set('canViewResults', '1')
     setCanViewResults(true)
+    scrollTo(0, 0)
   }
 
   useEffect(() => {
@@ -473,12 +475,12 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
 
       {/* OTHER QUIZZES */}
       <section
-        className="otherQuizzes relative z-0 w-full flex flex-col py-12 px-page-xxs
+        className="relative z-0 w-full flex flex-col py-12 px-page-xxs
             lg:pb-8 lg:px-page-md 
             xl:px-page xl:pt-20">
         <Image
           alt="A styled vector wave"
-          className="bg-desktop w-full inset-0 -z-1"
+          className="bg-desktop w-full inset-0 -z-1 absolute top-0 left-0"
           src="/images/MembersQuiz/quiz-results-footer-desktop-bg.svg"
           tabIndex={-1}
           width={1024}
@@ -487,7 +489,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
         />
         <Image
           alt="A styled vector wave"
-          className="bg-mobile inset-0 -z-1"
+          className="bg-mobile inset-0 -z-1 absolute top-0 left-0"
           src="/images/MembersQuiz/quiz-results-footer-mobile-bg.svg"
           tabIndex={-1}
           width={425}
@@ -519,33 +521,36 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
       </section>
     </Page>
   ) : (
-    <Page page_name="Members Quiz Form" className="email-page">
-      {/* LEFT PART - image */}
-      <div className="px-10 lg:px-0 lg:w-auto flex pb-8 lg:pb-32">
-        <Image
-          alt="A vector image of a woman wearing headphones and working at her desk."
-          src="/images/MembersQuiz/email.png"
-          width={297}
-          height={190}
-        />
-      </div>
+    <Page page_name="Members Quiz Form">
+      <Section classNameInner="lg:grid lg:grid-cols-2 lg:items-center">
+        {/* LEFT PART - image */}
+        <div className="px-10 lg:px-0 lg:w-auto flex pb-8">
+          <Image
+            alt="A vector image of a woman wearing headphones and working at her desk."
+            className="w-full max-w-96 mx-auto"
+            src="/images/MembersQuiz/email.png"
+            width={297}
+            height={190}
+          />
+        </div>
 
-      {/* RIGHT PART - form */}
-      <Card className="relative z-10 w-full flex flex-col max-w-[550px] border-white py-4">
-        <Text.Heading className="text-left" size={1} content="Results" />
+        {/* RIGHT PART - form */}
+        <Card className="relative z-10 w-full flex flex-col max-w-[550px] border-white py-4">
+          <Text.Heading className="text-left" size={1} content="Results" />
 
-        <Text.Paragraph
-          className="pb-4"
-          content="Fill Out the form below to view your free results!"
-        />
+          <Text.Paragraph
+            className="pb-4 text-left"
+            content="Fill Out the form below to view your free results!"
+          />
 
-        <RegistrationForm
-          className="!text-left md:!pt-0"
-          clientTag={userTag}
-          userStyle={style.toLowerCase() as unknown as TStyle | undefined}
-          onAfterSubmit={onAfterSubmit}
-        />
-      </Card>
+          <RegistrationForm
+            className="!text-left md:!pt-0 shadow-md rounded-lg py-4"
+            clientTag={userTag}
+            userStyle={style.toLowerCase() as unknown as TStyle | undefined}
+            onAfterSubmit={onAfterSubmit}
+          />
+        </Card>
+      </Section>
 
       {/* BOTTOM BACKGROUND IMAGES */}
       <Image

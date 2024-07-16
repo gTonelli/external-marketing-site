@@ -14,6 +14,7 @@ import { Pages } from '@/modules/Mixpanel'
 // utils
 import { TStyle } from '@/utils/types'
 import { EExternalRoutes } from '@/utils/constants'
+import { log } from 'console'
 
 export type TSeriesParam =
   | 'needs'
@@ -88,7 +89,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
         : SERIES_BELIEFS_RESULTS
       : FA_EMAIL_RESULTS
 
-  if (isAgeVariant) styleParam = styleParam.substring(2) as TStyleParam
+  if (isAgeVariant) styleParam = styleParam.split('-')[0] as TStyleParam
 
   return (
     <Page page_name={pageName}>
@@ -130,7 +131,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
                 {EMAIL_RESULTS[seriesParam][styleParam].cardText}
               </p>
 
-              {styleParam === 'fa' && (
+              {styleParam === 'fa' && !isAgeVariant && (
                 <p className="text-center text-md font-semibold text-white tracking-33">
                   GET A 30% DISCOUNT ON YOUR ALL-ACCESS PASS
                 </p>

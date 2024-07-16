@@ -4,7 +4,11 @@ import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Button } from '@/components/Button/Button'
 // config
-import { EMAIL_RESULTS as SERIES_BELIEFS_RESULTS, FA_EMAIL_RESULTS } from './config'
+import {
+  EMAIL_RESULTS as SERIES_BELIEFS_RESULTS,
+  FA_EMAIL_RESULTS,
+  AGE_PRODUCT_COPY,
+} from './config'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // utils
@@ -20,9 +24,11 @@ export type TSeriesParam =
   | 'healing'
   | 'key-tools'
   | 'trust-wounds'
-export interface IAttachmentSeriesPageParams {
-  seriesParam: TSeriesParam
-  styleParam: TStyle
+
+type TStyleParam = TStyle | 'fa-bundle' | 'ap-bundle' | 'da-bundle' | 'sa-bundle'
+interface IAttachmentSeriesPageParams {
+  series: TSeriesParam
+  style: TStyleParam
 }
 interface IEmailResult {
   title?: {
@@ -40,19 +46,24 @@ interface IEmailResults {
   }
 }
 
-export function generateStaticParams(): {
-  series: TSeriesParam
-  style: TStyle
-}[] {
+export function generateStaticParams(): IAttachmentSeriesPageParams[] {
   return [
     { series: 'needs', style: 'fa' },
     { series: 'needs', style: 'ap' },
     { series: 'needs', style: 'da' },
     { series: 'needs', style: 'sa' },
+    { series: 'needs', style: 'fa-bundle' },
+    { series: 'needs', style: 'ap-bundle' },
+    { series: 'needs', style: 'da-bundle' },
+    { series: 'needs', style: 'sa-bundle' },
     { series: 'beliefs', style: 'fa' },
     { series: 'beliefs', style: 'ap' },
     { series: 'beliefs', style: 'da' },
     { series: 'beliefs', style: 'sa' },
+    { series: 'beliefs', style: 'fa-bundle' },
+    { series: 'beliefs', style: 'ap-bundle' },
+    { series: 'beliefs', style: 'da-bundle' },
+    { series: 'beliefs', style: 'sa-bundle' },
     { series: 'attachment-style', style: 'fa' },
     { series: 'signs', style: 'fa' },
     { series: 'top-needs', style: 'fa' },
@@ -65,12 +76,19 @@ export function generateStaticParams(): {
 export default function AttachmentStyleNeedsBeliefsPage({
   params,
 }: {
-  params: { series: TSeriesParam; style: TStyle }
+  params: IAttachmentSeriesPageParams
 }) {
-  const [seriesParam, styleParam] = [params.series, params.style]
+  let [seriesParam, styleParam] = [params.series, params.style]
   const pageName = `Attachment Styles Email Page - ${seriesParam} ${styleParam}` as Pages
+  const isAgeVariant = styleParam.endsWith('-bundle')
   const EMAIL_RESULTS: IEmailResults =
-    seriesParam === 'needs' || seriesParam === 'beliefs' ? SERIES_BELIEFS_RESULTS : FA_EMAIL_RESULTS
+    seriesParam === 'needs' || seriesParam === 'beliefs'
+      ? isAgeVariant
+        ? AGE_PRODUCT_COPY
+        : SERIES_BELIEFS_RESULTS
+      : FA_EMAIL_RESULTS
+
+  if (isAgeVariant) styleParam = styleParam.substring(2) as TStyleParam
 
   return (
     <Page page_name={pageName}>

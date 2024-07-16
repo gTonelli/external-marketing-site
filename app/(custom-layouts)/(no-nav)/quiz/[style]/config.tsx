@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import { cloneDeep } from 'lodash'
 
 export const ROYAL_RUMBLE = {
   moneyBackGuaranteeCopy: [
@@ -1359,7 +1359,7 @@ export const ROYAL_RUMBLE = {
   ],
 }
 
-export const AGE_CONFIG = _.cloneDeep(ROYAL_RUMBLE)
+export const AGE_CONFIG = cloneDeep(ROYAL_RUMBLE)
 
 AGE_CONFIG.EXCLUSIVEBONUS_SEGMENT = AGE_CONFIG.EXCLUSIVEBONUS_SEGMENT.splice(2)
 AGE_CONFIG.OFFER_CARD.heading = 'GET EVERYTHING FOR JUST $34.99'

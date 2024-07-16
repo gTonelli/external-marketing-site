@@ -826,12 +826,16 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                     {ROYAL_RUMBLE.OFFER_CARD.subheading}
                   </p>
 
-                  <p className="font-effra font-bold !text-[72px] text-primary after:content-['/month'] after:text-sm md:after:text-lg">
+                  <p
+                    className={cx(
+                      'font-bold !text-[72px] text-primary after:text-sm md:after:text-lg',
+                      !ageVariant && "after:content-['/month']"
+                    )}>
                     {ROYAL_RUMBLE.OFFER_CARD.price}
                   </p>
 
                   <p className="md:text-lg line-through">
-                    Regular Price = {ageVariant ? '$299' : '$97'}/month
+                    Regular Price = {ageVariant ? '$299' : '$97/month'}
                   </p>
                 </div>
                 <div className="mt-2">

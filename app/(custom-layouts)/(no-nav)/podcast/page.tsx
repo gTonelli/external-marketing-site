@@ -20,6 +20,7 @@ import './style.css'
 // utils
 import { IStrapiThumbnail, IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 import { Metadata } from 'next'
+import { Intercom } from '@/components/Intercom'
 
 type Props = {
   searchParams: {
@@ -171,7 +172,7 @@ export default async function PodcastPage({ searchParams: { page } }: Props) {
   const podcastTypes = await fetchPodcastTypes()
 
   return (
-    <Page page_name="Podcast Page" className="relative">
+    <Page withIntercom page_name="Podcast Page" className="relative">
       <Section
         className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
         classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">

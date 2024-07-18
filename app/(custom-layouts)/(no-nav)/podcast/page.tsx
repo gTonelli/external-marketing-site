@@ -1,6 +1,7 @@
 // core
 import Image from 'next/image'
 import Link from 'next/link'
+import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
@@ -19,8 +20,6 @@ import qs from 'qs'
 import './style.css'
 // utils
 import { IStrapiThumbnail, IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
-import { Metadata } from 'next'
-import { Intercom } from '@/components/Intercom'
 
 type Props = {
   searchParams: {

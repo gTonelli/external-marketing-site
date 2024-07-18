@@ -38,9 +38,6 @@ export function Intercom() {
 
     window.Intercom('boot', {
       app_id: 'qth7i18v',
-      name: '{{ site.current_user.first_name }}',
-      email: '{{ site.current_user.email }}',
-      created_at: '{{ site.current_user.created_at }}',
     })
   }, [])
 

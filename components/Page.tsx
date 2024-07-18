@@ -3,6 +3,8 @@
 // core
 import { useEffect } from 'react'
 import { IDefaultWrapperProps } from '.'
+// components
+import { Intercom } from './Intercom'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // libraries
@@ -14,9 +16,14 @@ import { useGamAnalytics } from '@/modules/GAM'
 
 interface IPageProps extends IDefaultWrapperProps {
   page_name: Pages
+  /**
+   * Use Intercom on the page
+   * @default false
+   */
+  withIntercom?: boolean
 }
 
-export const Page = ({ children, className, page_name }: IPageProps) => {
+export const Page = ({ children, className, page_name, withIntercom = false }: IPageProps) => {
   // ==================== Hooks ====================
   const viewportValues = useWindowWidth()
   const [scrollRef, scrollPercentage] = useScrollPercentage()
@@ -33,6 +40,8 @@ export const Page = ({ children, className, page_name }: IPageProps) => {
         <PageContext.Provider value={{ page_name }}>
           <main ref={scrollRef} className={cx('overflow-x-hidden', className)}>
             {children}
+
+            {withIntercom && <Intercom />}
           </main>
         </PageContext.Provider>
       </ScrollContext.Provider>

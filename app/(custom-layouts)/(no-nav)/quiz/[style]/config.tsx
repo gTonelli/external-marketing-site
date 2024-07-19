@@ -1138,7 +1138,7 @@ export const ROYAL_RUMBLE = {
       copy1: [
         'Your attachment style and the relationship challenges it brings are a reflection of your story.',
 
-        'if your attachment style is Securely Attached, it’s likely that you had a healthy relationship with both of your caregivers during childhood. You were probably encouraged to express yourself, and your needs for emotional and physical support were consistently met. That’s why as an adult, it’s easier for you to create supportive, communicative relationships with others. Unlike the 3 insecure attachment styles – Anxious-Preoccupied, Dismissive Avoidant and Fearful Avoidant – you don’t experience much anxiety or fear when in a relationship because you didn’t experience attachment traumas in your relationships as a child.',
+        'If your attachment style is Securely Attached, it’s likely that you had a healthy relationship with both of your caregivers during childhood. You were probably encouraged to express yourself, and your needs for emotional and physical support were consistently met. That’s why as an adult, it’s easier for you to create supportive, communicative relationships with others. Unlike the 3 insecure attachment styles – Anxious-Preoccupied, Dismissive Avoidant and Fearful Avoidant – you don’t experience much anxiety or fear when in a relationship because you didn’t experience attachment traumas in your relationships as a child.',
       ],
       copy2: `Insecure attachment styles (Anxious Preoccupied, Fearful Avoidant, Dismissive Avoidant) can have a tendency to bottle up their emotions, pull away, send mixed signals by coming close and then moving away again, have difficulty communicating their needs, or putting up huge walls all in an effort to manage their deep-rooted fears of abandonment or betrayal. All of this can be extremely hard to relate to as someone who has never had the same traumatic experiences. 
   
@@ -1374,9 +1374,6 @@ AGE_CONFIG.EXCLUSIVEBONUS_SEGMENT = [
     <strong>An invitation</strong> to our online Facebook group with like-minded individuals who are
     equally dedicated to their healing.
   </>,
-  <>
-    Not to mention, <strong>a 7-day money-back guarantee!</strong>
-  </>,
 ]
 AGE_CONFIG.OFFER_CARD.heading = 'GET EVERYTHING FOR JUST $34.99'
 AGE_CONFIG.OFFER_CARD.price = '$34.99'
@@ -1502,7 +1499,6 @@ AGE_CONFIG.sa.BANNER_SEGMENT.variantCopy3 = [
     you about what your needs are and how to fulfill them yourself to harness your independence and
     autonomy.
   </>,
-
   <>
     Achieve your personal and relationship goals through on-demand courses – all created and
     developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal

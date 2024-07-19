@@ -547,16 +547,14 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                 </ul>
 
                 <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-[415px]">
-                  {!ageVariant && (
-                    <li className="font-bold text-primary mb-4">
-                      <Icon
-                        className="text-primary mr-2 my-auto w-4 h-4 fa-li"
-                        name="check-circle"
-                        type="regular"
-                      />
-                      Not to mention, a 7-day money-back guarantee!
-                    </li>
-                  )}
+                  <li className="font-bold text-primary mb-4">
+                    <Icon
+                      className="text-primary mr-2 my-auto w-4 h-4 fa-li"
+                      name="check-circle"
+                      type="regular"
+                    />
+                    Not to mention, a 7-day money-back guarantee!
+                  </li>
 
                   {ROYAL_RUMBLE.moneyBackGuaranteeCopy.map((copy, index) => (
                     <li key={`money_back_copy_${index}`}>

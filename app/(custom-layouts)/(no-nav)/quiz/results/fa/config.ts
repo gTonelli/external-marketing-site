@@ -1,13 +1,12 @@
 export const RESULTS = {
   fa: {
     HERO_SECTION: {
-      headline:
-        'Are you ready to start having the best relationships of your life?',
+      headline: 'Are you ready to start having the best relationships of your life?',
       subheadline: `The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
       videoURLVariant: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Variant.mp4',
       title: 'Who Is The Fearful Avoidant?',
-      copy: "While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.",
+      copy: 'While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.',
     },
     STYLE_TRAITS: {
       bullets_left: [
@@ -131,11 +130,11 @@ export const RESULTS = {
       copy2:
         "I have over a decade of experience as a relationship coach and counselor and got into this field because I too, had a Fearful Avoidant attachment style, and was desperately seeking answers and healing.\n\nSo much so, I embarked on a journey of relentless research and education which led to me completing a Master's Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more!\n\nI also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.",
       copy3:
-        'Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 200,000 subscribers.',
+        'Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with more than 200,000 subscribers.',
       copy4:
         'After fine-tuning this magic formula to create massive breakthroughs in relationships, I created The Personal Development School so I could help even more people.',
       copy5:
-        "And in just the last 3 years alone, I've helped thousands upon thousands of students on their journey to healthy, happy love using the techniques from the course that I'm sharing with you today. In fact, this course has received a 99.7% satisfaction rate from students due to them experiencing major breakthroughs faster than they ever imagined.",
+        "And in just the last 5 years alone, I've helped thousands upon thousands of students on their journey to healthy, happy love using the techniques from the course that I'm sharing with you today. In fact, this course has received a 99.7% satisfaction rate from students due to them experiencing major breakthroughs faster than they ever imagined.",
     },
     TESTIMONIAL: {
       title: 'Can This Course Really Help You?',
@@ -181,7 +180,8 @@ export const RESULTS = {
       copy6:
         'So go ahead, click the button below to get the magic formula to improve your love life once and for all today.',
     },
-    TESTIMONIAL_VIDEO_URL: 'https://storage.googleapis.com/pds_videos/Testimonial-Video-original-long.mp4',
+    TESTIMONIAL_VIDEO_URL:
+      'https://storage.googleapis.com/pds_videos/Testimonial-Video-original-long.mp4',
     CAROUSEL_COURSES: [
       {
         title: `Fearful Avoidant to Securely Attached`,

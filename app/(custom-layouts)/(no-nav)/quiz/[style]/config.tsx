@@ -395,7 +395,7 @@ export const ROYAL_RUMBLE = {
 
         'You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing.',
 
-        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life',
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life.',
 
         'It’s time to look at your emotional self in the mirror.',
 
@@ -728,7 +728,7 @@ export const ROYAL_RUMBLE = {
 
         'You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing.',
 
-        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life',
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life.',
 
         'It’s time to look at your emotional self in the mirror.',
 
@@ -1361,7 +1361,23 @@ export const ROYAL_RUMBLE = {
 
 export const AGE_CONFIG = cloneDeep(ROYAL_RUMBLE)
 
-AGE_CONFIG.EXCLUSIVEBONUS_SEGMENT = AGE_CONFIG.EXCLUSIVEBONUS_SEGMENT.splice(2)
+AGE_CONFIG.EXCLUSIVEBONUS_SEGMENT = [
+  <>
+    <strong>Priority access</strong> to all upcoming events, courses, offers, and new programs at
+    The Personal Development School.
+  </>,
+  <>
+    The chance to meet and connect with other members in <strong>our online community</strong> to
+    have your personal questions answered.
+  </>,
+  <>
+    <strong>An invitation</strong> to our online Facebook group with like-minded individuals who are
+    equally dedicated to their healing.
+  </>,
+  <>
+    Not to mention, <strong>a 7-day money-back guarantee!</strong>
+  </>,
+]
 AGE_CONFIG.OFFER_CARD.heading = 'GET EVERYTHING FOR JUST $34.99'
 AGE_CONFIG.OFFER_CARD.price = '$34.99'
 AGE_CONFIG.FAQs = [
@@ -1425,20 +1441,32 @@ AGE_CONFIG.ap.OFFER_SEGMENT.copy[8] = `Enroll in The Anxious Preoccupied Course 
 
 AGE_CONFIG.da.BANNER_SEGMENT.variantCopy3 = [
   `With the Dismissive Avoidant Course Bundle, I'll teach you tailored concepts, tools, and strategies that guide your transformation from dismissive avoidant to securely attached, helping you create and foster the relationships you desire.`,
-  `You’ll learn to conquer your fears, let down your barriers, overcome your patterns, and open yourself to forming loving relationships with emotionally available people in less than 7 days.`,
+  <>
+    You’ll learn to conquer your fears, let down your barriers, overcome your patterns, and open
+    yourself to forming loving relationships with emotionally available people in less than
+    <em> 7 days</em>.
+  </>,
   <>
     Your course bundle includes access to three custom courses that you can watch anywhere, anytime.
     These courses are: <br />
-    1. The Dismissive Avoidant Introductory Course, which teaches you everything you need to know
-    about how your attachment style affects your relationships and perceptions. <br />
-    2. The Handbook For a Better Life Course, which outlines what you can do to build a fulfilling,
-    purposeful life. <br />
-    3. The Discover, Embrace, and Fulfill Your Personal Needs Course, which teaches you about what
-    your needs are and how to fulfill them yourself to harness your independence and autonomy.
+    <br />
+    1. The <strong>Dismissive Avoidant Introductory Course</strong>, which teaches you everything
+    you need to know about how your attachment style affects your relationships and perceptions.{' '}
+    <br />
+    2. The <strong>Handbook For a Better Life Course</strong>, which outlines what you can do to
+    build a fulfilling, purposeful life. <br />
+    3. The <strong>Discover, Embrace, and Fulfill Your Personal Needs Course</strong>, which teaches
+    you about what your needs are and how to fulfill them yourself to harness your independence and
+    autonomy.
   </>,
-  `Achieve your personal and relationship goals through on-demand courses – all created and developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal Development School. Click the button below to enroll and gain exclusive access.`,
   <>
-    <strong>This bundle is an additional 50% off of the sale price for a limited time.</strong>
+    Achieve your personal and relationship goals through on-demand courses – all created and
+    developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
+    Development School.{' '}
+    <strong>
+      Click the button below to enroll and gain exclusive access. Save $265 on this course bundle
+      for a limited time only!
+    </strong>
   </>,
 ]
 AGE_CONFIG.da.FAMILIAR_SEGMENTS.subheadlineTwo =
@@ -1454,23 +1482,34 @@ AGE_CONFIG.da.OFFER_SEGMENT.copy[8] =
 
 AGE_CONFIG.sa.BANNER_SEGMENT.variantCopy3 = [
   `Our Secure Attachment Course Bundle, which includes three personalized courses that you can take anywhere, anytime, will teach you how to navigate loving relationships with individuals who have insecure attachment styles, so you can foster and create fulfilling, lasting relationships.`,
-  `In each course, I'll teach you concepts, tools, and strategies that can be used for as little as 10 minutes a day.`,
-  `You’ll learn how to return the balance to your relationships, improve communication, remove conflict, and understand different attachment styles to form new loving relationships in less than 7 days.`,
+  <>
+    In each course, I'll teach you concepts, tools, and strategies that can be used for as little as
+    <em>10 minutes</em> a day.
+  </>,
+  <>
+    You’ll learn how to return the balance to your relationships, improve communication, remove
+    conflict, and understand different attachment styles to form new loving relationships in less
+    than <em>7 days</em>.
+  </>,
   <>
     Your course bundle includes access to three custom courses that you can watch anywhere, anytime.
-    These courses are: <br />
-    1. The Repair Any Relationship Course, which teaches you everything you need to know about how
-    to build healthy relationships and fix broken ones. <br />
-    2. The Handbook For a Better Life Course, which outlines what you can do to build a fulfilling,
-    purposeful life. <br /> 3. The Discover, Embrace, and Fulfill Your Personal Needs Course, which
-    teaches you about what your needs are and how to fulfill them yourself to harness your
-    independence and autonomy.
+    These courses are: <br /> <br />
+    1. The <strong>Repair Any Relationship Course</strong>, which teaches you everything you need to
+    know about how to build healthy relationships and fix broken ones. <br />
+    2. The <strong>Handbook For a Better Life Course</strong>, which outlines what you can do to
+    build a fulfilling, purposeful life. <br /> 3.{' '}
+    <strong>The Discover, Embrace, and Fulfill Your Personal Needs Course</strong>, which teaches
+    you about what your needs are and how to fulfill them yourself to harness your independence and
+    autonomy.
   </>,
-  `
-Achieve your personal and relationship goals through on-demand courses – all created and developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal Development School. Click the button below to enroll and gain exclusive access.`,
+
   <>
+    Achieve your personal and relationship goals through on-demand courses – all created and
+    developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
+    Development School.{' '}
     <strong>
-      This bundle is an additional 50% off of the original sale price for a limited time.
+      Click the button below to enroll and gain exclusive access. Save $265 on this course bundle
+      for a limited time only!
     </strong>
   </>,
 ]
@@ -1487,8 +1526,7 @@ export const AGE_PRICING = {
     checkoutUrl: '',
   },
   ap: {
-    copy1:
-      'Heal Your Attachment Style in 7 Days with the Anxious Preoccupied Course Bundle For Only $34.99 – An Extra Special Discount of $265 Off The Original Price!',
+    copy1: 'Heal Your Attachment Style in 7 Days with the Anxious Preoccupied Course Bundle.',
     list: [
       'The Anxious Preoccupied Introductory Course, which will answer all of your questions about your attachment style',
       'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',
@@ -1502,8 +1540,7 @@ export const AGE_PRICING = {
       'https://university.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off',
   },
   da: {
-    copy1:
-      'Heal Your Attachment Style in 7 Days with the Dismissive Avoidant Course Bundle For Only $34.99 – An Extra Special Discount of $265 Off The Original Price!',
+    copy1: 'Heal Your Attachment Style in 7 Days with the Dismissive Avoidant Course Bundle.',
     list: [
       'The Dismissive Avoidant Introductory Course, which will answer all of your questions about your attachment style',
       'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',
@@ -1517,8 +1554,7 @@ export const AGE_PRICING = {
       'https://university.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off',
   },
   sa: {
-    copy1:
-      'Heal Your Attachment Style in 7 Days with the Secure Attachment Course Bundle For Only $34.99 – An Extra Special Discount of $265 Off The Original Price!',
+    copy1: 'All the tools you need to create the relationship you deserve.',
     list: [
       'The Repair Any Relationship Course, which teaches you everything you need to know about how to build healthy relationships and fix broken ones',
       'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',

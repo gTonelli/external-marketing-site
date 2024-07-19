@@ -111,26 +111,13 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             <p className="max-w-2xl mx-auto mb-4 lg:mb-8">{RESULTS[style].STYLE_TRAITS.copy1}</p>
 
             {ageVariant ? (
-              <>
-                <p className="max-w-2xl mx-auto mb-4 lg:mb-8">
-                  At The Personal Development School, we have created a personalized bundle of
-                  Fearful Avoidant courses that will assist you in changing these patterns in as
-                  little as 7 days. These courses are easy-to-watch, and can be taken completely at
-                  your own pace, at any time that works for you.
-                </p>
-
-                <p className="max-w-2xl mx-auto font-bold mb-4 lg:mb-8">
-                  This will allow you to improve existing relationships, create lasting love and
-                  build new relationships with emotionally available people. Click the button below
-                  to enroll in exclusive access.
-                </p>
-
-                <p className="max-w-2xl mx-auto font-bold mb-4 lg:mb-8">
-                  This exclusive course bundle is available for only $34.99, down from the original
-                  price of $299! But because of this astounding discount, it’s available for a very
-                  limited time only!
-                </p>
-              </>
+              <p className="max-w-2xl font-bold mx-auto mb-4 lg:mb-8">
+                At the Personal Development School, we have a tailored program and suite of tools to
+                assist you in changing these patterns in his little seven days. This will allow you
+                to improve existing relationships, create lasting love, and build new relationships
+                with emotionally available people. Click the button below to enroll in exclusive
+                access. by signing up today, you will save $265 for a limited time.
+              </p>
             ) : (
               <p className="max-w-2xl font-bold mx-auto mb-4 lg:mb-8">
                 {RESULTS[style].STYLE_TRAITS.copy2}
@@ -219,6 +206,11 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   In less than an hour, you will learn the insights about your attachment style and
                   the 3 key ingredients you need to empower any relationship in your life that feels
                   stuck.
+                </p>
+
+                <p className="my-4">
+                  You can join over 45,000 students who have taken these courses and have given us a
+                  99.7% satisfaction score!
                 </p>
               </div>
             ) : (
@@ -336,7 +328,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
 
               <p className="max-w-xl mx-auto mb-8 text-white">
                 {ageVariant
-                  ? 'Because the course bundle is only an hour long - easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!'
+                  ? "Because each of the courses are only an hour long, it's easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!"
                   : RESULTS[style].PROMOTION_2.copy1}
               </p>
 
@@ -427,7 +419,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                       life.
                     </p>
 
-                    <p>
+                    <p className="font-bold">
                       Use the Fearful Avoidant Course Bundle to Create Deep Inner Healing, Lasting
                       Connection and Success in Your Love Life!
                     </p>
@@ -472,17 +464,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
           <div className="flex flex-col items-center md:flex-row mt-8">
             <div className="max-w-md md:w-1/2 md:mr-8">
               <Image
-                alt={
-                  ageVariant
-                    ? 'Introduction to Fearful Avoidant'
-                    : RESULTS[style].PROMOTION_2.special_bonus.thumbnail.alt
-                }
+                alt={RESULTS[style].PROMOTION_2.special_bonus.thumbnail.alt}
                 className="rounded-3xl w-full"
-                src={
-                  ageVariant
-                    ? '/images/AgeProduct/fearful-avoidant-thumbnail.jpg'
-                    : `/images/${RESULTS[style].PROMOTION_2.special_bonus.thumbnail.src}`
-                }
+                src={`/images/${RESULTS[style].PROMOTION_2.special_bonus.thumbnail.src}`}
                 width={288}
                 height={163}
               />

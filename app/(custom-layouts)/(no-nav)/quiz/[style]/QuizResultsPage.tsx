@@ -37,10 +37,10 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
               <AttachmentQuizHeading
                 copy={ROYAL_RUMBLE[style].HERO_SECTION.headline}
-                className="!font-ssp !text-3xl capitalize"
+                className="!font-ssp !text-3xl capitalize lg:!text-4xl"
               />
 
-              <p className="max-w-3xl uppercase font-bold tracking-33 my-4">
+              <p className="max-w-3xl uppercase font-bold my-4">
                 {ROYAL_RUMBLE[style].HERO_SECTION.subheadline}
               </p>
 
@@ -90,20 +90,12 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
               {ageVariant ? (
                 <p className="mt-8 md:mt-10 md:text-lg">
-                  At The Personal Development School, we have created a personalized bundle of
-                  Anxious Preoccupied courses that will assist you in changing these patterns in as
-                  little as 7 days. These courses are easy-to-watch, and can be taken completely at
-                  your own pace, at any time that works for you.
-                  <br /> <br />
-                  This will allow you to improve existing relationships, create lasting love and
-                  build new relationships with emotionally available people. Click the button below
-                  to enroll in exclusive access.
-                  <br /> <br />
-                  <strong>
-                    This exclusive course bundle is available for only $34.99, down from the
-                    original price of $299! But because of this astounding discount, it’s available
-                    for a very limited time only!
-                  </strong>
+                  At the Personal Development School, we have a tailored program and suite of tools
+                  to assist you in changing these patterns in his little seven days. This will allow
+                  you to improve existing relationships, create lasting love, and build new
+                  relationships with emotionally available people. Click the button below to enroll
+                  in exclusive access.
+                  <strong> By signing up today, you will save $265 for a limited time.</strong>
                 </p>
               ) : (
                 <p className="font-effra mt-8 md:mt-10 md:text-lg">
@@ -178,7 +170,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               </p>
             </div>
 
-            <div className="mt-4 rounded-10">
+            <div className="mt-4 text-left rounded-10">
               {ROYAL_RUMBLE[style].FAMILIAR_SEGMENTS.subHeadlineMobile.map((copy, index) => (
                 <p
                   key={`familiar_segment_copy_${index}`}
@@ -241,7 +233,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               {ROYAL_RUMBLE[style].ATTACHMENT_ORIGIN_SEGMENT.heading1}
             </p>
 
-            <p className="md:text-lg font-bold font-effra mb-4">
+            <p className="md:text-lg font-bold font-effra text-primary mb-4">
               {ROYAL_RUMBLE[style].ATTACHMENT_ORIGIN_SEGMENT.heading2}
             </p>
 
@@ -269,13 +261,13 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
           <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 text-left inset-0">
             <h2 className="mb-8 md:mb-10 text-2xl text-primary">Hi, I’m Thais!</h2>
 
-            <p className="mb-4 md:text-lg text-justify">
+            <p className="mb-4 md:text-lg">
               I have over a decade of experience as a relationship coach and counsellor and got into
               this field because I too, had a Fearful Avoidant attachment style, and was seeking
               answers and healing.
             </p>
 
-            <p className="mb-4 md:text-lg text-justify">
+            <p className="mb-4 md:text-lg">
               I embarked on a journey of relentless research and education which led to me
               completing a Master's Degree and more than 13 different certifications in a variety of
               psychology modalities including Cognitive Behavioral Therapy, Neuro Linguistic
@@ -284,22 +276,23 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               to transform lifelong relationship patterns.
             </p>
 
-            <p className="mb-4 md:text-lg text-justify">
+            <p className="mb-4 md:text-lg">
               Eventually, I transitioned into creating online programs - originally because my
               waitlist to see clients was over 2 years long. I have also published a best-selling
-              book on this very topic, and have a Youtube channel with almost 200,000 subscribers.
-              After fine-tuning this powerful formula to create attachment style healing, I created
-              The Personal Development School so I could share this information with more people.
+              book on this very topic, and have a Youtube channel with more than 200,000
+              subscribers. After fine-tuning this powerful formula to create attachment style
+              healing, I created The Personal Development School so I could share this information
+              with more people.
             </p>
 
-            <p className="mb-4 md:text-lg text-justify">
-              In the past 3 years alone, I have helped thousands of students on their journey to
+            <p className="mb-4 md:text-lg">
+              In the past 5 years alone, I have helped thousands of students on their journey to
               healthy, happy relationships using the techniques from the program that I'm sharing
               with you today. I am humbled to say that this program has received a 99.7%
               satisfaction rate from our students!
             </p>
 
-            <p className="md:text-lg font-bold font-effra text-justify pb-4">
+            <p className="md:text-lg font-bold font-effra pb-4">
               {ROYAL_RUMBLE[style].THAIS_SEGMENT.copy}
             </p>
           </div>
@@ -348,6 +341,12 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   My system differs from other personal development programs because it’s designed
                   to work directly with your subconscious mind – which is ESSENTIAL for any lasting
                   change to occur.
+                  <br />
+                  <br />
+                  You also get access to in-depth quizzes to help you discover your secondary
+                  attachment style, and how your attachment style can change with friends, family,
+                  and partners. This will arm you with new awareness on which situations cause you
+                  to shift into an insecure attachment style.
                 </p>
 
                 <p className="md:text-lg mt-8 font-bold font-effra text-white uppercase tracking-0.325">
@@ -526,7 +525,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </div>
 
             <div className="max-w-[850px] mt-20 md:mt-32 md:px-4 md:mx-auto">
-              <h2 className="capitalize text-2xl text-primary lg:!text-3xl">
+              <h2 className="capitalize text-2xl text-primary text-left lg:!text-3xl">
                 Use the 3 Step Formula {ageVariant && 'In Your Course Bundle'} To Create Deep
                 Attachment Style Healing in {ageVariant ? '7' : '30'} Days AND Get Access to These
                 Exclusive Bonuses:
@@ -537,7 +536,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   {ROYAL_RUMBLE.EXCLUSIVEBONUS_SEGMENT.map((copy, index) => (
                     <li key={`bonus_${index}`} className="mb-6">
                       <Icon
-                        className="text-primary mr-2 my-auto w-4 h-4 fa-li"
+                        className="text-primary mr-2 mt-1 my-auto w-4 h-4 fa-li"
                         name="check-circle"
                         type="regular"
                       />
@@ -548,14 +547,16 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                 </ul>
 
                 <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-[415px]">
-                  <li className="font-bold text-primary mb-4">
-                    <Icon
-                      className="text-primary mr-2 my-auto w-4 h-4 fa-li"
-                      name="check-circle"
-                      type="regular"
-                    />
-                    Not to mention, a 7-day money-back guarantee!
-                  </li>
+                  {!ageVariant && (
+                    <li className="font-bold text-primary mb-4">
+                      <Icon
+                        className="text-primary mr-2 my-auto w-4 h-4 fa-li"
+                        name="check-circle"
+                        type="regular"
+                      />
+                      Not to mention, a 7-day money-back guarantee!
+                    </li>
+                  )}
 
                   {ROYAL_RUMBLE.moneyBackGuaranteeCopy.map((copy, index) => (
                     <li key={`money_back_copy_${index}`}>
@@ -863,7 +864,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
                   <p className="font-effra font-bold md:text-lg mt-2">
                     {ageVariant
-                      ? 'Save an Additional $265 Off The Original Price For a Limited Time Only!!'
+                      ? 'SAVE AN ADDITIONAL $265 OFF THE ORIGINAL PRICE FOR A LIMITED TIME ONLY!!'
                       : 'SAVE 30% NOW'}
                   </p>
                 </div>

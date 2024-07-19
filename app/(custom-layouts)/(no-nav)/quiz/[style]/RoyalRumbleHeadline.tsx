@@ -21,10 +21,10 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
         <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
           <AttachmentQuizHeading
             copy={ROYAL_RUMBLE[style].HERO_SECTION.headline}
-            className="!font-ssp !text-3xl capitalize"
+            className="!font-ssp !text-3xl capitalize lg:!text-4xl"
           />
 
-          <p className="max-w-3xl uppercase font-bold tracking-33 my-4">
+          <p className="max-w-3xl uppercase font-bold my-4">
             {ROYAL_RUMBLE[style].HERO_SECTION.subheadline}
           </p>
 

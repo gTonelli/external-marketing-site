@@ -8,13 +8,13 @@ import {
   EMAIL_RESULTS as SERIES_BELIEFS_RESULTS,
   FA_EMAIL_RESULTS,
   AGE_PRODUCT_COPY,
+  AGE_PRODUCT_CHECKOUT,
 } from './config'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { TStyle } from '@/utils/types'
 import { EExternalRoutes } from '@/utils/constants'
-import { log } from 'console'
 
 export type TSeriesParam =
   | 'needs'
@@ -90,6 +90,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
       : FA_EMAIL_RESULTS
 
   if (isAgeVariant) styleParam = styleParam.split('-')[0] as TStyleParam
+  const style = styleParam as TStyle
 
   return (
     <Page page_name={pageName}>
@@ -140,7 +141,11 @@ export default function AttachmentStyleNeedsBeliefsPage({
               <div className="flex justify-center mt-4">
                 <Button
                   track
-                  link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  link={
+                    isAgeVariant
+                      ? AGE_PRODUCT_CHECKOUT[style]
+                      : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+                  }
                   label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
                 />
               </div>

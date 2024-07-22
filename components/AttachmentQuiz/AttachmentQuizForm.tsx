@@ -35,6 +35,13 @@ export const AttachmentQuizForm = ({
 
   useEffect(() => {
     if (isYoung && quiz_traffic_source === 'paid') {
+      let str =
+        isYoung && quiz_traffic_source === 'paid'
+          ? isVariant
+            ? `isYoung-${userStyle}-variant,attachment-quiz-${userStyle}`
+            : `isYoung-${userStyle}-control,attachment-quiz-${userStyle}`
+          : `attachment-quiz-${userStyle}`
+      console.log('========= ', str)
       let isAgeVariant = Storage.get('gm-1079-age-funnel-split') === 'yes'
       if (Storage.get('gm-1079-age-funnel-split') === null) {
         isAgeVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2

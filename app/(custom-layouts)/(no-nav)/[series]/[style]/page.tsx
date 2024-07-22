@@ -132,9 +132,11 @@ export default function AttachmentStyleNeedsBeliefsPage({
                 {EMAIL_RESULTS[seriesParam][styleParam].cardText}
               </p>
 
-              {styleParam === 'fa' && !isAgeVariant && (
+              {styleParam === 'fa' && (
                 <p className="text-center text-md font-semibold text-white tracking-33">
-                  GET A 30% DISCOUNT ON YOUR ALL-ACCESS PASS
+                  {isAgeVariant
+                    ? 'GET A $265 DISCOUNT ON YOUR COURSE BUNDLE FOR A LIMITED TIME'
+                    : 'GET A 30% DISCOUNT ON YOUR ALL-ACCESS PASS'}
                 </p>
               )}
 

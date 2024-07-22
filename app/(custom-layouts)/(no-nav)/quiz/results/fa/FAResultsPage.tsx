@@ -328,7 +328,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
 
               <p className="max-w-xl mx-auto mb-8 text-white">
                 {ageVariant
-                  ? "Because each of the courses are only an hour long, it's easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!"
+                  ? "Because the first course in the bundle is only an hour long, it's easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!"
                   : RESULTS[style].PROMOTION_2.copy1}
               </p>
 
@@ -400,13 +400,13 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                       journey.
                     </p>
 
-                    <p className="font-bold mb-4">
+                    <p className="font-bold text-xl text-purple-dark mb-4">
                       With the Fearful Avoidant Attachment Style Bundle, you will learn the secret
                       ingredients to understand your attachment style, your needs, and what
                       motivates you to invest in relationships.
                     </p>
 
-                    <p className="font-bold text-primary mb-4">
+                    <p className="mb-4">
                       You might be wondering why I'm offering you access to these breakthrough
                       courses and our community for such a low price.
                     </p>

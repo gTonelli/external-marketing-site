@@ -1397,9 +1397,7 @@ Inform us about your decision, and we’ll happily process a refund. No hard fee
 
 Remember: you might feel that it’s not happening for you right away, but remember, it takes effort and time. 
 
-We have a very high success rate of students becoming more securely attached and fulfilled in all areas, and I’m confident you will, too. 
-
-But if, for whatever reason, it no longer feels like the right fit or time for you, you can cancel.`,
+We have a very high success rate of students becoming more securely attached and fulfilled in all areas, and I’m confident you will, too.`,
   },
   {
     question: 'Can I continue my growth and transformation?',

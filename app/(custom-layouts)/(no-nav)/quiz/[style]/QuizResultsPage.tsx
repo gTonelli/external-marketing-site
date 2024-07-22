@@ -329,7 +329,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
           <div className="mt-8 md:mt-10 text-left">
             {ageVariant ? (
               <>
-                <p className="md:text-lg font-bold text-white uppercase tracking-0.325">overview</p>
+                <p className="md:text-lg font-bold text-white tracking-0.325">BUNDLE OVERVIEW</p>
 
                 <p className="text-white mt-4 md:text-lg">
                   This online course bundle is designed to show you, step by step, how to reprogram
@@ -401,10 +401,10 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
                 <p className="md:text-lg font-effra mt-4 text-white ">
                   The {ROYAL_RUMBLE[style].TITLE} Course Bundle gives you access to three tailored
-                  online courses that you can complete on your own schedule. Through videos, highly
-                  effective exercises, and community support, we'll tackle a list of other emotional
-                  issues that you might deal with in your life that come from your attachment
-                  trauma, like:
+                  online courses that you can complete on your own schedule. Through the course
+                  videos, highly effective exercises, and community support, we'll tackle a list of
+                  other emotional issues that you might deal with in your life that come from your
+                  attachment trauma, like:
                 </p>
               </>
             ) : (

@@ -12,6 +12,7 @@ import Cookies from 'universal-cookie'
 import { useGoogleTagManager } from '@/modules/GTM'
 import { TStyle } from '@/utils/types'
 import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -34,15 +35,10 @@ export const AttachmentQuizForm = ({
 
   useEffect(() => {
     if (isYoung && quiz_traffic_source === 'paid') {
-      const cookies = new Cookies()
-      let isAgeVariant = cookies.get('gm-1079-age-funnel-split') === 'yes'
-      if (cookies.get('gm-1079-age-funnel-split') === null) {
+      let isAgeVariant = Storage.get('gm-1079-age-funnel-split') === 'yes'
+      if (Storage.get('gm-1079-age-funnel-split') === null) {
         isAgeVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-        cookies.set('gm-1079-age-funnel-split', isAgeVariant ? 'yes' : 'no', {
-          domain: 'personaldevelopmentschool.com',
-          path: '/',
-          maxAge: 60 * 60 * 24 * 30,
-        })
+        Storage.set('gm-1079-age-funnel-split', isAgeVariant ? 'yes' : 'no')
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-1079-Age-Funnel-Split',
           'Variant name': isAgeVariant ? 'Variant 1' : 'Control',

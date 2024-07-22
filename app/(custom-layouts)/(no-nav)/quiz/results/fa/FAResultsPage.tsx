@@ -22,7 +22,7 @@ interface IFAResultsPageProps {
 export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
   const style = 'fa'
   const checkoutUrl = ageVariant
-    ? 'https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off'
+    ? EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA
     : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
 
   return (

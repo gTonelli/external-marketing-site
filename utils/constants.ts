@@ -141,6 +141,11 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',
   THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285785&coupon=lifetimesale12mo',
+  // Age Product
+  THINKIFIC_CHECKOUT_AGE_PRODUCT_FA = 'https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off',
+  THINKIFIC_CHECKOUT_AGE_PRODUCT_AP = 'https://university.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off',
+  THINKIFIC_CHECKOUT_AGE_PRODUCT_DA = 'https://university.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off',
+  THINKIFIC_CHECKOUT_AGE_PRODUCT_SA = 'https://university.personaldevelopmentschool.com/enroll/3032419?price_id=3894819&coupon=265off',
 
   // Other
   AMAZON_LEARNING_LOVE_BOOK_PURCHASE = 'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH/ref=mp_s_a_1_1?crid=241WSK4NOH946&keywords=thais+gibson+learning+love&qid=1697043535&sprefix=thais+gibson+learning+love%2Caps%2C74&sr=8-1',

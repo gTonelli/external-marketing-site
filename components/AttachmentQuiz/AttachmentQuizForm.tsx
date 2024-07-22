@@ -38,7 +38,11 @@ export const AttachmentQuizForm = ({
       let isAgeVariant = cookies.get('gm-1079-age-funnel-split') === 'yes'
       if (cookies.get('gm-1079-age-funnel-split') === null) {
         isAgeVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
-        cookies.set('gm-1079-age-funnel-split', isAgeVariant ? 'yes' : 'no')
+        cookies.set('gm-1079-age-funnel-split', isAgeVariant ? 'yes' : 'no', {
+          domain: 'personaldevelopmentschool.com',
+          path: '/',
+          maxAge: 60 * 60 * 24 * 30,
+        })
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-1079-Age-Funnel-Split',
           'Variant name': isAgeVariant ? 'Variant 1' : 'Control',

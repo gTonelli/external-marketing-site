@@ -1,3 +1,4 @@
+import { EExternalRoutes } from '@/utils/constants'
 import { cloneDeep } from 'lodash'
 
 export const ROYAL_RUMBLE = {
@@ -1530,8 +1531,7 @@ export const AGE_PRICING = {
     ],
     copy2:
       'Enroll in The Anxious Preoccupied Course Bundle now and prepare to create the safe home within yourself you’ve been looking for all along.',
-    checkoutUrl:
-      'https://university.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP,
   },
   da: {
     copy1: 'Heal Your Attachment Style in 7 Days with the Dismissive Avoidant Course Bundle.',
@@ -1544,8 +1544,7 @@ export const AGE_PRICING = {
     ],
     copy2:
       'Enroll in The Dismissive Avoidant Course Bundle now and prepare to create the safe home within yourself you’ve been looking for all along.',
-    checkoutUrl:
-      'https://university.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA,
   },
   sa: {
     copy1: 'All the tools you need to create the relationship you deserve.',
@@ -1558,7 +1557,6 @@ export const AGE_PRICING = {
     ],
     copy2:
       'Enroll in The Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.',
-    checkoutUrl:
-      'https://university.personaldevelopmentschool.com/enroll/3032419?price_id=3894819&coupon=265off',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA,
   },
 }

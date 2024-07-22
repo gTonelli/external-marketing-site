@@ -1,4 +1,5 @@
 import { Link } from '@/components/Link'
+import { EExternalRoutes } from '@/utils/constants'
 
 export const REPORT_COPY = {
   fa: {
@@ -617,7 +618,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Fearful Avoidant Course Bundle"
-            url="https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA}
             target="_blank"
           />
         </u>{' '}
@@ -631,8 +632,7 @@ export const AGE_REPORT_COPY = {
         weeks.
       </>
     ),
-    checkoutUrl:
-      'https://university.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA,
   },
   ap: {
     copy: (
@@ -641,7 +641,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Anxious Preoccupied Course Bundle"
-            url="https://university.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP}
             target="_blank"
           />
         </u>{' '}
@@ -655,8 +655,7 @@ export const AGE_REPORT_COPY = {
         weeks.
       </>
     ),
-    checkoutUrl:
-      'https://university.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP,
   },
   da: {
     copy: (
@@ -665,7 +664,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Dismissive Avoidant Course Bundle"
-            url="https://university.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA}
             target="_blank"
           />
         </u>{' '}
@@ -678,8 +677,7 @@ export const AGE_REPORT_COPY = {
         most specific, and most affordable way to restart your love life in a matter of weeks.
       </>
     ),
-    checkoutUrl:
-      'https://university.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA,
   },
   sa: {
     copy: (
@@ -688,7 +686,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Secure Attachment Course Bundle"
-            url="https://university.personaldevelopmentschool.com/enroll/3032419?price_id=3894819&coupon=265off"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA}
             target="_blank"
           />
         </u>{' '}
@@ -702,7 +700,6 @@ export const AGE_REPORT_COPY = {
         potential in a matter of weeks.
       </>
     ),
-    checkoutUrl:
-      'https://university.personaldevelopmentschool.com/enroll/3032419?price_id=3894819&coupon=265off',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA,
   },
 }

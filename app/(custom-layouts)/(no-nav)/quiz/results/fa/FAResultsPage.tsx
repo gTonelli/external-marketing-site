@@ -52,7 +52,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   />
                 </div>
 
-                <div className="m-4 md:text-left md:w-1/2">
+                <div className="!mx-0 mb-4 md:text-left md:!m-4 md:w-1/2">
                   <h2 className="text-purple-dark !text-3xl hidden md:block">
                     {RESULTS[style].HERO_SECTION.title}
                   </h2>

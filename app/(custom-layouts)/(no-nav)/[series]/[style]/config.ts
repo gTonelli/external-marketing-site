@@ -1,3 +1,6 @@
+import { EExternalRoutes } from '@/utils/constants'
+import { cloneDeep } from 'lodash'
+
 export const EMAIL_RESULTS = {
   needs: {
     ap: {
@@ -181,4 +184,34 @@ export const FA_EMAIL_RESULTS = {
         'Why stop healing your trust wounds? Go deeper with our All-Access Pass. We’ll teach you how to create the life and relationships you desire.',
     },
   },
+}
+
+export const AGE_PRODUCT_COPY = cloneDeep(EMAIL_RESULTS)
+
+AGE_PRODUCT_COPY.needs.fa.cardText =
+  'Discover what you need in your relationships and learn how to get it from your partner when you enroll in The Personal Development School’s Fearful Avoidant Course Bundle.'
+AGE_PRODUCT_COPY.needs.ap.cardText =
+  'Discover what you need in your relationships and learn how to get it from your partner when you enroll in The Personal Development School’s Anxious Preoccupied Course Bundle.'
+AGE_PRODUCT_COPY.needs.da.cardText =
+  'Discover what you need in your relationships and learn how to get it from your partner when you enroll in The Personal Development School’s Dismissive Avoidant Course Bundle.'
+AGE_PRODUCT_COPY.needs.sa.cardText =
+  'Learn how to understand people better and start building more harmonious relationships immediately when you enroll in The Personal Development School’s Secure Attachment Course Bundle.'
+
+AGE_PRODUCT_COPY.beliefs.fa.cardText =
+  'Learn more effective tools and techniques for creating lasting change in your life when you enroll in The Personal Development School’s Fearful Avoidant Course Bundle.'
+
+AGE_PRODUCT_COPY.beliefs.ap.cardText =
+  'Learn more effective tools and techniques for creating lasting change in your life when you enroll in The Personal Development School’s Anxious Preoccupied Course Bundle.'
+
+AGE_PRODUCT_COPY.beliefs.da.cardText =
+  'Learn more effective tools and techniques for creating lasting change in your life when you enroll in The Personal Development School’s Dismissive Avoidant Course Bundle.'
+
+AGE_PRODUCT_COPY.beliefs.sa.cardText =
+  'Uncover your secondary attachment style and learn how to heal it when you enroll in The Personal Development School’s Secure Attachmennt Course Bundle.'
+
+export const AGE_PRODUCT_CHECKOUT = {
+  fa: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA,
+  ap: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP,
+  da: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA,
+  sa: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA,
 }

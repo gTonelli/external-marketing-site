@@ -1,4 +1,5 @@
 import { Link } from '@/components/Link'
+import { EExternalRoutes } from '@/utils/constants'
 
 export const REPORT_COPY = {
   fa: {
@@ -606,5 +607,99 @@ export const REPORT_COPY = {
       ctaLink: 'https://attachment.personaldevelopmentschool.com/limited-offer/sa',
       image: { name: 'footer-sa-couple.jpg', altText: 'A happy couple' },
     },
+  },
+}
+
+export const AGE_REPORT_COPY = {
+  fa: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Fearful Avoidant Course Bundle"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA}
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Fearful Avoidant Course Bundle</span> is the quickest,
+        most results-oriented, and most affordable way to restart your love life in a matter of
+        weeks.
+      </>
+    ),
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA,
+  },
+  ap: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Anxious Preoccupied Course Bundle"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP}
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Anxious Preoccupied Course Bundle</span> is the quickest,
+        most results-oriented, and most affordable way to restart your love life in a matter of
+        weeks.
+      </>
+    ),
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP,
+  },
+  da: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Dismissive Avoidant Course Bundle"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA}
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Dismissive Avoidant Course Bundle</span> is the quickest,
+        most specific, and most affordable way to restart your love life in a matter of weeks.
+      </>
+    ),
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA,
+  },
+  sa: {
+    copy: (
+      <>
+        This is what I teach you how to do in{' '}
+        <u>
+          <Link
+            label="The Secure Attachment Course Bundle"
+            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA}
+            target="_blank"
+          />
+        </u>{' '}
+        at The Personal Development School.
+      </>
+    ),
+    footerCopy: (
+      <>
+        <span className="text-primary">The Secure Attachment Course Bundle</span> is the quickest,
+        most results-oriented, and most affordable way to transform your love life into its truest
+        potential in a matter of weeks.
+      </>
+    ),
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA,
   },
 }

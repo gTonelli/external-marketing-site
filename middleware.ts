@@ -116,7 +116,9 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     return 'regex' in config && config.regex instanceof RegExp
   }
 
-  return configs.find(isConfigWithRegex)?.regex.test(path) ? configs.find(isConfigWithRegex)?.config : undefined
+  return configs.find(isConfigWithRegex)?.regex.test(path)
+    ? configs.find(isConfigWithRegex)?.config
+    : undefined
 }
 
 interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {
@@ -187,8 +189,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const splitTestConfigs: TSplitTestConfigs = {
-}
+export const splitTestConfigs: TSplitTestConfigs = {}
 
 type TSplitTestConfigs = {
   [key: string]: TSplitTestConfig

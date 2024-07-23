@@ -9,6 +9,7 @@ export type TStorageKeys =
   | 'userTag'
   | 'prod-2320-checkout-test'
   | 'gm-845-checkout-test'
+  | 'gm-1079-age-funnel-split'
   | `gm-976-platform-split-${string}`
 
 export const Storage = {

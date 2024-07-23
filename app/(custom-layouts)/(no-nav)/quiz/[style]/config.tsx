@@ -1,3 +1,6 @@
+import { EExternalRoutes } from '@/utils/constants'
+import { cloneDeep } from 'lodash'
+
 export const ROYAL_RUMBLE = {
   moneyBackGuaranteeCopy: [
     'All programs at The Personal Development School are backed by our Risk Free 100% money back guarantee!',
@@ -393,7 +396,7 @@ export const ROYAL_RUMBLE = {
 
         'You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing.',
 
-        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life',
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life.',
 
         'It’s time to look at your emotional self in the mirror.',
 
@@ -423,7 +426,7 @@ export const ROYAL_RUMBLE = {
       subheadline: `The First Step Is Watching The Short Video Below To Learn And Understand Your Relationship Patterns – And How They’re Shockingly Accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
       title: 'Who Is The Dismissive Avoidant?',
-      copy: "While we send your personalized report, watch this short video and read on to learn about your dismissive avoidant attachment style, including your relationship patterns and fears, and how you can start your healing journey to become securely attached.",
+      copy: 'While we send your personalized report, watch this short video and read on to learn about your dismissive avoidant attachment style, including your relationship patterns and fears, and how you can start your healing journey to become securely attached.',
     },
 
     BANNER_SEGMENT: {
@@ -726,7 +729,7 @@ export const ROYAL_RUMBLE = {
 
         'You’ve landed here because you’re being given the chance to radically transform yourself by gaining the tools you’ve been missing.',
 
-        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life',
+        'By making a small yet substantial investment in bettering yourself, you will be on your way to developing the skills you’ve been missing to attract, create, develop, and keep the relationships you want to live a fulfilling life.',
 
         'It’s time to look at your emotional self in the mirror.',
 
@@ -750,12 +753,11 @@ export const ROYAL_RUMBLE = {
     TITLE: 'Fearful Avoidant',
 
     HERO_SECTION: {
-      headline:
-        'Are you ready to start having the best relationships of your life?',
+      headline: 'Are you ready to start having the best relationships of your life?',
       subheadline: `The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
       title: 'Who Is The Fearful Avoidant?',
-      copy: "While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.",
+      copy: 'While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.',
     },
 
     BANNER_SEGMENT: {
@@ -1050,14 +1052,14 @@ export const ROYAL_RUMBLE = {
   },
   sa: {
     TITLE: 'Secure',
-    
+
     HERO_SECTION: {
       headline:
         'Are You Ready To Find That Spark In Your Love Life Again – And Meet A Loving And Secure Partner?',
       subheadline: `The First Step Is Watching This Short – And Shockingly Accurate – Video About Being A Securely Attached Person!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
       title: 'Who Is The Securely Attached?',
-      copy: "While we email your personalized report, watch this video and read on to discover your secure attachment style, how it impacts your relationships and patterns, and how to use it to find, nurture, and maintain a long-lasting and loving relationship.",
+      copy: 'While we email your personalized report, watch this video and read on to discover your secure attachment style, how it impacts your relationships and patterns, and how to use it to find, nurture, and maintain a long-lasting and loving relationship.',
     },
 
     BANNER_SEGMENT: {
@@ -1137,7 +1139,7 @@ export const ROYAL_RUMBLE = {
       copy1: [
         'Your attachment style and the relationship challenges it brings are a reflection of your story.',
 
-        'if your attachment style is Securely Attached, it’s likely that you had a healthy relationship with both of your caregivers during childhood. You were probably encouraged to express yourself, and your needs for emotional and physical support were consistently met. That’s why as an adult, it’s easier for you to create supportive, communicative relationships with others. Unlike the 3 insecure attachment styles – Anxious-Preoccupied, Dismissive Avoidant and Fearful Avoidant – you don’t experience much anxiety or fear when in a relationship because you didn’t experience attachment traumas in your relationships as a child.',
+        'If your attachment style is Securely Attached, it’s likely that you had a healthy relationship with both of your caregivers during childhood. You were probably encouraged to express yourself, and your needs for emotional and physical support were consistently met. That’s why as an adult, it’s easier for you to create supportive, communicative relationships with others. Unlike the 3 insecure attachment styles – Anxious-Preoccupied, Dismissive Avoidant and Fearful Avoidant – you don’t experience much anxiety or fear when in a relationship because you didn’t experience attachment traumas in your relationships as a child.',
       ],
       copy2: `Insecure attachment styles (Anxious Preoccupied, Fearful Avoidant, Dismissive Avoidant) can have a tendency to bottle up their emotions, pull away, send mixed signals by coming close and then moving away again, have difficulty communicating their needs, or putting up huge walls all in an effort to manage their deep-rooted fears of abandonment or betrayal. All of this can be extremely hard to relate to as someone who has never had the same traumatic experiences. 
   
@@ -1212,7 +1214,7 @@ export const ROYAL_RUMBLE = {
       },
     ],
 
-    STILLNOTSURE_SEGMENT: { copy2: `` },
+    STILLNOTSURE_SEGMENT: { copy2: [] },
 
     BESTSELF_SEGMENT: {
       subheading: `The Emotional Healing Program at The Personal Development School is the missing piece to help you get there.`,
@@ -1308,7 +1310,7 @@ export const ROYAL_RUMBLE = {
   OFFER_CARD: {
     heading: `Get everything for just $67/month`,
     headingColor: 'primary',
-    subheaing: 'ONLY',
+    subheading: 'ONLY',
     price: '$67',
     trialSubheading: '',
     trialPrice: '$0',
@@ -1356,4 +1358,205 @@ export const ROYAL_RUMBLE = {
   I have added some testimonials on this page, but I urge you to do your own research by **checking out the Personal Development School’s YouTube Channel** to see thousands of user-generated reviews on the hundreds of videos I create to see if my style resonates with you.`,
     },
   ],
+}
+
+export const AGE_CONFIG = cloneDeep(ROYAL_RUMBLE)
+
+AGE_CONFIG.EXCLUSIVEBONUS_SEGMENT = [
+  <>
+    <strong>Priority access</strong> to all upcoming events, courses, offers, and new programs at
+    The Personal Development School.
+  </>,
+  <>
+    The chance to meet and connect with other members in <strong>our online community</strong> to
+    have your personal questions answered.
+  </>,
+  <>
+    <strong>An invitation</strong> to our online Facebook group with like-minded individuals who are
+    equally dedicated to their healing.
+  </>,
+]
+AGE_CONFIG.OFFER_CARD.heading = 'GET EVERYTHING FOR JUST $34.99'
+AGE_CONFIG.OFFER_CARD.price = '$34.99'
+AGE_CONFIG.FAQs = [
+  {
+    question:
+      'I just want to heal my attachment style with a single course; I’m not sure I want to do the whole bundle. Can’t I just purchase the course that is relevant to my attachment style?',
+    answer: `You could do that, but there are two very important things to note. 
+
+Firstly, healing your attachment style takes time, practice, and understanding the concepts behind transforming it. As much as one course can help make very powerful and positive changes quickly, it takes an integrated approach to uncover your style, heal it, and become securely attached. Our bundle offers everything you need to make a marvelous start to your journey.
+
+Secondly, buying each course individually is costlier than the bundle package. Add all these courses together and you’re looking at around $299. You’re getting three courses for a grand total of $34.99. But this is for a limited time only – so sign up before it’s gone!  
+
+It’s a steal of a deal and will prepare you to make substantial changes in your life and relationships.`,
+  },
+  {
+    question: 'Can I cancel anytime?',
+    answer: `Absolutely. If you feel that this course bundle isn’t working for you, we offer a 7-day money-back guarantee. This means there is no risk if you join today and later decide that the course bundle is not for you.
+
+Inform us about your decision, and we’ll happily process a refund. No hard feelings and no questions asked! Unfortunately, after 7 days, we won’t be able to process a refund. 
+
+Remember: you might feel that it’s not happening for you right away, but remember, it takes effort and time. 
+
+We have a very high success rate of students becoming more securely attached and fulfilled in all areas, and I’m confident you will, too.`,
+  },
+  {
+    question: 'Can I continue my growth and transformation?',
+    answer: `Yes, you can. If you’ve completed the course bundle, embraced the positive opportunities, and want to continue your healing and personal growth journey, you can sign up for our All-Access Pass.
+
+This monthly membership includes access to 65+ courses (covering each of the attachment styles, plus codependency, confidence, and many more), live webinars and Q&As with myself (co-founder Thais Gibson) and certified coaches, study groups, and an invitation to our private online community. 
+
+It’s the complete and comprehensive membership that gives you everything you need to continue your growth and healing journey.`,
+  },
+  {
+    question:
+      'Wow, that’s a lot of courses and support I get access to, why is it so reasonably priced?',
+    answer: `The short answer is: I want to help as many people as I possibly can!
+    
+  I’m incredibly passionate about sharing what’s become my life’s work and this integrated approach to healing attachment trauma because **I know it works – as long as you do**. I have developed a system and tools that are highly effective – and I want to make them as accessible as possible.`,
+  },
+  {
+    question: 'I’m considering other courses or therapy – why should I trust you?',
+    answer: `It’s important you feel confident in your decision to work with me. I understand it can be hard to trust someone with something as important as your relationships, love life, and attachment style. 
+
+This is why I urge you to do your own research. I have added some testimonials to this page, but I recommend checking out The Personal Development School’s YouTube channel. 
+
+There are thousands of user reviews on the hundreds of videos I created to help you see if my style resonates with you. 
+
+You can also check my Instagram, Facebook, and TikTok profiles or read our blogs for more valuable information. If you have any questions, please get in touch with The Personal Development School team. `,
+  },
+]
+
+AGE_CONFIG.ap.FAMILIAR_SEGMENTS.subheadlineTwo =
+  'Use the Anxious Preoccupied Course Bundle to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 7 Days!'
+AGE_CONFIG.ap.ATTACHMENT_ORIGIN_SEGMENT.heading3 =
+  'Use the Anxious Preoccupied Course Bundle to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 7 Days!'
+AGE_CONFIG.ap.THAIS_SEGMENT.copy =
+  'The Anxious Preoccupied Course Bundle is your personal invitation to break free from your attachment trauma and create the love, safety, and connection that you deeply crave – and know, deep down, that you do deserve.'
+AGE_CONFIG.ap.OFFER_SEGMENT.copy[8] = `Enroll in The Anxious Preoccupied Course Bundle now and prepare to create the safe home within yourself you’ve been looking for all along.`
+
+AGE_CONFIG.da.BANNER_SEGMENT.variantCopy3 = [
+  `With the Dismissive Avoidant Course Bundle, I'll teach you tailored concepts, tools, and strategies that guide your transformation from dismissive avoidant to securely attached, helping you create and foster the relationships you desire.`,
+  <>
+    You’ll learn to conquer your fears, let down your barriers, overcome your patterns, and open
+    yourself to forming loving relationships with emotionally available people in less than
+    <em> 7 days</em>.
+  </>,
+  <>
+    Your course bundle includes access to three custom courses that you can watch anywhere, anytime.
+    These courses are: <br />
+    <br />
+    1. The <strong>Dismissive Avoidant Introductory Course</strong>, which teaches you everything
+    you need to know about how your attachment style affects your relationships and perceptions.{' '}
+    <br />
+    2. The <strong>Handbook For a Better Life Course</strong>, which outlines what you can do to
+    build a fulfilling, purposeful life. <br />
+    3. The <strong>Discover, Embrace, and Fulfill Your Personal Needs Course</strong>, which teaches
+    you about what your needs are and how to fulfill them yourself to harness your independence and
+    autonomy.
+  </>,
+  <>
+    Achieve your personal and relationship goals through on-demand courses – all created and
+    developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
+    Development School.{' '}
+    <strong>
+      Click the button below to enroll and gain exclusive access. Save $265 on this course bundle
+      for a limited time only!
+    </strong>
+  </>,
+]
+AGE_CONFIG.da.FAMILIAR_SEGMENTS.subheadlineTwo =
+  'Use the Dismissive Avoidant Course Bundle to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 7 Days!'
+AGE_CONFIG.da.ATTACHMENT_ORIGIN_SEGMENT.heading3 =
+  'Use the Dismissive Avoidant Course Bundle to Create Deep Inner Healing, Lasting Connection and Success in Your Love Life in 7 Days!'
+AGE_CONFIG.da.THAIS_SEGMENT.copy =
+  'The Dismissive Avoidant Course Bundle is your personal invitation to break free from your attachment trauma and destructive isolation patterns to create the love, safety, and connection that you deeply crave – and know, deep down, that you do deserve.'
+AGE_CONFIG.da.BESTSELF_SEGMENT.subheading =
+  'The Dismissive Avoidant Course Bundle is the missing piece to help you get there.'
+AGE_CONFIG.da.OFFER_SEGMENT.copy[8] =
+  'Enroll in The Dismissive Avoidant Course Bundle now and prepare to create the safe home within yourself you’ve been looking for all along.'
+
+AGE_CONFIG.sa.BANNER_SEGMENT.variantCopy3 = [
+  `Our Secure Attachment Course Bundle, which includes three personalized courses that you can take anywhere, anytime, will teach you how to navigate loving relationships with individuals who have insecure attachment styles, so you can foster and create fulfilling, lasting relationships.`,
+  <>
+    In each course, I'll teach you concepts, tools, and strategies that can be used for as little as
+    <em>10 minutes</em> a day.
+  </>,
+  <>
+    You’ll learn how to return the balance to your relationships, improve communication, remove
+    conflict, and understand different attachment styles to form new loving relationships in less
+    than <em>7 days</em>.
+  </>,
+  <>
+    Your course bundle includes access to three custom courses that you can watch anywhere, anytime.
+    These courses are: <br /> <br />
+    1. The <strong>Repair Any Relationship Course</strong>, which teaches you everything you need to
+    know about how to build healthy relationships and fix broken ones. <br />
+    2. The <strong>Handbook For a Better Life Course</strong>, which outlines what you can do to
+    build a fulfilling, purposeful life. <br /> 3.{' '}
+    <strong>The Discover, Embrace, and Fulfill Your Personal Needs Course</strong>, which teaches
+    you about what your needs are and how to fulfill them yourself to harness your independence and
+    autonomy.
+  </>,
+  <>
+    Achieve your personal and relationship goals through on-demand courses – all created and
+    developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal
+    Development School.{' '}
+    <strong>
+      Click the button below to enroll and gain exclusive access. Save $265 on this course bundle
+      for a limited time only!
+    </strong>
+  </>,
+]
+AGE_CONFIG.sa.BESTSELF_SEGMENT.subheading =
+  'The Secure Attachment Bundle at The Development School is the missing piece to help you get there.'
+AGE_CONFIG.sa.OFFER_SEGMENT.copy[4] =
+  'Get started to dive straight into The Secure Attachment Course Bundle and prepare to start connecting with others in a much better way.'
+
+export const AGE_PRICING = {
+  fa: {
+    copy1: '',
+    list: [],
+    copy2: '',
+    checkoutUrl: '',
+  },
+  ap: {
+    copy1: 'Heal Your Attachment Style in 7 Days with the Anxious Preoccupied Course Bundle.',
+    list: [
+      'The Anxious Preoccupied Introductory Course, which will answer all of your questions about your attachment style',
+      'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',
+      'The Handbook For a Better Life Course, which will teach you how to navigate dating and relationships with confidence',
+      'Access to our supportive community through a private Facebook group',
+      '24/7 live chat functionality to have your relationship questions answered',
+    ],
+    copy2:
+      'Enroll in The Anxious Preoccupied Course Bundle now and prepare to create the safe home within yourself you’ve been looking for all along.',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP,
+  },
+  da: {
+    copy1: 'Heal Your Attachment Style in 7 Days with the Dismissive Avoidant Course Bundle.',
+    list: [
+      'The Dismissive Avoidant Introductory Course, which will answer all of your questions about your attachment style',
+      'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',
+      'The Handbook For a Better Life Course, which will teach you how to navigate dating and relationships with confidence',
+      'Access to our supportive community through a private Facebook group',
+      '24/7 live chat functionality to have your relationship questions answered',
+    ],
+    copy2:
+      'Enroll in The Dismissive Avoidant Course Bundle now and prepare to create the safe home within yourself you’ve been looking for all along.',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA,
+  },
+  sa: {
+    copy1: 'All the tools you need to create the relationship you deserve.',
+    list: [
+      'The Repair Any Relationship Course, which teaches you everything you need to know about how to build healthy relationships and fix broken ones',
+      'The Discover, Embrace, and Fulfill Your Personal Needs Course, which will teach you how to understand and meet your own needs and love yourself',
+      'The Handbook For a Better Life Course, which will teach you how to navigate dating and relationships with confidence',
+      'Access to our supportive community through a private Facebook group',
+      '24/7 live chat functionality to have your relationship questions answered',
+    ],
+    copy2:
+      'Enroll in The Securely Attached Program now and prepare to create the safe home within yourself you’ve been looking for all along.',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA,
+  },
 }

@@ -41,10 +41,11 @@ export type Pages =
   | `7 Day Trial + 50% off first month`
   | `7 Days Trial Page Funnel - FA`
   | `7-Day Trial Page (Variant)`
+  | `Age Funnel - ${string}`
   | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
-  | `Attachment Style Report New - ${string}`
+  | `Attachment Style Bundle Report - ${string}`
   | `Attachment Style Report Old - ${string}`
   | `Attachment Style Quiz Questions`
   | `Attachment Style Results`

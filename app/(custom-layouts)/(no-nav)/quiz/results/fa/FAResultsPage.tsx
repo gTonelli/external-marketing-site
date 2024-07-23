@@ -116,7 +116,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 assist you in changing these patterns in his little seven days. This will allow you
                 to improve existing relationships, create lasting love, and build new relationships
                 with emotionally available people. Click the button below to enroll in exclusive
-                access. by signing up today, you will save $265 for a limited time.
+                access. By signing up today, you will save $265 for a limited time.
               </p>
             ) : (
               <p className="max-w-2xl font-bold mx-auto mb-4 lg:mb-8">

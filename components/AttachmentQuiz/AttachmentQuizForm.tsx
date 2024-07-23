@@ -6,13 +6,12 @@ import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
-// libraries
-import Cookies from 'universal-cookie'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
-import { TStyle } from '@/utils/types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
+// utils
+import { TStyle } from '@/utils/types'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle

@@ -121,16 +121,16 @@ export const VideoDefault = ({
 
     isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
 
-    if (!variantVideoData || !variantVideoData.key || isYoung) return
+    if (!variantVideoData || isYoung) return
     let showVariant: string | null | boolean = Storage.get(
-      variantVideoData?.key?.toLowerCase() as TStorageKeys
+      variantVideoData.key.toLowerCase() as TStorageKeys
     )
     if (showVariant === null) {
-      const splitRatio = variantVideoData?.splitRatio ?? 0.2
+      const splitRatio = variantVideoData.splitRatio ?? 0.2
       showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < splitRatio
-      Storage.set(variantVideoData?.key?.toLowerCase() as TStorageKeys, showVariant)
+      Storage.set(variantVideoData.key.toLowerCase() as TStorageKeys, showVariant)
       Mixpanel.track.ExperimentStarted({
-        'Experiment name': variantVideoData?.key,
+        'Experiment name': variantVideoData.key,
         'Variant name': showVariant ? 'Variant 1' : 'Control',
         page_name: page_name,
       })

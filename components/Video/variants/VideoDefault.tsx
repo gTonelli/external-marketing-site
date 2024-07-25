@@ -99,6 +99,7 @@ export const VideoDefault = ({
   const [isDialogShown, setIsDialogShown] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [isVariant, setIsVariant] = useState(false)
+  const [isYoung, initialized] = useIsYoung('gm-1079-age-funnel-split')
 
   const onToggleDialog = useCallback(() => {
     if (playInline) return
@@ -116,16 +117,18 @@ export const VideoDefault = ({
   }, [playAuto, toggleVideo])
 
   useEffect(() => {
+    if (!initialized) return
+
     isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
 
-    if (!variantVideoData) return
+    if (!variantVideoData || !variantVideoData.key || isYoung) return
     let showVariant: string | null | boolean = Storage.get(
       variantVideoData.key.toLowerCase() as TStorageKeys
     )
     if (showVariant === null) {
-      const splitRatio = variantVideoData.splitRatio ?? 0.2
+      const splitRatio = variantVideoData?.splitRatio ?? 0.2
       showVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < splitRatio
-      Storage.set(variantVideoData.key.toLowerCase() as TStorageKeys, showVariant)
+      Storage.set(variantVideoData?.key.toLowerCase() as TStorageKeys, showVariant)
       Mixpanel.track.ExperimentStarted({
         'Experiment name': variantVideoData.key,
         'Variant name': showVariant ? 'Variant 1' : 'Control',
@@ -133,7 +136,7 @@ export const VideoDefault = ({
       })
     }
     setIsVariant(showVariant === 'true' || showVariant === true)
-  }, [isPlaying, page_name, variantVideoData])
+  }, [isPlaying, initialized, isYoung, page_name, variantVideoData])
 
   return (
     <>
@@ -278,3 +281,18 @@ export const VideoPlayer = forwardRef<HTMLVideoElement, IVideoPlayer>(
     )
   }
 )
+
+
+// ensure that isYoung is properly populated before the rest of the logic executes
+const useIsYoung = (key: TStorageKeys) => {
+  const [isYoung, setIsYoung] = useState(false)
+  const [initialized, setInitialized] = useState(false)
+
+  useEffect(() => {
+    const value = Storage.get(key) !== null
+    setIsYoung(value)
+    setInitialized(true)
+  }, [key])
+
+  return [isYoung, initialized]
+}

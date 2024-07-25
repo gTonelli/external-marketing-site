@@ -15,6 +15,7 @@ import { RESULTS } from './config'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 
+
 interface IFAResultsPageProps {
   ageVariant?: boolean
 }
@@ -49,6 +50,11 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
                     thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                     type="default"
+                    variantVideoData={{
+                      key: "GM-1107-FA-Video-Split",
+                      videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
+                      splitRatio: 0.2
+                    }}
                   />
                 </div>
 

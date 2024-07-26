@@ -398,7 +398,6 @@ export const IAT_COPY = {
         `The key principles of the subconscious mind so you can help others make lasting changes through these principles and powerful techniques`,
         `How to break through painful stories and release old baggage from the past`,
         `How to recognize the core wounds of others through their language patterns and emotions`,
-        `How to recognize the core wounds of others through their language patterns and emotions`,
         `The live version includes 1.5 hours each week of practice time and Q&A with Thais' feedback and supervision`,
       ],
 

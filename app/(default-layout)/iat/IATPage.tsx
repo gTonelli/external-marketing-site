@@ -1381,11 +1381,7 @@ const IATTestimonialSection = () => {
 const RegistrationFormValidationSchema = Yup.object()
   .shape({
     firstName: Yup.string().defined().ensure().required('First name required'),
-    email: Yup.string()
-      .defined()
-      .ensure()
-      .required('Email required')
-      .matches(Regexes.email, 'Email must be valid'),
+    email: Yup.string().defined().ensure().required('Email required'),
   })
   .defined()
 

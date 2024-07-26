@@ -201,12 +201,7 @@ const RegistrationFormValidationSchema = yup
   .shape({
     firstName: yup.string().defined().ensure().required('First name required'),
     lastName: yup.string().defined().ensure().required('Last name required'),
-    email: yup
-      .string()
-      .defined()
-      .ensure()
-      .required('Email required')
-      .matches(Regexes.email, 'Email must be valid'),
+    email: yup.string().defined().ensure().required('Email required'),
     captcha: yup.string().defined().ensure().required('Please fill in the Captcha'),
   })
   .defined()

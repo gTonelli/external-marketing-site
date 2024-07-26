@@ -134,12 +134,7 @@ const SignupFormValidationSchema = yup
   .object()
   .shape({
     firstName: yup.string().defined().ensure().required(' First name required'),
-    email: yup
-      .string()
-      .defined()
-      .ensure()
-      .required('Email required')
-      .matches(Regexes.email, 'Email must be valid'),
+    email: yup.string().defined().ensure().required('Email required'),
   })
   .defined()
 

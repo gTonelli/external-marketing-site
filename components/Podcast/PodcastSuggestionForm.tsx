@@ -168,12 +168,7 @@ const PodcastSuggestionFormValidationSchema = yup
   .object()
   .shape({
     podcastFirstName: yup.string().defined().ensure().required('First name required'),
-    podcastEmail: yup
-      .string()
-      .defined()
-      .ensure()
-      .required('Email required')
-      .matches(Regexes.email, 'Email must be valid'),
+    podcastEmail: yup.string().defined().ensure().required('Email required'),
     podcastRecommendation: yup.string().defined().ensure().required('Please select a value'),
     podcastSuggestion: yup.string().defined().ensure().required('Please write a message'),
   })

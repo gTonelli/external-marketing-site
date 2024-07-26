@@ -1,4 +1,4 @@
-import { SignupForm } from './Forms/SignupForm'
+import { SignupForm } from './SignupForm'
 
 export const PodcastFreebieForm = ({ id }: { id?: string }) => {
   return (

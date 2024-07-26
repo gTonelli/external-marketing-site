@@ -1,0 +1,132 @@
+import { Page } from '@/components/Page'
+import { Section } from '@/components/Section'
+import { COPY } from './config'
+import './style.css'
+import { IATWebinarForm } from '@/components/Forms/IATWebinarForm'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import Image from 'next/image'
+import { List } from '@/components/List'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+
+export default function IATWebinarPage() {
+  return (
+    <Page page_name="IAT Webinar Page">
+      <Section
+        className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
+
+        <div className="bg-hero-mobile lg:hidden" />
+
+        <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
+          <p className="font-bold tracking-33 mb-4">{COPY.header.subtitle}</p>
+
+          <h1 className="mb-4">{COPY.header.title}</h1>
+
+          <p className="mb-8">{COPY.header.copy}</p>
+
+          <IATWebinarForm />
+        </div>
+      </Section>
+
+      <Section className="max-w-3xl mx-auto">
+        <p className="font-bold tracking-33 mb-4">{COPY.video.subtitle}</p>
+
+        <h2 className="mb-4">{COPY.video.title}</h2>
+
+        <VideoThumbnail
+          srcUrl={COPY.video.videoUrl}
+          thumbnailAlt="High Impact Relationship Coach Masterclass"
+        />
+      </Section>
+
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="flex items-center">
+          <Image alt="Webinar on Zoom" src="" width={560} height={300} />
+        </div>
+
+        <div className="text-left">
+          <h2 className="mb-4">{COPY.bigThings.title}</h2>
+
+          <p className="font-bold tracking-33 mb-4">{COPY.bigThings.subtitle}</p>
+
+          <p className="mb-4">{COPY.bigThings.copy}</p>
+
+          <IATWebinarForm />
+        </div>
+      </Section>
+
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="text-left">
+          <h2 className="mb-4">{COPY.thais.title}</h2>
+
+          <p className="font-bold tracking-33 mb-4">{COPY.thais.subtitle}</p>
+
+          <p className="mb-4">{COPY.thais.copy}</p>
+        </div>
+
+        <div className="flex justify-center items-center">
+          <Image alt="Thais Gibson" src="" width={560} height={300} />
+        </div>
+      </Section>
+
+      <Section className="max-w-5xl mx-auto">
+        <h2 className="mb-4">{COPY.lifeAsCoach.title}</h2>
+
+        <p className="font-bold tracking-33 mb-8">{COPY.lifeAsCoach.subtitle}</p>
+
+        <div className="grid grid-cols-1 gap-0 text-left md:grid-cols-2 md:gap-4">
+          <List
+            classNameIcon="!text-green-check mt-1"
+            classNameListItems="font-bold mb-4"
+            iconName="circle-check"
+            iconType="regular"
+            listItems={COPY.lifeAsCoach.leftList}
+          />
+
+          <List
+            classNameIcon="!text-green-check mt-1"
+            classNameListItems="font-bold mb-4"
+            iconName="circle-check"
+            iconType="regular"
+            listItems={COPY.lifeAsCoach.rightList}
+          />
+        </div>
+
+        <p className="mt-8">CTA</p>
+      </Section>
+
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="text-left">
+          <h2 className="mb-4">{COPY.successStory.title}</h2>
+
+          <p className="font-bold tracking-33 mb-4">{COPY.successStory.subtitle}</p>
+
+          <p className="mb-4">{COPY.successStory.copy}</p>
+        </div>
+
+        <div className="flex justify-center items-center">
+          <Image alt="Sanjana Kumar" src="" width={560} height={300} />
+        </div>
+      </Section>
+
+      <CarouselTestimonialThinkific className="mt-8 mb-16" />
+
+      <Section
+        className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
+
+        <div className="bg-hero-mobile lg:hidden" />
+
+        <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
+          <h2 className="mb-4">{COPY.signUp.title}</h2>
+
+          <p className="mb-8">{COPY.signUp.copy}</p>
+
+          <IATWebinarForm />
+        </div>
+      </Section>
+    </Page>
+  )
+}

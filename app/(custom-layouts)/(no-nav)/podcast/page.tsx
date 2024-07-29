@@ -12,7 +12,7 @@ import { LinkWrapper } from '@/components/Link'
 import { PodcastList } from '@/components/Podcast/PodcastList'
 import { FeaturedPodcast } from '@/components/Podcast/FeaturedPodcast'
 import { PodcastSuggestionForm } from '@/components/Podcast/PodcastSuggestionForm'
-import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
+import { PodcastFreebieForm } from '@/components/Forms/PodcastFreebieForm'
 // libraries
 import cx from 'classnames'
 import qs from 'qs'

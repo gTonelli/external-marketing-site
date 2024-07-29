@@ -9,7 +9,7 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { ShareIcons } from '@/components/ShareIcons'
-import { IATEbookForm } from '@/components/IATEbookForm'
+import { IATEbookForm } from '@/components/Forms/IATEbookForm'
 import { IPodcast, PODCAST_PLATFORMS } from '../page'
 // libraries
 import cx from 'classnames'

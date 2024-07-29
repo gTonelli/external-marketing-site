@@ -36,13 +36,19 @@ export default function IATWebinarPage() {
 
         <VideoThumbnail
           srcUrl={COPY.video.videoUrl}
+          thumbnailUrl="/IATWebinar/iat-webinar-thumbnail.jpg"
           thumbnailAlt="High Impact Relationship Coach Masterclass"
         />
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="flex items-center">
-          <Image alt="Webinar on Zoom" src="" width={560} height={300} />
+          <Image
+            alt="Webinar on Zoom"
+            src="/images/IATWebinar/iat-webinar-mockup.jpg"
+            width={560}
+            height={300}
+          />
         </div>
 
         <div className="text-left">
@@ -66,7 +72,12 @@ export default function IATWebinarPage() {
         </div>
 
         <div className="flex justify-center items-center">
-          <Image alt="Thais Gibson" src="" width={560} height={300} />
+          <Image
+            alt="Thais Gibson"
+            src="/images/IATWebinar/iat-thais-portrait.jpg"
+            width={568}
+            height={620}
+          />
         </div>
       </Section>
 
@@ -106,18 +117,23 @@ export default function IATWebinarPage() {
         </div>
 
         <div className="flex justify-center items-center">
-          <Image alt="Sanjana Kumar" src="" width={560} height={300} />
+          <Image
+            alt="Sanjana Kumar"
+            src="/images/IATWebinar/iat-sanjana-kumar.jpg"
+            width={480}
+            height={480}
+          />
         </div>
       </Section>
 
       <CarouselTestimonialThinkific className="mt-8 mb-16" />
 
       <Section
-        className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        className="bg-footer w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
         classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
         <div className="bg-gradient lg:hidden" />
 
-        <div className="bg-hero-mobile lg:hidden" />
+        <div className="bg-footer-mobile lg:hidden" />
 
         <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
           <h2 className="mb-4">{COPY.signUp.title}</h2>

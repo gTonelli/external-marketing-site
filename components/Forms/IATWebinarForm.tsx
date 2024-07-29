@@ -37,7 +37,7 @@ export const IATWebinarForm = () => {
       </Dialog>
 
       <SignupForm
-        userTags={['iat-webinar-masterclass']}
+        userTags={['mkt-iat-webinar-masterclass']}
         listIds={[54]}
         successMessage="Thanks for joining the masterclass!"
         submitButtonLabel="BOOK YOUR FREE MASTERCLASS"

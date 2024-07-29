@@ -86,7 +86,7 @@ export const COPY = {
     subtitle: 'READ SANJANA KUMAR’S SUCCESS STORY',
     copy: (
       <>
-        While studying for an MSc in clinical psychology, Sanjara realized a few essential resources
+        While studying for an MSc in clinical psychology, Sanjana realized a few essential resources
         and elements "were not even taught by my psychology teachers in our school."
         <br />
         <br />

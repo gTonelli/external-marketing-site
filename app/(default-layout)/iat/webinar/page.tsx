@@ -7,6 +7,7 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import Image from 'next/image'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 
 export default function IATWebinarPage() {
   return (
@@ -104,7 +105,9 @@ export default function IATWebinarPage() {
           />
         </div>
 
-        <p className="mt-8">CTA</p>
+        <p className="mt-8">
+          <ButtonScroll label="SAVE YOUR MASTERCLASS SEAT" target="#iat-webinar-form" />
+        </p>
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -135,7 +138,7 @@ export default function IATWebinarPage() {
 
         <div className="bg-footer-mobile lg:hidden" />
 
-        <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
+        <div className="relative text-black text-left p-4 z-20 lg:col-span-7" id="iat-webinar-form">
           <h2 className="mb-4">{COPY.signUp.title}</h2>
 
           <p className="mb-8">{COPY.signUp.copy}</p>

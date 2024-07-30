@@ -36,7 +36,7 @@ export const AttachmentQuizForm = ({
     if (isYoung && quiz_traffic_source === 'paid') {
       let isAgeVariant = Storage.get('gm-1079-age-funnel-split') === 'yes'
       if (Storage.get('gm-1079-age-funnel-split') === null) {
-        isAgeVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
+        isAgeVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
         Storage.set('gm-1079-age-funnel-split', isAgeVariant ? 'yes' : 'no')
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-1079-Age-Funnel-Split',

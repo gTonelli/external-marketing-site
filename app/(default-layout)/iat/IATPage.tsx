@@ -37,7 +37,6 @@ import { useGamAnalytics } from '@/modules/GAM'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { IATBanner } from './IATBanner'
-import { Storage } from '@/modules/Storage'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,

@@ -17,8 +17,9 @@ export const IATWebinarForm = () => {
             onClick={() => setModalSuccess(false)}
           />
         </div>
+
         <h2 className="text-4xl text-left mb-2">
-          Thanks for Joining the Masterclass! Details Incoming!
+          Thanks for Signing Up For the FREE Masterclass! Details Incoming!
         </h2>
 
         <p>
@@ -28,8 +29,12 @@ export const IATWebinarForm = () => {
             <u>High Impact Relationship Coach Masterclass</u>
           </strong>{' '}
           – date, time, and Zoom link. <br /> <br />
-          You'll have exclusive 1:1 time to ask me any questions about the program and how being a
-          Certified IAT™ Coach will transform your life, career, and finances.
+          You'll have the exclusive opportunity to ask me questions at the end about the program and
+          how being a Certified IAT™ Coach will transform your life, career, and finances.
+          <br />
+          <br />
+          P.S: Remember this is a no commitment, no obligation, free masterclass. You just have to
+          show up!
           <br />
           <br />
           Can’t wait to see you!
@@ -39,6 +44,7 @@ export const IATWebinarForm = () => {
       <SignupForm
         userTags={['mkt-iat-webinar-masterclass']}
         listIds={[54]}
+        classNameSuccessMessage="bg-white rounded-sm p-2"
         successMessage="Thanks for joining the masterclass!"
         submitButtonLabel="BOOK YOUR FREE MASTERCLASS"
         onSuccess={() => setModalSuccess(true)}

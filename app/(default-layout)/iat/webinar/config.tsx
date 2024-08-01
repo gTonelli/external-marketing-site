@@ -16,7 +16,7 @@ export const COPY = {
   video: {
     subtitle: 'ARE YOU READY TO LEARN MORE ABOUT THIS LIFE-INSPIRING OPPORTUNITY?',
     title: 'Watch this video to get the ABCs of the IAT™ Relationship Coaching Program',
-    videoUrl: '',
+    videoUrl: 'https://storage.googleapis.com/pds_videos/IAT-Masterclass-Webinar.mp4',
   },
   bigThings: {
     title: 'If You’re Here to do BIG Things…',
@@ -38,8 +38,8 @@ export const COPY = {
     ),
   },
   thais: {
-    title: "I'm Thais Gibson",
-    subtitle: 'PERSONAL DEVELOPMENT SCHOOL',
+    title: "Hi, I'm Thais Gibson, PhD",
+    subtitle: 'FOUNDER OF THE PERSONAL DEVELOPMENT SCHOOL',
     copy: (
       <>
         I’m so excited to offer you this opportunity to attend this exclusive and free IAT™
@@ -82,7 +82,7 @@ export const COPY = {
     ],
   },
   successStory: {
-    title: 'Real People. Real IAT™ Success.',
+    title: 'Real People. Real IAT™ Coaching Success.',
     subtitle: 'READ SANJANA KUMAR’S SUCCESS STORY',
     copy: (
       <>

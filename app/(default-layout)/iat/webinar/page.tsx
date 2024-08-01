@@ -42,17 +42,8 @@ export default function IATWebinarPage() {
         />
       </Section>
 
-      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
-        <div className="flex items-center">
-          <Image
-            alt="Webinar on Zoom"
-            src="/images/IATWebinar/iat-webinar-mockup.jpg"
-            width={560}
-            height={300}
-          />
-        </div>
-
-        <div className="text-left">
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="text-left lg:order-1">
           <h2 className="mb-4">{COPY.bigThings.title}</h2>
 
           <p className="font-bold tracking-33 mb-4">{COPY.bigThings.subtitle}</p>
@@ -61,9 +52,18 @@ export default function IATWebinarPage() {
 
           <IATWebinarForm />
         </div>
+
+        <div className="flex items-center">
+          <Image
+            alt="Webinar on Zoom"
+            src="/images/IATWebinar/iat-webinar-mockup.jpg"
+            width={560}
+            height={300}
+          />
+        </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <div className="text-left">
           <h2 className="mb-4">{COPY.thais.title}</h2>
 
@@ -129,7 +129,7 @@ export default function IATWebinarPage() {
         </div>
       </Section>
 
-      <CarouselTestimonialThinkific className="mt-8 mb-16" />
+      <CarouselTestimonialThinkific className="mt-8 mb-16" initialSlide={1} />
 
       <Section
         className="bg-footer w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"

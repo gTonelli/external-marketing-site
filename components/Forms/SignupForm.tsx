@@ -32,6 +32,8 @@ interface ISignupFormProps extends IDefaultProps {
   submitButtonLabel?: string
   /** Success message */
   successMessage?: string
+  /** classname success message */
+  classNameSuccessMessage?: string
   /** onSuccess callback function */
   onSuccess?: () => void
 }
@@ -39,6 +41,7 @@ interface ISignupFormProps extends IDefaultProps {
 export const SignupForm = ({
   className,
   classNameFields,
+  classNameSuccessMessage,
   id,
   userTags,
   submitButtonLabel,
@@ -94,7 +97,11 @@ export const SignupForm = ({
   }
 
   if (submitted) {
-    return <p className="font-bold text-success text-lg">{successMessage}</p>
+    return (
+      <p className={cx('font-bold text-success text-lg', classNameSuccessMessage)}>
+        {successMessage}
+      </p>
+    )
   }
 
   return (

@@ -50,7 +50,7 @@ export const IATWebinarForm = () => {
       <SignupForm
         userTags={['mkt-iat-webinar-masterclass']}
         listIds={[54]}
-        classNameSuccessMessage="bg-white rounded-sm p-2"
+        classNameSuccessMessage="w-fit bg-white rounded-lg p-2"
         successMessage="Thanks for joining the masterclass!"
         submitButtonLabel="BOOK YOUR FREE MASTERCLASS"
         onSuccess={() => setModalSuccess(true)}

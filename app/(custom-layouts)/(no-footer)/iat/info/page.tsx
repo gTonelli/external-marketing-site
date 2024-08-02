@@ -14,7 +14,7 @@ import './style.css'
 import type { Metadata } from 'next'
 import { CarouselTestimonialPlain } from '@/components/Carousel/variants/CarouselTestimonialPlain'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
-import { IATEbookForm } from '@/components/IATEbookForm'
+import { IATEbookForm } from '@/components/Forms/IATEbookForm'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",

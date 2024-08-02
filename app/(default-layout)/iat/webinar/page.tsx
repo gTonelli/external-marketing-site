@@ -1,13 +1,17 @@
+// core
+import Image from 'next/image'
+// components
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { IATWebinarForm } from '@/components/Forms/IATWebinarForm'
+import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { COPY } from './config'
-import './style.css'
-import { IATWebinarForm } from '@/components/Forms/IATWebinarForm'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import Image from 'next/image'
-import { List } from '@/components/List'
-import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
+// config
+import { COPY } from './config'
+// style
+import './style.css'
 
 export default function IATWebinarPage() {
   return (
@@ -24,7 +28,11 @@ export default function IATWebinarPage() {
 
           <h1 className="mb-4">{COPY.header.title}</h1>
 
-          <p className="mb-8">{COPY.header.copy}</p>
+          {COPY.header.copy.map((copy, index) => (
+            <p className="mb-4" key={`header-${index}`}>
+              {copy}
+            </p>
+          ))}
 
           <IATWebinarForm />
         </div>
@@ -48,7 +56,11 @@ export default function IATWebinarPage() {
 
           <p className="font-bold tracking-33 mb-4">{COPY.bigThings.subtitle}</p>
 
-          <p className="mb-4">{COPY.bigThings.copy}</p>
+          {COPY.bigThings.copy.map((copy, index) => (
+            <p className="mb-4" key={`bigThings-${index}`}>
+              {copy}
+            </p>
+          ))}
 
           <IATWebinarForm />
         </div>
@@ -69,13 +81,17 @@ export default function IATWebinarPage() {
 
           <p className="font-bold tracking-33 mb-4">{COPY.thais.subtitle}</p>
 
-          <p className="mb-4">{COPY.thais.copy}</p>
+          {COPY.thais.copy.map((copy, index) => (
+            <p className="mb-4" key={`thais-${index}`}>
+              {copy}
+            </p>
+          ))}
         </div>
 
         <div className="flex justify-center items-center">
           <Image
             alt="Thais Gibson"
-            src="/images/IATWebinar/iat-thais-portrait.jpg"
+            src="/images/IATPage/InfoPage/thais.png"
             width={568}
             height={620}
           />
@@ -116,7 +132,11 @@ export default function IATWebinarPage() {
 
           <p className="font-bold tracking-33 mb-4">{COPY.successStory.subtitle}</p>
 
-          <p className="mb-4">{COPY.successStory.copy}</p>
+          {COPY.successStory.copy.map((copy, index) => (
+            <p className="mb-4" key={`successStory-${index}`}>
+              {copy}
+            </p>
+          ))}
         </div>
 
         <div className="flex justify-center items-center">
@@ -141,7 +161,11 @@ export default function IATWebinarPage() {
         <div className="relative text-black text-left p-4 z-20 lg:col-span-7" id="iat-webinar-form">
           <h2 className="mb-4">{COPY.signUp.title}</h2>
 
-          <p className="mb-8">{COPY.signUp.copy}</p>
+          {COPY.signUp.copy.map((copy, index) => (
+            <p className="mb-4" key={`signUp-${index}`}>
+              {copy}
+            </p>
+          ))}
 
           <IATWebinarForm />
         </div>

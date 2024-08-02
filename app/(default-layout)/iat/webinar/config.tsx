@@ -74,10 +74,12 @@ export const COPY = {
         commitment to attend if you can’t, and no pressure to do anything.
       </>,
       'It’s a short session to receive exclusive insights and ask me questions about the IAT™ Relationship Coaching Program.',
-      <strong>
-        Just enter which email you want to receive the essential details. Remember, spots are
-        limited, so don’t miss your chance to speak to me live!
-      </strong>,
+      <>
+        <strong>
+          Just enter which email you want to receive the essential details. Remember, spots are
+          limited, so don’t miss your chance to speak to me live!
+        </strong>
+      </>,
     ],
   },
 }

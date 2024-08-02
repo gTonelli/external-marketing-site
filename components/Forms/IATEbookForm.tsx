@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { SignupForm } from './Forms/SignupForm'
+import { SignupForm } from './SignupForm'
 
 export const IATEbookForm = ({
   id,

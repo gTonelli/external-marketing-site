@@ -7,7 +7,7 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { Page } from '@/components/Page'
-import { PodcastFreebieForm } from '@/components/PodcastFreebieForm'
+import { PodcastFreebieForm } from '@/components/Forms/PodcastFreebieForm'
 import { Section } from '@/components/Section'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 // style

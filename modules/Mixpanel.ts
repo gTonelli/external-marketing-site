@@ -65,6 +65,7 @@ export type Pages =
   | `Find My Courses`
   | `IAT Attachment Quiz`
   | `IAT Info Page`
+  | `IAT Webinar Page`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`

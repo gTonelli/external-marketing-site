@@ -32,6 +32,7 @@ import * as Yup from 'yup'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { useGamAnalytics } from '@/modules/GAM'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -63,6 +64,7 @@ export const IATPage = ({
 
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
+  const { setUserData } = useGamAnalytics()
 
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
@@ -89,7 +91,27 @@ export const IATPage = ({
   }
 
   const onBookNow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    window.location.assign(EExternalRoutes.CALENDLY_MELANIE)
+    const url = new URL(EExternalRoutes.CALENDLY_MELANIE)
+
+    const { gamLastTouchData } = setUserData({})
+
+    const utmParams = {
+      utm_campaign: gamLastTouchData?.utm_campaign_last,
+      utm_medium: gamLastTouchData?.utm_medium_last,
+      utm_source: gamLastTouchData?.utm_source_last,
+      utm_content: gamLastTouchData?.utm_content_last,
+      utm_term: gamLastTouchData?.utm_term_last,
+      wicked_source: gamLastTouchData?.wicked_source_last,
+      wicked_id: gamLastTouchData?.wicked_id_last,
+    }
+
+    Object.entries(utmParams).forEach(([key, value]) => {
+      if (value) {
+        url.searchParams.append(key, value)
+      }
+    })
+
+    window.location.assign(url.toString())
 
     Mixpanel.track.ButtonClicked({
       button_label: event.currentTarget.innerText,
@@ -101,7 +123,7 @@ export const IATPage = ({
     if (pageUrl === 'ebook') {
       if (searchParams.get('signup') === 'success') setModalSuccess(true)
     }
-  }, [])
+  }, [pageUrl, searchParams])
 
   return (
     <Page className="w-full" page_name={page_name}>

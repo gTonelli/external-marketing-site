@@ -12,6 +12,7 @@ export type TStorageKeys =
   | 'gm-1079-age-funnel-split'
   | `gm-976-platform-split-${string}`
   | 'gm-1107-fa-video-split'
+  | 'gam_user_tracking'
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

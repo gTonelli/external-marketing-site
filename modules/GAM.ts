@@ -12,7 +12,7 @@ import { TStyle } from '@/utils/types'
 var gamUserTracking: TGAM | undefined
 
 interface ISetUserDataArgs {
-  email: string
+  email?: string
   firstName?: string
   userStyle?: TStyle
 }

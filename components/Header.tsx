@@ -323,7 +323,7 @@ const SideMenuLinks = [
     text: 'Blog',
   },
   {
-    imgAlt: 'Help Icon: a question makr in a circle',
+    imgAlt: 'Help Icon: a question mark in a circle',
     link: EExternalRoutes.SUPPORT_PAGE,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',

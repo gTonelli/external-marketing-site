@@ -318,13 +318,13 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'Blog Icon: a plain folder',
-    link: '/',
+    link: EExternalRoutes.BLOG,
     imgSrc: '/icons/sidemenu-blog.svg',
     text: 'Blog',
   },
   {
-    imgAlt: 'Help Icon: a question makr in a circle',
-    link: EExternalRoutes.FAQ,
+    imgAlt: 'Help Icon: a question mark in a circle',
+    link: EExternalRoutes.SUPPORT_PAGE,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',
   },

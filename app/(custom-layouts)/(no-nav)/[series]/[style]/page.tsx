@@ -4,12 +4,7 @@ import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Button } from '@/components/Button/Button'
 // config
-import {
-  EMAIL_RESULTS as SERIES_BELIEFS_RESULTS,
-  FA_EMAIL_RESULTS,
-  AGE_PRODUCT_COPY,
-  AGE_PRODUCT_CHECKOUT,
-} from './config'
+import { EMAIL_RESULTS as SERIES_BELIEFS_RESULTS, FA_EMAIL_RESULTS } from './config'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // utils
@@ -26,7 +21,7 @@ export type TSeriesParam =
   | 'key-tools'
   | 'trust-wounds'
 
-type TStyleParam = TStyle | 'fa-bundle' | 'ap-bundle' | 'da-bundle' | 'sa-bundle'
+type TStyleParam = TStyle
 interface IAttachmentSeriesPageParams {
   series: TSeriesParam
   style: TStyleParam
@@ -47,24 +42,18 @@ interface IEmailResults {
   }
 }
 
+export const dynamicParams = false
+
 export function generateStaticParams(): IAttachmentSeriesPageParams[] {
   return [
     { series: 'needs', style: 'fa' },
     { series: 'needs', style: 'ap' },
     { series: 'needs', style: 'da' },
     { series: 'needs', style: 'sa' },
-    { series: 'needs', style: 'fa-bundle' },
-    { series: 'needs', style: 'ap-bundle' },
-    { series: 'needs', style: 'da-bundle' },
-    { series: 'needs', style: 'sa-bundle' },
     { series: 'beliefs', style: 'fa' },
     { series: 'beliefs', style: 'ap' },
     { series: 'beliefs', style: 'da' },
     { series: 'beliefs', style: 'sa' },
-    { series: 'beliefs', style: 'fa-bundle' },
-    { series: 'beliefs', style: 'ap-bundle' },
-    { series: 'beliefs', style: 'da-bundle' },
-    { series: 'beliefs', style: 'sa-bundle' },
     { series: 'attachment-style', style: 'fa' },
     { series: 'signs', style: 'fa' },
     { series: 'top-needs', style: 'fa' },
@@ -81,16 +70,8 @@ export default function AttachmentStyleNeedsBeliefsPage({
 }) {
   let [seriesParam, styleParam] = [params.series, params.style]
   const pageName = `Attachment Styles Email Page - ${seriesParam} ${styleParam}` as Pages
-  const isAgeVariant = styleParam.endsWith('-bundle')
   const EMAIL_RESULTS: IEmailResults =
-    seriesParam === 'needs' || seriesParam === 'beliefs'
-      ? isAgeVariant
-        ? AGE_PRODUCT_COPY
-        : SERIES_BELIEFS_RESULTS
-      : FA_EMAIL_RESULTS
-
-  if (isAgeVariant) styleParam = styleParam.split('-')[0] as TStyleParam
-  const style = styleParam as TStyle
+    seriesParam === 'needs' || seriesParam === 'beliefs' ? SERIES_BELIEFS_RESULTS : FA_EMAIL_RESULTS
 
   return (
     <Page page_name={pageName}>
@@ -134,20 +115,14 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
               {styleParam === 'fa' && (
                 <p className="text-center text-md font-semibold text-white tracking-33">
-                  {isAgeVariant
-                    ? 'GET A $265 DISCOUNT ON YOUR COURSE BUNDLE FOR A LIMITED TIME'
-                    : 'GET A 30% DISCOUNT ON YOUR ALL-ACCESS PASS'}
+                  GET A 30% DISCOUNT ON YOUR ALL-ACCESS PASS
                 </p>
               )}
 
               <div className="flex justify-center mt-4">
                 <Button
                   track
-                  link={
-                    isAgeVariant
-                      ? AGE_PRODUCT_CHECKOUT[style]
-                      : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
-                  }
+                  link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
                 />
               </div>

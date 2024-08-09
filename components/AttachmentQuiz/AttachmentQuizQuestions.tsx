@@ -45,7 +45,6 @@ export const AttachmentQuizQuestions = ({
   const [faPoints, setFaPoints] = useState(0)
   const [saPoints, setSaPoints] = useState(0)
   const [style, setStyle] = useState('')
-  const [isYoung, setIsYoung] = useState(false)
   const [userInfo, setUserInfo] = useState<IUserInfo>({
     relationship: '',
     attachment: '',
@@ -138,9 +137,6 @@ export const AttachmentQuizQuestions = ({
         const question = modifiedQuestions[currentIndex]
         if (question.hasOwnProperty('options')) {
           setUserInfo({ ...userInfo, [question.association]: answer })
-        }
-        if (question.association === 'age' && answer === '18-24') {
-          setIsYoung(true)
         }
       }
       // Check if the question was last - go to the ResultsPage
@@ -238,7 +234,6 @@ export const AttachmentQuizQuestions = ({
           quiz_traffic_source={quiz_traffic_source}
           userInfo={userInfo}
           userStyle={style as TStyle}
-          isYoung={isYoung}
         />
       )}
     </section>

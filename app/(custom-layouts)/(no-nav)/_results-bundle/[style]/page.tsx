@@ -3,6 +3,8 @@ import { TStyle } from '@/utils/types'
 import { FAResultsPage } from '../../quiz/results/fa/FAResultsPage'
 import { QuizResultsPage } from '../../quiz/[style]/QuizResultsPage'
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }, { style: 'sa' }]
 }

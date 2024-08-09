@@ -24,33 +24,9 @@ export const AttachmentQuizForm = ({
   quiz_traffic_source,
   userInfo,
   userStyle,
-  isYoung,
 }: IAttachmentQuizFormProps) => {
-  // =================== Hooks ======================
-  const [isVariant, setIsVariant] = useState(false)
-
   const tagManager = useGoogleTagManager()
   const router = useRouter()
-
-  useEffect(() => {
-    if (isYoung && quiz_traffic_source === 'paid') {
-      let isAgeVariant = Storage.get('gm-1079-age-funnel-split') === 'yes'
-      if (Storage.get('gm-1079-age-funnel-split') === null) {
-        isAgeVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
-        Storage.set('gm-1079-age-funnel-split', isAgeVariant ? 'yes' : 'no')
-        Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-1079-Age-Funnel-Split',
-          'Variant name': isAgeVariant ? 'Variant 1' : 'Control',
-          page_name: isAgeVariant
-            ? `Age Funnel - ${userStyle}`
-            : userStyle === 'fa'
-            ? `VSL Royal Rumble Results - fa`
-            : `vsl-${userStyle}`,
-        })
-      }
-      setIsVariant(isAgeVariant)
-    }
-  }, [])
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -64,11 +40,9 @@ export const AttachmentQuizForm = ({
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      if (isVariant) router.push('/results-bundle/fa')
-      else router.push('/quiz/results/fa')
+      router.push('/quiz/results/fa')
     } else {
-      if (isVariant) router.push('/results-bundle/' + userStyle)
-      else router.push('/quiz/' + userStyle)
+      router.push('/quiz/' + userStyle)
     }
   }
 
@@ -81,13 +55,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={
-            isYoung && quiz_traffic_source === 'paid'
-              ? isVariant
-                ? `isYoung-${userStyle}-variant,attachment-quiz-${userStyle}`
-                : `isYoung-${userStyle}-control,attachment-quiz-${userStyle}`
-              : `attachment-quiz-${userStyle}`
-          }
+          clientTag={`attachment-quiz-${userStyle}`}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

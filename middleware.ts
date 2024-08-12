@@ -96,7 +96,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 }
 
 export const config = {
-  matcher: [],
+  matcher: ['/enroll'],
 }
 
 interface IConfigWithRegex {
@@ -107,7 +107,7 @@ interface IConfigWithRegex {
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
   const configs: Array<Partial<IConfigWithRegex>> = [
-    // { regex: /^\/checkout\/v2/, config: splitTestConfigs.checkoutTest }, Sample regex for future ref
+    { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest }, // Sample regex for future ref
     // Add configurations here when needed
   ]
 
@@ -137,7 +137,7 @@ function generateResponse({
 }: IGenerateResponse): NextResponse {
   if (showVariant) {
     let path = variantUrl.path
-    if (searchParams.size) path += `?${searchParams.toString()}`
+    if (Boolean(searchParams.toString())) path += `?${searchParams.toString()}`
     return NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
   } else if (controlUrl) {
     let controlHref = (controlUrl?.base || request.nextUrl.origin) + controlUrl.path
@@ -145,7 +145,7 @@ function generateResponse({
       controlHref += `/${request.nextUrl.searchParams.get(param)}`
       searchParams.delete(param)
     })
-    if (searchParams.size) controlHref += `?${searchParams.toString()}`
+    if (Boolean(searchParams.toString())) controlHref += `?${searchParams.toString()}`
     return NextResponse.redirect(new URL(controlHref))
   } else {
     return NextResponse.next()
@@ -189,7 +189,24 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const splitTestConfigs: TSplitTestConfigs = {}
+export const splitTestConfigs: TSplitTestConfigs = {
+  checkoutTest: {
+    cookieKey: 'prod-3136-checkout-test',
+    pageName: 'Checkout',
+    experimentName: 'Checkout V2 Test (Attachment Quiz Funnel)',
+    controlUrl: {
+      path: '/enroll',
+      base: 'https://university.personaldevelopmentschool.com',
+      urlParams: ['product_id'],
+    },
+    variantUrl: {
+      path: 'pages/checkout-dev',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantRatio: 1,
+    forceControlOnNewUser: true,
+  },
+}
 
 type TSplitTestConfigs = {
   [key: string]: TSplitTestConfig

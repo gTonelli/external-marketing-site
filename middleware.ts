@@ -107,7 +107,7 @@ interface IConfigWithRegex {
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
   const configs: Array<Partial<IConfigWithRegex>> = [
-    { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest }, // Sample regex for future ref
+    { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
     // Add configurations here when needed
   ]
 
@@ -200,10 +200,10 @@ export const splitTestConfigs: TSplitTestConfigs = {
       urlParams: ['product_id'],
     },
     variantUrl: {
-      path: 'pages/checkout-dev',
+      path: 'pages/checkout-dev', // Change to regular link for production
       base: 'https://university.personaldevelopmentschool.com',
     },
-    variantRatio: 1,
+    variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
 }

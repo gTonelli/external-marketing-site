@@ -1,3 +1,4 @@
+// components
 import Image from 'next/image'
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
@@ -13,7 +14,7 @@ import cx from 'classnames'
 // utils
 import { TStyle } from '@/utils/types'
 import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG, AGE_PRICING } from './config'
-import { EExternalRoutes } from '@/utils/constants'
+import { ERoutes } from '@/utils/constants'
 
 interface IQuizResultsPageProps {
   style: TStyle
@@ -24,7 +25,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
   const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : CONFIG
   const checkoutUrl = ageVariant
     ? AGE_PRICING[style].checkoutUrl
-    : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+    : ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST
 
   return (
     <>

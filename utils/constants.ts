@@ -101,6 +101,8 @@ export enum ERoutes {
 
   // Custom Checkout on Thinkific
   CHECKOUT_ATTACHMENT_BOOTCAMP = '/checkout/v2?product_id=2996140&price_id=3853225&coupon=148off',
+  // Attachment Style funnel checkout split test
+  CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST = '/enroll?product_id=559833&price_id=1285773',
 }
 
 export enum EExternalRoutes {

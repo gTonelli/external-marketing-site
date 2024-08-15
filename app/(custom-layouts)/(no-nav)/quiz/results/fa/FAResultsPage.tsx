@@ -50,9 +50,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                     type="default"
                     variantVideoData={{
-                      key: 'GM-1107-FA-Video-Split',
-                      videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
-                      splitRatio: 0.2,
+                      key: 'GM-1152-FA-Video-control-vs-control',
+                      videoId: RESULTS[style].HERO_SECTION.videoURL,
+                      splitRatio: 0.5,
                     }}
                   />
                 </div>

@@ -11,7 +11,7 @@ export type TStorageKeys =
   | 'gm-845-checkout-test'
   | 'gm-1079-age-funnel-split'
   | `gm-976-platform-split-${string}`
-  | 'gm-1107-fa-video-split'
+  | 'gm-1152-fa-video-control-vs-control'
   | 'gam_user_tracking'
 
 export const Storage = {

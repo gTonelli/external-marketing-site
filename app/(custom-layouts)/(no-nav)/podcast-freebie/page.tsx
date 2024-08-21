@@ -73,21 +73,15 @@ export default function PodcastFreebiePage() {
 
           <p className="font-bold tracking-33">APPLE PODCAST</p>
         </div>
-
-        <div className="flex items-center mb-6 lg:mb-0">
-          <Icon name="audible" size="3x" type="brands" className="text-black mr-4" />
-
-          <p className="font-bold tracking-33">AUDIBLE</p>
-        </div>
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="flex flex-col gap-4 my-8 lg:flex-row">
         <div className="flex-1 flex items-center justify-center md:justify-start">
           <Image
-            src="/images/PodcastFreebie/subconscious-reprogramming.jpg"
-            alt="Subconscious Reprogramming Workbook Mockup"
-            width={278}
-            height={309}
+            src="/images/PodcastFreebie/rebuilding-trust-freebie.png"
+            alt="Rebuilding Trust Workbook Mockup"
+            width={626}
+            height={696}
           />
         </div>
 
@@ -103,8 +97,8 @@ export default function PodcastFreebiePage() {
           <p className="mb-4">
             Sign up to our exclusive list to receive the latest updates about Thais’ new podcasts,
             exciting discounts, giveaways, and your FREE exclusive copy of our workbook which
-            includes actionable tools and techniques on subconscious reprogramming. It offers a
-            sample of how we do things here at The Personal Development School.
+            includes actionable tools and techniques on rebuilding trust in relationships. It offers
+            a sample of how we do things here at The Personal Development School.
           </p>
 
           <PodcastFreebieForm />
@@ -155,7 +149,7 @@ export default function PodcastFreebiePage() {
         </div>
       </Section>
 
-      <CarouselTestimonialThinkific className="mt-14" />
+      <CarouselTestimonialThinkific className="mt-14" initialSlide={1} />
 
       <Section className="max-w-full w-full" classNameInner="max-w-full">
         <TrustbarSlider />

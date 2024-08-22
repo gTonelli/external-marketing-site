@@ -4,6 +4,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
 // components
 import { Icon } from '@/components/Icon'
 import {
@@ -37,6 +38,7 @@ const FETCH_PODCASTS_QUERY = (page: number) =>
   })
 
 export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastListProps) => {
+  const [currPage, setCurrPage] = useState(page)
   const [currentVideoId, setCurrentVideoId] = useState(-1)
   const [currentAudioId, setCurrentAudioId] = useState('')
   const [podcastsList, setPodcastsList] = useState<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>>()
@@ -44,6 +46,7 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
   const typeRef = useRef<HTMLSelectElement>(null)
   const sortRef = useRef<HTMLSelectElement>(null)
   const searchRef = useRef<HTMLInputElement>(null)
+  const { replace } = useRouter()
 
   useEffect(() => {
     async function fetchPodcasts(
@@ -65,26 +68,22 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
     fetchPodcasts(page).then((response) => setPodcastsList(response))
   }, [page])
 
-  const constructQuery = useCallback(
-    (page: number = 1) => {
-      let query = []
-      if (categoryRef.current?.value !== 'all')
-        query.push(`filters[podcastCategory][name]=${categoryRef.current?.value}`)
+  const constructQuery = useCallback(() => {
+    let query = []
+    if (categoryRef.current?.value !== 'all')
+      query.push(`filters[podcastCategory][name]=${categoryRef.current?.value}`)
 
-      if (typeRef.current?.value !== 'all')
-        query.push(`filters[podcastType][name]=${typeRef.current?.value}`)
+    if (typeRef.current?.value !== 'all')
+      query.push(`filters[podcastType][name]=${typeRef.current?.value}`)
 
-      query.push(`sort=releaseDate:${sortRef.current?.value}`)
+    query.push(`sort=releaseDate:${sortRef.current?.value}`)
 
-      if (searchRef.current?.value)
-        query.push(`filters[title][$contains]=${searchRef.current.value}`)
+    if (searchRef.current?.value) query.push(`filters[title][$contains]=${searchRef.current.value}`)
 
-      return query
-        .join('&')
-        .concat(`&populate=thumbnail&pagination[page]=${page}&pagination[pageSize]=5`)
-    },
-    [categoryRef.current, typeRef.current, sortRef.current, searchRef.current]
-  )
+    return query
+      .join('&')
+      .concat(`&populate=thumbnail&pagination[page]=${currPage}&pagination[pageSize]=5`)
+  }, [categoryRef.current, typeRef.current, sortRef.current, searchRef.current])
 
   const handleChange = useCallback(async () => {
     const response = await fetch(
@@ -236,16 +235,14 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
       </div>
 
       <div>
-        {podcastsList && (
+        {podcastsList && podcastsList.data.length > 5 && (
           <PodcastPagination
             pageSize={5}
-            currPage={page ?? 1}
+            currPage={currPage ?? 1}
             pageCount={Math.ceil(podcastsList.meta.pagination.total / 5)}
           />
         )}
       </div>
-
-      {/* TODO: Pagination */}
 
       {currentAudioId && (
         <div className="fixed w-full h-max bg-white left-0 bottom-0 right-0 rounded-xl p-4 mx-auto z-20 lg:w-1/2">

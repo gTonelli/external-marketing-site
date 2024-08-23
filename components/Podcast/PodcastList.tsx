@@ -3,8 +3,8 @@
 // core
 import Image from 'next/image'
 import Link from 'next/link'
-import { useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 // components
 import { Icon } from '@/components/Icon'
 import {
@@ -24,21 +24,54 @@ interface IPodcastListProps {
   page: number
   podcastCategories: IStrapiResponse<IPodcastCategory>[]
   podcastTypes: IStrapiResponse<IPodcastType>[]
+  pcategory?: string
+  ptype?: string
+  psort?: string
+  pq?: string
 }
 
-const FETCH_PODCASTS_QUERY = (page: number) =>
+const FETCH_PODCASTS_QUERY = (
+  page: number,
+  pcategory?: string,
+  ptype?: string,
+  psort?: string,
+  pq?: string
+) =>
   qs.stringify({
     fields: ['epNo', 'title', 'youtubeId', 'spotifyId', 'releaseDate', 'guestName', 'urlSlug'],
+    filters: {
+      podcastCategory: {
+        name: {
+          $eq: pcategory,
+        },
+      },
+      podcastType: {
+        name: {
+          $eq: ptype,
+        },
+      },
+      title: {
+        $contains: pq,
+      },
+    },
     populate: ['thumbnail'],
-    sort: 'releaseDate:desc',
+    sort: `releaseDate:${psort}`,
     pagination: {
       page,
       pageSize: 5,
     },
   })
 
-export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastListProps) => {
-  const [currPage, setCurrPage] = useState(page)
+export const PodcastList = ({
+  page,
+  pcategory,
+  ptype,
+  psort,
+  pq,
+  podcastCategories,
+  podcastTypes,
+}: IPodcastListProps) => {
+  const [loading, setLoading] = useState(true)
   const [currentVideoId, setCurrentVideoId] = useState(-1)
   const [currentAudioId, setCurrentAudioId] = useState('')
   const [podcastsList, setPodcastsList] = useState<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>>()
@@ -46,7 +79,7 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
   const typeRef = useRef<HTMLSelectElement>(null)
   const sortRef = useRef<HTMLSelectElement>(null)
   const searchRef = useRef<HTMLInputElement>(null)
-  const { replace } = useRouter()
+  const router = useRouter()
 
   useEffect(() => {
     async function fetchPodcasts(
@@ -54,7 +87,13 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
     ): Promise<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>> {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY(page)}`,
+          `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY(
+            page,
+            pcategory,
+            ptype,
+            psort || 'desc',
+            pq
+          )}`,
           {
             next: { tags: ['podcasts'], revalidate: 86400 },
           }
@@ -66,45 +105,40 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
       }
     }
     fetchPodcasts(page).then((response) => setPodcastsList(response))
-  }, [page])
+    setLoading(false)
+  }, [page, pcategory, ptype, psort, pq])
 
-  const constructQuery = useCallback(() => {
-    let query = []
-    if (categoryRef.current?.value !== 'all')
-      query.push(`filters[podcastCategory][name]=${categoryRef.current?.value}`)
+  const handleChange = useCallback(
+    async (e?: ChangeEvent, currPage?: number) => {
+      let qst = qs.stringify({
+        page: currPage ?? page,
+        category: categoryRef.current?.value !== 'all' ? categoryRef.current?.value : undefined,
+        type: typeRef.current?.value !== 'all' ? typeRef.current?.value : undefined,
+        sort: sortRef.current?.value !== 'desc' ? 'asc' : undefined,
+        q: searchRef.current?.value || undefined,
+      })
+      router.push(`/podcast?${qst}`)
+    },
+    [categoryRef.current, typeRef.current, sortRef.current, searchRef.current]
+  )
 
-    if (typeRef.current?.value !== 'all')
-      query.push(`filters[podcastType][name]=${typeRef.current?.value}`)
-
-    query.push(`sort=releaseDate:${sortRef.current?.value}`)
-
-    if (searchRef.current?.value) query.push(`filters[title][$contains]=${searchRef.current.value}`)
-
-    return query
-      .join('&')
-      .concat(`&populate=thumbnail&pagination[page]=${currPage}&pagination[pageSize]=5`)
-  }, [categoryRef.current, typeRef.current, sortRef.current, searchRef.current])
-
-  const handleChange = useCallback(async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${constructQuery()}`,
-      { next: { tags: ['podcasts'], revalidate: 86400 } }
-    )
-    const res = await response.json()
-    setPodcastsList(res)
-    setCurrentVideoId(-1)
-  }, [categoryRef.current, typeRef.current, sortRef.current, searchRef.current])
+  if (loading) {
+    return <p>Loading....</p>
+  }
 
   return (
     <>
-      <div className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:gap-8">
+      <div
+        className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:gap-8"
+        id="podcast-list">
         <div className="w-full flex flex-col items-center gap-4 lg:w-max lg:flex-row lg:gap-8">
           <div className="w-full rounded-lg border border-grey-border lg:w-max">
             <select
               ref={categoryRef}
               name="podcastCategory"
               className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
-              onChange={handleChange}>
+              onChange={handleChange}
+              value={pcategory || 'all'}>
               <option value="all">All Categories</option>
 
               {podcastCategories.map((item, idx) => (
@@ -120,7 +154,8 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
               ref={typeRef}
               name="podcastType"
               className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
-              onChange={handleChange}>
+              onChange={handleChange}
+              value={ptype || 'all'}>
               <option value="all">All Types</option>
 
               {podcastTypes.map((item, idx) => (
@@ -136,7 +171,8 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
               ref={sortRef}
               name="podcastSort"
               className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
-              onChange={handleChange}>
+              onChange={handleChange}
+              value={psort || 'desc'}>
               <option value="desc">Newest to Oldest</option>
 
               <option value="asc">Oldest to Newest</option>
@@ -153,7 +189,8 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
             type="text"
             className="w-full border-none outline-none"
             placeholder="Search"
-            onChange={_.debounce(() => handleChange(), 1000)}
+            value={pq}
+            onChange={_.debounce((e) => handleChange(e), 1000)}
           />
         </div>
       </div>
@@ -235,11 +272,12 @@ export const PodcastList = ({ page, podcastCategories, podcastTypes }: IPodcastL
       </div>
 
       <div>
-        {podcastsList && podcastsList.data.length > 5 && (
+        {podcastsList && podcastsList.meta.pagination.total > 5 && (
           <PodcastPagination
             pageSize={5}
-            currPage={currPage ?? 1}
-            pageCount={Math.ceil(podcastsList.meta.pagination.total / 5)}
+            currPage={page ?? 1}
+            pageCount={podcastsList.meta.pagination.pageCount}
+            handleChange={handleChange}
           />
         )}
       </div>

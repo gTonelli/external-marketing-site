@@ -13,8 +13,7 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // config
 import { RESULTS } from './config'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
-
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 
 interface IFAResultsPageProps {
   ageVariant?: boolean
@@ -24,7 +23,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
   const style = 'fa'
   const checkoutUrl = ageVariant
     ? EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA
-    : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+    : ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST
 
   return (
     <>
@@ -51,9 +50,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                     type="default"
                     variantVideoData={{
-                      key: "GM-1107-FA-Video-Split",
-                      videoId: RESULTS[style].HERO_SECTION.videoURLVariant,
-                      splitRatio: 0.2
+                      key: 'GM-1152-FA-Video-control-vs-control',
+                      videoId: RESULTS[style].HERO_SECTION.videoURL,
+                      splitRatio: 0.5,
                     }}
                   />
                 </div>

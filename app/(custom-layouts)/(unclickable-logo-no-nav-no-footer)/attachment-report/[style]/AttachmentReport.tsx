@@ -307,17 +307,9 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
             </div>
 
             <p className="mt-4">
-              Because of the{' '}
-              <span className="underline">
-                <Link
-                  label="incredible results"
-                  url="https://university.personaldevelopmentschool.com/pages/testimonials"
-                  target="_blank"
-                />
-              </span>{' '}
-              our students are seeing as they work their way from anxious preoccupied to secure
-              attachments, almost all of them agreed that they would gladly recommend us to their
-              friends.
+              Because of the incredible results our students are seeing as they work their way from
+              anxious preoccupied to secure attachments, almost all of them agreed that they would
+              gladly recommend us to their friends.
             </p>
           </div>
         </div>

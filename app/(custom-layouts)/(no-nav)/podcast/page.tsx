@@ -230,8 +230,8 @@ export default async function PodcastPage({ searchParams: { page } }: Props) {
         <div className="flex flex-col items-center gap-8 lg:flex-row">
           <div className="w-full lg:w-60">
             <Image
-              src="/images/PodcastFreebie/subconscious-reprogramming.jpg"
-              alt="Subconscious Reprogramming Workbook Mockup"
+              src="/images/PodcastFreebie/rebuilding-trust-freebie.png"
+              alt="Rebuilding Trust Workbook Mockup"
               width={278}
               height={309}
             />

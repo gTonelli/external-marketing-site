@@ -200,10 +200,10 @@ export const splitTestConfigs: TSplitTestConfigs = {
       urlParams: ['product_id'],
     },
     variantUrl: {
-      path: 'pages/checkout-dev', // Change to regular link for production
+      path: 'pages/checkout',
       base: 'https://university.personaldevelopmentschool.com',
     },
-    variantRatio: 0.5,
+    variantRatio: 0.2,
     forceControlOnNewUser: true,
   },
 }

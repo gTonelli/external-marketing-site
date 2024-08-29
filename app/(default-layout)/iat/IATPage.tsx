@@ -33,6 +33,7 @@ import { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
+import { Storage } from '@/modules/Storage'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -69,6 +70,23 @@ export const IATPage = ({
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const [modalSuccess, setModalSuccess] = useState(false)
+  const [isVariant, setIsVariant] = useState(false)
+
+  useEffect(() => {
+    if (pageUrl === 'ebook') {
+      let isVariant = Storage.get('gm-1172-iat-cta-split') === 'yes'
+      if (Storage.get('gm-1172-iat-cta-split') === null) {
+        isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+        Storage.set('gm-1172-iat-cta-split', isVariant ? 'yes' : 'no')
+        Mixpanel.track.ExperimentStarted({
+          'Experiment name': 'GM-1172-iat-cta-split',
+          'Variant name': isVariant ? 'Variant 1' : 'Control',
+        })
+      }
+      setIsVariant(isVariant)
+      if (searchParams.get('signup') === 'success') setModalSuccess(true)
+    }
+  }, [pageUrl, searchParams])
 
   const onVideoStarted = (type: string) => {
     if (!watchedVideos.has(type)) {
@@ -119,12 +137,6 @@ export const IATPage = ({
     })
   }
 
-  useEffect(() => {
-    if (pageUrl === 'ebook') {
-      if (searchParams.get('signup') === 'success') setModalSuccess(true)
-    }
-  }, [pageUrl, searchParams])
-
   return (
     <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
@@ -141,11 +153,19 @@ export const IATPage = ({
         </div>
         <h2 className="text-4xl text-left mb-2">Thanks for Signing Up for Our Ebook!</h2>
 
-        <p>
+        <p className="mb-4">
           Congratulations on starting your journey towards becoming a certified relationship coach!
-          Our eBook is on its way. <br />
-          <br /> I’ll be sending you the best resources and latest updates about our IAT™
-          Relationship Coaching Program. Stay tuned!
+          The eBook is on its way.
+        </p>
+
+        <p className="mb-4">
+          I’ll be sending you the best resources and latest updates about our IAT™ Program. Stay
+          tuned!
+        </p>
+
+        <p className="mb-4">
+          Please continue on to learn more about what it includes, how it will change your life, and
+          your exclusive offer for this revolutionary program!
         </p>
       </Dialog>
 
@@ -169,6 +189,28 @@ export const IATPage = ({
 
       {/* VIDEO SECTION */}
       <Section className="pt-9 lg:pt-16">
+        {isVariant && (
+          <div className="max-w-3xl text-center mx-auto">
+            <h2 className="mb-4">Unlock Your Potential With a Free Consultation</h2>
+
+            <p className="mb-4">
+              Are you excited about your career as a Certified IAT™ Coach? Discover your potential,
+              unlock the key benefits of the IAT™ Program, get all your questions answered,{' '}
+              <strong>and claim your special discount</strong> by booking a FREE call with our
+              coaching specialist!
+            </p>
+
+            <Button
+              track
+              className="trial-btn mb-16"
+              link="https://calendly.com/info-pds/call-with-melanie-pds"
+              label="BOOK YOUR FREE CALL NOW"
+            />
+
+            <h3 className="mb-4">Watch Below To Get The Breakdown Of Your New IAT™ Career</h3>
+          </div>
+        )}
+
         <Video.Large
           className="mx-auto shadow-centered max-w-3xl lg:p-8"
           srcUrl="https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4"
@@ -209,7 +251,7 @@ export const IATPage = ({
       <Section className="pt-0 lg:py-0" classNameInner="max-w-3xl">
         <div>
           <Text.Heading
-            className="font-effra font-bold text-black text-[48px] leading-[50px]"
+            className="font-bold text-black text-[48px] leading-[50px]"
             content={IAT.relationship_section.heading}
           />
 
@@ -238,7 +280,7 @@ export const IATPage = ({
 
       <Section className="bg-primary-light-50 pt-0 pb-12 lg:pb-[120px]">
         <Text.Heading
-          className="max-w-3xl font-effra font-bold mx-auto"
+          className="max-w-3xl font-bold mx-auto"
           content={IAT.initial_weeks.heading}
           size={3}
         />

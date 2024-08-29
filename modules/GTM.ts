@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react'
 
 /** Collection of Google Analytic event names used in tracking custom events */
-type TGTMEvent = 'form_tracking' | 'quiz_tracking'
+type TGTMEvent = 'form_tracking' | 'iat_form_tracking' | 'quiz_tracking'
 
 /** Collection of Google Analytic categories used in tracking custom events */
-type TGTMCategory = 'Attachment Quiz' | 'Codependency Quiz' | 'Quiz' 
+type TGTMCategory = 'Attachment Quiz' | 'Codependency Quiz' | 'IAT Ebook Form' | 'Quiz' 
 
 /** Collection of Google Analytic actions used in tracking custom events */
 type TGTMAction = 'Form' | 'Finished'

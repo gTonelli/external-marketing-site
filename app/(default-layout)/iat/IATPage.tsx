@@ -76,7 +76,7 @@ export const IATPage = ({
     if (pageUrl === 'ebook') {
       let isVariant = Storage.get('gm-1172-iat-cta-split') === 'yes'
       if (Storage.get('gm-1172-iat-cta-split') === null) {
-        isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+        isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
         Storage.set('gm-1172-iat-cta-split', isVariant ? 'yes' : 'no')
         Mixpanel.track.ExperimentStarted({
           'Experiment name': 'GM-1172-iat-cta-split',

@@ -15,7 +15,7 @@ export const IATBanner = ({ page, onClickPurchase }: IIATBannerProps) => {
           While we’re sending you your E-book, scroll down to learn more life-changing information
         </p>
 
-        <h1 className="font-effra font-bold text-black uppercase !text-[48px] leading-[50px]">
+        <h1 className="font-bold text-black uppercase !text-[48px] leading-[50px]">
           It’s Time to Transform Your Career, Life, and Secure Your Future
         </h1>
 
@@ -42,13 +42,13 @@ export const IATBanner = ({ page, onClickPurchase }: IIATBannerProps) => {
   return (
     <>
       <Text.Heading
-        className="font-effra font-bold text-black !text-[48px] leading-[50px]"
+        className="font-bold text-black !text-[48px] leading-[50px]"
         content={IAT.hero_section.heading}
         size={1}
       />
 
       <Text.Heading
-        className="font-effra font-bold text-black mt-3 text-[24px]"
+        className="font-bold text-black mt-3 text-[24px]"
         content={IAT.hero_section.subheading}
         spacing="tracking-0.325"
       />

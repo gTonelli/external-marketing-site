@@ -60,16 +60,21 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
     if (typeof variantCookie === 'string') {
       showVariant = JSON.parse(variantCookie)
     } else {
-      showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
       setCookie = true
-      const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
-      context.waitUntil(
-        sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
-          'Experiment name': experimentName,
-          'Variant name': showVariant ? 'Variant 1' : 'Control',
-          page_name: pageName,
-        })
-      )
+      const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+      if (randomFloat > variantRatio * 2) {
+        showVariant = false
+      } else {
+        showVariant = randomFloat < variantRatio
+        const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
+        context.waitUntil(
+          sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
+            'Experiment name': experimentName,
+            'Variant name': showVariant ? 'Variant 1' : 'Control',
+            page_name: pageName,
+          })
+        )
+      }
     }
 
     const response = generateResponse({

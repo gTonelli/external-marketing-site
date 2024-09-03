@@ -201,10 +201,9 @@ export const IATPage = ({
             </p>
 
             <Button
-              track
               className="trial-btn mb-16"
-              link="https://calendly.com/info-pds/call-with-melanie-pds"
               label="BOOK YOUR FREE CALL NOW"
+              onClick={onBookNow}
             />
 
             <h3 className="mb-4">Watch Below To Get The Breakdown Of Your New IAT™ Career</h3>

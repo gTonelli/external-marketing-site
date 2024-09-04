@@ -87,7 +87,7 @@ export const AttachmentReportHeader = ({ style }: IProps) => {
   useEffect(() => {
     let key = `gm-1164-headline-split-${style}` as TStorageKeys
     let isVariant = Storage.get(key) === 'yes'
-    if (Storage.get(key) === null) {
+    if (Storage.get(key) === null && style !== 'fa') {
       isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.2
       Storage.set(key, isVariant ? 'yes' : 'no')
       Mixpanel.track.ExperimentStarted({

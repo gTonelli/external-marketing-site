@@ -144,13 +144,6 @@ export const IATPage = ({
         className="max-w-xl p-4 bg-white rounded-20"
         isShown={modalSuccess}
         onToggle={() => setModalSuccess(!modalSuccess)}>
-        <div className="w-full flex justify-end mb-2">
-          <Icon
-            className="cursor-pointer hover:scale-125"
-            name="close"
-            onClick={() => setModalSuccess(false)}
-          />
-        </div>
         <h2 className="text-4xl text-left mb-2">Thanks for Signing Up for Our Ebook!</h2>
 
         <p className="mb-4">
@@ -167,6 +160,10 @@ export const IATPage = ({
           Please continue on to learn more about what it includes, how it will change your life, and
           your exclusive offer for this revolutionary program!
         </p>
+
+        <div className="text-center">
+          <Button className="p-4" label="CONTINUE" onClick={() => setModalSuccess(false)} />
+        </div>
       </Dialog>
 
       <Section className="w-full relative z-10 bg-blue-lightest 3xl:pb-0">

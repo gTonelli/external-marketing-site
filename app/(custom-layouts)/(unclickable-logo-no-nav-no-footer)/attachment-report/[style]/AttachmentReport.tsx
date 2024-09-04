@@ -8,6 +8,7 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // config
 import { REPORT_COPY, AGE_REPORT_COPY } from './config'
 import { TStyle } from '@/utils/types'
+import { AttachmentReportHeader } from './AttachmentReportHeadline'
 
 interface IAttachmentReportProps {
   ageVariant?: boolean
@@ -19,22 +20,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
   return (
     <>
       {/* Hero section */}
-      <Section
-        className="max-w-5xl mx-auto !pb-0"
-        classNameInner="grid grid-cols-1 gap-4 pt-4 pb-0 lg:grid-cols-2">
-        <div className="flex flex-col justify-center lg:text-left">
-          <p className="font-bold text-lg tracking-33 mb-2">YOUR ATTACHMENT STYLE IS</p>
-
-          <h1 className="text-primary lg:!text-6xl">{COPY.banner.style}</h1>
-        </div>
-
-        <div>
-          <VideoThumbnail
-            srcUrl={COPY.banner.video}
-            thumbnailAlt="Thais explaining your attachment style"
-          />
-        </div>
-      </Section>
+      <AttachmentReportHeader style={style} />
 
       {/* Things about you which make you anxious section */}
       <Section

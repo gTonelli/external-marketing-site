@@ -13,6 +13,7 @@ export type TStorageKeys =
   | `gm-976-platform-split-${string}`
   | 'gm-1152-fa-video-control-vs-control'
   | 'gm-1172-iat-cta-split'
+  | `gm-1164-pdf-headline-split-${string}`
   | 'gam_user_tracking'
 
 export const Storage = {

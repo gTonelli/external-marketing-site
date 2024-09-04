@@ -9,7 +9,6 @@ import { Storage } from '@/modules/Storage'
 import { IDefaultProps } from '..'
 // libraries
 import cx from 'classnames'
-import { TStyle } from '@/utils/types'
 
 interface IAttachmentQuizHeadingProps extends IDefaultProps {
   copy?: string

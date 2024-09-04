@@ -168,6 +168,13 @@ export const REPORT_COPY = {
       style: 'Anxious Preoccupied',
       video: 'https://storage.googleapis.com/pds_videos/AP_pdf_50.mp4',
       vector: 'couple-vector-ap.svg',
+      variantHeader:
+        ', Unlock Life-Changing Insights Into Your Anxious Preoccupied Attachment Style To Turn Your Dream Relationships Into Reality!',
+      variantSubheader:
+        ' – Join thousands of people worldwide who’ve transformed their lives and relationships with our revolutionary approach! Watch this video to learn more! ',
+      videoCopy:
+        'Thanks for watching the video! Now is your opportunity to learn our powerful tools and strategies for becoming securely attached! You’ll be ready to experience and embrace truly loving and committed relationships without any fears.',
+      ctaLabel: 'START MY TRANSFORMATION',
     },
     copy1: {
       header: 'You’re a great partner and friend!',

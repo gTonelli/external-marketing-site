@@ -230,6 +230,6 @@ type TSplitTestConfig = {
     path: string
     base?: string
   }
-  variantRatio: number
+  variantRatio: 0.2 | 0.5
   forceControlOnNewUser: boolean
 }

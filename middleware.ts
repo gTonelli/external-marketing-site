@@ -186,7 +186,6 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
   })
     .then((res) => res.text())
     .then((res) => {
-      console.log('sendEventUnsafe Response:', res)
       if (res !== '1') throw `An unepxected error occured. Response was ${res}`
     })
     .catch((error) => {

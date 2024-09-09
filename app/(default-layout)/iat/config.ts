@@ -73,32 +73,32 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on September 11th, 6 PM ET`,
+          `Attend 1-hour review session on October 28th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on September 18th, 6 PM ET`,
+          `Attend 1-hour review session on November 4th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on September 25th, 6 PM ET`,
+          `Attend 1-hour review session on November 11th, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on October 2nd, 6 PM ET`,
+          `Attend 1-hour review session on November 18th, 6 PM ET`,
         ],
       },
 
       intensive_week: {
         heading: [`Complete Your Intensive IAT Training With Thais`],
 
-        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from October 9 - November 27 every Wednesday at 6 PM ET for 8 weeks.
+        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from Novermber 25 - January 13 every Wednesday at 6 PM ET for 8 weeks.
                \nHere, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.  
                \nEach meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.`,
 

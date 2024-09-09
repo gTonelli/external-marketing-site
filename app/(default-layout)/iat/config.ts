@@ -16,7 +16,7 @@ export const IAT_COPY = {
 
     copy_left: `The Gibson Integrated Attachment Theory™ Certification Course is a revolutionary relationship coaching certification developed by Thais Gibson.
                 \nThis certification program spans over 12 weeks, available in both Live Training and On-Demand formats.
-                \n***Spots for the Live Training version of the program running from October 28, 2024 - January 11, 2025 are limited.**`,
+                \n***Spots for the Live Training version of the program running from October 28, 2024 - January 13, 2025 are limited.**`,
 
     copy_right: `It will teach you how to become a relationship coach, specializing in attachment theory. It will give you the exact tools and steps you need to become an industry leader, build a thriving practice, and make a massive impact on others’ lives and relationships through the lens of attachment theory.
                  \nEven if you have no prior coaching experience, this training will give you the tools and confidence to get started in a matter of weeks.`,
@@ -98,7 +98,7 @@ export const IAT_COPY = {
       intensive_week: {
         heading: [`Complete Your Intensive IAT Training With Thais`],
 
-        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from Novermber 25 - January 13 every Wednesday at 6 PM ET for 8 weeks.
+        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from November 25 - January 13 every Wednesday at 6 PM ET for 8 weeks.
                \nHere, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.  
                \nEach meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.`,
 

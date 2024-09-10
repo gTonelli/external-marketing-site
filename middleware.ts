@@ -207,7 +207,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
       path: 'pages/checkout',
       base: 'https://university.personaldevelopmentschool.com',
     },
-    variantRatio: 0.2,
+    variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
 }

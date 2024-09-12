@@ -6,7 +6,6 @@ import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/Bre
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
 import Image from 'next/image'
 import { REGULAR_COPY } from '../config'
-import { AttachmentQuizV2SplitTestTracker } from '@/components/AttachmentQuizV2/AttachmentQuizV2SplitTestTracker'
 
 import 'swiper/css'
 import 'swiper/css/pagination'

@@ -846,25 +846,25 @@ export const IATPage = ({
 
 const iatRecordedPrices: TIATPrice[] = [
   {
-    price: '$1,899.00',
+    price: '$1,999.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT,
   },
   {
-    price: '$645.00',
+    price: '$679.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN,
   },
   {
-    price: '$349.00',
+    price: '$367.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN,
   },
   {
-    price: '$189.00',
+    price: '$199.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN,
@@ -873,28 +873,28 @@ const iatRecordedPrices: TIATPrice[] = [
 
 const iatLivePrices: TIATPrice[] = [
   {
-    price: '$2,999.00',
+    price: '$3,499.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_UPFRONT,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_UPFRONT,
   },
   {
-    price: '$1,025.00',
+    price: '$1,199.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_3_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_3_MONTH_PLAN,
   },
   {
-    price: '$525.00',
+    price: '$615.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_6_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_6_MONTH_PLAN,
   },
   {
-    price: '$275.00',
+    price: '$320.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_12_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_12_MONTH_PLAN,
   },
 ]
 
@@ -1067,19 +1067,19 @@ const IATPriceCard = ({
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="3 Months" />
 
-                <Text.Paragraph content="$645/m" />
+                <Text.Paragraph content="$679/m" />
               </div>
 
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="6 Months" />
 
-                <Text.Paragraph content="$349/m" />
+                <Text.Paragraph content="$367/m" />
               </div>
 
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="12 Months" />
 
-                <Text.Paragraph content="$189/m" />
+                <Text.Paragraph content="$199/m" />
               </div>
             </div>
 
@@ -1281,17 +1281,17 @@ const IATPriceCardSection = () => {
           isLive
           benefits={IAT.price.live_mode}
           heading="Live Training"
-          originalPrice="$6000.00"
+          originalPrice="$7000.00"
           prices={iatLivePrices}
-          salePrice="$2,999.00"
+          salePrice="$3,499.00"
         />
 
         <IATPriceCard
           benefits={IAT.price.recorded_mode}
           heading="On Demand"
-          originalPrice="$3,699.00"
+          originalPrice="$4,000.00"
           prices={iatRecordedPrices}
-          salePrice=" $1,899.00"
+          salePrice=" $1,999.00"
           subheading="MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:"
         />
       </div>

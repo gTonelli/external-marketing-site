@@ -879,19 +879,19 @@ const iatLivePrices: TIATPrice[] = [
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_UPFRONT,
   },
   {
-    price: '$1,196.00',
+    price: '$1,199.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_3_MONTH_PLAN,
   },
   {
-    price: '$613.00',
+    price: '$615.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_6_MONTH_PLAN,
   },
   {
-    price: '$321.00',
+    price: '$320.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_12_MONTH_PLAN,

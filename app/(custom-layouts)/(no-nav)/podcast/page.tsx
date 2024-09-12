@@ -179,11 +179,11 @@ export default async function PodcastPage({
 
       <Section className="max-w-6xl mx-auto" classNameInner="!w-full !max-w-full !m-0">
         <PodcastList
-          page={page}
-          pcategory={category}
-          ptype={type}
-          psort={sort}
-          pq={q}
+          page={+page || 1}
+          selectedCategoryFilter={category}
+          selectedTypeFilter={type}
+          selectedSortFilter={sort}
+          currentSearchFilter={q}
           podcastCategories={podcastCategories}
           podcastTypes={podcastTypes}
         />

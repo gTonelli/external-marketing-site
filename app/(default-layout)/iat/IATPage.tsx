@@ -1067,19 +1067,19 @@ const IATPriceCard = ({
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="3 Months" />
 
-                <Text.Paragraph content="$679/m" />
+                <Text.Paragraph content="$689/m" />
               </div>
 
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="6 Months" />
 
-                <Text.Paragraph content="$367/m" />
+                <Text.Paragraph content="$359/m" />
               </div>
 
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="12 Months" />
 
-                <Text.Paragraph content="$199/m" />
+                <Text.Paragraph content="$189/m" />
               </div>
             </div>
 

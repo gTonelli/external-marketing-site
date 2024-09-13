@@ -101,7 +101,13 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 }
 
 export const config = {
-  matcher: ['/enroll'],
+  matcher: [
+    '/enroll',
+    '/attachment-report/fa',
+    '/attachment-report/ap',
+    '/attachment-report/da',
+    '/attachment-report/sa',
+  ],
 }
 
 interface IConfigWithRegex {
@@ -111,19 +117,15 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const configs: Array<Partial<IConfigWithRegex>> = [
+  const configs: Array<IConfigWithRegex> = [
     { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
-    // Add configurations here when needed
+    { regex: /^\/attachment-report\/fa/, config: splitTestConfigs.pdfTestFa },
+    { regex: /^\/attachment-report\/ap/, config: splitTestConfigs.pdfTestAp },
+    { regex: /^\/attachment-report\/da/, config: splitTestConfigs.pdfTestDa },
+    { regex: /^\/attachment-report\/sa/, config: splitTestConfigs.pdfTestSa },
   ]
 
-  // Type guard to check if an object has a regex property
-  const isConfigWithRegex = (config: Partial<IConfigWithRegex>): config is IConfigWithRegex => {
-    return 'regex' in config && config.regex instanceof RegExp
-  }
-
-  return configs.find(isConfigWithRegex)?.regex.test(path)
-    ? configs.find(isConfigWithRegex)?.config
-    : undefined
+  return configs.find((config) => config.regex.test(path))?.config
 }
 
 interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {
@@ -206,6 +208,46 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantUrl: {
       path: 'pages/checkout',
       base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
+  pdfTestFa: {
+    cookieKey: 'gm-1182-pdf-headline-test-fa',
+    pageName: 'Attachment Style Report Old - fa',
+    experimentName: 'Attachment Report Test v2',
+    variantUrl: {
+      path: '/pdf-report/fa',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
+  pdfTestAp: {
+    cookieKey: 'gm-1182-pdf-headline-test-ap',
+    pageName: 'Attachment Style Report Old - ap',
+    experimentName: 'Attachment Report Test v2',
+    variantUrl: {
+      path: '/pdf-report/ap',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
+  pdfTestDa: {
+    cookieKey: 'gm-1182-pdf-headline-test-da',
+    pageName: 'Attachment Style Report Old - da',
+    experimentName: 'Attachment Report Test v2',
+    variantUrl: {
+      path: '/pdf-report/da',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
+  pdfTestSa: {
+    cookieKey: 'gm-1182-pdf-headline-test-sa',
+    pageName: 'Attachment Style Report Old - sa',
+    experimentName: 'Attachment Report Test v2',
+    variantUrl: {
+      path: '/pdf-report/sa',
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,

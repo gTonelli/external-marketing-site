@@ -4,23 +4,27 @@ import Image from 'next/image'
 import { Link } from '@/components/Link'
 import { List } from '@/components/List'
 import { Section } from '@/components/Section'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { AttachmentReportHeader } from './AttachmentReportHeadline'
 // config
 import { REPORT_COPY, AGE_REPORT_COPY } from './config'
 import { TStyle } from '@/utils/types'
-import { AttachmentReportHeader } from './AttachmentReportHeadline'
 
 interface IAttachmentReportProps {
-  ageVariant?: boolean
   style: TStyle
+  ageVariant?: boolean
+  pdfVariant?: boolean
 }
 
-export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentReportProps) => {
+export const AttachmentReport = ({
+  ageVariant = false,
+  pdfVariant = false,
+  style,
+}: IAttachmentReportProps) => {
   const COPY = REPORT_COPY[style]
   return (
     <>
       {/* Hero section */}
-      <AttachmentReportHeader style={style} />
+      <AttachmentReportHeader style={style} isVariant={pdfVariant} />
 
       {/* Things about you which make you anxious section */}
       <Section

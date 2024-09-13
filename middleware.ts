@@ -117,16 +117,15 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const configs: Array<Partial<IConfigWithRegex>> = [
+  const configs: Array<IConfigWithRegex> = [
     { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
     { regex: /^\/attachment-report\/fa/, config: splitTestConfigs.pdfTestFa },
     { regex: /^\/attachment-report\/ap/, config: splitTestConfigs.pdfTestAp },
     { regex: /^\/attachment-report\/da/, config: splitTestConfigs.pdfTestDa },
     { regex: /^\/attachment-report\/sa/, config: splitTestConfigs.pdfTestSa },
-    // Add configurations here when needed
   ]
 
-  return configs.find((config) => config.regex?.test(path))?.config
+  return configs.find((config) => config.regex.test(path))?.config
 }
 
 interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {

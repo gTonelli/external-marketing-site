@@ -262,16 +262,20 @@ type TSplitTestConfig = {
   cookieKey: string
   pageName: string
   experimentName: string
+  /** Conditionally required as otherwise request url is used */
   controlUrl?: {
     path: string
+    /** Conditionally required as otherwise request origin is used */
     base?: string
     /** These parameters will be pulled from searchParams and converted to urlParams in the order that they appear in the config */
     urlParams?: string[]
   }
   variantUrl: {
     path: string
+    /** Conditionally required as otherwise request origin is used */
     base?: string
   }
   variantRatio: 0.2 | 0.5
+  /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */
   forceControlOnNewUser: boolean
 }

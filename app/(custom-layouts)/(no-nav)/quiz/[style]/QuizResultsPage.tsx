@@ -23,9 +23,6 @@ interface IQuizResultsPageProps {
 
 export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageProps) => {
   const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : CONFIG
-  const checkoutUrl = ageVariant
-    ? AGE_PRICING[style].checkoutUrl
-    : ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST
 
   return (
     <>
@@ -111,7 +108,6 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </div>
 
             <CheckoutButton
-              href={checkoutUrl}
               className="mt-8 xxs:px-16 md:mt-10"
               label="UNLOCK MY DISCOUNT"
             />
@@ -191,7 +187,6 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               )}
 
               <CheckoutButton
-                href={checkoutUrl}
                 className="mt-4 px-16 md:mt-10"
                 label="GET STARTED"
               />
@@ -244,7 +239,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               </p>
             )}
 
-            <CheckoutButton href={checkoutUrl} className="px-16" label="GET STARTED" />
+            <CheckoutButton className="px-16" label="GET STARTED" />
           </div>
         </div>
       </section>
@@ -469,7 +464,6 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </ul>
 
             <CheckoutButton
-              href={checkoutUrl}
               className="mt-8 md:mt-10 px-16"
               label="SIGN UP NOW"
             />
@@ -564,7 +558,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   ))}
 
                   <li className="mt-8 md:mt-10">
-                    <CheckoutButton href={checkoutUrl} label="ENROLL NOW" />
+                    <CheckoutButton label="ENROLL NOW" />
                   </li>
                 </ul>
               </div>
@@ -622,13 +616,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <CarouselTestimonialAlt />
 
             <CheckoutButton
-              href={checkoutUrl}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
             <CheckoutButton
-              href={checkoutUrl}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
             />
@@ -681,7 +673,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               </div>
             ))}
 
-            <CheckoutButton href={checkoutUrl} className="mt-2" label="I WANT THIS" />
+            <CheckoutButton className="mt-2" label="I WANT THIS" />
           </div>
         </div>
       </section>
@@ -742,7 +734,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </p>
           </div>
 
-          <CheckoutButton href={checkoutUrl} className="mt-6 md:mt-8" label="SIGN ME UP" />
+          <CheckoutButton className="mt-6 md:mt-8" label="SIGN ME UP" />
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
@@ -856,7 +848,6 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   </ul>
 
                   <CheckoutButton
-                    href={checkoutUrl}
                     className="mt-6 md:mt-10"
                     label="REGISTER NOW"
                   />
@@ -917,7 +908,6 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
         </div>
 
         <CheckoutButton
-          href={checkoutUrl}
           className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
           label="REWRITE MY STORY"
         />

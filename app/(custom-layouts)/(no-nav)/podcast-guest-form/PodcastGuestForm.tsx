@@ -5,21 +5,65 @@ import { Icon } from '@/components/Icon'
 import { Field, Form, Formik, FormikHelpers } from 'formik'
 import { ChangeEvent, useState } from 'react'
 import * as yup from 'yup'
+import { Maybe } from 'yup'
 
 export const PodcastGuestForm = () => {
-  const [selectedFile, setSelectedFile] = useState<File>()
+  const [submitted, setSubmitted] = useState(false)
+  const [selectedFile, setSelectedFile] = useState<Maybe<File>>()
+  const [validFile, setValidFile] = useState<Maybe<Boolean>>()
 
   const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.currentTarget.files ?? [])
-    if (files[0].size > 2000000) setSelectedFile(files[0])
+    if (files[0].size > 2000000) {
+      setValidFile(false)
+      return
+    }
+    setValidFile(true)
+    setSelectedFile(files[0])
   }
 
   const onSubmit = (
     values: IPodcastGuestFormSchema,
     formikHelpers: FormikHelpers<IPodcastGuestFormSchema>
   ) => {
-    formikHelpers.validateForm()
+    if (!validFile || !selectedFile) return
+
+    formikHelpers.setSubmitting(true)
+
+    const requestBody = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      reason: '',
+      message: `GUEST FORM QA`,
+      to: 'pratikraj@personaldevelopmentschool.com',
+      templateReferenceId: '5',
+      subject: 'Podcast Guest Page Form Submission',
+    }
+
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contact-us`, {
+      method: 'POST',
+      body: JSON.stringify(requestBody),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.success) throw res?.message || 'An unexpected error occured'
+        else setSubmitted(true)
+      })
+      .catch((error) => {
+        console.error(error)
+        formikHelpers.setSubmitting(false)
+      })
   }
+
+  if (submitted)
+    return (
+      <div>
+        <p className="font-bold text-success mb-4">Thank you for the submission.</p>
+
+        <p>Our team will reach out to you shortly</p>
+      </div>
+    )
 
   return (
     <Formik
@@ -30,65 +74,71 @@ export const PodcastGuestForm = () => {
         <Form className="w-full text-left">
           <div className="grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2">
             <Field
-              className={`rounded-lg ${errors.firstName && 'border-danger'}`}
+              className={`rounded-lg ${touched.firstName && errors.firstName && 'border-danger'}`}
               name="firstName"
               placeholder="First Name*"
               value={values.firstName}
+              onChange={handleChange}
             />
 
             <Field
-              className={`rounded-lg ${errors.lastName && 'border-danger'}`}
+              className={`rounded-lg ${touched.lastName && errors.lastName && 'border-danger'}`}
               name="lastName"
               placeholder="Last Name*"
               value={values.lastName}
+              onChange={handleChange}
             />
           </div>
 
           <Field
-            className={`w-full rounded-lg mb-4 ${errors.email && 'border-danger'}`}
+            className={`w-full rounded-lg mb-4 ${touched.email && errors.email && 'border-danger'}`}
             name="email"
             type="email"
             placeholder="What's your email?*"
             value={values.email}
+            onChange={handleChange}
           />
 
           <label htmlFor="guestExpertise">What are you an expert in?*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              errors.guestExpertise && 'border-danger'
+              touched.guestExpertise && errors.guestExpertise && 'border-danger'
             }`}
             as="textarea"
             rows={3}
             name="guestExpertise"
             placeholder="Share your areas of expertise or topics you are most known for."
             value={values.guestExpertise}
+            onChange={handleChange}
           />
 
           <label htmlFor="guestTopics">What main topics are you excited to talk about?*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              errors.guestTopics && 'border-danger'
+              touched.guestTopics && errors.guestTopics && 'border-danger'
             }`}
             as="textarea"
             rows={3}
             name="guestTopics"
             placeholder="Let us know what you'd love to discuss during the episode."
             value={values.guestTopics}
+            onChange={handleChange}
           />
 
           <label htmlFor="guestLimits">Is there anything off limits/you want to avoid?*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              errors.guestLimits && 'border-danger'
+              touched.guestLimits && errors.guestLimits && 'border-danger'
             }`}
             as="textarea"
             rows={3}
             name="guestLimits"
             placeholder="Mention any topics you’d prefer not to cover."
             value={values.guestLimits}
+            onChange={handleChange}
           />
 
           <label htmlFor="guestHighlights">
@@ -98,34 +148,39 @@ export const PodcastGuestForm = () => {
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              errors.guestHighlights && 'border-danger'
+              touched.guestHighlights && errors.guestHighlights && 'border-danger'
             }`}
             as="textarea"
             rows={3}
             name="guestHighlights"
             placeholder="Highlight any programs, launches, offers, and your social media channels or website."
             value={values.guestHighlights}
+            onChange={handleChange}
           />
 
           <label htmlFor="guestBio">Please include a bio so we can introduce you!*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              errors.guestBio && 'border-danger'
+              touched.guestBio && errors.guestBio && 'border-danger'
             }`}
             as="textarea"
             rows={3}
             name="guestBio"
             placeholder="Provide a short bio we can use to introduce you to our audience."
             value={values.guestBio}
+            onChange={handleChange}
           />
 
           <label htmlFor="guestHeadshot">
             Please include a headshot for episode promotion:*
-            <div className="flex flex-col items-center justify-center rounded-lg text-center border border-dashed border-black cursor-pointer p-4 mb-4">
+            <div
+              className={`flex flex-col items-center justify-center rounded-lg text-center border border-dashed border-black cursor-pointer p-4 mb-4 ${
+                !validFile && 'border-danger'
+              }`}>
               <Icon name="file-arrow-up" type="regular" size="lg" className="mb-4" />
 
-              {selectedFile ? (
+              {validFile && selectedFile ? (
                 selectedFile.name
               ) : (
                 <small>
@@ -153,16 +208,17 @@ export const PodcastGuestForm = () => {
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              errors.guestHistory && 'border-danger'
+              touched.guestHistory && errors.guestHistory && 'border-danger'
             }`}
             as="textarea"
             rows={3}
             name="guestHistory"
             placeholder="Link any content that helps us understand your style and expertise."
             value={values.guestHistory}
+            onChange={handleChange}
           />
 
-          <Button className="w-full" type="submit" label="SUBMIT NOW" />
+          <Button className="w-full" type="submit" label="SUBMIT NOW" disabled={isSubmitting} />
         </Form>
       )}
     </Formik>

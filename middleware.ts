@@ -112,6 +112,7 @@ export const config = {
 
 interface IConfigWithRegex {
   regex: RegExp
+  check?: boolean | (() => boolean)
   config: TSplitTestConfig
 }
 
@@ -123,25 +124,21 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const utmMedium = searchParams.get('utm_medium') || ''
   const utmSource = searchParams.get('utm_source') || ''
 
-  const configs: Array<{ regex: RegExp, check: () => boolean, config: TSplitTestConfig }> = [
+  const configs: Array<IConfigWithRegex> = [
     { 
       regex: /^\/attachment-report\/fa/, 
-      check: () => true, 
       config: splitTestConfigs.pdfTestFa 
     },
     { 
       regex: /^\/attachment-report\/ap/, 
-      check: () => true, 
       config: splitTestConfigs.pdfTestAp 
     },
     { 
       regex: /^\/attachment-report\/da/, 
-      check: () => true, 
       config: splitTestConfigs.pdfTestDa 
     },
     { 
       regex: /^\/attachment-report\/sa/, 
-      check: () => true, 
       config: splitTestConfigs.pdfTestSa 
     },
     { 
@@ -158,9 +155,10 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     }
   ];
 
-  const matchedConfig = configs.find(
-    (config) => config.regex.test(path) && config.check()
-  )?.config;
+  const matchedConfig = configs.find((config) => {
+    const checkResult = typeof config.check === 'function' ? config.check() : config.check !== false;
+    return config.regex.test(path) && checkResult;
+  })?.config;
 
   return matchedConfig;
 }

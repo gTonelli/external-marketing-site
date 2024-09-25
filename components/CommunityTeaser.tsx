@@ -7,9 +7,10 @@ import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-lif
 
 interface ICommunityTeaserProps {
   includePaymentOptions?: boolean
+  teaserHeading?: string
 }
 
-export const CommunityTeaser = ({ includePaymentOptions = true }: ICommunityTeaserProps) => {
+export const CommunityTeaser = ({ includePaymentOptions = true, teaserHeading = TH.COMMUNITY.bullets.heading}: ICommunityTeaserProps) => {
   return (
     <>
       <Image
@@ -48,7 +49,7 @@ export const CommunityTeaser = ({ includePaymentOptions = true }: ICommunityTeas
           </div>
 
           <div className="mt-12 lg:mt-[70px]">
-            <h1 className="text-center lg:text-left">{TH.COMMUNITY.bullets.heading}</h1>
+            <h1 className="text-center lg:text-left">{teaserHeading}</h1>
 
             <div className="flex flex-col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:flex-row md:mt-20">
               <div>

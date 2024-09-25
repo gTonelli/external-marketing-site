@@ -22,7 +22,7 @@ type SiteLink = {
 
 const fetchSiteLinks = async () => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/site-links-page?populate=*&populate=link.icon`,
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/site-links-page?populate[link][populate]=*`,
     {
       next: { tags: ['sitelinks'], revalidate: 86400 },
     }

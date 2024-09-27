@@ -51,6 +51,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                       videoId: RESULTS[style].HERO_SECTION.videoURL,
                       splitRatio: 0.5,
                     }}
+                    
                   />
                 </div>
 

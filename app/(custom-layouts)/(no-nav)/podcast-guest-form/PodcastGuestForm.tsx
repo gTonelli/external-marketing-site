@@ -30,20 +30,39 @@ export const PodcastGuestForm = () => {
 
     formikHelpers.setSubmitting(true)
 
-    const requestBody = {
-      firstName: values.firstName,
-      lastName: values.lastName,
-      email: values.email,
-      reason: '',
-      message: `GUEST FORM QA`,
-      to: 'pratikraj@personaldevelopmentschool.com',
-      templateReferenceId: '5',
-      subject: 'Podcast Guest Page Form Submission',
-    }
+    const message = `
+      Guest Name: ${values.firstName} ${values.lastName}  --  
+      Guest Email: ${values.email}  --    
+      [Q] What are you an expert in? 
+      [A] ${values.guestExpertise} -- 
+      [Q] What main topics are you excited to talk about?
+      [A] ${values.guestTopics}  --  
+      [Q] Is there anything off limits/you want to avoid?
+      [A] ${values.guestLimits}  --  
+      [Q] Tell me more about any programs, launches, offers, or any social media or websites you’d like to promote!
+      [A] ${values.guestHighlights}  --  
+      [Q] Please include a bio so we can introduce you!
+      [A] ${values.guestBio}  --  
+      [Q] Do you have any previously recorded podcasts, interviews, blog posts, social posts that you think I should read before the interview to get to know you and your expertise better?
+      [A] ${values.guestHistory}  --  
+      Guest headshot for promotion is attached.
+    `
+
+    const formdata = new FormData()
+    formdata.append('firstName', values.firstName)
+    formdata.append('lastName', values.lastName)
+    formdata.append('email', values.email)
+    formdata.append('to', 'pratikraj@personaldevelopmentschool.com') // @TODO: after staging test, revert back to info@pds
+    formdata.append('reason', 'Guest Reaching Out for Podcast')
+    formdata.append('message', message)
+    formdata.append('templateReferenceId', '5')
+    formdata.append('subject', 'Podcast Guest Form Test')
+    formdata.append('attachment', selectedFile)
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contact-us`, {
       method: 'POST',
-      body: JSON.stringify(requestBody),
+      body: formdata,
+      redirect: 'follow',
     })
       .then((res) => res.json())
       .then((res) => {
@@ -70,7 +89,7 @@ export const PodcastGuestForm = () => {
       initialValues={podcastGuestFormInitialValues}
       validationSchema={PodcastGuestFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ values, errors, touched, handleChange, setFieldValue, isSubmitting }) => (
+      {({ values, errors, touched, handleChange, isSubmitting }) => (
         <Form className="w-full text-left">
           <div className="grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2">
             <Field

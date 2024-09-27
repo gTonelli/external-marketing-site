@@ -6,7 +6,7 @@ import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
 // libraries
-import { Field, Form, Formik, FormikHelpers } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
 // modules
@@ -58,12 +58,12 @@ export const PodcastSuggestionForm = ({
       lastName: '',
       reason: podcastRecommendation,
       message: `Message: ${podcastSuggestion}`,
-      to: 'info@personaldevelopmentschool.com',
+      to: 'pratikraj@personaldevelopmentschool.com', // @TODO: after staging test, revert back to info@pds
       templateReferenceId: '5',
       subject: 'Podcast Page Form - Suggestion Submission',
     }
 
-    fetch('https://strapi.personaldevelopmentschool.com/api/contact-us', {
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contact-us`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

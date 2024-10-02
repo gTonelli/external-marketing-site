@@ -102,7 +102,6 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 
 export const config = {
   matcher: [
-    '/quiz',
     '/attachment-report/fa',
     '/attachment-report/ap',
     '/attachment-report/da',
@@ -118,11 +117,6 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const searchParams = new URLSearchParams(request.nextUrl.searchParams)
-
-  // Get UTM parameters, handle cases where they may not exist
-  const utmMedium = searchParams.get('utm_medium') || ''
-  const utmSource = searchParams.get('utm_source') || ''
 
   const configs: Array<IConfigWithRegex> = [
     { 
@@ -140,18 +134,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     { 
       regex: /^\/attachment-report\/sa/, 
       config: splitTestConfigs.pdfTestSa 
-    },
-    { 
-      regex: /^\/quiz/, 
-      // Check if UTM contains 'cpc' in medium and 'google' in source
-      check: () => utmMedium.includes('cpc') && utmSource.includes('google'), 
-      config: splitTestConfigs.trafficSegmentationGoogle 
-    },
-    { 
-      regex: /^\/quiz/, 
-      // Check if UTM medium is 'organic'
-      check: () => utmMedium.includes('organic'), 
-      config: splitTestConfigs.trafficSegmentationYoutube 
     }
   ];
 
@@ -270,26 +252,6 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,
-  },
-  trafficSegmentationGoogle: {
-    cookieKey: 'gm-1166-segmentation-google',
-    pageName: 'Main Funnel Quiz',
-    experimentName: 'GM-1166-Traffic-Segmentation-Google',
-    variantUrl: {
-      path: '/',
-    },
-    variantRatio: 0.2,
-    forceControlOnNewUser: true,
-  },
-  trafficSegmentationYoutube: {
-    cookieKey: 'gm-1166-segmentation-youtube',
-    pageName: 'Main Funnel Quiz',
-    experimentName: 'GM-1166-Traffic-Segmentation-Youtube',
-    variantUrl: {
-      path: '/',
-    },
-    variantRatio: 0.3, // exposed to 60% of traffic due to low volume
-    forceControlOnNewUser: true,
   }
 }
 
@@ -314,7 +276,7 @@ type TSplitTestConfig = {
     /** Conditionally required as otherwise request origin is used */
     base?: string
   }
-  variantRatio: 0.2 | 0.3 | 0.5
+  variantRatio: 0.2 | 0.5
   /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */
   forceControlOnNewUser: boolean
 }

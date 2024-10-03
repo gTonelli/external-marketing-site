@@ -6,6 +6,7 @@ import { List } from '@/components/List'
 import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG } from './config'
 // utils
 import { TStyle } from '@/utils/types'
+import { ERoutes } from '@/utils/constants'
 
 type Props = {
   style: Extract<TStyle, 'da' | 'sa'>
@@ -90,7 +91,11 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
         ))}
 
         <div className="flex justify-center">
-          <CheckoutButton className="mt-8 xxs:px-16 md:mt-10" label="UNLOCK MY DISCOUNT" />
+          <CheckoutButton
+            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            className="mt-8 xxs:px-16 md:mt-10"
+            label="UNLOCK MY DISCOUNT"
+          />
         </div>
       </div>
     </section>

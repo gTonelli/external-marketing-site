@@ -14,7 +14,7 @@ export const PodcastGuestForm = () => {
 
   const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.currentTarget.files ?? [])
-    if (files[0].size > 2000000) {
+    if (files[0].size > 4000000) {
       setValidFile(false)
       return
     }
@@ -52,7 +52,7 @@ export const PodcastGuestForm = () => {
     formdata.append('firstName', values.firstName)
     formdata.append('lastName', values.lastName)
     formdata.append('email', values.email)
-    formdata.append('to', 'pratikraj@personaldevelopmentschool.com') // @TODO: after staging test, revert back to info@pds
+    formdata.append('to', values.email) // @TODO: after staging test, revert back to info@pds
     formdata.append('reason', 'Guest Reaching Out for Podcast')
     formdata.append('message', message)
     formdata.append('templateReferenceId', '5')
@@ -205,7 +205,7 @@ export const PodcastGuestForm = () => {
                 <small>
                   Drag and drop your file here or choose one
                   <br />
-                  PNG or JPG only (max size 2 mb)
+                  PNG or JPG only (max size 4 mb)
                 </small>
               )}
             </div>

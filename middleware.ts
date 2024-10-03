@@ -102,6 +102,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 
 export const config = {
   matcher: [
+    '/enroll',
     '/attachment-report/fa',
     '/attachment-report/ap',
     '/attachment-report/da',
@@ -119,30 +120,31 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
 
   const configs: Array<IConfigWithRegex> = [
-    { 
-      regex: /^\/attachment-report\/fa/, 
-      config: splitTestConfigs.pdfTestFa 
+    { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
+    {
+      regex: /^\/attachment-report\/fa/,
+      config: splitTestConfigs.pdfTestFa,
     },
-    { 
-      regex: /^\/attachment-report\/ap/, 
-      config: splitTestConfigs.pdfTestAp 
+    {
+      regex: /^\/attachment-report\/ap/,
+      config: splitTestConfigs.pdfTestAp,
     },
-    { 
-      regex: /^\/attachment-report\/da/, 
-      config: splitTestConfigs.pdfTestDa 
+    {
+      regex: /^\/attachment-report\/da/,
+      config: splitTestConfigs.pdfTestDa,
     },
-    { 
-      regex: /^\/attachment-report\/sa/, 
-      config: splitTestConfigs.pdfTestSa 
-    }
-  ];
+    {
+      regex: /^\/attachment-report\/sa/,
+      config: splitTestConfigs.pdfTestSa,
+    },
+  ]
 
   const matchedConfig = configs.find((config) => {
-    const checkResult = typeof config.check === 'function' ? config.check() : config.check !== false;
-    return config.regex.test(path) && checkResult;
-  })?.config;
+    const checkResult = typeof config.check === 'function' ? config.check() : config.check !== false
+    return config.regex.test(path) && checkResult
+  })?.config
 
-  return matchedConfig;
+  return matchedConfig
 }
 
 interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {
@@ -213,6 +215,22 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
+  checkoutTest: {
+    cookieKey: 'prod-3136-checkout-test',
+    pageName: 'Checkout',
+    experimentName: 'Checkout V2 Test (Attachment Quiz Funnel)',
+    controlUrl: {
+      path: '/enroll',
+      base: 'https://university.personaldevelopmentschool.com',
+      urlParams: ['product_id'],
+    },
+    variantUrl: {
+      path: 'pages/checkout',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
   pdfTestFa: {
     cookieKey: 'gm-1182-pdf-headline-test-fa',
     pageName: 'Attachment Style Report Old - fa',
@@ -252,7 +270,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,
-  }
+  },
 }
 
 type TSplitTestConfigs = {

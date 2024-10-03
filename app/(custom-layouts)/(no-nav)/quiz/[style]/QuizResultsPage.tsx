@@ -108,6 +108,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </div>
 
             <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
               className="mt-8 xxs:px-16 md:mt-10"
               label="UNLOCK MY DISCOUNT"
             />
@@ -187,6 +188,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               )}
 
               <CheckoutButton
+                href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
                 className="mt-4 px-16 md:mt-10"
                 label="GET STARTED"
               />
@@ -239,7 +241,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               </p>
             )}
 
-            <CheckoutButton className="px-16" label="GET STARTED" />
+            <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              className="px-16"
+              label="GET STARTED"
+            />
           </div>
         </div>
       </section>
@@ -464,6 +470,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </ul>
 
             <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
               className="mt-8 md:mt-10 px-16"
               label="SIGN UP NOW"
             />
@@ -558,7 +565,10 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   ))}
 
                   <li className="mt-8 md:mt-10">
-                    <CheckoutButton label="ENROLL NOW" />
+                    <CheckoutButton
+                      href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                      label="ENROLL NOW"
+                    />
                   </li>
                 </ul>
               </div>
@@ -616,11 +626,13 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <CarouselTestimonialAlt />
 
             <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
             <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
             />
@@ -673,7 +685,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               </div>
             ))}
 
-            <CheckoutButton className="mt-2" label="I WANT THIS" />
+            <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              className="mt-2"
+              label="I WANT THIS"
+            />
           </div>
         </div>
       </section>
@@ -734,7 +750,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </p>
           </div>
 
-          <CheckoutButton className="mt-6 md:mt-8" label="SIGN ME UP" />
+          <CheckoutButton
+            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            className="mt-6 md:mt-8"
+            label="SIGN ME UP"
+          />
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
@@ -848,6 +868,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   </ul>
 
                   <CheckoutButton
+                    href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
                     className="mt-6 md:mt-10"
                     label="REGISTER NOW"
                   />
@@ -908,6 +929,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
         </div>
 
         <CheckoutButton
+          href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
           className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
           label="REWRITE MY STORY"
         />

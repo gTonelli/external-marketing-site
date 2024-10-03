@@ -51,7 +51,6 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                       videoId: RESULTS[style].HERO_SECTION.videoURL,
                       splitRatio: 0.5,
                     }}
-                    
                   />
                 </div>
 
@@ -127,7 +126,10 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
               </p>
             )}
 
-            <CheckoutButton theme="secondary" />
+            <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              theme="secondary"
+            />
           </div>
         </div>
       </section>
@@ -172,7 +174,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 secure in yourself and your relationship.
               </p>
 
-              <CheckoutButton />
+              <CheckoutButton href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST} />
             </div>
           )}
         </div>
@@ -226,7 +228,10 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
               </div>
             )}
 
-            <CheckoutButton className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none" />
+            <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none"
+            />
           </div>
         </div>
       </section>
@@ -332,7 +337,10 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   : RESULTS[style].PROMOTION_2.copy1}
               </p>
 
-              <CheckoutButton className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none" />
+              <CheckoutButton
+                href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
+              />
             </div>
           </div>
         </div>
@@ -448,7 +456,11 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             </div>
           </div>
 
-          <CheckoutButton className="font-bold" theme="secondary" />
+          <CheckoutButton
+            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            className="font-bold"
+            theme="secondary"
+          />
         </div>
       </section>
 
@@ -503,7 +515,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
           </div>
         </div>
 
-        <CheckoutButton theme="secondary" />
+        <CheckoutButton href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST} theme="secondary" />
       </section>
 
       <CarouselTestimonial
@@ -537,7 +549,11 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
               />
             </div>
 
-            <CheckoutButton className="mt-8" theme="secondary" />
+            <CheckoutButton
+              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              className="mt-8"
+              theme="secondary"
+            />
           </div>
 
           <div className="flex flex-col lg:items-start lg:my-8 lg:px-8">
@@ -587,6 +603,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 ))}
 
                 <CheckoutButton
+                  href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
                   className="tracking-normal underline font-bold inline !p-0 text-blue-darkest from-transparent to-transparent bg-transparent border-none text-left
                   hover:!text-blue-darkest hover:!bg-transparent hover:!shadow-none mt-4"
                   label={RESULTS[style].TESTIMONIAL.ctaText}
@@ -653,7 +670,10 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
 
           <p className="max-w-3xl mb-8">{RESULTS[style].PROMOTION_4.copy6}</p>
 
-          <CheckoutButton theme="secondary" />
+          <CheckoutButton
+            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            theme="secondary"
+          />
         </div>
       </section>
     </>

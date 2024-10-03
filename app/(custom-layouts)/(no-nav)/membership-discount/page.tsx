@@ -99,7 +99,7 @@ export default function FlashSalePage() {
 
           <Text.Paragraph
             className="text-center"
-            content="By signing up today, you'll lock in the rate at 40% off for life! This offer is only valid for a few days for our anniversary celebration."
+            content="By signing up today, you'll lock in the rate at 40% off for the first month! This offer is only valid for a few days for our anniversary celebration."
           />
 
           <Button

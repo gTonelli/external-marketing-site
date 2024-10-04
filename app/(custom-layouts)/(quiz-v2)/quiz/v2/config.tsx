@@ -22,7 +22,7 @@ export const StartQuizButton = ({
       className={cx(
         `border-2 rounded-full tracking-10 px-4 py-2 transition-colors bg-primary border-primary text-white
           hover:no-underline active:shadow-md active:text-white active:bg-opacity-50 
-          lg:hover:text-white lg:hover:shadow-md lg:hover:bg-opacity-50`,
+          hover:text-white hover:shadow-md hover:bg-opacity-50`,
         className
       )}
       href="/quiz/v2/questions">

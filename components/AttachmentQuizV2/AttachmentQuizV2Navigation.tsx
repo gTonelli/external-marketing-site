@@ -14,20 +14,13 @@ import { Button } from '../Button/Button'
 import { EExternalRoutes } from '@/utils/constants'
 
 interface IAttachmentQuizV2NavigationProps extends IDefaultProps {
-  onGoBack?: () => void
-  showBackButton?: boolean
   includeContinueButton?: boolean
 }
 
 export const AttachmentQuizV2Navigation = ({
   className,
-  onGoBack,
-  showBackButton = true,
   includeContinueButton = false,
 }: IAttachmentQuizV2NavigationProps) => {
-  const router = useRouter()
-  const _onGoBack = onGoBack ?? router.back
-
   return (
     <div
       className={cx(
@@ -37,16 +30,6 @@ export const AttachmentQuizV2Navigation = ({
           : 'grid-cols-[84px_1fr_84px] lg:grid-cols-3',
         className
       )}>
-      {showBackButton && (
-        <div
-          className="flex items-center text-grey cursor-pointer rounded-full transition-colors lg:bg-transparent lg:px-4 lg:py-2 lg:w-max lg:hover:text-primary lg:hover:bg-white"
-          onClick={() => _onGoBack()}>
-          <Icon className="mr-2" name="chevron-left" />
-
-          <strong>Go Back</strong>
-        </div>
-      )}
-
       <Image
         alt="The Personal Development School Logo: A sapling in a circle with the business name next to it."
         className={cx('mx-auto', includeContinueButton ? 'lg:col-start-2' : 'col-start-2')}

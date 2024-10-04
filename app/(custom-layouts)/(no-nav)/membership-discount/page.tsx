@@ -38,10 +38,14 @@ export default function FlashSalePage() {
           <Image className="w-full mt-4 mb-8 sm:w-[60%]" src="thais-gibson-signature.svg" />
 
           <Button
-            className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
+            className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white mb-2"
             label="UNLOCK MY POTENTIAL NOW AT 40% OFF"
             onClick={onGoToCheckout}
           />
+
+          <small className="text-center">
+            <strong>*Special Bonus: Get 30% Off From Your 2nd Month Onwards!</strong>
+          </small>
         </div>
 
         <div className="flex justify-center items-center flex-1">

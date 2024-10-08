@@ -77,10 +77,18 @@ export const PodcastGuestForm = () => {
 
   if (submitted)
     return (
-      <div>
-        <p className="font-bold text-success mb-4">Thank you for the submission.</p>
+      <div className="w-full block rounded-lg p-3 border border-success text-left">
+        <p className="font-bold mb-2">
+          <span>
+            <Icon name="check-circle" className="text-success mr-2" />
+          </span>
+          Thank you for filling out the form!
+        </p>
 
-        <p>Our team will reach out to you shortly</p>
+        <p>
+          If you have any other questions in the meantime, feel free to reach out at
+          info@personaldevelopmentschool.com. Looking forward to our conversation!
+        </p>
       </div>
     )
 

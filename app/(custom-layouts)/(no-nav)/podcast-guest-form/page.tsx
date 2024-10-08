@@ -22,8 +22,7 @@ export default function PodcastGuestFormPage() {
           <p className="mb-4">
             We’re excited to have you on our next podcast! Please fill out this form to help us
             prepare and make the recording smooth and engaging. Your input ensures we ask the right
-            questions and highlight your expertise. Required fields help us plan effectively. Thank
-            you for your time and cooperation!
+            questions and highlight your expertise. Thank you for your time and cooperation!
           </p>
 
           <Image

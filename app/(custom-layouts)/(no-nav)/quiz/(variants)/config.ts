@@ -7,17 +7,17 @@ export const ATTACHMENT_QUIZ_VARIANT = {
     {
       icon: 'envelope-open-text',
       label: 'ATTACHMENT STYLES DISCOVERED',
-      value: '4,100,000',
+      value: '4,700,000',
     },
     {
       icon: 'users',
       label: 'YOUTUBE VIEWS',
-      value: '33,000,000+',
+      value: '50,000,000+',
     },
     {
       icon: 'earth-americas',
       label: 'COUNTRIES',
-      value: '113+',
+      value: '120+',
     },
   ],
   FEATURED: [

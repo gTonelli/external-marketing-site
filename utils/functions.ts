@@ -1,3 +1,6 @@
+import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
+import { IStrapiFetchProps, IStrapiResponse } from './types'
+
 /**
  * Check if property is function
  * @param func Property to check
@@ -56,3 +59,20 @@ export const getInitials = (str: string) =>
     .filter((a) => a.match(/[A-Z]/))
     .join('')
     .toUpperCase()
+
+export const fetchAllPodcasts = (
+  podcasts: IStrapiResponse<IPodcast>[] = [],
+  page = 1
+): Promise<IStrapiResponse<IPodcast>[]> => {
+  return fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=publishedAt&fields[1]=updatedAt&fields[2]=urlSlug&pagination[pageSize]=100&pagination[page]=${page}`,
+    { next: { tags: ['podcasts'], revalidate: 86400 } }
+  )
+    .then((response) => response.json())
+    .then((res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>) => {
+      if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total) {
+        return fetchAllPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
+      }
+      return podcasts.concat(res.data)
+    })
+}

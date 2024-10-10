@@ -41,6 +41,9 @@ export interface IPodcast {
   seoDescription: string
   urlSlug: string
   guestName?: string
+  createdAt?: string
+  updatedAt?: string
+  publishedAt?: string
 }
 export interface IPodcastCategory {
   name: string

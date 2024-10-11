@@ -104,7 +104,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           onPlay={() => onVideoStarted('YouTube')}
         />
 
-        <p className="mt-4">
+        <p className="mt-4 text-center">
             *As seen as, and taken from the The Mel Robbins Podcast :
             <LinkDefault
               className="text-primary"

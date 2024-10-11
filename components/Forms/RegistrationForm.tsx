@@ -61,8 +61,9 @@ export const RegistrationForm = ({
     })
 
     Mixpanel.setUser(values.email)
-    Mixpanel.setPeopleOnce({ ...userInfo })
-    Mixpanel.setPeople({ 'Attachment Style': userStyle })
+    Mixpanel.setPeople({ $email: email })
+    if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
+    if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
 
     const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
     Mixpanel.track.SignUp({

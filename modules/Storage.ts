@@ -14,7 +14,6 @@ export type TStorageKeys =
   | 'gm-1152-fa-video-control-vs-control'
   | 'gm-1172-iat-cta-split'
   | `gm-1164-pdf-headline-split-${string}`
-  | 'gm-1215-mel-robbins-video'
   | 'gam_user_tracking'
 
 export const Storage = {

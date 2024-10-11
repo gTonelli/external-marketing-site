@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useEffect, useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { Page } from '@/components/Page'
@@ -10,14 +10,12 @@ import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
 import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
-import { Video } from '../Video/Video'
 import { List } from '@/components/List'
 import { TAttachmentQuizVariant } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/config'
 // libraries
 import type { IconName } from '@fortawesome/fontawesome-common-types'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 // styles
 import './style.css'
 
@@ -29,23 +27,9 @@ interface IQuizVariantProps {
 export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) => {
   // ================= State =======================
   const [viewQuiz, setViewQuiz] = useState(false)
-  const [isVariant, setIsVariant] = useState(false)
 
   // ================= Refs =======================
   const quizSectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    let isVariant = Storage.get('gm-1215-mel-robbins-video') === 'yes'
-    if (Storage.get('gm-1215-mel-robbins-video') === null) {
-      isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
-      Storage.set('gm-1215-mel-robbins-video', isVariant ? 'yes' : 'no')
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'GM-1215-mel-robbins-video',
-        'Variant name': isVariant ? 'Variant 1' : 'Control',
-      })
-    }
-    setIsVariant(isVariant)
-  }, [])
 
   // ================== Events =====================
   const onStartQuiz = useCallback(() => {
@@ -91,28 +75,6 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           <TakeQuizCTA onStartQuiz={onStartQuiz} />
         </div>
       </div>
-
-      {/* VIDEO SECTION */}
-      {isVariant && (
-        <div className="p-6 lg:pt-16">
-          <div className="max-w-3xl text-center mx-auto">
-            <h2 className="mb-4">
-              Watch to Learn & Uncover How to Have Happier and Healthier Relationships
-            </h2>
-
-            <h4 className="mb-4">As Seen on The Mel Robbins Podcast!</h4>
-          </div>
-
-          <Video.Youtube
-            className="mx-auto shadow-centered max-w-3xl lg:p-8"
-            videoId="GIkspM20BeY"
-            thumbnail="/images/AttachmentQuiz/mel-robbins.jpg"
-            thumbnailAlt="Why Do I Love the Way That I Love Thumbnail"
-            maxHeight={400}
-            type="youtube"
-          />
-        </div>
-      )}
 
       {/* Quiz Section */}
       <div ref={quizSectionRef} className="w-full px-4">

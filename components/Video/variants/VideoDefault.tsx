@@ -99,6 +99,7 @@ export const VideoDefault = ({
   const [isDialogShown, setIsDialogShown] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [isVariant, setIsVariant] = useState(false)
+  const [playAutoTriggered, setPlayAutoTriggered] = useState<boolean>(false)
   const [isYoung, initialized] = useIsYoung('gm-1079-age-funnel-split')
 
   const onToggleDialog = useCallback(() => {
@@ -110,16 +111,22 @@ export const VideoDefault = ({
   const toggleVideo = useCallback(() => {
     onToggleDialog()
     setIsPlaying((prev) => !prev)
+    
   }, [onToggleDialog])
 
   useEffect(() => {
-    playAuto && toggleVideo()
-  }, [playAuto, toggleVideo])
+    if (playAuto && !playAutoTriggered) {
+      toggleVideo()
+      setPlayAutoTriggered(true)
+    }
+  }, [playAuto, playAutoTriggered, toggleVideo])
 
   useEffect(() => {
     if (!initialized) return
 
-    isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
+    if (!playAuto) {
+      isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
+    }
 
     if (!variantVideoData || isYoung) return
     let showVariant: string | null | boolean = Storage.get(

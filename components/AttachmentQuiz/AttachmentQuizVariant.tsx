@@ -92,12 +92,20 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
 
       <div className="p-6 lg:pt-16">
         <div className="max-w-3xl text-center mx-auto">
-          <h2 className="mb-4">
-            Watch to Learn & Uncover How to Have Happier and Healthier Relationships
-          </h2>
-          
-          <p className="mb-4">
-            As seen as and taken from the The Mel Robbins Podcast :
+          <h2 className="mb-4">Once I Learned This, It Changed My Relationships For Life...</h2>
+        </div>
+
+        <Video.Large
+          playAuto
+          className="mx-auto shadow-centered max-w-3xl"
+          srcUrl="https://storage.googleapis.com/pds_videos/Mel_Robbins_Podcast.mp4"
+          thumbnailUrl="AttachmentQuiz/mel-robbins.jpg"
+          thumbnailAlt="IAT Video Thumbnail"
+          onPlay={() => onVideoStarted('YouTube')}
+        />
+
+        <p className="mt-4">
+            *As seen as, and taken from the The Mel Robbins Podcast :
             <LinkDefault
               className="text-primary"
               label=" YouTube Link"
@@ -105,15 +113,6 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
               url="https://m.youtube.com/watch?v=GIkspM20BeY&pp=ygURVGhhaXMgbWVsIHJvYmJpbnM%3D"
             />
           </p>
-        </div>
-
-        <Video.Large
-          className="mx-auto shadow-centered max-w-3xl"
-          srcUrl="https://storage.googleapis.com/pds_videos/Mel_Robbins_Podcast.mp4"
-          thumbnailUrl="AttachmentQuiz/mel-robbins.jpg"
-          thumbnailAlt="IAT Video Thumbnail"
-          onPlay={() => onVideoStarted('YouTube')}
-        />
       </div>
 
       {/* Quiz Section */}

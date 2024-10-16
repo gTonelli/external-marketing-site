@@ -1,14 +1,15 @@
 'use client'
 
 // core
-import React, { forwardRef, useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 // components
 import { IFAQProps, IFAQsProps } from './FaqDefault'
 import { Expandable } from '@/components/Expandable'
-import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text/Text'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { ViewportContext } from '@/utils/contexts'
@@ -160,9 +161,9 @@ const FAQ = ({
             )}>
             <Text.Paragraph className="font-bold mb-0 md:text-lg" content={question} />
 
-            <Icon
+            <FontAwesomeIcon
               className={cx(`ml-5 text-xl transition-all ${isOpen && 'rotate-180'}`, classNameIcon)}
-              name="chevron-down"
+              icon={faChevronDown}
             />
           </div>
         }

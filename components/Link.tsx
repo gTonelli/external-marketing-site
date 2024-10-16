@@ -5,9 +5,10 @@ import { default as NextLink } from 'next/link'
 import React, { useCallback, useContext } from 'react'
 // components
 import { IDefaultProps, IDefaultWrapperProps } from '@/components'
-import { Icon, IIconProps } from './Icon'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
@@ -84,8 +85,10 @@ export const LinkDefault = ({
   )
 }
 
-interface ILinkIconProps extends IIconProps {
+interface ILinkIconProps extends IDefaultProps {
   url: ERoutes | EExternalRoutes
+  icon: IconProp
+  iconSize?: SizeProp
   /**
    * Target value for a tag
    */
@@ -96,22 +99,14 @@ interface ILinkIconProps extends IIconProps {
   label?: string
 }
 
-export const LinkIcon = ({
-  className,
-  url,
-  onClick,
-  target,
-  label,
-  ...iconProps
-}: ILinkIconProps) => {
+export const LinkIcon = ({ className, url, target, label, icon, iconSize }: ILinkIconProps) => {
   return (
     <a
       aria-label={label}
       className={cx('cursor-pointer transform transition ease-in-out hover:scale-110', className)}
       href={url}
-      target={target}
-      onClick={onClick}>
-      <Icon {...iconProps} />
+      target={target}>
+      <FontAwesomeIcon icon={icon} size={iconSize} />
     </a>
   )
 }

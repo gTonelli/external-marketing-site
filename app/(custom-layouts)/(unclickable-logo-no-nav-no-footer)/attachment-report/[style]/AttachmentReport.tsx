@@ -8,6 +8,8 @@ import { AttachmentReportHeader } from './AttachmentReportHeadline'
 // config
 import { REPORT_COPY, AGE_REPORT_COPY } from './config'
 import { TStyle } from '@/utils/types'
+import { faCircle, faHeart, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 
 interface IAttachmentReportProps {
   style: TStyle
@@ -34,7 +36,7 @@ export const AttachmentReport = ({
           <p className="font-bold mb-4">{COPY.copy1.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             className="mb-8"
             classNameIcon="mt-2"
@@ -45,7 +47,7 @@ export const AttachmentReport = ({
           <p className="font-bold mb-4">{COPY.copy2.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             classNameIcon="mt-2"
             classNameListItems="mb-2"
@@ -113,7 +115,7 @@ export const AttachmentReport = ({
             <p className="font-bold mb-4">{COPY.copy5.leftCopy.header}</p>
 
             <List
-              iconName="heart"
+              icon={faHeart}
               iconSize="xs"
               className="mb-8"
               classNameIcon="mt-2"
@@ -126,7 +128,7 @@ export const AttachmentReport = ({
             <p className="font-bold mb-4">{COPY.copy5.rightCopy.header}</p>
 
             <List
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               classNameIcon="mt-2"
               classNameListItems="mb-2"
@@ -144,7 +146,7 @@ export const AttachmentReport = ({
           <p className="font-bold mb-4">{COPY.copy6.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             className="mb-8"
             classNameIcon="mt-2"
@@ -176,7 +178,7 @@ export const AttachmentReport = ({
           <p className="font-bold mb-4">{COPY.copy7.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             classNameIcon="mt-2"
             classNameListItems="mb-2"
@@ -262,8 +264,7 @@ export const AttachmentReport = ({
             <p className="font-bold mb-4">{COPY.copy9.leftCopy.header}</p>
 
             <List
-              iconName="check-circle"
-              iconType="light"
+              icon={faCheckCircle}
               iconSize="sm"
               classNameIcon="!text-green-check mt-2"
               classNameListItems="mb-4"
@@ -275,7 +276,7 @@ export const AttachmentReport = ({
             <p className="font-bold mb-4">{COPY.copy9.rightCopy.header}</p>
 
             <List
-              iconName="star"
+              icon={faStar}
               iconSize="sm"
               classNameIcon="mt-2"
               classNameListItems="mb-4"

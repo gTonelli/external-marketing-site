@@ -5,26 +5,28 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Button } from '@/components/Button/Button'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { CountdownTimer } from '@/components/CountDownTimer'
-import { Icon } from '@/components/Icon'
 import { Tab, Tabs } from '@/components/Tabs'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { Video } from '@/components/Video/Video'
 import { List } from '@/components/List'
-import 'swiper/css/navigation'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Page } from '@/components/Page'
 import { Loader } from '@/components/Loader'
 // config
 import { LEARN_PAGE, SECONDARY_SALES_PAGE as SSP } from './config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle, faStar, faChevronsRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 //utils
-import { EExternalRoutes, ERoutes, EWindowWidth } from '@/utils/constants'
+import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
 
 import 'swiper/css'
+import 'swiper/css/navigation'
 
 type TSidePanelTabs =
   | 'you_will_learn'
@@ -241,7 +243,7 @@ export default function SecondarySalesPage() {
                           className="mt-2"
                           classNameIcon="!text-primary pl-2 mt-2"
                           classNameListItems="mt-1"
-                          iconName="circle"
+                          icon={faCircle}
                           iconSize="2xs"
                           listItems={LEARN_PAGE.LEARN_FEATURES[index].bullet}
                         />
@@ -374,11 +376,10 @@ export default function SecondarySalesPage() {
                     {Array(5)
                       .fill(1)
                       .map((_, ii: number) => (
-                        <Icon
+                        <FontAwesomeIcon
                           key={`star_'${ii}`}
                           className="text-primary"
-                          name="star"
-                          type="solid"
+                          icon={faStar}
                         />
                       ))}
                   </div>
@@ -476,7 +477,7 @@ const DiscountSection = ({
 
                   <List
                     classNameListItems="my-4 lg:my-6"
-                    iconName="chevrons-right"
+                    icon={faChevronsRight}
                     listItems={LEARN_PAGE.DISCOUNT_SECTION_SECOND.bullets}
                   />
 
@@ -498,7 +499,7 @@ const DiscountSection = ({
 
                   <List
                     classNameListItems="my-4 text-left lg:my-6"
-                    iconName="chevrons-right"
+                    icon={faChevronsRight}
                     listItems={LEARN_PAGE.DISCOUNT_SECTION.bullets}
                   />
 

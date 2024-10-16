@@ -2,11 +2,12 @@
 import { IQuizComponentDefaultArgs } from './useAttachmentQuiz'
 import { AttachmentQuizV2RadioInput } from './AttachmentQuizV2RadioInput'
 import { Button } from '../Button/Button'
-import { Icon } from '../Icon'
 // libraries
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { orderBy } from 'lodash'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IAttachmentQuizV2QuizQuestionProps extends Required<IQuizComponentDefaultArgs> {
   onSubmitted: () => void
@@ -54,7 +55,7 @@ export const AttachmentQuizV2QuizQuestionGroup = ({
             <div
               className="flex items-center text-grey cursor-pointer rounded-full transition-colors lg:bg-transparent lg:px-4 lg:py-2 lg:w-max lg:hover:text-primary lg:hover:bg-grey/20"
               onClick={() => onGoBack()}>
-              <Icon className="mr-2" name="chevron-left" />
+              <FontAwesomeIcon className="mr-2" icon={faChevronLeft} />
 
               <strong>{step === 1 ? 'CANCEL' : 'BACK'}</strong>
             </div>

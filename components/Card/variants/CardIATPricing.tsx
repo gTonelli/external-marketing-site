@@ -5,14 +5,13 @@ import React from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
-import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text/Text'
 // libraries
 import cx from 'classnames'
 import { formatPrice } from '@/utils/functions'
 import { Card } from '../Card'
-// utils
-// import {} from 'utils'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faTimes } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IBenefit {
   included: boolean
@@ -79,9 +78,9 @@ export const CardIATPricing = ({
             <div
               key={`card_iat_pricing_benefit_${index}`}
               className={cx('w-full flex', !benefit.included && 'opacity-50')}>
-              <Icon
+              <FontAwesomeIcon
                 className="text-primary pt-[3px] mr-2"
-                name={benefit.included ? 'check' : 'times'}
+                icon={benefit.included ? faCheck : faTimes}
               />
 
               <Text content={benefit.title} />

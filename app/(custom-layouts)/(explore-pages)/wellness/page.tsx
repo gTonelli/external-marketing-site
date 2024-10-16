@@ -1,13 +1,12 @@
 'use client'
 
 // core
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 import { WELLNESS_PAGE as AP } from './config'
 // components
 import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
-import { Icon, TIconName, TIcon } from '@/components/Icon'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
 import { List } from '@/components/List'
@@ -16,6 +15,8 @@ import { Text } from '@/components/Text/Text'
 // libraries
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { faCheckCircle, faFaceSadSweat } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 //utils
@@ -74,8 +75,7 @@ export default function WellnessPage() {
               <List
                 classNameIcon="mt-1 !text-green-check"
                 classNameListItems="mt-4"
-                iconName="check-circle"
-                iconType="regular"
+                icon={faCheckCircle}
                 listItems={AP.HERO.copy1.copy}
               />
             </div>
@@ -90,8 +90,7 @@ export default function WellnessPage() {
               <List
                 classNameIcon="mt-1"
                 classNameListItems="mt-4"
-                iconName="face-sad-sweat"
-                iconType="regular"
+                icon={faFaceSadSweat}
                 listItems={AP.HERO.copy2.copy}
               />
             </div>
@@ -210,13 +209,8 @@ export default function WellnessPage() {
               <Text.Paragraph useMD className="mt-8" content={AP.INSTRUCTOR.copy} />
 
               {AP.INSTRUCTOR.stats.map((stat, index) => (
-                <div key={`stat_${index}`} className="mt-8">
-                  <Icon
-                    className="inline text-primary"
-                    name={stat.icon as TIconName}
-                    size="2x"
-                    type={stat.type as TIcon}
-                  />
+                <div key={`stat_${index}`} className="mt-8 flex items-center">
+                  <FontAwesomeIcon className="inline text-primary" icon={stat.icon} size="2x" />
 
                   <Text.Paragraph className="inline font-bold text-lg ml-6" content={stat.copy} />
                 </div>

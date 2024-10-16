@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react'
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
-import { Icon } from '@/components/Icon'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { SocialProofBar } from '@/components/SocialProofBar'
@@ -16,6 +15,13 @@ import { Page } from '@/components/Page'
 import cx from 'classnames'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCheck,
+  faChevronLeft,
+  faChevronRight,
+  faStar,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { TRIAL_PAGE } from './config'
@@ -408,9 +414,9 @@ export default function TrialPage() {
 const ChecklistItem = ({ label, className, classNameLi }: IChecklistItemProps) => {
   return (
     <div className={cx('my-7 grid grid-cols-12 items-start xl:mt-0', className)}>
-      <Icon
-        className="!w-6 !h-6 mt-1 pt-[3px] text-center border-2 rounded-full border-green-check text-green-check"
-        name="check"
+      <FontAwesomeIcon
+        className="w-4 p-1 mt-1 text-center border-2 rounded-full border-green-check text-green-check"
+        icon={faCheck}
       />
 
       <Text useMD className={cx('col-span-11 pl-2', classNameLi)} content={label} />
@@ -463,7 +469,11 @@ const CourseSlider = () => {
                     {Array(5)
                       .fill(1)
                       .map((i, ii) => (
-                        <Icon key={`star_${ii}`} className="text-yellow text-xl" name="star" />
+                        <FontAwesomeIcon
+                          key={`star_${ii}`}
+                          className="text-yellow text-xl"
+                          icon={faStar}
+                        />
                       ))}
                   </div>
                 </div>
@@ -474,7 +484,7 @@ const CourseSlider = () => {
               <div className="lg:grid lg:grid-cols-2 lg:gap-x-6">
                 {program.courses.map((course, index) => (
                   <div key={`course_${index}`} className="grid grid-cols-12 gap-1 mb-1 lg:mb-4">
-                    <Icon className="text-primary pt-1" name="check" />
+                    <FontAwesomeIcon className="text-primary" size="lg" icon={faCheck} />
 
                     <Text className="col-span-11 pl-1" content={course} />
                   </div>
@@ -489,14 +499,14 @@ const CourseSlider = () => {
       <div
         ref={(node) => setPrevEl(node)}
         className="absolute top-1/2 -left-[14px] clickable-shadow flex w-6 h-6 flex-center rounded-full bg-primary lg:-left-8">
-        <Icon className="text-white text-sm" name="chevron-left" />
+        <FontAwesomeIcon className="text-white text-sm" icon={faChevronLeft} />
       </div>
 
       {/* RIGHT ARROW ICON */}
       <div
         ref={(node) => setNextEl(node)}
         className="absolute top-1/2 -right-[14px] clickable-shadow flex w-6 h-6 flex-center rounded-full bg-primary lg:-right-8">
-        <Icon className="text-white text-sm" name="chevron-right" />
+        <FontAwesomeIcon className="text-white text-sm" icon={faChevronRight} />
       </div>
     </div>
   )

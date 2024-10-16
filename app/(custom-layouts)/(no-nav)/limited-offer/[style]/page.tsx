@@ -4,11 +4,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
 // components
 import { LIMITED_OFFER } from './config'
-import { IconName } from '@fortawesome/fontawesome-common-types'
 import { Button } from '@/components/Button/Button'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
-import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Image } from '@/components/Image'
@@ -18,6 +16,8 @@ import { Loader } from '@/components/Loader'
 // libraries
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
@@ -170,12 +170,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                 key={`trial_honest_${index}`}
                 className="flex flex-col items-center mt-8 lg:mx-4">
                 <div className="w-24 h-24 flex items-center justify-center rounded-full bg-white">
-                  <Icon
-                    className="text-purple-dark"
-                    name={content.icon as IconName}
-                    size="2x"
-                    type="regular"
-                  />
+                  <FontAwesomeIcon className="text-purple-dark" icon={content.icon} size="2x" />
                 </div>
 
                 <Text.Paragraph className="max-w-sm text-center mt-4" content={content.text} />
@@ -226,10 +221,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               {pageCopy.LEARN.bullet.part1.map((point, index) => (
                 <li key={index} className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-4">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-2"
-                      name="circle-check"
-                      type="regular"
+                      icon={faCircleCheck}
                     />
 
                     <Text.Paragraph
@@ -248,10 +242,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               {pageCopy.LEARN.bullet.part2.map((point, index) => (
                 <li key={index} className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-4">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-2"
-                      name="circle-check"
-                      type="regular"
+                      icon={faCircleCheck}
                     />
 
                     <Text.Paragraph
@@ -271,11 +264,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               <ul className="px-4">
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-8 ml-12">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-4"
-                      name="circle-check"
+                      icon={faCircleCheck}
                       size="lg"
-                      type="regular"
                     />
 
                     <Text.Paragraph
@@ -287,11 +279,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-8">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-4"
-                      name="circle-check"
+                      icon={faCircleCheck}
                       size="lg"
-                      type="regular"
                     />
 
                     <Text.Paragraph
@@ -303,11 +294,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-4 ml-12">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-4"
-                      name="circle-check"
+                      icon={faCircleCheck}
                       size="lg"
-                      type="regular"
                     />
 
                     <Text.Paragraph
@@ -321,11 +311,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               <ul className="px-4 ">
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-4 ml-20">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-4"
-                      name="circle-check"
+                      icon={faCircleCheck}
                       size="lg"
-                      type="regular"
                     />
 
                     <Text.Paragraph
@@ -337,11 +326,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-16 ml-32">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-4"
-                      name="circle-check"
+                      icon={faCircleCheck}
                       size="lg"
-                      type="regular"
                     />
 
                     <Text.Paragraph
@@ -353,11 +341,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-4">
                   <div className="flex flex-col items-start px-4 py-8">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-4 pb-4"
-                      name="circle-check"
+                      icon={faCircleCheck}
                       size="lg"
-                      type="regular"
                     />
 
                     <Text.Paragraph

@@ -4,13 +4,14 @@
 import React, { forwardRef, useContext } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Icon } from '@/components/Icon'
 import { Image } from '@/components/Image'
 import { DEFAULT_TESTIMONIALS } from './CarouselTestimonial'
 // libraries
 import cx from 'classnames'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { faQuoteLeft } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { TTestimonial } from '../../Testimonial/variants/TestimonialDefault'
@@ -85,7 +86,7 @@ export const CarouselTestimonialThinkific = forwardRef(
                   classNameCard
                 )}>
                 <div>
-                  <Icon name="quote-left" size="3x" className="!text-primary mb-4" />
+                  <FontAwesomeIcon icon={faQuoteLeft} size="3x" className="!text-primary mb-4" />
                 </div>
 
                 <p className="mb-4">{review.content}</p>

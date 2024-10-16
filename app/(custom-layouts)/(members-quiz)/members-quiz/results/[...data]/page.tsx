@@ -4,22 +4,8 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 // components
 import { IQuizCardProps, IQuizResults } from '@/components/QuizCard'
-// config
-import { CONFIG } from '../../config'
-// libraries
-import cx from 'classnames'
-import * as yup from 'yup'
-import { orderBy } from 'lodash'
-import { EmailShareButton, FacebookShareButton, TwitterShareButton } from 'react-share'
-// modules
-// utils
-import { getInitials } from '@/utils/functions'
-
-// styles
-import '../../styles.css'
 import Image from 'next/image'
 import { Text } from '@/components/Text/Text'
-import { Icon } from '@/components/Icon'
 import { IDefaultProps } from '@/components'
 import { Card } from '@/components/Card/Card'
 import { Video } from '@/components/Video/Video'
@@ -31,6 +17,26 @@ import { Storage } from '@/modules/Storage'
 import Link from 'next/link'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
+import {
+  faDumbbell,
+  faHeart,
+  faHouse,
+  faMountain,
+  faPeople,
+} from '@awesome.me/kit-545b942488/icons/classic/light'
+// config
+import { CONFIG } from '../../config'
+// libraries
+import cx from 'classnames'
+import { orderBy } from 'lodash'
+import { EmailShareButton, FacebookShareButton, TwitterShareButton } from 'react-share'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faFacebook, faTwitter } from '@awesome.me/kit-545b942488/icons/classic/brands'
+// utils
+import { getInitials } from '@/utils/functions'
+// styles
+import '../../styles.css'
 
 type TStyleUnabbreviated =
   | 'Anxious Preoccupied'
@@ -169,17 +175,17 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
               body={
                 'Get to know yourself and how you interact with others by taking our new attachment style quiz! Each attachment style comes with different characteristics that impact your relationships with friends, family and romantic partners. \n\nTo discover your attachment style in each of these areas visit our Attachment Style Quiz:\n\n'
               }>
-              <Icon type="solid" name="envelope" />
+              <FontAwesomeIcon icon={faEnvelope} />
             </EmailShareButton>
 
             <FacebookShareButton
               url={shareUrl}
               title="Share this quiz with your friends and family!">
-              <Icon type="brands" name="facebook" />
+              <FontAwesomeIcon icon={faFacebook} />
             </FacebookShareButton>
 
             <TwitterShareButton url={shareUrl} title="Try our New Attachment Style Quiz!">
-              <Icon type="brands" name="twitter" />
+              <FontAwesomeIcon icon={faTwitter} />
             </TwitterShareButton>
           </div>
         </div>
@@ -187,13 +193,13 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
         <div className="relative z-10 flex flex-col mb-6">
           <div className="w-16 h-16 bg-white flex justify-center text-center items-center rounded-full">
             {quiz.color === 'pink' && (
-              <Icon name="heart" type="light" className="w-full text-pink text-4xl" />
+              <FontAwesomeIcon icon={faHeart} className="w-full text-pink text-4xl" />
             )}
             {quiz.color === 'teal' && (
-              <Icon name="house" type="light" className="w-full text-teal text-4xl" />
+              <FontAwesomeIcon icon={faHouse} className="w-full text-teal text-4xl" />
             )}
             {quiz.color === 'orange' && (
-              <Icon name="people" type="light" className="w-full text-orange text-4xl" />
+              <FontAwesomeIcon icon={faPeople} className="w-full text-orange text-4xl" />
             )}
           </div>
         </div>
@@ -596,11 +602,7 @@ const StrengthsAndChallangesCard = ({
       )}>
       {/* HEADER */}
       <div className={cx('w-full flex flex-col items-center justify-center py-3', colorSecondary)}>
-        <Icon
-          className="text-4xl"
-          type="light"
-          name={type === 'challenges' ? 'dumbbell' : 'mountain'}
-        />
+        <FontAwesomeIcon size="2x" icon={type === 'challenges' ? faDumbbell : faMountain} />
 
         <span className="font-effra font-bold tracking-0.325">
           {type === 'challenges' ? 'CHALLENGES' : 'STRENGTHS'}

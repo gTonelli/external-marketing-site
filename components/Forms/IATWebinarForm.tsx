@@ -5,7 +5,9 @@ import { useState } from 'react'
 // components
 import { SignupForm } from './SignupForm'
 import { Dialog } from '../Dialog/Dialog'
-import { Icon } from '../Icon'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export const IATWebinarForm = () => {
   const [modalSuccess, setModalSuccess] = useState(false)
@@ -14,9 +16,9 @@ export const IATWebinarForm = () => {
     <>
       <Dialog className="max-w-xl p-4 bg-white rounded-20" isShown={modalSuccess}>
         <div className="w-full flex justify-end mb-2">
-          <Icon
+          <FontAwesomeIcon
             className="cursor-pointer hover:scale-125"
-            name="close"
+            icon={faClose}
             onClick={() => setModalSuccess(false)}
           />
         </div>

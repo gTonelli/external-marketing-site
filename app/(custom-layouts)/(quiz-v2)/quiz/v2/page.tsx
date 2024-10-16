@@ -3,7 +3,6 @@ import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { CarouselSocialProof } from '@/components/Carousel/variants/CarouselSocialProof'
-import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { Animation } from '@/components/Animation'
 import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/AttachmentQuizV2Navigation'
@@ -12,7 +11,8 @@ import { AttachmentQuizV2SplitTestTracker } from '@/components/AttachmentQuizV2/
 // config
 import { Section, StartQuizButton, PAGE_CONFIG } from './config'
 // libraries
-import { IconName } from '@fortawesome/fontawesome-common-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/light'
 
 // styles
 import './styles.css'
@@ -84,7 +84,7 @@ export default function AttachmentQuizV2Page() {
             delay={i * 0.2}
             key={`card_${i}`}
             className="bg-[#F1F2F4] p-4 flex flex-col items-center gap-2 rounded-lg lg:gap-4">
-            <Icon className="text-primary text-4xl" name={card.name} />
+            <FontAwesomeIcon className="text-primary text-4xl" icon={card.icon} />
 
             <strong>{card.text}</strong>
           </Animation>
@@ -159,7 +159,7 @@ export default function AttachmentQuizV2Page() {
             direction="fromTop"
             delay={i * 0.2}
             className="bg-white text-left rounded-lg p-2 lg:p-4">
-            <Icon className="text-primary" name="circle-check" type="light" />
+            <FontAwesomeIcon className="text-primary" icon={faCircleCheck} />
 
             <p>{point}</p>
           </Animation>
@@ -186,7 +186,7 @@ export default function AttachmentQuizV2Page() {
             relationships:
           </p>
 
-          <List listItems={PAGE_CONFIG.listItems} iconName="circle-check" iconType="light" />
+          <List listItems={PAGE_CONFIG.listItems} icon={faCircleCheck} />
 
           <p>Are you ready to embark on a journey of self-discovery?</p>
 
@@ -209,9 +209,9 @@ export default function AttachmentQuizV2Page() {
             key={`feature_${i}`}
             className="bg-white rounded-2xl p-6">
             <div className="grid grid-cols-[24px_1fr] items-start mb-2">
-              <Icon
+              <FontAwesomeIcon
                 className="text-white text-lg bg-black p-1 rounded-md"
-                name={(i + 1) as unknown as IconName}
+                icon={feature.icon}
               />
 
               <Image

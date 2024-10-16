@@ -2,10 +2,10 @@
 
 // core
 import { useEffect, useState } from 'react'
-// components
-import { Icon } from '../Icon'
 // libraries
 import { orderBy } from 'lodash'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfoCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 type TAttachmentStyle = {
   style: string
@@ -58,7 +58,7 @@ export const AttachmentQuizV2ScoreCard = ({
       ))}
 
       <div className="bg-[#F1F2F4] rounded-lg p-2 grid grid-cols-[16px_1fr] gap-2">
-        <Icon className="text-primary" name="info-circle" />
+        <FontAwesomeIcon className="text-primary" icon={faInfoCircle} />
 
         <p className="text-xs leading-4 text-left mb-0">
           Here are the results of your quiz. Based on your answers, you might have traits of a

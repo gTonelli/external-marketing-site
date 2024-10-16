@@ -1,7 +1,6 @@
 // core
 import { useRef, useState } from 'react'
 // components
-import { Icon } from '../Icon'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
 import { TQuizQuestion } from './useAttachmentQuiz'
 import { IUserDataFormSchema } from './AttachmentQuizV2UserDataGroup'
@@ -9,6 +8,8 @@ import { IUserDataFormSchema } from './AttachmentQuizV2UserDataGroup'
 import cx from 'classnames'
 import { Field, FormikErrors, useFormikContext } from 'formik'
 import { get } from 'lodash'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinus, faPlus } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IAttachmentQuizV2PillSelectProps {
   question: TQuizQuestion<'PillSelect'>
@@ -53,9 +54,9 @@ export const AttachmentQuizV2PillSelect = ({
                 : 'border-primary-light bg-white hover:border-primary hover:bg-primary-light/30'
             )}
             onClick={() => onSelectOption(option)}>
-            <Icon
+            <FontAwesomeIcon
               className={cx('mr-2', selectedPills.includes(option) ? 'text-white' : 'text-primary')}
-              name={selectedPills.includes(option) ? 'minus' : 'plus'}
+              icon={selectedPills.includes(option) ? faMinus : faPlus}
             />
 
             <p className="mb-0">{option}</p>
@@ -70,9 +71,9 @@ export const AttachmentQuizV2PillSelect = ({
               : 'border-primary-light bg-white hover:border-primary hover:bg-primary-light/30'
           )}
           onClick={() => onSelectOption('Other')}>
-          <Icon
+          <FontAwesomeIcon
             className={cx('mr-2', selectedPills.includes('Other') ? 'text-white' : 'text-primary')}
-            name={selectedPills.includes('Other') ? 'minus' : 'plus'}
+            icon={selectedPills.includes('Other') ? faMinus : faPlus}
           />
 
           <p className="mb-0">Other</p>

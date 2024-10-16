@@ -10,6 +10,8 @@ import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // config
 import { COPY } from './config'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // style
 import './style.css'
 
@@ -107,16 +109,14 @@ export default function IATWebinarPage() {
           <List
             classNameIcon="!text-green-check mt-1"
             classNameListItems="font-bold mb-4"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={COPY.lifeAsCoach.leftList}
           />
 
           <List
             classNameIcon="!text-green-check mt-1"
             classNameListItems="font-bold mb-4"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={COPY.lifeAsCoach.rightList}
           />
         </div>

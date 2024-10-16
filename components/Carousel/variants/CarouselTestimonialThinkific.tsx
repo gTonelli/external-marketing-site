@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { forwardRef, useContext } from 'react'
+import { forwardRef, useContext } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Image } from '@/components/Image'

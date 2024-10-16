@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { DREAM_LIFE_RESULTS_PAGE as TH } from './config'
 // components
 import { Button } from '@/components/Button/Button'

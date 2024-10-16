@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 import { WELLNESS_PAGE as AP } from './config'
 // components

@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 // components
 import { IFAQProps, IFAQsProps } from './FaqDefault'
 import { Expandable } from '@/components/Expandable'

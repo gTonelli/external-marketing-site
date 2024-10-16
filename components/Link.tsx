@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import { default as NextLink } from 'next/link'
+import NextLink from 'next/link'
 import React, { useCallback, useContext } from 'react'
 // components
 import { IDefaultProps, IDefaultWrapperProps } from '@/components'

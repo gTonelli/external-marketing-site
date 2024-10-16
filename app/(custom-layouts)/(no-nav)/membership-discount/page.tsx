@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 // components
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'

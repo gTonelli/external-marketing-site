@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useState } from 'react'
+import { useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 // libraries

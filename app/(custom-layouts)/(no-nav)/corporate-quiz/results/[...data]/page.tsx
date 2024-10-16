@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 // components
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
@@ -237,6 +237,7 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
             onChange={(e) => setEmail(e.target.value)}
           />
 
+          {/* @ts-ignore */}
           <ReCAPTCHA
             sitekey="6Lee-ywhAAAAAHeIRUIe9Czbhc1Geykay8UPKylA"
             onChange={(val) => onCaptchaChange(val || '')}

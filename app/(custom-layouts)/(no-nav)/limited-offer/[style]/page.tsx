@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 // components
 import { LIMITED_OFFER } from './config'
 import { Button } from '@/components/Button/Button'

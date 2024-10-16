@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useContext } from 'react'
+import { useCallback, useContext } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'

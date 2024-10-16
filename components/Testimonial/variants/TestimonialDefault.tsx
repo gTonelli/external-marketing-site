@@ -1,5 +1,3 @@
-// core
-import React from 'react'
 // libraries
 import cx from 'classnames'
 // components

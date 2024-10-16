@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 // components
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'

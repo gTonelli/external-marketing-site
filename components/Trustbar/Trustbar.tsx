@@ -1,5 +1,5 @@
 'use client'
-/* eslint-disable react/prefer-stateless-function */
+
 // core
 import React from 'react'
 // components

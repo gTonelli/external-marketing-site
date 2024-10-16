@@ -274,14 +274,12 @@ export const InputDefault = <T,>({
           ref={input as React.Ref<HTMLInputElement>}
           autoComplete={autocomplete}
           autoFocus={isFocused || isFocusedHighlight}
-          // @ts-ignore
           className={inputCSS()}
           disabled={isDisabled}
           id={id}
           name={name}
           placeholder={placeholder}
           readOnly={readOnly}
-          // style={{ minWidth: '570px' }} // #DELETE
           type={type}
           // @ts-ignore
           value={value}

@@ -1,7 +1,5 @@
 'use client'
 
-// core
-import React from 'react'
 import { Tooltip } from '@/components/Tooltip'
 // components
 import { IInputDefaultProps } from './InputDefault'

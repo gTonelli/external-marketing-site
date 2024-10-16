@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { forwardRef, useContext, useState } from 'react'
+import { forwardRef, useContext, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Testimonial } from '@/components/Testimonial/Testimonial'

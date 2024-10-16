@@ -355,7 +355,6 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
               <ProgressBar
                 showPercentage
                 className="w-full p-1 mb-8 lg:w-2/3 lg:mb-6"
-                // @ts-ignore
                 color={quizColor}
                 percentage={Number(((100 / questions.length || 1) * currentIndex).toFixed(0))}
               />

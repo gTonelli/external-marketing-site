@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'

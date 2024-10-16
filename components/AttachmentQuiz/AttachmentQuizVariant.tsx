@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { Page } from '@/components/Page'

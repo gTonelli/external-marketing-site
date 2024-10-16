@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
 import { Carousel } from '@/components/Carousel/Carousel'

@@ -1,7 +1,5 @@
 'use client'
 
-// core
-import React from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
 import { Button } from '../Button/Button'

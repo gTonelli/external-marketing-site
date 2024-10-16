@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
 import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'

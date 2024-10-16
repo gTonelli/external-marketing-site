@@ -1,5 +1,5 @@
 // core
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
 import { IButtonDefaultProps, TButtonColor } from './ButtonDefault'

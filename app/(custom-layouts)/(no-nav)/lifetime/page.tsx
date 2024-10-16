@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 // components
 import { LIFETIME } from './config'
 import { ViewportContext } from '@/utils/contexts'

@@ -395,7 +395,6 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
               <Text.Heading className="mb-3" content={secondStyle} />
 
               <Text.Paragraph
-                // @ts-ignore
                 className="mb-5"
                 content={results[secondStyleInitials(secondStyle)].description.content}
               />

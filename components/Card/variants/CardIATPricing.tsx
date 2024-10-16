@@ -1,7 +1,5 @@
 'use client'
 
-// core
-import React from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'

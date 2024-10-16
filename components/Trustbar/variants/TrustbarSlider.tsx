@@ -1,7 +1,5 @@
 'use client'
 
-// core
-import React from 'react'
 // components
 import { Image } from '@/components/Image'
 import { ITrustbarDefaultProps } from './TrustbarDefault'

@@ -5,15 +5,18 @@ import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQui
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { CountdownTimer } from '@/components/CountDownTimer'
-import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoDefault } from '@/components/Video/variants/VideoDefault'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // config
 import { RESULTS } from './config'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { ERoutes } from '@/utils/constants'
 
 interface IFAResultsPageProps {
   ageVariant?: boolean
@@ -87,8 +90,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   className="flex items-start mb-4"
                   classNameIcon="!text-green-check pt-[3px] pr-4"
                   classNameListItems="text-left !text-lg !leading-6"
-                  iconName="circle-check"
-                  iconType="regular"
+                  icon={faCircleCheck}
                   listItems={[bullet_point]}
                 />
               ))}
@@ -101,8 +103,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   className="flex flex-row mb-4"
                   classNameIcon="!text-green-check pt-[3px] pr-4"
                   classNameListItems="text-left !text-lg !leading-6"
-                  iconName="circle-check"
-                  iconType="regular"
+                  icon={faCircleCheck}
                   listItems={[bullet_point]}
                 />
               ))}
@@ -152,10 +153,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
               {RESULTS[style].ATTACHMENT_EXPLAIN.bullets.map(
                 (bullet_point: string, index: number) => (
                   <li key={`traits1_${index}`} className="md:w-1/3 flex items-start mb-4">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-2"
-                      name="circle-check"
-                      type="regular"
+                      icon={faCircleCheck}
                     />
 
                     <p className="text-left font-semibold">{bullet_point}</p>
@@ -264,7 +264,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     className="flex flex-row"
                     classNameIcon="text-yellow-secondary text-xl"
                     classNameListItems="text-left mb-8"
-                    iconName="star"
+                    icon={faStar}
                     listItems={[`${bullet}`]}
                   />
                 ))}
@@ -277,7 +277,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     className="flex flex-row"
                     classNameIcon="text-yellow-secondary text-xl"
                     classNameListItems="text-left mb-8"
-                    iconName="star"
+                    icon={faStar}
                     listItems={[`${bullet}`]}
                   />
                 ))}

@@ -4,7 +4,6 @@
 import React, { useEffect, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Icon } from '@/components/Icon'
 import { Section } from '@/components/Section'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { Text } from '@/components/Text/Text'
@@ -13,6 +12,8 @@ import { Image } from '@/components/Image'
 import cx from 'classnames'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
@@ -254,10 +255,10 @@ export default function LearningLovePage() {
                   {Array(5)
                     .fill(' ')
                     .map((_, j) => (
-                      <Icon
+                      <FontAwesomeIcon
                         key={`star_${i}_${j}`}
                         className="text-blue-tertiary mx-1"
-                        name="star"
+                        icon={faStar}
                       />
                     ))}
                 </div>
@@ -338,7 +339,7 @@ const Testimonial = ({ className, text, author, mobileOnly = false }: ITestimoni
         {Array(5)
           .fill('')
           .map((_, i) => (
-            <Icon key={`star_${i}`} className="text-blue-tertiary mx-1" name="star" />
+            <FontAwesomeIcon key={`star_${i}`} className="text-blue-tertiary mx-1" icon={faStar} />
           ))}
       </div>
 

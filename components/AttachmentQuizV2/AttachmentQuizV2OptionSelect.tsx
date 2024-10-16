@@ -1,11 +1,11 @@
 // components
 import { Field, useFormikContext } from 'formik'
-import { Icon } from '../Icon'
 import { AttachmentQuizV2Heading } from './AttachmentQuizV2Heading'
 import { TQuizQuestion } from './useAttachmentQuiz'
 // libraries
 import cx from 'classnames'
 import { get } from 'lodash'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface IAttachmentQuizV2OptionSelectProps {
   question: TQuizQuestion<'OptionSelect'>
@@ -43,9 +43,9 @@ export const AttachmentQuizV2OptionSelect = ({ question }: IAttachmentQuizV2Opti
                 `block relative w-full py-2 px-4 items-center text-left rounded-lg cursor-pointer transition-all border border-primary
                xxs:py-3 lg:my-0 lg:hover:text-primary lg:hover:bg-primary-light/50 lg:hover:shadow-md lg:flex lg:flex-col lg:flex-1 lg:items-start`
               )}>
-              <Icon
+              <FontAwesomeIcon
                 className={cx('text-center rounded-full text-primary lg:text-3xl')}
-                name={option.iconName}
+                icon={option.icon}
                 type="solid"
               />
 

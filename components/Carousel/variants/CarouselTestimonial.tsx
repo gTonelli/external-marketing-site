@@ -4,7 +4,6 @@
 import React, { forwardRef, useContext, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Icon } from '@/components/Icon'
 import { Testimonial } from '@/components/Testimonial/Testimonial'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
@@ -12,6 +11,8 @@ import { Text } from '@/components/Text/Text'
 import cx from 'classnames'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { TTestimonial } from '../../Testimonial/variants/TestimonialDefault'
@@ -217,7 +218,7 @@ export const CarouselTestimonial = forwardRef(
             ref={(node) => setPrevEl(node)}
             className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 left-1/3 cursor-pointer
             lg:top-1/2 lg:hover:border-primary lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
-            <Icon className="text-primary" name="chevron-left" size="lg" />
+            <FontAwesomeIcon className="text-primary" icon={faChevronLeft} size="lg" />
           </div>
 
           {/* RIGHT ARROW ICON */}
@@ -225,7 +226,7 @@ export const CarouselTestimonial = forwardRef(
             ref={(node) => setNextEl(node)}
             className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 right-1/3
             lg:top-1/2 lg:hover:border-primary lg:cursor-pointer lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
-            <Icon className="text-primary" name="chevron-right" size="lg" />
+            <FontAwesomeIcon className="text-primary" icon={faChevronRight} size="lg" />
           </div>
         </div>
       </section>

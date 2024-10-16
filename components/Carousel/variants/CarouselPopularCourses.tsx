@@ -5,23 +5,18 @@ import React, { useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 // libraries
-import { IconName } from '@fortawesome/fontawesome-common-types'
 import cx from 'classnames'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTriangle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
-import { Icon } from '@/components/Icon'
 import { SwiperOptions } from 'swiper/types'
 
 export interface ICarouselPopularCoursesProps extends IDefaultProps {
-  /**
-   * Font awesome icon name for arrows
-   * @default triangle
-   */
-  arrowIcon?: IconName
   /** Breakpoints object */
   breakpoints?: SwiperOptions['breakpoints']
   /** Classes applied to arrow icon wrapper */
@@ -62,7 +57,6 @@ const defaultBreakpoints = {
 }
 
 export const CarouselPopularCourses = ({
-  arrowIcon = 'triangle',
   breakpoints = defaultBreakpoints,
   className,
   classNameArrowWrapper,
@@ -259,11 +253,9 @@ export const CarouselPopularCourses = ({
               'absolute top-[20%] clickable-shadow group hidden w-10 h-10 flex-center rounded-full bg-grey-2 cursor-pointer lg:flex lg:-left-20',
               classNameArrowWrapper
             )}>
-            <Icon
+            <FontAwesomeIcon
               className="text-white -rotate-90 group-hover:text-primary"
-              name={arrowIcon}
-              size="md"
-              type="solid"
+              icon={faTriangle}
             />
           </div>
 
@@ -274,11 +266,9 @@ export const CarouselPopularCourses = ({
               'absolute top-[20%] clickable-shadow group hidden w-10 h-10 flex-center rounded-full bg-grey-2 cursor-pointer lg:flex lg:-right-20',
               classNameArrowWrapper
             )}>
-            <Icon
+            <FontAwesomeIcon
               className="text-white rotate-90 group-hover:text-primary"
-              name={arrowIcon}
-              size="md"
-              type="solid"
+              icon={faTriangle}
             />
           </div>
         </div>

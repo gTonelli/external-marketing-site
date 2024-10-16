@@ -3,10 +3,11 @@
 import { useState } from 'react'
 // components
 import { AttachmentQuizV2SelfImprovementCard } from './AttachmentQuizV2SelfImprovementCard'
-import { Icon } from '../Icon'
 // libraries
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
+import { faArrowLeftLong, faArrowRightLong } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
 import { offerSectionSelfImprovementSlides } from './config'
 
@@ -55,12 +56,12 @@ export const AttachmentQuizV2SelfImprovementSlider = () => {
       <div className="flex justify-center gap-12 lg:hidden">
         {/* LEFT ARROW ICON */}
         <div ref={(node) => setPrevEl(node)} className="">
-          <Icon className="text-primary" name="arrow-left-long" size="2x" />
+          <FontAwesomeIcon className="text-primary" icon={faArrowLeftLong} size="2x" />
         </div>
 
         {/* RIGHT ARROW ICON */}
         <div ref={(node) => setNextEl(node)} className="">
-          <Icon className="text-primary" name="arrow-right-long" size="2x" />
+          <FontAwesomeIcon className="text-primary" icon={faArrowRightLong} size="2x" />
         </div>
       </div>
     </>

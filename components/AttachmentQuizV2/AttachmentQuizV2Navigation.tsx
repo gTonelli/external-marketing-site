@@ -1,15 +1,11 @@
 'use client'
 
-// core
-import { useRouter } from 'next/navigation'
 // components
 import Image from 'next/image'
-import { Icon } from '../Icon'
 import { IDefaultProps } from '..'
 import Link from 'next/link'
 import cx from 'classnames'
 import { Button } from '../Button/Button'
-// libraries
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 

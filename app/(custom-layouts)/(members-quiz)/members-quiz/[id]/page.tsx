@@ -6,10 +6,12 @@ import { useRouter } from 'next/navigation'
 // components
 import { Button } from '@/components/Button/Button'
 import { Dialog } from '@/components/Dialog/Dialog'
-import { Icon } from '@/components/Icon'
 import { ProgressBar } from '@/components/ProgressBar'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faTimes } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faHeart, faHouse, faPeople } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { CONFIG, ICalculateQuizPointsParams } from '../config'
@@ -181,7 +183,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
           <div
             className="w-6 h-6 flex-center rounded-full border border-black absolute top-7 right-7 clickable"
             onClick={() => setShowLeaveConfirmationWithQuizId('')}>
-            <Icon name="times" />
+            <FontAwesomeIcon icon={faTimes} />
           </div>
 
           <Text.Heading className="mb-2" content="Are you sure you want to leave?" />
@@ -294,7 +296,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
               <div
                 className="w-6 h-6 flex-center rounded-full border border-black absolute top-7 right-7 clickable"
                 onClick={() => setShowLeaveConfirmationWithQuizId('')}>
-                <Icon name="times" />
+                <FontAwesomeIcon icon={faTimes} />
               </div>
 
               <Text.Heading className="mb-2" content="Are you sure you want to leave?" />
@@ -391,9 +393,9 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
                 <button
                   className="flex flex-col items-center justify-center p-0"
                   onClick={onGoToPreviousQuestion}>
-                  <Icon
-                    name="chevron-left"
-                    className="flex items-center justify-center w-8 h-8 p-2 text-primary rounded-full bg-white shadow-lg"
+                  <FontAwesomeIcon
+                    className="flex items-center justify-center w-4 h-8 p-2 text-primary rounded-full bg-white shadow-lg"
+                    icon={faChevronLeft}
                   />
 
                   <span className="w-max">
@@ -428,24 +430,21 @@ const QuizIcon = ({ color, isActive, label, onClick }: IQuizIconProps) => (
         isActive && `bg-${color} transform scale-150`
       )}>
       {color === 'pink' && (
-        <Icon
+        <FontAwesomeIcon
           className={cx(`w-full `, isActive ? 'text-white scale-150' : 'text-pink')}
-          name="heart"
-          type="light"
+          icon={faHeart}
         />
       )}
       {color === 'teal' && (
-        <Icon
+        <FontAwesomeIcon
           className={cx(`w-full `, isActive ? 'text-white scale-150' : 'text-teal')}
-          name="house"
-          type="light"
+          icon={faHouse}
         />
       )}
       {color === 'orange' && (
-        <Icon
+        <FontAwesomeIcon
           className={cx(`w-full`, isActive ? 'text-white scale-150' : 'text-orange')}
-          name="people"
-          type="light"
+          icon={faPeople}
         />
       )}
     </div>

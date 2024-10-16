@@ -13,13 +13,15 @@ import { CountdownTimer } from '@/components/CountDownTimer'
 import { List } from '@/components/List'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { Card } from '@/components/Card/Card'
-import { Icon } from '@/components/Icon'
-import { Video } from '@/components/Video/Video'
 import { Loader } from '@/components/Loader'
-//library
+//libraries
 import cx from 'classnames'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
@@ -28,7 +30,6 @@ import { formatPrice, getOfferEndDate } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 
 interface IPricingPlan {
   title: string
@@ -169,9 +170,8 @@ export default function LifeTimePage() {
               className="flex flex-col items-start py-4"
               classNameIcon="!text-black !pt-[10px] pr-2"
               classNameListItems="text-left text-black !leading-6 pt-4"
-              iconName="circle-small"
+              icon={faCircleSmall}
               iconSize="xs"
-              iconType="solid"
               listItems={LIFETIME.SITUATION_SECTION.bullets}
             />
           </div>
@@ -194,9 +194,8 @@ export default function LifeTimePage() {
               className="flex flex-col items-start py-4"
               classNameIcon="!text-black !pt-[10px] pr-2"
               classNameListItems="text-left text-black !leading-6 pt-4"
-              iconName="circle-small"
+              icon={faCircleSmall}
               iconSize="xs"
-              iconType="solid"
               listItems={LIFETIME.IMAGINE_SECTION.bullets}
             />
           </div>
@@ -237,8 +236,7 @@ export default function LifeTimePage() {
               className="flex flex-col md:grid md:grid-cols-2 md:grid-rows-3 gap-x-12 md:gap-y-8"
               classNameIcon="!text-green-check pt-[4px] pr-2"
               classNameListItems="text-left !text-lg !leading-6 pb-4 md:pb-0"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={LIFETIME.UNLOCK_SECTION.bullets}
             />
           </div>
@@ -384,11 +382,10 @@ export default function LifeTimePage() {
                             'w-full flex justify-start items-center rounded-full pl-5 py-3 pr-3',
                             benefitIndex % 2 !== 0 && 'bg-primary-light/20'
                           )}>
-                          <Icon
+                          <FontAwesomeIcon
                             className="text-green-500 mr-2"
-                            name="circle-check"
+                            icon={faCircleCheck}
                             size="lg"
-                            type="regular"
                           />
 
                           <Text className="font-sspb text-sm" content={benefit} />
@@ -532,15 +529,15 @@ export default function LifeTimePage() {
               </div>
 
               <div className="col-start-3 row-start-2">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-4 row-start-2">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-5 row-start-2">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-span-2 row-start-3 place-self-start w-full bg-primary-light/20 text-left rounded-l-full pl-4">
@@ -551,15 +548,15 @@ export default function LifeTimePage() {
               </div>
 
               <div className="col-start-3 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-4 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-5 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-span-2 row-start-4 place-self-start pl-4">
@@ -570,15 +567,15 @@ export default function LifeTimePage() {
               </div>
 
               <div className="col-start-3 row-start-4">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-4 row-start-4">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-5 row-start-4">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-span-2 row-start-5 place-self-start w-full bg-primary-light/20 text-left rounded-l-full pl-4">
@@ -589,15 +586,15 @@ export default function LifeTimePage() {
               </div>
 
               <div className="col-start-3 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-4 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-5 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-span-2 row-start-6 place-self-start pl-4">
@@ -608,15 +605,15 @@ export default function LifeTimePage() {
               </div>
 
               <div className="col-start-3 row-start-6">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-4 row-start-6">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-5 row-start-6">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-span-2 row-start-7 place-self-start w-full bg-primary-light/20 text-left rounded-l-full pl-4">
@@ -627,15 +624,15 @@ export default function LifeTimePage() {
               </div>
 
               <div className="col-start-3 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-4 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
 
               <div className="col-start-5 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
-                <Icon className="text-green-check" name="circle-check" type="regular" />
+                <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
               </div>
             </div>
           </section>
@@ -684,7 +681,7 @@ export default function LifeTimePage() {
                 lg:items-start lg:mr-20 lg:mb-0">
             {LIFETIME.COURSE_BENEFITS_SECTION.bullets.map((benefit, index) => (
               <div key={`lifetime_explore_course_benefit_${index}`} className="flex space-x-4">
-                <Icon className="text-primary pt-1" name="circle-check" size="md" type="regular" />
+                <FontAwesomeIcon className="text-primary pt-1" icon={faCircleCheck} />
 
                 <Text content={benefit} />
               </div>

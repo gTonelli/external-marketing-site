@@ -1,4 +1,21 @@
-﻿export const LIMITED_OFFER = {
+﻿// libraries
+import {
+  faAngry,
+  faBuilding,
+  faCommentCaptions,
+  faDoorOpen,
+  faFaceExplode,
+  faFaceSadTear,
+  faGifts,
+  faHeartCrack,
+  faHome,
+  faMeh,
+  faMessages,
+  faQuestion,
+  faSnowflake,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
+
+export const LIMITED_OFFER = {
   LOGO_FEATURE: {
     title: 'our products have been featured in',
     image: [
@@ -17,7 +34,7 @@
     HERO: {
       headline:
         'Are You Ready To Experience Profound Relationships That Give You The Reassurance And Confidence You Need?',
-      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!'
+      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!',
     },
     QUOTE: {
       quote: 'TO SUCCEED AT ANYTHING, WE MUST PROPERLY UNDERSTAND IT FIRST.',
@@ -32,19 +49,19 @@
         'If you find yourself sometimes having unhealthy ways of operating in relationships like: ',
       bullet: [
         {
-          icon: 'heart-crack',
+          icon: faHeartCrack,
           text: 'Fearing abandonment and seeking so much closeness that people see you as “needy”.',
         },
         {
-          icon: 'messages',
+          icon: faMessages,
           text: 'Having difficulty expressing your emotions in healthy, direct, and assertive ways.',
         },
         {
-          icon: 'angry',
+          icon: faAngry,
           text: 'Getting passive-aggressive and resentful when people don’t meet your expectations.',
         },
         {
-          icon: 'home',
+          icon: faHome,
           text: 'Putting the wants and needs of others before your own and abandoning yourself in the process.',
         },
       ],
@@ -212,7 +229,7 @@
     HERO: {
       headline:
         'Are You Ready To Experience Relationships That Give You Your Space, Freedom, And Independence?',
-      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!'
+      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!',
     },
     QUOTE: {
       quote: 'TO SUCCEED AT ANYTHING, WE MUST PROPERLY UNDERSTAND IT FIRST.',
@@ -227,19 +244,19 @@
         'If you find yourself sometimes having unhealthy ways of operating in relationships like: ',
       bullet: [
         {
-          icon: 'snowflake',
+          icon: faSnowflake,
           text: 'Fearing vulnerability and opening up to others so much that people see you as “cold”.',
         },
         {
-          icon: 'meh',
+          icon: faMeh,
           text: 'Having difficulty expressing your emotions, so you shut down instead.',
         },
         {
-          icon: 'door-open',
+          icon: faDoorOpen,
           text: 'Shutting people out or pushing them away because you fear them getting too close to you.',
         },
         {
-          icon: 'building',
+          icon: faBuilding,
           text: 'Feeling suffocated or trapped by the demands of romantic relationships.',
         },
       ],
@@ -398,7 +415,7 @@
     HERO: {
       headline:
         'Are You Ready To Have Deeply Connected Relationships Without Losing Your Freedom And Independence?',
-      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!'
+      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!',
     },
     QUOTE: {
       quote: 'TO SUCCEED AT ANYTHING, WE MUST PROPERLY UNDERSTAND IT FIRST.',
@@ -413,13 +430,13 @@
         'If you find yourself sometimes having unhealthy ways of operating in relationships like: ',
       bullet: [
         {
-          icon: 'heart-crack',
+          icon: faHeartCrack,
           text: 'Fearing abandonment and betrayal enough that it causes you to push others away',
         },
-        { icon: 'messages', text: 'Having difficulty expressing your emotions in healthy ways' },
-        { icon: 'face-sad-tear', text: 'Pushing people away when you feel overwhelmed' },
+        { icon: faMessages, text: 'Having difficulty expressing your emotions in healthy ways' },
+        { icon: faFaceSadTear, text: 'Pushing people away when you feel overwhelmed' },
         {
-          icon: 'gifts',
+          icon: faGifts,
           text: 'Over-giving until you’re burnt out and then feeling resentful towards others',
         },
       ],
@@ -576,7 +593,7 @@
     HERO: {
       headline:
         'Are You Ready To Experience The Balanced, Harmonious, And Fulfilling Relationships That You Deserve?',
-      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!'
+      copy: 'Join our personalized programs at The Personal Development School, equipped with tools to transform your patterns in just 30 days. Enhance current relationships, foster enduring love, and connect with emotionally available individuals. Enroll now to All-Access Pass for exclusive access!',
     },
     QUOTE: {
       quote: 'TO SUCCEED AT ANYTHING, WE MUST PROPERLY UNDERSTAND IT FIRST.',
@@ -590,16 +607,19 @@
       subheadline: 'Do you keep experiencing things in your relationships like:',
       bullet: [
         {
-          icon: 'comment-captions',
+          icon: faCommentCaptions,
           text: 'Getting frustrated when others struggle to express themselves clearly and directly.',
         },
         {
-          icon: 'heart-crack',
+          icon: faHeartCrack,
           text: 'Feeling unfulfilled in your relationships, even though you know you have the skills to make them work.',
         },
-        { icon: 'question', text: 'Having a hard time relating to people’s abandonment, trust, or comittment issues.' },
         {
-          icon: 'face-explode',
+          icon: faQuestion,
+          text: 'Having a hard time relating to people’s abandonment, trust, or comittment issues.',
+        },
+        {
+          icon: faFaceExplode,
           text: 'Not understanding why even you get triggered sometimes.',
         },
       ],

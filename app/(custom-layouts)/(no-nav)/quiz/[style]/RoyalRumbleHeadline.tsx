@@ -4,6 +4,8 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { List } from '@/components/List'
 import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG } from './config'
+// libraries
+import { faChevronDoubleRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { TStyle } from '@/utils/types'
 import { ERoutes } from '@/utils/constants'
@@ -68,7 +70,7 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
           className="my-8"
           classNameListItems="items-center mb-2"
           classNameText="md:text-lg"
-          iconName="chevron-double-right"
+          icon={faChevronDoubleRight}
           iconSize="sm"
           listItems={ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy1}
         />

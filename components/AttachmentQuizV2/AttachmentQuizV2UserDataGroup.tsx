@@ -4,10 +4,11 @@ import { IQuizComponentDefaultArgs, TQuizQuestion, TQuizQuestionType } from './u
 import { Button } from '../Button/Button'
 import { AttachmentQuizV2OptionSelect } from './AttachmentQuizV2OptionSelect'
 import { AttachmentQuizV2PillSelect } from './AttachmentQuizV2PillSelect'
-import { Icon } from '../Icon'
 // libraries
 import { Form, Formik, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { Regexes } from '@/utils/constants'
 
@@ -22,7 +23,6 @@ export const AttachmentQuizV2UserDataGroup = ({
   onGoBack,
   onSubmitted,
   getQuestionType,
-  step,
 }: IAttachmentQuizV2UserDataGroupProps) => {
   const onSubmit = (
     values: IUserDataFormSchema,
@@ -76,7 +76,7 @@ export const AttachmentQuizV2UserDataGroup = ({
             <div
               className="flex items-center text-grey cursor-pointer rounded-full transition-colors lg:bg-transparent lg:px-4 lg:py-2 lg:w-max lg:hover:text-primary lg:hover:bg-grey/20"
               onClick={() => onGoBack()}>
-              <Icon className="mr-2" name="chevron-left" />
+              <FontAwesomeIcon className="mr-2" icon={faChevronLeft} />
 
               <strong>BACK</strong>
             </div>

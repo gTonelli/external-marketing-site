@@ -3,8 +3,10 @@ import React from 'react'
 // libraries
 import cx from 'classnames'
 // components
-import { Icon } from '../../Icon'
 import { Image } from '../../Image'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export interface IReviewProps {
   className?: string
@@ -57,7 +59,11 @@ export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IRe
           {Array(review.score || 5)
             .fill(1)
             .map((_: any, ii: number) => (
-              <Icon key={`star_'${ii}`} className={`text${'-' + ratingBg}`} name="star" />
+              <FontAwesomeIcon
+                key={`star_'${ii}`}
+                className={`text${'-' + ratingBg}`}
+                icon={faStar}
+              />
             ))}
         </div>
 

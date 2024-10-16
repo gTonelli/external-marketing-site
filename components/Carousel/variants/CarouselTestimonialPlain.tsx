@@ -1,14 +1,15 @@
 'use client'
 
 // components
-import { Icon } from '@/components/Icon'
+import { Animation } from '@/components/Animation'
 // libraries
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { isMobile } from 'react-device-detect'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // styles
 import 'swiper/css'
-import { Animation } from '@/components/Animation'
-import { isMobile } from 'react-device-detect'
 
 export const CarouselTestimonialPlain = () => {
   return (
@@ -45,10 +46,10 @@ export const CarouselTestimonialPlain = () => {
               {Array(5)
                 .fill(undefined)
                 .map((_, j) => (
-                  <Icon
+                  <FontAwesomeIcon
                     key={`testimonial_${i}_star_${j}`}
                     className="text-yellow-tertiary mr-1"
-                    name="star"
+                    icon={faStar}
                   />
                 ))}
             </div>

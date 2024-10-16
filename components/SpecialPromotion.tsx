@@ -8,7 +8,6 @@ import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'
 import { Card } from '@/components/Card/Card'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { Faq } from '@/components/Faq/Faq'
-import { Icon } from '@/components/Icon'
 import { Section } from '@/components/Section'
 import { SocialProofBar } from '@/components/SocialProofBar'
 import { ITextDefaultProps } from '@/components/Text/variants/TextDefault'
@@ -20,6 +19,20 @@ import { List } from '@/components/List'
 import cx from 'classnames'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import {
+  faChevronLeft,
+  faCircle,
+  faStar,
+  faChevronRight,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import {
+  faCircleCheck,
+  faClock,
+  faEye,
+  faHeart,
+  faSadTear,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
@@ -124,7 +137,7 @@ export const SpecialPromotion = () => {
               classNameIcon="!text-3xl text-yellow"
               classNameListItems="my-4 font-bold lg:my-5 lg:!pl-7"
               classNameText="lg:pl-3"
-              iconName="star"
+              icon={faStar}
               listItems={[
                 'Healing your attachment style and overcoming your greatest obstacles to happy, healthy relationships.',
                 'Battling anxiety, depression, loneliness, and deep sadness.',
@@ -175,7 +188,7 @@ export const SpecialPromotion = () => {
             <List
               classNameIcon="!text-white !text-xxs pt-[6px]"
               classNameListItems="font-medium my-4 text-lg"
-              iconName="circle"
+              icon={faCircle}
               listItems={[
                 '3X more self-confidence and fulfillment in their dating lives (if single).',
                 'A 50% improvement in their current relationship (if in a committed relationship).',
@@ -256,7 +269,7 @@ export const SpecialPromotion = () => {
             <List
               classNameIcon="!text-black text-[0.25em] pt-[6px]"
               classNameListItems="font-bold text-lg"
-              iconName="circle"
+              icon={faCircle}
               listItems={[
                 'Setting boundaries to end compulsive people-pleasing',
                 'Learning your relationship needs to feel truly loved',
@@ -301,7 +314,7 @@ export const SpecialPromotion = () => {
             <List
               classNameIcon="!text-black text-[0.25em] pt-[6px]"
               classNameListItems="text-lg"
-              iconName="circle"
+              icon={faCircle}
               listItems={[
                 `**Live webinars** - Each week, I’ll break down your course learnings in more detail and share practical tips and examples 
                 on how to use the tools and techniques in your life.`,
@@ -418,7 +431,7 @@ export const SpecialPromotion = () => {
           <div className="lg:grid lg:grid-cols-4 lg:gap-6">
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="eye" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faEye} />
               </div>
 
               <MHAPageText
@@ -429,7 +442,7 @@ export const SpecialPromotion = () => {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="heart" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faHeart} />
               </div>
 
               <MHAPageText
@@ -440,7 +453,7 @@ export const SpecialPromotion = () => {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="sad-tear" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faSadTear} />
               </div>
 
               <MHAPageText
@@ -451,7 +464,7 @@ export const SpecialPromotion = () => {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="clock" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faClock} />
               </div>
 
               <MHAPageText
@@ -496,8 +509,7 @@ export const SpecialPromotion = () => {
               className="mb-4"
               classNameIcon="text-success"
               classNameListItems="my-4"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={[
                 `Our complete library of video courses you can watch to manage emotions, learn new 
             coping mechanisms, and get to the bottom of your biggest challenges.`,
@@ -647,7 +659,7 @@ const CarouselCourses = () => {
           className="clickable-shadow hidden w-8 h-8 flex-center rounded-full bg-grey-20 absolute top-1/2 z-5
             lg:flex lg:-left-3 lg:top-[calc(50%-2rem)]
             3xl:-left-10 xl:w-10 xl:h-10">
-          <Icon className="text-primary" name="chevron-left" size="lg" />
+          <FontAwesomeIcon className="text-primary" icon={faChevronLeft} size="lg" />
         </div>
 
         {/* RIGHT ARROW ICON */}
@@ -656,7 +668,7 @@ const CarouselCourses = () => {
           className="clickable-shadow hidden w-8 h-8 flex-center rounded-full bg-grey-20 absolute top-1/2 z-5
             lg:flex lg:-right-3 lg:top-[calc(50%-2rem)]
             3xl:-right-10 xl:w-10 xl:h-10">
-          <Icon className="text-primary" name="chevron-right" size="lg" />
+          <FontAwesomeIcon className="text-primary" icon={faChevronRight} size="lg" />
         </div>
       </div>
     </Section>

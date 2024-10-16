@@ -5,12 +5,17 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
-import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { RoyalRumbleHeadline } from './RoyalRumbleHeadline'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCheckCircle,
+  faCircleCheck,
+  faSquareCheck,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
 import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG, AGE_PRICING } from './config'
@@ -143,10 +148,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   return (
                     <div key={`content_${index}`} className={`${MARGIN}`}>
                       <div className="flex row text-left">
-                        <Icon
+                        <FontAwesomeIcon
                           className="text-primary mr-2 my-auto w-4 h-4"
-                          name="square-check"
-                          type="regular"
+                          icon={faSquareCheck}
                         />
 
                         <p className="md:text-lg font-bold font-effra capitalize">
@@ -458,10 +462,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <ul className="mt-4 !ml-6 fa-ul text-white font-effra md:text-lg">
               {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.bullets.map((copy, index) => (
                 <li key={`programcover_${index}`}>
-                  <Icon
+                  <FontAwesomeIcon
                     className="text-blue mr-2 my-auto w-4 h-4 fa-li"
-                    name="check-circle"
-                    type="regular"
+                    icon={faCheckCircle}
                   />
 
                   <p className="my-4">{copy}</p>
@@ -537,10 +540,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                 <ul className="font-effra !ml-6 fa-ul max-w-[415px]">
                   {ROYAL_RUMBLE.EXCLUSIVEBONUS_SEGMENT.map((copy, index) => (
                     <li key={`bonus_${index}`} className="mb-6">
-                      <Icon
+                      <FontAwesomeIcon
                         className="text-primary mr-2 mt-1 my-auto w-4 h-4 fa-li"
-                        name="check-circle"
-                        type="regular"
+                        icon={faCheckCircle}
                       />
 
                       <p className="md:text-lg">{copy}</p>
@@ -550,10 +552,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
                 <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-[415px]">
                   <li className="font-bold text-primary mb-4">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-primary mr-2 my-auto w-4 h-4 fa-li"
-                      name="check-circle"
-                      type="regular"
+                      icon={faCheckCircle}
                     />
                     Not to mention, a 7-day money-back guarantee!
                   </li>
@@ -787,8 +788,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
                 {ageVariant ? (
                   <List
-                    iconName="circle-check"
-                    iconType="regular"
+                    icon={faCircleCheck}
                     iconSize="lg"
                     className="mt-4"
                     classNameIcon="text-primary !mt-4"
@@ -814,9 +814,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                     <ul className="font-effra !ml-4 fa-ul">
                       {ROYAL_RUMBLE[style].OFFER_SEGMENT.bullets.map((copy, index) => (
                         <li key={`offer_${index}`}>
-                          <Icon
+                          <FontAwesomeIcon
                             className="text-primary my-auto w-4 h-4 fa-li"
-                            name="check-circle"
+                            icon={faCheckCircle}
                             type="regular"
                           />
                           <p className="md:text-lg my-2 lg:my-1">{copy} </p>

@@ -1,10 +1,14 @@
 'use client'
 
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+// core
+import { Dispatch, SetStateAction, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import cx from 'classnames'
+// components
 import { IDefaultProps } from '.'
-import { Icon } from './Icon'
+// libraries
+import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IToastProps extends IDefaultProps {
   type: 'success' | 'error' | 'neutral'
@@ -42,7 +46,7 @@ export const Toast = ({
           )}>
           <p>{message}</p>
 
-          <Icon name="close" className="p-2" onClick={() => setShowToast(false)} />
+          <FontAwesomeIcon icon={faClose} className="p-2" onClick={() => setShowToast(false)} />
         </div>,
         document.body
       )

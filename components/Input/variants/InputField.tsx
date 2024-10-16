@@ -2,14 +2,15 @@
 
 // core
 import React from 'react'
-import { Icon } from '@/components/Icon'
 import { Tooltip } from '@/components/Tooltip'
 // components
 import { IInputDefaultProps } from './InputDefault'
-import cx from 'classnames'
 // libraries
+import cx from 'classnames'
 import { Field, FieldProps, useFormikContext } from 'formik'
 import { get } from 'lodash'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IInputFieldMUIProps extends IInputDefaultProps {
   className?: string
@@ -92,7 +93,7 @@ export const InputField = ({
                 color="danger"
                 message={get(errors, name)}
                 side={tooltipSide}>
-                <Icon className="text-danger" name="exclamation-circle" size="lg" />
+                <FontAwesomeIcon className="text-danger" icon={faExclamationCircle} size="lg" />
               </Tooltip>
             </div>
           )}

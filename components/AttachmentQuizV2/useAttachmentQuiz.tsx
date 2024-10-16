@@ -8,8 +8,8 @@ import { TStyle } from '@/utils/types'
 // config
 import { defaultQuestionGroups, quizPillSelectOptions } from './config'
 // libraries
-import { IconName } from '@fortawesome/fontawesome-common-types'
 import { isMobile } from 'react-device-detect'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { Maybe } from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
@@ -17,7 +17,6 @@ import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { indexOf } from 'lodash'
 import { Storage } from '@/modules/Storage'
-// utils
 
 export interface IQuizComponentDefaultArgs {
   readonly questionGroup?: IAttachmentStyleQuestionGroup | IUserDataGroup
@@ -43,7 +42,7 @@ type TFormInputData = {
 
 type TOptionSelectData = {
   readonly heading?: string
-  readonly iconName: IconName
+  readonly icon: IconProp
   readonly value: string | TPossibleQuizQuestionValues
   readonly subheading?: string
 }

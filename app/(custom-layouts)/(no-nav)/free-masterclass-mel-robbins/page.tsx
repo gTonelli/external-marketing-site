@@ -55,6 +55,7 @@ export default function freeMasterclassMelRobbinsPage() {
 
           <div className="mt-6">
             <VideoThumbnail
+              className="max-w-lg mx-auto"
               srcUrl="https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4"
               thumbnailUrl="RoyalRumblePage/mel-robbins.jpg"
               thumbnailAlt={`Video Mel Robbins thumbnail`}

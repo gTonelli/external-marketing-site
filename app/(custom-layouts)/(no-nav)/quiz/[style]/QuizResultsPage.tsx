@@ -18,21 +18,33 @@ import {
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
-import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG, AGE_PRICING } from './config'
+import {
+  ROYAL_RUMBLE as CONFIG,
+  AGE_CONFIG,
+  AGE_PRICING,
+  MEL_ROBBINS_CONFIG as MR_CONFIG,
+  TConfig,
+} from './config'
 import { ERoutes } from '@/utils/constants'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IQuizResultsPageProps {
   style: TStyle
   ageVariant?: boolean
+  melRobbinsVariant?: boolean
 }
 
-export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageProps) => {
-  const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : CONFIG
+export const QuizResultsPage = ({
+  style,
+  ageVariant = false,
+  melRobbinsVariant = false,
+}: IQuizResultsPageProps) => {
+  const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : melRobbinsVariant ? MR_CONFIG : CONFIG
 
   return (
     <>
       {/* BANNER SECTION */}
-      {style === 'da' || style === 'sa' ? (
+      {(style === 'da' || style === 'sa') && !melRobbinsVariant ? (
         <RoyalRumbleHeadline style={style} ageVariant={ageVariant} />
       ) : (
         <section className="w-full">
@@ -40,39 +52,66 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
               <AttachmentQuizHeading
                 copy={ROYAL_RUMBLE[style].HERO_SECTION.headline}
-                className="!font-ssp !text-3xl capitalize lg:!text-4xl"
+                className="!font-ssp !text-3xl text-center capitalize lg:!text-4xl"
               />
 
-              <p className="max-w-3xl uppercase font-bold my-4">
+              <p className="max-w-3xl uppercase font-bold my-4 text-center">
                 {ROYAL_RUMBLE[style].HERO_SECTION.subheadline}
               </p>
 
               {/* BANNER BACKGROUND */}
               <div className="max-w-5xl w-full md:my-8">
-                <div className="flex flex-col md:flex-row justify-center items-center space-x-6 md:px-8">
-                  <div>
+                {melRobbinsVariant && (
+                  <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center md:mb-4">
+                    {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                  </h2>
+                )}
+
+                <div className="flex flex-col lg:flex-row justify-center items-center space-x-6 md:px-8">
+                  <div className="mb-4">
                     <VideoThumbnail
+                      className="lg:max-w-screen-xs"
                       srcUrl={ROYAL_RUMBLE[style].HERO_SECTION.videoURL}
-                      thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
-                      thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
+                      thumbnailAlt={
+                        melRobbinsVariant
+                          ? 'An image of Mel Robbins smiling'
+                          : `Attachment Style: ${style} thumbnail`
+                      }
+                      thumbnailUrl={
+                        melRobbinsVariant
+                          ? 'RoyalRumblePage/mel-robbins.jpg'
+                          : 'RoyalRumblePage/rr-video-thumbnail.png'
+                      }
                       type="default"
                     />
                   </div>
 
-                  <div className="!mx-0 mb-4 md:text-left md:!m-4 md:w-1/2">
-                    <h2 className="text-purple-dark !text-3xl hidden md:block">
-                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                    </h2>
+                  <div className="!mx-0 lg:text-left lg:!mx-4 lg:w-1/2">
+                    {!melRobbinsVariant && (
+                      <h2 className="text-purple-dark mb-4 !text-3xl">
+                        {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                      </h2>
+                    )}
 
-                    <p className="mt-4 hidden md:block">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                    {melRobbinsVariant && (
+                      <List
+                        className="text-black"
+                        classNameListItems="mb-2"
+                        classNameIcon="!text-black w-2 h-2 !pt-1"
+                        // @ts-ignore
+                        listItems={ROYAL_RUMBLE[style].HERO_SECTION.list}
+                        icon={faCircle}
+                        iconSize="xs"
+                      />
+                    )}
 
-                    <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">
-                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                    </h2>
-
-                    <p className="mt-4 md:hidden">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                    {!melRobbinsVariant && <p>{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>}
                   </div>
                 </div>
+
+                {melRobbinsVariant && (
+                  <p className="text-sm text-center">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                )}
               </div>
             </div>
           </div>

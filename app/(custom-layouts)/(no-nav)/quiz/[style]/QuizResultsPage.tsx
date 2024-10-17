@@ -70,8 +70,7 @@ export const QuizResultsPage = ({
                     <p className="font-bold mb-4 hidden lg:block">
                       Our unique, groundbreaking, proprietary process is unlike anything you’ve ever
                       seen before. It is disrupting the relationship industry, because of how fast
-                      it works, and how simple it is! As seen with thousands of students in the
-                      Personal Development School.
+                      it works, and how simple it is!
                     </p>
                   </>
                 )}

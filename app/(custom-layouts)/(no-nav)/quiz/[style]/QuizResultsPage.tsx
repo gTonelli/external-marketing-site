@@ -135,11 +135,11 @@ export const QuizResultsPage = ({
                       {ROYAL_RUMBLE[style].HERO_SECTION.copy}
                     </p>
 
-                    <div className="text-center">
+                    <div className="text-center mb-4 lg:mb-0">
                       <CheckoutButton
                         href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                         className="xxs:px-16"
-                        label="UNLOCK MY DISCOUNT"
+                        label={melRobbinsVariant ? "I'M READY FOR CHANGE" : 'UNLOCK MY DISCOUNT'}
                       />
                     </div>
                   </>
@@ -997,13 +997,13 @@ export const QuizResultsPage = ({
               {copy}
             </p>
           ))}
-        </div>
 
-        <CheckoutButton
-          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-          className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
-          label="REWRITE MY STORY"
-        />
+          <CheckoutButton
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+            className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
+            label="REWRITE MY STORY"
+          />
+        </div>
       </section>
       {/* FAQ SECTION */}
       <Faq

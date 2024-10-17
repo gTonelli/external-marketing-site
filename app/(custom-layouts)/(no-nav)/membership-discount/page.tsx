@@ -1,13 +1,15 @@
 'use client'
 
 // core
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 // components
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { FLASH_SALE_PAGE } from './config'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
@@ -94,8 +96,7 @@ export default function FlashSalePage() {
                 className="flex items-start mb-4"
                 classNameIcon="text-3xl !text-primary pt-[3px] pr-4"
                 classNameListItems="text-left !text-lg !leading-6"
-                iconName="circle-check"
-                iconType="regular"
+                icon={faCircleCheck}
                 listItems={[bullet_point]}
               />
             ))}

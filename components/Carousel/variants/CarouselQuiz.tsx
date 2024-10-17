@@ -1,7 +1,5 @@
 'use client'
 
-// core
-import React from 'react'
 // components
 import { TQuizTheme } from '@/components/Quiz/Quiz'
 // libraries

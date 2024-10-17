@@ -1,6 +1,4 @@
-﻿//core
-import React from 'react'
-//component
+﻿//component
 import { IReviewProps } from './TestimonialDefault'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'

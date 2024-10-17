@@ -1,7 +1,5 @@
 'use client'
 
-// core
-import React from 'react'
 // components
 import { AttachmentQuizVariant } from '@/components/AttachmentQuiz/AttachmentQuizVariant'
 import { ATTACHMENT_QUIZ_VARIANT, TAttachmentQuizVariant } from '../config'

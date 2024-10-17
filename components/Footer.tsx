@@ -1,8 +1,18 @@
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+// core
 import Image from 'next/image'
 import Link from 'next/link'
+// libraries
 import cx from 'classnames'
-import { Icon } from './Icon'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faFacebook,
+  faInstagram,
+  faTiktok,
+  faYoutube,
+} from '@awesome.me/kit-545b942488/icons/classic/brands'
+import { faPodcast } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// utils
+import { EExternalRoutes, ERoutes } from '@/utils/constants'
 
 const todaysDate = new Date()
 const year = todaysDate.getFullYear()
@@ -27,41 +37,37 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
 
           <div className="flex px-4">
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
-              <Icon
+              <FontAwesomeIcon
                 className="text-2xl text-primary-light transition-colors hover:text-primary"
-                name="youtube"
-                type="brands"
+                icon={faYoutube}
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
-              <Icon
+              <FontAwesomeIcon
                 className="text-2xl text-primary-light transition-colors hover:text-primary"
-                name="tiktok"
-                type="brands"
+                icon={faTiktok}
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
-              <Icon
+              <FontAwesomeIcon
                 className="text-2xl text-primary-light transition-colors hover:text-primary"
-                name="facebook"
-                type="brands"
-              />{' '}
+                icon={faFacebook}
+              />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
-              <Icon
+              <FontAwesomeIcon
                 className="text-2xl text-primary-light transition-colors hover:text-primary"
-                name="instagram"
-                type="brands"
+                icon={faInstagram}
               />
             </Link>
 
             <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
-              <Icon
+              <FontAwesomeIcon
                 className="text-2xl text-primary-light transition-colors hover:text-primary"
-                name="podcast"
+                icon={faPodcast}
               />
             </Link>
           </div>

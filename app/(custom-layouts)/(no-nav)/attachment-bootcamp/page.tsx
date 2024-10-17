@@ -11,8 +11,28 @@ import { Faq } from '@/components/Faq/Faq'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Link } from '@/components/Link'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
-import { Icon } from '@/components/Icon'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCheckCircle,
+  faComments,
+  faCompass,
+  faHandHeart,
+  faHeart,
+  faHeartCrack,
+  faLock,
+  faPeopleGroup,
+  faMessagesQuestion,
+  faFaceDisappointed,
+} from '@awesome.me/kit-545b942488/icons/classic/light'
+import {
+  faCcAmex,
+  faCcDiscover,
+  faCcMastercard,
+  faCcPaypal,
+  faCcVisa,
+} from '@awesome.me/kit-545b942488/icons/classic/brands'
 // style
 import './style.css'
 // utils
@@ -158,31 +178,31 @@ export default function AttachmentBootcampPage() {
 
         <div className="grid grid-cols-2 gap-4 my-8 lg:grid-cols-5">
           <div>
-            <Icon name="heart" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faHeart} size="5x" className="text-primary mb-4" />
 
             <p>You are confident and worthy of love</p>
           </div>
 
           <div>
-            <Icon name="comments" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faComments} size="5x" className="text-primary mb-4" />
 
             <p>You experience deep meaningful relationships</p>
           </div>
 
           <div>
-            <Icon name="lock" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faLock} size="5x" className="text-primary mb-4" />
 
             <p>You feel secure in yourself and others</p>
           </div>
 
           <div>
-            <Icon name="people-group" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faPeopleGroup} size="5x" className="text-primary mb-4" />
 
             <p>You are not lonely and have no anxiety or worries</p>
           </div>
 
           <div className="col-span-2 lg:col-span-1">
-            <Icon name="heart-crack" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faHeartCrack} size="5x" className="text-primary mb-4" />
 
             <p>You no longer experience heartache</p>
           </div>
@@ -213,8 +233,7 @@ export default function AttachmentBootcampPage() {
           <List
             classNameIcon="!text-green-check mt-1 mr-4"
             classNameListItems="font-bold mb-4"
-            iconName="check-circle"
-            iconType="light"
+            icon={faCheckCircle}
             listItems={[
               'Rewire your relationship fears and release the baggage weighting down your relationships',
               'Change your built-in habits and patterns by rewiring your subconscious mind',
@@ -226,8 +245,7 @@ export default function AttachmentBootcampPage() {
           <List
             classNameIcon="!text-green-check mt-1 mr-4"
             classNameListItems="font-bold mb-4"
-            iconName="check-circle"
-            iconType="light"
+            icon={faCheckCircle}
             listItems={[
               'Communicate your personal and relationship needs with clarity and confidence',
               'Create deep and meaningful connections with family, friends, and partners',
@@ -367,7 +385,7 @@ export default function AttachmentBootcampPage() {
                   <p>{item.cost}</p>
                 </div>
                 <div>
-                  <Icon name="check-circle" type="light" className="!text-green-check" size="2x" />
+                  <FontAwesomeIcon icon={faCheckCircle} className="!text-green-check" size="2x" />
                 </div>
               </>
             ))}
@@ -423,8 +441,7 @@ export default function AttachmentBootcampPage() {
             <List
               classNameIcon="!text-primary mt-1 mr-4"
               classNameListItems="mb-4"
-              iconName="face-disappointed"
-              iconType="light"
+              icon={faFaceDisappointed}
               listItems={[
                 'Missing out on the relationships you want',
                 'Believing you don’t deserve true love and connection',
@@ -570,8 +587,7 @@ export default function AttachmentBootcampPage() {
           <List
             classNameIcon="!text-green-check mt-1 mr-4"
             classNameListItems="font-bold mb-4"
-            iconName="check-circle"
-            iconType="light"
+            icon={faCheckCircle}
             listItems={[
               'Personalized program tracks tailored to your specific attachment style and goals',
               '30,000+ people experiencing significant change in their lives thanks to the program',
@@ -696,31 +712,31 @@ export default function AttachmentBootcampPage() {
 
         <div className="grid grid-cols-2 gap-4 my-8 lg:grid-cols-5">
           <div>
-            <Icon name="compass" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faCompass} size="5x" className="text-primary mb-4" />
 
             <p>Meet like-minded people who are on their own journey — like you</p>
           </div>
 
           <div>
-            <Icon name="heart" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faHeart} size="5x" className="text-primary mb-4" />
 
             <p>Make healthy relationships with a thriving community</p>
           </div>
 
           <div>
-            <Icon name="people-group" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faPeopleGroup} size="5x" className="text-primary mb-4" />
 
             <p>Have a welcoming and helpful group to turn to for questions</p>
           </div>
 
           <div>
-            <Icon name="hand-heart" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faHandHeart} size="5x" className="text-primary mb-4" />
 
             <p>Have daily support from coaches and peers with support groups</p>
           </div>
 
           <div className="col-span-2 lg:col-span-1">
-            <Icon name="messages-question" type="light" size="5x" className="text-primary mb-4" />
+            <FontAwesomeIcon icon={faMessagesQuestion} size="5x" className="text-primary mb-4" />
 
             <p>Get personal guidance from Thais Gibson via webinars and Q&As</p>
           </div>
@@ -767,11 +783,11 @@ const BootcampPriceCard = () => (
     <CheckoutButton track className="mb-8" label="PAY $149 & SAVE 50%" />
 
     <div className="flex flex-wrap justify-around">
-      <Icon name="cc-amex" type="brands" size="2x" />
-      <Icon name="cc-discover" type="brands" size="2x" />
-      <Icon name="cc-mastercard" type="brands" size="2x" />
-      <Icon name="cc-paypal" type="brands" size="2x" />
-      <Icon name="cc-visa" type="brands" size="2x" />
+      <FontAwesomeIcon icon={faCcAmex} size="2x" />
+      <FontAwesomeIcon icon={faCcDiscover} size="2x" />
+      <FontAwesomeIcon icon={faCcMastercard} size="2x" />
+      <FontAwesomeIcon icon={faCcPaypal} size="2x" />
+      <FontAwesomeIcon icon={faCcVisa} size="2x" />
     </div>
   </div>
 )

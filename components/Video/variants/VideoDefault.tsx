@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { forwardRef, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { forwardRef, useCallback, useContext, useEffect, useRef, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Dialog } from '@/components/Dialog/Dialog'
@@ -111,7 +111,6 @@ export const VideoDefault = ({
   const toggleVideo = useCallback(() => {
     onToggleDialog()
     setIsPlaying((prev) => !prev)
-    
   }, [onToggleDialog])
 
   useEffect(() => {
@@ -288,7 +287,6 @@ export const VideoPlayer = forwardRef<HTMLVideoElement, IVideoPlayer>(
     )
   }
 )
-
 
 // ensure that isYoung is properly populated before the rest of the logic executes
 const useIsYoung = (key: TStorageKeys) => {

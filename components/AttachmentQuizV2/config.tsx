@@ -1,6 +1,37 @@
 import Link from 'next/link'
-import { IconName } from '@fortawesome/fontawesome-common-types'
 import { TQuizQuestions } from './useAttachmentQuiz'
+import {
+  fa1,
+  fa2,
+  fa3,
+  fa4,
+  faFaceConfused,
+  faFaceFrown,
+  faFaceFrownSlight,
+  faFaceMeh,
+  faFaceRaisedEyebrow,
+  faFaceSmile,
+  faFaceSmileBeam,
+  faFaceSmilePlus,
+  faHand,
+  faHandHoldingSeedling,
+  faHeadphonesSimple,
+  faHeartCrack,
+  faImage,
+  faPlusCircle,
+  faRingsWedding,
+  faRocket,
+  faSearchPlus,
+  faShieldCheck,
+  faUser,
+  faUserGroupSimple,
+  faUserHairBuns,
+  faUserVneckHair,
+  faUserVneckHairLong,
+  faUserXmark,
+  faWineGlassCrack,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 export const quizPillSelectOptions = [
   'Anxiety',
@@ -173,19 +204,19 @@ export const defaultQuestionGroups: TQuizQuestions = [
           {
             heading: 'Informed',
             subheading: 'You know more than the average person.',
-            iconName: 'face-smile',
+            icon: faFaceSmile,
             value: 'informed',
           },
           {
             heading: 'Curious',
             subheading: 'You know a bit, but want to know more.',
-            iconName: 'face-raised-eyebrow',
+            icon: faFaceRaisedEyebrow,
             value: 'curious',
           },
           {
             heading: 'Skeptical',
             subheading: 'You’re not convinced yet.',
-            iconName: 'face-confused',
+            icon: faFaceConfused,
             value: 'skeptical',
           },
         ],
@@ -197,17 +228,17 @@ export const defaultQuestionGroups: TQuizQuestions = [
         options: [
           {
             heading: 'Online Search',
-            iconName: 'search-plus',
+            icon: faSearchPlus,
             value: 'online-search',
           },
           {
             heading: 'Friend/Family Referral',
-            iconName: 'face-smile-plus',
+            icon: faFaceSmilePlus,
             value: 'referral',
           },
           {
             heading: 'Other',
-            iconName: 'plus-circle',
+            icon: faPlusCircle,
             value: 'other',
           },
         ],
@@ -217,17 +248,17 @@ export const defaultQuestionGroups: TQuizQuestions = [
         'data-key': 'gender',
         heading: 'What is your gender?',
         options: [
-          { heading: 'Man', iconName: 'user-vneck-hair', value: 'male' },
-          { heading: 'Woman', iconName: 'user-vneck-hair-long', value: 'female' },
-          { heading: 'Transgender', iconName: 'user-hair-buns', value: 'transgender' },
+          { heading: 'Man', icon: faUserVneckHair, value: 'male' },
+          { heading: 'Woman', icon: faUserVneckHairLong, value: 'female' },
+          { heading: 'Transgender', icon: faUserHairBuns, value: 'transgender' },
           {
             heading: 'Non-binary/non-conforming',
-            iconName: 'user',
+            icon: faUser,
             value: 'non-binary',
           },
           {
             heading: 'Prefer not to answer',
-            iconName: 'user-xmark',
+            icon: faUserXmark,
             value: 'prefer-not-to-answer',
           },
         ],
@@ -237,11 +268,11 @@ export const defaultQuestionGroups: TQuizQuestions = [
         'data-key': 'relationship-status',
         heading: 'What is your current relationship status?',
         options: [
-          { heading: 'Single', iconName: 'user', value: 'single' },
-          { heading: 'In a relationship', iconName: 'user-group-simple', value: 'relationship' },
-          { heading: 'Married', iconName: 'rings-wedding', value: 'married' },
-          { heading: 'Divorced', iconName: 'heart-crack', value: 'divorced' },
-          { heading: 'Broken Up', iconName: 'wine-glass-crack', value: 'broken-up' },
+          { heading: 'Single', icon: 'user', value: 'single' },
+          { heading: 'In a relationship', icon: faUserGroupSimple, value: 'relationship' },
+          { heading: 'Married', icon: faRingsWedding, value: 'married' },
+          { heading: 'Divorced', icon: faHeartCrack, value: 'divorced' },
+          { heading: 'Broken Up', icon: faWineGlassCrack, value: 'broken-up' },
         ],
       },
       {
@@ -249,9 +280,9 @@ export const defaultQuestionGroups: TQuizQuestions = [
         'data-key': 'learning-style',
         heading: 'What is your preferred learning style?',
         options: [
-          { heading: 'Visual', iconName: 'image', value: 'visual' },
-          { heading: 'Tactile', iconName: 'hand', value: 'tactile' },
-          { heading: 'Auditory', iconName: 'headphones-simple', value: 'auditory' },
+          { heading: 'Visual', icon: faImage, value: 'visual' },
+          { heading: 'Tactile', icon: faHand, value: 'tactile' },
+          { heading: 'Auditory', icon: faHeadphonesSimple, value: 'auditory' },
         ],
       },
 
@@ -262,27 +293,27 @@ export const defaultQuestionGroups: TQuizQuestions = [
         options: [
           {
             heading: 'Unsatisfied',
-            iconName: 'face-frown',
+            icon: faFaceFrown,
             value: 'unsatisfied',
           },
           {
             heading: 'Partly Unsatisfied',
-            iconName: 'face-frown-slight',
+            icon: faFaceFrownSlight,
             value: 'somewhat-unsatisfied',
           },
           {
             heading: 'Neutral',
-            iconName: 'face-meh',
+            icon: faFaceMeh,
             value: 'neutral',
           },
           {
             heading: 'Partly Satisfied',
-            iconName: 'face-smile',
+            icon: faFaceSmile,
             value: 'somewhat-satisfied',
           },
           {
             heading: 'Satisfied',
-            iconName: 'face-smile-beam',
+            icon: faFaceSmileBeam,
             value: 'satisfied',
           },
         ],
@@ -474,19 +505,23 @@ export const toolsStrategies = [
   {
     heading: 'Take the Quiz',
     body: 'Congratulations – you’ve discovered you have an anxious preoccupied attachment style.',
+    icon: fa1,
   },
   {
     heading: 'Understand Your Attachment Style',
     body: 'Scroll down for insights and check your email for your free personalized report.',
+    icon: fa2,
   },
   {
     youAreHere: true,
     heading: 'Learn Powerful Tools',
     body: 'Take our suggested courses to practice powerful tools to change your attachment style.',
+    icon: fa3,
   },
   {
     heading: 'Build Your Dream Relationships',
     body: 'Become securely attached and create thriving relationships in your life.',
+    icon: fa4,
   },
 ]
 
@@ -533,23 +568,23 @@ export const faqCopy = [
 type TFooterCard = {
   heading: string
   body: string
-  iconName: IconName
+  icon: IconProp
 }
 
 export const footerCards: TFooterCard[] = [
   {
     heading: 'Start Your Journey',
     body: 'We’ll create an inspiring and life-changing roadmap tailored to your attachment style and goals.',
-    iconName: 'rocket',
+    icon: faRocket,
   },
   {
     heading: 'Experience Real Change',
     body: 'Thais will guide you step-by-step, empowering you to overcome challenges and experience positive outcomes.',
-    iconName: 'shield-check',
+    icon: faShieldCheck,
   },
   {
     heading: 'Lifelong Support',
     body: 'Join our global community of like-minded members and certified coaches for a lifetime of support.',
-    iconName: 'hand-holding-seedling',
+    icon: faHandHoldingSeedling,
   },
 ]

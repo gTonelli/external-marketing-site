@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
 import { Backdrop } from '@/components/Backdrop'

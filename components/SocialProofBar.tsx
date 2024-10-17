@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 // components
 import { IDefaultProps } from '.'
 // libraries

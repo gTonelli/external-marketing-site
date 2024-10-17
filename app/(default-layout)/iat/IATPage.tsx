@@ -2,7 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
@@ -12,7 +12,6 @@ import { Dialog } from '@/components/Dialog/Dialog'
 import { Expandable } from '@/components/Expandable'
 import { Faq } from '@/components/Faq/Faq'
 import { Page } from '@/components/Page'
-import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
@@ -23,13 +22,23 @@ import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from './config'
+import { IATBanner } from './IATBanner'
 // libraries
 import cx from 'classnames'
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik'
 import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import * as Yup from 'yup'
-import { IconName } from '@fortawesome/fontawesome-common-types'
+import {
+  faArrowLeftLong,
+  faArrowRightLong,
+  faChevronDown,
+  faChevronsRight,
+  faCircle,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -37,7 +46,6 @@ import { Storage } from '@/modules/Storage'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { IATBanner } from './IATBanner'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -295,7 +303,7 @@ export const IATPage = ({
               className="mt-5 text-left"
               classNameIcon="!text-black mt-3"
               classNameListItems="mt-5"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.initial_weeks.content}
             />
@@ -373,8 +381,7 @@ export const IATPage = ({
               className="mt-3"
               classNameIcon="!text-green-check"
               classNameListItems="font-bold"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={IAT.training.live_training.prerequisite_week.heading}
             />
 
@@ -390,7 +397,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week1}
             />
@@ -401,7 +408,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week2}
             />
@@ -412,7 +419,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week3}
             />
@@ -423,7 +430,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week4}
             />
@@ -440,8 +447,7 @@ export const IATPage = ({
               className="mt-3"
               classNameIcon="!text-green-check"
               classNameListItems="font-bold mt-2"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={IAT.training.live_training.intensive_week.heading}
             />
 
@@ -460,7 +466,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.intensive_week.features.copy}
             />
@@ -472,7 +478,7 @@ export const IATPage = ({
           </div>
         </div>
 
-        <Icon className="text-black mt-13" name="book" size="3x" type="regular" />
+        <FontAwesomeIcon className="text-black mt-13" icon={faBook} size="3x" />
 
         <Text.Heading
           className="text-black !text-[26px] mt-4"
@@ -495,7 +501,7 @@ export const IATPage = ({
               className="mt-6"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.on_demand_training.right_section.course_material}
             />
@@ -540,8 +546,7 @@ export const IATPage = ({
               className="mt-6"
               classNameIcon="!text-green-check"
               classNameListItems="font-bold mt-2"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={IAT.certification.bullets}
             />
 
@@ -607,12 +612,7 @@ export const IATPage = ({
             {IAT.what_you_get.benefits.map((benefit, index) => (
               <div key={`benefit-${index}`}>
                 <div className="flex flex-row mt-10 lg:mt-6">
-                  <Icon
-                    className="text-teal my-auto"
-                    name={benefit.iconName as IconName}
-                    size="lg"
-                    type={benefit.iconType || 'regular'}
-                  />
+                  <FontAwesomeIcon className="text-teal my-auto" icon={benefit.icon} size="lg" />
 
                   <Text.Paragraph
                     className="font-bold ml-5"
@@ -1009,8 +1009,7 @@ const IATPriceCard = ({
               className="text-left mt-7"
               classNameIcon="!text-green-check"
               classNameListItems="mt-4"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={benefits}
             />
 
@@ -1087,8 +1086,7 @@ const IATPriceCard = ({
               className="text-left mt-7"
               classNameIcon="!text-green-check"
               classNameListItems="mt-4"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={benefits}
             />
 
@@ -1151,9 +1149,9 @@ const IATPriceCard = ({
                 onClick={() => setSelectedCardIndex(index)}>
                 <div className="flex items-start mb-2">
                   {selectedCardIndex === index ? (
-                    <Icon className="pt-[5px] text-white" name="check-circle" type="regular" />
+                    <FontAwesomeIcon className="pt-[5px] text-white" icon={faCircleCheck} />
                   ) : (
-                    <Icon className="pt-[5px] text-black" name="circle" type="regular" />
+                    <FontAwesomeIcon className="pt-[5px] text-black" icon={faCircle} />
                   )}
 
                   <div className="flex items-end">
@@ -1246,12 +1244,11 @@ const IATCurriculumCard = ({
       <div className="w-full flex justify-between items-center pb-2 lg:pb-4">
         <Text className="font-semibold uppercase" content={heading} />
 
-        <Icon
+        <FontAwesomeIcon
           className={`text-primary transition-all font-semibold text-xl ml-4 ${
             isOpen ? 'rotate-180' : ''
           }`}
-          name="chevron-down"
-          type="solid"
+          icon={faChevronDown}
         />
       </div>
       <Expandable className="" open={isOpen} trigger="">
@@ -1264,7 +1261,7 @@ const IATCurriculumCard = ({
           className="my-2 lg:my-3"
           classNameIcon="!text-blue !pt-1"
           classNameListItems="my-2"
-          iconName="chevrons-right"
+          icon={faChevronsRight}
           listItems={listItems}
         />
         <Text.Paragraph className="my-2 lg:my-4" content={textBottom} />
@@ -1427,11 +1424,11 @@ const IATTestimonialSection = () => {
 
       <div className="absolute flex right-9 bottom-0">
         <div ref={(node) => setPrevEl(node)} className="mx-2">
-          <Icon name="arrow-left-long" size="lg" />
+          <FontAwesomeIcon icon={faArrowLeftLong} size="lg" />
         </div>
 
         <div ref={(node) => setNextEl(node)} className="mx-2">
-          <Icon name="arrow-right-long" size="lg" />
+          <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
         </div>
       </div>
     </Section>
@@ -1511,7 +1508,7 @@ const IATRegistrationForm = () => {
 
           {formSubmissionError && (
             <div className="flex items-center p-4 bg-danger text-white mt-4 rounded-lg">
-              <Icon className="mr-4" name="xmark-circle" type="light" />
+              <FontAwesomeIcon className="mr-4" icon={faXmarkCircle} />
 
               <Text.Paragraph content={formSubmissionError} />
             </div>

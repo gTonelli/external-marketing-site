@@ -1,6 +1,6 @@
 ﻿'use client'
 
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 //components
 import { Button } from './Button/Button'
 import { Text } from './Text/Text'

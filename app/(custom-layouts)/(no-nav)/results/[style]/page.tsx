@@ -13,6 +13,8 @@ import { TextParagraph } from '@/components/Text/variants/TextParagraph'
 import { CheckoutButton } from '@/components/CheckoutButton'
 // config
 import { RESULTS_COPY } from './config'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
 // styles
@@ -99,16 +101,14 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           <List
             classNameIcon="!text-green-check text-2xl mr-3"
             classNameListItems="mb-6"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={copy.result.listItemsLeft}
           />
 
           <List
             classNameIcon="!text-green-check text-2xl mr-3"
             classNameListItems="mb-6"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={copy.result.listItemsRight}
           />
         </div>
@@ -192,8 +192,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             className="text-left lg:grid lg:grid-cols-3 lg:gap-4"
             classNameIcon="!text-green-check text-2xl mr-3 mt-1"
             classNameListItems="mb-6"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={[
               `Your attachment style represents the subconscious set of rules you formed in childhood about how to love 
               and emotionally connect to others. It is one of the primary predictors of whether a relationship will thrive 

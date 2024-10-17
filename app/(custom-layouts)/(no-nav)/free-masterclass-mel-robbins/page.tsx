@@ -39,6 +39,14 @@ export default function freeMasterclassMelRobbinsPage() {
               />
             </div>
 
+            <div className="flex justify-center mb-4 lg:hidden">
+              <Button
+                track
+                link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                label="GET STARTED"
+              />
+            </div>
+
             <p className="text-center mb-2 lg:mb-4 lg:text-left">
               If you’ve tried traditional methods and modalities for years and years…but are still
               stuck with the same patterns and struggles in your relationship —{' '}

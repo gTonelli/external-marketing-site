@@ -111,6 +111,7 @@ export const config = {
     '/quiz/ap',
     '/quiz/sa',
     '/quiz/results/fa',
+    '/webinar-library',
   ],
 }
 
@@ -125,6 +126,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   const configs: Array<IConfigWithRegex> = [
     { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
+    { regex: /^\/webinar-library/, config: splitTestConfigs.webinarLibraryTest },
     {
       regex: /^\/attachment-report\/fa/,
       config: splitTestConfigs.pdfTestFa,
@@ -246,6 +248,21 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantUrl: {
       path: 'pages/checkout',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
+  webinarLibraryTest: {
+    cookieKey: 'prod-3260',
+    pageName: 'Webinar Library',
+    experimentName: 'PROD-3260 Webinar Library Filters',
+    controlUrl: {
+      path: '/pages/webinar-library',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantUrl: {
+      path: '/pages/webinar-library-1',
       base: 'https://university.personaldevelopmentschool.com',
     },
     variantRatio: 0.5,

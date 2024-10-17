@@ -8,6 +8,7 @@ import { Image } from '@/components/Image'
 import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { FLASH_SALE_PAGE } from './config'
+import { Page } from '@/components/Page'
 // libraries
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
@@ -31,7 +32,7 @@ export default function FlashSalePage() {
   )
 
   return (
-    <main className="w-full">
+    <Page className="w-full" page_name={page_name}>
       {/* Hero Section */}
       <section className="max-w-5xl flex flex-col mx-auto px-4 py-8 md:flex-row md:py-16">
         <div className="w-full flex flex-col items-center flex-1 text-center md:items-start md:text-left">
@@ -222,6 +223,6 @@ export default function FlashSalePage() {
           onClick={onGoToCheckout}
         />
       </section>
-    </main>
+    </Page>
   )
 }

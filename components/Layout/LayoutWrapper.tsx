@@ -16,6 +16,7 @@ export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
         strategy="lazyOnload"
       />
 
+      {/* HOTJAR */}
       <Script defer id="hotjar-script" type="text/javascript" strategy="lazyOnload">
         {`
             (function(h,o,t,j,a,r){

@@ -8,7 +8,7 @@ import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG } from './config'
 import { faChevronDoubleRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { TStyle } from '@/utils/types'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 
 type Props = {
   style: Extract<TStyle, 'da' | 'sa'>
@@ -94,7 +94,7 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
 
         <div className="flex justify-center">
           <CheckoutButton
-            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="mt-8 xxs:px-16 md:mt-10"
             label="UNLOCK MY DISCOUNT"
           />

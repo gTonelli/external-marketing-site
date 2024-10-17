@@ -23,9 +23,8 @@ import {
   AGE_CONFIG,
   AGE_PRICING,
   MEL_ROBBINS_CONFIG as MR_CONFIG,
-  TConfig,
 } from './config'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IQuizResultsPageProps {
@@ -138,7 +137,7 @@ export const QuizResultsPage = ({
 
                     <div className="text-center">
                       <CheckoutButton
-                        href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                        href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                         className="xxs:px-16"
                         label="UNLOCK MY DISCOUNT"
                       />
@@ -185,7 +184,7 @@ export const QuizResultsPage = ({
             </div>
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8 xxs:px-16 md:mt-10"
               label="UNLOCK MY DISCOUNT"
             />
@@ -264,7 +263,7 @@ export const QuizResultsPage = ({
               )}
 
               <CheckoutButton
-                href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                 className="mt-4 px-16 md:mt-10"
                 label="GET STARTED"
               />
@@ -318,7 +317,7 @@ export const QuizResultsPage = ({
             )}
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="px-16"
               label="GET STARTED"
             />
@@ -545,7 +544,7 @@ export const QuizResultsPage = ({
             </ul>
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8 md:mt-10 px-16"
               label="SIGN UP NOW"
             />
@@ -639,7 +638,7 @@ export const QuizResultsPage = ({
 
                   <li className="mt-8 md:mt-10">
                     <CheckoutButton
-                      href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                      href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                       label="ENROLL NOW"
                     />
                   </li>
@@ -699,13 +698,13 @@ export const QuizResultsPage = ({
             <CarouselTestimonialAlt />
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
             />
@@ -759,7 +758,7 @@ export const QuizResultsPage = ({
             ))}
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-2"
               label="I WANT THIS"
             />
@@ -824,7 +823,7 @@ export const QuizResultsPage = ({
           </div>
 
           <CheckoutButton
-            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="mt-6 md:mt-8"
             label="SIGN ME UP"
           />
@@ -940,7 +939,7 @@ export const QuizResultsPage = ({
                   </ul>
 
                   <CheckoutButton
-                    href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                     className="mt-6 md:mt-10"
                     label="REGISTER NOW"
                   />
@@ -1001,7 +1000,7 @@ export const QuizResultsPage = ({
         </div>
 
         <CheckoutButton
-          href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
           className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
           label="REWRITE MY STORY"
         />

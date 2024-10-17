@@ -340,7 +340,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   },
   organicQuizFa: {
     cookieKey: 'gm-1217',
-    pageName: 'Attachment Style Results - Mel Robbins Variant - da',
+    pageName: 'Attachment Style Results - Mel Robbins Variant - fa',
     experimentName: 'Organic Quiz Results with Mel Robbins Video',
     variantUrl: {
       path: '/quiz/b/fa',

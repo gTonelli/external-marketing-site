@@ -1562,75 +1562,102 @@ export const AGE_PRICING = {
 }
 
 export type TConfig = typeof ROYAL_RUMBLE & {
-  fa: { HERO_SECTION: { list: string[] } }
-  da: { HERO_SECTION: { list: string[] } }
-  ap: { HERO_SECTION: { list: string[] } }
-  sa: { HERO_SECTION: { list: string[] } }
+  fa: { HERO_SECTION: { list: string[]; titleSubheadline: string; subheadline: any } }
+  da: { HERO_SECTION: { list: string[]; titleSubheadline: string; subheadline: any } }
+  ap: { HERO_SECTION: { list: string[]; titleSubheadline: string; subheadline: any } }
+  sa: { HERO_SECTION: { list: string[]; titleSubheadline: string; subheadline: any } }
 }
 
 export const MEL_ROBBINS_CONFIG = cloneDeep(ROYAL_RUMBLE) as TConfig
 
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.headline =
-  'Here’s The ONE Thing That Can Save Your Relationships'
-MEL_ROBBINS_CONFIG.fa.HERO_SECTION.subheadline =
-  'This is a Free Masterclass That You Cannot Afford to Miss – Uncover The Life-Changing Secret To Transforming Your Relationships For Life! '
+  'Here’s The ONE Thing That Will Radically Improve Your Relationships Forever'
+MEL_ROBBINS_CONFIG.fa.HERO_SECTION.subheadline = (
+  <>
+    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
+    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+  </>
+)
+MEL_ROBBINS_CONFIG.fa.HERO_SECTION.titleSubheadline =
+  'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.title =
-  'Here’s What You Could Be Missing Out On As A Fearful Avoidant:'
+  'Here’s What You Will Miss Out On As A Fearful Avoidant If You Don’t Watch This Today:'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.copy =
   '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.list = [
-  'How this video will help you, your relationships with others, and help you understand your partner better than ever before',
-  'How you became who you are, what it means, how it impacts your relationships, and why you have the power to change it',
-  'Why Integrated Attachment Theory™ works for everyone – even for people who have spent years using traditional therapy, self-help books, and outdated modalities',
-  'The secret to unlocking and accessing 95% of your brain so you can use it to break unhealthy patterns and habits in yourself and your relationship',
+  'How this video will help YOU, your relationships with others, and help you understand yourself AND your partner better than ever before.',
+  'Finally understand why you are the way you are, what your attachment style means, and how it impacts your relationships, and why now (for the first time) you have the power to change it.',
+  'Why Integrated Attachment Theory™ works for everyone – even for people who have spent years using traditional methods and modalities and still struggle with change.',
+  'The secret to unlocking and rewiring the subconscious patterns (responsible for 95% of what keeps you stuck), so that you can finally change.',
 ]
 
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.headline =
   "Don't Miss This ONE Thing That Can Transform Your Relationships!"
-MEL_ROBBINS_CONFIG.da.HERO_SECTION.subheadline =
-  "Don't Miss This FREE Masterclass To Uncover The Secret To Avoiding Dealbreakers In Your Relationships"
-MEL_ROBBINS_CONFIG.da.HERO_SECTION.title = 'A Masterclass For Dismissive Avoidants:'
+MEL_ROBBINS_CONFIG.da.HERO_SECTION.subheadline = (
+  <>
+    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
+    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+  </>
+)
+MEL_ROBBINS_CONFIG.da.HERO_SECTION.title =
+  'Here’s What You Will Miss Out On As A Dismissive Avoidant Style If You Don’t Watch This Today:'
+MEL_ROBBINS_CONFIG.da.HERO_SECTION.titleSubheadline =
+  'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.copy =
   '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.list = [
-  'Discover exactly who you are in relationships, why you are the way you are, where it comes from, and how you have the power to change it',
-  "Understand why Integrated Attachment Theory™ is the game-changing and practical approach that is transforming people's lives and relationships with ease",
-  'Uncover why after traditional therapy and self-books, you still haven’t experienced profound change and why it’s because you’re not accessing the right part of your brain',
-  'Learn the secret of unlocking the 95% of your brain that drives real-life transformations — even for people who have spent years trying traditional methods  ',
+  'Discover exactly who you are in relationships, why you are the way you are, where it comes from, and how you have the power to change it.',
+  "Understand why Integrated Attachment Theory™ is the game-changing and practical approach that is transforming people's lives and relationships with ease.",
+  'Uncover why after traditional therapy and self-books, you still haven’t experienced profound change and why it’s because you’re not accessing the right part of your brain.',
+  'The secret to unlocking and rewiring the subconscious patterns (responsible for 95% of what keeps you stuck), so that you can finally feel like relationships are easy.',
 ]
 
-MEL_ROBBINS_CONFIG.ap.HERO_SECTION.headline = 'This ONE Thing Can Save Your Relationships Forever!'
-MEL_ROBBINS_CONFIG.ap.HERO_SECTION.subheadline =
-  "If You Don't Watch This FREE Masterclass – Where I Uncover This Life-Changing Secret – It Could Be The Deal Breaker For Your Relationships For Life!"
+MEL_ROBBINS_CONFIG.ap.HERO_SECTION.headline =
+  'This ONE Thing Will Finally Ensure a Thriving Love Life'
+MEL_ROBBINS_CONFIG.ap.HERO_SECTION.subheadline = (
+  <>
+    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
+    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+  </>
+)
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.title =
-  'As An Anxious Preoccupied, Watching This Masterclass Will: '
+  'Here’s What You Will Miss Out On As An Anxious Attachment Style If You Don’t Watch This Today:'
+MEL_ROBBINS_CONFIG.da.HERO_SECTION.titleSubheadline =
+  'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.copy =
   '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.list = [
-  'Help you uncover who you are in and out of relationships, how you became that way, and HOW you can change your patterns for life, to start having the best relationships!',
-  'Provide you with WHY Integrated Attachment Theory™ is disrupting the relationship coaching industry and how it works for anyone, regardless of sex, age, or education.',
-  'Explain why, even after trying everything to change, including traditional methods, you still end up feeling stuck in the same patterns, and HOW you can reform those patterns to create and foster healthy relationships',
-  'Teach you the power of unlocking 95% of your brain with Integrated Attachment Theory™ and how to embrace real, long-lasting results that other methods can’t offer',
+  'Help you finally release the fears of abandonment and being not good enough, so that you can feel secure and confident in ALL your relationships.',
+  'Learn the strategies for keeping relationships connected, committed, and thriving and to withstand the test of time.',
+  'Why Integrated Attachment Theory™ works for everyone – even for people who have spent years using traditional methods and modalities and still struggle with change.',
+  'The secret to unlocking and rewiring the subconscious patterns (responsible for 95% of what keeps you stuck), so that you can finally build the best relationships of your life.',
 ]
 
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.headline =
-  'This ONE Thing Can Save Your Loving Relationships Forever!'
-MEL_ROBBINS_CONFIG.sa.HERO_SECTION.subheadline =
-  'Can You Afford To Miss This Free Masterclass? I Uncover This Life-Changing Secret That Could Be The Deal Breaker For Your Relationships For Life! '
-MEL_ROBBINS_CONFIG.sa.HERO_SECTION.title = 'Avoid Confusion & Heartbreak As A Securely Attached By:'
+  'This ONE Thing Can Will Help You Build The Best Relationships Of Your Life With Anyone'
+MEL_ROBBINS_CONFIG.sa.HERO_SECTION.subheadline = (
+  <>
+    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
+    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+  </>
+)
+MEL_ROBBINS_CONFIG.sa.HERO_SECTION.title =
+  'CAN YOU AFFORD TO MISS THIS FREE LIMITED-TIME MASTERCLASS? I UNCOVER THIS LIFE-CHANGING SECRET THAT COULD BE THE DEAL BREAKER FOR YOUR RELATIONSHIPS FOR LIFE!'
+MEL_ROBBINS_CONFIG.da.HERO_SECTION.titleSubheadline =
+  'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.copy =
   '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.list = [
   'Watching this video that describes you and all your relationships to the T, what it means, and how you can make it better than ever.',
-  'Discovering why you’re stuck in the same patterns in your relationships despite years of traditional therapy, self-help books, and classic modalities.',
-  'Learning why Integrated Attachment Theory™ is disrupting the relationship coaching industry because its unique and powerful approach helps everyone — even securely attached individuals.',
-  'Unlocking and accessing the 95% of your brain that drives real-life transformation in your relationships — and why it works over traditional methods.',
+  'Discover why relationships can be challenging if you have a partner with a different attachment style, and how to overcome this.',
+  'Learning why Integrated Attachment Theory™ is disrupting the relationship industry because its’ unique and powerful approach helps everyone — even securely attached individuals.',
+  'The secret to unlocking and rewiring the subconscious patterns (responsible for 95% of what keeps you stuck), so that you can finally feel like relationships are easy.',
 ]

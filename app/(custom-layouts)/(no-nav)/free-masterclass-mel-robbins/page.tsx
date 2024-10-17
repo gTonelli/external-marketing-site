@@ -24,6 +24,16 @@ export default function freeMasterclassMelRobbinsPage() {
               <span className="text-purple-dark">Transform Yourself & Your Love Life</span>
             </h1>
 
+            <div className="my-6">
+              <VideoThumbnail
+                className="max-w-lg mx-auto"
+                srcUrl="https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4"
+                thumbnailUrl="RoyalRumblePage/mel-robbins.jpg"
+                thumbnailAlt={`Video Mel Robbins thumbnail`}
+                type="GCP"
+              />
+            </div>
+
             <p className="text-center mb-2 lg:mb-4 lg:text-left">
               If you’ve tried traditional therapy and methods but are still stuck with the same
               patterns and struggling in your relationship — you can’t afford to miss this video.
@@ -51,16 +61,6 @@ export default function freeMasterclassMelRobbinsPage() {
               And get the real love, deep connection, and relationship you desire while being secure
               about yourself.
             </p>
-          </div>
-
-          <div className="mt-6">
-            <VideoThumbnail
-              className="max-w-lg mx-auto"
-              srcUrl="https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4"
-              thumbnailUrl="RoyalRumblePage/mel-robbins.jpg"
-              thumbnailAlt={`Video Mel Robbins thumbnail`}
-              type="GCP"
-            />
           </div>
         </section>
 

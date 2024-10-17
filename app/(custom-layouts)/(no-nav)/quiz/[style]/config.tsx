@@ -1574,8 +1574,9 @@ MEL_ROBBINS_CONFIG.fa.HERO_SECTION.headline =
   'Here’s The ONE Thing That Will Radically Improve Your Relationships Forever'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
-    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
+    YOUR TERMS.
   </>
 )
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.titleSubheadline =
@@ -1597,8 +1598,9 @@ MEL_ROBBINS_CONFIG.da.HERO_SECTION.headline =
   "Don't Miss This ONE Thing That Can Transform Your Relationships!"
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
-    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
+    YOUR TERMS.
   </>
 )
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.title =
@@ -1620,8 +1622,9 @@ MEL_ROBBINS_CONFIG.ap.HERO_SECTION.headline =
   'This ONE Thing Will Finally Ensure a Thriving Love Life'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
-    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
+    YOUR TERMS.
   </>
 )
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.title =
@@ -1643,12 +1646,13 @@ MEL_ROBBINS_CONFIG.sa.HERO_SECTION.headline =
   'This ONE Thing Can Will Help You Build The Best Relationships Of Your Life With Anyone'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">REE LIMITED TIME</strong>F MASTERCLASS TO
-    UNCOVER THE SECRET TO FINALLY BUILDING THRIVING RELATIONSHIPS - ON YOUR TERMS.
+    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
+    YOUR TERMS.
   </>
 )
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.title =
-  'CAN YOU AFFORD TO MISS THIS FREE LIMITED-TIME MASTERCLASS? I UNCOVER THIS LIFE-CHANGING SECRET THAT COULD BE THE DEAL BREAKER FOR YOUR RELATIONSHIPS FOR LIFE!'
+  'Here’s What You Will Miss Out On As A Secure Attachment If You Don’t Watch This Today:'
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.titleSubheadline =
   'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.copy =

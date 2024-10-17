@@ -62,9 +62,17 @@ export const QuizResultsPage = ({
               {/* BANNER BACKGROUND */}
               <div className="max-w-5xl w-full md:my-8">
                 {melRobbinsVariant && (
-                  <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center hidden lg:block lg:mb-4">
-                    {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                  </h2>
+                  <>
+                    <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center hidden lg:block lg:mb-4">
+                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                    </h2>
+
+                    <p className="font-bold mb-4 hidden lg:block">
+                      Our unique, groundbreaking, proprietary process is unlike anything you’ve ever
+                      seen before. It is disrupting the relationship industry, because of how fast
+                      it works, and how simple it is!
+                    </p>
+                  </>
                 )}
 
                 <div className="flex flex-col lg:flex-row justify-center items-center space-x-6 md:px-8">
@@ -88,9 +96,18 @@ export const QuizResultsPage = ({
 
                   <div className="!mx-0 lg:text-left lg:!mx-4 lg:w-1/2">
                     {melRobbinsVariant ? (
-                      <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center lg:hidden">
-                        {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                      </h2>
+                      <>
+                        <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center lg:hidden">
+                          {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                        </h2>
+
+                        <p className="font-bold mb-4 lg:hidden">
+                          Our unique, groundbreaking, proprietary process is unlike anything you’ve
+                          ever seen before. It is disrupting the relationship industry, because of
+                          how fast it works, and how simple it is! As seen with thousands of
+                          students in the Personal Development School.
+                        </p>
+                      </>
                     ) : (
                       <h2 className="text-purple-dark mb-4 !text-3xl">
                         {ROYAL_RUMBLE[style].HERO_SECTION.title}
@@ -114,13 +131,25 @@ export const QuizResultsPage = ({
                 </div>
 
                 {melRobbinsVariant && (
-                  <p className="text-sm text-center">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                  <>
+                    <p className="text-sm text-center mb-4">
+                      {ROYAL_RUMBLE[style].HERO_SECTION.copy}
+                    </p>
+
+                    <div className="text-center">
+                      <CheckoutButton
+                        href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                        className="xxs:px-16"
+                        label="UNLOCK MY DISCOUNT"
+                      />
+                    </div>
+                  </>
                 )}
               </div>
             </div>
           </div>
 
-          <div className="max-w-5xl mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
+          <div className="max-w-5xl mx-4 md:mx-auto lg:px-4">
             <div className="text-left">
               <p className="font-effra font-bold tracking-0.325 md:text-lg">
                 {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}

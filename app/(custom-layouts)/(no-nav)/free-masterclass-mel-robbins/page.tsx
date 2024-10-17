@@ -23,8 +23,10 @@ export default function freeMasterclassMelRobbinsPage() {
         <section className="flex flex-col items-center my-6 mx-auto lg:w-1/2 lg:mt-0">
           <div className="max-w-lg">
             <h1 className="text-center !text-2xl font-sans font-bold mb-4 lg:text-left">
-              Watch This Free Masterclass To{' '}
-              <span className="text-purple-dark">Transform Yourself & Your Love Life</span>
+              Here's Why You NEED to Watch This Free Masterclass To{' '}
+              <span className="text-purple-dark">
+                Uncover The ONE Secret to Finally Building Lasting & Loving Relationships
+              </span>
             </h1>
 
             <div className="my-6">
@@ -75,9 +77,10 @@ export default function freeMasterclassMelRobbinsPage() {
                 All-Access Pass.
               </p>
               <p className="text-center text-md font-bold text-white p-4 mb-2">
-                Our premier membership gives you complete and unlimited access to everything we
-                offer at our transformative and life-changing online school so you can rewrite your
-                love life, unlock your relationships, and become the best version of yourself ever.
+                Our All-Access Pass membership gives you complete and unlimited access to everything
+                we offer at our transformative and life-changing online school so you can rewrite
+                your love life, unlock your relationships, and become the best version of yourself
+                ever.
               </p>
 
               <div className="flex justify-center mt-4">

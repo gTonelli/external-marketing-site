@@ -4,10 +4,11 @@ import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import { List } from '@/components/List'
+// libraries
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { List } from '@/components/List'
 
 export const metadata: Metadata = {
   title: 'Can You Miss Out On This Free Life-Changing Masterclass?',

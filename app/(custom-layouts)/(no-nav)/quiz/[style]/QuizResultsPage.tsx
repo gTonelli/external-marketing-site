@@ -62,7 +62,7 @@ export const QuizResultsPage = ({
               {/* BANNER BACKGROUND */}
               <div className="max-w-5xl w-full md:my-8">
                 {melRobbinsVariant && (
-                  <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center md:mb-4">
+                  <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center hidden lg:block lg:mb-4">
                     {ROYAL_RUMBLE[style].HERO_SECTION.title}
                   </h2>
                 )}
@@ -87,7 +87,11 @@ export const QuizResultsPage = ({
                   </div>
 
                   <div className="!mx-0 lg:text-left lg:!mx-4 lg:w-1/2">
-                    {!melRobbinsVariant && (
+                    {melRobbinsVariant ? (
+                      <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center lg:hidden">
+                        {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                      </h2>
+                    ) : (
                       <h2 className="text-purple-dark mb-4 !text-3xl">
                         {ROYAL_RUMBLE[style].HERO_SECTION.title}
                       </h2>

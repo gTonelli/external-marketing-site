@@ -6,6 +6,8 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { List } from '@/components/List'
 
 export const metadata: Metadata = {
   title: 'Can You Miss Out On This Free Life-Changing Masterclass?',
@@ -35,32 +37,23 @@ export default function freeMasterclassMelRobbinsPage() {
             </div>
 
             <p className="text-center mb-2 lg:mb-4 lg:text-left">
-              If you’ve tried traditional therapy and methods but are still stuck with the same
-              patterns and struggling in your relationship — you can’t afford to miss this video.
+              If you’ve tried traditional methods and modalities for years and years…but are still
+              stuck with the same patterns and struggles in your relationship —{' '}
+              <strong>you can’t afford to miss this video.</strong>
             </p>
 
-            <p className="text-center mb-2 lg:mb-4 lg:text-left">
-              It will describe you and all your relationships to the T, how you became that way,
-              what it means, and how you can transform your love life with Integrated Attachment
-              Theory™.
-            </p>
-
-            <p className="text-center mb-2 lg:mb-4 lg:text-left">
-              You’ll learn why this revolutionary and influential approach is creating waves in the
-              relationship industry because it can quickly and easily help anyone, anywhere,
-              regardless of age, sex, or education!
-            </p>
-
-            <p className="text-center mb-2 lg:mb-4 lg:text-left">
-              Most importantly, I’ll explain the secret to unlocking and accessing the 95% of your
-              brain that drives real-life transformations, enabling you to break and reform your
-              unhealthy patterns into healthy ones…
-            </p>
-
-            <p className="text-center mb-2 lg:mb-4 lg:text-left">
-              And get the real love, deep connection, and relationship you desire while being secure
-              about yourself.
-            </p>
+            <List
+              icon={faCircle}
+              classNameIcon="!text-black !pt-2"
+              classNameListItems="mb-2"
+              iconSize="xs"
+              listItems={[
+                'You’ll learn about our unique, groundbreaking, proprietary process – **Integrated Attachment Theory™** – and how it’s unlike anything you’ve ever seen before.',
+                'It works FAST, is simple to USE, and is disrupting the relationship industry because it quickly HELPS anyone, anywhere, regardless of age, sex, or education!',
+                'Unlock the secret to rewiring your subconscious patterns (responsible for 95% of what keeps you stuck) so you can experience real-life TRANSFORMATIONS in yourself and your relationships!',
+                'And uncover the Where-What-Why-and-How of your attachment style, how it impacts your relationships, and why you FINALLY have the power to change it!',
+              ]}
+            />
           </div>
         </section>
 

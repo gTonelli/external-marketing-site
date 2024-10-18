@@ -96,7 +96,6 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
         </div>
 
         <Video.Large
-          playAuto
           className="mx-auto shadow-centered max-w-3xl"
           srcUrl="https://storage.googleapis.com/pds_videos/Mel_Robbins_Podcast.mp4"
           thumbnailUrl="AttachmentQuiz/mel-robbins.jpg"

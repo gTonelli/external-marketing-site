@@ -67,9 +67,9 @@ export const QuizResultsPage = ({
                     </h2>
 
                     <p className="font-bold mb-4 hidden lg:block">
-                      Our unique, groundbreaking, proprietary process is unlike anything you’ve ever
-                      seen before. It is disrupting the relationship industry, because of how fast
-                      it works, and how simple it is!
+                      Our groundbreaking, proprietary process is unlike anything you’ve ever seen
+                      before. It is disrupting the relationship industry, because of how fast it
+                      works, and how simple it is!
                     </p>
                   </>
                 )}
@@ -101,10 +101,10 @@ export const QuizResultsPage = ({
                         </h2>
 
                         <p className="font-bold mb-4 lg:hidden">
-                          Our unique, groundbreaking, proprietary process is unlike anything you’ve
-                          ever seen before. It is disrupting the relationship industry, because of
-                          how fast it works, and how simple it is! As seen with thousands of
-                          students in the Personal Development School.
+                          Our groundbreaking, proprietary process is unlike anything you’ve ever
+                          seen before. It is disrupting the relationship industry, because of how
+                          fast it works, and how simple it is! As seen with thousands of students in
+                          the Personal Development School.
                         </p>
                       </>
                     ) : (
@@ -151,7 +151,7 @@ export const QuizResultsPage = ({
                         href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                         className="xxs:px-16"
                         label={
-                          melRobbinsVariant ? 'UNLOCK MY COURSE DISCOUNT' : 'UNLOCK MY DISCOUNT'
+                          melRobbinsVariant ? 'UNLOCK MY PROGRAM DISCOUNT' : 'UNLOCK MY DISCOUNT'
                         }
                       />
                     </div>

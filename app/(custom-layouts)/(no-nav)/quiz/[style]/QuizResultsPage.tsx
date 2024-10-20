@@ -137,7 +137,7 @@ export const QuizResultsPage = ({
 
                     <p className="text-center font-bold mb-4 text-white border-2 p-4 border-black bg-black -mx-4 lg:mx-auto lg:rounded-20 lg:mb-4">
                       JOIN OUR 90-DAY PROGRAM TO BECOME SECURELY ATTACHED & BUILD THE BEST
-                      RELATIONSAHIPS OF YOUR LIFE - YOUR MONEY BACK
+                      RELATIONSAHIPS OF YOUR LIFE - OR YOUR MONEY BACK
                     </p>
 
                     <p className="text-center mb-4 font-bold text-green-secondary lg:mb-4">

@@ -131,15 +131,28 @@ export const QuizResultsPage = ({
 
                 {melRobbinsVariant && (
                   <>
-                    <p className="text-sm text-center mb-4">
+                    <p className="text-sm text-center mb-2 lg:mb-6">
                       {ROYAL_RUMBLE[style].HERO_SECTION.copy}
+                    </p>
+
+                    <p className="text-center font-bold mb-4 text-white border-2 p-4 border-black bg-black -mx-4 lg:mx-auto lg:rounded-20 lg:mb-4">
+                      JOIN OUR 90-DAY PROGRAM TO BECOME SECURELY ATTACHED & BUILD THE BEST
+                      RELATIONSAHIPS OF YOUR LIFE - OR YUOUR MONEY BACK
+                    </p>
+
+                    <p className="text-center mb-4 font-bold text-green-secondary lg:mb-4">
+                      *This personalized program is filled with video courses, simple steps to heal
+                      YOUR attachment style, 1-1 support in a group setting, workbook exercises and
+                      tools for rapid transformation.
                     </p>
 
                     <div className="text-center mb-4 lg:mb-0">
                       <CheckoutButton
                         href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                         className="xxs:px-16"
-                        label={melRobbinsVariant ? "I'M READY FOR CHANGE" : 'UNLOCK MY DISCOUNT'}
+                        label={
+                          melRobbinsVariant ? 'UNLOCK MY COURSE DISCOUNT' : 'UNLOCK MY DISCOUNT'
+                        }
                       />
                     </div>
                   </>
@@ -150,8 +163,9 @@ export const QuizResultsPage = ({
 
           <div className="max-w-5xl mx-4 md:mx-auto lg:px-4">
             <div className="text-left">
-              <p className="font-effra font-bold tracking-0.325 md:text-lg">
-                {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
+              <p className="font-effra font-bold tracking-widest md:text-lg">
+                ABOUT YOUR ATTACHMENT STYLE:{' '}
+                <span className="text-primary">{ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}</span>
               </p>
 
               {ROYAL_RUMBLE[style].BANNER_SEGMENT.copy.map((copy, index) => (

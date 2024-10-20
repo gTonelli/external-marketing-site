@@ -1063,7 +1063,7 @@ export const ROYAL_RUMBLE = {
     },
 
     BANNER_SEGMENT: {
-      headline: `BUT WITHOUT KNOWING HOW TO COMMUNICATE BEST WITH DIFFERENT TYPES OF PARTNERS, YOU MAY KEEP ENDING UP IN UNFULFILLING RELATIONSHIPS`,
+      headline: `WITHOUT KNOWING HOW TO COMMUNICATE BEST WITH DIFFERENT TYPES OF PARTNERS, YOU MAY KEEP ENDING UP IN UNFULFILLING RELATIONSHIPS`,
       copy: [
         'You’re a warm and friendly person who feels comfortable in relationships (both intimate and platonic). You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth. You are quite good at communicating your needs, feelings, and opinions to others. Letting people in is easy for you because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time. When faced with relationship problems with your partner, friends, family, or coworkers, you see most problems as solvable and have strong conflict resolution skills. When you are faced with situations that are triggering, you are able to sit with your emotions and regulate them appropriately. When it comes to supporting others, you are an empathetic listener and are happy to be their rock. Your romantic relationships are generally stable and you don’t have a problem with long-term commitments. However, you can sometimes end up in relationships that feel wildly out of balance and that can drain you. Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
       ],
@@ -1574,7 +1574,7 @@ MEL_ROBBINS_CONFIG.fa.HERO_SECTION.headline =
   'Here’s The ONE Thing That Will Radically Improve Your Relationships Forever'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    DON'T MISS THIS <strong className="text-green-secondary">FREE, LIMITED TIME</strong> MASTERCLASS
     WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
     YOUR TERMS.
   </>
@@ -1598,7 +1598,7 @@ MEL_ROBBINS_CONFIG.da.HERO_SECTION.headline =
   "Don't Miss This ONE Thing That Can Transform Your Relationships!"
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    DON'T MISS THIS <strong className="text-green-secondary">FREE, LIMITED TIME</strong> MASTERCLASS
     WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
     YOUR TERMS.
   </>
@@ -1622,7 +1622,7 @@ MEL_ROBBINS_CONFIG.ap.HERO_SECTION.headline =
   'This ONE Thing Will Finally Ensure a Thriving Love Life'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    DON'T MISS THIS <strong className="text-green-secondary">FREE, LIMITED TIME</strong> MASTERCLASS
     WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
     YOUR TERMS.
   </>
@@ -1646,7 +1646,7 @@ MEL_ROBBINS_CONFIG.sa.HERO_SECTION.headline =
   'This ONE Thing Can Will Help You Build The Best Relationships Of Your Life With Anyone'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-check">FREE LIMITED TIME</strong> MASTERCLASS
+    DON'T MISS THIS <strong className="text-green-secondary">FREE, LIMITED TIME</strong> MASTERCLASS
     WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
     YOUR TERMS.
   </>

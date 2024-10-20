@@ -1575,8 +1575,8 @@ MEL_ROBBINS_CONFIG.fa.HERO_SECTION.headline =
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.subheadline = (
   <>
     DON'T MISS THIS <strong className="text-green-secondary">FREE, LIMITED TIME</strong> MASTERCLASS
-    WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
-    YOUR TERMS.
+    BELOW TO LEARN ABOUT YOUR ATTACHMENT STYLE & HOW TO RAPIDLY TRANSFORM PAINFUL PATTERNS TO CREATE
+    A THRIVING LOVE LIFE!
   </>
 )
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.titleSubheadline =
@@ -1584,7 +1584,7 @@ MEL_ROBBINS_CONFIG.fa.HERO_SECTION.titleSubheadline =
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.title =
   'Here’s What You Will Miss Out On As A Fearful Avoidant If You Don’t Watch This Today:'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.copy =
-  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
+  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Masterclass above.'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.fa.HERO_SECTION.list = [
@@ -1608,7 +1608,7 @@ MEL_ROBBINS_CONFIG.da.HERO_SECTION.title =
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.titleSubheadline =
   'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.copy =
-  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
+  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Masterclass above.'
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.list = [
@@ -1622,9 +1622,9 @@ MEL_ROBBINS_CONFIG.ap.HERO_SECTION.headline =
   'This ONE Thing Will Finally Ensure a Thriving Love Life'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.subheadline = (
   <>
-    DON'T MISS THIS <strong className="text-green-secondary">FREE, LIMITED TIME</strong> MASTERCLASS
-    WHERE I UNCOVER THE SECRET TO FINALLY BUILDING THRIVING, LASTING, AND LOVING RELATIONSHIPS - ON
-    YOUR TERMS.
+    WATCH OUR <strong className="text-green-secondary">FREE, LIMITED TIME</strong> MASTERCLASS BELOW
+    TO LEARN ABOUT YOUR ATTACHMENT STYLE & HOW IT MAY IT BE PREVENTING YOU FROM CREATING
+    RELATIONSHIPS THAT LAST (PLUS HOW TO CHANGE THIS NOW!)
   </>
 )
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.title =
@@ -1632,7 +1632,7 @@ MEL_ROBBINS_CONFIG.ap.HERO_SECTION.title =
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.titleSubheadline =
   'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.copy =
-  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
+  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Masterclass above.'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.ap.HERO_SECTION.list = [
@@ -1656,7 +1656,7 @@ MEL_ROBBINS_CONFIG.sa.HERO_SECTION.title =
 MEL_ROBBINS_CONFIG.da.HERO_SECTION.titleSubheadline =
   'Our Unique, proprietary process is unlike anything you’ve ever seen before, and is disrupting the relationship coaching industry, because of how fast it works, and how simple it is! As seen with thousands of students in the Personal Development School.'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.copy =
-  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Podcast.'
+  '*This is all discussed in Thais Gibson’s appearance on The Mel Robbins Masterclass above.'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.videoURL =
   'https://storage.googleapis.com/pds_videos/Mel%20Robbins%20Masterclass.mp4'
 MEL_ROBBINS_CONFIG.sa.HERO_SECTION.list = [

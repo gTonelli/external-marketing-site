@@ -311,7 +311,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   organicQuizDa: {
     cookieKey: 'gm-1217',
     pageName: 'Attachment Style Results - Mel Robbins Variant - da',
-    experimentName: 'Organic Quiz Results with Mel Robbins Video',
+    experimentName: 'Paid Quiz Results with Mel Robbins Video',
     variantUrl: {
       path: '/quiz/b/da',
     },
@@ -321,7 +321,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   organicQuizAp: {
     cookieKey: 'gm-1217',
     pageName: 'Attachment Style Results - Mel Robbins Variant - ap',
-    experimentName: 'Organic Quiz Results with Mel Robbins Video',
+    experimentName: 'Paid Quiz Results with Mel Robbins Video',
     variantUrl: {
       path: '/quiz/b/ap',
     },
@@ -331,7 +331,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   organicQuizSa: {
     cookieKey: 'gm-1217',
     pageName: 'Attachment Style Results - Mel Robbins Variant - sa',
-    experimentName: 'Organic Quiz Results with Mel Robbins Video',
+    experimentName: 'Paid Quiz Results with Mel Robbins Video',
     variantUrl: {
       path: '/quiz/b/sa',
     },
@@ -341,7 +341,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
   organicQuizFa: {
     cookieKey: 'gm-1217',
     pageName: 'Attachment Style Results - Mel Robbins Variant - fa',
-    experimentName: 'Organic Quiz Results with Mel Robbins Video',
+    experimentName: 'Paid Quiz Results with Mel Robbins Video',
     variantUrl: {
       path: '/quiz/b/fa',
     },

@@ -52,6 +52,7 @@ const config: Config = {
         'blue-dark': '#4794A1',
 
         green: '#71C2C1',
+        'green-secondary': '#00ba10',
         'green-check': '#41BD22',
         'green-light': '#E3EDED',
 

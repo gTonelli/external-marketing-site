@@ -135,24 +135,18 @@ export const QuizResultsPage = ({
                       {ROYAL_RUMBLE[style].HERO_SECTION.copy}
                     </p>
 
-                    <p className="text-center font-bold mb-4 text-white border-2 p-4 border-black bg-black -mx-4 lg:mx-auto lg:rounded-20 lg:mb-4">
-                      JOIN OUR 90-DAY PROGRAM TO BECOME SECURELY ATTACHED & BUILD THE BEST
-                      RELATIONSHIPS OF YOUR LIFE - OR YOUR MONEY BACK
-                    </p>
-
                     <p className="text-center mb-4 font-bold text-green-secondary lg:mb-4">
-                      *This personalized program is filled with video courses, simple steps to heal
-                      YOUR attachment style, 1-1 support in a group setting, workbook exercises and
-                      tools for rapid transformation.
+                      Your personalized course program will help you heal old attachment patterns
+                      and build the best relationships of your life in as little as 90 days. It is
+                      filled with video courses, simple steps to heal your attachment style,
+                      workbook exercises and tools for rapid transformation.{' '}
                     </p>
 
                     <div className="text-center mb-4 lg:mb-0">
                       <CheckoutButton
                         href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                         className="xxs:px-16"
-                        label={
-                          melRobbinsVariant ? 'UNLOCK MY PROGRAM DISCOUNT' : 'UNLOCK MY DISCOUNT'
-                        }
+                        label={melRobbinsVariant ? 'UNLOCK MY DISCOUNT' : 'UNLOCK MY DISCOUNT'}
                       />
                     </div>
                   </>

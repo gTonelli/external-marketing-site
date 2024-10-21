@@ -13,6 +13,7 @@ import { List } from '@/components/List'
 import { LinkDefault } from '../Link'
 import { Video } from '../Video/Video'
 import { TAttachmentQuizVariant } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/config'
+import { SplitTestContext } from '@/utils/contexts'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -20,7 +21,6 @@ import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/ic
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // styles
 import './style.css'
-import { SplitTestContext } from '@/utils/contexts'
 
 interface IQuizVariantProps {
   page_name: Pages

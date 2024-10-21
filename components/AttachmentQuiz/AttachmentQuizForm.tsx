@@ -11,7 +11,7 @@ import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
 import { SplitTestContext } from '@/utils/contexts'
-import { getSplitTest, IGetSplitTest } from '@/utils/functions'
+import { getSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle

@@ -13,6 +13,7 @@ import { List } from '@/components/List'
 import { LinkDefault } from '../Link'
 import { Video } from '../Video/Video'
 import { TAttachmentQuizVariant } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/config'
+import { SplitTestContext } from '@/utils/contexts'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -118,13 +119,20 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
       <div ref={quizSectionRef} className="w-full px-4">
         {viewQuiz && (
           <div className="w-full flex justify-center mx-auto py-16">
-            <AttachmentQuiz
-              newQuiz
-              className="!max-w-5xl"
-              quizName="Attachment Style Quiz"
-              quiz_traffic_source="paid"
-              showStartButton={false}
-            />
+            <SplitTestContext.Provider
+              value={{
+                key: 'GM-1226',
+                experimentName: 'Mel Robbins Content (Quiz B)',
+                variantUrl: '/quiz/b/',
+              }}>
+              <AttachmentQuiz
+                newQuiz
+                className="!max-w-5xl"
+                quizName="Attachment Style Quiz"
+                quiz_traffic_source="paid"
+                showStartButton={false}
+              />
+            </SplitTestContext.Provider>
           </div>
         )}
       </div>

@@ -107,10 +107,6 @@ export const config = {
     '/attachment-report/ap',
     '/attachment-report/da',
     '/attachment-report/sa',
-    '/quiz/da',
-    '/quiz/ap',
-    '/quiz/sa',
-    '/quiz/results/fa',
     '/webinar-library',
   ],
 }
@@ -142,22 +138,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       regex: /^\/attachment-report\/sa/,
       config: splitTestConfigs.pdfTestSa,
-    },
-    {
-      regex: /^\/quiz\/da/,
-      config: splitTestConfigs.organicQuizDa,
-    },
-    {
-      regex: /^\/quiz\/ap/,
-      config: splitTestConfigs.organicQuizAp,
-    },
-    {
-      regex: /^\/quiz\/sa/,
-      config: splitTestConfigs.organicQuizSa,
-    },
-    {
-      regex: /^\/quiz\/results\/fa/,
-      config: splitTestConfigs.organicQuizFa,
     },
   ]
 
@@ -304,46 +284,6 @@ export const splitTestConfigs: TSplitTestConfigs = {
     experimentName: 'Attachment Report Test v2',
     variantUrl: {
       path: '/pdf-report/sa',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  organicQuizDa: {
-    cookieKey: 'gm-1217',
-    pageName: 'Attachment Style Results - Mel Robbins Variant - da',
-    experimentName: 'Paid Quiz Results with Mel Robbins Video',
-    variantUrl: {
-      path: '/quiz/b/da',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  organicQuizAp: {
-    cookieKey: 'gm-1217',
-    pageName: 'Attachment Style Results - Mel Robbins Variant - ap',
-    experimentName: 'Paid Quiz Results with Mel Robbins Video',
-    variantUrl: {
-      path: '/quiz/b/ap',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  organicQuizSa: {
-    cookieKey: 'gm-1217',
-    pageName: 'Attachment Style Results - Mel Robbins Variant - sa',
-    experimentName: 'Paid Quiz Results with Mel Robbins Video',
-    variantUrl: {
-      path: '/quiz/b/sa',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  organicQuizFa: {
-    cookieKey: 'gm-1217',
-    pageName: 'Attachment Style Results - Mel Robbins Variant - fa',
-    experimentName: 'Paid Quiz Results with Mel Robbins Video',
-    variantUrl: {
-      path: '/quiz/b/fa',
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,

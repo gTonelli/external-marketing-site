@@ -1,6 +1,6 @@
 export const COPY = {
   header: {
-    subtitle: 'AN EXCLUSIVE MASTERCLASS FOR ASPIRING RELATIONSHIP COACHES',
+    subtitle: 'AN EXCLUSIVE MASTERCLASS FOR ASPIRING RELATIONSHIP COACHES - SPOTS ARE LIMITED!',
     title: 'Unlock Your Coaching Potential with Thais Gibson',
     copy: [
       <>
@@ -8,7 +8,11 @@ export const COPY = {
         Coach with this FREE Masterclass hosted by me, Thais Gibson - on{' '}
         <strong>October 24th at 5 PM ET.</strong>
       </>,
-      'Whether you are already an experienced coach, running your own practice, or just starting, this exclusive VIP-only webinar is for you if you’re ready to transform your life, career, and finances.',
+      <>
+        Whether you are already an experienced coach, running your own practice, or just starting,
+        this exclusive VIP-only webinar is for you if you’re ready to transform your life, career,
+        and finances. <strong>Secure your spot now, limited seats available!</strong>
+      </>,
     ],
   },
   video: {

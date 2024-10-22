@@ -14,10 +14,22 @@ import { COPY } from './config'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // style
 import './style.css'
+import { CountdownTimer } from '@/components/CountDownTimer'
+import { getOfferEndDate } from '@/utils/functions'
 
 export default function IATWebinarPage() {
   return (
     <Page page_name="IAT Webinar Page">
+      <section className="bg-purple-dark">
+        <div className="default-padding pt-4 lg:pt-8">
+          {/* Countdown for Oct 24, 5 PM ET*/}
+          <CountdownTimer
+            date={getOfferEndDate(new Date(`2024-10-24T17:00:00-04:00`), 1)}
+            theme="dark"
+          />
+        </div>
+      </section>
+
       <Section
         className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
         classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">

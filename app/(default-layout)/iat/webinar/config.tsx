@@ -3,7 +3,7 @@ export const COPY = {
     subtitle: 'AN EXCLUSIVE MASTERCLASS FOR ASPIRING RELATIONSHIP COACHES',
     title: 'Unlock Your Coaching Potential with Thais Gibson',
     copy: [
-      'Discover, learn, and get an eye-opening account of what it’s like to be a Certified IAT™ Coach with this FREE Masterclass hosted by me, Thais Gibson.',
+      'Discover, learn, and get an eye-opening account of what it’s like to be a Certified IAT™ Coach with this FREE Masterclass hosted by me, Thais Gibson -- on October 24th at 5 PM ET.',
       'Whether you are already an experienced coach, running your own practice, or just starting, this exclusive VIP-only webinar is for you if you’re ready to transform your life, career, and finances.',
     ],
   },

@@ -43,7 +43,7 @@ import { PageContext } from '@/utils/contexts'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-export const SpecialPromotion = () => {
+export const SpecialPromotionBody = () => {
   // ==================== Hooks ====================
   const page_name = useContext(PageContext).page_name
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
@@ -67,10 +67,7 @@ export const SpecialPromotion = () => {
         <div className="col-start-2 lg:text-left xl:max-w-">
           <MHAPageText
             className="lg:mt-0"
-            content="Does the same challenge or negative pattern keep surfacing in your life over and over again? 
-            Are you still having a hard time letting go of your ex? Do you feel a burning resentment towards a family member?
-            Are you struggling to form a healthy new habit no matter how hard you try? Or are your spending habits getting 
-            entirely out of control?"
+            content="Does the same challenge or negative pattern keep surfacing in your life over and over again? Are you still having a hard time letting go of your ex or starting to date again? Or are you struggling to form a healthy new habit no matter how hard you try?"
           />
 
           <MHAPageText
@@ -87,7 +84,7 @@ export const SpecialPromotion = () => {
         </div>
 
         <div className="lg:row-start-2 lg:col-span-2">
-          <MHAButton />
+          <MHAButton label="START YOUR FREE TRIAL NOW!" />
 
           <Text
             className="font-bold italic mt-3"
@@ -96,6 +93,7 @@ export const SpecialPromotion = () => {
         </div>
 
         <Image
+          alt="hero image"
           className="w-full rounded-20 my-4 lg:my-0 lg:col-start-1 lg:row-start-1"
           src="BlackFridayPage/mha-hero.jpg"
         />
@@ -117,7 +115,7 @@ export const SpecialPromotion = () => {
           <div className="text-left">
             <MHAPageText
               content="The Personal Development School is the leading online school helping over 
-                200,000 members change how they think and become more fulfilled in every area of their lives."
+                40,000 members change how they think and become more fulfilled in every area of their lives."
             />
 
             <MHAPageText
@@ -150,7 +148,7 @@ export const SpecialPromotion = () => {
         </div>
 
         <SocialProofBar
-          cardNumbers={[4100000, 33000000, 113]}
+          cardNumbers={[4700000, 50000000, 120]}
           cardTexts={['Attachment Styles Discovered', 'Youtube Views', 'Countries']}
           className="text-black"
           classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
@@ -208,6 +206,7 @@ export const SpecialPromotion = () => {
           </div>
 
           <Image
+            alt="a woman hugging herself"
             className="rounded-20 lg:mt-4 lg:col-span-6"
             src="BlackFridayPage/mha-woman-hugging-herself.jpg"
           />
@@ -222,9 +221,14 @@ export const SpecialPromotion = () => {
         />
       </Section>
 
-      <Image className="w-full md:hidden" src="BlackFridayPage/black-secondary-wave.jpg" />
+      <Image
+        alt="black wave vector"
+        className="w-full md:hidden"
+        src="BlackFridayPage/black-secondary-wave.jpg"
+      />
 
       <Image
+        alt="black wave vector"
         className="w-full hidden md:block"
         src="BlackFridayPage/black-secondary-wave-desktop.jpg"
       />
@@ -256,7 +260,11 @@ export const SpecialPromotion = () => {
               content="EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE"
             />
 
-            <Image className="w-full" src="BlackFridayPage/dashboard-preview.jpg" />
+            <Image
+              alt="dashboard mockup"
+              className="w-full"
+              src="BlackFridayPage/dashboard-preview.jpg"
+            />
           </div>
 
           <div>
@@ -282,7 +290,7 @@ export const SpecialPromotion = () => {
 
             <MHAPageText
               content="Courses range from between 1 and 3 hours in length and will give you the simple, 
-                step-by-step ingredients you need to see a significant transformation in a short period of time."
+                step-by-step roadmaps you need to see a significant transformation in a short period of time."
             />
 
             <MHAPageText
@@ -302,13 +310,17 @@ export const SpecialPromotion = () => {
               content="INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS"
             />
 
-            <Image className="w-full lg:mt-20" src="BlackFridayPage/live-webinar.jpg" />
+            <Image
+              alt="live webinar mockup"
+              className="w-full lg:mt-20"
+              src="BlackFridayPage/live-webinar.jpg"
+            />
           </div>
 
           <div>
             <MHAPageText
               className="lg:mt-0"
-              content="Get additional guidance from me as you make your way through our courses and face the deeper parts of yourself."
+              content="Get additional guidance and information from me, Thais Gibson (founder of The Personal Development School and industry leader), and our Certified Coaches, as you make your way through our courses and face the deeper parts of yourself."
             />
 
             <List
@@ -318,13 +330,11 @@ export const SpecialPromotion = () => {
               listItems={[
                 `**Live webinars** - Each week, I’ll break down your course learnings in more detail and share practical tips and examples 
                 on how to use the tools and techniques in your life.`,
-                `**Q&A sessions** – got something that’s keeping you up at night? During these calls, I’ll personally answer your questions 
-                and guide you in resolving your biggest challenges.`,
+                `**Q&A sessions** – Got something that’s keeping you up at night? During these webinars, I’ll personally answer your questions and guide you in resolving your biggest challenges.`,
                 `**Live webinars and Q&As** are totally optional! They are not a required part of any course but are simply there for extra 
                 support and connection! I’ll be there 4X each week to answer your questions, guide you on your journey and help you see any 
                 blind spots you might be missing!`,
-                `**Access past recordings** – listen (or re-listen) to all of our webinars and Q&As whenever is convenient for you so you 
-                never miss out.`,
+                `**Access past recordings** – Listen (or re-listen) to all of our webinars and Q&As from our extensive library whenever is convenient for you so you never miss out.`,
               ]}
             />
           </div>
@@ -340,7 +350,11 @@ export const SpecialPromotion = () => {
               content="A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU"
             />
 
-            <Image className="W-FULL" src="BlackFridayPage/socials-preview.jpg" />
+            <Image
+              alt="socials preview mockup"
+              className="w-full"
+              src="BlackFridayPage/socials-preview.jpg"
+            />
           </div>
 
           <div>
@@ -404,20 +418,29 @@ export const SpecialPromotion = () => {
           <MHAPageText
             content="Since co-creating the Personal Development School and my years of research and client experience, 
             I have become a leading authority on healing attachment trauma and have built a thriving membership and online community, 
-            including over 15,000 members in 113+ countries worldwide, more than 21,000,000 views on YouTube and 15,000+ course enrollments."
+            including over 40,000 members in 120+ countries worldwide, more than 50,000,000 views on YouTube and 70,000+ course enrollments."
           />
         </div>
 
         <Image
+          alt="a headshot of Thais Gibson"
           className="w-full rounded-full max-w-106 lg:max-w-none lg:col-span-5 lg:p-4"
           src="thais_headshot.png"
         />
       </Section>
 
       {/* MENTAL HEALTH SECTION */}
-      <Image className="w-full lg:hidden" src="BlackFridayPage/mha-purple-wave.jpg" />
+      <Image
+        alt="purple wave vector"
+        className="w-full lg:hidden"
+        src="BlackFridayPage/mha-purple-wave.jpg"
+      />
 
-      <Image className="w-full hidden lg:block" src="BlackFridayPage/mha-purple-wave-desktop.jpg" />
+      <Image
+        alt="purple wave vector"
+        className="w-full hidden lg:block"
+        src="BlackFridayPage/mha-purple-wave-desktop.jpg"
+      />
 
       <Section className="bg-primary-light-50 lg:pt-0 2xl:pb-24">
         <div className="lg:-mt-4 2xl:-mt-12 3xl:">
@@ -486,7 +509,7 @@ export const SpecialPromotion = () => {
             Many of them are as short as one hour in length!"
           />
 
-          <MHAButton />
+          <MHAButton label="SIGN UP & PUT YOURSELF FIRST!" />
         </div>
       </Section>
 
@@ -500,7 +523,7 @@ export const SpecialPromotion = () => {
         />
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:my-8">
-          <Image className="w-full" src="best-value-mockup.png" />
+          <Image alt="best value mockup" className="w-full" src="best-value-mockup.png" />
 
           <div className="text-left">
             <MHAPageText className="font-medium" content="Join today and get instant access to:" />
@@ -648,7 +671,7 @@ const CarouselCourses = () => {
           spaceBetween={10}>
           {courses.map((obj, index) => (
             <SwiperSlide key={`trustbar_${index}`}>
-              <Image className="w-full rounded-20" src={`${obj}`} />
+              <Image alt="brand logo" className="w-full rounded-20" src={`${obj}`} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -679,28 +702,25 @@ export const ValentinesFAQs = [
   {
     question:
       'The trial includes access to over 60 courses! Where should I start to make the most of my 14-day free trial?',
-    answer: `If you haven’t already done so, go to our website and take the attachment Style Quiz to learn your attachment style. Then once you 
-    have signed up for your free trial, login to the members area and download our Course Guide to discover which courses you should start with.`,
+    answer: `If you haven’t already done so, go to our Homepage and take the Attachment Style Quiz to learn which one you have. You’ll get a detailed report explaining everything essential and getting a roadmap to transform. Then once you have signed up for your free trial, log in to the members' area and download our Course Guide to discover which courses you should start with.`,
   },
   {
     question: 'What happens after my 14-day free trial expires?',
-    answer: `After your trial ends, you’ll automatically become a monthly member and be charged $67/month to retain access to everything. 
+    answer: `After your trial ends, you’ll automatically become a monthly member and be charged $67/month to retain access to everything.
     But if you feel it’s not the right fit for you, there is zero obligation and you can cancel before your trial ends by logging into the members area.`,
   },
   {
     question: 'Do I have to attend classes, or are your courses self-paced?',
-    answer: `All our online courses are self-paced courses you can work through on your own time, whenever works best for you. Binge our video modules in one 
-    go or spend as little as 15 minutes a day working through them.`,
+    answer: `All our online courses are self-paced courses you can work through on your own time, whenever works best for you. Binge our video modules in one go or spend as little as 15 minutes a day working through them.`,
   },
   {
     question: 'Can I cancel later if I become a member of The Personal Development School?',
-    answer: `Absolutely! If you decide to become a member after your trial expires, you can still cancel any time. Plus, we also offer a no-questions asked 
-    7-day money-back guarantee – meaning there is zero risk if you become a member.`,
+    answer: `Absolutely! If you decide to become a member after your trial expires, you can still cancel at any time.
+    Plus, we also offer a no-questions-asked 7-day money-back guarantee – meaning there is zero risk if you become a member.`,
   },
   {
     question: 'Can you remind me what I get access to?',
-    answer: `Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships and gain emotional mastery. You also get 
-    access to weekly live webinars and Q&A calls, and all of our past recordings. Plus, access to our members-only forum and Facebook group, as well as online 
-    study groups and social events so you can get additional support and connect with likeminded members.`,
+    answer: `Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships, and gain emotional mastery.
+    You also get access to weekly live webinars and Q&A calls, and all of our past recordings. Plus, access to our members-only forum and Facebook group, as well as online study groups and social events, so you can get additional support and connect with like-minded members.`,
   },
 ]

@@ -57,6 +57,7 @@ export type Pages =
   | `Corporate Quiz Questions Page`
   | `Corporate Quiz Form Page`
   | `Corporate Quiz Results Page`
+  | `Cyber Monday`
   | `Dreamlife Results Page FA`
   | `External IAT Page`
   | `External IAT Ebook Page`

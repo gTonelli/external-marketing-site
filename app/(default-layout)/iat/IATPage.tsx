@@ -2,7 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
@@ -12,7 +12,6 @@ import { Dialog } from '@/components/Dialog/Dialog'
 import { Expandable } from '@/components/Expandable'
 import { Faq } from '@/components/Faq/Faq'
 import { Page } from '@/components/Page'
-import { Icon } from '@/components/Icon'
 import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
@@ -23,20 +22,30 @@ import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from './config'
+import { IATBanner } from './IATBanner'
 // libraries
 import cx from 'classnames'
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik'
 import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import * as Yup from 'yup'
-import { IconName } from '@fortawesome/fontawesome-common-types'
+import {
+  faArrowLeftLong,
+  faArrowRightLong,
+  faChevronDown,
+  faChevronsRight,
+  faCircle,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
+import { Storage } from '@/modules/Storage'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { IATBanner } from './IATBanner'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -69,6 +78,23 @@ export const IATPage = ({
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const [modalSuccess, setModalSuccess] = useState(false)
+  const [isVariant, setIsVariant] = useState(false)
+
+  useEffect(() => {
+    if (pageUrl === 'ebook') {
+      let isVariant = Storage.get('gm-1172-iat-cta-split') === 'yes'
+      if (Storage.get('gm-1172-iat-cta-split') === null) {
+        isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
+        Storage.set('gm-1172-iat-cta-split', isVariant ? 'yes' : 'no')
+        Mixpanel.track.ExperimentStarted({
+          'Experiment name': 'GM-1172-iat-cta-split',
+          'Variant name': isVariant ? 'Variant 1' : 'Control',
+        })
+      }
+      setIsVariant(isVariant)
+      if (searchParams.get('signup') === 'success') setModalSuccess(true)
+    }
+  }, [pageUrl, searchParams])
 
   const onVideoStarted = (type: string) => {
     if (!watchedVideos.has(type)) {
@@ -119,12 +145,6 @@ export const IATPage = ({
     })
   }
 
-  useEffect(() => {
-    if (pageUrl === 'ebook') {
-      if (searchParams.get('signup') === 'success') setModalSuccess(true)
-    }
-  }, [pageUrl, searchParams])
-
   return (
     <Page className="w-full" page_name={page_name}>
       {/* TOP HERO SECTION */}
@@ -132,21 +152,26 @@ export const IATPage = ({
         className="max-w-xl p-4 bg-white rounded-20"
         isShown={modalSuccess}
         onToggle={() => setModalSuccess(!modalSuccess)}>
-        <div className="w-full flex justify-end mb-2">
-          <Icon
-            className="cursor-pointer hover:scale-125"
-            name="close"
-            onClick={() => setModalSuccess(false)}
-          />
-        </div>
         <h2 className="text-4xl text-left mb-2">Thanks for Signing Up for Our Ebook!</h2>
 
-        <p>
+        <p className="mb-4">
           Congratulations on starting your journey towards becoming a certified relationship coach!
-          Our eBook is on its way. <br />
-          <br /> I’ll be sending you the best resources and latest updates about our IAT™
-          Relationship Coaching Program. Stay tuned!
+          The eBook is on its way.
         </p>
+
+        <p className="mb-4">
+          I’ll be sending you the best resources and latest updates about our IAT™ Program. Stay
+          tuned!
+        </p>
+
+        <p className="mb-4">
+          Please continue on to learn more about what it includes, how it will change your life, and
+          your exclusive offer for this revolutionary program!
+        </p>
+
+        <div className="text-center">
+          <Button className="p-4" label="CONTINUE" onClick={() => setModalSuccess(false)} />
+        </div>
       </Dialog>
 
       <Section className="w-full relative z-10 bg-blue-lightest 3xl:pb-0">
@@ -169,6 +194,27 @@ export const IATPage = ({
 
       {/* VIDEO SECTION */}
       <Section className="pt-9 lg:pt-16">
+        {isVariant && (
+          <div className="max-w-3xl text-center mx-auto">
+            <h2 className="mb-4">Unlock Your Potential With a Free Consultation</h2>
+
+            <p className="mb-4">
+              Are you excited about your career as a Certified IAT™ Coach? Discover your potential,
+              unlock the key benefits of the IAT™ Program, get all your questions answered,{' '}
+              <strong>and claim your special discount</strong> by booking a FREE call with our
+              coaching specialist!
+            </p>
+
+            <Button
+              className="trial-btn mb-16"
+              label="BOOK YOUR FREE CALL NOW"
+              onClick={onBookNow}
+            />
+
+            <h3 className="mb-4">Watch Below To Get The Breakdown Of Your New IAT™ Career</h3>
+          </div>
+        )}
+
         <Video.Large
           className="mx-auto shadow-centered max-w-3xl lg:p-8"
           srcUrl="https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4"
@@ -209,7 +255,7 @@ export const IATPage = ({
       <Section className="pt-0 lg:py-0" classNameInner="max-w-3xl">
         <div>
           <Text.Heading
-            className="font-effra font-bold text-black text-[48px] leading-[50px]"
+            className="font-bold text-black text-[48px] leading-[50px]"
             content={IAT.relationship_section.heading}
           />
 
@@ -238,7 +284,7 @@ export const IATPage = ({
 
       <Section className="bg-primary-light-50 pt-0 pb-12 lg:pb-[120px]">
         <Text.Heading
-          className="max-w-3xl font-effra font-bold mx-auto"
+          className="max-w-3xl font-bold mx-auto"
           content={IAT.initial_weeks.heading}
           size={3}
         />
@@ -257,7 +303,7 @@ export const IATPage = ({
               className="mt-5 text-left"
               classNameIcon="!text-black mt-3"
               classNameListItems="mt-5"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.initial_weeks.content}
             />
@@ -335,8 +381,7 @@ export const IATPage = ({
               className="mt-3"
               classNameIcon="!text-green-check"
               classNameListItems="font-bold"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={IAT.training.live_training.prerequisite_week.heading}
             />
 
@@ -352,7 +397,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week1}
             />
@@ -363,7 +408,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week2}
             />
@@ -374,7 +419,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week3}
             />
@@ -385,7 +430,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.prerequisite_week.week4}
             />
@@ -402,8 +447,7 @@ export const IATPage = ({
               className="mt-3"
               classNameIcon="!text-green-check"
               classNameListItems="font-bold mt-2"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={IAT.training.live_training.intensive_week.heading}
             />
 
@@ -422,7 +466,7 @@ export const IATPage = ({
               className="mt-2"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.live_training.intensive_week.features.copy}
             />
@@ -434,7 +478,7 @@ export const IATPage = ({
           </div>
         </div>
 
-        <Icon className="text-black mt-13" name="book" size="3x" type="regular" />
+        <FontAwesomeIcon className="text-black mt-13" icon={faBook} size="3x" />
 
         <Text.Heading
           className="text-black !text-[26px] mt-4"
@@ -457,7 +501,7 @@ export const IATPage = ({
               className="mt-6"
               classNameIcon="!text-black mt-2"
               classNameListItems="mt-1"
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               listItems={IAT.training.on_demand_training.right_section.course_material}
             />
@@ -502,8 +546,7 @@ export const IATPage = ({
               className="mt-6"
               classNameIcon="!text-green-check"
               classNameListItems="font-bold mt-2"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={IAT.certification.bullets}
             />
 
@@ -569,12 +612,7 @@ export const IATPage = ({
             {IAT.what_you_get.benefits.map((benefit, index) => (
               <div key={`benefit-${index}`}>
                 <div className="flex flex-row mt-10 lg:mt-6">
-                  <Icon
-                    className="text-teal my-auto"
-                    name={benefit.iconName as IconName}
-                    size="lg"
-                    type={benefit.iconType || 'regular'}
-                  />
+                  <FontAwesomeIcon className="text-teal my-auto" icon={benefit.icon} size="lg" />
 
                   <Text.Paragraph
                     className="font-bold ml-5"
@@ -808,19 +846,19 @@ export const IATPage = ({
 
 const iatRecordedPrices: TIATPrice[] = [
   {
-    price: '$1,899.00',
+    price: '$1,999.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT,
   },
   {
-    price: '$645.00',
+    price: '$689.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN,
   },
   {
-    price: '$349.00',
+    price: '$359.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
     link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN,
@@ -835,28 +873,28 @@ const iatRecordedPrices: TIATPrice[] = [
 
 const iatLivePrices: TIATPrice[] = [
   {
-    price: '$2,999.00',
+    price: '$3,499.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_UPFRONT,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_UPFRONT,
   },
   {
-    price: '$1,025.00',
+    price: '$1,209.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_3_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_3_MONTH_PLAN,
   },
   {
-    price: '$525.00',
+    price: '$629.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_6_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_6_MONTH_PLAN,
   },
   {
-    price: '$275.00',
+    price: '$339.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2024_12_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_FALL_2_2024_12_MONTH_PLAN,
   },
 ]
 
@@ -971,8 +1009,7 @@ const IATPriceCard = ({
               className="text-left mt-7"
               classNameIcon="!text-green-check"
               classNameListItems="mt-4"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={benefits}
             />
 
@@ -1029,13 +1066,13 @@ const IATPriceCard = ({
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="3 Months" />
 
-                <Text.Paragraph content="$645/m" />
+                <Text.Paragraph content="$689/m" />
               </div>
 
               <div className="font-bold border rounded-10 py-3">
                 <Text.Paragraph content="6 Months" />
 
-                <Text.Paragraph content="$349/m" />
+                <Text.Paragraph content="$359/m" />
               </div>
 
               <div className="font-bold border rounded-10 py-3">
@@ -1049,8 +1086,7 @@ const IATPriceCard = ({
               className="text-left mt-7"
               classNameIcon="!text-green-check"
               classNameListItems="mt-4"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={benefits}
             />
 
@@ -1113,9 +1149,9 @@ const IATPriceCard = ({
                 onClick={() => setSelectedCardIndex(index)}>
                 <div className="flex items-start mb-2">
                   {selectedCardIndex === index ? (
-                    <Icon className="pt-[5px] text-white" name="check-circle" type="regular" />
+                    <FontAwesomeIcon className="pt-[5px] text-white" icon={faCircleCheck} />
                   ) : (
-                    <Icon className="pt-[5px] text-black" name="circle" type="regular" />
+                    <FontAwesomeIcon className="pt-[5px] text-black" icon={faCircle} />
                   )}
 
                   <div className="flex items-end">
@@ -1208,12 +1244,11 @@ const IATCurriculumCard = ({
       <div className="w-full flex justify-between items-center pb-2 lg:pb-4">
         <Text className="font-semibold uppercase" content={heading} />
 
-        <Icon
+        <FontAwesomeIcon
           className={`text-primary transition-all font-semibold text-xl ml-4 ${
             isOpen ? 'rotate-180' : ''
           }`}
-          name="chevron-down"
-          type="solid"
+          icon={faChevronDown}
         />
       </div>
       <Expandable className="" open={isOpen} trigger="">
@@ -1226,7 +1261,7 @@ const IATCurriculumCard = ({
           className="my-2 lg:my-3"
           classNameIcon="!text-blue !pt-1"
           classNameListItems="my-2"
-          iconName="chevrons-right"
+          icon={faChevronsRight}
           listItems={listItems}
         />
         <Text.Paragraph className="my-2 lg:my-4" content={textBottom} />
@@ -1243,17 +1278,17 @@ const IATPriceCardSection = () => {
           isLive
           benefits={IAT.price.live_mode}
           heading="Live Training"
-          originalPrice="$6000.00"
+          originalPrice="$7000.00"
           prices={iatLivePrices}
-          salePrice="$2,999.00"
+          salePrice="$3,499.00"
         />
 
         <IATPriceCard
           benefits={IAT.price.recorded_mode}
           heading="On Demand"
-          originalPrice="$3,699.00"
+          originalPrice="$4,000.00"
           prices={iatRecordedPrices}
-          salePrice=" $1,899.00"
+          salePrice=" $1,999.00"
           subheading="MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:"
         />
       </div>
@@ -1389,11 +1424,11 @@ const IATTestimonialSection = () => {
 
       <div className="absolute flex right-9 bottom-0">
         <div ref={(node) => setPrevEl(node)} className="mx-2">
-          <Icon name="arrow-left-long" size="lg" />
+          <FontAwesomeIcon icon={faArrowLeftLong} size="lg" />
         </div>
 
         <div ref={(node) => setNextEl(node)} className="mx-2">
-          <Icon name="arrow-right-long" size="lg" />
+          <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
         </div>
       </div>
     </Section>
@@ -1473,7 +1508,7 @@ const IATRegistrationForm = () => {
 
           {formSubmissionError && (
             <div className="flex items-center p-4 bg-danger text-white mt-4 rounded-lg">
-              <Icon className="mr-4" name="xmark-circle" type="light" />
+              <FontAwesomeIcon className="mr-4" icon={faXmarkCircle} />
 
               <Text.Paragraph content={formSubmissionError} />
             </div>

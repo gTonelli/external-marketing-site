@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation'
 import { IDefaultProps } from '@/components'
 // libraries
 import cx from 'classnames'
-import { Icon } from '@/components/Icon'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IButtonBackProps extends IDefaultProps {
   label?: string
@@ -22,7 +23,7 @@ export const ButtonBack = ({ label = 'GO BACK', goBackUrl, className }: IButtonB
       )}
       role="button"
       onClick={() => (goBackUrl ? router.push(goBackUrl) : router.back())}>
-      <Icon name="chevron-left" className="mr-4" />
+      <FontAwesomeIcon icon={faChevronLeft} className="mr-4" />
 
       <span className="font-bold tracking-33">{label}</span>
     </div>

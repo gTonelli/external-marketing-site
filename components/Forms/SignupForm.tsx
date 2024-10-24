@@ -5,7 +5,7 @@
  */
 
 // core
-import React, { useState } from 'react'
+import { useState } from 'react'
 // components
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
@@ -17,11 +17,12 @@ import cx from 'classnames'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
-// utils
-import { Regexes } from '@/utils/constants'
+import { useGoogleTagManager } from '@/modules/GTM'
 
 interface ISignupFormProps extends IDefaultProps {
   classNameFields?: string
+  /** Source page for the form */
+  formSource?: string
   /** String or function that retuirns a string for generating client tags */
   userTags?: string[]
   /** Form ID */
@@ -42,6 +43,7 @@ export const SignupForm = ({
   className,
   classNameFields,
   classNameSuccessMessage,
+  formSource,
   id,
   userTags,
   submitButtonLabel,
@@ -54,6 +56,7 @@ export const SignupForm = ({
   const [errorMessage, setErrorMessage] = useState('')
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
+  const tagManager = useGoogleTagManager()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
     const { email, firstName } = values
@@ -61,6 +64,15 @@ export const SignupForm = ({
     FBQ?.trackLead({
       email: email,
     })
+
+    if (formSource === 'IAT Ebook') {
+      tagManager?.track({
+        event: 'iat_form_tracking',
+        eventCategory: 'IAT Ebook Form',
+        eventAction: 'Form',
+        eventLabel: 'Submit',
+      })
+    }
 
     const requestBody = {
       tags: userTags,

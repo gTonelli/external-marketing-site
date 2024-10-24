@@ -1,15 +1,21 @@
 // components
-import { Icon } from './Icon'
 import Image from 'next/image'
 import { PaymentOptions } from './PaymentOptions'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface ICommunityTeaserProps {
   includePaymentOptions?: boolean
+  teaserHeading?: string
 }
 
-export const CommunityTeaser = ({ includePaymentOptions = true }: ICommunityTeaserProps) => {
+export const CommunityTeaser = ({
+  includePaymentOptions = true,
+  teaserHeading = TH.COMMUNITY.bullets.heading,
+}: ICommunityTeaserProps) => {
   return (
     <>
       <Image
@@ -48,18 +54,18 @@ export const CommunityTeaser = ({ includePaymentOptions = true }: ICommunityTeas
           </div>
 
           <div className="mt-12 lg:mt-[70px]">
-            <h1 className="text-center lg:text-left">{TH.COMMUNITY.bullets.heading}</h1>
+            <h1 className="text-center lg:text-left">{teaserHeading}</h1>
 
             <div className="flex flex-col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:flex-row md:mt-20">
               <div>
                 <div className="flex row items-center space-x-6 lg:space-x-10">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <p className="text-lg">{TH.COMMUNITY.bullets.bullet1}</p>
                 </div>
 
                 <div className="flex row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <p className="text-lg">{TH.COMMUNITY.bullets.bullet2} </p>
                 </div>
@@ -67,13 +73,13 @@ export const CommunityTeaser = ({ includePaymentOptions = true }: ICommunityTeas
 
               <div>
                 <div className="flex row items-center space-x-6 lg:space-x-10">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <p className="text-lg">{TH.COMMUNITY.bullets.bullet3} </p>
                 </div>
 
                 <div className="flex row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <p className="text-lg">{TH.COMMUNITY.bullets.bullet4}</p>
                 </div>

@@ -4,10 +4,12 @@
 import Image from 'next/image'
 import { useState } from 'react'
 // components
-import { Icon } from '@/components/Icon'
 import { Section } from '@/components/Section'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
+// libraries
+import { faPlayCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { IStrapiResponse } from '@/utils/types'
 
@@ -63,12 +65,12 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
           />
 
           <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center lg:hidden">
-            <Icon name="play-circle" className="!text-white shadow-md" size="3x" />
+            <FontAwesomeIcon icon={faPlayCircle} className="!text-white shadow-md" size="3x" />
           </div>
 
           <div className="absolute hidden top-0 left-0 w-full h-full flex-col items-center justify-center bg-gradient-to-b from-transparent to-black-transparent rounded-4xl z-1 lg:flex">
-            <Icon
-              name="play-circle"
+            <FontAwesomeIcon
+              icon={faPlayCircle}
               size="5x"
               className="text-white cursor-pointer"
               onClick={() => setPlayVideo(true)}

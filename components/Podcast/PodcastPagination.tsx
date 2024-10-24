@@ -1,11 +1,11 @@
 'use client'
 
 // core
-import { ChangeEvent, useCallback, useEffect, useState } from 'react'
-// components
-import { Icon } from '../Icon'
+import { ChangeEvent } from 'react'
 // libraries
 import ReactPaginate from 'react-paginate'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IPodcastPaginationProps {
   currPage: number
@@ -31,8 +31,8 @@ export const PodcastPagination = ({
       nextClassName="w-6 h-6 flex justify-center items-center bg-primary rounded-full"
       nextLinkClassName="flex text-white"
       activeLinkClassName="text-primary font-bold"
-      nextLabel={<Icon name="chevron-right" size="xs" />}
-      previousLabel={<Icon name="chevron-left" size="xs" />}
+      nextLabel={<FontAwesomeIcon icon={faChevronRight} size="xs" />}
+      previousLabel={<FontAwesomeIcon icon={faChevronLeft} size="xs" />}
       breakLabel="..."
       pageRangeDisplayed={pageSize}
       pageCount={pageCount}

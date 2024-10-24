@@ -1,5 +1,3 @@
-// core
-import React from 'react'
 import { IDefaultWrapperProps } from '@/components'
 // components
 import { ITextDefaultProps } from './TextDefault'

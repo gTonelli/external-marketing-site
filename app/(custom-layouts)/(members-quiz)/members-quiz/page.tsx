@@ -7,14 +7,15 @@ import Image from 'next/image'
 import { Text } from '@/components/Text/Text'
 import { QuizCard } from '@/components/QuizCard'
 import { Section } from '@/components/Section'
-import { Icon } from '@/components/Icon'
+import { Page } from '@/components/Page'
 // config
 import { ATTACHMENT_STYLES, CONFIG, QUIZ_PAGE } from './config'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // styles
 import './styles.css'
-import { Page } from '@/components/Page'
 
 export default function MembersQuizPage() {
   return (
@@ -154,7 +155,7 @@ export default function MembersQuizPage() {
 
             {QUIZ_PAGE.section_5.list.map((item, index) => (
               <div key={`as-benefit-${index}`} className="flex flex-row space-x-7 mb-4">
-                <Icon className="text-2xl text-green" name="check-circle" type="light" />
+                <FontAwesomeIcon className="text-green" icon={faCheckCircle} size="xl" />
 
                 <Text.Paragraph content={item} />
               </div>

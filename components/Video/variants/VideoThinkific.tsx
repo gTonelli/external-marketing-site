@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 // components
 import Image from 'next/image'
 import { Dialog } from '@/components/Dialog/Dialog'

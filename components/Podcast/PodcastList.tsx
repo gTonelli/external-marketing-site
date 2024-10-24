@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { ChangeEvent, useEffect, useRef, useState } from 'react'
 // components
-import { Icon } from '@/components/Icon'
 import {
   IPodcast,
   IPodcastCategory,
@@ -15,6 +14,12 @@ import {
 // libraries
 import _ from 'lodash'
 import qs from 'qs'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faClose,
+  faExternalLink,
+  faMagnifyingGlass,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 import { PodcastListCTA } from './PodcastListCTA'
@@ -184,7 +189,7 @@ export const PodcastList = ({
         </div>
 
         <div className="w-full flex items-center rounded-full border border-solid border-grey-border px-4 lg:w-72">
-          <Icon name="magnifying-glass" />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
 
           <input
             name="podcastSearch"
@@ -253,7 +258,7 @@ export const PodcastList = ({
 
                 <p className="text-primary">
                   <span className="mr-2">
-                    <Icon name="external-link" />
+                    <FontAwesomeIcon icon={faExternalLink} />
                   </span>
 
                   <Link
@@ -288,9 +293,9 @@ export const PodcastList = ({
       {currentAudioId && (
         <div className="fixed w-full h-max bg-white left-0 bottom-0 right-0 rounded-xl p-4 mx-auto z-20 lg:w-1/2">
           <div className="relative w-full h-full">
-            <Icon
+            <FontAwesomeIcon
               className="absolute -top-4 -right-3 hover:cursor-pointer"
-              name="close"
+              icon={faClose}
               onClick={() => setCurrentAudioId('')}
             />
             <iframe

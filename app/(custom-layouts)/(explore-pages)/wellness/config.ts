@@ -1,3 +1,7 @@
+// libraries
+import { faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
+import { faEarthAmericas, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+
 export const WELLNESS_PAGE = {
   HERO: {
     title: `Your Attachment Style Is`,
@@ -69,19 +73,16 @@ export const WELLNESS_PAGE = {
              \nThrough her academic training and client-based research Thais has created renowned courses for personal development, growth, and relationships.`,
     stats: [
       {
-        icon: `youtube`,
+        icon: faYoutube,
         copy: `24,000,000+ views`,
-        type: `brand`,
       },
       {
-        icon: `star`,
+        icon: faStar,
         copy: `99.7% Satisfaction Rate`,
-        type: `solid`,
       },
       {
-        icon: `earth-americas`,
+        icon: faEarthAmericas,
         copy: `113+ Countries Worldwide`,
-        type: `solid`,
       },
     ],
   },

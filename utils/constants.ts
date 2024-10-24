@@ -51,7 +51,7 @@ export const Regexes: { [key: string]: RegExp } = {
   hex: /^#(?:[0-9a-fA-F]{3}){1,2}$/,
   //   hex: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/,
   name: /[^a-zA-Z\d.,:'-\s]/g,
-  email: /(?:\w+@\w+\.+\w{2,}){1}$/,
+  email: /(?:\w+@\w+(\.+\w{2,})+){1}$/,
   phone:
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
   // phone: /[^()\d-]/g,
@@ -101,6 +101,8 @@ export enum ERoutes {
 
   // Custom Checkout on Thinkific
   CHECKOUT_ATTACHMENT_BOOTCAMP = '/checkout/v2?product_id=2996140&price_id=3853225&coupon=148off',
+  // Attachment Style funnel checkout split test
+  CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST = '/enroll?product_id=559833&price_id=1285773',
 }
 
 export enum EExternalRoutes {
@@ -119,7 +121,7 @@ export enum EExternalRoutes {
   // Subscriptions
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_19_DOLLAR = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773&coupon=special19promo',
-  THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=3175705&coupon=40off',
+  THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR = 'https://university.personaldevelopmentschool.com/pages/checkout?price_id=1285773&coupon=Jwdjxr23',
   THINKIFIC_CHECKOUT_7_DAY_TRIAL = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=590989',
   THINKIFIC_CHECKOUT_7_DAY_TRIAL_50_OFF = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=3175705&coupon=50off1mo',
   THINKIFIC_CHECKOUT_14_DAY_TRIAL = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=2357208',
@@ -132,11 +134,16 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
-  // IAT Spring 2024
+  // IAT Fall 2024
   THINKIFIC_CHECKOUT_IAT_FALL_2024_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871049&coupon=iatbundleupfrontlive',
   THINKIFIC_CHECKOUT_IAT_FALL_2024_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871126&coupon=iatbundle3molive',
   THINKIFIC_CHECKOUT_IAT_FALL_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871125&coupon=iatbundle6molive',
   THINKIFIC_CHECKOUT_IAT_FALL_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3871124&coupon=iatbundle12molive',
+  // IAT Fall 2 2024
+  THINKIFIC_CHECKOUT_IAT_FALL_2_2024_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3087572?price_id=3957277&coupon=iatbundleupfrontlivefall24cohort2',
+  THINKIFIC_CHECKOUT_IAT_FALL_2_2024_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3087572?price_id=3957293&coupon=iatbundle3molivefall24cohort2',
+  THINKIFIC_CHECKOUT_IAT_FALL_2_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3087572?price_id=3957294&coupon=iatbundle6molivefall24cohort2',
+  THINKIFIC_CHECKOUT_IAT_FALL_2_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3087572?price_id=3957295&coupon=iatbundle12molivefall24cohort2',
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',

@@ -1,13 +1,16 @@
 'use client'
 
 // core
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 // components
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { FLASH_SALE_PAGE } from './config'
+import { Page } from '@/components/Page'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
@@ -29,7 +32,7 @@ export default function FlashSalePage() {
   )
 
   return (
-    <main className="w-full">
+    <Page className="w-full" page_name={page_name}>
       {/* Hero Section */}
       <section className="max-w-5xl flex flex-col mx-auto px-4 py-8 md:flex-row md:py-16">
         <div className="w-full flex flex-col items-center flex-1 text-center md:items-start md:text-left">
@@ -38,10 +41,14 @@ export default function FlashSalePage() {
           <Image className="w-full mt-4 mb-8 sm:w-[60%]" src="thais-gibson-signature.svg" />
 
           <Button
-            className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
+            className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white mb-2"
             label="UNLOCK MY POTENTIAL NOW AT 40% OFF"
             onClick={onGoToCheckout}
           />
+
+          <small className="text-center">
+            <strong>*Special Bonus: Get 30% Off From Your 2nd Month Onwards!</strong>
+          </small>
         </div>
 
         <div className="flex justify-center items-center flex-1">
@@ -90,8 +97,7 @@ export default function FlashSalePage() {
                 className="flex items-start mb-4"
                 classNameIcon="text-3xl !text-primary pt-[3px] pr-4"
                 classNameListItems="text-left !text-lg !leading-6"
-                iconName="circle-check"
-                iconType="regular"
+                icon={faCircleCheck}
                 listItems={[bullet_point]}
               />
             ))}
@@ -99,7 +105,7 @@ export default function FlashSalePage() {
 
           <Text.Paragraph
             className="text-center"
-            content="By signing up today, you'll lock in the rate at 40% off for life! This offer is only valid for a few days for our anniversary celebration."
+            content="By signing up today, you'll lock in the rate at 40% off for the first month! This offer is only valid for a few days for our anniversary celebration."
           />
 
           <Button
@@ -217,6 +223,6 @@ export default function FlashSalePage() {
           onClick={onGoToCheckout}
         />
       </section>
-    </main>
+    </Page>
   )
 }

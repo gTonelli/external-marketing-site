@@ -63,6 +63,7 @@ export type Pages =
   | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `Find My Courses`
+  | `Free Masterclass Mel Robbins`
   | `IAT Attachment Quiz`
   | `IAT Info Page`
   | `IAT Webinar Page`

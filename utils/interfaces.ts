@@ -1,5 +1,6 @@
 import { Pages } from '@/modules/Mixpanel'
 import { TBreakpoints } from './types'
+import { IGetSplitTest } from './functions'
 
 export interface IViewport {
   windowWidth: number
@@ -13,6 +14,10 @@ export interface IScrolldepth {
 
 export interface IPage {
   page_name?: Pages
+}
+
+export interface ISplitTest extends IGetSplitTest {
+  variantUrl: string
 }
 
 /**

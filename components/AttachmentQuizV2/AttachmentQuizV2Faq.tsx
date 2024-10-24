@@ -1,9 +1,13 @@
 'use client'
 
+// core
 import { useState } from 'react'
+// components
 import { Expandable } from '../Expandable'
-import { Icon } from '../Icon'
 import { FAQs } from './config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinus, faPlus } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export const AttachmentQuizV2Faq = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +19,7 @@ export const AttachmentQuizV2Faq = () => {
       onClosing={() => setIsOpen(false)}
       trigger={
         <div className={`grid grid-cols-[16px_1fr] gap-4 justify-start items-center p-4`}>
-          <Icon className="w-full text-primary" name={isOpen ? 'minus' : 'plus'} />
+          <FontAwesomeIcon className="w-full text-primary" icon={isOpen ? faMinus : faPlus} />
 
           <p className="font-bold text-left mb-0 md:text-lg">Get my exclusive sneak peak</p>
 
@@ -29,7 +33,7 @@ export const AttachmentQuizV2Faq = () => {
         {FAQs.map((faq, i) => (
           <div key={`attachment_quiz_v2_faq_${i}`} className="p-4 bg-white rounded-lg mb-4 lg:mb-0">
             <div className="flex justify-start items-center mb-4">
-              <Icon className="text-primary mr-4" name="minus" />
+              <FontAwesomeIcon className="text-primary mr-4" icon={faMinus} />
 
               <p className="font-bold mb-0">{faq.question}</p>
             </div>

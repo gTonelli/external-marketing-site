@@ -1,17 +1,17 @@
 'use client'
 
 //core
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
 // modules
 import { useGoogleTagManager } from '@/modules/GTM'
-import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 // utils
 import { TStyle } from '@/utils/types'
+import { SplitTestContext } from '@/utils/contexts'
+import { getSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -27,6 +27,7 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   const tagManager = useGoogleTagManager()
   const router = useRouter()
+  const splitTestContext = useContext(SplitTestContext)
 
   // ==================== Events ====================
   const onAfterSubmit = () => {
@@ -37,12 +38,17 @@ export const AttachmentQuizForm = ({
       eventLabel: 'Submit',
     })
 
+    if (splitTestContext) var quizBSplitTest = getSplitTest(splitTestContext)
     if (quiz_traffic_source === 'organic') {
       router.push('/results/' + userStyle)
     } else if (quiz_traffic_source === 'paid' && userStyle === 'fa') {
-      router.push('/quiz/results/fa')
+      quizBSplitTest
+        ? router.push(splitTestContext?.variantUrl + '/fa')
+        : router.push('/quiz/results/fa')
     } else {
-      router.push('/quiz/' + userStyle)
+      quizBSplitTest
+        ? router.push(splitTestContext?.variantUrl + userStyle)
+        : router.push('/quiz/' + userStyle)
     }
   }
 

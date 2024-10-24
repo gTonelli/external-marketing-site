@@ -1,10 +1,9 @@
-// core
-import React from 'react'
 // components
 import { IDefaultWrapperProps } from '.'
-import { Icon, TIconName } from './Icon'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 export interface ITooltipProps extends IDefaultWrapperProps {
   /**
@@ -22,7 +21,7 @@ export interface ITooltipProps extends IDefaultWrapperProps {
   /**
    * Icon to display left of the `title`
    */
-  icon?: TIconName
+  icon?: IconProp
   /**
    * Text to display in the body of the tooltip
    */
@@ -87,7 +86,7 @@ export const Tooltip = ({
           {title && (
             <div className="text-txt-light">
               {/* TITLE ICON */}
-              {icon && <Icon className="mr-3" name={icon} size="lg" type="regular" />}
+              {icon && <FontAwesomeIcon className="mr-3" icon={icon} size="lg" type="regular" />}
 
               {/* TITLE TEXT */}
               {title}

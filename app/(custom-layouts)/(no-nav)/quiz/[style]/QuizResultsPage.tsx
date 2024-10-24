@@ -1,35 +1,49 @@
+// components
 import Image from 'next/image'
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
-import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { RoyalRumbleHeadline } from './RoyalRumbleHeadline'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faCheckCircle,
+  faCircleCheck,
+  faSquareCheck,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
-import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG, AGE_PRICING } from './config'
+import {
+  ROYAL_RUMBLE as CONFIG,
+  AGE_CONFIG,
+  AGE_PRICING,
+  MEL_ROBBINS_CONFIG as MR_CONFIG,
+} from './config'
 import { EExternalRoutes } from '@/utils/constants'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IQuizResultsPageProps {
   style: TStyle
   ageVariant?: boolean
+  melRobbinsVariant?: boolean
 }
 
-export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageProps) => {
-  const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : CONFIG
-  const checkoutUrl = ageVariant
-    ? AGE_PRICING[style].checkoutUrl
-    : EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+export const QuizResultsPage = ({
+  style,
+  ageVariant = false,
+  melRobbinsVariant = false,
+}: IQuizResultsPageProps) => {
+  const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : melRobbinsVariant ? MR_CONFIG : CONFIG
 
   return (
     <>
       {/* BANNER SECTION */}
-      {style === 'da' || style === 'sa' ? (
+      {(style === 'da' || style === 'sa') && !melRobbinsVariant ? (
         <RoyalRumbleHeadline style={style} ageVariant={ageVariant} />
       ) : (
         <section className="w-full">
@@ -37,47 +51,115 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
               <AttachmentQuizHeading
                 copy={ROYAL_RUMBLE[style].HERO_SECTION.headline}
-                className="!font-ssp !text-3xl capitalize lg:!text-4xl"
+                className="!font-ssp !text-3xl text-center capitalize lg:!text-4xl"
               />
 
-              <p className="max-w-3xl uppercase font-bold my-4">
+              <p className="max-w-3xl uppercase font-bold my-4 text-center">
                 {ROYAL_RUMBLE[style].HERO_SECTION.subheadline}
               </p>
 
               {/* BANNER BACKGROUND */}
               <div className="max-w-5xl w-full md:my-8">
-                <div className="flex flex-col md:flex-row justify-center items-center space-x-6 md:px-8">
-                  <div>
+                {melRobbinsVariant && (
+                  <>
+                    <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center hidden lg:block lg:mb-4">
+                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                    </h2>
+
+                    <p className="font-bold mb-4 hidden lg:block">
+                      Our groundbreaking, proprietary process is unlike anything you’ve ever seen
+                      before. It is disrupting the relationship industry, because of how fast it
+                      works, and how simple it is!
+                    </p>
+                  </>
+                )}
+
+                <div className="flex flex-col lg:flex-row justify-center items-center space-x-6 md:px-8">
+                  <div className="mb-4">
                     <VideoThumbnail
+                      className="lg:max-w-screen-xs"
                       srcUrl={ROYAL_RUMBLE[style].HERO_SECTION.videoURL}
-                      thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
-                      thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
+                      thumbnailAlt={
+                        melRobbinsVariant
+                          ? 'An image of Mel Robbins smiling'
+                          : `Attachment Style: ${style} thumbnail`
+                      }
+                      thumbnailUrl={
+                        melRobbinsVariant
+                          ? 'RoyalRumblePage/mel-robbins.jpg'
+                          : 'RoyalRumblePage/rr-video-thumbnail.png'
+                      }
                       type="default"
                     />
                   </div>
 
-                  <div className="!mx-0 mb-4 md:text-left md:!m-4 md:w-1/2">
-                    <h2 className="text-purple-dark !text-3xl hidden md:block">
-                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                    </h2>
+                  <div className="!mx-0 lg:text-left lg:!mx-4 lg:w-1/2">
+                    {melRobbinsVariant ? (
+                      <>
+                        <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center lg:hidden">
+                          {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                        </h2>
 
-                    <p className="mt-4 hidden md:block">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                        <p className="font-bold mb-4 lg:hidden">
+                          Our groundbreaking, proprietary process is unlike anything you’ve ever
+                          seen before. It is disrupting the relationship industry, because of how
+                          fast it works, and how simple it is! As seen with thousands of students in
+                          the Personal Development School.
+                        </p>
+                      </>
+                    ) : (
+                      <h2 className="text-purple-dark mb-4 !text-3xl">
+                        {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                      </h2>
+                    )}
 
-                    <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">
-                      {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                    </h2>
+                    {melRobbinsVariant && (
+                      <List
+                        className="text-black"
+                        classNameListItems="mb-2"
+                        classNameIcon="!text-black w-2 h-2 !pt-1"
+                        // @ts-ignore
+                        listItems={ROYAL_RUMBLE[style].HERO_SECTION.list}
+                        icon={faCircle}
+                        iconSize="xs"
+                      />
+                    )}
 
-                    <p className="mt-4 md:hidden">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                    {!melRobbinsVariant && <p>{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>}
                   </div>
                 </div>
+
+                {melRobbinsVariant && (
+                  <>
+                    <p className="text-sm text-center mb-2 lg:mb-6">
+                      {ROYAL_RUMBLE[style].HERO_SECTION.copy}
+                    </p>
+
+                    <p className="text-center mb-4 font-bold text-green-secondary lg:mb-4">
+                      Your personalized course program will help you heal old attachment patterns
+                      and build the best relationships of your life in as little as 90 days. It is
+                      filled with video courses, simple steps to heal your attachment style,
+                      workbook exercises and tools for rapid transformation.{' '}
+                    </p>
+
+                    <div className="text-center mb-4 lg:mb-0">
+                      <CheckoutButton
+                        href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                        className="xxs:px-16"
+                        label={melRobbinsVariant ? 'UNLOCK MY DISCOUNT' : 'UNLOCK MY DISCOUNT'}
+                      />
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
 
-          <div className="max-w-5xl mt-8 md:mt-10 mx-4 md:mx-auto md:px-4">
+          <div className="max-w-5xl mx-4 md:mx-auto lg:px-4">
             <div className="text-left">
-              <p className="font-effra font-bold tracking-0.325 md:text-lg">
-                {ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}
+              <p className="font-effra font-bold tracking-widest md:text-lg">
+                ABOUT YOUR ATTACHMENT STYLE:{' '}
+                <span className="text-primary">{ROYAL_RUMBLE[style].BANNER_SEGMENT.headline}</span>
               </p>
 
               {ROYAL_RUMBLE[style].BANNER_SEGMENT.copy.map((copy, index) => (
@@ -110,7 +192,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </div>
 
             <CheckoutButton
-              href={checkoutUrl}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8 xxs:px-16 md:mt-10"
               label="UNLOCK MY DISCOUNT"
             />
@@ -145,10 +227,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   return (
                     <div key={`content_${index}`} className={`${MARGIN}`}>
                       <div className="flex row text-left">
-                        <Icon
+                        <FontAwesomeIcon
                           className="text-primary mr-2 my-auto w-4 h-4"
-                          name="square-check"
-                          type="regular"
+                          icon={faSquareCheck}
                         />
 
                         <p className="md:text-lg font-bold font-effra capitalize">
@@ -190,7 +271,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               )}
 
               <CheckoutButton
-                href={checkoutUrl}
+                href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                 className="mt-4 px-16 md:mt-10"
                 label="GET STARTED"
               />
@@ -243,7 +324,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               </p>
             )}
 
-            <CheckoutButton href={checkoutUrl} className="px-16" label="GET STARTED" />
+            <CheckoutButton
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              className="px-16"
+              label="GET STARTED"
+            />
           </div>
         </div>
       </section>
@@ -456,10 +541,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <ul className="mt-4 !ml-6 fa-ul text-white font-effra md:text-lg">
               {ROYAL_RUMBLE[style].WHATPROGRAMCOVER_SEGMENT.bullets.map((copy, index) => (
                 <li key={`programcover_${index}`}>
-                  <Icon
+                  <FontAwesomeIcon
                     className="text-blue mr-2 my-auto w-4 h-4 fa-li"
-                    name="check-circle"
-                    type="regular"
+                    icon={faCheckCircle}
                   />
 
                   <p className="my-4">{copy}</p>
@@ -468,7 +552,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </ul>
 
             <CheckoutButton
-              href={checkoutUrl}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8 md:mt-10 px-16"
               label="SIGN UP NOW"
             />
@@ -535,10 +619,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                 <ul className="font-effra !ml-6 fa-ul max-w-[415px]">
                   {ROYAL_RUMBLE.EXCLUSIVEBONUS_SEGMENT.map((copy, index) => (
                     <li key={`bonus_${index}`} className="mb-6">
-                      <Icon
+                      <FontAwesomeIcon
                         className="text-primary mr-2 mt-1 my-auto w-4 h-4 fa-li"
-                        name="check-circle"
-                        type="regular"
+                        icon={faCheckCircle}
                       />
 
                       <p className="md:text-lg">{copy}</p>
@@ -548,10 +631,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
                 <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-[415px]">
                   <li className="font-bold text-primary mb-4">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-primary mr-2 my-auto w-4 h-4 fa-li"
-                      name="check-circle"
-                      type="regular"
+                      icon={faCheckCircle}
                     />
                     Not to mention, a 7-day money-back guarantee!
                   </li>
@@ -563,7 +645,10 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   ))}
 
                   <li className="mt-8 md:mt-10">
-                    <CheckoutButton href={checkoutUrl} label="ENROLL NOW" />
+                    <CheckoutButton
+                      href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                      label="ENROLL NOW"
+                    />
                   </li>
                 </ul>
               </div>
@@ -621,13 +706,13 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             <CarouselTestimonialAlt />
 
             <CheckoutButton
-              href={checkoutUrl}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
             <CheckoutButton
-              href={checkoutUrl}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
             />
@@ -680,7 +765,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               </div>
             ))}
 
-            <CheckoutButton href={checkoutUrl} className="mt-2" label="I WANT THIS" />
+            <CheckoutButton
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              className="mt-2"
+              label="I WANT THIS"
+            />
           </div>
         </div>
       </section>
@@ -741,7 +830,11 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
             </p>
           </div>
 
-          <CheckoutButton href={checkoutUrl} className="mt-6 md:mt-8" label="SIGN ME UP" />
+          <CheckoutButton
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+            className="mt-6 md:mt-8"
+            label="SIGN ME UP"
+          />
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
@@ -774,8 +867,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
 
                 {ageVariant ? (
                   <List
-                    iconName="circle-check"
-                    iconType="regular"
+                    icon={faCircleCheck}
                     iconSize="lg"
                     className="mt-4"
                     classNameIcon="text-primary !mt-4"
@@ -801,9 +893,9 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                     <ul className="font-effra !ml-4 fa-ul">
                       {ROYAL_RUMBLE[style].OFFER_SEGMENT.bullets.map((copy, index) => (
                         <li key={`offer_${index}`}>
-                          <Icon
+                          <FontAwesomeIcon
                             className="text-primary my-auto w-4 h-4 fa-li"
-                            name="check-circle"
+                            icon={faCheckCircle}
                             type="regular"
                           />
                           <p className="md:text-lg my-2 lg:my-1">{copy} </p>
@@ -855,7 +947,7 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
                   </ul>
 
                   <CheckoutButton
-                    href={checkoutUrl}
+                    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                     className="mt-6 md:mt-10"
                     label="REGISTER NOW"
                   />
@@ -913,13 +1005,13 @@ export const QuizResultsPage = ({ style, ageVariant = false }: IQuizResultsPageP
               {copy}
             </p>
           ))}
-        </div>
 
-        <CheckoutButton
-          href={checkoutUrl}
-          className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
-          label="REWRITE MY STORY"
-        />
+          <CheckoutButton
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+            className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
+            label="REWRITE MY STORY"
+          />
+        </div>
       </section>
       {/* FAQ SECTION */}
       <Faq

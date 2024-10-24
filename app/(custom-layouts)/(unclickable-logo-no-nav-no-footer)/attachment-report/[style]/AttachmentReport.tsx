@@ -4,37 +4,29 @@ import Image from 'next/image'
 import { Link } from '@/components/Link'
 import { List } from '@/components/List'
 import { Section } from '@/components/Section'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { AttachmentReportHeader } from './AttachmentReportHeadline'
 // config
 import { REPORT_COPY, AGE_REPORT_COPY } from './config'
 import { TStyle } from '@/utils/types'
+import { faCircle, faHeart, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 
 interface IAttachmentReportProps {
-  ageVariant?: boolean
   style: TStyle
+  ageVariant?: boolean
+  pdfVariant?: boolean
 }
 
-export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentReportProps) => {
+export const AttachmentReport = ({
+  ageVariant = false,
+  pdfVariant = false,
+  style,
+}: IAttachmentReportProps) => {
   const COPY = REPORT_COPY[style]
   return (
     <>
       {/* Hero section */}
-      <Section
-        className="max-w-5xl mx-auto !pb-0"
-        classNameInner="grid grid-cols-1 gap-4 pt-4 pb-0 lg:grid-cols-2">
-        <div className="flex flex-col justify-center lg:text-left">
-          <p className="font-bold text-lg tracking-33 mb-2">YOUR ATTACHMENT STYLE IS</p>
-
-          <h1 className="text-primary lg:!text-6xl">{COPY.banner.style}</h1>
-        </div>
-
-        <div>
-          <VideoThumbnail
-            srcUrl={COPY.banner.video}
-            thumbnailAlt="Thais explaining your attachment style"
-          />
-        </div>
-      </Section>
+      <AttachmentReportHeader style={style} isVariant={pdfVariant} />
 
       {/* Things about you which make you anxious section */}
       <Section
@@ -44,7 +36,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
           <p className="font-bold mb-4">{COPY.copy1.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             className="mb-8"
             classNameIcon="mt-2"
@@ -55,7 +47,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
           <p className="font-bold mb-4">{COPY.copy2.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             classNameIcon="mt-2"
             classNameListItems="mb-2"
@@ -123,7 +115,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
             <p className="font-bold mb-4">{COPY.copy5.leftCopy.header}</p>
 
             <List
-              iconName="heart"
+              icon={faHeart}
               iconSize="xs"
               className="mb-8"
               classNameIcon="mt-2"
@@ -136,7 +128,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
             <p className="font-bold mb-4">{COPY.copy5.rightCopy.header}</p>
 
             <List
-              iconName="circle"
+              icon={faCircle}
               iconSize="2xs"
               classNameIcon="mt-2"
               classNameListItems="mb-2"
@@ -154,7 +146,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
           <p className="font-bold mb-4">{COPY.copy6.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             className="mb-8"
             classNameIcon="mt-2"
@@ -186,7 +178,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
           <p className="font-bold mb-4">{COPY.copy7.header}</p>
 
           <List
-            iconName="circle"
+            icon={faCircle}
             iconSize="2xs"
             classNameIcon="mt-2"
             classNameListItems="mb-2"
@@ -272,8 +264,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
             <p className="font-bold mb-4">{COPY.copy9.leftCopy.header}</p>
 
             <List
-              iconName="check-circle"
-              iconType="light"
+              icon={faCheckCircle}
               iconSize="sm"
               classNameIcon="!text-green-check mt-2"
               classNameListItems="mb-4"
@@ -285,7 +276,7 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
             <p className="font-bold mb-4">{COPY.copy9.rightCopy.header}</p>
 
             <List
-              iconName="star"
+              icon={faStar}
               iconSize="sm"
               classNameIcon="mt-2"
               classNameListItems="mb-4"
@@ -307,17 +298,9 @@ export const AttachmentReport = ({ ageVariant = false, style }: IAttachmentRepor
             </div>
 
             <p className="mt-4">
-              Because of the{' '}
-              <span className="underline">
-                <Link
-                  label="incredible results"
-                  url="https://university.personaldevelopmentschool.com/pages/testimonials"
-                  target="_blank"
-                />
-              </span>{' '}
-              our students are seeing as they work their way from anxious preoccupied to secure
-              attachments, almost all of them agreed that they would gladly recommend us to their
-              friends.
+              Because of the incredible results our students are seeing as they work their way from
+              anxious preoccupied to secure attachments, almost all of them agreed that they would
+              gladly recommend us to their friends.
             </p>
           </div>
         </div>

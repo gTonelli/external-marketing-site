@@ -3,13 +3,14 @@
 // core
 import { useEffect, useState } from 'react'
 // components
-import { Icon } from './Icon'
 import { IDefaultProps } from '.'
+import { Toast } from './Toast'
 // libraries
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share'
 import cx from 'classnames'
-import { Toast } from './Toast'
-//utils
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faLinkedin, faTwitter } from '@awesome.me/kit-545b942488/icons/classic/brands'
+import { faLink } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IShareIconsProps extends IDefaultProps {
   classNameInner?: string
@@ -25,8 +26,8 @@ export const ShareIcons = ({ className, classNameInner }: IShareIconsProps) => {
   }, [])
 
   const onCopyText = () => {
-    setShowToast(true)
     navigator.clipboard.writeText(currentUrl)
+    setShowToast(true)
   }
 
   return (
@@ -40,25 +41,25 @@ export const ShareIcons = ({ className, classNameInner }: IShareIconsProps) => {
           <TwitterShareButton
             url={currentUrl}
             className="w-8 h-8 flex items-center justify-center !bg-primary !text-white rounded-full mx-2">
-            <Icon name="twitter" type="brands" />
+            <FontAwesomeIcon icon={faTwitter} />
           </TwitterShareButton>
 
           <FacebookShareButton
             url={currentUrl}
             className="w-8 h-8 flex items-center justify-center !bg-primary !text-white rounded-full mx-2">
-            <Icon name="facebook" type="brands" />
+            <FontAwesomeIcon icon={faFacebook} />
           </FacebookShareButton>
 
           <LinkedinShareButton
             url={currentUrl}
             className="w-8 h-8 flex items-center justify-center !bg-primary !text-white rounded-full mx-2">
-            <Icon name="linkedin" type="brands" />
+            <FontAwesomeIcon icon={faLinkedin} />
           </LinkedinShareButton>
 
           <div
             className="w-8 h-8 flex items-center justify-center !bg-primary !text-white rounded-full cursor-pointer mx-2"
             onClick={onCopyText}>
-            <Icon name="link" />
+            <FontAwesomeIcon icon={faLink} />
           </div>
 
           <Toast

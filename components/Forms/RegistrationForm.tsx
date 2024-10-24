@@ -1,11 +1,8 @@
 'use client'
 
-// core
-import React from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
 import { Button } from '../Button/Button'
-import { Captcha } from '../Captcha'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
 import { Input } from '../Input/Input'
 import { Text } from '../Text/Text'
@@ -53,8 +50,8 @@ export const RegistrationForm = ({
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
-    const { email, firstName, lastName, captcha } = values
-    const { gamFirstTouchData, gamLastTouchData } = setUserData({ email, firstName, userStyle })
+    const { email, firstName, lastName } = values
+    setUserData({ email, firstName, userStyle })
 
     const utmDataRaw: IUtmData = {}
     searchParams.forEach((value, key) => {
@@ -62,44 +59,36 @@ export const RegistrationForm = ({
     })
 
     Mixpanel.setUser(values.email)
-    Mixpanel.setPeopleOnce({ ...userInfo })
+    Mixpanel.setPeople({ $email: email })
+    if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
+    if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
 
-    // De-duplicate the signup event. 36 byte limit
-    const signup_insert_id = MD5(Date.now() + JSON.stringify(values)).toString()
+    const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
     Mixpanel.track.SignUp({
       distinct_id: values.email,
-      $insert_id: signup_insert_id,
+      $insert_id: insertId,
     })
 
     FBQ?.trackLead({
-      email: email,
+      email,
     })
 
     const requestBody = {
-      client_tag: clientTag,
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-      'g-recaptcha-response': captcha,
-      userinfo: userInfo,
-      userStyle,
-      gamFirstTouchData,
-      gamLastTouchData,
-      utmDataRaw,
-      signup_insert_id,
+      tags: [clientTag],
+      firstName,
+      lastName,
+      email,
+      listIds: [2],
+      insertId,
     }
 
-    fetch(
-      process.env.NEXT_PUBLIC_AC_LEAD_URL ||
-        'https://pds-marketing-api.herokuapp.com/api/post/contact',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }
-    ).catch((error) => {
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    }).catch((error) => {
       console.error(error)
     })
 
@@ -169,19 +158,6 @@ export const RegistrationForm = ({
               content="By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder."
             />
           )}
-          <div className="flex justify-center py-2">
-            <Captcha
-              className="w-min"
-              onError={() => setFieldValue('captcha', false)}
-              onSuccess={(val) => {
-                setFieldValue('captcha', val)
-              }}
-            />
-          </div>
-
-          {errors.captcha && submitCount > 0 && (
-            <p className="text-danger text-left lg:text-center">{errors.captcha}</p>
-          )}
 
           <div className="flex justify-center">
             <Button.Submit
@@ -201,8 +177,12 @@ const RegistrationFormValidationSchema = yup
   .shape({
     firstName: yup.string().defined().ensure().required('First name required'),
     lastName: yup.string().defined().ensure().required('Last name required'),
-    email: yup.string().defined().ensure().required('Email required'),
-    captcha: yup.string().defined().ensure().required('Please fill in the Captcha'),
+    email: yup
+      .string()
+      .defined()
+      .ensure()
+      .matches(Regexes.email, 'Please enter a valid email')
+      .required('Email required'),
   })
   .defined()
 

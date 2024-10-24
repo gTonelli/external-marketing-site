@@ -1,8 +1,7 @@
 'use client'
 
 // core
-import { useCallback } from 'react'
-import { useRouter } from 'next/navigation'
+import { ChangeEvent } from 'react'
 // libraries
 import ReactPaginate from 'react-paginate'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,19 +11,15 @@ interface IPodcastPaginationProps {
   currPage: number
   pageCount: number
   pageSize: number
+  handleChange: (_?: ChangeEvent, currPage?: number) => Promise<void>
 }
 
-export const PodcastPagination = ({ currPage, pageCount, pageSize }: IPodcastPaginationProps) => {
-  const router = useRouter()
-
-  const onPageChange = useCallback(
-    (selected: number) => {
-      if (selected === 0) router.push(`/podcast`, { scroll: false })
-      else router.push(`/podcast?page=${selected + 1}`, { scroll: false })
-    },
-    [router]
-  )
-
+export const PodcastPagination = ({
+  currPage,
+  pageCount,
+  pageSize,
+  handleChange,
+}: IPodcastPaginationProps) => {
   return (
     <ReactPaginate
       initialPage={currPage - 1}
@@ -42,15 +37,7 @@ export const PodcastPagination = ({ currPage, pageCount, pageSize }: IPodcastPag
       pageRangeDisplayed={pageSize}
       pageCount={pageCount}
       renderOnZeroPageCount={null}
-      hrefAllControls
-      hrefBuilder={(page, pageCount) =>
-        page == 1
-          ? '/podcast'
-          : page >= 2 && page <= pageCount + 1
-          ? `/podcast?page=${page}`
-          : undefined
-      }
-      onPageChange={(event) => onPageChange(event.selected)}
+      onPageChange={(event) => handleChange(undefined, event.selected + 1)}
     />
   )
 }

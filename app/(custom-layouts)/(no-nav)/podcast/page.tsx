@@ -8,12 +8,10 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { Section } from '@/components/Section'
 import { LinkWrapper } from '@/components/Link'
 import { PodcastList } from '@/components/Podcast/PodcastList'
-import { FeaturedPodcast } from '@/components/Podcast/FeaturedPodcast'
 import { PodcastSuggestionForm } from '@/components/Podcast/PodcastSuggestionForm'
 import { PodcastFreebieForm } from '@/components/Forms/PodcastFreebieForm'
 // libraries
 import cx from 'classnames'
-import qs from 'qs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpotify, faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
 import { faPodcast } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -21,11 +19,15 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 // style
 import './style.css'
 // utils
-import { IStrapiThumbnail, IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
+import { IStrapiThumbnail, IStrapiResponse } from '@/utils/types'
 
 type Props = {
   searchParams: {
     page: number
+    category?: string
+    type?: string
+    sort?: string
+    q?: string
   }
 }
 
@@ -83,33 +85,6 @@ export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   },
 ]
 
-const FETCH_FEATURED_PODCAST_QUERY = qs.stringify({
-  fields: ['youtubeId'],
-  populate: ['thumbnail'],
-  sort: 'releaseDate:desc',
-  filters: {
-    isFeatured: true,
-  },
-  pagination: {
-    limit: 1,
-  },
-})
-
-async function fetchFeaturedPodcast(): Promise<IStrapiResponse<IPodcast>> {
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_FEATURED_PODCAST_QUERY}`,
-      {
-        next: { tags: ['podcasts'], revalidate: 86400 },
-      }
-    )
-    const res = await response.json()
-    return res.data.pop()
-  } catch (error) {
-    throw error
-  }
-}
-
 async function fetchPodcastCategories(): Promise<IStrapiResponse<IPodcastCategory>[]> {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-categories`, {
@@ -134,24 +109,10 @@ async function fetchPodcastTypes(): Promise<IStrapiResponse<IPodcastType>[]> {
   }
 }
 
-export async function generateMetadata({ searchParams: { page } }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  searchParams: { page, category, type, sort, q },
+}: Props): Promise<Metadata> {
   const baseUrl = 'https://attachment.personaldevelopmentschool.com/podcast'
-
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=id&pagination[pageSize]=1`,
-    {
-      next: { tags: ['podcasts'], revalidate: 86400 },
-    }
-  )
-  const res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await response.json()
-  const lastPage = Math.ceil(res.meta.pagination.total / 5)
-  let otherMetaData: { rel: 'prev' | 'next'; url: string }[] = []
-  if (page) {
-    if (+page === 2) otherMetaData.push({ rel: 'prev', url: `${baseUrl}` })
-    else otherMetaData.push({ rel: 'prev', url: `${baseUrl}?page=${+page - 1}` })
-    if (+page !== lastPage) otherMetaData.push({ rel: 'next', url: `${baseUrl}?page=${+page + 1}` })
-  } else otherMetaData.push({ rel: 'next', url: `${baseUrl}?page=2` })
-
   const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
     title: 'Listen to The Thais Gibson Podcast',
@@ -159,17 +120,15 @@ export async function generateMetadata({ searchParams: { page } }: Props): Promi
       'Experience personal growth with The Thais Gibson Podcast. Episodes are available on all popular podcast platforms three times a week.',
     robots: 'all',
     alternates: {
-      canonical: '/',
-    },
-    icons: {
-      other: otherMetaData,
+      canonical: category || type || sort || q ? baseUrl : baseUrl + `?page=${page ?? 1}`,
     },
   }
   return metadata
 }
 
-export default async function PodcastPage({ searchParams: { page } }: Props) {
-  const featuredPodcast = await fetchFeaturedPodcast()
+export default async function PodcastPage({
+  searchParams: { page, category, type, sort, q },
+}: Props) {
   const podcastCategories = await fetchPodcastCategories()
   const podcastTypes = await fetchPodcastTypes()
 
@@ -194,8 +153,6 @@ export default async function PodcastPage({ searchParams: { page } }: Props) {
           </p>
         </div>
       </Section>
-
-      {featuredPodcast && <FeaturedPodcast featuredPodcast={featuredPodcast} />}
 
       <Section className="max-w-5xl mx-auto">
         <p className="font-bold tracking-33 mb-4">
@@ -222,7 +179,11 @@ export default async function PodcastPage({ searchParams: { page } }: Props) {
 
       <Section className="max-w-6xl mx-auto" classNameInner="!w-full !max-w-full !m-0">
         <PodcastList
-          page={page}
+          page={+page || 1}
+          selectedCategoryFilter={category}
+          selectedTypeFilter={type}
+          selectedSortFilter={sort}
+          currentSearchFilter={q}
           podcastCategories={podcastCategories}
           podcastTypes={podcastTypes}
         />

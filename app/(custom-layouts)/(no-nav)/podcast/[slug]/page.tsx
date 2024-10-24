@@ -23,13 +23,26 @@ import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 // style
 import '../style.css'
 
-export async function generateStaticParams() {
-  const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=urlSlug&pagination[pageSize]=100`,
+function fetchPodcasts(
+  podcasts: IStrapiResponse<IPodcast>[] = [],
+  page = 1
+): Promise<IStrapiResponse<IPodcast>[]> {
+  return fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=urlSlug&pagination[page]=${page}&pagination[pageSize]=100`,
     { next: { tags: ['podcasts'], revalidate: 86400 } }
-  ).then((res) => res.json())
+  )
+    .then((response) => response.json())
+    .then((res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>) => {
+      if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total)
+        return fetchPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
+      return podcasts.concat(res.data)
+    })
+}
 
-  return podcasts.data.map((podcast) => ({
+export async function generateStaticParams() {
+  const podcasts = await fetchPodcasts()
+
+  return podcasts.map((podcast) => ({
     slug: podcast.attributes.urlSlug.toString(),
   }))
 }

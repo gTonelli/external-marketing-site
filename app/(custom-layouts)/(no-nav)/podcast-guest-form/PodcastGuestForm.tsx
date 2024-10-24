@@ -14,7 +14,7 @@ export const PodcastGuestForm = () => {
 
   const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.currentTarget.files ?? [])
-    if (files[0].size > 4000000) {
+    if (files[0].size > 4000000 || !['image/png', 'image/jpeg'].includes(files[0].type)) {
       setValidFile(false)
       return
     }
@@ -58,6 +58,7 @@ export const PodcastGuestForm = () => {
     formdata.append('templateReferenceId', '5')
     formdata.append('subject', 'Podcast Guest Form Test')
     formdata.append('attachment', selectedFile)
+    formdata.append('sendSubmissionConfirmation', 'true')
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contact-us`, {
       method: 'POST',
@@ -203,7 +204,7 @@ export const PodcastGuestForm = () => {
             Please include a headshot for episode promotion:*
             <div
               className={`flex flex-col items-center justify-center rounded-lg text-center border border-dashed border-black cursor-pointer p-4 mb-4 ${
-                !validFile && 'border-danger'
+                validFile !== undefined && !validFile && 'border-danger'
               }`}>
               <Icon name="file-arrow-up" type="regular" size="lg" className="mb-4" />
 
@@ -211,9 +212,14 @@ export const PodcastGuestForm = () => {
                 selectedFile.name
               ) : (
                 <small>
-                  Drag and drop your file here or choose one
+                  Choose an image
                   <br />
-                  PNG or JPG only (max size 4 mb)
+                  <span
+                    className={`font-bold ${
+                      validFile !== undefined && !validFile && 'text-danger'
+                    }`}>
+                    PNG or JPG only (max size 4 mb)
+                  </span>
                 </small>
               )}
             </div>
@@ -222,7 +228,7 @@ export const PodcastGuestForm = () => {
               name="guestHeadshot"
               id="guestHeadshot"
               type="file"
-              accept="image/x-png, image/jpeg"
+              accept="image/png, image/jpeg"
               onChange={onFileChange}
             />
           </label>

@@ -1,10 +1,14 @@
 'use client'
 
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
+// core
+import { Dispatch, SetStateAction, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import cx from 'classnames'
+// components
 import { IDefaultProps } from '.'
-import { Icon } from './Icon'
+// libraries
+import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClose } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IToastProps extends IDefaultProps {
   type: 'success' | 'error' | 'neutral'
@@ -30,21 +34,23 @@ export const Toast = ({
     }
   }, [showToast])
 
-  return showToast
-    ? createPortal(
-        <div
-          className={cx(
-            'fixed right-4 bottom-4 w-max flex items-center gap-4 shadow-2xl text-left p-4 mx-auto z-20 transition-all',
-            type === 'success' && 'bg-green-check text-white',
-            type === 'error' && 'bg-red-700 text-white',
-            type === 'neutral' && 'bg-slate-950 text-white',
-            className
-          )}>
-          <p>{message}</p>
+  return showToast ? (
+    createPortal(
+      <div
+        className={cx(
+          'fixed right-4 bottom-4 w-max flex items-center gap-4 shadow-2xl text-left p-4 mx-auto z-20 transition-all',
+          type === 'success' && 'bg-green-check text-white',
+          type === 'error' && 'bg-red-700 text-white',
+          type === 'neutral' && 'bg-slate-950 text-white',
+          className
+        )}>
+        <p>{message}</p>
 
-          <Icon name="close" className="p-2" onClick={() => setShowToast(false)} />
-        </div>,
-        document.body
-      )
-    : null
+        <FontAwesomeIcon icon={faClose} className="p-2" onClick={() => setShowToast(false)} />
+      </div>,
+      document.body
+    )
+  ) : (
+    <></>
+  )
 }

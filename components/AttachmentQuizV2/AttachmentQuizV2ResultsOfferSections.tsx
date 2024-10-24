@@ -5,12 +5,10 @@ import Link from 'next/link'
 import { Button } from '../Button/Button'
 import Image from 'next/image'
 import { AttachmentQuizV2SelfImprovementSlider } from './AttachmentQuizV2SelfImprovementSlider'
-import { Icon } from '../Icon'
 import { Animation } from '../Animation'
 import { TrustbarSlider } from '../Trustbar/variants/TrustbarSlider'
 import { VideoYoutube } from '../Video/variants/VideoYoutube'
 import { PricingSection } from '../PricingSection'
-import { IconName } from '@fortawesome/fontawesome-common-types'
 import { CarouselTestimonial } from '../Carousel/variants/CarouselTestimonial'
 import { Faq } from '../Faq/Faq'
 // config
@@ -24,6 +22,14 @@ import {
 } from './config'
 // libraries
 import cx from 'classnames'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/light'
+import {
+  faArrowRight,
+  faCheck,
+  faDiamond,
+  faFlag,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const AttachmentQuizV2ResultsOfferSections = () => {
   return (
@@ -145,7 +151,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
             <ul className="text-left">
               {data.listItems.map((item, j) => (
                 <li key={`mockup_section_li_${i}_${j}`} className="flex mb-4">
-                  <Icon className="text-primary mr-2 mt-1" name="circle-check" type="light" />
+                  <FontAwesomeIcon className="text-primary mr-2 mt-1" icon={faCircleCheck} />
 
                   <p className="mb-0">{item}</p>
                 </li>
@@ -220,7 +226,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
             <ul>
               {aapWhatsIncluded.map((text, i) => (
                 <li key={`whats_included_${i}`} className="flex mb-2">
-                  <Icon className="text-primary mr-2 mt-1" name="check" />
+                  <FontAwesomeIcon className="text-primary mr-2 mt-1" icon={faCheck} />
 
                   <p className="mb-0">{text}</p>
                 </li>
@@ -251,8 +257,8 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
               )}
               delay={i * 0.1}>
               <div className="w-max relative flex p-1 mb-3 lg:mb-4">
-                <Icon
-                  name={(i + 1).toString() as unknown as IconName}
+                <FontAwesomeIcon
+                  icon={data.icon}
                   className="w-max text-green-light text-xs bg-black px-2 py-1 rounded-md md:text-base"
                 />{' '}
                 {data.youAreHere && (
@@ -266,12 +272,12 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
 
               <p className="text-xs md:text-base">{data.body}</p>
 
-              <Icon
+              <FontAwesomeIcon
                 className={cx(
                   'text-lg w-max ml-auto mt-auto lg:text-3xl',
                   i > 2 ? 'text-primary' : 'text-blue'
                 )}
-                name={i > 2 ? 'flag' : 'arrow-right'}
+                icon={i > 2 ? faFlag : faArrowRight}
               />
             </Animation>
           ))}
@@ -312,7 +318,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
           </div>
 
           <div className="w-full flex items-start justify-center lg:self-end">
-            <Icon className="text-primary-light text-3xl mt-2" name="diamond" />
+            <FontAwesomeIcon className="text-primary-light text-3xl mt-2" icon={faDiamond} />
 
             <Image
               src="/images/AttachmentQuizResults/V2/phone-mockup.png"
@@ -323,7 +329,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
               quality={90}
             />
 
-            <Icon className="text-primary-light mt-6" name="diamond" />
+            <FontAwesomeIcon className="text-primary-light mt-6" icon={faDiamond} />
           </div>
         </Section>
       </Animation>
@@ -363,7 +369,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
               <div
                 key={`footer_card_${i}`}
                 className="bg-white rounded-20 p-4 mb-4 lg:py-9 lg:px-6">
-                <Icon className="text-5xl text-primary mb-4" name={card.iconName} />
+                <FontAwesomeIcon className="text-5xl text-primary mb-4" icon={card.icon} />
 
                 <h4 className="mb-4">{card.heading}</h4>
 

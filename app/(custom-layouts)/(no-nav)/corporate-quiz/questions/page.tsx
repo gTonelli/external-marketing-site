@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { Text } from '@/components/Text/Text'

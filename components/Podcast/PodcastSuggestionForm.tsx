@@ -1,6 +1,6 @@
 'use client'
 // core
-import React, { useState } from 'react'
+import { useState } from 'react'
 // components
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'

@@ -2,10 +2,11 @@
 import Image from 'next/image'
 import { TextParagraph } from './Text/variants/TextParagraph'
 import { TextHeading } from './Text/variants/TextHeading'
-import { Icon } from './Icon'
 import Link from 'next/link'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
+import { faLongArrowAltRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Articles = () => {
   return (
@@ -55,9 +56,9 @@ export const Articles = () => {
                     content={TH.ARTICLES.article1.name}
                   />
 
-                  <Icon
+                  <FontAwesomeIcon
                     className="text-white bg-primary rounded-full mt-2 p-2 lg:mt-4"
-                    name="long-arrow-alt-right"
+                    icon={faLongArrowAltRight}
                   />
                 </Link>
               </div>
@@ -88,9 +89,9 @@ export const Articles = () => {
                     content={TH.ARTICLES.article2.name}
                   />
 
-                  <Icon
+                  <FontAwesomeIcon
                     className="text-white bg-primary rounded-full mt-2 p-2 lg:mt-4"
-                    name="long-arrow-alt-right"
+                    icon={faLongArrowAltRight}
                   />
                 </Link>
               </div>
@@ -105,7 +106,7 @@ export const Articles = () => {
                   content={TH.ARTICLES.article3.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image
@@ -134,7 +135,7 @@ export const Articles = () => {
                   content={TH.ARTICLES.article4.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image
@@ -163,7 +164,7 @@ export const Articles = () => {
                   content={TH.ARTICLES.article5.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image
@@ -192,7 +193,7 @@ export const Articles = () => {
                   content={TH.ARTICLES.article6.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image

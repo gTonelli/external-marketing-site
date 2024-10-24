@@ -1,5 +1,5 @@
 // core
-import React, { ImgHTMLAttributes } from 'react'
+import { ImgHTMLAttributes } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 // utils

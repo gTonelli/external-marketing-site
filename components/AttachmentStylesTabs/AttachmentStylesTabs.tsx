@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import Image from 'next/image'
@@ -67,7 +67,6 @@ export const AttachmentStylesTabs = ({
   const [activeStyle, setActiveStyle] = useState<number>(0)
   const interval = useRef(null)
   const refCard = useRef<HTMLDivElement>(null)
-  const { windowWidth } = useContext(ViewportContext)
 
   // Loop through the attachement style tabs every 7 seconds
   useEffect(() => {

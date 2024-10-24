@@ -1,5 +1,3 @@
-//core
-import React from 'react'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 //component

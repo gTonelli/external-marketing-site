@@ -1,6 +1,8 @@
 // components
 import { Animation } from '../Animation'
-import { Icon } from '../Icon'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface ISelfImpropvementCardProps {
   heading: string
@@ -17,8 +19,8 @@ export const AttachmentQuizV2SelfImprovementCard = ({
 }: ISelfImpropvementCardProps) => (
   <Animation direction="fromBottom" delay={includeDelay ? number * 0.15 : 0}>
     <div className="flex w-full-relative items-center overflow-visible">
-      <Icon
-        name="circle-check"
+      <FontAwesomeIcon
+        icon={faCircleCheck}
         className="text-blue rounded-full border-2 border-transparent mr-1"
       />
 

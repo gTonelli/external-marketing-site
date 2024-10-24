@@ -1,5 +1,7 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
 import { IStrapiFetchProps, IStrapiResponse } from './types'
+import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
 
 /**
  * Check if property is function
@@ -38,6 +40,28 @@ export const getOfferEndDate = (releaseDate: Date, diff: number): Date => {
   }
 
   return releaseDate
+}
+
+export type TSplitTestKey = `${string}-${number}-${string}` | `${string}-${number}`
+
+export interface IGetSplitTest {
+  key: TSplitTestKey
+  variantRatio?: 0.2 | 0.5
+  experimentName?: string
+}
+
+export const getSplitTest = ({ key, experimentName, variantRatio = 0.5 }: IGetSplitTest) => {
+  if (!key) return undefined
+  let isVariant: Boolean = Storage.get(key)
+  if (isVariant === null) {
+    isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
+    Storage.set(key, isVariant)
+    Mixpanel.track.ExperimentStarted({
+      'Experiment name': experimentName || key,
+      'Variant name': isVariant ? 'Variant 1' : 'Control',
+    })
+  }
+  return isVariant
 }
 
 /**

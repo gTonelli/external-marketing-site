@@ -5,7 +5,6 @@ import { Section } from '@/components/Section'
 import Image from 'next/image'
 import { Card } from '@/components/Card/Card'
 import { CarouselCourses } from '@/components/Carousel/variants/CarouselCourses'
-import { Icon } from '@/components/Icon'
 import { SocialProofBar } from '@/components/SocialProofBar'
 import { List } from '@/components/List'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
@@ -13,11 +12,20 @@ import Link from 'next/link'
 import { Button } from '@/components/Button/Button'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { FaqSecondary } from '@/components/Faq/variants/FaqSecondary'
+// libraries
+import { faCircle, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import {
+  faCircleCheck,
+  faClock,
+  faEye,
+  faHeart,
+  faSadTear,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { ERoutes } from '@/utils/constants'
 // styles
 import './styles.css'
-
 
 export const metadata: Metadata = {
   title:
@@ -166,7 +174,7 @@ export default function LastingLovePage() {
               classNameIcon="!text-3xl text-yellow"
               classNameListItems="font-bold mb-4"
               classNameText="lg:pl-1"
-              iconName="star"
+              icon={faStar}
               listItems={[
                 'Healing your attachment style and overcoming your greatest obstacles to happy, healthy relationships.',
                 'Battling anxiety, depression, loneliness, and deep sadness.',
@@ -216,7 +224,7 @@ export default function LastingLovePage() {
             <List
               classNameIcon="!text-white !text-xxs pt-[6px]"
               classNameListItems="font-medium mb-4"
-              iconName="circle"
+              icon={faCircle}
               listItems={[
                 '3X more self-confidence and fulfillment in their dating lives (if single).',
                 'A 50% improvement in their current relationship (if in a committed relationship).',
@@ -364,9 +372,9 @@ export default function LastingLovePage() {
             </p>
 
             <List
-              classNameIcon="!text-black text-[0.25em] pt-[6px]"
+              classNameIcon="!text-black text-[0.25em] pt-[9px]"
               classNameListItems="text-lg"
-              iconName="circle"
+              icon={faCircle}
               listItems={[
                 `**Live webinars** - Each week, I’ll break down your course learnings in more detail and share practical tips and examples 
                 on how to use the tools and techniques in your life.`,
@@ -539,7 +547,7 @@ export default function LastingLovePage() {
           <div className="lg:grid lg:grid-cols-4 lg:gap-6">
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="eye" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faEye} />
               </div>
 
               <p className="w-3/4 mx-auto lg:w-auto">
@@ -549,7 +557,7 @@ export default function LastingLovePage() {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="heart" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faHeart} />
               </div>
 
               <p className="w-3/4 mx-auto lg:w-auto">
@@ -559,7 +567,7 @@ export default function LastingLovePage() {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="sad-tear" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faSadTear} />
               </div>
 
               <p className="w-3/4 mx-auto lg:w-auto">
@@ -569,7 +577,7 @@ export default function LastingLovePage() {
 
             <div>
               <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto">
-                <Icon className="text-purple-dark text-4xl" name="clock" type="regular" />
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faClock} />
               </div>
 
               <p className="w-3/4 mx-auto lg:w-auto">
@@ -615,10 +623,9 @@ export default function LastingLovePage() {
 
             <List
               className="mb-4"
-              classNameIcon="text-success"
+              classNameIcon="text-success !pt-1"
               classNameListItems="my-4"
-              iconName="circle-check"
-              iconType="regular"
+              icon={faCircleCheck}
               listItems={[
                 `Our complete library of video courses you can watch to manage emotions, learn new 
             coping mechanisms, and get to the bottom of your biggest challenges.`,
@@ -648,7 +655,7 @@ export default function LastingLovePage() {
         <VideoThumbnail
           srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
           thumbnailAlt={`Video lasting-love thumbnail`}
-          thumbnailUrl='BlackFridayPage/mha-video-thumbnail.png'
+          thumbnailUrl="BlackFridayPage/mha-video-thumbnail.png"
           type="testimonial"
         />
       </Section>

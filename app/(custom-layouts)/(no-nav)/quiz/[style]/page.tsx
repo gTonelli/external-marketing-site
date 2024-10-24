@@ -4,7 +4,7 @@ import { QuizResultsPage } from './QuizResultsPage'
 // utils
 import { TStyle } from '@/utils/types'
 
-type TParams = { params: { style: TStyle } }
+export type TParams = { params: { style: TStyle } }
 
 export function generateStaticParams() {
   return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }, { style: 'sa' }]

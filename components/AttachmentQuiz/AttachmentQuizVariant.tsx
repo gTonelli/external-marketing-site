@@ -1,23 +1,24 @@
 'use client'
 
 // core
-import React, { useEffect, useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { Page } from '@/components/Page'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
-import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
-import { Video } from '../Video/Video'
 import { List } from '@/components/List'
+import { LinkDefault } from '../Link'
+import { Video } from '../Video/Video'
 import { TAttachmentQuizVariant } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/config'
+import { SplitTestContext } from '@/utils/contexts'
 // libraries
-import type { IconName } from '@fortawesome/fontawesome-common-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
 // styles
 import './style.css'
 
@@ -29,25 +30,23 @@ interface IQuizVariantProps {
 export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) => {
   // ================= State =======================
   const [viewQuiz, setViewQuiz] = useState(false)
-  const [isVariant, setIsVariant] = useState(false)
 
   // ================= Refs =======================
+  const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const quizSectionRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    let isVariant = Storage.get('gm-1215-mel-robbins-video') === 'yes'
-    if (Storage.get('gm-1215-mel-robbins-video') === null) {
-      isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
-      Storage.set('gm-1215-mel-robbins-video', isVariant ? 'yes' : 'no')
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'GM-1215-mel-robbins-video',
-        'Variant name': isVariant ? 'Variant 1' : 'Control',
+  // ================== Events =====================
+  const onVideoStarted = (type: string) => {
+    if (!watchedVideos.has(type)) {
+      Mixpanel.track.VideoStarted({
+        video_type: `${type} - ${page_name}`,
+        page_name: page_name,
       })
     }
-    setIsVariant(isVariant)
-  }, [])
 
-  // ================== Events =====================
+    setWatchedVideos(new Set<string>([...watchedVideos, type]))
+  }
+
   const onStartQuiz = useCallback(() => {
     if (!viewQuiz) {
       Mixpanel.track.QuizStarted({
@@ -92,39 +91,48 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
         </div>
       </div>
 
-      {/* VIDEO SECTION */}
-      {isVariant && (
-        <div className="p-6 lg:pt-16">
-          <div className="max-w-3xl text-center mx-auto">
-            <h2 className="mb-4">
-              Watch to Learn & Uncover How to Have Happier and Healthier Relationships
-            </h2>
-
-            <h4 className="mb-4">As Seen on The Mel Robbins Podcast!</h4>
-          </div>
-
-          <Video.Youtube
-            className="mx-auto shadow-centered max-w-3xl lg:p-8"
-            videoId="GIkspM20BeY"
-            thumbnail="/images/AttachmentQuiz/mel-robbins.jpg"
-            thumbnailAlt="Why Do I Love the Way That I Love Thumbnail"
-            maxHeight={400}
-            type="youtube"
-          />
+      <div className="p-6 lg:pt-16">
+        <div className="max-w-3xl text-center mx-auto">
+          <h2 className="mb-4">Once I Learned This, It Changed My Relationships For Life...</h2>
         </div>
-      )}
+
+        <Video.Large
+          className="mx-auto shadow-centered max-w-3xl"
+          srcUrl="https://storage.googleapis.com/pds_videos/Mel_Robbins_Podcast.mp4"
+          thumbnailUrl="AttachmentQuiz/mel-robbins.jpg"
+          thumbnailAlt="IAT Video Thumbnail"
+          onPlay={() => onVideoStarted('YouTube')}
+        />
+
+        <p className="mt-4 text-center">
+          *As seen as, and taken from the The Mel Robbins Podcast :
+          <LinkDefault
+            className="text-primary"
+            label=" YouTube Link"
+            target="_blank"
+            url="https://m.youtube.com/watch?v=GIkspM20BeY&pp=ygURVGhhaXMgbWVsIHJvYmJpbnM%3D"
+          />
+        </p>
+      </div>
 
       {/* Quiz Section */}
       <div ref={quizSectionRef} className="w-full px-4">
         {viewQuiz && (
           <div className="w-full flex justify-center mx-auto py-16">
-            <AttachmentQuiz
-              newQuiz
-              className="!max-w-5xl"
-              quizName="Attachment Style Quiz"
-              quiz_traffic_source="paid"
-              showStartButton={false}
-            />
+            <SplitTestContext.Provider
+              value={{
+                key: 'GM-1226',
+                experimentName: 'Mel Robbins Content (Quiz B)',
+                variantUrl: '/quiz/b/',
+              }}>
+              <AttachmentQuiz
+                newQuiz
+                className="!max-w-5xl"
+                quizName="Attachment Style Quiz"
+                quiz_traffic_source="paid"
+                showStartButton={false}
+              />
+            </SplitTestContext.Provider>
           </div>
         )}
       </div>
@@ -133,7 +141,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
       <div className="w-full flex flex-col justify-between items-center bg-primary my-6 p-16 md:flex-row">
         {config.STATS.map((stat, idx) => (
           <div key={idx} className="flex-1 flex flex-col text-center p-4">
-            <Icon className="text-white mb-4" name={stat.icon as IconName} size="3x" />
+            <FontAwesomeIcon className="text-white mb-4" icon={stat.icon} size="3x" />
 
             <Text.Heading className="text-white" content={stat.value} size={1} />
 
@@ -184,7 +192,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
             className="md:text-lg"
             classNameIcon="text-primary-light mr-2 md:text-lg"
             classNameListItems="flex mb-4"
-            iconName="check-square"
+            icon={faCheckSquare}
             listItems={config.QUIZ_FOR}
           />
         </div>
@@ -220,7 +228,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           {config.TYPES.map((type, idx) => (
             <div key={idx}>
               <div className="flex items-center mb-4">
-                <Icon className="text-primary-light mr-1" name={type.icon as IconName} />
+                <FontAwesomeIcon className="text-primary-light mr-1" icon={type.icon} />
 
                 <Text.Paragraph
                   className="font-medium tracking-widest md:text-lg"
@@ -279,9 +287,9 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           {config.BENEFITS.items.map((benefit, idx) => (
             <div key={idx} className="rounded-10 bg-white shadow mb-8 p-8">
               <div className="flex mb-4">
-                <Icon
+                <FontAwesomeIcon
                   className="inline-block text-primary-light mr-2 mt-[2px] md:mt-[6px]"
-                  name="check-square"
+                  icon={faCheckSquare}
                 />
 
                 <Text.Paragraph
@@ -355,7 +363,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           className="my-8"
           classNameIcon="text-primary"
           classNameListItems="mb-4 md:text-lg"
-          iconName="angle-double-right"
+          icon={faAngleDoubleRight}
           listItems={config.ROLLERCOASTER.list}
         />
 

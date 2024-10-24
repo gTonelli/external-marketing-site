@@ -1,4 +1,12 @@
-﻿import { TIcon } from '@/components/Icon'
+﻿// libraries
+import { faSquareFacebook } from '@awesome.me/kit-545b942488/icons/classic/brands'
+import {
+  faAirplay,
+  faChessKingPiece,
+  faFileCertificate,
+  faFilePlus,
+  faUser,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export const IAT_COPY = {
   hero_section: {
@@ -221,38 +229,37 @@ export const IAT_COPY = {
       {
         title: `30+ HOURS OF IN-DEPTH TRAINING`,
         copy: `This training will include everything you need to become an expert in attachment theory, the subconscious mind and relationships. You can attend the Live Training with weekly sessions with Thais or opt for the On-Demand version, where you can complete your courses and training on your own time. Each training session breaks down tools into simple steps so that they are easy to understand and you are set up for success with clients!`,
-        iconName: `airplay`,
+        icon: faAirplay,
       },
 
       {
         title: `BUSINESS STRATEGY COACHING`,
         copy: `Learn everything you need to know to build a thriving practice and have a coaching practice with a waitlist. We'll cover how to drive traffic and build systems that constantly grow your business.`,
-        iconName: `chess-king-piece`,
+        icon: faChessKingPiece,
       },
 
       {
         title: `CLIENT RESOURCES`,
         copy: `You will gain access to materials to use in your client-based practice, including intake forms, assessments, introspective worksheets & questions. All of these worksheets are made for you so that you have an easy, systemized way of using the tools with clients.`,
-        iconName: `file-plus`,
+        icon: faFilePlus,
       },
 
       {
         title: `LIFETIME ACCESS`,
         copy: `You will have access to the certification training recording so that you can access it at any time after the Live Training.`,
-        iconName: `user`,
+        icon: faUser,
       },
 
       {
         title: `CERTIFICATION`,
         copy: `Upon completing the final test, you will receive a certification in Gibson Integrated Attachment Theory™.`,
-        iconName: `file-certificate`,
+        icon: faFileCertificate,
       },
 
       {
         title: `PRIVATE FACEBOOK GROUP`,
         copy: `Join our private Facebook Group, where you’ll be able to discuss your learnings with other members in the same program. This also enables you to network with others, build referral systems, and practice tools with others from the group any time you wish!`,
-        iconName: `square-facebook`,
-        iconType: 'brands' as TIcon,
+        icon: faSquareFacebook,
       },
     ],
 

@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useState } from 'react'
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
 // components
 import { Button } from '../Button/Button'

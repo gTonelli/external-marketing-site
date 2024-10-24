@@ -1,13 +1,16 @@
 'use client'
 
+// core
 import { useState } from 'react'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Icon } from './Icon'
+// components
 import { Text } from './Text/Text'
 import { Image } from './Image'
 import { TRIAL_MASTERCLASS as TM } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
-
+// libraries
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // styles
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -71,14 +74,14 @@ export const TestimonialSection = () => {
       <div
         ref={(node) => setPrevEl(node)}
         className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-4 z-55 absolute top-1/2 cursor-pointer transition-all border border-transparent hover:border-primary lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
-        <Icon className="text-primary" name="chevron-left" size="lg" />
+        <FontAwesomeIcon className="text-primary" icon={faChevronLeft} size="lg" />
       </div>
 
       {/* RIGHT ARROW ICON */}
       <div
         ref={(node) => setNextEl(node)}
         className="clickable-shadow hidden w-10 h-10 flex-center rounded-full bg-grey-4 z-55 absolute top-1/2 cursor-pointer transition-all border border-transparent hover:border-primary lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
-        <Icon className="text-primary" name="chevron-right" size="lg" />
+        <FontAwesomeIcon className="text-primary" icon={faChevronRight} size="lg" />
       </div>
     </div>
   )

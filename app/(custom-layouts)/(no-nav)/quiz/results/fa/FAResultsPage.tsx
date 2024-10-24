@@ -5,15 +5,18 @@ import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQui
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { CountdownTimer } from '@/components/CountDownTimer'
-import { Icon } from '@/components/Icon'
 import { List } from '@/components/List'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoDefault } from '@/components/Video/variants/VideoDefault'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // config
 import { RESULTS } from './config'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 
 interface IFAResultsPageProps {
   ageVariant?: boolean
@@ -87,8 +90,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   className="flex items-start mb-4"
                   classNameIcon="!text-green-check pt-[3px] pr-4"
                   classNameListItems="text-left !text-lg !leading-6"
-                  iconName="circle-check"
-                  iconType="regular"
+                  icon={faCircleCheck}
                   listItems={[bullet_point]}
                 />
               ))}
@@ -101,8 +103,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   className="flex flex-row mb-4"
                   classNameIcon="!text-green-check pt-[3px] pr-4"
                   classNameListItems="text-left !text-lg !leading-6"
-                  iconName="circle-check"
-                  iconType="regular"
+                  icon={faCircleCheck}
                   listItems={[bullet_point]}
                 />
               ))}
@@ -127,7 +128,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             )}
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               theme="secondary"
             />
           </div>
@@ -152,10 +153,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
               {RESULTS[style].ATTACHMENT_EXPLAIN.bullets.map(
                 (bullet_point: string, index: number) => (
                   <li key={`traits1_${index}`} className="md:w-1/3 flex items-start mb-4">
-                    <Icon
+                    <FontAwesomeIcon
                       className="text-green-check pt-[3px] pr-2"
-                      name="circle-check"
-                      type="regular"
+                      icon={faCircleCheck}
                     />
 
                     <p className="text-left font-semibold">{bullet_point}</p>
@@ -174,7 +174,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 secure in yourself and your relationship.
               </p>
 
-              <CheckoutButton href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST} />
+              <CheckoutButton href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION} />
             </div>
           )}
         </div>
@@ -229,7 +229,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             )}
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none"
             />
           </div>
@@ -264,7 +264,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     className="flex flex-row"
                     classNameIcon="text-yellow-secondary text-xl"
                     classNameListItems="text-left mb-8"
-                    iconName="star"
+                    icon={faStar}
                     listItems={[`${bullet}`]}
                   />
                 ))}
@@ -277,7 +277,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     className="flex flex-row"
                     classNameIcon="text-yellow-secondary text-xl"
                     classNameListItems="text-left mb-8"
-                    iconName="star"
+                    icon={faStar}
                     listItems={[`${bullet}`]}
                   />
                 ))}
@@ -338,7 +338,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
               </p>
 
               <CheckoutButton
-                href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                 className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
               />
             </div>
@@ -457,7 +457,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
           </div>
 
           <CheckoutButton
-            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="font-bold"
             theme="secondary"
           />
@@ -515,7 +515,10 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
           </div>
         </div>
 
-        <CheckoutButton href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST} theme="secondary" />
+        <CheckoutButton
+          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+          theme="secondary"
+        />
       </section>
 
       <CarouselTestimonial
@@ -550,7 +553,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             </div>
 
             <CheckoutButton
-              href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8"
               theme="secondary"
             />
@@ -603,7 +606,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                 ))}
 
                 <CheckoutButton
-                  href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   className="tracking-normal underline font-bold inline !p-0 text-blue-darkest from-transparent to-transparent bg-transparent border-none text-left
                   hover:!text-blue-darkest hover:!bg-transparent hover:!shadow-none mt-4"
                   label={RESULTS[style].TESTIMONIAL.ctaText}
@@ -671,7 +674,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
           <p className="max-w-3xl mb-8">{RESULTS[style].PROMOTION_4.copy6}</p>
 
           <CheckoutButton
-            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             theme="secondary"
           />
         </div>

@@ -4,9 +4,11 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { List } from '@/components/List'
 import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG } from './config'
+// libraries
+import { faChevronDoubleRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { TStyle } from '@/utils/types'
-import { ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 
 type Props = {
   style: Extract<TStyle, 'da' | 'sa'>
@@ -68,7 +70,7 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
           className="my-8"
           classNameListItems="items-center mb-2"
           classNameText="md:text-lg"
-          iconName="chevron-double-right"
+          icon={faChevronDoubleRight}
           iconSize="sm"
           listItems={ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy1}
         />
@@ -92,7 +94,7 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
 
         <div className="flex justify-center">
           <CheckoutButton
-            href={ERoutes.CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="mt-8 xxs:px-16 md:mt-10"
             label="UNLOCK MY DISCOUNT"
           />

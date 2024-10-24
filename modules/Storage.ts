@@ -1,5 +1,7 @@
 'use client'
 
+import { TSplitTestKey } from '@/utils/functions'
+
 /* Collection of all keys used to store data in localStorage */
 export type TStorageKeys =
   | 'lastUserEmail'
@@ -7,15 +9,8 @@ export type TStorageKeys =
   | 'userFullName'
   | 'canViewResults'
   | 'userTag'
-  | 'prod-2320-checkout-test'
-  | 'gm-845-checkout-test'
-  | 'gm-1079-age-funnel-split'
-  | `gm-976-platform-split-${string}`
-  | 'gm-1152-fa-video-control-vs-control'
-  | 'gm-1172-iat-cta-split'
-  | `gm-1164-pdf-headline-split-${string}`
-  | 'gm-1215-mel-robbins-video'
   | 'gam_user_tracking'
+  | TSplitTestKey
 
 export const Storage = {
   get: (key: TStorageKeys): any => {

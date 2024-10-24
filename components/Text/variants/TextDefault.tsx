@@ -1,5 +1,3 @@
-// core
-import React from 'react'
 // components
 import { IDefaultProps } from '@/components'
 // libraries

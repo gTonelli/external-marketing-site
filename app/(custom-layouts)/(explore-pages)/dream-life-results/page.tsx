@@ -1,21 +1,24 @@
 'use client'
 
 // core
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { DREAM_LIFE_RESULTS_PAGE as TH } from './config'
 // components
 import { Button } from '@/components/Button/Button'
-import { Icon } from '@/components/Icon'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Section } from '@/components/Section'
 import { Video } from '@/components/Video/Video'
 import { List } from '@/components/List'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { TestimonialSection } from '@/components/TestimonialSection'
-// modules
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+// libraries
+import { faCheck, faLongArrowAltRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle, faFaceSadSweat } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { Page } from '@/components/Page'
+// modules
+import { EExternalRoutes } from '@/utils/constants'
+import Mixpanel, { Pages } from '@/modules/Mixpanel'
 
 type ArticleKey = keyof typeof TH.ARTICLES
 
@@ -74,8 +77,7 @@ export default function DreamLifePage() {
               <List
                 classNameIcon="mt-1 !text-green-check"
                 classNameListItems="mt-4"
-                iconName="check-circle"
-                iconType="regular"
+                icon={faCheckCircle}
                 listItems={TH.HERO.copy1.copy}
               />
             </div>
@@ -90,8 +92,7 @@ export default function DreamLifePage() {
               <List
                 classNameIcon="mt-1"
                 classNameListItems="mt-4"
-                iconName="face-sad-sweat"
-                iconType="regular"
+                icon={faFaceSadSweat}
                 listItems={TH.HERO.copy2.copy}
               />
             </div>
@@ -298,10 +299,7 @@ export default function DreamLifePage() {
                     content={TH.ARTICLES.article1.name}
                   />
 
-                  <Icon
-                    className="text-white bg-primary rounded-full mt-2 p-2 lg:mt-4"
-                    name="long-arrow-alt-right"
-                  />
+                  <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
                 </div>
               </div>
 
@@ -327,10 +325,7 @@ export default function DreamLifePage() {
                     content={TH.ARTICLES.article2.name}
                   />
 
-                  <Icon
-                    className="text-white bg-primary rounded-full mt-2 p-2 lg:mt-4"
-                    name="long-arrow-alt-right"
-                  />
+                  <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
                 </div>
               </div>
             </div>
@@ -344,7 +339,7 @@ export default function DreamLifePage() {
                   content={TH.ARTICLES.article3.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image
@@ -369,7 +364,7 @@ export default function DreamLifePage() {
                   content={TH.ARTICLES.article4.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image
@@ -394,7 +389,7 @@ export default function DreamLifePage() {
                   content={TH.ARTICLES.article5.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image
@@ -419,7 +414,7 @@ export default function DreamLifePage() {
                   content={TH.ARTICLES.article6.name}
                 />
 
-                <Icon name="long-arrow-alt-right" size="lg" />
+                <FontAwesomeIcon icon={faLongArrowAltRight} size="lg" />
               </div>
 
               <Image
@@ -539,13 +534,13 @@ export default function DreamLifePage() {
             <div className="flex flex-col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:flex-row md:mt-20">
               <div>
                 <div className="flex flex-row items-center space-x-6 lg:space-x-10">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet1} />
                 </div>
 
                 <div className="flex flex-row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet2} />
                 </div>
@@ -553,13 +548,13 @@ export default function DreamLifePage() {
 
               <div>
                 <div className="flex flex-row items-center space-x-6 lg:space-x-10">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet3} />
                 </div>
 
                 <div className="flex flex-row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <Icon name="check" size="2x" />
+                  <FontAwesomeIcon icon={faCheck} size="2x" />
 
                   <Text.Paragraph className="text-lg" content={TH.COMMUNITY.bullets.bullet4} />
                 </div>

@@ -1,5 +1,3 @@
-// core
-import React from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
 // import { Callout } from 'components/Callout/Callout'

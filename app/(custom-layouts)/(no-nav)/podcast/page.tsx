@@ -6,8 +6,6 @@ import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Section } from '@/components/Section'
-import { Icon } from '@/components/Icon'
-import { IconName } from '@fortawesome/fontawesome-common-types'
 import { LinkWrapper } from '@/components/Link'
 import { PodcastList } from '@/components/Podcast/PodcastList'
 import { FeaturedPodcast } from '@/components/Podcast/FeaturedPodcast'
@@ -16,6 +14,10 @@ import { PodcastFreebieForm } from '@/components/Forms/PodcastFreebieForm'
 // libraries
 import cx from 'classnames'
 import qs from 'qs'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpotify, faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
+import { faPodcast } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 // style
 import './style.css'
 // utils
@@ -55,30 +57,28 @@ export interface IPodcastType {
 
 interface IPodcastPlatform {
   name: string
-  icon: IconName
+  icon: IconProp
   link: string
   iconColor: string
-  iconType?: 'brands' | 'solid'
 }
 
 export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   {
     name: 'YOUTUBE',
     link: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
-    icon: 'youtube',
+    icon: faYoutube,
     iconColor: 'text-[#FF0000]',
   },
   {
     name: 'APPLE',
     link: 'https://podcasts.apple.com/us/podcast/personal-development-school/id1478580185?uo=4',
-    icon: 'podcast',
+    icon: faPodcast,
     iconColor: 'text-[#AA1DD3]',
-    iconType: 'solid',
   },
   {
     name: 'SPOTIFY',
     link: 'https://open.spotify.com/show/2pf5IbQB9F4OLW9FWyjzaz',
-    icon: 'spotify',
+    icon: faSpotify,
     iconColor: 'text-[#1ED760]',
   },
 ]
@@ -209,9 +209,8 @@ export default async function PodcastPage({ searchParams: { page } }: Props) {
               className="flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline"
               key={idx}
               target="_blank">
-              <Icon
-                name={item.icon}
-                type={item.iconType ?? 'brands'}
+              <FontAwesomeIcon
+                icon={item.icon}
                 className={cx('mr-4 group-hover:text-white', item.iconColor)}
               />
 

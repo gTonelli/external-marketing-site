@@ -1,21 +1,22 @@
 'use client'
 
 // core
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 // components
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
-import { Icon } from '@/components/Icon'
-import { LinkWrapper } from '@/components/Link'
 import { Section } from '@/components/Section'
 // config
 import { EXPLORE_COURSES_PAGE as EP } from './config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { EExternalRoutes } from '@/utils/constants'
 import { EWindowWidth } from '@/utils/constants'
 import { useWindowWidth } from '@/utils/hooks'
 
@@ -68,7 +69,7 @@ export default function ExploreCoursesPage() {
       <Section className="w-full lg:!pt-16">
         <div className="text-left text-primary cursor-pointer" onClick={() => history.back()}>
           <div>
-            <Icon className="inline" name="arrow-left" type="regular" />
+            <FontAwesomeIcon className="inline" icon={faArrowLeft} />
 
             <Text.Paragraph className="inline font-bold ml-3" content="GO BACK" />
           </div>

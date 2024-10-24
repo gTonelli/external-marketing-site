@@ -1,5 +1,5 @@
 // core
-import React, { MouseEvent, useCallback } from 'react'
+import { MouseEvent, useCallback } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 // libraries

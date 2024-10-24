@@ -1,3 +1,13 @@
+import {
+  faEarthAmericas,
+  faEnvelopeOpenText,
+  faFrown,
+  faGrimace,
+  faSadCry,
+  faSmileBeam,
+  faUsers,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+
 export const ATTACHMENT_QUIZ_VARIANT = {
   BANNER: {
     heading: 'Take Our Free Attachment Style Test & Start Building Thriving Relationships',
@@ -5,17 +15,17 @@ export const ATTACHMENT_QUIZ_VARIANT = {
   },
   STATS: [
     {
-      icon: 'envelope-open-text',
+      icon: faEnvelopeOpenText,
       label: 'ATTACHMENT STYLES DISCOVERED',
       value: '4,700,000',
     },
     {
-      icon: 'users',
+      icon: faUsers,
       label: 'YOUTUBE VIEWS',
       value: '50,000,000+',
     },
     {
-      icon: 'earth-americas',
+      icon: faEarthAmericas,
       label: 'COUNTRIES',
       value: '120+',
     },
@@ -43,24 +53,24 @@ export const ATTACHMENT_QUIZ_VARIANT = {
   },
   TYPES: [
     {
-      icon: 'frown',
+      icon: faFrown,
       title: 'ANXIOUS PREOCCUPIED',
       content: `Relationships can often make you feel anxious, unsafe, or insecure because you likely have a subconscious fear of abandonment or being alone "forever."\n\nAs a result, you seek more closeness in your relationships and can feel afraid if you sense a loved one is pulling away. You might become clingy and co-dependent and focus on other people's behavior as a form of people-pleasing.\n\nYou crave a relationship that prioritizes commitment and wants to feel appreciated by your partner.`,
     },
     {
-      icon: 'grimace',
+      icon: faGrimace,
       title: 'FEARFUL AVOIDANT',
       content:
         'Relationships can feel chaotic, confusing, and overwhelming because you swing between being avoidant and anxious. You struggle with thoughts of betrayal, abandonment, and the feeling of relying on someone else.\n\nDepending on the relationship, you can shift between being "hot and cold" and often feel confused about your feelings.\n\nMoving to a secure style leaves you feeling that there is "too much" to do, heightening fears of dealing with your painful past, and your desire for immediate results.',
     },
     {
-      icon: 'sad-cry',
+      icon: faSadCry,
       title: 'DISMISSIVE AVOIDANT',
       content:
         'Intense emotions can feel overwhelming and cause you to pull away from others. You may withdraw from arguments or trigger situations due to a core desire for independence. The inner conflict is that you want freedom, but deep down, you want to connect with others.\n\nYou feel you might be stuck in a painful relationship forever or end up with the wrong person, confusing the perception of your relationship and leading to doubts if you can commit at all.',
     },
     {
-      icon: 'smile-beam',
+      icon: faSmileBeam,
       title: 'SECURE ATTACHED',
       content:
         "You often feel comfortable and at ease in relationships. You’re also good at communicating your feelings and needs and feel confident enough to open up to vulnerability in your relationships.\n\nHowever, you can sometimes experience difficulty relating to those who aren’t as secure in relationships. You don't understand their tendencies, which can cause conflict. The underlying fear is that you might be stuck in a painful relationship or have a broken heart.",

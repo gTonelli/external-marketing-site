@@ -1,5 +1,5 @@
 // core
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
 import { Loader } from '@/components/Loader/Loader'

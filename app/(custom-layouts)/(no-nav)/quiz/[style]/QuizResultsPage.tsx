@@ -141,6 +141,14 @@ export const QuizResultsPage = ({
                       filled with video courses, simple steps to heal your attachment style,
                       workbook exercises and tools for rapid transformation.{' '}
                     </p>
+
+                    <div className="text-center mb-4 lg:mb-0">
+                      <CheckoutButton
+                        href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                        className="xxs:px-16"
+                        label="UNLOCK MY DISCOUNT"
+                      />
+                    </div>
                   </>
                 )}
               </div>

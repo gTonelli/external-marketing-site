@@ -59,7 +59,7 @@ export const QuizResultsPage = ({
               </p>
 
               {/* BANNER BACKGROUND */}
-              <div className="max-w-5xl w-full md:my-8">
+              <div className="max-w-5xl w-full">
                 {melRobbinsVariant && (
                   <>
                     <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center hidden lg:block lg:mb-4">
@@ -141,21 +141,13 @@ export const QuizResultsPage = ({
                       filled with video courses, simple steps to heal your attachment style,
                       workbook exercises and tools for rapid transformation.{' '}
                     </p>
-
-                    <div className="text-center mb-4 lg:mb-0">
-                      <CheckoutButton
-                        href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-                        className="xxs:px-16"
-                        label={melRobbinsVariant ? 'UNLOCK MY DISCOUNT' : 'UNLOCK MY DISCOUNT'}
-                      />
-                    </div>
                   </>
                 )}
               </div>
             </div>
           </div>
 
-          <div className="max-w-5xl mx-4 md:mx-auto lg:px-4">
+          <div className="max-w-5xl mx-4 md:mx-auto md:px-4">
             <div className="text-left">
               <p className="font-effra font-bold tracking-widest md:text-lg">
                 ABOUT YOUR ATTACHMENT STYLE:{' '}

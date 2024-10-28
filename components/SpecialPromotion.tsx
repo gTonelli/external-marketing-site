@@ -1,30 +1,20 @@
-'use client'
-
 // core
-import { useContext, useState } from 'react'
+import Image from 'next/image'
 // components
-import { Button } from '@/components/Button/Button'
-import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'
 import { Card } from '@/components/Card/Card'
-import { Carousel } from '@/components/Carousel/Carousel'
-import { Faq } from '@/components/Faq/Faq'
 import { Section } from '@/components/Section'
 import { SocialProofBar } from '@/components/SocialProofBar'
 import { ITextDefaultProps } from '@/components/Text/variants/TextDefault'
-import { Video } from '@/components/Video/Video'
-import { Text } from '@/components/Text/Text'
-import { Image } from '@/components/Image'
+import { MHAButton } from './MHAButton'
 import { List } from '@/components/List'
+import { FaqSecondary } from './Faq/variants/FaqSecondary'
+import { VideoThumbnail } from './Video/variants/VideoThumbnail'
+import { CarouselTestimonial } from './Carousel/variants/CarouselTestimonial'
+import { CarouselPromotionCourses } from './Carousel/variants/CarouselPromotionCourses'
 // libraries
 import cx from 'classnames'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import {
-  faChevronLeft,
-  faCircle,
-  faStar,
-  faChevronRight,
-} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import ReactMarkdown from 'react-markdown'
+import { faCircle, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import {
   faCircleCheck,
   faClock,
@@ -33,32 +23,11 @@ import {
   faSadTear,
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// modules
-import Mixpanel from '@/modules/Mixpanel'
-// utils
-import { EExternalRoutes } from '@/utils/constants'
-import { useWindowWidth } from '@/utils/hooks'
-import { PageContext } from '@/utils/contexts'
-
+// style
 import 'swiper/css'
 import 'swiper/css/pagination'
 
 export const SpecialPromotionBody = () => {
-  // ==================== Hooks ====================
-  const page_name = useContext(PageContext).page_name
-  const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
-
-  const onVideoStarted = (type: string) => {
-    if (!watchedVideos.has(type)) {
-      Mixpanel.track.VideoStarted({
-        video_type: `${type} - ${page_name}`,
-        page_name: page_name,
-      })
-    }
-
-    setWatchedVideos(new Set<string>([...watchedVideos, type]))
-  }
-
   return (
     <>
       <Section
@@ -86,30 +55,25 @@ export const SpecialPromotionBody = () => {
         <div className="lg:row-start-2 lg:col-span-2">
           <MHAButton label="START YOUR FREE TRIAL NOW!" />
 
-          <Text
-            className="font-bold italic mt-3"
-            content="* This offer is available for a limited time *"
-          />
+          <p className="font-bold italic mt-3">* This offer is available for a limited time *</p>
         </div>
 
         <Image
           alt="hero image"
           className="w-full rounded-20 my-4 lg:my-0 lg:col-start-1 lg:row-start-1"
-          src="BlackFridayPage/mha-hero.jpg"
+          width={768}
+          height={513}
+          src="/images/BlackFridayPage/mha-hero.jpg"
         />
       </Section>
 
       {/* YOUR ALL-ACCESS PASS IS THE QUICKEST AND MOST AFFRODABLE SECTION */}
       <Section className="text-white bg-black-secondary lg:pb-0 2xl:py-24 2xl:pb-0">
-        <Text.Heading
-          className="mb-4"
-          content="Your All-Access Pass Is the Quickest and Most Affordable Way"
-        />
+        <h2 className="mb-4">Your All-Access Pass Is the Quickest and Most Affordable Way</h2>
 
-        <Text.Paragraph
-          className="font-bold text-xl !tracking-widest lg:text-3xl lg:max-w-4xl lg:mx-auto 2xl:mb-12"
-          content="TO GET THE BREAKTHROUGH YOU NEED TO MAKE SURE YOU NEVER GO BACK TO YOUR OLD WAYS AGAIN."
-        />
+        <p className="font-bold text-xl !tracking-widest lg:text-3xl lg:max-w-4xl lg:mx-auto 2xl:mb-12">
+          TO GET THE BREAKTHROUGH YOU NEED TO MAKE SURE YOU NEVER GO BACK TO YOUR OLD WAYS AGAIN.
+        </p>
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-4">
           <div className="text-left">
@@ -161,10 +125,10 @@ export const SpecialPromotionBody = () => {
         />
 
         {/* JOIN THOUSANDS OF OUR MEMBERS HERO SECTION */}
-        <Text.Heading
-          className="text-left lg:mb-12"
-          content="Join Thousands of Our Members in Learning Practical, Powerful, and Proven Techniques for Creating Change That Actually Lasts."
-        />
+        <h2 className="text-left lg:mb-12">
+          Join Thousands of Our Members in Learning Practical, Powerful, and Proven Techniques for
+          Creating Change That Actually Lasts.
+        </h2>
 
         <div className="text-left lg:grid lg:grid-cols-12 lg:gap-6">
           <div className="lg:col-span-6">
@@ -208,7 +172,9 @@ export const SpecialPromotionBody = () => {
           <Image
             alt="a woman hugging herself"
             className="rounded-20 lg:mt-4 lg:col-span-6"
-            src="BlackFridayPage/mha-woman-hugging-herself.jpg"
+            width={656}
+            height={714}
+            src="/images/BlackFridayPage/mha-woman-hugging-herself.jpg"
           />
         </div>
 
@@ -224,18 +190,22 @@ export const SpecialPromotionBody = () => {
       <Image
         alt="black wave vector"
         className="w-full md:hidden"
-        src="BlackFridayPage/black-secondary-wave.jpg"
+        width={391}
+        height={103}
+        src="/images/BlackFridayPage/black-secondary-wave.jpg"
       />
 
       <Image
         alt="black wave vector"
         className="w-full hidden md:block"
-        src="BlackFridayPage/black-secondary-wave-desktop.jpg"
+        width={1440}
+        height={218}
+        src="/images/BlackFridayPage/black-secondary-wave-desktop.jpg"
       />
 
       {/* TESTIMONIAL CAROUSEL */}
       <div className="w-full max-w-[100vw]">
-        <Carousel.Testimonial
+        <CarouselTestimonial
           className="mt-6"
           classNameHeader="text-center"
           headingText="You Could Be Joining Our Members in Having Breakthroughs Like This:"
@@ -245,25 +215,23 @@ export const SpecialPromotionBody = () => {
 
       {/* HERES WHAT YOU GET CARDS */}
       <Section className="bg-blue-lightest 2xl:py-24">
-        <Text.Heading
-          className="mb-4"
-          content="Here’s What You Get With Your 14-Day All-Access Pass:"
-        />
+        <h2 className="mb-4">Here’s What You Get With Your 14-Day All-Access Pass:</h2>
 
         <Card
           className="default-padding text-left border-none my-4 
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
           <div>
-            <Text
-              className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6"
-              content="EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE"
-            />
+            <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
+              EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE
+            </p>
 
             <Image
               alt="dashboard mockup"
               className="w-full"
-              src="BlackFridayPage/dashboard-preview.jpg"
+              width={768}
+              height={617}
+              src="/images/BlackFridayPage/dashboard-preview.jpg"
             />
           </div>
 
@@ -305,15 +273,16 @@ export const SpecialPromotionBody = () => {
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
           <div>
-            <Text
-              className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6"
-              content="INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS"
-            />
+            <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
+              INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS
+            </p>
 
             <Image
               alt="live webinar mockup"
               className="w-full lg:mt-20"
-              src="BlackFridayPage/live-webinar.jpg"
+              width={400}
+              height={213}
+              src="/images/BlackFridayPage/live-webinar.jpg"
             />
           </div>
 
@@ -345,15 +314,16 @@ export const SpecialPromotionBody = () => {
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-center lg:my-12 
             xl:p-8">
           <div>
-            <Text
-              className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6"
-              content="A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU"
-            />
+            <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
+              A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU
+            </p>
 
             <Image
               alt="socials preview mockup"
               className="w-full"
-              src="BlackFridayPage/socials-preview.jpg"
+              width={768}
+              height={617}
+              src="/images/BlackFridayPage/socials-preview.jpg"
             />
           </div>
 
@@ -383,19 +353,16 @@ export const SpecialPromotionBody = () => {
         <div className="lg:row-start-2 lg:col-span-2">
           <MHAButton />
 
-          <Text
-            className="font-bold italic mt-3"
-            content="* This offer is available for a limited time *"
-          />
+          <p className="font-bold italic mt-3">* This offer is available for a limited time *</p>
         </div>
       </Section>
       {/* COURSES CAROUSEL */}
-      <CarouselCourses />
+      <CarouselPromotionCourses />
 
       {/* THAIS SECTION */}
       <Section classNameInner="lg:grid lg:grid-cols-12 lg:gap-24 lg:items-center">
         <div className="text-left lg:col-span-7">
-          <Text.Heading content="Hi! I’m Thais." />
+          <h2>Hi! I’m Thais.</h2>
 
           <MHAPageText
             className="font-medium lg:my-6"
@@ -425,7 +392,9 @@ export const SpecialPromotionBody = () => {
         <Image
           alt="a headshot of Thais Gibson"
           className="w-full rounded-full max-w-106 lg:max-w-none lg:col-span-5 lg:p-4"
-          src="thais_headshot.png"
+          width={285}
+          height={285}
+          src="/images/thais_headshot.png"
         />
       </Section>
 
@@ -433,18 +402,22 @@ export const SpecialPromotionBody = () => {
       <Image
         alt="purple wave vector"
         className="w-full lg:hidden"
-        src="BlackFridayPage/mha-purple-wave.jpg"
+        width={792}
+        height={426}
+        src="/images/BlackFridayPage/mha-purple-wave.jpg"
       />
 
       <Image
         alt="purple wave vector"
         className="w-full hidden lg:block"
-        src="BlackFridayPage/mha-purple-wave-desktop.jpg"
+        width={2881}
+        height={430}
+        src="/images/BlackFridayPage/mha-purple-wave-desktop.jpg"
       />
 
       <Section className="bg-primary-light-50 lg:pt-0 2xl:pb-24">
         <div className="lg:-mt-4 2xl:-mt-12 3xl:">
-          <Text.Heading content="Can your mental health really keep taking the back seat?" />
+          <h2>Can your mental health really keep taking the back seat?</h2>
 
           <MHAPageText
             className="max-w-3xl mx-auto lg:my-8"
@@ -515,15 +488,20 @@ export const SpecialPromotionBody = () => {
 
       {/* BREATHROUGH SECTION */}
       <Section className="bg-black-secondary text-white 2xl:py-24">
-        <Text.Heading content="Ready for Your First Breakthrough?" />
+        <h2>Ready for Your First Breakthrough?</h2>
 
-        <Text
-          className="max-w-64 tracking-widest text-xl mb-4 mx-auto xs:tracking-0.325 xs:max-w-80 lg:text-3xl lg:!max-w-xl lg:mt-8"
-          content="TRY OUR MEMBERSHIP FOR FREE FOR 14 DAYS."
-        />
+        <p className="max-w-64 tracking-widest text-xl mb-4 mx-auto xs:tracking-0.325 xs:max-w-80 lg:text-3xl lg:!max-w-xl lg:mt-8">
+          TRY OUR MEMBERSHIP FOR FREE FOR 14 DAYS.
+        </p>
 
         <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:my-8">
-          <Image alt="best value mockup" className="w-full" src="best-value-mockup.png" />
+          <Image
+            alt="best value mockup"
+            className="w-full"
+            width={1980}
+            height={981}
+            src="/images/best-value-mockup.png"
+          />
 
           <div className="text-left">
             <MHAPageText className="font-medium" content="Join today and get instant access to:" />
@@ -547,22 +525,19 @@ export const SpecialPromotionBody = () => {
 
         <MHAButton label="TRY FOR FREE FOR 14 DAYS" />
 
-        <Text
-          className="italic font-medium mt-4"
-          content="* This offer is available for a limited time *"
-        />
+        <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
       </Section>
 
       {/* VIDEO SECTION */}
       <Section className="2xl:pb-24">
-        <Text.Heading
-          className="my-4 max-w-4xl mx-auto lg:mb-12"
-          content="Curious to See How the All-Access Pass Can Change Your Life? Hit Play to Find Out What Awaits You."
-        />
+        <h2 className="my-4 max-w-4xl mx-auto lg:mb-12">
+          Curious to See How the All-Access Pass Can Change Your Life? Hit Play to Find Out What
+          Awaits You.
+        </h2>
 
-        <Video.Thumbnail
+        <VideoThumbnail
           srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
-          thumbnailAlt={`Video ${page_name} thumbnail`}
+          thumbnailAlt={`Video thumbnail`}
           thumbnailUrl="BlackFridayPage/mha-video-thumbnail.png"
           type="testimonial"
         />
@@ -570,7 +545,7 @@ export const SpecialPromotionBody = () => {
 
       {/* FAQ SECTION */}
       <Section className="bg-blue-lightest 2xl:py-24">
-        <Faq.Secondary
+        <FaqSecondary
           className="bg-transparent py-0"
           faq={ValentinesFAQs}
           subheaderTextDesktop="BEFORE STARTING YOUR FREE TRIAL"
@@ -581,122 +556,8 @@ export const SpecialPromotionBody = () => {
 }
 
 export const MHAPageText = ({ className, content }: ITextDefaultProps) => (
-  <Text.Paragraph useMD className={cx('text-lg my-4', className)} content={content} />
+  <ReactMarkdown className={cx('text-lg my-4', className)}>{String(content)}</ReactMarkdown>
 )
-
-export const MHAButton = ({ label }: IButtonDefaultProps) => {
-  // ==================== Hooks ====================
-  const windowWidth = useWindowWidth().windowWidth
-  const page_name = useContext(PageContext).page_name
-
-  const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: page_name,
-    })
-
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
-  }
-
-  return (
-    <Button
-      className="px-4 xs:px-8 xs:text-xl"
-      label={label ?? `START YOUR 14-DAY ${windowWidth < 375 ? 'TRIAL' : 'ALL-ACCESS PASS'}`}
-      onClick={onGoToCheckout}
-    />
-  )
-}
-
-const courses = [
-  `course-fa-to-sa.jpg`,
-  `course-fa-advance.jpg`,
-  `course-ap-to-sa.jpg`,
-  `course-ap-advance.jpg`,
-  `course-da-to-sa.jpg`,
-  `course-da-advance.jpg`,
-  `course-heal-from-breakup.jpg`,
-  `course-emotional-mastery.jpg`,
-]
-
-const CarouselCourses = () => {
-  // ==================== State ====================
-  const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
-  const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
-
-  return (
-    <Section className="max-w-[100vw] 2xl:pt-24" classNameInner="max-w-screen-2xl">
-      <Text.Heading className="text-2xl" content="Explore Some of Our Life-Changing Courses." />
-
-      <MHAPageText
-        className="max-w-4xl mx-auto"
-        content="Take a sneak peek at some of the courses that have 
-            helped thousands of students break their destructive habits, build their self-esteem, release resentments, and transform 
-            their lives from the inside out."
-      />
-
-      <div className="relative w-full">
-        <Swiper
-          loop
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-            },
-            576: {
-              slidesPerView: 2,
-              spaceBetween: 16,
-            },
-            896: {
-              slidesPerView: 3,
-              spaceBetween: 24,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 32,
-            },
-            1536: {
-              slidesPerView: 4,
-              spaceBetween: 36,
-            },
-          }}
-          className="w-full !overflow-hidden py-12 lg:px-8 lg:pb-20"
-          wrapperClass="pb-12"
-          modules={[Autoplay, Navigation, Pagination]}
-          navigation={{ prevEl, nextEl }}
-          pagination={{
-            clickable: true,
-            renderBullet: (_, className) =>
-              '<div class="w-3 h-3 bg-primary rounded-full ' + className + '"/></div>',
-          }}
-          slidesPerView={1}
-          spaceBetween={10}>
-          {courses.map((obj, index) => (
-            <SwiperSlide key={`trustbar_${index}`}>
-              <Image alt="brand logo" className="w-full rounded-20" src={`${obj}`} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        {/* LEFT ARROW ICON */}
-        <div
-          ref={(node) => setPrevEl(node)}
-          className="clickable-shadow hidden w-8 h-8 flex-center rounded-full bg-grey-20 absolute top-1/2 z-5
-            lg:flex lg:-left-3 lg:top-[calc(50%-2rem)]
-            3xl:-left-10 xl:w-10 xl:h-10">
-          <FontAwesomeIcon className="text-primary" icon={faChevronLeft} size="lg" />
-        </div>
-
-        {/* RIGHT ARROW ICON */}
-        <div
-          ref={(node) => setNextEl(node)}
-          className="clickable-shadow hidden w-8 h-8 flex-center rounded-full bg-grey-20 absolute top-1/2 z-5
-            lg:flex lg:-right-3 lg:top-[calc(50%-2rem)]
-            3xl:-right-10 xl:w-10 xl:h-10">
-          <FontAwesomeIcon className="text-primary" icon={faChevronRight} size="lg" />
-        </div>
-      </div>
-    </Section>
-  )
-}
 
 export const ValentinesFAQs = [
   {

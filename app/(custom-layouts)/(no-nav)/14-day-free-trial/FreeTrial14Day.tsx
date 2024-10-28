@@ -5,7 +5,8 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
-import { SpecialPromotionBody, MHAButton } from '@/components/SpecialPromotion'
+import { SpecialPromotionBody } from '@/components/SpecialPromotion'
+import { MHAButton } from '@/components/MHAButton'
 
 export const FreeTrial14Day = () => {
   return (

@@ -48,9 +48,10 @@ export interface IGetSplitTest {
   key: TSplitTestKey
   variantRatio?: 0.2 | 0.5
   experimentName?: string
+  props?: {}
 }
 
-export const getSplitTest = ({ key, experimentName, variantRatio = 0.5 }: IGetSplitTest) => {
+export const getSplitTest = ({ key, experimentName, props, variantRatio = 0.5 }: IGetSplitTest) => {
   if (!key) return undefined
   let isVariant: Boolean = Storage.get(key)
   if (isVariant === null) {
@@ -59,6 +60,7 @@ export const getSplitTest = ({ key, experimentName, variantRatio = 0.5 }: IGetSp
     Mixpanel.track.ExperimentStarted({
       'Experiment name': experimentName || key,
       'Variant name': isVariant ? 'Variant 1' : 'Control',
+      ...props,
     })
   }
   return isVariant

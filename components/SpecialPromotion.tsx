@@ -567,8 +567,7 @@ export const ValentinesFAQs = [
   },
   {
     question: 'What happens after my 14-day free trial expires?',
-    answer: `After your trial ends, you’ll automatically become a monthly member and be charged $67/month to retain access to everything.
-    But if you feel it’s not the right fit for you, there is zero obligation and you can cancel before your trial ends by logging into the members area.`,
+    answer: `After your trial ends, you’ll automatically become a monthly member and be charged $67/month to retain access to everything.\n\nBut if you feel it’s not the right fit for you, there is zero obligation and you can cancel before your trial ends by logging into the members area.`,
   },
   {
     question: 'Do I have to attend classes, or are your courses self-paced?',
@@ -576,12 +575,10 @@ export const ValentinesFAQs = [
   },
   {
     question: 'Can I cancel later if I become a member of The Personal Development School?',
-    answer: `Absolutely! If you decide to become a member after your trial expires, you can still cancel at any time.
-    Plus, we also offer a no-questions-asked 7-day money-back guarantee – meaning there is zero risk if you become a member.`,
+    answer: `Absolutely! If you decide to become a member after your trial expires, you can still cancel at any time. Plus, we also offer a no-questions-asked 7-day money-back guarantee – meaning there is zero risk if you become a member.`,
   },
   {
     question: 'Can you remind me what I get access to?',
-    answer: `Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships, and gain emotional mastery.
-    You also get access to weekly live webinars and Q&A calls, and all of our past recordings. Plus, access to our members-only forum and Facebook group, as well as online study groups and social events, so you can get additional support and connect with like-minded members.`,
+    answer: `Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships, and gain emotional mastery.\n\nYou also get access to weekly live webinars and Q&A calls, and all of our past recordings. Plus, access to our members-only forum and Facebook group, as well as online study groups and social events, so you can get additional support and connect with like-minded members.`,
   },
 ]

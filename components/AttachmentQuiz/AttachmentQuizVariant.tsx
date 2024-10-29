@@ -10,8 +10,6 @@ import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
-import { LinkDefault } from '../Link'
-import { Video } from '../Video/Video'
 import { TAttachmentQuizVariant } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/config'
 import { SplitTestContext } from '@/utils/contexts'
 // libraries
@@ -32,21 +30,9 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
   const [viewQuiz, setViewQuiz] = useState(false)
 
   // ================= Refs =======================
-  const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const quizSectionRef = useRef<HTMLDivElement>(null)
 
   // ================== Events =====================
-  const onVideoStarted = (type: string) => {
-    if (!watchedVideos.has(type)) {
-      Mixpanel.track.VideoStarted({
-        video_type: `${type} - ${page_name}`,
-        page_name: page_name,
-      })
-    }
-
-    setWatchedVideos(new Set<string>([...watchedVideos, type]))
-  }
-
   const onStartQuiz = useCallback(() => {
     if (!viewQuiz) {
       Mixpanel.track.QuizStarted({
@@ -89,30 +75,6 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
 
           <TakeQuizCTA onStartQuiz={onStartQuiz} />
         </div>
-      </div>
-
-      <div className="p-6 lg:pt-16">
-        <div className="max-w-3xl text-center mx-auto">
-          <h2 className="mb-4">Once I Learned This, It Changed My Relationships For Life...</h2>
-        </div>
-
-        <Video.Large
-          className="mx-auto shadow-centered max-w-3xl"
-          srcUrl="https://storage.googleapis.com/pds_videos/Mel_Robbins_Podcast.mp4"
-          thumbnailUrl="AttachmentQuiz/mel-robbins.jpg"
-          thumbnailAlt="IAT Video Thumbnail"
-          onPlay={() => onVideoStarted('YouTube')}
-        />
-
-        <p className="mt-4 text-center">
-          *As seen as, and taken from the The Mel Robbins Podcast :
-          <LinkDefault
-            className="text-primary"
-            label=" YouTube Link"
-            target="_blank"
-            url="https://m.youtube.com/watch?v=GIkspM20BeY&pp=ygURVGhhaXMgbWVsIHJvYmJpbnM%3D"
-          />
-        </p>
       </div>
 
       {/* Quiz Section */}

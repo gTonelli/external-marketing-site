@@ -11,14 +11,22 @@ export const PodcastGuestForm = () => {
   const [submitted, setSubmitted] = useState(false)
   const [selectedFile, setSelectedFile] = useState<Maybe<File>>()
   const [validFile, setValidFile] = useState<Maybe<Boolean>>()
+  const [fileErrorMsg, setFileErrorMsg] = useState('')
 
   const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.currentTarget.files ?? [])
-    if (files[0].size > 4000000 || !['image/png', 'image/jpeg'].includes(files[0].type)) {
+    if (files[0].size > 4000000) {
       setValidFile(false)
+      setFileErrorMsg('File too large! Maximum upload size is 4mb.')
+      return
+    }
+    if (!['image/png', 'image/jpeg'].includes(files[0].type)) {
+      setValidFile(false)
+      setFileErrorMsg('Invalid file type! Please upload a png or a jpg.')
       return
     }
     setValidFile(true)
+    setFileErrorMsg('')
     setSelectedFile(files[0])
   }
 
@@ -223,6 +231,7 @@ export const PodcastGuestForm = () => {
                 </small>
               )}
             </div>
+            {fileErrorMsg && <small className="flex text-danger mb-4">{fileErrorMsg}</small>}
             <input
               className="hidden"
               name="guestHeadshot"

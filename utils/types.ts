@@ -52,6 +52,8 @@ export type TVariantVideoData = {
   splitRatio?: number
 }
 
+export type TDict<T = any> = { [key: string]: T }
+
 export interface IStrapiThumbnail {
   id: number
   attributes: {

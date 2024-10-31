@@ -16,7 +16,7 @@ export default function SimplifiedFAResultsPage() {
     <Page page_name="VSL Royal Rumble Results - fa">
       <SimplifiedFAHeader />
 
-      <Section classNameInner="!max-w-6xl">
+      <Section className="!py-0" classNameInner="!max-w-6xl">
         <div className="w-full">
           <div className="flex flex-col md:flex-row justify-center items-center">
             <div>
@@ -37,6 +37,8 @@ export default function SimplifiedFAResultsPage() {
                 Claim Your Offer And Get The{' '}
                 <span className="text-primary">7-Days to Transform Relationships</span> Course
               </h2>
+
+              <p className="mb-2">(Included free with our All Access Pass)</p>
 
               <p className="mb-4">
                 <strong>

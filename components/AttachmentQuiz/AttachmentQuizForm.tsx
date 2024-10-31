@@ -37,19 +37,19 @@ export const AttachmentQuizForm = ({
     switch (quiz_traffic_source) {
       case 'organic':
         // Organic traffic: Redirect to results page with user style
-        return `/results/${userStyle || 'fa'}` // fallback in case userStyle is undefined
+        return `/results/${userStyle}`
 
       case 'paidGoogle':
         // Paid Google traffic: If user style is 'fa', redirect to specific page
-        return userStyle === 'fa' ? '/quiz/results/fa' : `/quiz/${userStyle || 'fa'}`
+        return userStyle === 'fa' ? '/quiz/results/fa' : `/quiz/${userStyle}`
 
       case 'paidMeta':
         /*  Paid Meta traffic: Handle split test logic for quiz B
             If split test active, use variant URL with user style
             If no split test, go to default quiz B results page with user style */
         return quizBSplitTest
-          ? `${splitTestContext?.variantUrl}${userStyle || 'fa'}`
-          : `/quiz/b/results/${userStyle || 'fa'}`
+          ? `${splitTestContext?.variantUrl}${userStyle}`
+          : `/quiz/b/results/${userStyle}`
 
       default:
         // Default route: Go to quiz page with user style

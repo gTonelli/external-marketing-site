@@ -1,5 +1,5 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { IStrapiFetchProps, IStrapiResponse } from './types'
+import { IStrapiFetchProps, IStrapiResponse, TDict } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 
@@ -48,7 +48,7 @@ export interface IGetSplitTest {
   key: TSplitTestKey
   variantRatio?: 0.2 | 0.5
   experimentName?: string
-  props?: {}
+  props?: TDict
 }
 
 export const getSplitTest = ({ key, experimentName, props, variantRatio = 0.5 }: IGetSplitTest) => {

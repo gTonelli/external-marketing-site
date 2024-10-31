@@ -90,4 +90,4 @@ export const AttachmentQuiz = ({
   }
 }
 
-export type TQuizTrafficSources = 'organic' | 'paid'
+export type TQuizTrafficSources = 'organic' | 'paidGoogle' | 'paidMeta'

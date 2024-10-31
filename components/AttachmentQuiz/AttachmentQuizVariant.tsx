@@ -91,7 +91,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
                 newQuiz
                 className="!max-w-5xl"
                 quizName="Attachment Style Quiz"
-                quiz_traffic_source="paid"
+                quiz_traffic_source="paidMeta"
                 showStartButton={false}
               />
             </SplitTestContext.Provider>

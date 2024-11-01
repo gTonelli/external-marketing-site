@@ -51,9 +51,9 @@ export const CarouselTestimonialThinkific = forwardRef(
     // ==================== Context ====================
     const { windowWidth } = useContext(ViewportContext)
 
-    const noOfslides = windowWidth <= EWindowWidth.md ? 1 : 'auto'
-    const spaceBetween = windowWidth <= EWindowWidth.md ? 0 : 36
-    const centeredSlides = windowWidth > EWindowWidth.md
+    const noOfslides = windowWidth <= EWindowWidth.md - 1 ? 1 : 'auto'
+    const spaceBetween = windowWidth <= EWindowWidth.md - 1 ? 0 : 36
+    const centeredSlides = windowWidth >= EWindowWidth.md
 
     return (
       <section ref={ref} className={cx(`w-full relative overflow-hidden`, className)}>

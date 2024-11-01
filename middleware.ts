@@ -21,6 +21,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       variantRatio,
       forceControlOnNewUser,
       controlUrl,
+      domain,
     } = pageData
 
     let showVariant = false
@@ -40,7 +41,9 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
           request,
           controlUrl,
         })
-        response.cookies.set(cookieKey, 'false')
+        response.cookies.set(cookieKey, 'false', {
+          domain: domain || '.attachment.personaldevelopmentschool.com',
+        })
         return response
       } else {
         showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
@@ -90,7 +93,8 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         name: cookieKey,
         value: showVariant.toString(),
         httpOnly: false,
-        maxAge: 7776000, // 3 Months
+        maxAge: 7776000, // 3 Months,
+        domain: domain || '.attachment.personaldevelopmentschool.com',
       })
     }
 
@@ -108,6 +112,7 @@ export const config = {
     '/attachment-report/da',
     '/attachment-report/sa',
     '/webinar-library',
+    '/quiz/results/fa',
   ],
 }
 
@@ -138,6 +143,10 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       regex: /^\/attachment-report\/sa/,
       config: splitTestConfigs.pdfTestSa,
+    },
+    {
+      regex: /^\/quiz\/results\/fa/,
+      config: splitTestConfigs.simplifiedFaTest,
     },
   ]
 
@@ -219,6 +228,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 export const splitTestConfigs: TSplitTestConfigs = {
   checkoutTest: {
     cookieKey: 'prod-3136-checkout-test',
+    domain: '.personaldevelopmentschool.com',
     pageName: 'Checkout',
     experimentName: 'Checkout V2 Test (Attachment Quiz Funnel)',
     controlUrl: {
@@ -288,6 +298,17 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
+  simplifiedFaTest: {
+    cookieKey: 'gm-1209-simplified-fa-test',
+    domain: '.personaldevelopmentschool.com',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1209-Simplified-FA-Test',
+    variantUrl: {
+      path: '/quiz/results/fearful-avoidant',
+    },
+    variantRatio: 0.25,
+    forceControlOnNewUser: true,
+  },
 }
 
 type TSplitTestConfigs = {
@@ -298,6 +319,7 @@ type TSplitTestConfig = {
   cookieKey: string
   pageName: string
   experimentName: string
+  domain?: string
   /** Conditionally required as otherwise request url is used */
   controlUrl?: {
     path: string
@@ -311,7 +333,7 @@ type TSplitTestConfig = {
     /** Conditionally required as otherwise request origin is used */
     base?: string
   }
-  variantRatio: 0.2 | 0.5
+  variantRatio: 0.2 | 0.5 | 0.25
   /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */
   forceControlOnNewUser: boolean
 }

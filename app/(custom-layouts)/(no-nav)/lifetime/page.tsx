@@ -93,11 +93,6 @@ export default function LifeTimePage() {
 
   // Mixpanel Button Clicks
   const onGoToCheckout = (event: React.MouseEvent<HTMLButtonElement>, link: EExternalRoutes) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: event.currentTarget.innerText,
-      page_name: page_name,
-    })
-
     window.location.assign(link)
   }
 

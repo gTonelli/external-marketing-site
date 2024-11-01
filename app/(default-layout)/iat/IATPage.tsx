@@ -109,11 +109,6 @@ export const IATPage = ({
 
   const onClickPurchase = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (priceRef.current) priceRef.current.scrollIntoView({ behavior: 'smooth' })
-
-    Mixpanel.track.ButtonClicked({
-      button_label: event.currentTarget.innerText,
-      page_name: page_name,
-    })
   }
 
   const onBookNow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

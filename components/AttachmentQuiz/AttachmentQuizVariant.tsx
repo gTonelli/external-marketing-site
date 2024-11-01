@@ -418,7 +418,7 @@ interface IQuizCTAProps {
   showTeaser?: boolean
 }
 
-const TakeQuizCTA = ({ onStartQuiz, showTeaser = true }: IQuizCTAProps) => {
+const TakeQuizCTA = ({ onStartQuiz }: IQuizCTAProps) => {
   return (
     <Button
       className="block bg-gradient-to-r from-primary-old to-primary-light text-black border-none tracking-0.325 my-10 hover:text-white md:text-xl md:!px-10 md:!py-5"

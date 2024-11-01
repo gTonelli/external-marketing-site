@@ -21,6 +21,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       variantRatio,
       forceControlOnNewUser,
       controlUrl,
+      domain,
     } = pageData
 
     let showVariant = false
@@ -40,7 +41,9 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
           request,
           controlUrl,
         })
-        response.cookies.set(cookieKey, 'false')
+        response.cookies.set(cookieKey, 'false', {
+          domain: domain || '.attachment.personaldevelopmentschool.com',
+        })
         return response
       } else {
         showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
@@ -91,6 +94,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         value: showVariant.toString(),
         httpOnly: false,
         maxAge: 7776000, // 3 Months
+        domain: domain || '.attachment.personaldevelopmentschool.com',
       })
     }
 
@@ -219,6 +223,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 export const splitTestConfigs: TSplitTestConfigs = {
   checkoutTest: {
     cookieKey: 'prod-3136-checkout-test',
+    domain: '.personaldevelopmentschool.com',
     pageName: 'Checkout',
     experimentName: 'Checkout V2 Test (Attachment Quiz Funnel)',
     controlUrl: {
@@ -298,6 +303,7 @@ type TSplitTestConfig = {
   cookieKey: string
   pageName: string
   experimentName: string
+  domain?: string
   /** Conditionally required as otherwise request url is used */
   controlUrl?: {
     path: string
@@ -311,7 +317,7 @@ type TSplitTestConfig = {
     /** Conditionally required as otherwise request origin is used */
     base?: string
   }
-  variantRatio: 0.2 | 0.5
+  variantRatio: 0.2 | 0.5 | 0.25
   /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */
   forceControlOnNewUser: boolean
 }

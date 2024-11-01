@@ -567,11 +567,6 @@ export const MHAButton = ({ label }: IButtonDefaultProps) => {
   const page_name = useContext(PageContext).page_name
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: page_name,
-    })
-
     window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL)
   }
 

@@ -99,7 +99,7 @@ export default function SimplifiedFAResultsPage() {
 
       <Section>
         <h2 className="max-w-2xl mx-auto mb-8">
-          <span className="block">Here’s Everything You’re Getting With Your </span>
+          <span className="lg:block">Here’s Everything You’re Getting With Your </span>
 
           <span className="text-primary">7 Days to Transform Relationships Course:</span>
         </h2>
@@ -138,7 +138,7 @@ export default function SimplifiedFAResultsPage() {
 
       <Section className="bg-blue-lightest py-8">
         <h2 className="text-left mb-8">
-          <span className="block">And Those Who Take Our 7 Days to </span>
+          <span className="md:block">And Those Who Take Our 7 Days to </span>
 
           <span>Transform Relationships Course:</span>
         </h2>

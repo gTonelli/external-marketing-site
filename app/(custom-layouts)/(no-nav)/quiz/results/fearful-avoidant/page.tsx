@@ -138,7 +138,7 @@ export default function SimplifiedFAResultsPage() {
 
       <Section className="bg-blue-lightest py-8">
         <h2 className="text-left mb-8">
-          <span className="md:block">And Those Who Take Our 7 Days to </span>
+          <span className="md:block">Those Who Take Our 7 Days to </span>
 
           <span>Transform Relationships Course:</span>
         </h2>
@@ -218,7 +218,7 @@ export default function SimplifiedFAResultsPage() {
 
             <p>
               <em className="block">*Single course price normal price $197 </em>
-              <em>*All access pass normal price $97</em>
+              <em>*All-Access Pass normal price $97</em>
             </p>
           </div>
 
@@ -245,12 +245,12 @@ export default function SimplifiedFAResultsPage() {
         className="!max-w-full bg-[url('/images/pds-bg-vector.png')] bg-right-bottom bg-no-repeat !bg-cover mx-auto !p-0"
         classNameInner="px-4 py-24 lg:py-36">
         <h2 className="mb-4">
-          Go Here To Get The 7 Days to Transform Relationships Course & Start Having A Healthy,
-          Loving Relationship – Without Any Fears
+          Get The 7 Days to Transform Relationships Course & Start Having A Healthy, Loving
+          Relationship – Without Any Fears
         </h2>
 
         <h2 className="text-primary mb-4">
-          Get the All-Access Pass For Just <span className="line-through">$97</span> $67/month
+          Enjoy the All-Access Pass For Just <span className="line-through">$97</span> $67/month
         </h2>
 
         <p className="max-w-xl text-xl mx-auto mb-8">

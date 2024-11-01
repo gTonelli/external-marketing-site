@@ -11,7 +11,7 @@ export const SimplifiedFAHeader = () => {
     <Section classNameInner="max-w-4xl mx-auto">
       <h1 className="text-primary mb-4">You're a Fearful Avoidant!</h1>
 
-      <p className="mb-8">Your report is on its way! Check your email inbox.</p>
+      <p className="mb-8">Your report is on its way! Check your inbox.</p>
 
       <h2>
         {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'} You're 1 Step

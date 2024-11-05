@@ -3,6 +3,8 @@
 // Documentation: https://bitbucket.org/growtham/gam-user-analytics-v2/src/main/
 // core
 import { useEffect } from 'react'
+// libraries
+import Cookies from 'universal-cookie'
 // modules
 import Mixpanel from './Mixpanel'
 import { Storage } from './Storage'
@@ -14,16 +16,30 @@ var gamUserTracking: TGAM | undefined
 interface ISetUserDataArgs {
   email?: string
   firstName?: string
+  lastName?: string
   userStyle?: TStyle
 }
 
 export const useGamAnalytics = () => {
-  const setUserData = ({ email, firstName, userStyle }: ISetUserDataArgs) => {
-    // Creating an identity of user in mixpanel
+  const cookies = new Cookies()
+
+  // Creating an identity of user in mixpanel
+  const setUserData = ({ email, firstName, lastName, userStyle }: ISetUserDataArgs) => {
     Mixpanel.setUser(email)
     Storage.set('userFirstName', firstName)
     Storage.set('lastUserEmail', email)
+    cookies.set('user', { firstName, email, lastName })
 
+    const { gamLastTouchData, gamFirstTouchData } = getUserData()
+
+    Mixpanel.setPeople(gamLastTouchData)
+    Mixpanel.setPeopleOnce(gamFirstTouchData)
+    if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
+
+    return { gamLastTouchData, gamFirstTouchData }
+  }
+
+  const getUserData = () => {
     // Setting up the first touch of the user
     const gamFirstTouchData = {
       utm_campaign_first: gamUserTracking?.utm_campaign_first,
@@ -46,9 +62,6 @@ export const useGamAnalytics = () => {
       wicked_id_last: gamUserTracking?.wickedid_last,
     }
 
-    Mixpanel.setPeople(gamLastTouchData)
-    Mixpanel.setPeopleOnce(gamFirstTouchData)
-    if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
     return { gamFirstTouchData, gamLastTouchData }
   }
 
@@ -367,7 +380,7 @@ export const useGamAnalytics = () => {
     }, 100)
   }, [])
 
-  return { gamUserTracking, setUserData }
+  return { gamUserTracking, setUserData, getUserData }
 }
 
 type TGAM = {

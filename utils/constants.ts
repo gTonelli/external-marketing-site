@@ -144,6 +144,11 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_FALL_2_2024_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3087572?price_id=3957293&coupon=iatbundle3molivefall24cohort2',
   THINKIFIC_CHECKOUT_IAT_FALL_2_2024_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3087572?price_id=3957294&coupon=iatbundle6molivefall24cohort2',
   THINKIFIC_CHECKOUT_IAT_FALL_2_2024_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3087572?price_id=3957295&coupon=iatbundle12molivefall24cohort2',
+  // IAT Winter 2025
+  THINKIFIC_CHECKOUT_IAT_WINTER_2025_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3090108?price_id=3960128&coupon=iatbundleupfrontlivewinter25',
+  THINKIFIC_CHECKOUT_IAT_WINTER_2025_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3090108?price_id=3960150&coupon=iatbundle3molivewinter25',
+  THINKIFIC_CHECKOUT_IAT_WINTER_2025_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3090108?price_id=3960151&coupon=iatbundle6molivewinter25',
+  THINKIFIC_CHECKOUT_IAT_WINTER_2025_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3090108?price_id=3960152&coupon=iatbundle12molivewinter25',
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',

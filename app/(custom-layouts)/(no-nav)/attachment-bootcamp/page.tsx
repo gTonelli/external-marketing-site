@@ -795,7 +795,7 @@ const BootcampPriceCard = () => (
 const CheckoutButton = ({ className, label }: IButtonDefaultProps) => {
   return (
     <a href={EExternalRoutes.THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP}>
-      <Button track className={className} label={label} />
+      <Button className={className} label={label} />
     </a>
   )
 }

@@ -5,7 +5,8 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
-import { SpecialPromotion, MHAButton } from '@/components/SpecialPromotion'
+import { SpecialPromotionBody } from '@/components/SpecialPromotion'
+import { MHAButton } from '@/components/MHAButton'
 
 export default function MentalHealthAwareness() {
   return (
@@ -31,9 +32,13 @@ export default function MentalHealthAwareness() {
         <MHAButton />
       </Section>
 
-      <Image className="relative w-full mt-0 z-5 2xl:-mt-5" src="styled-wave-green.png" />
+      <Image
+        alt="green wave vector"
+        className="relative w-full mt-0 z-5 2xl:-mt-5"
+        src="styled-wave-green.png"
+      />
 
-      <SpecialPromotion />
+      <SpecialPromotionBody />
     </Page>
   )
 }

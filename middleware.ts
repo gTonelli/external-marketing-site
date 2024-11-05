@@ -42,7 +42,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
           controlUrl,
         })
         response.cookies.set(cookieKey, 'false', {
-          domain: domain || '.attachment.personaldevelopmentschool.com',
+          domain: domain || request.nextUrl.hostname,
         })
         return response
       } else {
@@ -93,8 +93,8 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         name: cookieKey,
         value: showVariant.toString(),
         httpOnly: false,
-        maxAge: 7776000, // 3 Months
-        domain: domain || '.attachment.personaldevelopmentschool.com',
+        maxAge: 7776000, // 3 Months,
+        domain: domain || request.nextUrl.hostname,
       })
     }
 
@@ -106,12 +106,13 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 
 export const config = {
   matcher: [
-    '/enroll',
+    '/enroll/(.*)',
     '/attachment-report/fa',
     '/attachment-report/ap',
     '/attachment-report/da',
     '/attachment-report/sa',
     '/webinar-library',
+    '/quiz/results/fa',
   ],
 }
 
@@ -143,6 +144,10 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
       regex: /^\/attachment-report\/sa/,
       config: splitTestConfigs.pdfTestSa,
     },
+    {
+      regex: /^\/quiz\/results\/fa/,
+      config: splitTestConfigs.simplifiedFaTest,
+    },
   ]
 
   const matchedConfig = configs.find((config) => {
@@ -172,11 +177,8 @@ function generateResponse({
     if (Boolean(searchParams.toString())) path += `?${searchParams.toString()}`
     return NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
   } else if (controlUrl) {
-    let controlHref = (controlUrl?.base || request.nextUrl.origin) + controlUrl.path
-    controlUrl?.urlParams?.forEach((param) => {
-      controlHref += `/${request.nextUrl.searchParams.get(param)}`
-      searchParams.delete(param)
-    })
+    let controlHref =
+      (controlUrl?.base || request.nextUrl.origin) + (controlUrl?.path || request.nextUrl.pathname)
     if (Boolean(searchParams.toString())) controlHref += `?${searchParams.toString()}`
     return NextResponse.redirect(new URL(controlHref))
   } else {
@@ -227,9 +229,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'Checkout',
     experimentName: 'Checkout V2 Test (Attachment Quiz Funnel)',
     controlUrl: {
-      path: '/enroll',
       base: 'https://university.personaldevelopmentschool.com',
-      urlParams: ['product_id'],
     },
     variantUrl: {
       path: 'pages/checkout',
@@ -293,6 +293,17 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
+  simplifiedFaTest: {
+    cookieKey: 'gm-1209-simplified-fa-test',
+    domain: '.personaldevelopmentschool.com',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1209-Simplified-FA-Test',
+    variantUrl: {
+      path: '/quiz/results/fearful-avoidant',
+    },
+    variantRatio: 0.25,
+    forceControlOnNewUser: true,
+  },
 }
 
 type TSplitTestConfigs = {
@@ -306,11 +317,10 @@ type TSplitTestConfig = {
   domain?: string
   /** Conditionally required as otherwise request url is used */
   controlUrl?: {
-    path: string
+    /** Conditionally required as otherwise request path is used */
+    path?: string
     /** Conditionally required as otherwise request origin is used */
     base?: string
-    /** These parameters will be pulled from searchParams and converted to urlParams in the order that they appear in the config */
-    urlParams?: string[]
   }
   variantUrl: {
     path: string

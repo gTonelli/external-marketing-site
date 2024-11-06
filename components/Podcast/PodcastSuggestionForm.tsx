@@ -59,7 +59,7 @@ export const PodcastSuggestionForm = ({
       lastName: '',
       reason: podcastRecommendation,
       message: `Message: ${podcastSuggestion}`,
-      to: 'pratikraj@personaldevelopmentschool.com', // @TODO: after staging test, revert back to info@pds
+      to: 'info@personaldevelopmentschool.com',
       templateReferenceId: '5',
       subject: 'Podcast Page Form - Suggestion Submission',
     }

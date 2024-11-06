@@ -242,7 +242,7 @@ export const PodcastGuestForm = () => {
           />
 
           {touched.guestHighlights && errors.guestHighlights && (
-            <small className="flex text-danger">{errors.guestHighlights}</small>
+            <small className="flex text-danger -mt-2">{errors.guestHighlights}</small>
           )}
 
           <label htmlFor="guestBio" className="block mt-4">
@@ -262,7 +262,7 @@ export const PodcastGuestForm = () => {
           />
 
           {touched.guestBio && errors.guestBio && (
-            <small className="flex text-danger">{errors.guestBio}</small>
+            <small className="flex text-danger -mt-2">{errors.guestBio}</small>
           )}
 
           <label htmlFor="guestHistory" className="block mt-4">
@@ -284,7 +284,7 @@ export const PodcastGuestForm = () => {
           />
 
           {touched.guestHistory && errors.guestHistory && (
-            <small className="flex text-danger">{errors.guestHistory}</small>
+            <small className="flex text-danger -mt-2">{errors.guestHistory}</small>
           )}
 
           <label htmlFor="guestHeadshot" className="block mt-4">

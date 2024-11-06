@@ -7,8 +7,9 @@ import { Section } from '@/components/Section'
 import { PodcastGuestForm } from './PodcastGuestForm'
 
 export const metadata: Metadata = {
-  title: 'The Attachment Style Quiz',
-  description: 'Take the leading Attachment Style Quiz by Thais Gibson for Free!',
+  title: 'Podcast Guests | The Thais Gibson Podcast',
+  description:
+    'Become a guest on The Thais Gibson Podcast! Please fill out the form and send in your details to help us prepare for an exciting episode!',
   robots: 'noindex',
 }
 

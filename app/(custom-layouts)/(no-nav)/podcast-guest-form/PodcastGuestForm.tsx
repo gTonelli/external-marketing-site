@@ -1,11 +1,16 @@
 'use client'
 
+// core
+import { ChangeEvent, useState } from 'react'
+// components
 import { Button } from '@/components/Button/Button'
 import { Icon } from '@/components/Icon'
+// libraries
 import { Field, Form, Formik, FormikHelpers } from 'formik'
-import { ChangeEvent, useState } from 'react'
 import * as yup from 'yup'
 import { Maybe } from 'yup'
+// utils
+import { Regexes } from '@/utils/constants'
 
 export const PodcastGuestForm = () => {
   const [submitted, setSubmitted] = useState(false)
@@ -30,12 +35,15 @@ export const PodcastGuestForm = () => {
     setSelectedFile(files[0])
   }
 
-  const onSubmit = (
+  const onSubmit = async (
     values: IPodcastGuestFormSchema,
     formikHelpers: FormikHelpers<IPodcastGuestFormSchema>
   ) => {
-    if (!validFile || !selectedFile) return
-
+    if (!validFile || !selectedFile) {
+      setFileErrorMsg('Headshot image is required')
+      await formikHelpers.validateForm()
+      return
+    }
     formikHelpers.setSubmitting(true)
 
     const message = `
@@ -109,25 +117,37 @@ export const PodcastGuestForm = () => {
       {({ values, errors, touched, handleChange, isSubmitting }) => (
         <Form className="w-full text-left">
           <div className="grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2">
-            <Field
-              className={`rounded-lg ${touched.firstName && errors.firstName && 'border-danger'}`}
-              name="firstName"
-              placeholder="First Name*"
-              value={values.firstName}
-              onChange={handleChange}
-            />
+            <div>
+              <Field
+                className={`w-full rounded-lg ${
+                  touched.firstName && errors.firstName && 'border-danger'
+                }`}
+                name="firstName"
+                placeholder="First Name*"
+                value={values.firstName}
+                onChange={handleChange}
+              />
+              {errors.firstName && <small className="flex text-danger">{errors.firstName}</small>}
+            </div>
 
-            <Field
-              className={`rounded-lg ${touched.lastName && errors.lastName && 'border-danger'}`}
-              name="lastName"
-              placeholder="Last Name*"
-              value={values.lastName}
-              onChange={handleChange}
-            />
+            <div>
+              <Field
+                className={`w-full rounded-lg ${
+                  touched.lastName && errors.lastName && 'border-danger'
+                }`}
+                name="lastName"
+                placeholder="Last Name*"
+                value={values.lastName}
+                onChange={handleChange}
+              />
+              {errors.lastName && <small className="flex text-danger">{errors.lastName}</small>}
+            </div>
           </div>
 
           <Field
-            className={`w-full rounded-lg mb-4 ${touched.email && errors.email && 'border-danger'}`}
+            className={`w-full rounded-lg mb-4 ${
+              touched.email && errors.email && 'border-danger !mb-0'
+            }`}
             name="email"
             type="email"
             placeholder="What's your email?*"
@@ -135,11 +155,13 @@ export const PodcastGuestForm = () => {
             onChange={handleChange}
           />
 
+          {errors.email && <small className="flex text-danger mb-4">{errors.email}</small>}
+
           <label htmlFor="guestExpertise">What are you an expert in?*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              touched.guestExpertise && errors.guestExpertise && 'border-danger'
+              touched.guestExpertise && errors.guestExpertise && 'border-danger !mb-0'
             }`}
             as="textarea"
             rows={3}
@@ -149,11 +171,15 @@ export const PodcastGuestForm = () => {
             onChange={handleChange}
           />
 
+          {errors.guestExpertise && (
+            <small className="flex text-danger mb-4">{errors.guestExpertise}</small>
+          )}
+
           <label htmlFor="guestTopics">What main topics are you excited to talk about?*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              touched.guestTopics && errors.guestTopics && 'border-danger'
+              touched.guestTopics && errors.guestTopics && 'border-danger !mb-0'
             }`}
             as="textarea"
             rows={3}
@@ -163,11 +189,15 @@ export const PodcastGuestForm = () => {
             onChange={handleChange}
           />
 
+          {errors.guestTopics && (
+            <small className="flex text-danger mb-4">{errors.guestTopics}</small>
+          )}
+
           <label htmlFor="guestLimits">Is there anything off limits/you want to avoid?*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              touched.guestLimits && errors.guestLimits && 'border-danger'
+              touched.guestLimits && errors.guestLimits && 'border-danger !mb-0'
             }`}
             as="textarea"
             rows={3}
@@ -177,6 +207,10 @@ export const PodcastGuestForm = () => {
             onChange={handleChange}
           />
 
+          {errors.guestLimits && (
+            <small className="flex text-danger mb-4">{errors.guestLimits}</small>
+          )}
+
           <label htmlFor="guestHighlights">
             Tell me more about any programs, launches, offers, or any social media or websites you’d
             like to promote!
@@ -184,7 +218,7 @@ export const PodcastGuestForm = () => {
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              touched.guestHighlights && errors.guestHighlights && 'border-danger'
+              touched.guestHighlights && errors.guestHighlights && 'border-danger !mb-0'
             }`}
             as="textarea"
             rows={3}
@@ -194,11 +228,15 @@ export const PodcastGuestForm = () => {
             onChange={handleChange}
           />
 
+          {errors.guestHighlights && (
+            <small className="flex text-danger mb-4">{errors.guestHighlights}</small>
+          )}
+
           <label htmlFor="guestBio">Please include a bio so we can introduce you!*</label>
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              touched.guestBio && errors.guestBio && 'border-danger'
+              touched.guestBio && errors.guestBio && 'border-danger !mb-0'
             }`}
             as="textarea"
             rows={3}
@@ -208,11 +246,13 @@ export const PodcastGuestForm = () => {
             onChange={handleChange}
           />
 
+          {errors.guestBio && <small className="flex text-danger mb-4">{errors.guestBio}</small>}
+
           <label htmlFor="guestHeadshot">
             Please include a headshot for episode promotion:*
             <div
               className={`flex flex-col items-center justify-center rounded-lg text-center border border-dashed border-black cursor-pointer p-4 mb-4 ${
-                validFile !== undefined && !validFile && 'border-danger'
+                validFile !== undefined && !validFile && 'border-danger !mb-0'
               }`}>
               <Icon name="file-arrow-up" type="regular" size="lg" className="mb-4" />
 
@@ -250,7 +290,7 @@ export const PodcastGuestForm = () => {
 
           <Field
             className={`w-full rounded-lg border border-black py-2 px-3 mb-4 ${
-              touched.guestHistory && errors.guestHistory && 'border-danger'
+              touched.guestHistory && errors.guestHistory && 'border-danger !mb-0'
             }`}
             as="textarea"
             rows={3}
@@ -259,6 +299,10 @@ export const PodcastGuestForm = () => {
             value={values.guestHistory}
             onChange={handleChange}
           />
+
+          {errors.guestHistory && (
+            <small className="flex text-danger mb-4">{errors.guestHistory}</small>
+          )}
 
           <Button className="w-full" type="submit" label="SUBMIT NOW" disabled={isSubmitting} />
         </Form>
@@ -270,15 +314,33 @@ export const PodcastGuestForm = () => {
 const PodcastGuestFormValidationSchema = yup
   .object()
   .shape({
-    firstName: yup.string().defined().ensure().required(),
-    lastName: yup.string().defined().ensure().required(),
-    email: yup.string().email().defined().ensure().required(),
-    guestExpertise: yup.string().defined().ensure().required(),
-    guestTopics: yup.string().defined().ensure().required(),
-    guestLimits: yup.string().defined().ensure().required(),
-    guestHighlights: yup.string().defined().ensure().required(),
-    guestBio: yup.string().defined().ensure().required(),
-    guestHistory: yup.string().defined().ensure().required(),
+    firstName: yup.string().defined().ensure().required('Firstname is required'),
+    lastName: yup.string().defined().ensure().required('Lastname is required'),
+    email: yup
+      .string()
+      .email()
+      .defined()
+      .ensure()
+      .matches(Regexes.email, 'Please enter a valid email')
+      .required('Email is required'),
+    guestExpertise: yup
+      .string()
+      .defined()
+      .ensure()
+      .required('Your expertise information is required'),
+    guestTopics: yup.string().defined().ensure().required('Your topics preference is required'),
+    guestLimits: yup
+      .string()
+      .defined()
+      .ensure()
+      .required('Off limits topics knowledge is required'),
+    guestHighlights: yup.string().defined().ensure().required('This information is required'),
+    guestBio: yup.string().defined().ensure().required('Your bio is required'),
+    guestHistory: yup
+      .string()
+      .defined()
+      .ensure()
+      .required('Your recent history information is required'),
   })
   .defined()
 

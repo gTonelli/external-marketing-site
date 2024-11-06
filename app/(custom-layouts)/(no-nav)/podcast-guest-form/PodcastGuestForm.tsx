@@ -20,7 +20,7 @@ export const PodcastGuestForm = () => {
   const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.currentTarget.files ?? [])
     if (files[0].size > 4000000) {
-      setFileErrorMsg('File too large! Maximum upload size is 4mb.')
+      setFileErrorMsg('File too large! Maximum upload size is 4MB.')
       return
     }
     if (!['image/png', 'image/jpeg'].includes(files[0].type)) {
@@ -63,7 +63,7 @@ export const PodcastGuestForm = () => {
     formdata.append('firstName', values.firstName)
     formdata.append('lastName', values.lastName)
     formdata.append('email', values.email)
-    formdata.append('to', values.email) // @TODO: after staging test, revert back to info@pds
+    formdata.append('to', 'info@personaldevelopmentschool.com')
     formdata.append('reason', 'Guest Reaching Out for Podcast')
     formdata.append('message', message)
     formdata.append('templateReferenceId', '5')
@@ -302,7 +302,7 @@ export const PodcastGuestForm = () => {
                   Upload an image
                   <br />
                   <span className={`font-bold ${fileErrorMsg && 'text-danger'}`}>
-                    PNG or JPG only (max size 4 mb)
+                    PNG or JPG only (max size 4MB)
                   </span>
                 </small>
               )}

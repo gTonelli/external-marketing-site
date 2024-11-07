@@ -4,9 +4,10 @@
 import { ChangeEvent, useState } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
-import { Icon } from '@/components/Icon'
 // libraries
 import { Field, Form, Formik, FormikHelpers } from 'formik'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faFileArrowUp } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import * as yup from 'yup'
 import { Maybe } from 'yup'
 // utils
@@ -92,7 +93,7 @@ export const PodcastGuestForm = () => {
       <div className="w-full block rounded-lg p-3 border border-success text-left">
         <p className="font-bold mb-2">
           <span>
-            <Icon name="check-circle" className="text-success mr-2" />
+            <FontAwesomeIcon icon={faCheckCircle} className="text-success mr-2" />
           </span>
           Thank you for filling out the form!
         </p>
@@ -293,7 +294,7 @@ export const PodcastGuestForm = () => {
               className={`flex flex-col items-center justify-center rounded-lg text-center border border-dashed border-black cursor-pointer p-4 ${
                 fileErrorMsg && 'border-danger'
               }`}>
-              <Icon name="file-arrow-up" type="regular" size="lg" className="mb-4" />
+              <FontAwesomeIcon icon={faFileArrowUp} size="lg" className="mb-4" />
 
               {!fileErrorMsg && selectedFile ? (
                 selectedFile.name

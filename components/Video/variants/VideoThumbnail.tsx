@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 // components
 import { IVideoDefaultProps, VideoDefault } from './VideoDefault'
 // modules

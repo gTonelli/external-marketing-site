@@ -7,7 +7,16 @@ import { ISectionProps } from '@/components/Section'
 import { Section as _Section } from '@/components/Section'
 // libraries
 import cx from 'classnames'
-import { IconName } from '@fortawesome/fontawesome-common-types'
+import {
+  fa1,
+  fa2,
+  fa3,
+  fa4,
+  faComments,
+  faHeartCircleCheck,
+  faShieldHeart,
+  faUserCheck,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IStartButtonQuizProps extends IDefaultProps {
   label?: string
@@ -22,7 +31,7 @@ export const StartQuizButton = ({
       className={cx(
         `border-2 rounded-full tracking-10 px-4 py-2 transition-colors bg-primary border-primary text-white
           hover:no-underline active:shadow-md active:text-white active:bg-opacity-50 
-          lg:hover:text-white lg:hover:shadow-md lg:hover:bg-opacity-50`,
+          hover:text-white hover:shadow-md hover:bg-opacity-50`,
         className
       )}
       href="/quiz/v2/questions">
@@ -35,17 +44,12 @@ export const Section = (props: ISectionProps) => {
   return <_Section {...props} classNameInner={cx('!max-w-screen-xl', props.classNameInner)} />
 }
 
-const cards: TCard[] = [
-  { name: 'heart-circle-check', text: 'Discover True Love' },
-  { name: 'shield-heart', text: 'Empower Your Relationships' },
-  { name: 'comments', text: 'Forge Deeper Connections' },
-  { name: 'user-check', text: 'Improve Self-Belief' },
+const cards = [
+  { icon: faHeartCircleCheck, text: 'Discover True Love' },
+  { icon: faShieldHeart, text: 'Empower Your Relationships' },
+  { icon: faComments, text: 'Forge Deeper Connections' },
+  { icon: faUserCheck, text: 'Improve Self-Belief' },
 ]
-
-type TCard = {
-  name: IconName
-  text: string
-}
 
 export const PAGE_CONFIG = {
   slides: [
@@ -109,21 +113,25 @@ export const PAGE_CONFIG = {
 
   features: [
     {
+      icon: fa1,
       imgSrc: '/images/AttachmentQuiz/V2/writing.svg',
       imgAlt: 'A vector image of a hand writing a test with checkboxes',
       text: 'It’s so simple! Take our free 5-minute attachment style quiz.',
     },
     {
+      icon: fa2,
       imgSrc: '/images/AttachmentQuiz/V2/report.svg',
       imgAlt: 'A vector image of a hand grabbing pieces of paper',
       text: 'Get a personalized report to learn about your attachment style.',
     },
     {
+      icon: fa3,
       imgSrc: '/images/AttachmentQuiz/V2/tablet.svg',
       imgAlt: 'A vector image of a hand tapping a tablet screen',
       text: 'Learn powerful tools and strategies with our easy-to-digest courses.',
     },
     {
+      icon: fa4,
       imgSrc: '/images/AttachmentQuiz/V2/flag.svg',
       imgAlt: 'A vector image of a hand waving a purple flag',
       text: 'Experience profound personal changes and build your dream relationships.',

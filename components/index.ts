@@ -1,5 +1,5 @@
 // this can be made a barrel file if/when NextJS fixes the issues with them https://github.com/vercel/next.js/issues/12557
-import React, { Key } from 'react'
+import { Key } from 'react'
 
 export type AlignPosition = 'left' | 'center' | 'right'
 

@@ -22,7 +22,6 @@ import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
 import { TStyle } from '@/utils/types'
-import Cookies from 'universal-cookie'
 
 let modifiedQuestions = [...questions]
 

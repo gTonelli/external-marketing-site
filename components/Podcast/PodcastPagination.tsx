@@ -1,27 +1,25 @@
 'use client'
 
+// core
+import { ChangeEvent } from 'react'
+// libraries
 import ReactPaginate from 'react-paginate'
-import { Icon } from '../Icon'
-import { useRouter } from 'next/navigation'
-import { useCallback } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IPodcastPaginationProps {
   currPage: number
   pageCount: number
   pageSize: number
+  handleChange: (_?: ChangeEvent, currPage?: number) => Promise<void>
 }
 
-export const PodcastPagination = ({ currPage, pageCount, pageSize }: IPodcastPaginationProps) => {
-  const router = useRouter()
-
-  const onPageChange = useCallback(
-    (selected: number) => {
-      if (selected === 0) router.push(`/podcast`, { scroll: false })
-      else router.push(`/podcast?page=${selected + 1}`, { scroll: false })
-    },
-    [router]
-  )
-
+export const PodcastPagination = ({
+  currPage,
+  pageCount,
+  pageSize,
+  handleChange,
+}: IPodcastPaginationProps) => {
   return (
     <ReactPaginate
       initialPage={currPage - 1}
@@ -33,21 +31,13 @@ export const PodcastPagination = ({ currPage, pageCount, pageSize }: IPodcastPag
       nextClassName="w-6 h-6 flex justify-center items-center bg-primary rounded-full"
       nextLinkClassName="flex text-white"
       activeLinkClassName="text-primary font-bold"
-      nextLabel={<Icon name="chevron-right" size="xs" />}
-      previousLabel={<Icon name="chevron-left" size="xs" />}
+      nextLabel={<FontAwesomeIcon icon={faChevronRight} size="xs" />}
+      previousLabel={<FontAwesomeIcon icon={faChevronLeft} size="xs" />}
       breakLabel="..."
       pageRangeDisplayed={pageSize}
       pageCount={pageCount}
       renderOnZeroPageCount={null}
-      hrefAllControls
-      hrefBuilder={(page, pageCount) =>
-        page == 1
-          ? '/podcast'
-          : page >= 2 && page <= pageCount + 1
-          ? `/podcast?page=${page}`
-          : undefined
-      }
-      onPageChange={(event) => onPageChange(event.selected)}
+      onPageChange={(event) => handleChange(undefined, event.selected + 1)}
     />
   )
 }

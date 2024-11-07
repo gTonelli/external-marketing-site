@@ -1,5 +1,3 @@
-// core
-import React from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
 // libraries

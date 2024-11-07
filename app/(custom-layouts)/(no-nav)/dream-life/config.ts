@@ -65,7 +65,7 @@ export const TRIAL_HEADSPACE = {
     },
     article4: {
       name: `How to Heal After a Breakup`,
-      url: 'https://blog.personaldevelopmentschool.com/13/how-to-heal-from-a-breakup',
+      url: 'https://blog.personaldevelopmentschool.com/23/how-to-heal-from-a-breakup',
     },
     article5: {
       name: `How to End Codependency`,

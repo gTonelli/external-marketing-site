@@ -1,19 +1,20 @@
 'use client'
 
 // core
-import React, { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 // components
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { Page } from '@/components/Page'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
-import { Icon } from '@/components/Icon'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { List } from '@/components/List'
 import { TAttachmentQuizVariant } from '@/app/(custom-layouts)/(no-nav)/quiz/(variants)/config'
+import { SplitTestContext } from '@/utils/contexts'
 // libraries
-import type { IconName } from '@fortawesome/fontawesome-common-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // styles
@@ -80,13 +81,20 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
       <div ref={quizSectionRef} className="w-full px-4">
         {viewQuiz && (
           <div className="w-full flex justify-center mx-auto py-16">
-            <AttachmentQuiz
-              newQuiz
-              className="!max-w-5xl"
-              quizName="Attachment Style Quiz"
-              quiz_traffic_source="paid"
-              showStartButton={false}
-            />
+            <SplitTestContext.Provider
+              value={{
+                key: 'GM-1226',
+                experimentName: 'Mel Robbins Content (Quiz B)',
+                variantUrl: '/quiz/b/',
+              }}>
+              <AttachmentQuiz
+                newQuiz
+                className="!max-w-5xl"
+                quizName="Attachment Style Quiz"
+                quiz_traffic_source="paidMeta"
+                showStartButton={false}
+              />
+            </SplitTestContext.Provider>
           </div>
         )}
       </div>
@@ -95,7 +103,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
       <div className="w-full flex flex-col justify-between items-center bg-primary my-6 p-16 md:flex-row">
         {config.STATS.map((stat, idx) => (
           <div key={idx} className="flex-1 flex flex-col text-center p-4">
-            <Icon className="text-white mb-4" name={stat.icon as IconName} size="3x" />
+            <FontAwesomeIcon className="text-white mb-4" icon={stat.icon} size="3x" />
 
             <Text.Heading className="text-white" content={stat.value} size={1} />
 
@@ -146,7 +154,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
             className="md:text-lg"
             classNameIcon="text-primary-light mr-2 md:text-lg"
             classNameListItems="flex mb-4"
-            iconName="check-square"
+            icon={faCheckSquare}
             listItems={config.QUIZ_FOR}
           />
         </div>
@@ -182,7 +190,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           {config.TYPES.map((type, idx) => (
             <div key={idx}>
               <div className="flex items-center mb-4">
-                <Icon className="text-primary-light mr-1" name={type.icon as IconName} />
+                <FontAwesomeIcon className="text-primary-light mr-1" icon={type.icon} />
 
                 <Text.Paragraph
                   className="font-medium tracking-widest md:text-lg"
@@ -241,9 +249,9 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           {config.BENEFITS.items.map((benefit, idx) => (
             <div key={idx} className="rounded-10 bg-white shadow mb-8 p-8">
               <div className="flex mb-4">
-                <Icon
+                <FontAwesomeIcon
                   className="inline-block text-primary-light mr-2 mt-[2px] md:mt-[6px]"
-                  name="check-square"
+                  icon={faCheckSquare}
                 />
 
                 <Text.Paragraph
@@ -317,7 +325,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
           className="my-8"
           classNameIcon="text-primary"
           classNameListItems="mb-4 md:text-lg"
-          iconName="angle-double-right"
+          icon={faAngleDoubleRight}
           listItems={config.ROLLERCOASTER.list}
         />
 

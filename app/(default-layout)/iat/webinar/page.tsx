@@ -8,14 +8,29 @@ import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { CountdownTimer } from '@/components/CountDownTimer'
 // config
 import { COPY } from './config'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// utils
+import { getOfferEndDate } from '@/utils/functions'
 // style
 import './style.css'
 
 export default function IATWebinarPage() {
   return (
     <Page page_name="IAT Webinar Page">
+      <section className="bg-purple-dark">
+        <div className="default-padding pt-4 lg:pt-8">
+          {/* Countdown for Dec 11, 05:30 PM ET*/}
+          <CountdownTimer
+            date={getOfferEndDate(new Date(`2024-12-11T17:30:00-05:00`), 1)}
+            theme="dark"
+          />
+        </div>
+      </section>
+
       <Section
         className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
         classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
@@ -107,16 +122,14 @@ export default function IATWebinarPage() {
           <List
             classNameIcon="!text-green-check mt-1"
             classNameListItems="font-bold mb-4"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={COPY.lifeAsCoach.leftList}
           />
 
           <List
             classNameIcon="!text-green-check mt-1"
             classNameListItems="font-bold mb-4"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={COPY.lifeAsCoach.rightList}
           />
         </div>

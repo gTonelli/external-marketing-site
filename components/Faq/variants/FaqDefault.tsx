@@ -1,14 +1,15 @@
 'use client'
 
 // core
-import React, { forwardRef, useState } from 'react'
+import { useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Icon } from '@/components/Icon'
 // libraries
 import cx from 'classnames'
 import { Text } from '@/components/Text/Text'
 import { Expandable } from '@/components/Expandable'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMinus, faPlus } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export interface IFAQs {
   question: string
@@ -158,9 +159,9 @@ const FAQ = ({
             content={question}
           />
 
-          <Icon
+          <FontAwesomeIcon
             className={cx('text-primary ml-5', reverseIcon ? 'order-1 mr-4' : '', classNameIcon)}
-            name={isOpen ? 'minus' : 'plus'}
+            icon={isOpen ? faMinus : faPlus}
           />
         </div>
       }

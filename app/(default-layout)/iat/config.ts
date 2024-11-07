@@ -1,4 +1,12 @@
-﻿import { TIcon } from '@/components/Icon'
+﻿// libraries
+import { faSquareFacebook } from '@awesome.me/kit-545b942488/icons/classic/brands'
+import {
+  faAirplay,
+  faChessKingPiece,
+  faFileCertificate,
+  faFilePlus,
+  faUser,
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export const IAT_COPY = {
   hero_section: {
@@ -16,7 +24,7 @@ export const IAT_COPY = {
 
     copy_left: `The Gibson Integrated Attachment Theory™ Certification Course is a revolutionary relationship coaching certification developed by Thais Gibson.
                 \nThis certification program spans over 12 weeks, available in both Live Training and On-Demand formats.
-                \n***Spots for the Live Training version of the program running from October 28, 2024 - January 13, 2025 are limited.**`,
+                \n***Spots for the Live Training version of the program running from January 8, 2025 - March 26, 2025 are limited.**`,
 
     copy_right: `It will teach you how to become a relationship coach, specializing in attachment theory. It will give you the exact tools and steps you need to become an industry leader, build a thriving practice, and make a massive impact on others’ lives and relationships through the lens of attachment theory.
                  \nEven if you have no prior coaching experience, this training will give you the tools and confidence to get started in a matter of weeks.`,
@@ -73,32 +81,32 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on October 28th, 6 PM ET`,
+          `Attend 1-hour review session on January 8th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on November 4th, 6 PM ET`,
+          `Attend 1-hour review session on January 15th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on November 11th, 6 PM ET`,
+          `Attend 1-hour review session on January 22nd, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on November 18th, 6 PM ET`,
+          `Attend 1-hour review session on January 29th, 6 PM ET`,
         ],
       },
 
       intensive_week: {
         heading: [`Complete Your Intensive IAT Training With Thais`],
 
-        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from November 25 - January 13 every Wednesday at 6 PM ET for 8 weeks.
+        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from February 5 - March 26 every Wednesday at 6 PM ET for 8 weeks.
                \nHere, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.  
                \nEach meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.`,
 
@@ -221,38 +229,37 @@ export const IAT_COPY = {
       {
         title: `30+ HOURS OF IN-DEPTH TRAINING`,
         copy: `This training will include everything you need to become an expert in attachment theory, the subconscious mind and relationships. You can attend the Live Training with weekly sessions with Thais or opt for the On-Demand version, where you can complete your courses and training on your own time. Each training session breaks down tools into simple steps so that they are easy to understand and you are set up for success with clients!`,
-        iconName: `airplay`,
+        icon: faAirplay,
       },
 
       {
         title: `BUSINESS STRATEGY COACHING`,
         copy: `Learn everything you need to know to build a thriving practice and have a coaching practice with a waitlist. We'll cover how to drive traffic and build systems that constantly grow your business.`,
-        iconName: `chess-king-piece`,
+        icon: faChessKingPiece,
       },
 
       {
         title: `CLIENT RESOURCES`,
         copy: `You will gain access to materials to use in your client-based practice, including intake forms, assessments, introspective worksheets & questions. All of these worksheets are made for you so that you have an easy, systemized way of using the tools with clients.`,
-        iconName: `file-plus`,
+        icon: faFilePlus,
       },
 
       {
         title: `LIFETIME ACCESS`,
         copy: `You will have access to the certification training recording so that you can access it at any time after the Live Training.`,
-        iconName: `user`,
+        icon: faUser,
       },
 
       {
         title: `CERTIFICATION`,
         copy: `Upon completing the final test, you will receive a certification in Gibson Integrated Attachment Theory™.`,
-        iconName: `file-certificate`,
+        icon: faFileCertificate,
       },
 
       {
         title: `PRIVATE FACEBOOK GROUP`,
         copy: `Join our private Facebook Group, where you’ll be able to discuss your learnings with other members in the same program. This also enables you to network with others, build referral systems, and practice tools with others from the group any time you wish!`,
-        iconName: `square-facebook`,
-        iconType: 'brands' as TIcon,
+        icon: faSquareFacebook,
       },
     ],
 
@@ -498,7 +505,8 @@ export const IAT_COPY = {
     copy: `This is an exclusive opportunity to learn Thais’ distilled knowledge from over 10 years of working in a client-based practice and specializing in researching the subconscious mind and attachment. 
            \nThais Gibson has completed her PhD and over 13 different certifications in modalities including CBT, NLP, somatic experiencing, internal family systems, shadow work and more!
            \nShe ran a private practice for the better part of a decade and has worked with over 40,000 clients 1-1, in workshops and through the Personal Development School programs. With a 99.7% satisfaction score on her programs and courses, Thais has developed ground-breaking techniques in rapid transformation and healing relationships that are shared throughout this program. 
-           \nThais has a new book, out now, " Learning Love'' that offers a revolutionary approach to building fulfilling relationships and was released on Amazon in early December of 2023. Thais has also been a guest speaker for Google and has shared her cutting edge knowledge with people in over 120 different countries. The Integrated Attachment Theory certification (IAT) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.`,
+           \nThais's new book, " Learning Love," was released on Amazon in early December 2023 and offers a revolutionary approach to building fulfilling relationships. It's been a best-seller and has encouraged some big names to invite Thais as a guest star on several popular podcasts, including The Mel Robbins Podcast.
+           \nThais has also been a guest speaker for Google and has shared her cutting-edge knowledge with people in over 142 different countries. The Integrated Attachment Theory certification (IAT) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.`,
 
     subsection: {
       heading: `Are you ready to impact the lives of others, while having the freedom and flexibility to choose your schedule and work from anywhere in the world?`,

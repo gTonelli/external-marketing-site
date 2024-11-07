@@ -6,17 +6,24 @@ import { useRouter } from 'next/navigation'
 // components
 import { TStyle } from '@/utils/types'
 // config
-import { defaultQuestions, quizPillSelectOptions } from './config'
+import { defaultQuestionGroups, quizPillSelectOptions } from './config'
 // libraries
-import { IconName } from '@fortawesome/fontawesome-common-types'
-import { indexOf } from 'lodash'
 import { isMobile } from 'react-device-detect'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { Maybe } from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
-// utils
+import { indexOf } from 'lodash'
+import { Storage } from '@/modules/Storage'
+
+export interface IQuizComponentDefaultArgs {
+  readonly questionGroup?: IAttachmentStyleQuestionGroup | IUserDataGroup
+  answerQuestion?: (question: TQuizQuestion, val: any) => void
+  onGoBack: () => void
+  step: number
+}
 
 export type TPossibleQuizQuestionValues = 0 | 0.5 | 1
 
@@ -35,14 +42,9 @@ type TFormInputData = {
 
 type TOptionSelectData = {
   readonly heading?: string
-  readonly iconName: IconName
+  readonly icon: IconProp
   readonly value: string | TPossibleQuizQuestionValues
   readonly subheading?: string
-}
-
-type TLoadingScreen = {
-  readonly heading: string | JSX.Element
-  readonly duration: number
 }
 
 type TQuizResultDataKeys =
@@ -63,35 +65,18 @@ export type TOptions =
   | [TOptionSelectData, TOptionSelectData, TOptionSelectData, TOptionSelectData, TOptionSelectData]
 
 export type TQuizQuestionType =
-  | 'Screen'
   | 'FormInput'
   | 'OptionSelect'
   | 'AttachmentStyleQuestion'
   | 'PillSelect'
-  | 'LoadingScreen'
 
-export type TQuizQuestion<T = TQuizQuestionType> = T extends 'Screen'
-  ? IQuizQuestionScreen
-  : T extends 'FormInput'
+export type TQuizQuestion<T = TQuizQuestionType> = T extends 'FormInput'
   ? IQuizQuestionFormInput
   : T extends 'OptionSelect'
   ? IQuizQuestionOptionSelect
   : T extends 'AttachmentStyleQuestion'
   ? IQuizQuestionAttachmentStyle
-  : T extends 'LoadingScreen'
-  ? IQuizQuestionLoadingScreen
   : IQuizQuestionPillSelect
-
-interface IQuizQuestionScreen extends IQuestionRequiredProps {
-  readonly imgSrc?: string
-  readonly duration?: number
-  readonly headingConstructor?: (questions?: TQuizQuestions) => string | void
-}
-
-interface IQuizQuestionLoadingScreen extends IQuestionRequiredProps {
-  readonly screens: TLoadingScreen[]
-  readonly duration: number
-}
 
 interface IQuizQuestionFormInput extends IQuestionRequiredProps {
   readonly formInputData: TFormInputData
@@ -125,74 +110,88 @@ type TUserData = {
   saPercentage: number
 }
 
-export interface IQuizComponentDefaultArgs<T = TQuizQuestionType> {
-  readonly question: TQuizQuestion<T>
-  readonly questions?: TQuizQuestions
-  answerQuestion?: (val: TAnswerQuestionArgs) => void
+export interface IAttachmentStyleQuestionGroup {
+  readonly type: 'AttachmentStyleQuestions'
+  questions: [
+    TQuizQuestion<'AttachmentStyleQuestion'>,
+    TQuizQuestion<'AttachmentStyleQuestion'>,
+    TQuizQuestion<'AttachmentStyleQuestion'>,
+    TQuizQuestion<'AttachmentStyleQuestion'>,
+    TQuizQuestion<'AttachmentStyleQuestion'>,
+    TQuizQuestion<'AttachmentStyleQuestion'>,
+    TQuizQuestion<'AttachmentStyleQuestion'>
+  ]
+}
+
+interface IUserDataGroup {
+  readonly type: 'UserDataQuestions'
+  questions: [
+    TQuizQuestion<'OptionSelect'>,
+    TQuizQuestion<'OptionSelect'>,
+    TQuizQuestion<'OptionSelect'>,
+    TQuizQuestion<'OptionSelect'>,
+    TQuizQuestion<'OptionSelect'>,
+    TQuizQuestion<'OptionSelect'>,
+    TQuizQuestion<'PillSelect'>,
+    TQuizQuestion<'FormInput'>,
+    TQuizQuestion<'FormInput'>
+  ]
 }
 
 export type TQuizQuestions = [
-  TQuizQuestion<'Screen'>,
-  TQuizQuestion<'FormInput'>,
-  TQuizQuestion<'Screen'>,
-  TQuizQuestion<'FormInput'>,
-  TQuizQuestion<'OptionSelect'>,
-  TQuizQuestion<'Screen'>,
-  TQuizQuestion<'Screen'>,
-  TQuizQuestion<'FormInput'>,
-  TQuizQuestion<'OptionSelect'>,
-  TQuizQuestion<'OptionSelect'>,
-  TQuizQuestion<'OptionSelect'>,
-  TQuizQuestion<'Screen'>,
-  TQuizQuestion<'PillSelect'>,
-  TQuizQuestion<'OptionSelect'>,
-  TQuizQuestion<'Screen'>,
-  ...TQuizQuestion<'AttachmentStyleQuestion'>[],
-  TQuizQuestion<'OptionSelect'>,
-  TQuizQuestion<'LoadingScreen'>
+  IAttachmentStyleQuestionGroup,
+  IAttachmentStyleQuestionGroup,
+  IAttachmentStyleQuestionGroup,
+  IAttachmentStyleQuestionGroup,
+  IUserDataGroup
 ]
 
-export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) => {
+export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
   // =========== State ===========
   const [i, setIndex] = useState(0)
-  const [currentQuestion, setCurrentQuestion] = useState<TQuizQuestion>(questions[0])
-  const [currentQuestionType, setCurrentQuestionType] = useState<TQuizQuestionType>('Screen')
+  const [currentQuestionGroup, setcurrentQuestionGroup] = useState<
+    IAttachmentStyleQuestionGroup | IUserDataGroup
+  >(questionGroups[0])
   // =========== Hooks ===========
   const router = useRouter()
   const { setUserData } = useGamAnalytics()
   const FBQ = useFacebookPixel()
 
-  const length = questions.length
+  useEffect(() => {
+    setcurrentQuestionGroup(questionGroups[i])
+  }, [questionGroups, i])
 
-  const getQuestionType = useCallback(
-    (index = i): TQuizQuestionType => {
-      const question = questions[index]
-      if ((question as TQuizQuestion<'AttachmentStyleQuestion'>)?.association)
-        return 'AttachmentStyleQuestion'
-      if ((question as TQuizQuestion<'FormInput'>)?.formInputData) return 'FormInput'
-      if ((question as TQuizQuestion<'LoadingScreen'>)?.screens) return 'LoadingScreen'
-      if ((question as TQuizQuestion<'OptionSelect' | 'PillSelect'>)?.options)
-        return (question as IQuizQuestionOptionSelect | IQuizQuestionPillSelect)?.type
-      return 'Screen'
-    },
-    [i, questions]
-  )
+  const length = questionGroups.length
+
+  const getQuestionType = (question: TQuizQuestion): TQuizQuestionType => {
+    if ((question as TQuizQuestion<'AttachmentStyleQuestion'>)?.association)
+      return 'AttachmentStyleQuestion'
+    if ((question as TQuizQuestion<'OptionSelect' | 'PillSelect'>)?.options)
+      return (question as IQuizQuestionOptionSelect | IQuizQuestionPillSelect)?.type
+    return 'FormInput'
+  }
 
   const onGoBack = () => {
     if (i > 0) setIndex((prev) => prev - 1)
+    else router.back()
   }
 
   const onGoToNextQuestion = () => {
-    if (i < questions.length - 1) setIndex((prev) => prev + 1)
+    if (i < questionGroups.length - 1) {
+      setIndex((prev) => prev + 1)
+      scrollTo(0, 0)
+    }
   }
 
   const parseQuizResultAdditionalData = () => {
     const data: TQuizResultData = {}
-    questions.forEach((question, k) => {
-      const questionType = getQuestionType(k)
-      if (questionType !== 'OptionSelect' && questionType !== 'PillSelect') return
-      const q = question as TQuizQuestion<'OptionSelect' | 'PillSelect'>
-      data[q['data-key']] = q.userResponse
+    questionGroups.forEach((group) => {
+      group.questions.forEach((question) => {
+        const questionType = getQuestionType(question)
+        if (questionType !== 'OptionSelect' && questionType !== 'PillSelect') return
+        const q = question as TQuizQuestion<'OptionSelect' | 'PillSelect'>
+        data[q['data-key']] = q.userResponse
+      })
     })
 
     return data
@@ -200,7 +199,6 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
 
   const saveAttachmentResult = (userData: Maybe<TUserData>) => {
     if (!userData?.email) return
-    // Strapi DB record creation
     const data = parseQuizResultAdditionalData()
 
     fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/save-attachment-quiz-result', {
@@ -213,14 +211,16 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
   }
 
   const registerUser = (dominantStyle: TStyle) => {
-    const email = questions.find(
+    const userDataGroup = questionGroups.find((i) => i.type === 'UserDataQuestions')
+    const email = userDataGroup?.questions.find(
       (i) => (i as TQuizQuestion<'FormInput'>)?.formInputData?.autocomplete === 'email'
     )?.userResponse as string | undefined
-    const name = questions.find(
+    const name = userDataGroup?.questions.find(
       (i) => (i as TQuizQuestion<'FormInput'>)?.formInputData?.autocomplete === 'name'
     )?.userResponse as string | undefined
     if (typeof email !== 'string' || typeof name !== 'string') return
     const [firstName, lastName] = name?.split(' ')
+    Storage.set('userFullName', name)
     FBQ?.trackLead({
       email: email,
     })
@@ -255,18 +255,19 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
 
   const endQuiz = useCallback(() => {
     Mixpanel.track.QuizFinished({ quiz_name: 'Main Funnel Quiz' })
-    const { fa, ap, da, sa } = questions.reduce(
-      (prev, curr, index) => {
-        if (getQuestionType(index) === 'AttachmentStyleQuestion') {
-          const question = curr as TQuizQuestion<'AttachmentStyleQuestion'>
-          prev[question.association] +=
-            typeof curr.userResponse === 'number' ? curr.userResponse : 0
-        }
-        return prev
-      },
-      { fa: 0, ap: 0, da: 0, sa: 0 }
-    )
 
+    const result = { fa: 0, ap: 0, da: 0, sa: 0 }
+
+    questionGroups.forEach((group) => {
+      group.questions.forEach((question) => {
+        if (getQuestionType(question) === 'AttachmentStyleQuestion') {
+          result[(question as TQuizQuestion<'AttachmentStyleQuestion'>).association] +=
+            typeof question?.userResponse === 'string' ? parseFloat(question.userResponse) : 0
+        }
+      })
+    })
+
+    const { fa, ap, da, sa } = result
     const total = fa + ap + da + sa
     const percentages = [
       Math.floor((fa / total) * 100),
@@ -275,56 +276,50 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
       Math.floor((sa / total) * 100),
     ]
     const totalPercentage = percentages.reduce((prev, curr) => prev + curr)
-    const { highest, dominantStyle } = getHighest(percentages)
+    const { highest, dominantStyle } = getDominantStyle(percentages)
     const difference = 100 - totalPercentage
     percentages[indexOf(percentages, highest)] += difference
 
     const [faPercentage, apPercentage, daPercentage, saPercentage] = percentages
+
     const url =
       dominantStyle === 'fa'
         ? `/quiz/v2/result/${dominantStyle}/${faPercentage}/${apPercentage}/${daPercentage}/${saPercentage}`
         : `/quiz/${dominantStyle}`
-    router.prefetch(url)
+
     const userData = registerUser(dominantStyle)
-
     saveAttachmentResult({ ...userData, faPercentage, apPercentage, daPercentage, saPercentage })
+    router.push(url)
+  }, [questionGroups, router])
 
-    return url
-  }, [getQuestionType, questions, router])
-
-  useEffect(() => {
-    setCurrentQuestion(questions[i])
-    setCurrentQuestionType(getQuestionType())
-  }, [getQuestionType, i, questions])
-
-  const answerQuestion = (val: TAnswerQuestionArgs) => {
-    questions[i].userResponse = val
-    onGoToNextQuestion()
+  const answerQuestion = (question: TQuizQuestion, val: any) => {
+    console.log('questionGroups', questionGroups)
+    question.userResponse = val
   }
 
   const trackProgressMobile = useCallback(() => {
-    const progress = (i / questions.length) * 100
+    const progress = (i / questionGroups.length) * 100
     if (document.visibilityState === 'hidden' && progress < 100) {
       Mixpanel.track.QuizProgress({
         quiz_name: 'Main Funnel Quiz',
         progress: `${Math.round(progress)}%`,
         question: i,
-        total_questions: questions.length,
+        total_questions: questionGroups.length,
       })
     }
-  }, [i, questions.length])
+  }, [i, questionGroups.length])
 
   const trackProgressDesktop = useCallback(() => {
-    const progress = (i / questions.length) * 100
+    const progress = (i / questionGroups.length) * 100
     if (progress < 100) {
       Mixpanel.track.QuizProgress({
         quiz_name: 'Main Funnel Quiz',
         progress: `${Math.round(progress)}%`,
         question: i,
-        total_questions: questions.length,
+        total_questions: questionGroups.length,
       })
     }
-  }, [i, questions.length])
+  }, [i, questionGroups.length])
 
   useEffect(() => {
     if (isMobile) {
@@ -344,15 +339,14 @@ export const useAttachmentQuiz = (questions: TQuizQuestions = defaultQuestions) 
     onGoBack,
     onGoToNextQuestion,
     endQuiz,
-    currentQuestion,
+    getQuestionType,
+    currentQuestionGroup,
     index: i,
     length,
-    currentQuestionType,
-    questions,
   }
 }
 
-const getHighest = (percentages: number[]): { highest: number; dominantStyle: TStyle } => {
+const getDominantStyle = (percentages: number[]): { highest: number; dominantStyle: TStyle } => {
   let highest = percentages[0]
   const styles = ['fa', 'ap', 'da', 'sa'] as const
   let dominantStyle: TStyle = 'fa'

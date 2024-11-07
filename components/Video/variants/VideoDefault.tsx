@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import React, { forwardRef, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { forwardRef, useCallback, useContext, useEffect, useRef, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Dialog } from '@/components/Dialog/Dialog'
@@ -99,6 +99,7 @@ export const VideoDefault = ({
   const [isDialogShown, setIsDialogShown] = useState<boolean>(false)
   const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [isVariant, setIsVariant] = useState(false)
+  const [playAutoTriggered, setPlayAutoTriggered] = useState<boolean>(false)
   const [isYoung, initialized] = useIsYoung('gm-1079-age-funnel-split')
 
   const onToggleDialog = useCallback(() => {
@@ -113,13 +114,18 @@ export const VideoDefault = ({
   }, [onToggleDialog])
 
   useEffect(() => {
-    playAuto && toggleVideo()
-  }, [playAuto, toggleVideo])
+    if (playAuto && !playAutoTriggered) {
+      toggleVideo()
+      setPlayAutoTriggered(true)
+    }
+  }, [playAuto, playAutoTriggered, toggleVideo])
 
   useEffect(() => {
     if (!initialized) return
 
-    isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
+    if (!playAuto) {
+      isPlaying ? videoEl.current?.play() : videoEl.current?.pause()
+    }
 
     if (!variantVideoData || isYoung) return
     let showVariant: string | null | boolean = Storage.get(
@@ -281,7 +287,6 @@ export const VideoPlayer = forwardRef<HTMLVideoElement, IVideoPlayer>(
     )
   }
 )
-
 
 // ensure that isYoung is properly populated before the rest of the logic executes
 const useIsYoung = (key: TStorageKeys) => {

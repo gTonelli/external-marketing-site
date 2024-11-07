@@ -3,11 +3,7 @@ import { AttachmentQuizV2Navigation } from '@/components/AttachmentQuizV2/Attach
 export default function AttachmentQuizV2ResultsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <AttachmentQuizV2Navigation
-        includeContinueButton
-        className="sticky top-0"
-        showBackButton={false}
-      />
+      <AttachmentQuizV2Navigation includeContinueButton className="sticky top-0" />
 
       {children}
     </>

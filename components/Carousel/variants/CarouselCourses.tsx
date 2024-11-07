@@ -1,11 +1,10 @@
 'use client'
 
-import React, { useCallback, useContext } from 'react'
+import { useCallback, useContext } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
-import { Icon } from '@/components/Icon'
 import { PageContext, ViewportContext } from '@/utils/contexts'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
@@ -14,6 +13,8 @@ import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SECONDARY_SALES_PAGE as SSP } from '@/app/(custom-layouts)/(no-nav)/learn/config'
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
@@ -146,11 +147,10 @@ export const CarouselCourses = ({
                     {Array(5)
                       .fill(1)
                       .map((_, ii: number) => (
-                        <Icon
+                        <FontAwesomeIcon
                           key={`star_'${ii}`}
                           className="text-primary"
-                          name="star"
-                          type="solid"
+                          icon={faStar}
                         />
                       ))}
 

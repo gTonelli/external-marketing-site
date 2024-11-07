@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 // components
 import { ButtonBack } from '@/components/Button/variants/ButtonBack'
-import { Icon } from '@/components/Icon'
 import { LinkWrapper } from '@/components/Link'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
@@ -17,18 +16,33 @@ import rehypeRaw from 'rehype-raw'
 import { PluggableList } from 'react-markdown/lib/react-markdown'
 import ReactMarkdown from 'react-markdown'
 import { PodcastEpisode, WithContext } from 'schema-dts'
+import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 // style
 import '../style.css'
 
-export async function generateStaticParams() {
-  const podcasts: IStrapiFetchProps<IStrapiResponse<IPodcast>[]> = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=urlSlug&pagination[pageSize]=100`,
+function fetchPodcasts(
+  podcasts: IStrapiResponse<IPodcast>[] = [],
+  page = 1
+): Promise<IStrapiResponse<IPodcast>[]> {
+  return fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=urlSlug&pagination[page]=${page}&pagination[pageSize]=100`,
     { next: { tags: ['podcasts'], revalidate: 86400 } }
-  ).then((res) => res.json())
+  )
+    .then((response) => response.json())
+    .then((res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>) => {
+      if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total)
+        return fetchPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
+      return podcasts.concat(res.data)
+    })
+}
 
-  return podcasts.data.map((podcast) => ({
+export async function generateStaticParams() {
+  const podcasts = await fetchPodcasts()
+
+  return podcasts.map((podcast) => ({
     slug: podcast.attributes.urlSlug.toString(),
   }))
 }
@@ -184,7 +198,7 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
               <LinkWrapper
                 className="w-max flex items-center border border-solid border-gray-light rounded-10 px-4 py-2 hover:text-white hover:no-underline hover:bg-primary"
                 url={`/podcast/${prev.attributes.urlSlug}`}>
-                <Icon name="chevron-left" className="mr-2" />
+                <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
 
                 <span className="font-bold tracking-33">PREV</span>
               </LinkWrapper>
@@ -204,7 +218,7 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
                 url={`/podcast/${next.attributes.urlSlug}`}>
                 <span className="font-bold tracking-33 mr-2">NEXT</span>
 
-                <Icon name="chevron-right" />
+                <FontAwesomeIcon icon={faChevronRight} />
               </LinkWrapper>
             )}
           </div>
@@ -228,9 +242,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
                 url={getLinkUrl(idx)!}
                 className="w-full flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline lg:w-max"
                 target="_blank">
-                <Icon
-                  name={item.icon}
-                  type={item.iconType ?? 'brands'}
+                <FontAwesomeIcon
+                  icon={item.icon}
                   className={cx('mr-4 group-hover:text-white', item.iconColor)}
                 />
 
@@ -302,9 +315,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
               url={item.link}
               className="w-full flex justify-center items-center border border-solid border-black rounded-10 cursor-pointer px-8 py-4 group hover:bg-primary hover:border-primary hover:text-white hover:no-underline lg:w-max"
               key={idx}>
-              <Icon
-                name={item.icon}
-                type={item.iconType ?? 'brands'}
+              <FontAwesomeIcon
+                icon={item.icon}
                 className={cx('mr-4 group-hover:text-white', item.iconColor)}
               />
 

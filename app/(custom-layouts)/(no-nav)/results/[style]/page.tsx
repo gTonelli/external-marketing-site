@@ -13,6 +13,8 @@ import { TextParagraph } from '@/components/Text/variants/TextParagraph'
 import { CheckoutButton } from '@/components/CheckoutButton'
 // config
 import { RESULTS_COPY } from './config'
+// libraries
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
 // styles
@@ -35,7 +37,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
           <p className="mb-6">
             Your attachment style is formed during childhood and is the #1 factor that determines
-            whether your relationships will fail or succed. Whats your attachment style? Keep
+            whether your relationships will fail or succed. What's your attachment style? Keep
             reading to learn more about your attachment profile!
           </p>
 
@@ -51,7 +53,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
           <p className="mb-6">
             Your attachment style is formed during childhood and is the #1 factor that determines
-            whether your relationships will fail or succed. Whats your attachment style? Keep
+            whether your relationships will fail or succed. What's your attachment style? Keep
             reading to learn more about your attachment profile!
           </p>
 
@@ -99,16 +101,14 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           <List
             classNameIcon="!text-green-check text-2xl mr-3"
             classNameListItems="mb-6"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={copy.result.listItemsLeft}
           />
 
           <List
             classNameIcon="!text-green-check text-2xl mr-3"
             classNameListItems="mb-6"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={copy.result.listItemsRight}
           />
         </div>
@@ -162,8 +162,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
               <p className="my-4">
                 You'll unlock unlimited access to our courses, social events, and powerful
-                reprogramming tools for just $67/month (save 30% for a limited time). Cancel
-                anytime.
+                reprogramming tools for just $67/month (save 30% for a limited time).
               </p>
 
               <Button className="bg-green border-green text-black mb-4" label="SIGN UP NOW" />
@@ -193,8 +192,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             className="text-left lg:grid lg:grid-cols-3 lg:gap-4"
             classNameIcon="!text-green-check text-2xl mr-3 mt-1"
             classNameListItems="mb-6"
-            iconName="circle-check"
-            iconType="regular"
+            icon={faCircleCheck}
             listItems={[
               `Your attachment style represents the subconscious set of rules you formed in childhood about how to love 
               and emotionally connect to others. It is one of the primary predictors of whether a relationship will thrive 
@@ -245,7 +243,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
           <p>
             Feel 88% happier in relationships in as little as 7 days. Make substantial changes to
-            your relationships in as little as 10 minutes a day.
+            your relationships by practicing for only 10 minutes a day.
           </p>
         </div>
 
@@ -311,7 +309,11 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
           <CheckoutButton
             className="text-black bg-blue border-blue mt-8"
-            label="BECOME SECURELY ATTACHED NOW"
+            label={
+              params.style === 'sa'
+                ? 'CREATE YOUR DREAM RELATIONSHIP'
+                : 'BECOME SECURELY ATTACHED NOW'
+            }
           />
         </div>
       </section>
@@ -321,7 +323,10 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
       <Articles />
 
-      <CommunityTeaser includePaymentOptions={false} />
+      <CommunityTeaser
+        includePaymentOptions={false}
+        teaserHeading="Join The Personal Development School for 30% Off"
+      />
 
       <Section className="bg-black text-center text-white">
         <h1>Step Into Your Dream Life</h1>
@@ -330,7 +335,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
         <p className="max-w-106 mx-auto my-4">
           You'll unlock unlimited access to our courses, social events, and powerful reprogramming
-          tools for just $67/month (save 30% for a limited time). Cancel anytime.
+          tools for just $67/month (save 30% for a limited time).
         </p>
 
         <CheckoutButton className="text-white my-6" label="SIGN UP NOW" />

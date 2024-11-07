@@ -4,10 +4,13 @@
 import React, { ReactNode } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Icon, TIconName } from '@/components/Icon'
 import { Tooltip, ITooltipProps } from '@/components/Tooltip'
 // libraries
 import cx from 'classnames'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExclamationCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faQuestionCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 type TInput =
   | 'checkbox'
@@ -75,7 +78,7 @@ export interface IInputDefaultProps<T = string> extends IDefaultProps {
   /**
    * Name of the icon for inside of the input
    */
-  icon?: TIconName
+  icon?: IconProp
   /**
    * ID of the input
    */
@@ -261,9 +264,9 @@ export const InputDefault = <T,>({
 
       <div className="w-full flex-center relative">
         {icon && (
-          <Icon
+          <FontAwesomeIcon
             className={cx('w-5 h-5 absolute inset-0 top-3 left-0', classNameIcon)}
-            name={icon}
+            icon={icon}
           />
         )}
 
@@ -271,14 +274,12 @@ export const InputDefault = <T,>({
           ref={input as React.Ref<HTMLInputElement>}
           autoComplete={autocomplete}
           autoFocus={isFocused || isFocusedHighlight}
-          // @ts-ignore
           className={inputCSS()}
           disabled={isDisabled}
           id={id}
           name={name}
           placeholder={placeholder}
           readOnly={readOnly}
-          // style={{ minWidth: '570px' }} // #DELETE
           type={type}
           // @ts-ignore
           value={value}
@@ -297,7 +298,7 @@ export const InputDefault = <T,>({
             classNameError
           )}>
           <Tooltip className="flex" color="danger" message={error} side={tooltipSide}>
-            <Icon className="text-danger" name="exclamation-circle" size="lg" />
+            <FontAwesomeIcon className="text-danger" icon={faExclamationCircle} size="lg" />
           </Tooltip>
         </div>
       )}
@@ -307,8 +308,8 @@ export const InputDefault = <T,>({
       {/* TOOLTIP */}
       {tooltip && (
         <div className={cx('p-1 absolute inset-y-0 flex right-5 items-center', classNameTooltip)}>
-          <Tooltip className="flex" icon="question-circle" {...tooltip}>
-            <Icon className="text-blue-500" name="question-circle" size="lg" type="regular" />
+          <Tooltip className="flex" icon={faQuestionCircle} {...tooltip}>
+            <FontAwesomeIcon className="text-blue-500" icon={faQuestionCircle} size="lg" />
           </Tooltip>
         </div>
       )}

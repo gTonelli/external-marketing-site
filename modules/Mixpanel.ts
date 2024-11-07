@@ -57,12 +57,14 @@ export type Pages =
   | `Corporate Quiz Questions Page`
   | `Corporate Quiz Form Page`
   | `Corporate Quiz Results Page`
+  | `Cyber Monday`
   | `Dreamlife Results Page FA`
   | `External IAT Page`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `Find My Courses`
+  | `Free Masterclass Mel Robbins`
   | `IAT Attachment Quiz`
   | `IAT Info Page`
   | `IAT Webinar Page`

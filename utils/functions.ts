@@ -1,3 +1,8 @@
+import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
+import { IStrapiFetchProps, IStrapiResponse, TDict } from './types'
+import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
+
 /**
  * Check if property is function
  * @param func Property to check
@@ -37,6 +42,30 @@ export const getOfferEndDate = (releaseDate: Date, diff: number): Date => {
   return releaseDate
 }
 
+export type TSplitTestKey = `${string}-${number}-${string}` | `${string}-${number}`
+
+export interface IGetSplitTest {
+  key: TSplitTestKey
+  variantRatio?: 0.2 | 0.5
+  experimentName?: string
+  props?: TDict
+}
+
+export const getSplitTest = ({ key, experimentName, props, variantRatio = 0.5 }: IGetSplitTest) => {
+  if (!key) return undefined
+  let isVariant: Boolean = Storage.get(key)
+  if (isVariant === null) {
+    isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
+    Storage.set(key, isVariant)
+    Mixpanel.track.ExperimentStarted({
+      'Experiment name': experimentName || key,
+      'Variant name': isVariant ? 'Variant 1' : 'Control',
+      ...props,
+    })
+  }
+  return isVariant
+}
+
 /**
  * Stops the `propagation` and prevents `default` behaviour of a provided event
  * Executes a callback method afterwards, if provided
@@ -56,3 +85,20 @@ export const getInitials = (str: string) =>
     .filter((a) => a.match(/[A-Z]/))
     .join('')
     .toUpperCase()
+
+export const fetchAllPodcasts = (
+  podcasts: IStrapiResponse<IPodcast>[] = [],
+  page = 1
+): Promise<IStrapiResponse<IPodcast>[]> => {
+  return fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=publishedAt&fields[1]=updatedAt&fields[2]=urlSlug&pagination[pageSize]=100&pagination[page]=${page}`,
+    { next: { tags: ['podcasts'], revalidate: 86400 } }
+  )
+    .then((response) => response.json())
+    .then((res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>) => {
+      if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total) {
+        return fetchAllPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
+      }
+      return podcasts.concat(res.data)
+    })
+}

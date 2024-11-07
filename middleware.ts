@@ -21,6 +21,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       variantRatio,
       forceControlOnNewUser,
       controlUrl,
+      domain,
     } = pageData
 
     let showVariant = false
@@ -40,7 +41,9 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
           request,
           controlUrl,
         })
-        response.cookies.set(cookieKey, 'false')
+        response.cookies.set(cookieKey, 'false', {
+          domain: domain || request.nextUrl.hostname,
+        })
         return response
       } else {
         showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
@@ -90,7 +93,8 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         name: cookieKey,
         value: showVariant.toString(),
         httpOnly: false,
-        maxAge: 7776000, // 3 Months
+        maxAge: 7776000, // 3 Months,
+        domain: domain || request.nextUrl.hostname,
       })
     }
 
@@ -102,28 +106,56 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 
 export const config = {
   matcher: [
+    '/enroll/(.*)',
     '/attachment-report/fa',
     '/attachment-report/ap',
     '/attachment-report/da',
     '/attachment-report/sa',
+    '/webinar-library',
+    '/quiz/results/fa',
   ],
 }
 
 interface IConfigWithRegex {
   regex: RegExp
+  check?: boolean | (() => boolean)
   config: TSplitTestConfig
 }
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
+
   const configs: Array<IConfigWithRegex> = [
-    { regex: /^\/attachment-report\/fa/, config: splitTestConfigs.pdfTestFa },
-    { regex: /^\/attachment-report\/ap/, config: splitTestConfigs.pdfTestAp },
-    { regex: /^\/attachment-report\/da/, config: splitTestConfigs.pdfTestDa },
-    { regex: /^\/attachment-report\/sa/, config: splitTestConfigs.pdfTestSa },
+    { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
+    { regex: /^\/webinar-library/, config: splitTestConfigs.webinarLibraryTest },
+    {
+      regex: /^\/attachment-report\/fa/,
+      config: splitTestConfigs.pdfTestFa,
+    },
+    {
+      regex: /^\/attachment-report\/ap/,
+      config: splitTestConfigs.pdfTestAp,
+    },
+    {
+      regex: /^\/attachment-report\/da/,
+      config: splitTestConfigs.pdfTestDa,
+    },
+    {
+      regex: /^\/attachment-report\/sa/,
+      config: splitTestConfigs.pdfTestSa,
+    },
+    {
+      regex: /^\/quiz\/results\/fa/,
+      config: splitTestConfigs.simplifiedFaTest,
+    },
   ]
 
-  return configs.find((config) => config.regex.test(path))?.config
+  const matchedConfig = configs.find((config) => {
+    const checkResult = typeof config.check === 'function' ? config.check() : config.check !== false
+    return config.regex.test(path) && checkResult
+  })?.config
+
+  return matchedConfig
 }
 
 interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'controlUrl'> {
@@ -145,11 +177,8 @@ function generateResponse({
     if (Boolean(searchParams.toString())) path += `?${searchParams.toString()}`
     return NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
   } else if (controlUrl) {
-    let controlHref = (controlUrl?.base || request.nextUrl.origin) + controlUrl.path
-    controlUrl?.urlParams?.forEach((param) => {
-      controlHref += `/${request.nextUrl.searchParams.get(param)}`
-      searchParams.delete(param)
-    })
+    let controlHref =
+      (controlUrl?.base || request.nextUrl.origin) + (controlUrl?.path || request.nextUrl.pathname)
     if (Boolean(searchParams.toString())) controlHref += `?${searchParams.toString()}`
     return NextResponse.redirect(new URL(controlHref))
   } else {
@@ -194,6 +223,36 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
+  checkoutTest: {
+    cookieKey: 'prod-3136-checkout-test',
+    domain: '.personaldevelopmentschool.com',
+    pageName: 'Checkout',
+    experimentName: 'Checkout V2 Test (Attachment Quiz Funnel)',
+    controlUrl: {
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantUrl: {
+      path: 'pages/checkout',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
+  webinarLibraryTest: {
+    cookieKey: 'prod-3260',
+    pageName: 'Webinar Library',
+    experimentName: 'PROD-3260 Webinar Library Filters',
+    controlUrl: {
+      path: '/pages/webinar-library',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantUrl: {
+      path: '/pages/webinar-library-1',
+      base: 'https://university.personaldevelopmentschool.com',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
+  },
   pdfTestFa: {
     cookieKey: 'gm-1182-pdf-headline-test-fa',
     pageName: 'Attachment Style Report Old - fa',
@@ -234,6 +293,17 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
+  simplifiedFaTest: {
+    cookieKey: 'gm-1209-simplified-fa-test',
+    domain: '.personaldevelopmentschool.com',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1209-Simplified-FA-Test',
+    variantUrl: {
+      path: '/quiz/results/fearful-avoidant',
+    },
+    variantRatio: 0.25,
+    forceControlOnNewUser: true,
+  },
 }
 
 type TSplitTestConfigs = {
@@ -244,20 +314,20 @@ type TSplitTestConfig = {
   cookieKey: string
   pageName: string
   experimentName: string
+  domain?: string
   /** Conditionally required as otherwise request url is used */
   controlUrl?: {
-    path: string
+    /** Conditionally required as otherwise request path is used */
+    path?: string
     /** Conditionally required as otherwise request origin is used */
     base?: string
-    /** These parameters will be pulled from searchParams and converted to urlParams in the order that they appear in the config */
-    urlParams?: string[]
   }
   variantUrl: {
     path: string
     /** Conditionally required as otherwise request origin is used */
     base?: string
   }
-  variantRatio: 0.2 | 0.5
+  variantRatio: 0.2 | 0.5 | 0.25
   /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */
   forceControlOnNewUser: boolean
 }

@@ -1,7 +1,6 @@
 'use client'
 
 //core
-import { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
@@ -10,8 +9,6 @@ import { RegistrationForm } from '../Forms/RegistrationForm'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
-import { SplitTestContext } from '@/utils/contexts'
-import { getSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -27,13 +24,9 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   const tagManager = useGoogleTagManager()
   const router = useRouter()
-  const splitTestContext = useContext(SplitTestContext)
 
   // ==================== Events ====================
   const determineRoute = () => {
-    // Get split test configuration if available
-    const quizBSplitTest = splitTestContext ? getSplitTest(splitTestContext) : null
-
     switch (quiz_traffic_source) {
       case 'organic':
         // Organic traffic: Redirect to results page with user style
@@ -47,9 +40,7 @@ export const AttachmentQuizForm = ({
         /*  Paid Meta traffic: Handle split test logic for quiz B
             If split test active, use variant URL with user style
             If no split test, go to default quiz B results page with user style */
-        return quizBSplitTest
-          ? `${splitTestContext?.variantUrl}${userStyle}`
-          : `/quiz/b/results/${userStyle}`
+        return `/quiz/b/results/${userStyle}`
 
       default:
         // Default route: Go to quiz page with user style

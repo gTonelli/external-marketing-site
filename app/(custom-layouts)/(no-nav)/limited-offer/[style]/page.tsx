@@ -48,12 +48,6 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, seq_no: number) => {
-      Mixpanel.track.ButtonClicked({
-        button_label: event.currentTarget.innerText,
-        page_name: page_name,
-        seq_no: seq_no,
-      })
-
       window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
     },
     [page_name]

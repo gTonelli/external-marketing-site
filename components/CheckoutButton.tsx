@@ -10,13 +10,12 @@ import { EExternalRoutes } from '@/utils/constants'
 import Mixpanel from '@/modules/Mixpanel'
 import { useCallback, useContext } from 'react'
 import { PageContext } from '@/utils/contexts'
+import Link from 'next/link'
 
 interface ICheckoutButtonProps extends IButtonDefaultProps {
   children?: React.ReactNode
   href?: string
   theme?: 'primary' | 'secondary'
-  /** whether to track the click or not */
-  track?: boolean
   /** onClick listener function */
   onClick?: () => void
 }
@@ -27,19 +26,17 @@ export const CheckoutButton = ({
   href = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
   label = 'SIGN UP NOW',
   theme = 'primary',
-  track = false,
   onClick,
 }: ICheckoutButtonProps) => {
   const { page_name } = useContext(PageContext)
 
   const _onClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      if (track) {
-        Mixpanel.track.ButtonClicked({
-          button_label: e.currentTarget.innerText,
-          page_name,
-        })
-      }
+      Mixpanel.track.ButtonClicked({
+        button_label: e.currentTarget.innerText,
+        page_name,
+      })
+
       onClick?.()
     },
     [page_name]
@@ -47,7 +44,7 @@ export const CheckoutButton = ({
 
   return (
     // There is an issue with next/link and the Thinkific Checkout. If the user is logged in the browser enters an infinite loop.
-    <a href={href}>
+    <Link href={href}>
       {children || (
         <Button
           className={two(
@@ -62,6 +59,6 @@ export const CheckoutButton = ({
           onClick={_onClick}
         />
       )}
-    </a>
+    </Link>
   )
 }

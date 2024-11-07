@@ -20,11 +20,6 @@ export default function DreamLifePage() {
   const page_name = '7 Day Free Trial Headspace'
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: page_name,
-    })
-
     window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL)
   }
 

@@ -19,11 +19,6 @@ interface IPaymentOptionsProps extends IDefaultProps {
 
 export const PaymentOptions = ({ className, placement = 'top' }: IPaymentOptionsProps) => {
   const onSubmit = () => {
-    Mixpanel.track.ButtonClicked({
-      button_label: 'TRY FOR FREE',
-      page_name: '7 Day Free Trial Headspace',
-    })
-
     window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL)
   }
 

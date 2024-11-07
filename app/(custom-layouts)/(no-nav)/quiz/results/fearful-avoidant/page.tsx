@@ -48,7 +48,7 @@ export default function SimplifiedFAResultsPage() {
                 </strong>
               </p>
 
-              <CheckoutButton track label="YES! I WANT A HEALTHY RELATIONSHIP" />
+              <CheckoutButton label="YES! I WANT A HEALTHY RELATIONSHIP" />
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function SimplifiedFAResultsPage() {
               ]}
             />
 
-            <CheckoutButton track label="YES! I WANT A HEALTHY RELATIONSHIP" />
+            <CheckoutButton label="YES! I WANT A HEALTHY RELATIONSHIP" />
           </div>
         </div>
       </Section>
@@ -260,7 +260,7 @@ export default function SimplifiedFAResultsPage() {
           </strong>
         </p>
 
-        <CheckoutButton track label="YES! I WANT A HEALTHY RELATIONSHIP" />
+        <CheckoutButton label="YES! I WANT A HEALTHY RELATIONSHIP" />
       </Section>
     </Page>
   )

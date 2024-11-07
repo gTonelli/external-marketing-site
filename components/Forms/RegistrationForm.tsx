@@ -101,7 +101,7 @@ export const RegistrationForm = ({
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ setFieldValue, isSubmitting, errors, submitCount }) => (
+      {({ isSubmitting }) => (
         <Form
           className={cx(
             'w-full max-w-xl flex-col justify-center mx-auto xxs:!px-3 xs:!px-4 md:pt-8',

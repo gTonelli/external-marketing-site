@@ -28,7 +28,7 @@ export const useGamAnalytics = () => {
     Mixpanel.setUser(email)
     Storage.set('userFirstName', firstName)
     Storage.set('lastUserEmail', email)
-    cookies.set('user', { firstName, email, lastName })
+    cookies.set('firstName', firstName)
 
     const { gamLastTouchData, gamFirstTouchData } = getUserData()
 

@@ -1,5 +1,6 @@
 // core
 import Image from 'next/image'
+import { cookies } from 'next/headers'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
@@ -7,14 +8,24 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { List } from '@/components/List'
-import { SimplifiedFAHeader } from './SimplifiedFAHeader'
 // libraries
 import { faCheckCircle, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export default function SimplifiedFAResultsPage() {
+  const userFirstName = cookies().get('firstName')?.value
+
   return (
     <Page page_name="VSL Royal Rumble Results - fa">
-      <SimplifiedFAHeader />
+      <Section classNameInner="max-w-4xl mx-auto">
+        <h1 className="text-primary mb-4">You're a Fearful Avoidant!</h1>
+
+        <p className="mb-8">Your report is on its way! Check your inbox.</p>
+
+        <h2>
+          {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'} You're 1 Step
+          Away To Having Healthy, Loving Relationships – Without Being Fearful!
+        </h2>
+      </Section>
 
       <Section className="!py-0" classNameInner="!max-w-6xl">
         <div className="w-full">

@@ -1,11 +1,8 @@
-'use client'
-
 // core
-import { useState, useEffect } from 'react'
+import { cookies } from 'next/headers'
 // components
 import { RESULTS } from '@/app/(custom-layouts)/(no-nav)/quiz/results/fa/config'
 // modules
-import { Storage } from '@/modules/Storage'
 import { IDefaultProps } from '..'
 // libraries
 import cx from 'classnames'
@@ -15,17 +12,11 @@ interface IAttachmentQuizHeadingProps extends IDefaultProps {
 }
 
 export const AttachmentQuizHeading = ({ copy, className }: IAttachmentQuizHeadingProps) => {
-  // ==================== State ====================
-  const userFirstName = Storage.get('userFirstName')
-  const [titleStart, setTitleStart] = useState('')
-
-  useEffect(() => {
-    setTitleStart(userFirstName ? userFirstName + ', ' : '')
-  }, [userFirstName])
+  const userFirstName = cookies().get('firstName')?.value
 
   return (
     <h1 className={cx('text-purple-dark font-bold font-effra uppercase', className)}>
-      {titleStart}
+      {userFirstName ? userFirstName + ', ' : ''}
       {copy || RESULTS['fa'].HERO_SECTION.headline}
     </h1>
   )

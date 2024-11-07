@@ -73,7 +73,7 @@ export const IATPage = ({
 
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
-  const { setUserData } = useGamAnalytics()
+  const { getUserData } = useGamAnalytics()
 
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
@@ -114,7 +114,7 @@ export const IATPage = ({
   const onBookNow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const url = new URL(EExternalRoutes.CALENDLY_MELANIE)
 
-    const { gamLastTouchData } = setUserData({})
+    const { gamLastTouchData } = getUserData()
 
     const utmParams = {
       utm_campaign: gamLastTouchData?.utm_campaign_last,

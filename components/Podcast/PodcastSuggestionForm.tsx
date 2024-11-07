@@ -1,12 +1,13 @@
 'use client'
 // core
-import { useState } from 'react'
+import Link from 'next/link'
+import React, { useState } from 'react'
 // components
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
 // libraries
-import { Field, Form, Formik, FormikHelpers } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
 // modules
@@ -63,7 +64,7 @@ export const PodcastSuggestionForm = ({
       subject: 'Podcast Page Form - Suggestion Submission',
     }
 
-    fetch('https://strapi.personaldevelopmentschool.com/api/contact-us', {
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contact-us`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -144,15 +145,25 @@ export const PodcastSuggestionForm = ({
             <textarea
               name="podcastSuggestion"
               value={values.podcastSuggestion}
-              className="w-full rounded-lg px-4 py-2 border border-grey-border mb-4"
+              className="w-full rounded-lg px-4 py-2 border border-grey-border"
               rows={4}
               placeholder="Enter your suggestion here..."
               onChange={handleChange}
             />
 
-            {touched.podcastSuggestion && errors.podcastSuggestion && (
-              <div className="text-left text-sm text-danger">{errors.podcastSuggestion}</div>
-            )}
+            <div className="w-full grid grid-cols-2">
+              <div className="col-span-1 text-left">
+                {touched.podcastSuggestion && errors.podcastSuggestion && (
+                  <span className="text-sm text-danger">{errors.podcastSuggestion}</span>
+                )}
+              </div>
+
+              <div className="col-span-1 text-right">
+                <Link className="underline" href="/podcast-guest-form">
+                  Want to be a Guest?
+                </Link>
+              </div>
+            </div>
           </div>
 
           <Button type="submit" disabled={isSubmitting} label={submitButtonLabel || 'SUBMIT'} />
@@ -168,7 +179,12 @@ const PodcastSuggestionFormValidationSchema = yup
   .object()
   .shape({
     podcastFirstName: yup.string().defined().ensure().required('First name required'),
-    podcastEmail: yup.string().defined().ensure().required('Email required'),
+    podcastEmail: yup
+      .string()
+      .defined()
+      .ensure()
+      .matches(Regexes.email, 'Please enter a valid email')
+      .required('Email required'),
     podcastRecommendation: yup.string().defined().ensure().required('Please select a value'),
     podcastSuggestion: yup.string().defined().ensure().required('Please write a message'),
   })

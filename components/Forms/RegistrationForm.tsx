@@ -51,7 +51,7 @@ export const RegistrationForm = ({
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
     const { email, firstName, lastName } = values
-    setUserData({ email, firstName, userStyle })
+    setUserData({ email, firstName, lastName, userStyle })
 
     const utmDataRaw: IUtmData = {}
     searchParams.forEach((value, key) => {
@@ -59,7 +59,7 @@ export const RegistrationForm = ({
     })
 
     Mixpanel.setUser(values.email)
-    Mixpanel.setPeople({ $email: email })
+    Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
 
@@ -101,7 +101,7 @@ export const RegistrationForm = ({
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ setFieldValue, isSubmitting, errors, submitCount }) => (
+      {({ isSubmitting }) => (
         <Form
           className={cx(
             'w-full max-w-xl flex-col justify-center mx-auto xxs:!px-3 xs:!px-4 md:pt-8',

@@ -41,7 +41,6 @@ export default function freeMasterclassMelRobbinsPage() {
 
             <div className="flex justify-center mb-4 lg:hidden">
               <Button
-                track
                 link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                 label="GET STARTED"
               />
@@ -93,7 +92,6 @@ export default function freeMasterclassMelRobbinsPage() {
 
               <div className="flex justify-center mt-4">
                 <Button
-                  track
                   link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   label="GET STARTED"
                 />

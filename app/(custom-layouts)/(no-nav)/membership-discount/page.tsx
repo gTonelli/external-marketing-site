@@ -21,11 +21,6 @@ export default function FlashSalePage() {
   // ================= Events =======================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      Mixpanel.track.ButtonClicked({
-        button_label: event.currentTarget.innerText,
-        page_name: page_name,
-      })
-
       window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
     },
     [page_name]

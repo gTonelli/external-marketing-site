@@ -33,11 +33,6 @@ export default function WellnessPage() {
   const router = useRouter()
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>, gotoCheckout: boolean) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: page_name,
-    })
-
     gotoCheckout
       ? window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
       : router.push(ERoutes.EXPLORE_COURSES_PAGE)

@@ -224,7 +224,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     FBQ?.trackLead({
       email: email,
     })
-    setUserData({ email, firstName, userStyle: dominantStyle })
+    setUserData({ email, firstName, lastName, userStyle: dominantStyle })
     Mixpanel.track.SignUp({ distinct_id: email })
 
     const requestBody = {

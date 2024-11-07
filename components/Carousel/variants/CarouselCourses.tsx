@@ -76,11 +76,6 @@ export const CarouselCourses = ({
   //============================ Events ========================================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<Element, MouseEvent>) => {
-      Mixpanel.track.ButtonClicked({
-        button_label: (event.target as HTMLButtonElement).innerText,
-        page_name,
-      })
-
       window.location.assign(checkoutLink)
     },
     [checkoutLink, page_name]

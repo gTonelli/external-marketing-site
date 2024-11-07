@@ -73,7 +73,7 @@ export const IATPage = ({
 
   // ============== Hooks =================
   const priceRef = useRef<null | HTMLDivElement>(null)
-  const { setUserData } = useGamAnalytics()
+  const { getUserData } = useGamAnalytics()
 
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
@@ -109,17 +109,12 @@ export const IATPage = ({
 
   const onClickPurchase = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (priceRef.current) priceRef.current.scrollIntoView({ behavior: 'smooth' })
-
-    Mixpanel.track.ButtonClicked({
-      button_label: event.currentTarget.innerText,
-      page_name: page_name,
-    })
   }
 
   const onBookNow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const url = new URL(EExternalRoutes.CALENDLY_MELANIE)
 
-    const { gamLastTouchData } = setUserData({})
+    const { gamLastTouchData } = getUserData()
 
     const utmParams = {
       utm_campaign: gamLastTouchData?.utm_campaign_last,

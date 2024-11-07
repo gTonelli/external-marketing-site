@@ -116,11 +116,6 @@ export default function SecondarySalesPage() {
 
   //============================ Events ========================================
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    Mixpanel.track.ButtonClicked({
-      button_label: (event.target as HTMLButtonElement).innerText,
-      page_name: page_name,
-    })
-
     window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
   }
 

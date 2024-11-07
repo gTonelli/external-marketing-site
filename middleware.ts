@@ -174,6 +174,14 @@ function generateResponse({
 }: IGenerateResponse): NextResponse {
   if (showVariant) {
     let path = variantUrl.path
+    if (controlUrl?.urlParams) {
+      const params = request.nextUrl.pathname.split('/')
+      for (const param of controlUrl.urlParams) {
+        const value = params.pop()
+        if (!value) continue
+        searchParams.append(param, value)
+      }
+    }
     if (Boolean(searchParams.toString())) path += `?${searchParams.toString()}`
     return NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
   } else if (controlUrl) {
@@ -227,9 +235,10 @@ export const splitTestConfigs: TSplitTestConfigs = {
     cookieKey: 'prod-3136-checkout-test',
     domain: '.personaldevelopmentschool.com',
     pageName: 'Checkout',
-    experimentName: 'Checkout V2 Test (Attachment Quiz Funnel)',
+    experimentName: 'Checkout V2 Test (Site Wide)',
     controlUrl: {
       base: 'https://university.personaldevelopmentschool.com',
+      urlParams: ['product_id'],
     },
     variantUrl: {
       path: 'pages/checkout',
@@ -321,6 +330,8 @@ type TSplitTestConfig = {
     path?: string
     /** Conditionally required as otherwise request origin is used */
     base?: string
+    /** These will be converted to query params in the order that they appear in the config */
+    urlParams?: string[]
   }
   variantUrl: {
     path: string

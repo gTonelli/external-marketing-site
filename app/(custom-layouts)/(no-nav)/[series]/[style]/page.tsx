@@ -121,7 +121,6 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
               <div className="flex justify-center mt-4">
                 <Button
-                  track
                   link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
                 />

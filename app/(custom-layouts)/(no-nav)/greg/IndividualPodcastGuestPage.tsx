@@ -166,7 +166,7 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
           <Image
             className="rounded-3xl h-full"
             alt="A lady watching Thais on a PC"
-            src="/images/GregVoisenPodcast/lady-watching-thais-on-pc-mockup.jpg"
+            src="/images/GregVoisenPodcast/lady-watching-thais-on-pc.jpg"
             width={573}
             height={586}
           />

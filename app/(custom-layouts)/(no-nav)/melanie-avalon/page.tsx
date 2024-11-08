@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
 import { IndividualPodcastGuestPage } from '../greg-voisen/IndividualPodcastGuestPage'
+// config
 import { MELANIE_GUEST_PRICING } from './config'
 
 export const metadata: Metadata = {

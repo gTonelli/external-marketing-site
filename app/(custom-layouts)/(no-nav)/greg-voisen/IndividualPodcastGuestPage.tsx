@@ -139,7 +139,7 @@ export const IndividualPodcastGuestPage = ({
           <p className="mb-4">
             If you've tried traditional methods and modalities but still haven't experienced any
             changes in your life, it's because you're not accessing the correct part of your brain:
-            <strong>the subconscious mind</strong>.
+            <strong> the subconscious mind</strong>.
           </p>
 
           <p className="mb-4">
@@ -171,7 +171,7 @@ export const IndividualPodcastGuestPage = ({
           <Image
             className="rounded-3xl h-full"
             alt="A lady watching Thais on a PC"
-            src="/images/GregVoisenPodcast/lady-watching-thais-on-pc.jpg"
+            src="/images/IndividualGuestPodcast/lady-watching-thais-on-pc.jpg"
             width={573}
             height={586}
           />
@@ -183,7 +183,7 @@ export const IndividualPodcastGuestPage = ({
           <Image
             className="rounded-3xl h-full"
             alt="Watching PDS Course on an IPad"
-            src="/images/GregVoisenPodcast/watching-course-ipad-mockup.jpg"
+            src="/images/IndividualGuestPodcast/watching-course-ipad-mockup.jpg"
             width={486}
             height={620}
           />
@@ -427,7 +427,7 @@ export const IndividualPodcastGuestPage = ({
           <Image
             className="rounded-3xl h-full"
             alt="Thais Gibson Portrait"
-            src="/images/GregVoisenPodcast/thais-portrait-long.jpg"
+            src="/images/IndividualGuestPodcast/thais-portrait-long.jpg"
             width={482}
             height={822}
           />

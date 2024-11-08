@@ -1,6 +1,6 @@
 .bg-hero-mobile {
   position: relative;
-  background: url('/images/GregVoisenPodcast/greg-voisen-hero.jpg') no-repeat center right / cover;
+  background: url('/images/GregVoisenPodcast/greg-voisen-hero.webp') no-repeat center right / cover;
   width: 100%;
   height: 300px;
 }
@@ -35,6 +35,7 @@
 
   .bg-hero {
     position: relative;
-    background: url('/images/GregVoisenPodcast/greg-voisen-hero.jpg') no-repeat center right / cover;
+    background: url('/images/GregVoisenPodcast/greg-voisen-hero.webp') no-repeat center right /
+      cover;
   }
 }

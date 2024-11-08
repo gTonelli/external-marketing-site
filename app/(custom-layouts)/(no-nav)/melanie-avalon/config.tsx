@@ -3,17 +3,18 @@ export const MELANIE_GUEST_PRICING = {
     header: 'Are You Ready to Empower Yourself & Create A Life You’ll Love?',
     copy: (
       <>
-        It’s time to finally take control of your life and relationships with the groundbreaking
-        approach and powerful platform that will radically power up everything you want. Here’s your
-        exclusive, special one-time offer to begin: <strong>$67 per month for LIFE</strong> – a 30%
-        discount off the regular price. You can cancel at any time with no commitment.
+        Lock in your exclusive one-time offer before it leaves:{' '}
+        <strong>$47 per month for LIFE – a 50% discount off the regular price</strong>. It’s the
+        perfect time to finally take control of your life and relationships with the groundbreaking
+        approach and powerful platform that will radically power up everything you want. You can
+        cancel at any time with no commitment.
       </>
     ),
     pricing: {
       originalPrice: '$97',
-      newPrice: '$67',
+      newPrice: '$47',
       timePeriod: 'per month',
-      ctaLabel: 'PAY $67 & SAVE 30%',
+      ctaLabel: 'PAY $47 & SAVE 50%',
       subtext: '*Your discount coupon is auto-applied at checkout',
     },
   },
@@ -30,7 +31,7 @@ export const MELANIE_GUEST_PRICING = {
     total: {
       totalCost: '$3875',
       subtext: 'on average',
-      discountedCost: '$67',
+      discountedCost: '$47',
       discountSubtext: 'Up to 85% off the valued price',
     },
   },

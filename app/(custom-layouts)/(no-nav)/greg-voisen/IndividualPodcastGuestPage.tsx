@@ -4,11 +4,6 @@ import Image from 'next/image'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { Section } from '@/components/Section'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
-// config
-import { TPodcastGuestPricing } from './config'
-// style
-import './style.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faCcAmex,
   faCcDiscover,
@@ -16,8 +11,14 @@ import {
   faCcPaypal,
   faCcVisa,
 } from '@awesome.me/kit-545b942488/icons/classic/brands'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
+// config
+import { TPodcastGuestPricing } from './config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// style
+import './style.css'
 
 const trustbarSlides = [
   'mel-robbins-logo.png',
@@ -29,9 +30,13 @@ const trustbarSlides = [
 
 interface IIndividualPodcastGuestPageProps {
   config: TPodcastGuestPricing
+  checkoutUrl: string
 }
 
-export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPageProps) => {
+export const IndividualPodcastGuestPage = ({
+  config,
+  checkoutUrl,
+}: IIndividualPodcastGuestPageProps) => {
   return (
     <>
       <Section
@@ -50,11 +55,11 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
             The best lives and relationships don’t just happen; we make them happen. Discover the
             SECRET to truly overcoming your fears, healing from painful pasts, and creating
             powerful, loving relationships while finding and living as your authentic self. Make it
-            happen with scientific-based theory and results-based outcomes - only available at The
-            Personal Development School.
+            happen with scientific-based theory and results-proven outcomes – only at The Personal
+            Development School.
           </p>
 
-          <CheckoutButton label="CREATE YOUR DREAM LIFE NOW" />
+          <CheckoutButton label="CREATE YOUR DREAM LIFE NOW" href={checkoutUrl} />
         </div>
       </Section>
 
@@ -132,9 +137,9 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
           <h2 className="mb-4">The Leading Platform for Relationship Transformation</h2>
 
           <p className="mb-4">
-             If you've tried traditional methods and modalities but still haven't experienced any
+            If you've tried traditional methods and modalities but still haven't experienced any
             changes in your life, it's because you're not accessing the correct part of your brain:
-            the subconscious mind.
+            <strong>the subconscious mind</strong>.
           </p>
 
           <p className="mb-4">
@@ -142,7 +147,7 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
             what keeps you stuck in your revolving patterns and beliefs.
           </p>
 
-          <p className="mb-4">
+          <p className="mb-4 font-bold">
             That's why our innovative, proprietary method is revolutionary; it’s designed to work
             directly with your subconscious mind – the essential piece of the puzzle that drives
             lasting transformation.
@@ -159,7 +164,7 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
             industry because it’s simple, fast, and effective!
           </p>
 
-          <CheckoutButton label="START YOUR TRANSFORMATION" />
+          <CheckoutButton label="START YOUR TRANSFORMATION" href={checkoutUrl} />
         </div>
 
         <div>
@@ -227,7 +232,7 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
             and the best part is that you can do it on your own terms.
           </p>
 
-          <CheckoutButton label="UNLOCK YOUR POTENTIAL" />
+          <CheckoutButton label="UNLOCK YOUR POTENTIAL" href={checkoutUrl} />
         </div>
       </Section>
 
@@ -270,7 +275,7 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
             relationships of your life – on your terms.
           </p>
 
-          <CheckoutButton label="BUILD YOUR DREAM LIFE" />
+          <CheckoutButton label="BUILD YOUR DREAM LIFE" href={checkoutUrl} />
         </div>
 
         <div className="flex justify-center items-center">
@@ -295,17 +300,27 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
           <div className="flex flex-col justify-center bg-white rounded-20 shadow-md p-4">
             <p className="text-3xl mb-8">
               <span className="line-through">{config.BANNER.pricing.originalPrice}</span>
+
               <span className="font-bold mx-4">{config.BANNER.pricing.newPrice}</span>
+
               <span className="!text-base">{config.BANNER.pricing.timePeriod}</span>
             </p>
 
-            <CheckoutButton className="mb-8" label={config.BANNER.pricing.ctaLabel} />
+            <CheckoutButton
+              className="mb-8"
+              label={config.BANNER.pricing.ctaLabel}
+              href={checkoutUrl}
+            />
 
             <div className="w-full flex justify-center">
               <FontAwesomeIcon icon={faCcAmex} size="2x" className="mr-2" />
+
               <FontAwesomeIcon icon={faCcDiscover} size="2x" className="mr-2" />
+
               <FontAwesomeIcon icon={faCcMastercard} size="2x" className="mr-2" />
+
               <FontAwesomeIcon icon={faCcPaypal} size="2x" className="mr-2" />
+
               <FontAwesomeIcon icon={faCcVisa} size="2x" className="mr-2" />
             </div>
 
@@ -325,9 +340,11 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
               <div>
                 <p className="text-left">{item.label}</p>
               </div>
+
               <div>
                 <p>{item.cost}</p>
               </div>
+
               <div>
                 <FontAwesomeIcon icon={faCheckCircle} className="!text-green-check" size="2x" />
               </div>
@@ -403,7 +420,7 @@ export const IndividualPodcastGuestPage = ({ config }: IIndividualPodcastGuestPa
 
           <p className="mb-4">We hope you join us.</p>
 
-          <CheckoutButton label="BUILD YOUR DREAM LIFE" />
+          <CheckoutButton label="BUILD YOUR DREAM LIFE" href={checkoutUrl} />
         </div>
 
         <div>

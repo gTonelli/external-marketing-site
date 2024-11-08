@@ -3,10 +3,11 @@ export const GREG_VOISEN_PRICING = {
     header: 'Are You Ready to Empower Yourself & Create A Life You’ll Love?',
     copy: (
       <>
-        It’s time to finally take control of your life and relationships with the groundbreaking
-        approach and powerful platform that will radically power up everything you want. Here’s your
-        exclusive, special one-time offer to begin: <strong>$149 for 3 months</strong> – a 50%
-        discount off the regular price. You can cancel at any time with no commitment.
+        Lock in your exclusive one-time offer before it leaves:{' '}
+        <strong>$149 for 3 months – a 50% discount off the regular price for LIFE</strong>. It’s the
+        perfect time to finally take control of your life and relationships with the groundbreaking
+        approach and powerful platform that will radically power up everything you want. You can
+        cancel at any time with no commitment.
       </>
     ),
     pricing: {

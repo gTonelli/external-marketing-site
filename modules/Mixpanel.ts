@@ -65,6 +65,7 @@ export type Pages =
   | `Explore Courses Page`
   | `Find My Courses`
   | `Free Masterclass Mel Robbins`
+  | `Greg Voisen Podcast Guest Page`
   | `IAT Attachment Quiz`
   | `IAT Info Page`
   | `IAT Webinar Page`

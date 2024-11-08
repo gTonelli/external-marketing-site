@@ -30,9 +30,7 @@ export const GREG_VOISEN_PRICING = {
     ],
     total: {
       totalCost: '$3875',
-      subtext: 'on average',
       discountedCost: '$149',
-      discountSubtext: 'Up to 85% off the valued price',
     },
   },
 }

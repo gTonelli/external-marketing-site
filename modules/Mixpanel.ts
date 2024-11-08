@@ -65,6 +65,7 @@ export type Pages =
   | `Explore Courses Page`
   | `Find My Courses`
   | `Free Masterclass Mel Robbins`
+  | `Greg Voisen Podcast Guest Page`
   | `IAT Attachment Quiz`
   | `IAT Info Page`
   | `IAT Webinar Page`
@@ -79,6 +80,7 @@ export type Pages =
   | `Main Funnel Quiz Variant D`
   | `Main Funnel Quiz Variant E`
   | `Main Funnel Quiz Variant F`
+  | `Melanie Avalon Podcast Guest Page`
   | `Members Quiz`
   | `Members Quiz Questions`
   | `Members Quiz Form`

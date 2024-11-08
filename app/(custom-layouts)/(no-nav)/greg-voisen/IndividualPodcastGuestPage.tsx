@@ -359,16 +359,12 @@ export const IndividualPodcastGuestPage = ({
             <span className="block text-3xl">
               <strong>{config.TABLE.total.totalCost}</strong>
             </span>
-
-            <span>{config.TABLE.total.subtext}</span>
           </p>
 
           <p>
             <span className="block text-3xl text-green-check">
               <strong>{config.TABLE.total.discountedCost}</strong>
             </span>
-
-            <span>{config.TABLE.total.discountSubtext}</span>
           </p>
         </div>
       </Section>

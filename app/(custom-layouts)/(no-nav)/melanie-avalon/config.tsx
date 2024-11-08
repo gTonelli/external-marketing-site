@@ -30,9 +30,7 @@ export const MELANIE_GUEST_PRICING = {
     ],
     total: {
       totalCost: '$3875',
-      subtext: 'on average',
       discountedCost: '$47',
-      discountSubtext: 'Up to 85% off the valued price',
     },
   },
 }

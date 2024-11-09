@@ -64,11 +64,11 @@ export default function PromotionPage({ page }: PromotionPageProps) {
 
             <MHAButton label="START YOUR 14-DAY FREE TRIAL!" />
 
-            <p className="mt-2 font-bold italic">
+            <p className="mt-2 font-bold italic text-success">
               {isVariant
                 ? page === 'Black Friday'
-                  ? '*This offer ends on Friday, November 29th, 2024 at 11:59ET!'
-                  : '*This offer ends on Monday, December 2nd, 2024 at 11:59ET! '
+                  ? '*This offer is only available for a limited time!'
+                  : '*This offer is only available for a limited time!'
                 : '*This offer ends soon!*'}
             </p>
           </Section>

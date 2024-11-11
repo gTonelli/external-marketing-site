@@ -94,15 +94,6 @@ export enum ERoutes {
   SITE_LINKS = '/site-links',
   TRIAL_PAGE_7_DAY = '/7-day-trial',
   WELLNESS_PAGE = '/wellness',
-
-  // Stripe Embedded Checkout
-  STRIPE_CHECKOUT_MONTHLY_67 = '/checkout/97monthly?discount_id=30off',
-  STRIPE_CHECKOUT_39_FIRST_MONTH = '/checkout/67monthly?discount_id=28off1mo',
-
-  // Custom Checkout on Thinkific
-  CHECKOUT_ATTACHMENT_BOOTCAMP = '/checkout/v2?product_id=2996140&price_id=3853225&coupon=148off',
-  // Attachment Style funnel checkout split test
-  CHECKOUT_REGULAR_SUBSCRIPTION_SPLIT_TEST = '/enroll?product_id=559833&price_id=1285773',
 }
 
 export enum EExternalRoutes {
@@ -118,14 +109,12 @@ export enum EExternalRoutes {
   SIGN_IN = 'https://university.personaldevelopmentschool.com/users/sign_in',
 
   // Checkout
+  STRIPE_CHECKOUT_39_FIRST_MONTH = 'https://university.personaldevelopmentschool.com/pages/checkout?product_id=559833&price_id=1285773&coupon=28off1mo',
   // Subscriptions
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773',
-  THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_19_DOLLAR = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1285773&coupon=special19promo',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR = 'https://university.personaldevelopmentschool.com/pages/checkout?price_id=1285773&coupon=Jwdjxr23',
   THINKIFIC_CHECKOUT_7_DAY_TRIAL = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=590989',
-  THINKIFIC_CHECKOUT_7_DAY_TRIAL_50_OFF = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=3175705&coupon=50off1mo',
   THINKIFIC_CHECKOUT_14_DAY_TRIAL = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=2357208',
-  THINKIFIC_CHECKOUT_14_DAY_TRIAL_QUARTERLY = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=3369055&coupon=withyouquarterly',
   THINKIFIC_CHECKOUT_QUARTERLY_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=withyouquarterly',
   THINKIFIC_CHECKOUT_ANNUAL_PLAN = 'https://university.personaldevelopmentschool.com/enroll/559833?price_id=1084476&coupon=withyouannually',
   THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP = 'https://university.personaldevelopmentschool.com/enroll/2996140?price_id=3853225&coupon=148off',

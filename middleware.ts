@@ -43,6 +43,8 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         })
         response.cookies.set(cookieKey, 'false', {
           domain: domain || request.nextUrl.hostname,
+          httpOnly: false,
+          maxAge: 7776000, // 3 Months,
         })
         return response
       } else {
@@ -61,7 +63,11 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
     const mixpanelID = JSON.parse(mixpanelCookie.value)?.distinct_id
 
     if (typeof variantCookie === 'string') {
-      showVariant = JSON.parse(variantCookie)
+      try {
+        showVariant = JSON.parse(variantCookie)
+      } catch (_) {
+        showVariant = false
+      }
     } else {
       setCookie = true
       const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255

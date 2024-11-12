@@ -113,6 +113,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 export const config = {
   matcher: [
     '/enroll/(.*)',
+    '/cart/add_product/(.*)',
     '/attachment-report/fa',
     '/attachment-report/ap',
     '/attachment-report/da',
@@ -133,6 +134,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   const configs: Array<IConfigWithRegex> = [
     { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
+    { regex: /^\/cart\/add_product/, config: splitTestConfigs.checkoutTest },
     { regex: /^\/webinar-library/, config: splitTestConfigs.webinarLibraryTest },
     {
       regex: /^\/attachment-report\/fa/,

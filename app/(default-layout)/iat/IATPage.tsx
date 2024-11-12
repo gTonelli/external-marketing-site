@@ -78,22 +78,9 @@ export const IATPage = ({
   // ==================== State ====================
   const [watchedVideos, setWatchedVideos] = useState(new Set<string>())
   const [modalSuccess, setModalSuccess] = useState(false)
-  const [isVariant, setIsVariant] = useState(false)
 
   useEffect(() => {
-    if (pageUrl === 'ebook') {
-      let isVariant = Storage.get('gm-1172-iat-cta-split') === 'yes'
-      if (Storage.get('gm-1172-iat-cta-split') === null) {
-        isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < 0.5
-        Storage.set('gm-1172-iat-cta-split', isVariant ? 'yes' : 'no')
-        Mixpanel.track.ExperimentStarted({
-          'Experiment name': 'GM-1172-iat-cta-split',
-          'Variant name': isVariant ? 'Variant 1' : 'Control',
-        })
-      }
-      setIsVariant(isVariant)
-      if (searchParams.get('signup') === 'success') setModalSuccess(true)
-    }
+    if (pageUrl === 'ebook') if (searchParams.get('signup') === 'success') setModalSuccess(true)
   }, [pageUrl, searchParams])
 
   const onVideoStarted = (type: string) => {
@@ -189,7 +176,7 @@ export const IATPage = ({
 
       {/* VIDEO SECTION */}
       <Section className="pt-9 lg:pt-16">
-        {isVariant && (
+        {pageUrl === 'ebook' && (
           <div className="max-w-3xl text-center mx-auto">
             <h2 className="mb-4">Unlock Your Potential With a Free Consultation</h2>
 

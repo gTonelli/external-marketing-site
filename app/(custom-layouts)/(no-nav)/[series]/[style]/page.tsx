@@ -1,8 +1,11 @@
+// core
+import Image from 'next/image'
 // components
-import { Image } from '@/components/Image'
 import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Button } from '@/components/Button/Button'
+import { List } from '@/components/List'
+import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { EMAIL_RESULTS as SERIES_BELIEFS_RESULTS, FA_EMAIL_RESULTS } from './config'
 // modules
@@ -91,41 +94,96 @@ export default function AttachmentStyleNeedsBeliefsPage({
             </p>
           </div>
 
-          <div className="w-[inherit] mt-6">
+          <div className="w-[inherit] my-6">
             <VideoThumbnail
               srcUrl={EMAIL_RESULTS[seriesParam][styleParam].videoUrlID}
               thumbnailAlt={`Video ${styleParam} thumbnail`}
               type="GCP"
             />
           </div>
+
+          {seriesParam === 'needs' && (
+            <div className="max-w-lg">
+              <div className="flex justify-center mb-4 lg:hidden">
+                <Button
+                  link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  label="GET STARTED"
+                />
+              </div>
+
+              <p className="text-center mb-2 lg:mb-4 lg:text-left">
+                If you’ve tried traditional methods and modalities for years and years…but are still
+                stuck with the same patterns and struggles in your relationship —{' '}
+                <strong>you can’t afford to miss this video.</strong>
+              </p>
+
+              <List
+                icon={faCircleSmall}
+                classNameIcon="!text-black !pt-2"
+                classNameListItems="mb-2"
+                iconSize="xs"
+                listItems={[
+                  'You’ll learn about our unique, groundbreaking, proprietary process – **Integrated Attachment Theory™** – and how it’s unlike anything you’ve ever seen before.',
+                  'It works FAST, is simple to USE, and is disrupting the relationship industry because it quickly HELPS anyone, anywhere, regardless of age, sex, or education!',
+                  'Unlock the secret to rewiring your subconscious patterns (responsible for 95% of what keeps you stuck) so you can experience real-life TRANSFORMATIONS in yourself and your relationships!',
+                  'And uncover the Where-What-Why-and-How of your attachment style, how it impacts your relationships, and why you FINALLY have the power to change it!',
+                ]}
+              />
+            </div>
+          )}
         </section>
 
         <section className="mx-auto mb-6 lg:w-1/2 ">
           <div className="max-w-lg rounded-2xl overflow-hidden shadow-lg ">
             <Image
               className="w-full object-cover object-top sm:max-h-60"
-              src="attachment-style-email-series.jpg"
-              alt="needs-mockup"
+              width={523}
+              height={392}
+              src="/images/attachment-style-email-series.jpg"
+              alt="attachment-series-mockup"
             />
 
-            <div className="px-6 py-4 bg-purple-dark lg:py-8">
-              <p className="text-center text-md font-bold text-white p-4 mb-2">
-                {EMAIL_RESULTS[seriesParam][styleParam].cardText}
-              </p>
-
-              {styleParam === 'fa' && (
-                <p className="text-center text-md font-semibold text-white tracking-33">
-                  GET A 30% DISCOUNT ON YOUR ALL-ACCESS PASS
+            {seriesParam === 'needs' ? (
+              <div className="px-6 py-4 bg-purple-dark lg:py-8">
+                <p className="text-center text-md font-bold text-white p-4 mb-2">
+                  The time is now to transform your love life, build deep connections, and feel
+                  secure in yourself and your relationships. Claim this special, limited-time offer
+                  for the All-Access Pass.
                 </p>
-              )}
+                <p className="text-center text-md font-bold text-white p-4 mb-2">
+                  Our All-Access Pass membership gives you complete and unlimited access to
+                  everything we offer at our transformative and life-changing online school so you
+                  can rewrite your love life, unlock your relationships, and become the best version
+                  of yourself ever.
+                </p>
 
-              <div className="flex justify-center mt-4">
-                <Button
-                  link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-                  label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
-                />
+                <div className="flex justify-center mt-4">
+                  <Button
+                    link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                    label="GET STARTED"
+                  />
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="px-6 py-4 bg-purple-dark lg:py-8">
+                <p className="text-center text-md font-bold text-white p-4 mb-2">
+                  {EMAIL_RESULTS[seriesParam][styleParam].cardText}
+                </p>
+
+                {styleParam === 'fa' && (
+                  <p className="text-center text-md font-semibold text-white tracking-33">
+                    GET A 30% DISCOUNT ON YOUR ALL-ACCESS PASS
+                  </p>
+                )}
+
+                <div className="flex justify-center mt-4">
+                  <Button
+                    link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                    label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </div>

@@ -113,6 +113,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 export const config = {
   matcher: [
     '/enroll/(.*)',
+    '/cart/add_product/(.*)',
     '/attachment-report/fa',
     '/attachment-report/ap',
     '/attachment-report/da',
@@ -133,6 +134,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   const configs: Array<IConfigWithRegex> = [
     { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
+    { regex: /^\/cart\/add_product/, config: splitTestConfigs.checkoutTest },
     { regex: /^\/webinar-library/, config: splitTestConfigs.webinarLibraryTest },
     {
       regex: /^\/attachment-report\/fa/,
@@ -266,57 +268,6 @@ export const splitTestConfigs: TSplitTestConfigs = {
       base: 'https://university.personaldevelopmentschool.com',
     },
     variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  pdfTestFa: {
-    cookieKey: 'gm-1182-pdf-headline-test-fa',
-    pageName: 'Attachment Style Report Old - fa',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/fa',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  pdfTestAp: {
-    cookieKey: 'gm-1182-pdf-headline-test-ap',
-    pageName: 'Attachment Style Report Old - ap',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/ap',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  pdfTestDa: {
-    cookieKey: 'gm-1182-pdf-headline-test-da',
-    pageName: 'Attachment Style Report Old - da',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/da',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  pdfTestSa: {
-    cookieKey: 'gm-1182-pdf-headline-test-sa',
-    pageName: 'Attachment Style Report Old - sa',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/sa',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  simplifiedFaTest: {
-    cookieKey: 'gm-1209-simplified-fa-test',
-    domain: '.personaldevelopmentschool.com',
-    pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1209-Simplified-FA-Test',
-    variantUrl: {
-      path: '/quiz/results/fearful-avoidant',
-    },
-    variantRatio: 0.25,
     forceControlOnNewUser: true,
   },
 }

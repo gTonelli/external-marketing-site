@@ -25,6 +25,7 @@ export interface ILink {
    * Displayed text of a link, also used for `alt` tag if asset is displayed instead of a text
    */
   label: string
+  prefetch?: boolean
   /**
    * URL of a link
    */
@@ -52,6 +53,7 @@ export const LinkDefault = ({
   assetUrl,
   hoverType,
   label,
+  prefetch = true,
   url,
   target,
   onClick,
@@ -78,6 +80,7 @@ export const LinkDefault = ({
         className
       )}
       href={url}
+      prefetch={prefetch}
       target={target}
       onClick={_onClick}>
       {assetUrl ? <img alt={label} src={assetUrl} /> : label}
@@ -117,6 +120,7 @@ export const LinkWrapper = ({
   children,
   className,
   hoverType,
+  prefetch = true,
   url,
   onClick,
   mpProps,
@@ -143,6 +147,7 @@ export const LinkWrapper = ({
         className
       )}
       href={url}
+      prefetch={prefetch}
       onClick={_onClick}>
       {children}
     </NextLink>

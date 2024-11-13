@@ -12,7 +12,7 @@ import { EExternalRoutes } from '@/utils/constants'
 
 interface ICheckoutButtonProps extends IButtonDefaultProps {
   children?: React.ReactNode
-  href?: string
+  href?: EExternalRoutes
   theme?: 'primary' | 'secondary'
   /** onClick listener function */
   onClick?: () => void
@@ -28,7 +28,7 @@ export const CheckoutButton = ({
 }: ICheckoutButtonProps) => {
   return (
     // There is an issue with next/link and the Thinkific Checkout. If the user is logged in the browser enters an infinite loop.
-    <Link href={href}>
+    <Link href={href} prefetch={false}>
       {children || (
         <Button
           className={two(

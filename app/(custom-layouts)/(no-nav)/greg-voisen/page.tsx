@@ -5,6 +5,8 @@ import { Page } from '@/components/Page'
 import { IndividualPodcastGuestPage } from './IndividualPodcastGuestPage'
 // config
 import { GREG_VOISEN_PRICING } from './config'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Enjoy 50% Off Your Quarterly All-Access Pass Membership',
@@ -18,7 +20,7 @@ export default function GregVoisenPodcastPage() {
     <Page page_name="Greg Voisen Podcast Guest Page">
       <IndividualPodcastGuestPage
         config={GREG_VOISEN_PRICING}
-        checkoutUrl="https://university.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=ipg50"
+        checkoutUrl={EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN_GREG_VOISEN}
       />
     </Page>
   )

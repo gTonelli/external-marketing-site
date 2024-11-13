@@ -1,6 +1,7 @@
 // core
 import Image from 'next/image'
 import { Metadata } from 'next'
+import Link from 'next/link'
 // components
 import { Button } from '@/components/Button/Button'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
@@ -16,7 +17,6 @@ import { faPodcast } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // style
 import './style.css'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Get Your Freebie from The Thais Gibson Podcast',

@@ -5,6 +5,7 @@ import { Page } from '@/components/Page'
 import { IndividualPodcastGuestPage } from '../greg-voisen/IndividualPodcastGuestPage'
 // config
 import { MELANIE_GUEST_PRICING } from './config'
+// utils
 import { EExternalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {

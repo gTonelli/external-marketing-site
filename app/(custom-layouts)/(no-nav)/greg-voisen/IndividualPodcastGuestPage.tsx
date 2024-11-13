@@ -19,6 +19,8 @@ import { TPodcastGuestPricing } from './config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // style
 import './style.css'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 
 const trustbarSlides = [
   'mel-robbins-logo.png',
@@ -30,7 +32,7 @@ const trustbarSlides = [
 
 interface IIndividualPodcastGuestPageProps {
   config: TPodcastGuestPricing
-  checkoutUrl: string
+  checkoutUrl: EExternalRoutes
 }
 
 export const IndividualPodcastGuestPage = ({

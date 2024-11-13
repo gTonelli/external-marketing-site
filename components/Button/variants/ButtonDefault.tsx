@@ -47,7 +47,6 @@ export interface IButtonDefaultProps extends IDefaultProps {
   isLoading?: boolean
   disabled?: boolean
   label?: string
-  link?: string
   onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void
 
   /**
@@ -66,7 +65,6 @@ export const ButtonDefault = ({
   isDisabled = false,
   disabled,
   label,
-  link,
   onClick,
   theme = 'primary',
   type,
@@ -84,7 +82,7 @@ export const ButtonDefault = ({
     onClick?.(event)
   }
 
-  const button = (
+  return (
     <button
       className={two(
         cx(
@@ -106,7 +104,4 @@ export const ButtonDefault = ({
       {label}
     </button>
   )
-
-  if (link) return <a href={link}>{button}</a>
-  else return button
 }

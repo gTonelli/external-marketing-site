@@ -1,6 +1,7 @@
 // core
 import Image from 'next/image'
 import { Metadata } from 'next'
+import Link from 'next/link'
 // components
 import { Button } from '@/components/Button/Button'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
@@ -234,10 +235,9 @@ export default function PodcastFreebiePage() {
               ]}
             />
 
-            <Button
-              label="LEARN ABOUT OUR MEMBERSHIPS"
-              link="https://university.personaldevelopmentschool.com/collections"
-            />
+            <Link href="https://university.personaldevelopmentschool.com/collections">
+              <Button label="LEARN ABOUT OUR MEMBERSHIPS" />
+            </Link>
           </div>
         </div>
       </Section>

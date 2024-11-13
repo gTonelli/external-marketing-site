@@ -35,7 +35,10 @@ export const AttachmentQuizV2Navigation = ({
       />
 
       {includeContinueButton && (
-        <Link className="text-right" href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}>
+        <Link
+          className="text-right"
+          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+          prefetch={false}>
           <Button label="CONTINUE" />
         </Link>
       )}

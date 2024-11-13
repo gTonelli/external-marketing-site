@@ -16,6 +16,7 @@ import { faPodcast } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // style
 import './style.css'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Get Your Freebie from The Thais Gibson Podcast',
@@ -234,10 +235,9 @@ export default function PodcastFreebiePage() {
               ]}
             />
 
-            <Button
-              label="LEARN ABOUT OUR MEMBERSHIPS"
-              link="https://university.personaldevelopmentschool.com/collections"
-            />
+            <Link href="https://university.personaldevelopmentschool.com/collections">
+              <Button label="LEARN ABOUT OUR MEMBERSHIPS" />
+            </Link>
           </div>
         </div>
       </Section>

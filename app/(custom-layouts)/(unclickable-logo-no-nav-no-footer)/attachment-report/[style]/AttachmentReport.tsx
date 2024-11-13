@@ -5,11 +5,11 @@ import { Link } from '@/components/Link'
 import { List } from '@/components/List'
 import { Section } from '@/components/Section'
 import { AttachmentReportHeader } from './AttachmentReportHeadline'
+import { faCircle, faHeart, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // config
 import { REPORT_COPY, AGE_REPORT_COPY } from './config'
 import { TStyle } from '@/utils/types'
-import { faCircle, faHeart, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 
 interface IAttachmentReportProps {
   style: TStyle
@@ -349,6 +349,7 @@ export const AttachmentReport = ({
         <Link
           className="border-2 rounded-full tracking-10 px-4 py-2 transition-colors active:shadow-md !no-underline lg:hover:text-white lg:hover:shadow-md bg-primary border-primary text-white active:bg-opacity-50 lg:hover:bg-opacity-50 cursor-pointer"
           label="TRANSFORM MY LIFE"
+          prefetch={false}
           url={ageVariant ? AGE_REPORT_COPY[style].checkoutUrl : COPY.footer.ctaLink}
         />
       </Section>

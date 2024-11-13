@@ -3,9 +3,9 @@ import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { CheckoutButton } from '@/components/CheckoutButton'
 // config
 import { EMAIL_RESULTS as SERIES_BELIEFS_RESULTS, FA_EMAIL_RESULTS } from './config'
 // modules
@@ -105,8 +105,8 @@ export default function AttachmentStyleNeedsBeliefsPage({
           {seriesParam === 'needs' && (
             <div className="max-w-lg">
               <div className="flex justify-center mb-4 lg:hidden">
-                <Button
-                  link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                <CheckoutButton
+                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   label="GET STARTED"
                 />
               </div>
@@ -158,8 +158,8 @@ export default function AttachmentStyleNeedsBeliefsPage({
                 </p>
 
                 <div className="flex justify-center mt-4">
-                  <Button
-                    link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  <CheckoutButton
+                    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                     label="GET STARTED"
                   />
                 </div>
@@ -177,8 +177,8 @@ export default function AttachmentStyleNeedsBeliefsPage({
                 )}
 
                 <div className="flex justify-center mt-4">
-                  <Button
-                    link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  <CheckoutButton
+                    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                     label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
                   />
                 </div>

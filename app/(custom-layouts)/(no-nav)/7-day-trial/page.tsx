@@ -4,13 +4,13 @@
 import { useEffect, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { SocialProofBar } from '@/components/SocialProofBar'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { Page } from '@/components/Page'
+import { CheckoutButton } from '@/components/CheckoutButton'
 // libraries
 import cx from 'classnames'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
@@ -70,10 +70,10 @@ export default function TrialPage() {
             />
 
             <div className="text-center py-4 lg:text-left">
-              <Button
+              <CheckoutButton
                 className="trial-btn mb-4"
                 label="TRY FOR $0"
-                link={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
+                href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
               />
 
               <Text content="$67/mo after 7 days. Cancel anytime." />
@@ -130,10 +130,10 @@ export default function TrialPage() {
             might **feel others' emotions intensely,** and naturally then put their needs above your own.`}
           />
 
-          <Button
+          <CheckoutButton
             className="hidden trial-btn mt-12 lg:block"
             label="GET STARTED TODAY!"
-            link={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
           />
         </div>
 
@@ -156,10 +156,10 @@ export default function TrialPage() {
           />
 
           <div className="text-center">
-            <Button
+            <CheckoutButton
               className="trial-btn my-4 lg:hidden"
               label="GET STARTED TODAY!"
-              link={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
             />
           </div>
         </div>
@@ -264,10 +264,10 @@ export default function TrialPage() {
           />
 
           <div className="text-center">
-            <Button
+            <CheckoutButton
               className="trial-btn my-4"
               label="TRY FOR $0"
-              link={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
             />
 
             <Text className="font-semibold" content="$67/mo after 7 days. Cancel anytime." />
@@ -366,10 +366,10 @@ export default function TrialPage() {
         <CourseSlider />
 
         <div className="text-center">
-          <Button
+          <CheckoutButton
             className="trial-btn mt-6"
             label="TRY FOR $0"
-            link={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
           />
           <Text className="text-sm pt-4 mb-4" content="$67/mo after 7 days. Cancel anytime." />
         </div>
@@ -398,10 +398,10 @@ export default function TrialPage() {
             emotions and life at the Personal Development School."
           />
 
-          <Button
+          <CheckoutButton
             className="trial-btn mt-6"
             label="TRY FOR $0"
-            link={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
+            href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
           />
 
           <Text className="text-sm pt-4 mb-4" content="$67/mo after 7 days. Cancel anytime." />

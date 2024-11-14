@@ -3,7 +3,6 @@
 // core
 import { useCallback, useEffect, useState } from 'react'
 // components
-import { Button } from '../Button/Button'
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
 import { Text } from '../Text/Text'

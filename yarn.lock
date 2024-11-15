@@ -4423,6 +4423,11 @@ react-async-script@^1.2.0:
     hoist-non-react-statics "^3.3.0"
     prop-types "^15.5.0"
 
+react-calendly@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/react-calendly/-/react-calendly-4.3.1.tgz#3775d468eecfdc3cb32d6cc81aac5779df129cb1"
+  integrity sha512-poyUH3NOUOlsotr8ho5WzbsbPuRAppaY+Jvu+C/PkwTP6WT807pNFI8+HrbbuRknXZbd75zpzysOJQvcu3P8Pg==
+
 react-collapsible@^2.10.0:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/react-collapsible/-/react-collapsible-2.10.0.tgz#57330f9f4f968a41ece49c651b56cf30f9a06d19"

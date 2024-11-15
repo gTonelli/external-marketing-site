@@ -69,6 +69,7 @@ export type Pages =
   | `IAT Attachment Quiz`
   | `IAT Info Page`
   | `IAT Webinar Page`
+  | `IAT Webinar Squeeze Page`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`

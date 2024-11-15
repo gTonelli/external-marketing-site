@@ -13,6 +13,8 @@ import dayjs from 'dayjs'
 type Props = {
   autoStart?: boolean
   className?: string
+  classNameDate?: string
+  classNameLabel?: string
   date?: Date
   theme?: string
 }
@@ -25,7 +27,10 @@ interface ICountdownRendererProps {
 }
 
 export const CountdownTimer: FC<Props> = forwardRef(
-  ({ autoStart, className, date, theme = 'dark' }, ref: React.LegacyRef<Countdown>) => {
+  (
+    { autoStart, className, classNameDate, classNameLabel, date, theme = 'dark' },
+    ref: React.LegacyRef<Countdown>
+  ) => {
     return (
       <CountdownPlugin
         autoStart={autoStart}
@@ -33,10 +38,10 @@ export const CountdownTimer: FC<Props> = forwardRef(
         ref={ref}
         renderer={({ days, hours, minutes, seconds }: ICountdownRendererProps) => {
           const data = [
-            days.toString().split('').reverse().join(''),
-            hours.toString().split('').reverse().join(''),
-            minutes.toString().split('').reverse().join(''),
-            seconds.toString().split('').reverse().join(''),
+            { digits: days.toString().split('').reverse().join(''), label: 'Days' },
+            { digits: hours.toString().split('').reverse().join(''), label: 'Hours' },
+            { digits: minutes.toString().split('').reverse().join(''), label: 'Minutes' },
+            { digits: seconds.toString().split('').reverse().join(''), label: 'Seconds' },
           ]
 
           return (
@@ -47,37 +52,44 @@ export const CountdownTimer: FC<Props> = forwardRef(
                   className
                 )}>
                 {data.map((number, index) => (
-                  <React.Fragment key={`timer-${index}`}>
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={number.charAt(1) || 0}
-                    />
-                    <Text
-                      className="bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl"
-                      content={number.charAt(0)}
-                    />
+                  <div key={`timer-${index}`} className="flex items-center">
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="flex">
+                        <Text
+                          className={cx(
+                            'bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl',
+                            classNameDate
+                          )}
+                          content={number.digits.charAt(1) || 0}
+                        />
+
+                        <Text
+                          className={cx(
+                            'bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl',
+                            classNameDate
+                          )}
+                          content={number.digits.charAt(0)}
+                        />
+                      </div>
+
+                      <div className={cx('mt-2', classNameLabel)}>
+                        <p
+                          className={`text-sm font-normal ${
+                            theme === 'dark' ? 'text-white' : 'text-black'
+                          } lg:text-base`}>
+                          {number.label}
+                        </p>
+                      </div>
+                    </div>
 
                     {index < data.length - 1 && (
                       <Text
-                        className={`${theme === 'dark' ? 'text-white' : 'text-dark'} mx-1`}
+                        className={`${theme === 'dark' ? 'text-white' : 'text-black'} -mt-8 mx-1`}
                         content=":"
                       />
                     )}
-                  </React.Fragment>
+                  </div>
                 ))}
-              </div>
-              <div
-                className={`w-full max-w-[312px] mx-auto ${
-                  theme == 'dark' ? 'text-white' : 'text-dark'
-                } flex items-center justify-around text-center
-                      xxs:max-w-[320px]`}>
-                <Text className="w-[76px] mt-2" content="Days" />
-
-                <Text className="w-[76px] mt-2" content="Hours" />
-
-                <Text className="w-[76px] mt-2" content="Minutes" />
-
-                <Text className="w-[76px] mt-2" content="Seconds" />
               </div>
             </div>
           )

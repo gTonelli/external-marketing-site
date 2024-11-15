@@ -181,7 +181,7 @@ function generateResponse({
   controlUrl,
 }: IGenerateResponse): NextResponse {
   if (showVariant) {
-    let path = variantUrl.path
+    let path = variantUrl.path || request.nextUrl.pathname
     if (controlUrl?.urlParams) {
       const params = request.nextUrl.pathname.split('/')
       for (const param of controlUrl.urlParams) {
@@ -246,10 +246,8 @@ export const splitTestConfigs: TSplitTestConfigs = {
     experimentName: 'Checkout V2 Test (Site Wide)',
     controlUrl: {
       base: 'https://university.personaldevelopmentschool.com',
-      urlParams: ['product_id'],
     },
     variantUrl: {
-      path: 'pages/checkout',
       base: 'https://university.personaldevelopmentschool.com',
     },
     variantRatio: 0.5,
@@ -291,7 +289,7 @@ type TSplitTestConfig = {
     urlParams?: string[]
   }
   variantUrl: {
-    path: string
+    path?: string
     /** Conditionally required as otherwise request origin is used */
     base?: string
   }

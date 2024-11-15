@@ -246,8 +246,10 @@ export const splitTestConfigs: TSplitTestConfigs = {
     experimentName: 'Checkout V2 Test (Site Wide)',
     controlUrl: {
       base: 'https://university.personaldevelopmentschool.com',
+      urlParams: ['product_id'],
     },
     variantUrl: {
+      path: 'pages/checkout',
       base: 'https://university.personaldevelopmentschool.com',
     },
     variantRatio: 0.5,

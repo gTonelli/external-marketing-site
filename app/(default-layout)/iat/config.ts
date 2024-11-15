@@ -364,7 +364,7 @@ export const IAT_COPY = {
       textTop: `You'll begin your journey by learning:`,
     },
     {
-      heading: `INTENSIVE WEEK 1: MASTERING THE BASICS`,
+      heading: `INTENSIVE WEEK 5: MASTERING THE BASICS`,
 
       listItems: [
         `How to set up a personalized client program so that your client can achieve maximum results in the shortest period of time (leading to more referrals and incredible business success!)`,
@@ -381,7 +381,7 @@ export const IAT_COPY = {
     },
 
     {
-      heading: `INTENSIVE WEEK 2: GIBSON INTEGRATED ATTACHMENT THEORY™`,
+      heading: `INTENSIVE WEEK 6: GIBSON INTEGRATED ATTACHMENT THEORY™`,
 
       listItems: [
         `How to master the tools from Gibson Integrated Attachment Theory™ to create rapid transformation at the subconscious level (in order to get your clients to have lasting results)`,
@@ -398,7 +398,7 @@ export const IAT_COPY = {
     },
 
     {
-      heading: `INTENSIVE WEEK 3: IDENTIFYING CORE WOUNDS & SECRETS OF THE SUBCONSCIOUS`,
+      heading: `INTENSIVE WEEK 7: IDENTIFYING CORE WOUNDS & SECRETS OF THE SUBCONSCIOUS`,
 
       listItems: [
         `The key questions and tools to identify the wounds, fears and insecurities of your clients so you can help them recondition these wounds (and transform their relationships)`,
@@ -414,7 +414,7 @@ export const IAT_COPY = {
     },
 
     {
-      heading: `INTENSIVE WEEK 4: REPROGRAMMING YOUR CLIENT'S ATTACHMENT STYLE`,
+      heading: `INTENSIVE WEEK 8: REPROGRAMMING YOUR CLIENT'S ATTACHMENT STYLE`,
 
       listItems: [
         `In-depth reprogramming tools that produce rapid results`,
@@ -430,7 +430,7 @@ export const IAT_COPY = {
     },
 
     {
-      heading: `INTENSIVE WEEK 5: UNDERSTANDING SUBCONSCIOUS NEEDS & FORMING HEALTHY RELATIONSHIP HABITS`,
+      heading: `INTENSIVE WEEK 9: UNDERSTANDING SUBCONSCIOUS NEEDS & FORMING HEALTHY RELATIONSHIP HABITS`,
 
       listItems: [
         `The subconscious reasons behind anxious and avoidant relationship patterns and how to prevent the anxious-avoidant trap from igniting`,
@@ -447,7 +447,7 @@ export const IAT_COPY = {
     },
 
     {
-      heading: `INTENSIVE WEEK 6: ACTIVATING, DEACTIVATING & MASTERING CONFLICT RESOLUTION`,
+      heading: `INTENSIVE WEEK 10: ACTIVATING, DEACTIVATING & MASTERING CONFLICT RESOLUTION`,
 
       listItems: [
         `How to master communication, boundaries, and conflict resolution`,
@@ -463,7 +463,7 @@ export const IAT_COPY = {
     },
 
     {
-      heading: `INTENSIVE WEEK 7: UNLOCKING DEEPER CONNECTION`,
+      heading: `INTENSIVE WEEK 11: UNLOCKING DEEPER CONNECTION`,
 
       listItems: [
         `The pillars of successful relationships, including: how to identify your shadow self, how to teach shadow work to clients, and how to build long-lasting relationships`,
@@ -479,7 +479,7 @@ export const IAT_COPY = {
     },
 
     {
-      heading: `INTENSIVE WEEK 8: BUILD A THRIVING BUSINESS`,
+      heading: `INTENSIVE WEEK 12: BUILD A THRIVING BUSINESS`,
 
       listItems: [
         `How to set up your business from the ground up - developing a mission statement, vision statement and business plan`,

@@ -45,7 +45,7 @@ export const PricingSection = () => {
           </p>
         </div>
 
-        <Link href={defaultData[selectedIndex].link}>
+        <Link href={defaultData[selectedIndex].link} prefetch={false}>
           <Button className="w-full" label="SIGN UP NOW" />
         </Link>
       </div>

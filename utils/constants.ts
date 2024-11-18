@@ -112,10 +112,12 @@ export enum EExternalRoutes {
   STRIPE_CHECKOUT_39_FIRST_MONTH = 'https://university.personaldevelopmentschool.com/pages/checkout?product_id=559833&price_id=1285773&coupon=28off1mo',
   // Subscriptions
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION = '/enroll/559833?price_id=1285773',
+  THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_49_DOLLAR = 'https://university.personaldevelopmentschool.com/pages/checkout?product_id=559833&price_id=1285773&coupon=ifpodcast',
   THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR = 'https://university.personaldevelopmentschool.com/pages/checkout?price_id=1285773&coupon=Jwdjxr23',
   THINKIFIC_CHECKOUT_7_DAY_TRIAL = '/enroll/559833?price_id=590989',
   THINKIFIC_CHECKOUT_14_DAY_TRIAL = '/enroll/559833?price_id=2357208',
   THINKIFIC_CHECKOUT_QUARTERLY_PLAN = '/enroll/559833?price_id=616936&coupon=withyouquarterly',
+  THINKIFIC_CHECKOUT_QUARTERLY_PLAN_GREG_VOISEN = '/enroll/559833?price_id=616936&coupon=ipg50',
   THINKIFIC_CHECKOUT_ANNUAL_PLAN = '/enroll/559833?price_id=1084476&coupon=withyouannually',
   THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP = '/enroll/2996140?price_id=3853225&coupon=148off',
   // IAT Recorded

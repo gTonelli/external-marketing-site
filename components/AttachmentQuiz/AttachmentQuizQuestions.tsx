@@ -3,7 +3,6 @@
 // core
 import { useCallback, useEffect, useState } from 'react'
 // components
-import { Button } from '../Button/Button'
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
 import { Text } from '../Text/Text'
@@ -211,19 +210,20 @@ export const AttachmentQuizQuestions = ({
           <div className={`flex flex-col flex-center space-y-4 mt-6 mx-auto lg:w-3/4`}>
             {options!.map((obj, index) =>
               newQuiz ? (
-                <Button
+                <button
                   key={`option_${index}`}
-                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light !min-w-min text-black uppercase lg:py-4 sm:!w-full"
-                  label={obj}
-                  onClick={onQuestionAnswer(obj)}
-                />
+                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 lg:py-4 sm:!w-full 
+                    lg:hover:bg-opacity-50 lg:hover:text-white lg:hover:shadow-md"
+                  onClick={onQuestionAnswer(obj)}>
+                  {obj}
+                </button>
               ) : (
-                <Button
+                <button
                   key={`option_${index}`}
-                  className="w-3/4 rounded bg-primary-old lg:w-full lg:py-4"
-                  label={obj}
-                  onClick={onQuestionAnswer(obj)}
-                />
+                  className="w-3/4 rounded bg-primary-old border-2 border-primary text-white lg:w-full lg:py-4 lg:hover:bg-opacity-50 lg:hover:shadow-md"
+                  onClick={onQuestionAnswer(obj)}>
+                  {obj}
+                </button>
               )
             )}
           </div>

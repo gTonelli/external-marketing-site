@@ -48,12 +48,6 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                     srcUrl={RESULTS[style].HERO_SECTION.videoURL}
                     thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
                     thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
-                    type="default"
-                    variantVideoData={{
-                      key: 'GM-1152-FA-Video-control-vs-control',
-                      videoId: RESULTS[style].HERO_SECTION.videoURL,
-                      splitRatio: 0.5,
-                    }}
                   />
                 </div>
 

@@ -626,6 +626,7 @@ export const AGE_REPORT_COPY = {
           <Link
             label="The Fearful Avoidant Course Bundle"
             url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA}
+            prefetch={false}
             target="_blank"
           />
         </u>{' '}
@@ -649,6 +650,7 @@ export const AGE_REPORT_COPY = {
           <Link
             label="The Anxious Preoccupied Course Bundle"
             url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP}
+            prefetch={false}
             target="_blank"
           />
         </u>{' '}
@@ -672,6 +674,7 @@ export const AGE_REPORT_COPY = {
           <Link
             label="The Dismissive Avoidant Course Bundle"
             url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA}
+            prefetch={false}
             target="_blank"
           />
         </u>{' '}
@@ -694,6 +697,7 @@ export const AGE_REPORT_COPY = {
           <Link
             label="The Secure Attachment Course Bundle"
             url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA}
+            prefetch={false}
             target="_blank"
           />
         </u>{' '}

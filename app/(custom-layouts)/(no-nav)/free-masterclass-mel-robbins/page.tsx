@@ -1,10 +1,10 @@
 // components
-import { Button } from '@/components/Button/Button'
 import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import { List } from '@/components/List'
+import { CheckoutButton } from '@/components/CheckoutButton'
 // libraries
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
@@ -40,8 +40,8 @@ export default function freeMasterclassMelRobbinsPage() {
             </div>
 
             <div className="flex justify-center mb-4 lg:hidden">
-              <Button
-                link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              <CheckoutButton
+                href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                 label="GET STARTED"
               />
             </div>
@@ -91,8 +91,8 @@ export default function freeMasterclassMelRobbinsPage() {
               </p>
 
               <div className="flex justify-center mt-4">
-                <Button
-                  link={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                <CheckoutButton
+                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   label="GET STARTED"
                 />
               </div>

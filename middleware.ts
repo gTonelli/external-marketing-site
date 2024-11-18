@@ -22,7 +22,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       forceControlOnNewUser,
       controlUrl,
       domain,
-      sessionData,
+      sessionDataConfig,
     } = pageData
 
     let showVariant = false
@@ -35,7 +35,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 
     if (!mixpanelCookie) {
       if (forceControlOnNewUser) {
-        const { response } = generateResponse({
+        const response = generateResponse({
           showVariant: false,
           variantUrl,
           searchParams,
@@ -51,14 +51,14 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         return response
       } else {
         showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
-        const { response } = generateResponse({
+        const response = generateResponse({
           showVariant,
           variantUrl,
           searchParams,
           domain,
           request,
           controlUrl,
-          sessionData,
+          sessionDataConfig,
         })
         return response
       }
@@ -90,14 +90,14 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       }
     }
 
-    const { response, sessionCookie } = generateResponse({
+    const response = generateResponse({
       showVariant,
       variantUrl,
       searchParams,
       domain,
       request,
       controlUrl,
-      sessionData,
+      sessionDataConfig,
     })
 
     if (setSplitTestCookie) {
@@ -112,6 +112,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 
     return response
   } catch (error) {
+    console.error(error)
     return NextResponse.next()
   }
 }
@@ -119,6 +120,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 export const config = {
   matcher: [
     '/enroll/(.*)',
+    '/cart/add_product/(.*)',
     '/attachment-report/fa',
     '/attachment-report/ap',
     '/attachment-report/da',
@@ -140,6 +142,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   const configs: Array<IConfigWithRegex> = [
     { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
+    { regex: /^\/cart\/add_product/, config: splitTestConfigs.checkoutTest },
     { regex: /^\/webinar-library/, config: splitTestConfigs.webinarLibraryTest },
     {
       regex: /^\/attachment-report\/fa/,
@@ -171,7 +174,7 @@ interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'contr
   searchParams: URLSearchParams
   request: NextRequest
   domain?: string
-  sessionData?: TSessionData
+  sessionDataConfig?: TSessionDataConfig
 }
 
 /** Generates a response based on the provided values */
@@ -182,7 +185,7 @@ function generateResponse({
   domain,
   request,
   controlUrl,
-  sessionData,
+  sessionDataConfig,
 }: IGenerateResponse) {
   if (showVariant) {
     let path = variantUrl.path || request.nextUrl.pathname
@@ -199,31 +202,31 @@ function generateResponse({
     const response = NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
 
     let sessionCookie = ''
-    if (sessionData) {
-      let _sessionData: any = {}
-      searchParams.forEach((key) => {
-        if (sessionData.keys.includes(key)) {
-          _sessionData[key] = searchParams.get(key)
+    if (sessionDataConfig) {
+      let sessionData: any = {}
+      searchParams.forEach((value, key) => {
+        if (sessionDataConfig.keys.includes(key)) {
+          sessionData[key] = value
         }
       })
 
-      sessionCookie = Buffer.from(JSON.stringify(_sessionData)).toString('base64')
+      sessionCookie = Buffer.from(JSON.stringify(sessionData)).toString('base64')
       response.cookies.set({
-        name: sessionData.name,
+        name: sessionDataConfig.name,
         value: sessionCookie,
         httpOnly: false,
         domain: domain || request.nextUrl.hostname,
       })
     }
 
-    return { response, sessionCookie }
+    return response
   } else if (controlUrl) {
     let controlHref =
       (controlUrl?.base || request.nextUrl.origin) + (controlUrl?.path || request.nextUrl.pathname)
     if (Boolean(searchParams.toString())) controlHref += `?${searchParams.toString()}`
-    return { response: NextResponse.redirect(new URL(controlHref)) }
+    return NextResponse.redirect(new URL(controlHref))
   } else {
-    return { response: NextResponse.next() }
+    return NextResponse.next()
   }
 }
 
@@ -266,7 +269,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 export const splitTestConfigs: TSplitTestConfigs = {
   checkoutTest: {
     cookieKey: 'prod-3136-checkout-test',
-    // domain: '.personaldevelopmentschool.com',
+    domain: '.personaldevelopmentschool.com',
     pageName: 'Checkout',
     experimentName: 'Checkout V2 Test (Site Wide)',
     controlUrl: {
@@ -274,10 +277,10 @@ export const splitTestConfigs: TSplitTestConfigs = {
       urlParams: ['product_id'],
     },
     variantUrl: {
-      path: 'pages/checkout',
       base: 'https://university.personaldevelopmentschool.com',
+      path: '/pages/checkout',
     },
-    sessionData: {
+    sessionDataConfig: {
       name: '_checkout_session',
       keys: ['price_id', 'product_id', 'coupon', 'bcid'],
     },
@@ -299,60 +302,9 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
-  pdfTestFa: {
-    cookieKey: 'gm-1182-pdf-headline-test-fa',
-    pageName: 'Attachment Style Report Old - fa',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/fa',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  pdfTestAp: {
-    cookieKey: 'gm-1182-pdf-headline-test-ap',
-    pageName: 'Attachment Style Report Old - ap',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/ap',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  pdfTestDa: {
-    cookieKey: 'gm-1182-pdf-headline-test-da',
-    pageName: 'Attachment Style Report Old - da',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/da',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  pdfTestSa: {
-    cookieKey: 'gm-1182-pdf-headline-test-sa',
-    pageName: 'Attachment Style Report Old - sa',
-    experimentName: 'Attachment Report Test v2',
-    variantUrl: {
-      path: '/pdf-report/sa',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-  simplifiedFaTest: {
-    cookieKey: 'gm-1209-simplified-fa-test',
-    domain: '.personaldevelopmentschool.com',
-    pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1209-Simplified-FA-Test',
-    variantUrl: {
-      path: '/quiz/results/fearful-avoidant',
-    },
-    variantRatio: 0.25,
-    forceControlOnNewUser: true,
-  },
 }
 
-type TSessionData = {
+type TSessionDataConfig = {
   /** Keys for any session data that needs to be retained in a JSON object */
   keys: string[]
   /** The name of the cookie key */
@@ -387,7 +339,7 @@ type TSplitTestConfig = {
     base?: string
   }
   /** Query paramters to be kept as session data */
-  sessionData?: TSessionData
+  sessionDataConfig?: TSessionDataConfig
   /** Ratio of users who will see the variant, with 1 being 100% */
   variantRatio: 0.2 | 0.5 | 0.25
   /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */

@@ -282,7 +282,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     sessionDataConfig: {
       name: '_checkout_session',
-      keys: ['price_id', 'product_id', 'coupon', 'bcid'],
+      keys: ['price_id', 'product_id', 'coupon', 'bci'],
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,

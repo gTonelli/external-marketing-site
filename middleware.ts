@@ -320,14 +320,15 @@ type TSplitTestConfig = {
   cookieKey: string
   /** To be sent to Mixpanel as an event prop */
   pageName: string
+  /** Name of the experiment on Mixpanel */
   experimentName: string
   /** Domain for the variant cookie and any session data to be set on */
   domain?: string
   /** Conditionally required as otherwise request url is used */
   controlUrl?: {
-    /** Conditionally required as otherwise request path is used */
+    /** Conditionally required as otherwise the request path is used */
     path?: string
-    /** Conditionally required as otherwise request origin is used */
+    /** Conditionally required as otherwise the request origin is used */
     base?: string
     /** These will be converted to query params for any user entering the variant, in the order that they appear in the config */
     urlParams?: string[]

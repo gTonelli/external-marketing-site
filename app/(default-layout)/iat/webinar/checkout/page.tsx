@@ -1,3 +1,5 @@
+// core
+import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
@@ -7,7 +9,17 @@ import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { IATPricingCard } from '@/components/IATPricingCard'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import {
+  faDiagramSuccessor,
+  faFileLines,
+  faFileVideo,
+  faSquare1,
+  faSquare2,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { getOfferEndDate } from '@/utils/functions'
 // style
@@ -90,6 +102,105 @@ export default function IATWebinarSqueezePage() {
         </div>
       </Section>
 
+      <Section className="max-w-5xl mx-auto" classNameInner="!max-w-full">
+        <div className="max-w-xl text-left pb-8">
+          <h2 className="mb-4">Is This World-Class Relationship Coaching Program For You?</h2>
+
+          <p>
+            As an inspiring and revolutionary global movement in over 120 countries, our
+            all-inclusive program is for you if you want to:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 text-left my-8 md:grid-cols-3">
+          <div>
+            <Image
+              src="/images/IATWebinar/icon-1-checklist.svg"
+              alt="Checklist icon"
+              className="mb-4"
+              width={32}
+              height={32}
+            />
+
+            <p className="font-bold mb-4">
+              Become a leading and certified coaching expert for your personal and professional
+              relationships
+            </p>
+          </div>
+
+          <div>
+            <Image
+              src="/images/IATWebinar/icon-2-certification.svg"
+              alt="Membership Certification icon"
+              className="mb-4"
+              width={40}
+              height={40}
+            />
+
+            <p className="font-bold mb-4">
+              Use powerful yet simple tools that actually change people’s lives and relationships
+              immediately
+            </p>
+          </div>
+
+          <div>
+            <Image
+              src="/images/IATWebinar/icon-3-climbing-up.svg"
+              alt="Climbing up profits icon"
+              className="mb-4"
+              width={32}
+              height={32}
+            />
+
+            <p className="font-bold mb-4">
+              Explore career growth and opportunities while experiencing financial freedom
+            </p>
+          </div>
+
+          <div>
+            <Image
+              src="/images/IATWebinar/icon-4-toolbox.svg"
+              alt="Toolbox icon"
+              className="mb-4"
+              width={36}
+              height={36}
+            />
+
+            <p className="font-bold mb-4">
+              Make a bigger, positive, and empowering impact in the community and the entire world
+            </p>
+          </div>
+
+          <div>
+            <Image
+              src="/images/IATWebinar/icon-5-recognition.svg"
+              alt="Social recongition icon"
+              className="mb-4"
+              width={32}
+              height={32}
+            />
+
+            <p className="font-bold mb-4">
+              Gain access to a supportive community to develop and evolve your skills and knowledge
+            </p>
+          </div>
+
+          <div>
+            <Image
+              src="/images/IATWebinar/icon-6-community.svg"
+              alt="Growing community icon"
+              className="mb-4"
+              width={40}
+              height={40}
+            />
+
+            <p className="font-bold mb-4">
+              Learn Live in a virtual classroom experience or at your own pace and timetable
+            </p>
+          </div>
+        </div>
+      </Section>
+
       <Section className="bg-black" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="text-white text-left">
           <h2 className="mb-4">Talk to an IAT™ Coaching Specialist</h2>
@@ -106,7 +217,7 @@ export default function IATWebinarSqueezePage() {
             'Enjoy an additional discount when you sign up via our IAT™ Coaching Specialist',
           ].map((item, idx) => (
             <p key={idx} className="flex mb-4">
-              <span className="flex !w-7 !h-7 items-center justify-center bg-primary !rounded-full mr-4">
+              <span className="flex !w-7 !h-7 items-center justify-center bg-primary !rounded-full p-1 mr-4">
                 {idx + 1}
               </span>
 
@@ -120,8 +231,207 @@ export default function IATWebinarSqueezePage() {
         </div>
       </Section>
 
-      <Section className="max-w-full !py-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
+      <Section classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <IATPricingCard
+          cardDetails={{
+            liveLogo: true,
+            title: 'Live Training',
+            currentPrice: '$6,000.00',
+            originalPrice: '$2,699.00',
+            limitedTimeLabel: 'Limited Time Only',
+            subheader: 'Unleash Your Coaching Potential with this Interactive Experience',
+            copy: 'Join weekly practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
+            perks: [
+              '12-Week Comprehensive Live Program',
+              '8 Weeks of Intensive Training with Thais Gibson',
+              'Immersive & Engaging Classroom Experience',
+              'Designed for All Levels of Expertise',
+            ],
+          }}
+          pricingMenu={[
+            {
+              label: 'ONE TIME PAYMENT',
+              price: '$2,699.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3947152&coupon=iatwebinarfall24',
+            },
+            {
+              label: '3 MONTH PAYMENT PLAN',
+              price: '$922.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948537&coupon=iatwebinarfall243mnth',
+            },
+            {
+              label: '3 MONTH PAYMENT PLAN',
+              price: '$472.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948538&coupon=iatwebinarfall246mnth',
+            },
+            {
+              label: '12 MONTH PAYMENT PLAN',
+              price: '$247.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948539&coupon=iatwebinarfall2412mnth',
+            },
+          ]}
+        />
+        <IATPricingCard
+          cardDetails={{
+            title: 'On Demand',
+            currentPrice: '$3,399.00',
+            originalPrice: '$1,699.00',
+            subheader: 'Ignite Your Career & Finances With a Self-Paced Format',
+            copy: "The perfect format for self-paced learners or those who can't make the weekly sessions. Get access to the same features as the Live Program IAT™, including pre-recorded video modules, essential client resources, and business materials to build your coaching practice. You can enroll for this Program at any time.",
+            perks: [
+              'Pre-Recorded & Detailed Video Modules',
+              'Self-Paced & Flexible Format',
+              'Monthly Payment Plans Available',
+              'Additional Prerequisites Courses',
+            ],
+          }}
+          pricingMenu={[
+            {
+              label: 'ONE TIME PAYMENT',
+              price: '$1,699.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarondemand',
+            },
+            {
+              label: '3 MONTH PAYMENT PLAN',
+              price: '$577.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinar3mnthondemand',
+            },
+            {
+              label: '3 MONTH PAYMENT PLAN',
+              price: '$312.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinar6mnthondemand',
+            },
+            {
+              label: '12 MONTH PAYMENT PLAN',
+              price: '$169.00',
+              checkout:
+                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinar12mnthondemand',
+            },
+          ]}
+        />
+      </Section>
+
+      <Section className="max-w-full !p-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
+        <h2 className="mb-4">This How You Can Be Transforming Lives</h2>
+
+        <p className="mb-8">Just Like The Personal Development School</p>
+
         <CarouselTestimonialThinkific initialSlide={1} />
+      </Section>
+
+      <Section classNameInner="max-w-6xl bg-gradient-to-b from-beige-30 to-primary-light-25 rounded-xl mx-auto px-4 py-8">
+        <h2 className="mb-8">Discover Our Relationship Coaching Syllabus</h2>
+
+        <div className="grid grid-cols-1 gap-4 text-left lg:grid-cols-2">
+          <div>
+            <h3>
+              <span className="mr-2">
+                <FontAwesomeIcon icon={faSquare1} />
+              </span>
+              Prerequisite Week 1 - 4
+            </h3>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week One: The Handbook For A Better Life</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Two: Emotional Mastery & Belief Reprogramming Course Part 1</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Three: Emotional Mastery & Belief Reprogramming Course Part 2</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Four: Discover, Embrace And Fulfill Your Personal Needs</p>
+            </div>
+
+            <h3 className="mt-8">
+              <span className="mr-2">
+                <FontAwesomeIcon icon={faSquare2} />
+              </span>
+              Intensive Training Week 5 - 12
+            </h3>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Five: Mastering The Basics</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Six: Gibson Integrated Attachment Theory™</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Seven: Identifying Core Wounds & Secret Of The Subconscious</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Eight: Reprogramming Your Client’s Attachment Style</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>
+                Week Nine: Understanding Subconscious Needs & Forming Healthy Relationship Habits
+              </p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Ten: Activating, Deactivating & Mastering Conflict Resolution</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Eleven: Unlocking Deeper Connection</p>
+            </div>
+
+            <div className="border-t border-black mt-4 pt-4">
+              <p>Week Twelve: Build A Thriving Business</p>
+            </div>
+          </div>
+
+          <div className="h-fit bg-white shadow-md rounded-xl p-4">
+            <Image
+              width={588}
+              height={334}
+              alt="Thumbnail for IAT webinar"
+              src="/images/IATWebinar/iat-webinar-thumbnail.jpg"
+            />
+
+            <div className="border-b border-black pt-4 my-4">
+              <h3>About this Training</h3>
+            </div>
+
+            <div className="text-left">
+              <p className="mb-4">
+                <span>
+                  <FontAwesomeIcon className="text-primary mr-2" icon={faFileLines} />
+                </span>
+                73 Lessons
+              </p>
+
+              <p className="mb-4">
+                <span>
+                  <FontAwesomeIcon className="text-primary mr-2" icon={faFileVideo} />
+                </span>
+                37.5 Hours of Video Content
+              </p>
+
+              <p>
+                <span>
+                  <FontAwesomeIcon className="text-primary mr-2" icon={faDiagramSuccessor} />
+                </span>
+                Lifetime Access to PDS
+              </p>
+            </div>
+          </div>
+        </div>
       </Section>
     </Page>
   )

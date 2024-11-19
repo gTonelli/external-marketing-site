@@ -9,7 +9,7 @@ import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { IATPricingCard } from '@/components/IATPricingCard'
+import { IATPricingCard, TIATCardDetails, TIATPriceOption } from '@/components/IATPricingCard'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import {
   faDiagramSuccessor,
@@ -24,6 +24,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { getOfferEndDate } from '@/utils/functions'
 // style
 import './style.css'
+import {
+  faArrowUpRightDots,
+  faEarthAmericas,
+  faFileCertificate,
+  faLaptop,
+  faMoneyBill1Wave,
+  faPeopleGroup,
+  faScrewdriverWrench,
+} from '@awesome.me/kit-545b942488/icons/classic/light'
 
 const trustbarSlides = [
   'mel-robbins-logo.png',
@@ -31,6 +40,93 @@ const trustbarSlides = [
   'new-york-post-logo.png',
   'ceo-weekly-logo.png',
   'yahoo-logo.png',
+]
+
+const IATLiveCardDetails: TIATCardDetails = {
+  liveLogo: true,
+  title: 'Live Training',
+  originalPrice: '$6,000.00',
+  originalPriceLabel: '(50% off)',
+  discount: '$2,999.00',
+  discountLabel: '($300 Masterclass Discount)',
+  currentPrice: '$2,699.00',
+  limitedTimeLabel: 'Limited Time Only',
+  subheader: 'Unleash Your Coaching Potential with this Interactive Experience',
+  copy: 'Join weekly practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
+  perks: [
+    '12-Week Comprehensive Live Program',
+    '8 Weeks of Intensive Training with Thais Gibson',
+    'Immersive & Engaging Classroom Experience',
+    'Designed for All Levels of Expertise',
+  ],
+}
+
+const IATLiveCardPricing: TIATPriceOption[] = [
+  {
+    label: 'ONE TIME PAYMENT',
+    price: '$2,699.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3947152&coupon=iatwebinarfall24',
+  },
+  {
+    label: '3 MONTH PAYMENT PLAN',
+    price: '$922.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948537&coupon=iatwebinarfall243mnth',
+  },
+  {
+    label: '3 MONTH PAYMENT PLAN',
+    price: '$472.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948538&coupon=iatwebinarfall246mnth',
+  },
+  {
+    label: '12 MONTH PAYMENT PLAN',
+    price: '$247.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948539&coupon=iatwebinarfall2412mnth',
+  },
+]
+
+const OnDemandIATCardDetails: TIATCardDetails = {
+  title: 'On Demand',
+  originalPrice: '$3,399.00',
+  currentPrice: '$1,699.00',
+  subheader: 'Ignite Your Career & Finances With a Self-Paced Format',
+  copy: "The perfect format for self-paced learners or those who can't make the weekly sessions. Get access to the same features as the Live Program IAT™, including pre-recorded video modules, essential client resources, and business materials to build your coaching practice. You can enroll for this Program at any time.",
+  perks: [
+    'Pre-Recorded & Detailed Video Modules',
+    'Self-Paced & Flexible Format',
+    'Monthly Payment Plans Available',
+    'Additional Prerequisites Courses',
+  ],
+}
+
+const OnDemandIATCardPricing: TIATPriceOption[] = [
+  {
+    label: 'ONE TIME PAYMENT',
+    price: '$1,699.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarondemand',
+  },
+  {
+    label: '3 MONTH PAYMENT PLAN',
+    price: '$577.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinar3mnthondemand',
+  },
+  {
+    label: '3 MONTH PAYMENT PLAN',
+    price: '$312.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinar6mnthondemand',
+  },
+  {
+    label: '12 MONTH PAYMENT PLAN',
+    price: '$169.00',
+    checkout:
+      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinar12mnthondemand',
+  },
 ]
 
 export default function IATWebinarSqueezePage() {
@@ -74,11 +170,11 @@ export default function IATWebinarSqueezePage() {
       </Section>
 
       <Section
-        className="bg-hero w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        className="bg-watch w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
         classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
         <div className="bg-gradient lg:hidden" />
 
-        <div className="bg-hero-mobile lg:hidden" />
+        <div className="bg-watch-mobile lg:hidden" />
 
         <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
           <h2 className="mb-8">Ready to Become a Certified & 6-Figure Relationship Coach?</h2>
@@ -112,15 +208,9 @@ export default function IATWebinarSqueezePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 text-left my-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 text-left my-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div>
-            <Image
-              src="/images/IATWebinar/icon-1-checklist.svg"
-              alt="Checklist icon"
-              className="mb-4"
-              width={32}
-              height={32}
-            />
+            <FontAwesomeIcon icon={faFileCertificate} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
               Become a leading and certified coaching expert for your personal and professional
@@ -129,13 +219,7 @@ export default function IATWebinarSqueezePage() {
           </div>
 
           <div>
-            <Image
-              src="/images/IATWebinar/icon-2-certification.svg"
-              alt="Membership Certification icon"
-              className="mb-4"
-              width={40}
-              height={40}
-            />
+            <FontAwesomeIcon icon={faScrewdriverWrench} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
               Use powerful yet simple tools that actually change people’s lives and relationships
@@ -144,13 +228,7 @@ export default function IATWebinarSqueezePage() {
           </div>
 
           <div>
-            <Image
-              src="/images/IATWebinar/icon-3-climbing-up.svg"
-              alt="Climbing up profits icon"
-              className="mb-4"
-              width={32}
-              height={32}
-            />
+            <FontAwesomeIcon icon={faMoneyBill1Wave} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
               Explore career growth and opportunities while experiencing financial freedom
@@ -158,13 +236,7 @@ export default function IATWebinarSqueezePage() {
           </div>
 
           <div>
-            <Image
-              src="/images/IATWebinar/icon-4-toolbox.svg"
-              alt="Toolbox icon"
-              className="mb-4"
-              width={36}
-              height={36}
-            />
+            <FontAwesomeIcon icon={faEarthAmericas} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
               Make a bigger, positive, and empowering impact in the community and the entire world
@@ -172,13 +244,7 @@ export default function IATWebinarSqueezePage() {
           </div>
 
           <div>
-            <Image
-              src="/images/IATWebinar/icon-5-recognition.svg"
-              alt="Social recongition icon"
-              className="mb-4"
-              width={32}
-              height={32}
-            />
+            <FontAwesomeIcon icon={faPeopleGroup} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
               Gain access to a supportive community to develop and evolve your skills and knowledge
@@ -186,16 +252,18 @@ export default function IATWebinarSqueezePage() {
           </div>
 
           <div>
-            <Image
-              src="/images/IATWebinar/icon-6-community.svg"
-              alt="Growing community icon"
-              className="mb-4"
-              width={40}
-              height={40}
-            />
+            <FontAwesomeIcon icon={faLaptop} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
               Learn Live in a virtual classroom experience or at your own pace and timetable
+            </p>
+          </div>
+
+          <div>
+            <FontAwesomeIcon icon={faArrowUpRightDots} className="text-primary mb-2" size="2x" />
+
+            <p className="font-bold mb-4">
+              Level up your training, whether you have experience as a therapist or zero experience
             </p>
           </div>
         </div>
@@ -231,91 +299,15 @@ export default function IATWebinarSqueezePage() {
         </div>
       </Section>
 
-      <Section classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <IATPricingCard
-          cardDetails={{
-            liveLogo: true,
-            title: 'Live Training',
-            currentPrice: '$6,000.00',
-            originalPrice: '$2,699.00',
-            limitedTimeLabel: 'Limited Time Only',
-            subheader: 'Unleash Your Coaching Potential with this Interactive Experience',
-            copy: 'Join weekly practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
-            perks: [
-              '12-Week Comprehensive Live Program',
-              '8 Weeks of Intensive Training with Thais Gibson',
-              'Immersive & Engaging Classroom Experience',
-              'Designed for All Levels of Expertise',
-            ],
-          }}
-          pricingMenu={[
-            {
-              label: 'ONE TIME PAYMENT',
-              price: '$2,699.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3947152&coupon=iatwebinarfall24',
-            },
-            {
-              label: '3 MONTH PAYMENT PLAN',
-              price: '$922.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948537&coupon=iatwebinarfall243mnth',
-            },
-            {
-              label: '3 MONTH PAYMENT PLAN',
-              price: '$472.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948538&coupon=iatwebinarfall246mnth',
-            },
-            {
-              label: '12 MONTH PAYMENT PLAN',
-              price: '$247.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948539&coupon=iatwebinarfall2412mnth',
-            },
-          ]}
-        />
-        <IATPricingCard
-          cardDetails={{
-            title: 'On Demand',
-            currentPrice: '$3,399.00',
-            originalPrice: '$1,699.00',
-            subheader: 'Ignite Your Career & Finances With a Self-Paced Format',
-            copy: "The perfect format for self-paced learners or those who can't make the weekly sessions. Get access to the same features as the Live Program IAT™, including pre-recorded video modules, essential client resources, and business materials to build your coaching practice. You can enroll for this Program at any time.",
-            perks: [
-              'Pre-Recorded & Detailed Video Modules',
-              'Self-Paced & Flexible Format',
-              'Monthly Payment Plans Available',
-              'Additional Prerequisites Courses',
-            ],
-          }}
-          pricingMenu={[
-            {
-              label: 'ONE TIME PAYMENT',
-              price: '$1,699.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarondemand',
-            },
-            {
-              label: '3 MONTH PAYMENT PLAN',
-              price: '$577.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinar3mnthondemand',
-            },
-            {
-              label: '3 MONTH PAYMENT PLAN',
-              price: '$312.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinar6mnthondemand',
-            },
-            {
-              label: '12 MONTH PAYMENT PLAN',
-              price: '$169.00',
-              checkout:
-                'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinar12mnthondemand',
-            },
-          ]}
-        />
+      <Section>
+        <div id="pricing" className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <IATPricingCard cardDetails={IATLiveCardDetails} pricingMenu={IATLiveCardPricing} />
+
+          <IATPricingCard
+            cardDetails={OnDemandIATCardDetails}
+            pricingMenu={OnDemandIATCardPricing}
+          />
+        </div>
       </Section>
 
       <Section className="max-w-full !p-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
@@ -401,7 +393,7 @@ export default function IATWebinarSqueezePage() {
               width={588}
               height={334}
               alt="Thumbnail for IAT webinar"
-              src="/images/IATWebinar/iat-webinar-thumbnail.jpg"
+              src="/images/IATWebinar/iat-winter-2025.jpg"
             />
 
             <div className="border-b border-black pt-4 my-4">

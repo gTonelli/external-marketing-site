@@ -11,10 +11,13 @@ import { faChevronLeft, faCircle } from '@awesome.me/kit-545b942488/icons/classi
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-type TCardDetails = {
+export type TIATCardDetails = {
   liveLogo?: boolean
   title: string
   originalPrice: string
+  originalPriceLabel?: string
+  discount?: string
+  discountLabel?: string
   currentPrice: string
   limitedTimeLabel?: string
   subheader?: string
@@ -22,15 +25,15 @@ type TCardDetails = {
   perks: string[]
 }
 
-type TPriceOption = {
+export type TIATPriceOption = {
   price: string
   label: string
   checkout: string
 }
 
 interface IIATPricingCardProps {
-  pricingMenu: TPriceOption[]
-  cardDetails: TCardDetails
+  pricingMenu: TIATPriceOption[]
+  cardDetails: TIATCardDetails
 }
 
 export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProps) => {
@@ -54,7 +57,17 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
         <h2>{cardDetails.title}</h2>
 
         <div className="text-center border-t border-b border-black py-4">
-          <p className="line-through mb-2">{cardDetails.originalPrice}</p>
+          <p className="mb-2">
+            <span className="line-through">{cardDetails.originalPrice}</span>{' '}
+            {cardDetails.originalPriceLabel}
+          </p>
+
+          {cardDetails.discount && (
+            <p className="mb-2">
+              <span className="line-through">{cardDetails.discount}</span>{' '}
+              {cardDetails.discountLabel}
+            </p>
+          )}
 
           <h3 className="text-green-check">{cardDetails.currentPrice}</h3>
         </div>
@@ -117,6 +130,19 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
       </div>
 
       <h2 className="mb-4">{cardDetails.title}</h2>
+
+      <p className="mb-2">
+        <span className="line-through">{cardDetails.originalPrice}</span>{' '}
+        {cardDetails.originalPriceLabel}
+      </p>
+
+      {cardDetails.discount && (
+        <p className="mb-2">
+          <span className="line-through">{cardDetails.discount}</span> {cardDetails.discountLabel}
+        </p>
+      )}
+
+      <h3 className="text-green-check mb-4">{cardDetails.currentPrice}</h3>
 
       <div className="mb-4">
         <p className="mb-4">{cardDetails.copy}</p>

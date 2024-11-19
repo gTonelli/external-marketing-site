@@ -188,7 +188,7 @@ function generateResponse({
   sessionDataConfig,
 }: IGenerateResponse) {
   if (showVariant) {
-    let path = variantUrl.path || request.nextUrl.pathname
+    let path = variantUrl?.path || request.nextUrl.pathname
     if (controlUrl?.urlParams) {
       const params = request.nextUrl.pathname.split('/')
       for (const param of controlUrl.urlParams) {
@@ -199,7 +199,9 @@ function generateResponse({
     }
 
     if (Boolean(searchParams.toString())) path += `?${searchParams.toString()}`
-    const response = NextResponse.redirect(new URL(path, variantUrl.base || request.nextUrl.origin))
+    const response = NextResponse.redirect(
+      new URL(path, variantUrl?.base || request.nextUrl.origin)
+    )
 
     let sessionCookie = ''
     if (sessionDataConfig) {
@@ -273,12 +275,11 @@ export const splitTestConfigs: TSplitTestConfigs = {
     pageName: 'Checkout',
     experimentName: 'Checkout V2 Test (Site Wide)',
     controlUrl: {
-      base: 'https://university.personaldevelopmentschool.com',
+      base: process.env.NEXT_PUBLIC_THINKIFIC_URL,
       urlParams: ['product_id'],
     },
     variantUrl: {
-      base: 'https://university.personaldevelopmentschool.com',
-      path: '/pages/checkout',
+      base: process.env.NEXT_PUBLIC_THINKIFIC_URL,
     },
     sessionDataConfig: {
       name: '_checkout_session',

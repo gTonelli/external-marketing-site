@@ -110,7 +110,7 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
             Go Back
           </p>
 
-          <CheckoutButton label="SIGN UP NOW" link={pricingMenu[currentOption].checkout} />
+          <CheckoutButton label="SIGN UP NOW" href={pricingMenu[currentOption].checkout} />
         </div>
       </div>
     )

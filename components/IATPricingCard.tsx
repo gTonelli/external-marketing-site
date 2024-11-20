@@ -63,7 +63,7 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
             </p>
           ))}
 
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center flex-wrap">
             <h3 className="text-green-check mr-2">{cardDetails.currentPrice}</h3>
 
             {cardDetails.currentPriceLabel && <p>{cardDetails.currentPriceLabel}</p>}
@@ -139,7 +139,7 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
         </p>
       ))}
 
-      <div className="flex items-center mb-4">
+      <div className="flex items-center flex-wrap mb-4">
         <h3 className="text-green-check mr-2">{cardDetails.currentPrice}</h3>
 
         {cardDetails.currentPriceLabel && <p>{cardDetails.currentPriceLabel}</p>}

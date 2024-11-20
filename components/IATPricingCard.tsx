@@ -14,12 +14,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export type TIATCardDetails = {
   liveLogo?: boolean
   title: string
-  originalPrice: string
-  originalPriceLabel?: string
-  discount?: string
-  discountLabel?: string
+  originalPrice: { price: string; label?: string }[]
   currentPrice: string
-  limitedTimeLabel?: string
+  currentPriceLabel?: string
+  discount?: string
   subheader?: string
   copy?: string
   perks: string[]
@@ -57,19 +55,21 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
         <h2>{cardDetails.title}</h2>
 
         <div className="text-center border-t border-b border-black py-4">
-          <p className="mb-2">
-            <span className="line-through">{cardDetails.originalPrice}</span>{' '}
-            {cardDetails.originalPriceLabel}
-          </p>
+          {cardDetails.originalPrice.map((entry, idx) => (
+            <p key={idx} className="mb-2">
+              <span className="line-through mr-2">{entry.price}</span>
 
-          {cardDetails.discount && (
-            <p className="mb-2">
-              <span className="line-through">{cardDetails.discount}</span>{' '}
-              {cardDetails.discountLabel}
+              {entry.label && <span>{entry.label}</span>}
             </p>
-          )}
+          ))}
 
-          <h3 className="text-green-check">{cardDetails.currentPrice}</h3>
+          <div className="flex justify-center items-center">
+            <h3 className="text-green-check mr-2">{cardDetails.currentPrice}</h3>
+
+            {cardDetails.currentPriceLabel && <p>{cardDetails.currentPriceLabel}</p>}
+          </div>
+
+          {cardDetails.discount && <p className="font-bold tracking-33">{cardDetails.discount}</p>}
         </div>
 
         <div className="py-6">
@@ -131,18 +131,21 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
 
       <h2 className="mb-4">{cardDetails.title}</h2>
 
-      <p className="mb-2">
-        <span className="line-through">{cardDetails.originalPrice}</span>{' '}
-        {cardDetails.originalPriceLabel}
-      </p>
+      {cardDetails.originalPrice.map((entry, idx) => (
+        <p key={idx} className="mb-2">
+          <span className="line-through mr-2">{entry.price}</span>
 
-      {cardDetails.discount && (
-        <p className="mb-2">
-          <span className="line-through">{cardDetails.discount}</span> {cardDetails.discountLabel}
+          {entry.label && <span> {entry.label} </span>}
         </p>
-      )}
+      ))}
 
-      <h3 className="text-green-check mb-4">{cardDetails.currentPrice}</h3>
+      <div className="flex items-center mb-4">
+        <h3 className="text-green-check mr-2">{cardDetails.currentPrice}</h3>
+
+        {cardDetails.currentPriceLabel && <p>{cardDetails.currentPriceLabel}</p>}
+      </div>
+
+      {cardDetails.discount && <p className="font-bold tracking-33 mb-4">{cardDetails.discount}</p>}
 
       <div className="mb-4">
         <p className="mb-4">{cardDetails.copy}</p>

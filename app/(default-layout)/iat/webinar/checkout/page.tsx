@@ -33,6 +33,7 @@ import {
   faPeopleGroup,
   faScrewdriverWrench,
 } from '@awesome.me/kit-545b942488/icons/classic/light'
+import { EExternalRoutes } from '@/utils/constants'
 
 const trustbarSlides = [
   'mel-robbins-logo.png',
@@ -45,12 +46,14 @@ const trustbarSlides = [
 const IATLiveCardDetails: TIATCardDetails = {
   liveLogo: true,
   title: 'Live Training',
-  originalPrice: '$6,000.00',
-  originalPriceLabel: '(50% off)',
-  discount: '$2,999.00',
-  discountLabel: '($300 Masterclass Discount)',
-  currentPrice: '$2,699.00',
-  limitedTimeLabel: 'Limited Time Only',
+  originalPrice: [
+    { price: '$7,000' },
+    { price: '$3,499', label: '(50%)' },
+    { price: '$3,299', label: '(SPECIALIST CALL DISCOUNT)' },
+  ],
+  currentPrice: '$2,999.00',
+  currentPriceLabel: '($300 Masterclass Discount)',
+  discount: 'TOTAL SAVINGS: $4,000',
   subheader: 'Unleash Your Coaching Potential with this Interactive Experience',
   copy: 'Join weekly practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
   perks: [
@@ -61,37 +64,12 @@ const IATLiveCardDetails: TIATCardDetails = {
   ],
 }
 
-const IATLiveCardPricing: TIATPriceOption[] = [
-  {
-    label: 'ONE TIME PAYMENT',
-    price: '$2,699.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3947152&coupon=iatwebinarfall24',
-  },
-  {
-    label: '3 MONTH PAYMENT PLAN',
-    price: '$922.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948537&coupon=iatwebinarfall243mnth',
-  },
-  {
-    label: '3 MONTH PAYMENT PLAN',
-    price: '$472.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948538&coupon=iatwebinarfall246mnth',
-  },
-  {
-    label: '12 MONTH PAYMENT PLAN',
-    price: '$247.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/3011609?price_id=3948539&coupon=iatwebinarfall2412mnth',
-  },
-]
-
 const OnDemandIATCardDetails: TIATCardDetails = {
   title: 'On Demand',
-  originalPrice: '$3,399.00',
-  currentPrice: '$1,699.00',
+  originalPrice: [{ price: '$4,000' }, { price: '$1,999', label: '(50%)' }],
+  currentPrice: '$1,799.00',
+  currentPriceLabel: '(Masterclass Discount)',
+  discount: 'TOTAL SAVINGS: $2,200',
   subheader: 'Ignite Your Career & Finances With a Self-Paced Format',
   copy: "The perfect format for self-paced learners or those who can't make the weekly sessions. Get access to the same features as the Live Program IAT™, including pre-recorded video modules, essential client resources, and business materials to build your coaching practice. You can enroll for this Program at any time.",
   perks: [
@@ -102,30 +80,49 @@ const OnDemandIATCardDetails: TIATCardDetails = {
   ],
 }
 
+const IATLiveCardPricing: TIATPriceOption[] = [
+  {
+    label: 'ONE TIME PAYMENT',
+    price: '$2,999.00',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT,
+  },
+  {
+    label: '3 MONTH PAYMENT PLAN',
+    price: '$1,039.00',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN,
+  },
+  {
+    label: '3 MONTH PAYMENT PLAN',
+    price: '$539.00',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN,
+  },
+  {
+    label: '12 MONTH PAYMENT PLAN',
+    price: '$289.00',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN,
+  },
+]
+
 const OnDemandIATCardPricing: TIATPriceOption[] = [
   {
     label: 'ONE TIME PAYMENT',
-    price: '$1,699.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarondemand',
+    price: '$1,799.00',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT,
   },
   {
     label: '3 MONTH PAYMENT PLAN',
-    price: '$577.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinar3mnthondemand',
+    price: '$619.00',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN,
   },
   {
     label: '3 MONTH PAYMENT PLAN',
-    price: '$312.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinar6mnthondemand',
+    price: '$319.00',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN,
   },
   {
     label: '12 MONTH PAYMENT PLAN',
     price: '$169.00',
-    checkout:
-      'https://university.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinar12mnthondemand',
+    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN,
   },
 ]
 
@@ -140,7 +137,9 @@ export default function IATWebinarSqueezePage() {
         <div className="bg-hero-mobile lg:hidden" />
 
         <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
-          <p className="mb-4 tracking-33">UNLEASH YOUR SPECIAL $300 MASTERCLASS DISCOUNT</p>
+          <p className="font-bold mb-4 tracking-33">
+            UNLEASH YOUR SPECIAL $300 MASTERCLASS DISCOUNT
+          </p>
 
           <h1 className="mb-4">
             <span className="text-primary">Transform Lives</span> & Secure Your Financial Future
@@ -188,7 +187,6 @@ export default function IATWebinarSqueezePage() {
               '30+ Hours of Groundbreaking Training',
               'Exclusive Results-Proven Business Strategies',
               'Lifetime Access to Coaching & Business Resources',
-              'Exclusive Membership to The Personal Development School',
               'Recognized and Accredited Certification',
               '100% Remote Learning Across the Globe',
               'Lively & Supportive Online Community',
@@ -231,7 +229,8 @@ export default function IATWebinarSqueezePage() {
             <FontAwesomeIcon icon={faMoneyBill1Wave} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
-              Explore career growth and opportunities while experiencing financial freedom
+              Explore career growth and opportunities while experiencing financial freedom that
+              secures your future
             </p>
           </div>
 
@@ -255,7 +254,8 @@ export default function IATWebinarSqueezePage() {
             <FontAwesomeIcon icon={faLaptop} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
-              Learn Live in a virtual classroom experience or at your own pace and timetable
+              Learn Live in a virtual and dynamic classroom experience or at your own pace when it
+              suits you
             </p>
           </div>
 
@@ -263,9 +263,14 @@ export default function IATWebinarSqueezePage() {
             <FontAwesomeIcon icon={faArrowUpRightDots} className="text-primary mb-2" size="2x" />
 
             <p className="font-bold mb-4">
-              Level up your training, whether you have experience as a therapist or zero experience
+              Level up your relationship coaching training, whether you have expertise as a
+              professional or zero experience
             </p>
           </div>
+        </div>
+
+        <div className="flex">
+          <ButtonScroll label="START YOUR TRAINING" target="#pricing" />
         </div>
       </Section>
 
@@ -279,10 +284,9 @@ export default function IATWebinarSqueezePage() {
           </p>
 
           {[
-            'Choose a date and time and our IAT™ Coaching Specialist will call you',
+            'Choose a date and time for our IAT™ Coaching Specialist to call you',
             'Discuss your experience, current goals, and the IAT™ Programs',
             'Get all your questions answered and talk through the next steps',
-            'Enjoy an additional discount when you sign up via our IAT™ Coaching Specialist',
           ].map((item, idx) => (
             <p key={idx} className="flex mb-4">
               <span className="flex !w-7 !h-7 items-center justify-center bg-primary !rounded-full p-1 mr-4">
@@ -412,16 +416,11 @@ export default function IATWebinarSqueezePage() {
                 <span>
                   <FontAwesomeIcon className="text-primary mr-2" icon={faFileVideo} />
                 </span>
-                37.5 Hours of Video Content
-              </p>
-
-              <p>
-                <span>
-                  <FontAwesomeIcon className="text-primary mr-2" icon={faDiagramSuccessor} />
-                </span>
-                Lifetime Access to PDS
+                30+ Hours of Video and Live Content
               </p>
             </div>
+
+            <ButtonScroll className="mt-8" label="JOIN TODAY" target="#pricing" />
           </div>
         </div>
       </Section>

@@ -60,7 +60,7 @@ const IATLiveCardDetails: TIATCardDetails = {
   ],
   currentPrice: '$2,999.00',
   currentPriceLabel: '($300 Masterclass Discount)',
-  discount: 'TOTAL SAVINGS: $4,000',
+  discount: 'TOTAL SAVINGS: $4,001',
   subheader: 'Unleash Your Coaching Potential with this Interactive Experience',
   copy: 'Join weekly practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
   perks: [

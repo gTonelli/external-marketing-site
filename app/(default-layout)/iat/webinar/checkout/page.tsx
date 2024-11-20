@@ -35,7 +35,7 @@ import { EExternalRoutes } from '@/utils/constants'
 // style
 import './style.css'
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: 'Claim Your $300 IAT Masterclass Discount!',
   description:
     'Save $300 on the IAT Program by claiming your IAT Masterclass Discount within the next 72 hours! Hurry, time is running out for this exclusive one-time offer!',

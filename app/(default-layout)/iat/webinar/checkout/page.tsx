@@ -1,4 +1,5 @@
 // core
+import { Metadata } from 'next'
 import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
@@ -12,18 +13,11 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { IATPricingCard, TIATCardDetails, TIATPriceOption } from '@/components/IATPricingCard'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import {
-  faDiagramSuccessor,
   faFileLines,
   faFileVideo,
   faSquare1,
   faSquare2,
 } from '@awesome.me/kit-545b942488/icons/classic/solid'
-// libraries
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// utils
-import { getOfferEndDate } from '@/utils/functions'
-// style
-import './style.css'
 import {
   faArrowUpRightDots,
   faEarthAmericas,
@@ -33,7 +27,20 @@ import {
   faPeopleGroup,
   faScrewdriverWrench,
 } from '@awesome.me/kit-545b942488/icons/classic/light'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// utils
+import { getOfferEndDate } from '@/utils/functions'
 import { EExternalRoutes } from '@/utils/constants'
+// style
+import './style.css'
+
+export const metaData: Metadata = {
+  title: 'Claim Your $300 IAT Masterclass Discount!',
+  description:
+    'Save $300 on the IAT Program by claiming your IAT Masterclass Discount within the next 72 hours! Hurry, time is running out for this exclusive one-time offer!',
+  robots: 'noindex',
+}
 
 const trustbarSlides = [
   'mel-robbins-logo.png',
@@ -49,7 +56,7 @@ const IATLiveCardDetails: TIATCardDetails = {
   originalPrice: [
     { price: '$7,000' },
     { price: '$3,499', label: '(50%)' },
-    { price: '$3,299', label: '(SPECIALIST CALL DISCOUNT)' },
+    { price: '$3,299', label: '(Specialist Call Discount)' },
   ],
   currentPrice: '$2,999.00',
   currentPriceLabel: '($300 Masterclass Discount)',
@@ -92,7 +99,7 @@ const IATLiveCardPricing: TIATPriceOption[] = [
     checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN,
   },
   {
-    label: '3 MONTH PAYMENT PLAN',
+    label: '6 MONTH PAYMENT PLAN',
     price: '$539.00',
     checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN,
   },
@@ -115,7 +122,7 @@ const OnDemandIATCardPricing: TIATPriceOption[] = [
     checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN,
   },
   {
-    label: '3 MONTH PAYMENT PLAN',
+    label: '6 MONTH PAYMENT PLAN',
     price: '$319.00',
     checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN,
   },

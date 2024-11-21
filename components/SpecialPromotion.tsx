@@ -27,11 +27,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-export const SpecialPromotionBody = () => {
+interface ISpecialPromotionBodyProps {
+  hideFirstSection?: boolean
+}
+
+export const SpecialPromotionBody = ({ hideFirstSection = false }: ISpecialPromotionBodyProps) => {
   return (
     <>
       <Section
-        className="2xl:py-24"
+        className={cx('2xl:py-24', hideFirstSection && 'hidden')}
         classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
         <div className="col-start-2 lg:text-left xl:max-w-">
           <MHAPageText
@@ -155,7 +159,7 @@ export const SpecialPromotionBody = () => {
                 '3X more self-confidence and fulfillment in their dating lives (if single).',
                 'A 50% improvement in their current relationship (if in a committed relationship).',
                 'A 40% improvement in their self-esteem and self-talk.',
-                '30% fewer anxiety and panic attacks than they had before. ',
+                '30% fewer anxiety and panic attacks than they had before.',
                 '90% success rate in forming a new habit within 21 days.',
               ]}
             />
@@ -179,12 +183,14 @@ export const SpecialPromotionBody = () => {
         </div>
 
         <MHAPageText
-          className="hidden text-left mb-0 lg:block"
+          className="hidden text-left mb-8 lg:block"
           content="Whether you need help building healthier habits, understanding where your toxic relationship 
                 patterns come from, or learning healthy coping mechanisms for dealing with your anxiety week to week, you’ll spend 
                 the next 14 days learning essential tools that will help you create the change you’re looking for in a short amount 
                 of time."
         />
+
+        <MHAButton label="JOIN & TRANSFORM LIFE!" />
       </Section>
 
       <Image

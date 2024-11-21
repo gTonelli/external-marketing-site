@@ -37,7 +37,7 @@ export const PaymentOptions = ({
           <h2 className="mt-3">{fourteenDayFT ? '14-Day Free Trial' : TH.HERO.offer.title}</h2>
 
           <p
-            className={`max-w-[336px] !text-sm mt-4 lg:block ${
+            className={`max-w-[336px] mt-4 lg:block ${
               placement === 'bottom' && 'hidden lg:block'
             }`}>
             {fourteenDayFT

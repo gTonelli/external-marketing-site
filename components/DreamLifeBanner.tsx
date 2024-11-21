@@ -34,7 +34,7 @@ export const DreamLifeBanner = ({ fourteenDayFT = false, pageName }: IDreamLifeB
         </h1>
 
         {fourteenDayFT && (
-          <p className="max-w-xl tracking-33 font-bold mx-auto">
+          <p className="max-w-xl tracking-33 font-bold text-xl mx-auto">
             YOUR ALL-IN-ONE PLATFORM FOR LOVE AND PERSONAL GROWTH
           </p>
         )}

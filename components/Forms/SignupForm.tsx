@@ -148,19 +148,23 @@ export const SignupForm = ({
           </div>
 
           {includePhoneField && (
-            <PhoneInput
-              value={values.phone}
-              className={`rounded-xl border items-center ${
-                touched.phone && errors.phone ? 'border-danger' : 'border-[#6b7280]'
-              }`}
-              inputClassName="!text-base !border-none !ml-2"
-              countrySelectorStyleProps={{ buttonClassName: '!border-none !ml-6' }}
-              name="phone"
-              placeholder="Phone Number"
-              onChange={(val) => {
-                setFieldValue('phone', val)
-              }}
-            />
+            <>
+              <PhoneInput
+                value={values.phone}
+                className={`rounded-xl bg-white border items-center ${
+                  touched.phone && errors.phone ? 'border-danger' : 'border-[#6b7280]'
+                }`}
+                inputClassName="!text-base !border-none !ml-2"
+                countrySelectorStyleProps={{ buttonClassName: '!border-none !ml-4' }}
+                name="phone"
+                placeholder="Phone Number (Optional)"
+                onChange={(val) => {
+                  setFieldValue('phone', val)
+                }}
+              />
+
+              {errors.phone && <div className="text-danger mb-2">{errors.phone}</div>}
+            </>
           )}
 
           <Button.Submit disabled={isSubmitting} label={submitButtonLabel || 'SUBMIT'} />
@@ -172,14 +176,27 @@ export const SignupForm = ({
   )
 }
 
-const SignupFormValidationSchema = yup
-  .object()
-  .shape({
-    firstName: yup.string().defined().ensure().required(' First name required'),
-    email: yup.string().defined().ensure().required('Email required'),
-    phone: yup.string().defined().ensure().min(10, 'A valid phone number is required'),
-  })
-  .defined()
+const SignupFormValidationSchema = yup.object().shape({
+  firstName: yup.string().defined().ensure().required(' First name required'),
+  email: yup.string().defined().ensure().required('Email required'),
+  phone: yup.string().when((value) => {
+    if (value)
+      return yup
+        .string()
+        .min(10, 'Please enter a valid phone number')
+        .max(10, 'Please enter a valid phone number')
+        .defined()
+        .ensure()
+    return yup
+      .string()
+      .transform((value, originalValue) => {
+        if (!value) return null
+        return originalValue
+      })
+      .nullable()
+      .optional()
+  }),
+})
 
 export interface ISignupFormSchema extends yup.InferType<typeof SignupFormValidationSchema> {}
 

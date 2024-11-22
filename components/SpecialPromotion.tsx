@@ -28,48 +28,50 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 interface ISpecialPromotionBodyProps {
-  hideFirstSection?: boolean
+  showFirstSection?: boolean
 }
 
-export const SpecialPromotionBody = ({ hideFirstSection = false }: ISpecialPromotionBodyProps) => {
+export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromotionBodyProps) => {
   return (
     <>
-      <Section
-        className={cx('2xl:py-24', hideFirstSection && 'hidden')}
-        classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
-        <div className="col-start-2 lg:text-left xl:max-w-">
-          <MHAPageText
-            className="lg:mt-0"
-            content="Does the same challenge or negative pattern keep surfacing in your life over and over again? Are you still having a hard time letting go of your ex or starting to date again? Or are you struggling to form a healthy new habit no matter how hard you try?"
-          />
+      {showFirstSection && (
+        <Section
+          className="2xl:py-24"
+          classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
+          <div className="col-start-2 lg:text-left xl:max-w-">
+            <MHAPageText
+              className="lg:mt-0"
+              content="Does the same challenge or negative pattern keep surfacing in your life over and over again? Are you still having a hard time letting go of your ex or starting to date again? Or are you struggling to form a healthy new habit no matter how hard you try?"
+            />
 
-          <MHAPageText
-            content="We get it might be hard to make big life changes. That's why we’re offering a helping hand – and for free, too. 
+            <MHAPageText
+              content="We get it might be hard to make big life changes. That's why we’re offering a helping hand – and for free, too. 
             We’re giving you 14 days of free access to ALL of our courses, live webinars, and online support groups to give you the 
             breakthrough you need to work through whatever’s been keeping you up at night."
-          />
+            />
 
-          <MHAPageText
-            className="lg:mb-0"
-            content="This free trial is your chance to get to the root of your biggest emotional challenges and 
+            <MHAPageText
+              className="lg:mb-0"
+              content="This free trial is your chance to get to the root of your biggest emotional challenges and 
             start feeling more confident, in control, and fulfilled in every aspect of your life."
+            />
+          </div>
+
+          <div className="lg:row-start-2 lg:col-span-2">
+            <MHAButton label="START YOUR FREE TRIAL NOW!" />
+
+            <p className="font-bold italic mt-3">* This offer is available for a limited time *</p>
+          </div>
+
+          <Image
+            alt="hero image"
+            className="w-full rounded-20 my-4 lg:my-0 lg:col-start-1 lg:row-start-1"
+            width={768}
+            height={513}
+            src="/images/BlackFridayPage/mha-hero.jpg"
           />
-        </div>
-
-        <div className="lg:row-start-2 lg:col-span-2">
-          <MHAButton label="START YOUR FREE TRIAL NOW!" />
-
-          <p className="font-bold italic mt-3">* This offer is available for a limited time *</p>
-        </div>
-
-        <Image
-          alt="hero image"
-          className="w-full rounded-20 my-4 lg:my-0 lg:col-start-1 lg:row-start-1"
-          width={768}
-          height={513}
-          src="/images/BlackFridayPage/mha-hero.jpg"
-        />
-      </Section>
+        </Section>
+      )}
 
       {/* YOUR ALL-ACCESS PASS IS THE QUICKEST AND MOST AFFRODABLE SECTION */}
       <Section className="text-white bg-black-secondary lg:pb-0 2xl:py-24 2xl:pb-0">

@@ -16,7 +16,7 @@ export default function BlackFridayVariant() {
     <Page className="w-full overflow-hidden" page_name="Black Friday Variant Page">
       <DreamLifeBanner fourteenDayFT pageName="BLACK FRIDAY" />
 
-      <SpecialPromotionBody hideFirstSection />
+      <SpecialPromotionBody showFirstSection={false} />
     </Page>
   )
 }

@@ -16,7 +16,7 @@ export default function CyberMondayVariant() {
     <Page className="w-full overflow-hidden" page_name="Cyber Monday Variant Page">
       <DreamLifeBanner fourteenDayFT pageName="CYBER MONDAY" />
 
-      <SpecialPromotionBody hideFirstSection />
+      <SpecialPromotionBody showFirstSection={false} />
     </Page>
   )
 }

@@ -2,10 +2,11 @@
 import Image from 'next/image'
 // components
 import { PaymentOptions } from './PaymentOptions'
+import { CheckoutButton } from './CheckoutButton'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
+// utils
 import { EExternalRoutes } from '@/utils/constants'
-import { CheckoutButton } from './CheckoutButton'
 
 interface IDreamLifeBanner {
   fourteenDayFT?: boolean

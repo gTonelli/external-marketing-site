@@ -341,21 +341,16 @@ export default function IATWebinarSqueezePage() {
               Prerequisite Week 1 - 4
             </h3>
 
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week One: The Handbook For A Better Life</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Two: Emotional Mastery & Belief Reprogramming Course Part 1</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Three: Emotional Mastery & Belief Reprogramming Course Part 2</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Four: Discover, Embrace And Fulfill Your Personal Needs</p>
-            </div>
+            {[
+              'Week One: The Handbook For A Better Life',
+              'Week Two: Emotional Mastery & Belief Reprogramming Course Part 1',
+              'Week Three: Emotional Mastery & Belief Reprogramming Course Part 2',
+              'Week Four: Discover, Embrace And Fulfill Your Personal Needs',
+            ].map((entry, idx) => (
+              <div key={idx} className="border-t border-black mt-4 pt-4">
+                <p>{entry}</p>
+              </div>
+            ))}
 
             <h3 className="mt-8">
               <span className="mr-2">
@@ -364,39 +359,20 @@ export default function IATWebinarSqueezePage() {
               Intensive Training Week 5 - 12
             </h3>
 
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Five: Mastering The Basics</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Six: Gibson Integrated Attachment Theory™</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Seven: Identifying Core Wounds & Secret Of The Subconscious</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Eight: Reprogramming Your Client’s Attachment Style</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>
-                Week Nine: Understanding Subconscious Needs & Forming Healthy Relationship Habits
-              </p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Ten: Activating, Deactivating & Mastering Conflict Resolution</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Eleven: Unlocking Deeper Connection</p>
-            </div>
-
-            <div className="border-t border-black mt-4 pt-4">
-              <p>Week Twelve: Build A Thriving Business</p>
-            </div>
+            {[
+              'Week Five: Mastering The Basics',
+              'Week Six: Gibson Integrated Attachment Theory™',
+              'Week Seven: Identifying Core Wounds & Secret Of The Subconscious',
+              'Week Eight: Reprogramming Your Client’s Attachment Style',
+              'Week Nine: Understanding Subconscious Needs & Forming Healthy Relationship Habits',
+              'Week Ten: Activating, Deactivating & Mastering Conflict Resolution',
+              'Week Eleven: Unlocking Deeper Connection',
+              'Week Twelve: Build A Thriving Business',
+            ].map((entry, idx) => (
+              <div key={idx} className="border-t border-black mt-4 pt-4">
+                <p>{entry}</p>
+              </div>
+            ))}
           </div>
 
           <div className="h-fit bg-white shadow-md rounded-xl p-4">

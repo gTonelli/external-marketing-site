@@ -50,6 +50,7 @@ export const IATWebinarForm = () => {
       </Dialog>
 
       <SignupForm
+        includePhoneField
         userTags={['mkt-iat-webinar-masterclass']}
         listIds={[54]}
         classNameSuccessMessage="w-fit bg-white rounded-lg p-2"

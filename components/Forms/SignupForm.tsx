@@ -14,10 +14,14 @@ import { IDefaultProps } from '..'
 import { Form, Formik, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
+import { PhoneInput } from 'react-international-phone'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
+// styles
+// style
+import 'react-international-phone/style.css'
 
 interface ISignupFormProps extends IDefaultProps {
   classNameFields?: string
@@ -37,6 +41,8 @@ interface ISignupFormProps extends IDefaultProps {
   classNameSuccessMessage?: string
   /** onSuccess callback function */
   onSuccess?: () => void
+  /** require Phone field on the form */
+  includePhoneField?: boolean
 }
 
 export const SignupForm = ({
@@ -49,6 +55,7 @@ export const SignupForm = ({
   submitButtonLabel,
   listIds,
   successMessage = 'Thank you for your submission!',
+  includePhoneField,
   onSuccess,
 }: ISignupFormProps) => {
   // =========== State =========
@@ -122,7 +129,7 @@ export const SignupForm = ({
       validateOnBlur={false}
       validationSchema={SignupFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ isSubmitting }) => (
+      {({ isSubmitting, setFieldValue, values, touched, errors }) => (
         <Form className={cx('w-full flex-col', className)} id={id}>
           <div className={cx('flex flex-col xxs:flex-row gap-x-4 mb-4 max-w-2xl', classNameFields)}>
             <Input.Field
@@ -140,6 +147,22 @@ export const SignupForm = ({
             />
           </div>
 
+          {includePhoneField && (
+            <PhoneInput
+              value={values.phone}
+              className={`rounded-xl border items-center ${
+                touched.phone && errors.phone ? 'border-danger' : 'border-[#6b7280]'
+              }`}
+              inputClassName="!text-base !border-none !ml-2"
+              countrySelectorStyleProps={{ buttonClassName: '!border-none !ml-6' }}
+              name="phone"
+              placeholder="Phone Number"
+              onChange={(val) => {
+                setFieldValue('phone', val)
+              }}
+            />
+          )}
+
           <Button.Submit disabled={isSubmitting} label={submitButtonLabel || 'SUBMIT'} />
 
           {errorMessage && <p className="mt-2 font-bold text-danger">{errorMessage}</p>}
@@ -154,6 +177,7 @@ const SignupFormValidationSchema = yup
   .shape({
     firstName: yup.string().defined().ensure().required(' First name required'),
     email: yup.string().defined().ensure().required('Email required'),
+    phone: yup.string().defined().ensure().min(10, 'A valid phone number is required'),
   })
   .defined()
 

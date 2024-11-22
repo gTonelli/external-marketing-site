@@ -1,20 +1,24 @@
-// components
+// core
 import Image from 'next/image'
+// components
 import { PaymentOptions } from './PaymentOptions'
+import { faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { EExternalRoutes } from '@/utils/constants'
 
 interface ICommunityTeaserProps {
   includePaymentOptions?: boolean
   teaserHeading?: string
+  checkoutUrl?: EExternalRoutes
 }
 
 export const CommunityTeaser = ({
   includePaymentOptions = true,
   teaserHeading = TH.COMMUNITY.bullets.heading,
+  checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
 }: ICommunityTeaserProps) => {
   return (
     <>
@@ -29,7 +33,7 @@ export const CommunityTeaser = ({
 
       <section className="w-full bg-black px-4 py-20">
         <div className="max-w-5xl text-center text-white mx-auto">
-          <h1 className="max-w-xl mx-auto">{TH.COMMUNITY.heading}</h1>
+          <h2 className="max-w-xl mx-auto">{TH.COMMUNITY.heading}</h2>
 
           <div className="flex row justify-between space-x-4 mt-12 overflow-x-auto scrollbar-hide lg:mt-15">
             {TH.COMMUNITY.cards.map((card, index) => (
@@ -54,7 +58,7 @@ export const CommunityTeaser = ({
           </div>
 
           <div className="mt-12 lg:mt-[70px]">
-            <h1 className="text-center lg:text-left">{teaserHeading}</h1>
+            <h2 className="text-center lg:text-left">{teaserHeading}</h2>
 
             <div className="flex flex-col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:flex-row md:mt-20">
               <div>
@@ -89,7 +93,7 @@ export const CommunityTeaser = ({
 
           {includePaymentOptions && (
             <div className="mt-24">
-              <PaymentOptions placement="bottom" />
+              <PaymentOptions placement="bottom" checkoutUrl={checkoutUrl} />
             </div>
           )}
         </div>

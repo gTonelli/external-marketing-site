@@ -130,6 +130,16 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_WINTER_2025_3_MONTH_PLAN = '/enroll/3090108?price_id=3960150&coupon=iatbundle3molivewinter25',
   THINKIFIC_CHECKOUT_IAT_WINTER_2025_6_MONTH_PLAN = '/enroll/3090108?price_id=3960151&coupon=iatbundle6molivewinter25',
   THINKIFIC_CHECKOUT_IAT_WINTER_2025_12_MONTH_PLAN = '/enroll/3090108?price_id=3960152&coupon=iatbundle12molivewinter25',
+  // IAT Recorded Webinar Winter 2025
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT = '/enroll/2463967?price_id=3951355&coupon=iatwebinarwinter25ondemand',
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN = '/enroll/2463967?price_id=3951356&coupon=iatwebinarwinter253mnthondemand',
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN = '/enroll/2463967?price_id=3951358&coupon=iatwebinarwinter256mnthondemand',
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN = '/enroll/2463967?price_id=3951360&coupon=iatwebinarwinter2512mnthondemand',
+  // IAT Webinar Winter 2025
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT = '/enroll/3090108?price_id=3960145&coupon=iatwebinarwinter25live',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN = '/enroll/3090108?price_id=3960146&coupon=iatwebinarwinter253mnthlive',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN = '/enroll/3090108?price_id=3960147&coupon=iatwebinarwinter256mnthlive',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN = '/enroll/3090108?price_id=3960148&coupon=iatwebinarwinter25cohort212mnthlive',
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = '/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = '/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',

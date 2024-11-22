@@ -52,12 +52,14 @@ export type Pages =
   | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
+  | `Black Friday Variant Page`
   | `Codependency Quiz`
   | `Corporate Quiz Landing Page`
   | `Corporate Quiz Questions Page`
   | `Corporate Quiz Form Page`
   | `Corporate Quiz Results Page`
   | `Cyber Monday`
+  | `Cyber Monday Variant Page`
   | `Dreamlife Results Page FA`
   | `External IAT Page`
   | `External IAT Ebook Page`
@@ -69,6 +71,7 @@ export type Pages =
   | `IAT Attachment Quiz`
   | `IAT Info Page`
   | `IAT Webinar Page`
+  | `IAT Webinar Squeeze Page`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`

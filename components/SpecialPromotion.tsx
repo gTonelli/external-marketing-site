@@ -190,7 +190,7 @@ export const SpecialPromotionBody = ({ hideFirstSection = false }: ISpecialPromo
                 of time."
         />
 
-        <MHAButton label="JOIN & TRANSFORM LIFE!" />
+        <MHAButton label="JOIN & TRANSFORM LIVES!" />
       </Section>
 
       <Image

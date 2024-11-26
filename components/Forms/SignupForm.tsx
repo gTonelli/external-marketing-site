@@ -11,16 +11,15 @@ import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
 // libraries
-import { Form, Formik, FormikHelpers } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
+import { Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
 // modules
-import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGoogleTagManager } from '@/modules/GTM'
 // styles
-// style
 import 'react-international-phone/style.css'
 
 interface ISignupFormProps extends IDefaultProps {
@@ -41,8 +40,8 @@ interface ISignupFormProps extends IDefaultProps {
   classNameSuccessMessage?: string
   /** onSuccess callback function */
   onSuccess?: () => void
-  /** require Phone field on the form */
-  includePhoneField?: boolean
+  /** show Phone field on the form */
+  showPhoneField?: boolean
 }
 
 export const SignupForm = ({
@@ -55,7 +54,7 @@ export const SignupForm = ({
   submitButtonLabel,
   listIds,
   successMessage = 'Thank you for your submission!',
-  includePhoneField,
+  showPhoneField,
   onSuccess,
 }: ISignupFormProps) => {
   // =========== State =========
@@ -66,7 +65,7 @@ export const SignupForm = ({
   const tagManager = useGoogleTagManager()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
-    const { email, firstName } = values
+    const { email, firstName, phone } = values
     Mixpanel.setUser(email)
     FBQ?.trackLead({
       email: email,
@@ -85,6 +84,7 @@ export const SignupForm = ({
       tags: userTags,
       firstName,
       email,
+      phone,
       listIds,
     }
 
@@ -147,14 +147,15 @@ export const SignupForm = ({
             />
           </div>
 
-          {includePhoneField && (
+          {showPhoneField && (
             <>
               <PhoneInput
+                disableDialCodePrefill
                 value={values.phone}
-                className={`rounded-xl bg-white border items-center ${
+                className={`!rounded-xl bg-white !border items-center ${
                   touched.phone && errors.phone ? 'border-danger' : 'border-[#6b7280]'
                 }`}
-                inputClassName="!text-base !border-none !ml-2"
+                inputClassName="w-[80%] !text-base !border-none !ml-2"
                 countrySelectorStyleProps={{ buttonClassName: '!border-none !ml-4' }}
                 name="phone"
                 placeholder="Phone Number (Optional)"
@@ -163,13 +164,19 @@ export const SignupForm = ({
                 }}
               />
 
-              {errors.phone && <div className="text-danger mb-2">{errors.phone}</div>}
+              {touched.phone && errors.phone && (
+                <div className="text-danger mb-2">{errors.phone}</div>
+              )}
             </>
           )}
 
-          <Button.Submit disabled={isSubmitting} label={submitButtonLabel || 'SUBMIT'} />
+          <Button.Submit
+            className="mt-4"
+            disabled={isSubmitting}
+            label={submitButtonLabel || 'SUBMIT'}
+          />
 
-          {errorMessage && <p className="mt-2 font-bold text-danger">{errorMessage}</p>}
+          {errorMessage && <p className="font-bold text-danger">{errorMessage}</p>}
         </Form>
       )}
     </Formik>
@@ -177,25 +184,12 @@ export const SignupForm = ({
 }
 
 const SignupFormValidationSchema = yup.object().shape({
-  firstName: yup.string().defined().ensure().required(' First name required'),
+  firstName: yup.string().defined().ensure().required('First name required'),
   email: yup.string().defined().ensure().required('Email required'),
-  phone: yup.string().when((value) => {
-    if (value)
-      return yup
-        .string()
-        .min(10, 'Please enter a valid phone number')
-        .max(10, 'Please enter a valid phone number')
-        .defined()
-        .ensure()
-    return yup
-      .string()
-      .transform((value, originalValue) => {
-        if (!value) return null
-        return originalValue
-      })
-      .nullable()
-      .optional()
-  }),
+  phone: yup
+    .string()
+    .transform((value) => (value === '' ? null : value))
+    .min(10, 'Please enter a valid phone number'),
 })
 
 export interface ISignupFormSchema extends yup.InferType<typeof SignupFormValidationSchema> {}

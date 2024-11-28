@@ -18,6 +18,7 @@ import { PhoneInput } from 'react-international-phone'
 // utils
 import { isPhoneValid } from '@/utils/functions'
 // modules
+import { useFunnelytics } from '@/modules/Funnelytics'
 import Mixpanel from '@/modules/Mixpanel'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGoogleTagManager } from '@/modules/GTM'
@@ -64,6 +65,7 @@ export const SignupForm = ({
   const [errorMessage, setErrorMessage] = useState('')
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
+  const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
@@ -79,6 +81,18 @@ export const SignupForm = ({
         eventCategory: 'IAT Ebook Form',
         eventAction: 'Form',
         eventLabel: 'Submit',
+      })
+
+      funnelytics?.track('Form Tracking', {
+        pageName: 'IAT Ebook',
+      })
+    } else if (formSource === 'IAT Webinar') {
+      funnelytics?.track('Form Tracking', {
+        pageName: 'IAT Webinar',
+      })
+    } else {
+      funnelytics?.track('Form Tracking', {
+        pageName: 'Podcast Freebie',
       })
     }
 

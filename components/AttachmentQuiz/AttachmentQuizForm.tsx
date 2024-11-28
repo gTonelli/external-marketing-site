@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
 // modules
+import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
@@ -22,6 +23,7 @@ export const AttachmentQuizForm = ({
   userInfo,
   userStyle,
 }: IAttachmentQuizFormProps) => {
+  const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
   const router = useRouter()
 
@@ -54,6 +56,10 @@ export const AttachmentQuizForm = ({
       eventCategory: 'Attachment Quiz',
       eventAction: 'Form',
       eventLabel: 'Submit',
+    })
+
+    funnelytics?.track('Form Tracking', {
+      pageName: `Attachment-Quiz-${quiz_traffic_source}`
     })
 
     const route = determineRoute()

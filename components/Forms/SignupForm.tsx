@@ -15,6 +15,8 @@ import * as yup from 'yup'
 import cx from 'classnames'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
+// utils
+import { isPhoneValid } from '@/utils/functions'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
@@ -189,7 +191,9 @@ const SignupFormValidationSchema = yup.object().shape({
   phone: yup
     .string()
     .transform((value) => (value === '' ? null : value))
-    .min(10, 'Please enter a valid phone number'),
+    .test('isPhoneValid', 'Please enter a valid phone number', (value) =>
+      value ? isPhoneValid(value) : true
+    ),
 })
 
 export interface ISignupFormSchema extends yup.InferType<typeof SignupFormValidationSchema> {}

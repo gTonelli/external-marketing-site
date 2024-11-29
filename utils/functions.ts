@@ -2,6 +2,7 @@ import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
 import { IStrapiFetchProps, IStrapiResponse, TDict } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
+import { PhoneNumberUtil } from 'google-libphonenumber'
 
 /**
  * Check if property is function
@@ -101,4 +102,14 @@ export const fetchAllPodcasts = (
       }
       return podcasts.concat(res.data)
     })
+}
+
+const phoneUtil = PhoneNumberUtil.getInstance()
+
+export const isPhoneValid = (phone: string) => {
+  try {
+    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
+  } catch (error) {
+    return false
+  }
 }

@@ -140,7 +140,7 @@ export const PodcastList = ({
         className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:gap-8"
         id="podcast-list">
         <div className="w-full flex flex-col items-center gap-4 lg:w-max lg:flex-row lg:gap-8">
-          <div className="w-full rounded-lg border border-grey-border lg:w-max">
+          <div className="w-full rounded-lg border border-primary hover:border-grey-border lg:w-max">
             <select
               ref={categoryRef}
               name="podcastCategory"
@@ -157,7 +157,7 @@ export const PodcastList = ({
             </select>
           </div>
 
-          <div className="w-full rounded-lg border border-grey-border lg:w-max">
+          <div className="w-full rounded-lg border border-primary hover:border-grey-border lg:w-max">
             <select
               ref={typeRef}
               name="podcastType"
@@ -174,7 +174,7 @@ export const PodcastList = ({
             </select>
           </div>
 
-          <div className="w-full rounded-lg border border-grey-border lg:w-max">
+          <div className="w-full rounded-lg border border-primary hover:border-grey-border lg:w-max">
             <select
               ref={sortRef}
               name="podcastSort"

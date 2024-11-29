@@ -144,7 +144,7 @@ export const PodcastList = ({
             <select
               ref={categoryRef}
               name="podcastCategory"
-              className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
+              className="w-full cursor-pointer rounded-lg border-transparent border-r-8 px-4 py-2"
               onChange={handleChange}
               value={selectedCategoryFilter || 'all'}>
               <option value="all">All Categories</option>
@@ -161,7 +161,7 @@ export const PodcastList = ({
             <select
               ref={typeRef}
               name="podcastType"
-              className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
+              className="w-full cursor-pointer rounded-lg border-transparent border-r-8 px-4 py-2"
               onChange={handleChange}
               value={selectedTypeFilter || 'all'}>
               <option value="all">All Types</option>
@@ -178,7 +178,7 @@ export const PodcastList = ({
             <select
               ref={sortRef}
               name="podcastSort"
-              className="w-full rounded-lg border-transparent border-r-8 px-4 py-2"
+              className="w-full cursor-pointer rounded-lg border-transparent border-r-8 px-4 py-2"
               onChange={handleChange}
               value={selectedSortFilter}>
               <option value="desc">Newest to Oldest</option>

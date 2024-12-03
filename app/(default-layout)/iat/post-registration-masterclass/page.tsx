@@ -1,0 +1,131 @@
+// core
+import { Metadata } from 'next'
+import Link from 'next/link'
+// components
+import { Page } from '@/components/Page'
+import { Button } from '@/components/Button/Button'
+import { Section } from '@/components/Section'
+import { List } from '@/components/List'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// config
+import { IATTestimonials } from './config'
+// styles
+import './style.css'
+
+export const metadata: Metadata = {
+  title: 'Thanks for Registering for the IAT™ Masterclass!',
+  description:
+    'Thanks for registering to join the next IAT™ Masterclass! To get you prepared and excited, why not watch this little part of it?',
+  robots: 'noindex',
+}
+
+const trustbarSlides = [
+  'mel-robbins-logo.png',
+  'psychology-today-logo.png',
+  'new-york-post-logo.png',
+  'ceo-weekly-logo.png',
+  'yahoo-logo.png',
+]
+
+export default function PostRegistrationMasterclassPage() {
+  return (
+    <Page page_name="IAT Post Registration Masterclass Page">
+      <Section className="max-w-3xl mx-auto">
+        <h1 className="mb-4">Don’t Miss This Free Limited-Time Masterclass Video</h1>
+
+        <p className="mb-4">
+          Discover The Revolutionary Program That Is Disrupting & Transforming The Coaching Industry
+          & Is Unlike Anything You’ve Ever Seen Before! Check your inbox for the email with the link
+          to the live session!
+        </p>
+
+        <div className="w-fit rounded-2xl shadow-lg p-4 mx-auto">
+          <VideoThumbnail className="w-full" />
+        </div>
+      </Section>
+
+      <Section className="!py-0 mb-6">
+        <TrustbarSlider
+          brandLogosList={trustbarSlides}
+          className="items-stretch !pb-0"
+          classNameImage="!mx-0"
+          classNameSlides="flex flex-col flex-1 items-center justify-center"
+        />
+      </Section>
+
+      <Section className="max-w-full !py-0 my-16" classNameInner="!max-w-full !m-0 !p-0">
+        <h2 className="mb-8">Meet the Visionaries in Our Empowering Community</h2>
+
+        <CarouselTestimonialThinkific testimonials={IATTestimonials} initialSlide={1} />
+      </Section>
+
+      <Section
+        className="bg-coach w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
+
+        <div className="bg-coach-mobile lg:hidden" />
+
+        <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
+          <h2 className="mb-8">Here’s Your Life as a Certified IAT™ Coach</h2>
+
+          <List
+            classNameListItems="mb-6"
+            icon={faCheckCircle}
+            listItems={[
+              'Embrace the fulfillment that comes with making a massive impact by helping people transform their lives and relationships.',
+              'Join a powerful and inspiring movement to make the world a happier, healthier, and better place.',
+              'Enhance your coaching skillset to upgrade your practice or expand your career in any field by using the latest in scientific-backed tools and theory.',
+              'Experience your personal growth by utilizing these powerful tools yourself so you can live your best life with the people you love.',
+              'Make your business and brand unstoppable with results-proven strategies and funnels to attract customers and consistent high-end revenue.',
+              'Get the financial and career recognition you deserve for driving real-life and profound results for people worldwide.',
+            ]}
+          />
+        </div>
+      </Section>
+
+      <Section className="max-w-full bg-black text-white !py-16">
+        <h2 className="mb-4">Excited to learn more about the IAT™ Program?</h2>
+
+        <p className="tracking-33 mb-4">SCHEDULE A FREE CALL</p>
+
+        <p className="mb-8">
+          Book a quick talk with our Coaching Specialist to discuss your experience, current goals,
+          and the IAT™ Programs, and how they will work for you.
+        </p>
+
+        <Link href="https://calendly.com/info-pds/call-with-melanie-pds">
+          <Button label="BOOK A DISCOVERY CALL" />
+        </Link>
+      </Section>
+
+      <Section
+        className="bg-thais w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
+
+        <div className="bg-thais-mobile lg:hidden" />
+
+        <div className="relative text-black text-left p-4 z-20 lg:col-start-6 lg:col-span-6">
+          <h2 className="mb-8">Here’s Your Life as a Certified IAT™ Coach</h2>
+
+          <List
+            classNameListItems="mb-6"
+            icon={faCheckCircle}
+            listItems={[
+              'Embrace the fulfillment that comes with making a massive impact by helping people transform their lives and relationships.',
+              'Join a powerful and inspiring movement to make the world a happier, healthier, and better place.',
+              'Enhance your coaching skillset to upgrade your practice or expand your career in any field by using the latest in scientific-backed tools and theory.',
+              'Experience your personal growth by utilizing these powerful tools yourself so you can live your best life with the people you love.',
+              'Make your business and brand unstoppable with results-proven strategies and funnels to attract customers and consistent high-end revenue.',
+              'Get the financial and career recognition you deserve for driving real-life and profound results for people worldwide.',
+            ]}
+          />
+        </div>
+      </Section>
+    </Page>
+  )
+}

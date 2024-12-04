@@ -7,12 +7,15 @@ import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
 import { Section } from '@/components/Section'
 import { List } from '@/components/List'
+import { ShowSuccessModal } from './ShowSuccessModal'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
 import { IATTestimonials } from './config'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
 
@@ -34,6 +37,8 @@ const trustbarSlides = [
 export default function PostRegistrationMasterclassPage() {
   return (
     <Page page_name="IAT Post Registration Masterclass Page">
+      <ShowSuccessModal />
+
       <Section className="max-w-3xl mx-auto">
         <h1 className="mb-4">Don’t Miss This Free Limited-Time Masterclass Video</h1>
 
@@ -101,7 +106,7 @@ export default function PostRegistrationMasterclassPage() {
           and the IAT™ Program, and how it will work for you.
         </p>
 
-        <Link href="https://calendly.com/info-pds/call-with-melanie-pds">
+        <Link href={EExternalRoutes.CALENDLY_MELANIE}>
           <Button label="BOOK A DISCOVERY CALL" />
         </Link>
       </Section>

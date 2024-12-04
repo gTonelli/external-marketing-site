@@ -10,6 +10,7 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { List } from '@/components/List'
 // libraries
 import { faCheckCircle, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { EExternalRoutes } from '@/utils/constants'
 
 export default function SimplifiedFAResultsPage() {
   const userFirstName = cookies().get('firstName')?.value
@@ -59,7 +60,10 @@ export default function SimplifiedFAResultsPage() {
                 </strong>
               </p>
 
-              <CheckoutButton label="YES! I WANT A HEALTHY RELATIONSHIP" />
+              <CheckoutButton
+                href={EExternalRoutes.THINKIFIC_CHECKOUT_SIMPLIFIED_FA}
+                label="YES! I WANT A HEALTHY RELATIONSHIP"
+              />
             </div>
           </div>
         </div>
@@ -142,7 +146,10 @@ export default function SimplifiedFAResultsPage() {
               ]}
             />
 
-            <CheckoutButton label="YES! I WANT A HEALTHY RELATIONSHIP" />
+            <CheckoutButton
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_SIMPLIFIED_FA}
+              label="YES! I WANT A HEALTHY RELATIONSHIP"
+            />
           </div>
         </div>
       </Section>
@@ -271,7 +278,10 @@ export default function SimplifiedFAResultsPage() {
           </strong>
         </p>
 
-        <CheckoutButton label="YES! I WANT A HEALTHY RELATIONSHIP" />
+        <CheckoutButton
+          href={EExternalRoutes.THINKIFIC_CHECKOUT_SIMPLIFIED_FA}
+          label="YES! I WANT A HEALTHY RELATIONSHIP"
+        />
       </Section>
     </Page>
   )

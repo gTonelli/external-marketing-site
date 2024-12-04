@@ -2,12 +2,12 @@
 
 // core
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 // components
 import { IDefaultProps } from '@/components'
 import { Section } from '@/components/Section'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { Text } from '@/components/Text/Text'
-import { Image } from '@/components/Image'
 // libraries
 import cx from 'classnames'
 import { Pagination } from 'swiper/modules'
@@ -55,8 +55,10 @@ export default function LearningLovePage() {
 
           <Image
             fetchPriority="high"
+            width={597}
+            height={821}
             className="mt-4 w-auto max-h-[90vh] max-w-full mx-auto lg:max-w-lg xl:w-full xl:max-h-max xl:max-w-xl"
-            src="LearningLovePage/learning-love-book-cover.png"
+            src="/images/LearningLovePage/learning-love-book-cover.png"
             alt="Learning Love Book Cover"
           />
 
@@ -140,7 +142,9 @@ export default function LearningLovePage() {
 
         <Image
           className="mb-4 mx-auto lg:hidden"
-          src="LearningLovePage/thais.jpg"
+          width={307}
+          height={265}
+          src="/images/LearningLovePage/thais.jpg"
           alt="Thais Gibson Portrait"
         />
 
@@ -172,7 +176,9 @@ export default function LearningLovePage() {
 
           <Image
             className="w-1/2 max-w-36 my-12"
-            src="thais-gibson-signature.svg"
+            width={144}
+            height={40}
+            src="/images/thais-gibson-signature.svg"
             alt="Thais Gibson Signature"
           />
 
@@ -181,7 +187,9 @@ export default function LearningLovePage() {
 
         <Image
           className="hidden bg-[#E6E6E6] rounded-20 lg:block"
-          src="RoyalRumbleResultsPage/thais-desktop.png"
+          width={934}
+          height={1404}
+          src="/images/RoyalRumbleResultsPage/thais-desktop.png"
           alt="Thais Gibson Portrait"
         />
       </Section>
@@ -221,7 +229,9 @@ export default function LearningLovePage() {
 
       <Image
         className="w-full md:hidden"
-        src="LearningLovePage/magazine-mockup.jpg"
+        width={512}
+        height={327}
+        src="/images/LearningLovePage/magazine-mockup.jpg"
         alt="Learning Love Book Spread"
       />
 
@@ -278,7 +288,9 @@ export default function LearningLovePage() {
 
         <Image
           className="sm:hidden w-full"
-          src="LearningLovePage/book-mockup-2.png"
+          width={574}
+          height={634}
+          src="/images/LearningLovePage/book-mockup-2.png"
           fetchPriority="low"
           alt="Learning Love Book Spread"
           loading="lazy"
@@ -286,14 +298,18 @@ export default function LearningLovePage() {
 
         <Image
           className="hidden sm:block lg:hidden w-full"
-          src="LearningLovePage/book-mockup-2-desktop.png"
+          width={666}
+          height={694}
+          src="/images/LearningLovePage/book-mockup-2-desktop.png"
           alt="Learning Love Book Cover"
         />
 
         <div className="lg:grid lg:grid-cols-12 lg:items-center lg:mt-2 lg:gap-12 2xl:gap-16">
           <Image
             className="hidden w-full lg:block lg:col-span-5"
-            src="LearningLovePage/book-mockup-2-desktop.png"
+            width={666}
+            height={694}
+            src="/images/LearningLovePage/book-mockup-2-desktop.png"
             alt="Learning Love Book Cover"
           />
 
@@ -371,7 +387,9 @@ const AttachmentStyleCard = ({
     <div className="text-center rounded-20 shadow-md p-4 my-4 lg:flex lg:items-center lg:shadow-none lg:text-left">
       <Image
         className={cx('mx-auto lg:mx-0 lg:w-16', classNameImage)}
-        src={`LearningLovePage/${img}`}
+        width={99}
+        height={70}
+        src={`/images/LearningLovePage/${img}`}
         alt={alt}
       />
 
@@ -452,7 +470,9 @@ const Button = ({ className, label }: IButtonProps) => {
       <div className="flex items-center font-bold">
         <Image
           className="hidden lg:block lg:mr-4"
-          src="LearningLovePage/gift.svg"
+          width={32}
+          height={32}
+          src="/images/LearningLovePage/gift.svg"
           alt="Gift Logo"
         />
 

@@ -22,7 +22,6 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       forceControlOnNewUser,
       controlUrl,
       domain,
-      sessionDataConfig,
     } = pageData
 
     let showVariant = false
@@ -58,7 +57,6 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
           domain,
           request,
           controlUrl,
-          sessionDataConfig,
         })
         return response
       }
@@ -97,7 +95,6 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       domain,
       request,
       controlUrl,
-      sessionDataConfig,
     })
 
     if (setSplitTestCookie) {
@@ -146,7 +143,6 @@ interface IGenerateResponse extends Pick<TSplitTestConfig, 'variantUrl' | 'contr
   searchParams: URLSearchParams
   request: NextRequest
   domain?: string
-  sessionDataConfig?: TSessionDataConfig
 }
 
 /** Generates a response based on the provided values */
@@ -157,41 +153,14 @@ function generateResponse({
   domain,
   request,
   controlUrl,
-  sessionDataConfig,
 }: IGenerateResponse) {
   if (showVariant) {
     let path = variantUrl?.path || request.nextUrl.pathname
-    if (controlUrl?.urlParams) {
-      const params = request.nextUrl.pathname.split('/')
-      for (const param of controlUrl.urlParams) {
-        const value = params.pop()
-        if (!value) continue
-        searchParams.append(param, value)
-      }
-    }
 
     if (Boolean(searchParams.toString())) path += `?${searchParams.toString()}`
     const response = NextResponse.redirect(
       new URL(path, variantUrl?.base || request.nextUrl.origin)
     )
-
-    let sessionCookie = ''
-    if (sessionDataConfig) {
-      let sessionData: any = {}
-      searchParams.forEach((value, key) => {
-        if (sessionDataConfig.keys.includes(key)) {
-          sessionData[key] = value
-        }
-      })
-
-      sessionCookie = Buffer.from(JSON.stringify(sessionData)).toString('base64')
-      response.cookies.set({
-        name: sessionDataConfig.name,
-        value: sessionCookie,
-        httpOnly: false,
-        domain: domain || request.nextUrl.hostname,
-      })
-    }
 
     return response
   } else if (controlUrl) {
@@ -272,7 +241,7 @@ type TSplitTestConfig = {
   pageName: string
   /** Name of the experiment on Mixpanel */
   experimentName: string
-  /** Domain for the variant cookie and any session data to be set on */
+  /** Domain for the cookie to be set on */
   domain?: string
   /** Conditionally required as otherwise request url is used */
   controlUrl?: {
@@ -280,17 +249,13 @@ type TSplitTestConfig = {
     path?: string
     /** Conditionally required as otherwise the request origin is used */
     base?: string
-    /** These will be converted to query params for any user entering the variant, in the order that they appear in the config */
-    urlParams?: string[]
   }
-  variantUrl: {
+  variantUrl?: {
     /** Conditionally required as otherwise the request path is used */
     path?: string
     /** Conditionally required as otherwise the request origin is used */
     base?: string
   }
-  /** Query paramters to be kept as session data */
-  sessionDataConfig?: TSessionDataConfig
   /** Ratio of users who will see the variant, with 1 being 100% */
   variantRatio: 0.2 | 0.5 | 0.25
   /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */

@@ -1,7 +1,7 @@
+import Image from 'next/image'
 // libraries
 import cx from 'classnames'
 // components
-import { Image } from '../../Image'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -22,7 +22,7 @@ type TAuthor = {
   name: string
   state?: string
   country?: string
-  picture: string
+  picture?: string
 }
 
 export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IReviewProps) => {
@@ -34,8 +34,10 @@ export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IRe
       <div className="flex items-center relative top-6 left-8">
         <Image
           className="max-w-28 max-h-28 rounded-full"
-          src={`${review.author.picture}`}
-          style={{ width: 'unset' }}
+          width={36}
+          height={36}
+          src={`/images/${review.author.picture}`}
+          alt="author picture"
         />
 
         <div className="flex flex-col justify-center">

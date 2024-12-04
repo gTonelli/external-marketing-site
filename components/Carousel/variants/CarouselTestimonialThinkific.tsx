@@ -92,11 +92,13 @@ export const CarouselTestimonialThinkific = forwardRef(
                 <p className="mb-4">{review.content}</p>
 
                 <div className="w-fit flex items-center">
-                  <Image
-                    className="!w-12 !h-12 rounded-full mr-4"
-                    src={review.author.picture}
-                    alt={`An image of ${review.author.name}`}
-                  />
+                  {review.author.picture && (
+                    <Image
+                      className="!w-12 !h-12 rounded-full mr-4"
+                      src={review.author.picture}
+                      alt={`An image of ${review.author.name}`}
+                    />
+                  )}
 
                   <div>
                     <p>

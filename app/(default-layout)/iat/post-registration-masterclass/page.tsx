@@ -1,5 +1,6 @@
 // core
 import { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 // components
 import { Page } from '@/components/Page'
@@ -43,7 +44,10 @@ export default function PostRegistrationMasterclassPage() {
         </p>
 
         <div className="w-fit rounded-2xl shadow-lg p-4 mx-auto">
-          <VideoThumbnail className="w-full" />
+          <VideoThumbnail
+            className="w-full"
+            srcUrl="https://storage.googleapis.com/pds_videos/IAT_Post_Webinar_Registration_Video.mp4"
+          />
         </div>
       </Section>
 
@@ -70,7 +74,7 @@ export default function PostRegistrationMasterclassPage() {
         <div className="bg-coach-mobile lg:hidden" />
 
         <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
-          <h2 className="mb-8">Here’s Your Life as a Certified IAT™ Coach</h2>
+          <h2 className="mb-8">Here’s What Your Life Could Look Like as a Certified IAT™ Coach</h2>
 
           <List
             classNameListItems="mb-6"
@@ -94,7 +98,7 @@ export default function PostRegistrationMasterclassPage() {
 
         <p className="mb-8">
           Book a quick talk with our Coaching Specialist to discuss your experience, current goals,
-          and the IAT™ Programs, and how they will work for you.
+          and the IAT™ Program, and how it will work for you.
         </p>
 
         <Link href="https://calendly.com/info-pds/call-with-melanie-pds">
@@ -110,19 +114,29 @@ export default function PostRegistrationMasterclassPage() {
         <div className="bg-thais-mobile lg:hidden" />
 
         <div className="relative text-black text-left p-4 z-20 lg:col-start-6 lg:col-span-6">
-          <h2 className="mb-8">Here’s Your Life as a Certified IAT™ Coach</h2>
+          <h2 className="mb-4">Unlock Your Inner Coach</h2>
 
-          <List
-            classNameListItems="mb-6"
-            icon={faCheckCircle}
-            listItems={[
-              'Embrace the fulfillment that comes with making a massive impact by helping people transform their lives and relationships.',
-              'Join a powerful and inspiring movement to make the world a happier, healthier, and better place.',
-              'Enhance your coaching skillset to upgrade your practice or expand your career in any field by using the latest in scientific-backed tools and theory.',
-              'Experience your personal growth by utilizing these powerful tools yourself so you can live your best life with the people you love.',
-              'Make your business and brand unstoppable with results-proven strategies and funnels to attract customers and consistent high-end revenue.',
-              'Get the financial and career recognition you deserve for driving real-life and profound results for people worldwide.',
-            ]}
+          <p className="font-bold tracking-33 mb-8">
+            DON'T MISS OUR HIGH IMPACT RELATIONSHIP COACH MASTERCLASS
+          </p>
+
+          {[
+            'I would like to thank you for watching this free video! I hope it gave you an insight into what to expect when you attend our next IAT™ Masterclass.',
+            'This free, no-pressure webinar is the perfect place to show you how the revolutionary and game-changing IAT™ Program will change your life, career, and finances, where you can ask me any burning questions, and how you can envision yourself as a Certified IAT™ Coach.',
+            'Stay tuned for your email which will have the live link to the Masterclass!',
+            'I’m excited to see you there!',
+            'Love,',
+          ].map((copy, idx) => (
+            <p key={idx} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <Image
+            width={144}
+            height={40}
+            src="/images/thais-gibson-signature.svg"
+            alt="Signature of Thais Gibson"
           />
         </div>
       </Section>

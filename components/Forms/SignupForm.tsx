@@ -105,8 +105,8 @@ export const SignupForm = ({
     }
 
     fetch(
-      // process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register' ||
-      'https://dev.strapi.personaldevelopmentschool.com/api/register',
+      process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register' ||
+        'https://strapi.personaldevelopmentschool.com/api/register',
       {
         method: 'POST',
         headers: {

@@ -132,7 +132,7 @@ export default function PostRegistrationMasterclassPage() {
             'I’m excited to see you there!',
             'Love,',
           ].map((copy, idx) => (
-            <p key={idx} className="mb-4">
+            <p key={`thais_letter_copy_${idx}`} className="mb-4">
               {copy}
             </p>
           ))}

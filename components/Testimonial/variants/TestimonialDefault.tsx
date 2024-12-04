@@ -1,10 +1,10 @@
+// core
 import Image from 'next/image'
+// components
+import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // libraries
 import cx from 'classnames'
-// components
-// libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export interface IReviewProps {
   className?: string

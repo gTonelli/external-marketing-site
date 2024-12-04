@@ -115,7 +115,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 }
 
 export const config = {
-  matcher: [],
+  matcher: ['/quiz/results/fa'],
 }
 
 interface IConfigWithRegex {
@@ -128,7 +128,12 @@ interface IConfigWithRegex {
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
 
-  const configs: Array<IConfigWithRegex> = []
+  const configs: Array<IConfigWithRegex> = [
+    {
+      regex: /^\/quiz\/results\/fa/,
+      config: splitTestConfigs.simplifiedFaTest,
+    },
+  ]
 
   return configs.find((config) => config.regex.test(path))?.config
 }
@@ -204,7 +209,26 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const splitTestConfigs: TSplitTestConfigs = {}
+export const splitTestConfigs: TSplitTestConfigs = {
+  simplifiedFaTest: {
+    cookieKey: 'gm-1299-simplified-fa-test',
+    domain: '.personaldevelopmentschool.com',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1299-Simplified-FA-Test-Relaunch',
+    variantUrl: {
+      path: '/quiz/results/fearful-avoidant',
+    },
+    variantRatio: 0.25,
+    forceControlOnNewUser: true,
+  },
+}
+
+type TSessionDataConfig = {
+  /** Keys for any session data that needs to be retained in a JSON object */
+  keys: string[]
+  /** The name of the cookie key */
+  name: string
+}
 
 type TSplitTestConfigs = {
   [key: string]: TSplitTestConfig

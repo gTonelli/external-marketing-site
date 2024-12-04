@@ -118,15 +118,7 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
 }
 
 export const config = {
-  matcher: [
-    '/enroll/(.*)',
-    '/cart/add_product/(.*)',
-    '/attachment-report/fa',
-    '/attachment-report/ap',
-    '/attachment-report/da',
-    '/attachment-report/sa',
-    '/quiz/results/fa',
-  ],
+  matcher: ['/quiz/results/fa'],
 }
 
 interface IConfigWithRegex {
@@ -140,24 +132,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
 
   const configs: Array<IConfigWithRegex> = [
-    { regex: /^\/enroll/, config: splitTestConfigs.checkoutTest },
-    { regex: /^\/cart\/add_product/, config: splitTestConfigs.checkoutTest },
-    {
-      regex: /^\/attachment-report\/fa/,
-      config: splitTestConfigs.pdfTestFa,
-    },
-    {
-      regex: /^\/attachment-report\/ap/,
-      config: splitTestConfigs.pdfTestAp,
-    },
-    {
-      regex: /^\/attachment-report\/da/,
-      config: splitTestConfigs.pdfTestDa,
-    },
-    {
-      regex: /^\/attachment-report\/sa/,
-      config: splitTestConfigs.pdfTestSa,
-    },
     {
       regex: /^\/quiz\/results\/fa/,
       config: splitTestConfigs.simplifiedFaTest,
@@ -267,23 +241,15 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  checkoutTest: {
-    cookieKey: 'prod-3136-checkout-test',
+  simplifiedFaTest: {
+    cookieKey: 'gm-1299-simplified-fa-test',
     domain: '.personaldevelopmentschool.com',
-    pageName: 'Checkout',
-    experimentName: 'Checkout V2 Test (Site Wide)',
-    controlUrl: {
-      base: process.env.NEXT_PUBLIC_THINKIFIC_URL,
-      urlParams: ['product_id'],
-    },
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1299-Simplified-FA-Test-Relaunch',
     variantUrl: {
-      base: process.env.NEXT_PUBLIC_THINKIFIC_URL,
+      path: '/quiz/results/fearful-avoidant',
     },
-    sessionDataConfig: {
-      name: '_checkout_session',
-      keys: ['price_id', 'product_id', 'coupon', 'bci'],
-    },
-    variantRatio: 0.5,
+    variantRatio: 0.25,
     forceControlOnNewUser: true,
   },
 }

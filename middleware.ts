@@ -212,14 +212,13 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
 export const splitTestConfigs: TSplitTestConfigs = {
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
-    domain: '.personaldevelopmentschool.com',
     pageName: 'VSL Royal Rumble Results - fa',
     experimentName: 'GM-1299-Simplified-FA-Test-Relaunch',
     variantUrl: {
       path: '/quiz/results/fearful-avoidant',
     },
     variantRatio: 0.25,
-    forceControlOnNewUser: true,
+    forceControlOnNewUser: false,
   },
 }
 

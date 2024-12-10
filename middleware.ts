@@ -209,7 +209,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const getSplitTestConfigs = (request: NextRequest): TSplitTestConfigs => ({
+export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs => ({
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
@@ -223,12 +223,21 @@ export const getSplitTestConfigs = (request: NextRequest): TSplitTestConfigs => 
   },
 })
 
-function determineDomain(request: NextRequest): string {
-  const hostname = request.nextUrl.hostname
-
-  if (hostname.includes('localhost')) return 'localhost'
-  if (hostname.includes('staging')) return 'staging.attachment.personaldevelopmentschool.com'
-  return 'attachment.personaldevelopmentschool.com' // Default to production
+function determineDomain(request?: NextRequest): string {
+  if (typeof window !== 'undefined') {
+    // Client-side: use `window.location`
+    const hostname = window.location.hostname
+    if (hostname.includes('localhost')) return 'localhost'
+    if (hostname.includes('staging')) return 'staging.attachment.personaldevelopmentschool.com'
+    return 'attachment.personaldevelopmentschool.com'
+  } else if (request) {
+    // Server-side: use `request.nextUrl.hostname`
+    const hostname = request.nextUrl.hostname
+    if (hostname.includes('localhost')) return 'localhost'
+    if (hostname.includes('staging')) return 'staging.attachment.personaldevelopmentschool.com'
+    return 'attachment.personaldevelopmentschool.com'
+  }
+  return 'attachment.personaldevelopmentschool.com' // Fallback default
 }
 
 type TSessionDataConfig = {

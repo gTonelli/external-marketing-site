@@ -184,7 +184,9 @@ function generateResponse({
  * @param props key value pairs to be sent as event properties
  */
 const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, props: any) => {
-  console.log("inside sendeventunsafe")
+  console.log(
+    `Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}, Props = ${props}`
+  )
   return fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {

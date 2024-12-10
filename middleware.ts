@@ -73,10 +73,10 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
     } else {
       const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
       console.log('RandomFloat', randomFloat)
+      setSplitTestCookie = true
       if (randomFloat > variantRatio * 2) {
         showVariant = false
       } else {
-        setSplitTestCookie = true
         showVariant = randomFloat < variantRatio
         console.log('showVariant', showVariant)
         const insert_id = Buffer.from(
@@ -194,7 +194,7 @@ const sendEventUnsafe = async (
   console.log(
     `Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}, Insert ID= ${insert_id}`
   )
-  const res = await fetch('https://api.mixpanel.com/track', {
+  return fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -213,8 +213,12 @@ const sendEventUnsafe = async (
       },
     ]),
   })
-  const resText = await res.text()
-  if (resText !== '1') throw `An unexpected error occured. Response was ${res}`
+    .then((res) => res.text())
+    .then((res) => {
+      if (res !== '1') throw `An unexpected error occured. Response was ${res}`
+      console.log('Res', res)
+    })
+    .catch((error) => console.error(error))
 }
 
 export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs => ({
@@ -225,7 +229,7 @@ export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs =>
     variantUrl: {
       path: '/quiz/results/fearful-avoidant',
     },
-    variantRatio: 0.25,
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
 })

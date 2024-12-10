@@ -190,7 +190,7 @@ const sendEventUnsafe = async (
   props: any
 ) => {
   console.log(`Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}`)
-  return fetch('https://api.mixpanel.com/track', {
+  const res = await fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -209,14 +209,8 @@ const sendEventUnsafe = async (
       },
     ]),
   })
-    .then((res) => res.text())
-    .then((res) => {
-      console.log('mixpanel response', res)
-      if (res !== '1') throw `An unepxected error occured. Response was ${res}`
-    })
-    .catch((error) => {
-      console.error('Error sending mixpanel event', error)
-    })
+  const resText = await res.text()
+  if (resText !== '1') throw `An unexpected error occured. Response was ${res}`
 }
 
 export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs => ({

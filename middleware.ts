@@ -214,7 +214,6 @@ export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs =>
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
-    domain: 'attachment.personaldevelopmentschool.com',
     experimentName: 'GM-1299-Simplified-FA-Test-Relaunch',
     variantUrl: {
       path: '/quiz/results/fearful-avoidant',

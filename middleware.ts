@@ -127,6 +127,7 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
+  const splitTestConfigs = getSplitTestConfigs(request)
 
   const configs: Array<IConfigWithRegex> = [
     {
@@ -209,18 +210,35 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const splitTestConfigs: TSplitTestConfigs = {
+export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs => ({
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
-    domain: '.personaldevelopmentschool.com',
     pageName: 'VSL Royal Rumble Results - fa',
+    domain: determineDomain(request),
     experimentName: 'GM-1299-Simplified-FA-Test-Relaunch',
     variantUrl: {
       path: '/quiz/results/fearful-avoidant',
     },
     variantRatio: 0.25,
-    forceControlOnNewUser: true,
+    forceControlOnNewUser: false,
   },
+})
+
+function determineDomain(request?: NextRequest): string {
+  if (typeof window !== 'undefined') {
+    // Client-side: use `window.location`
+    const hostname = window.location.hostname
+    if (hostname.includes('localhost')) return 'localhost'
+    if (hostname.includes('staging')) return 'staging.attachment.personaldevelopmentschool.com'
+    return 'attachment.personaldevelopmentschool.com'
+  } else if (request) {
+    // Server-side: use `request.nextUrl.hostname`
+    const hostname = request.nextUrl.hostname
+    if (hostname.includes('localhost')) return 'localhost'
+    if (hostname.includes('staging')) return 'staging.attachment.personaldevelopmentschool.com'
+    return 'attachment.personaldevelopmentschool.com'
+  }
+  return 'attachment.personaldevelopmentschool.com' // Fallback default
 }
 
 type TSessionDataConfig = {

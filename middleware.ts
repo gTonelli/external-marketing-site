@@ -71,12 +71,14 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         showVariant = false
       }
     } else {
-      setSplitTestCookie = true
       const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+      console.log('RandomFloat', randomFloat)
       if (randomFloat > variantRatio * 2) {
         showVariant = false
       } else {
+        setSplitTestCookie = true
         showVariant = randomFloat < variantRatio
+        console.log('showVariant', showVariant)
         const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
         context.waitUntil(
           sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
@@ -203,6 +205,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
   })
     .then((res) => res.text())
     .then((res) => {
+      console.log('mixpanel response', res)
       if (res !== '1') throw `An unepxected error occured. Response was ${res}`
     })
     .catch((error) => {

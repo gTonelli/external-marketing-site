@@ -79,7 +79,9 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         setSplitTestCookie = true
         showVariant = randomFloat < variantRatio
         console.log('showVariant', showVariant)
-        const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
+        const insert_id = Buffer.from(
+          `${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`
+        ).toString('base64')
         context.waitUntil(
           sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
             'Experiment name': experimentName,
@@ -189,7 +191,9 @@ const sendEventUnsafe = async (
   event: string,
   props: any
 ) => {
-  console.log(`Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}`)
+  console.log(
+    `Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}, Insert ID= ${insert_id}`
+  )
   const res = await fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {

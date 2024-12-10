@@ -183,10 +183,13 @@ function generateResponse({
  * @param event string name of the event
  * @param props key value pairs to be sent as event properties
  */
-const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, props: any) => {
-  console.log(
-    `Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}, Props = ${props}`
-  )
+const sendEventUnsafe = async (
+  mixpanelID: string,
+  insert_id: string,
+  event: string,
+  props: any
+) => {
+  console.log(`Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}`)
   return fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {
@@ -228,13 +231,6 @@ export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs =>
     forceControlOnNewUser: false,
   },
 })
-
-type TSessionDataConfig = {
-  /** Keys for any session data that needs to be retained in a JSON object */
-  keys: string[]
-  /** The name of the cookie key */
-  name: string
-}
 
 type TSplitTestConfigs = {
   [key: string]: TSplitTestConfig

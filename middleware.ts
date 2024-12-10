@@ -191,7 +191,8 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
       {
         event,
         properties: {
-          token: process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN,
+          token:
+            process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
           time: Date.now(),
           distinct_id: mixpanelID,
           $insert_id: insert_id.slice(0, 36),

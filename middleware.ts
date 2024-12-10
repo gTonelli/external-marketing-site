@@ -1,7 +1,7 @@
 import { NextFetchEvent, NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest, context: NextFetchEvent) {
+export async function middleware(request: NextRequest, context: NextFetchEvent) {
   try {
     const pageData = getPageData(request)
     if (
@@ -82,13 +82,11 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         const insert_id = Buffer.from(
           `${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`
         ).toString('base64')
-        context.waitUntil(
-          sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
-            'Experiment name': experimentName,
-            'Variant name': showVariant ? 'Variant 1' : 'Control',
-            page_name: pageName,
-          })
-        )
+        await sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
+          'Experiment name': experimentName,
+          'Variant name': showVariant ? 'Variant 1' : 'Control',
+          page_name: pageName,
+        })
       }
     }
 
@@ -192,7 +190,9 @@ const sendEventUnsafe = async (
   props: any
 ) => {
   console.log(
-    `Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}, Insert ID= ${insert_id}`
+    `Event= ${event}, Token= ${
+      process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN
+    }, Insert ID= ${insert_id.slice(0, 36)}`
   )
   return fetch('https://api.mixpanel.com/track', {
     method: 'POST',

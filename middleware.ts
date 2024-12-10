@@ -129,8 +129,6 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const splitTestConfigs = getSplitTestConfigs(request)
-
   const configs: Array<IConfigWithRegex> = [
     {
       regex: /^\/quiz\/results\/fa/,
@@ -212,7 +210,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs => ({
+const splitTestConfigs: TSplitTestConfigs = {
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
@@ -223,7 +221,7 @@ export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs =>
     variantRatio: 0.25,
     forceControlOnNewUser: false,
   },
-})
+}
 
 type TSplitTestConfigs = {
   [key: string]: TSplitTestConfig

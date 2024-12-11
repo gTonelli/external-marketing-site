@@ -1,8 +1,7 @@
 import { NextFetchEvent, NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
-import { waitUntil } from '@vercel/functions'
 
-export function middleware(request: NextRequest, context: NextFetchEvent) {
+export async function middleware(request: NextRequest, context: NextFetchEvent) {
   try {
     const pageData = getPageData(request)
     if (
@@ -78,15 +77,16 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         showVariant = false
       } else {
         showVariant = randomFloat < variantRatio
-        console.log('showVariant', showVariant)
         const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
-        waitUntil(
-          sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
+        try {
+          await sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
             'Experiment name': experimentName,
             'Variant name': showVariant ? 'Variant 1' : 'Control',
             page_name: pageName,
           })
-        )
+        } catch (error) {
+          console.error('Error sending Mixpanel event:', error)
+        }
       }
     }
 
@@ -188,6 +188,7 @@ const sendEventUnsafe = async (
   props: any
 ) => {
   try {
+    console.log("inside sendevent unsafe")
     const res = await fetch('https://api.mixpanel.com/track', {
       method: 'POST',
       headers: {
@@ -209,6 +210,7 @@ const sendEventUnsafe = async (
     })
 
     const responseText = await res.text()
+    console.log("responseText", responseText)
     if (responseText !== '1') {
       throw new Error(`Unexpected response: ${responseText}`)
     }

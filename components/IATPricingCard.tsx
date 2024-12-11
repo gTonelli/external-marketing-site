@@ -159,7 +159,7 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
       </div>
 
       <div className="flex flex-1 items-end">
-        <Button label="SEE PRICING OPTIONS" onClick={() => setShowPricing(true)} />
+        <Button label="SELECT MY PAYMENT PLAN" onClick={() => setShowPricing(true)} />
       </div>
     </div>
   )

@@ -16,7 +16,6 @@
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "^18.3.1",
-    "@vercel/functions": "^1.5.1",
     "autoprefixer": "10.4.15",
     "classnames": "^2.3.2",
     "crypto-js": "^4.1.1",

@@ -188,7 +188,6 @@ const sendEventUnsafe = async (
   props: any
 ) => {
   try {
-    console.log("inside sendevent unsafe")
     const res = await fetch('https://api.mixpanel.com/track', {
       method: 'POST',
       headers: {
@@ -210,7 +209,6 @@ const sendEventUnsafe = async (
     })
 
     const responseText = await res.text()
-    console.log("responseText", responseText)
     if (responseText !== '1') {
       throw new Error(`Unexpected response: ${responseText}`)
     }

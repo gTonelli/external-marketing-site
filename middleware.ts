@@ -1,5 +1,6 @@
 import { NextFetchEvent, NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
+import { waitUntil } from '@vercel/functions'
 
 export function middleware(request: NextRequest, context: NextFetchEvent) {
   try {
@@ -77,10 +78,9 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         showVariant = false
       } else {
         showVariant = randomFloat < variantRatio
-        const insert_id = Buffer.from(
-          `${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`
-        ).toString('base64')
-        context.waitUntil(
+        console.log('showVariant', showVariant)
+        const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
+        waitUntil(
           sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
             'Experiment name': experimentName,
             'Variant name': showVariant ? 'Variant 1' : 'Control',

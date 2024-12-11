@@ -154,7 +154,7 @@ export default function IATWebinarSqueezePage() {
 
           <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on January 22nd, 2025</p>
 
-          <p>Time Left to Claim Your Exclusive Masterclass Discount</p>
+          <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
           {/* countdown for December 15, 2024 */}
           <CountdownTimer

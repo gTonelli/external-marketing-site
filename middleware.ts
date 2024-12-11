@@ -1,7 +1,7 @@
 import { NextFetchEvent, NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
 
-export function middleware(request: NextRequest, context: NextFetchEvent) {
+export async function middleware(request: NextRequest, context: NextFetchEvent) {
   try {
     const pageData = getPageData(request)
     if (
@@ -78,13 +78,15 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
       } else {
         showVariant = randomFloat < variantRatio
         const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
-        context.waitUntil(
-          sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
+        try {
+          await sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
             'Experiment name': experimentName,
             'Variant name': showVariant ? 'Variant 1' : 'Control',
             page_name: pageName,
           })
-        )
+        } catch (error) {
+          console.error('Error sending Mixpanel event:', error)
+        }
       }
     }
 
@@ -127,8 +129,6 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const splitTestConfigs = getSplitTestConfigs(request)
-
   const configs: Array<IConfigWithRegex> = [
     {
       regex: /^\/quiz\/results\/fa/,
@@ -181,40 +181,46 @@ function generateResponse({
  * @param event string name of the event
  * @param props key value pairs to be sent as event properties
  */
-const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, props: any) => {
-  return fetch('https://api.mixpanel.com/track', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify([
-      {
-        event,
-        properties: {
-          token:
-            process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
-          time: Date.now(),
-          distinct_id: mixpanelID,
-          $insert_id: insert_id.slice(0, 36),
-          ...props,
-        },
+const sendEventUnsafe = async (
+  mixpanelID: string,
+  insert_id: string,
+  event: string,
+  props: any
+) => {
+  try {
+    const res = await fetch('https://api.mixpanel.com/track', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    ]),
-  })
-    .then((res) => res.text())
-    .then((res) => {
-      if (res !== '1') throw `An unepxected error occured. Response was ${res}`
+      body: JSON.stringify([
+        {
+          event,
+          properties: {
+            token:
+              process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
+            time: Date.now(),
+            distinct_id: mixpanelID,
+            $insert_id: insert_id.slice(0, 36),
+            ...props,
+          },
+        },
+      ]),
     })
-    .catch((error) => {
-      console.error('Error sending mixpanel event', error)
-    })
+
+    const responseText = await res.text()
+    if (responseText !== '1') {
+      throw new Error(`Unexpected response: ${responseText}`)
+    }
+  } catch (error) {
+    console.error('Error sending mixpanel event', error)
+  }
 }
 
-export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs => ({
+const splitTestConfigs: TSplitTestConfigs = {
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
-    domain: 'attachment.personaldevelopmentschool.com',
     experimentName: 'GM-1299-Simplified-FA-Test-Relaunch',
     variantUrl: {
       path: '/quiz/results/fearful-avoidant',
@@ -222,13 +228,6 @@ export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs =>
     variantRatio: 0.25,
     forceControlOnNewUser: false,
   },
-})
-
-type TSessionDataConfig = {
-  /** Keys for any session data that needs to be retained in a JSON object */
-  keys: string[]
-  /** The name of the cookie key */
-  name: string
 }
 
 type TSplitTestConfigs = {

@@ -7,7 +7,6 @@ import { IViewport } from './interfaces'
 import { throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import Cookies from 'universal-cookie'
-import { getSplitTestConfigs } from '@/middleware'
 
 // ==============================
 //          R E S I Z E
@@ -133,15 +132,15 @@ function getScrollPercentage(
 export function useAttachmentQuizSplitTest(showingVariant: boolean) {
   useEffect(() => {
     const cookies = new Cookies()
-    const config = getSplitTestConfigs().quizTest
+    const config = undefined as any
 
     if (!config) return
 
     const testCookie = cookies.get(config?.cookieKey || '')
     if (testCookie !== undefined || !config) return
-    
+
     cookies.set(config.cookieKey, showingVariant)
-    
+
     Mixpanel.track.ExperimentStarted({
       'Experiment name': config.experimentName,
       'Variant name': showingVariant ? 'Variant 1' : 'Control',

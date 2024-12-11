@@ -152,7 +152,9 @@ export default function IATWebinarSqueezePage() {
             <span className="text-primary">Transform Lives</span> & Secure Your Financial Future
           </h1>
 
-          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on January 8th, 2025</p>
+          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on January 22nd, 2025</p>
+
+          <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
           {/* countdown for December 15, 2024 */}
           <CountdownTimer
@@ -176,7 +178,7 @@ export default function IATWebinarSqueezePage() {
       </Section>
 
       <Section
-        className="bg-watch w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+        className="relative bg-watch w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
         classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
         <div className="bg-gradient lg:hidden" />
 

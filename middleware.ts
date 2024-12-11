@@ -72,12 +72,11 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         showVariant = false
       }
     } else {
+      setSplitTestCookie = true
       const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
-      console.log('RandomFloat', randomFloat)
       if (randomFloat > variantRatio * 2) {
         showVariant = false
       } else {
-        setSplitTestCookie = true
         showVariant = randomFloat < variantRatio
         console.log('showVariant', showVariant)
         const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
@@ -130,8 +129,6 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const splitTestConfigs = getSplitTestConfigs(request)
-
   const configs: Array<IConfigWithRegex> = [
     {
       regex: /^\/quiz\/results\/fa/,
@@ -185,9 +182,6 @@ function generateResponse({
  * @param props key value pairs to be sent as event properties
  */
 const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, props: any) => {
-  console.log(
-    `Event= ${event}, Token= ${process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN}, Props = ${props}`
-  )
   return fetch('https://api.mixpanel.com/track', {
     method: 'POST',
     headers: {
@@ -209,7 +203,6 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
   })
     .then((res) => res.text())
     .then((res) => {
-      console.log('mixpanel response', res)
       if (res !== '1') throw `An unepxected error occured. Response was ${res}`
     })
     .catch((error) => {
@@ -217,7 +210,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs => ({
+const splitTestConfigs: TSplitTestConfigs = {
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
@@ -228,13 +221,6 @@ export const getSplitTestConfigs = (request?: NextRequest): TSplitTestConfigs =>
     variantRatio: 0.25,
     forceControlOnNewUser: false,
   },
-})
-
-type TSessionDataConfig = {
-  /** Keys for any session data that needs to be retained in a JSON object */
-  keys: string[]
-  /** The name of the cookie key */
-  name: string
 }
 
 type TSplitTestConfigs = {

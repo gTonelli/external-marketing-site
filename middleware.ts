@@ -181,33 +181,40 @@ function generateResponse({
  * @param event string name of the event
  * @param props key value pairs to be sent as event properties
  */
-const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, props: any) => {
-  return fetch('https://api.mixpanel.com/track', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify([
-      {
-        event,
-        properties: {
-          token:
-            process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
-          time: Date.now(),
-          distinct_id: mixpanelID,
-          $insert_id: insert_id.slice(0, 36),
-          ...props,
-        },
+const sendEventUnsafe = async (
+  mixpanelID: string,
+  insert_id: string,
+  event: string,
+  props: any
+) => {
+  try {
+    const res = await fetch('https://api.mixpanel.com/track', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    ]),
-  })
-    .then((res) => res.text())
-    .then((res) => {
-      if (res !== '1') throw `An unepxected error occured. Response was ${res}`
+      body: JSON.stringify([
+        {
+          event,
+          properties: {
+            token:
+              process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
+            time: Date.now(),
+            distinct_id: mixpanelID,
+            $insert_id: insert_id.slice(0, 36),
+            ...props,
+          },
+        },
+      ]),
     })
-    .catch((error) => {
-      console.error('Error sending mixpanel event', error)
-    })
+
+    const responseText = await res.text()
+    if (responseText !== '1') {
+      throw new Error(`Unexpected response: ${responseText}`)
+    }
+  } catch (error) {
+    console.error('Error sending mixpanel event', error)
+  }
 }
 
 const splitTestConfigs: TSplitTestConfigs = {

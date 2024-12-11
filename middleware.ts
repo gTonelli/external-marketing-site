@@ -77,7 +77,9 @@ export function middleware(request: NextRequest, context: NextFetchEvent) {
         showVariant = false
       } else {
         showVariant = randomFloat < variantRatio
-        const insert_id = btoa(`${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`)
+        const insert_id = Buffer.from(
+          `${Date.now()}${mixpanelID.slice(0, 6)}${experimentName}`
+        ).toString('base64')
         context.waitUntil(
           sendEventUnsafe(mixpanelID, insert_id, '$experiment_started', {
             'Experiment name': experimentName,
@@ -127,7 +129,6 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-
   const configs: Array<IConfigWithRegex> = [
     {
       regex: /^\/quiz\/results\/fa/,
@@ -209,7 +210,7 @@ const sendEventUnsafe = (mixpanelID: string, insert_id: string, event: string, p
     })
 }
 
-export const splitTestConfigs: TSplitTestConfigs = {
+const splitTestConfigs: TSplitTestConfigs = {
   simplifiedFaTest: {
     cookieKey: 'gm-1299-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
@@ -220,13 +221,6 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantRatio: 0.25,
     forceControlOnNewUser: false,
   },
-}
-
-type TSessionDataConfig = {
-  /** Keys for any session data that needs to be retained in a JSON object */
-  keys: string[]
-  /** The name of the cookie key */
-  name: string
 }
 
 type TSplitTestConfigs = {

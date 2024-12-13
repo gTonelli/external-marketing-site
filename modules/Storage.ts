@@ -25,7 +25,7 @@ export const Storage = {
   },
 
   set: (key: TStorageKeys, value: any) => {
-    if (typeof window === 'undefined') return null
+    if (typeof window === 'undefined') return
     window.localStorage.setItem(key, typeof value === 'string' ? value : JSON.stringify(value))
   },
 

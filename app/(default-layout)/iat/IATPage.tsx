@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
@@ -46,6 +46,7 @@ import { Storage } from '@/modules/Storage'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { useSplitTest } from '@/utils/hooks'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -891,28 +892,29 @@ interface IIATPriceCard {
   benefits: string[]
   heading: string
   isLive?: boolean
+  isVariant?: boolean
   originalPrice?: string
   prices: TIATPrice[]
   salePrice: string
   subheading?: string
-  waitlist?: boolean
 }
 
 const IATPriceCard = ({
   benefits,
   heading,
   isLive = false,
+  isVariant = false,
   originalPrice,
   prices,
   salePrice,
   subheading,
-  waitlist = false,
 }: IIATPriceCard) => {
   // ================== State =============
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedCardIndex, setSelectedCardIndex] = useState(0)
   const [showModal, setShowModal] = useState<boolean>(false)
   const [formSubmited, setformSubmited] = useState<boolean>(false)
+  const router = useRouter()
 
   const onToggleDialog = useCallback(() => {
     setShowModal(!showModal)
@@ -995,11 +997,15 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            {waitlist ? (
+            {isVariant ? (
               <Button
-                className="trial-btn mt-4 lg:mt-6"
-                label="SIGN UP FOR WAITLIST"
-                onClick={() => setShowModal(true)}
+                className="trial-btn mt-12 lg:mt-14"
+                label="BUY NOW"
+                onClick={() =>
+                  router.push(
+                    'https://ngrok.personaldevelopmentschool.com/api/enroll/3213092?price_id=4101790&coupon=iatbundleupfrontlivespring25'
+                  )
+                }
               />
             ) : (
               <Button
@@ -1072,19 +1078,11 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            {waitlist ? (
-              <Button
-                className="trial-btn mt-4 lg:mt-6"
-                label="SIGN UP FOR WAITLIST"
-                onClick={() => setShowModal(true)}
-              />
-            ) : (
-              <Button
-                className="trial-btn mt-12 lg:mt-14"
-                label="SEE PRICES"
-                onClick={() => setIsExpanded(true)}
-              />
-            )}
+            <Button
+              className="trial-btn mt-12 lg:mt-14"
+              label="SEE PRICES"
+              onClick={() => setIsExpanded(true)}
+            />
 
             <Text.Paragraph
               className="italic mt-3"
@@ -1177,26 +1175,6 @@ const IATPriceCard = ({
           </div>
         </Section>
       )}
-      {/* pop up modal */}
-      <Dialog className="relative max-w-2xl" isShown={showModal} onToggle={onToggleDialog}>
-        <div className="max-w-md w-full py-16 px-4">
-          <span
-            className="absolute top-4 right-6 text-4xl font-bold cursor-pointer"
-            onClick={() => setShowModal(false)}>
-            &times;
-          </span>
-
-          {formSubmited ? (
-            <Text.Heading content="Thank you for reserving your spot. We will be in touch soon!" />
-          ) : (
-            <>
-              <Text.Heading content="Enter your email below to reserve your spot!" />
-
-              <IATFormContactUs onSubmit={onSubmitForm} />
-            </>
-          )}
-        </div>
-      </Dialog>
     </>
   )
 }
@@ -1253,11 +1231,18 @@ const IATCurriculumCard = ({
 }
 
 const IATPriceCardSection = () => {
+  const { isVariant } = useSplitTest({
+    key: 'prod-3571',
+    experimentName: 'IAT Klarna Test',
+    variantRatio: 0.5,
+  })
+
   return (
     <Section classNameInner="max-w-md mt-12 lg:max-w-5xl lg:mt-0">
       <div className="lg:grid-cols-2 lg:grid lg:gap-8">
         <IATPriceCard
           isLive
+          isVariant={isVariant}
           benefits={IAT.price.live_mode}
           heading="Live Training"
           originalPrice="$7000.00"
@@ -1266,6 +1251,7 @@ const IATPriceCardSection = () => {
         />
 
         <IATPriceCard
+          isVariant={isVariant}
           benefits={IAT.price.recorded_mode}
           heading="On Demand"
           originalPrice="$4,000.00"

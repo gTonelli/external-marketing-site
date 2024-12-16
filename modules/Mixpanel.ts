@@ -61,6 +61,7 @@ export type Pages =
   | `Cyber Monday`
   | `Cyber Monday Variant Page`
   | `Dreamlife Results Page FA`
+  | `Dreamlife Holiday Free Trial Page`
   | `External IAT Page`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`

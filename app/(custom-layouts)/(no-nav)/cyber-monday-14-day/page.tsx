@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function CyberMondayVariant() {
   return (
     <Page className="w-full overflow-hidden" page_name="Cyber Monday Variant Page">
-      <DreamLifeBanner fourteenDayFT pageName="CYBER MONDAY" />
+      <DreamLifeBanner fourteenDayFT paymentOptionsConfigKey="cyberMonday14day" />
 
       <SpecialPromotionBody showFirstSection={false} />
     </Page>

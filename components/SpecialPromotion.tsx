@@ -11,6 +11,7 @@ import { FaqSecondary } from './Faq/variants/FaqSecondary'
 import { VideoThumbnail } from './Video/variants/VideoThumbnail'
 import { CarouselTestimonial } from './Carousel/variants/CarouselTestimonial'
 import { CarouselPromotionCourses } from './Carousel/variants/CarouselPromotionCourses'
+import { ThaisIntro } from './ThaisIntro'
 // libraries
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
@@ -368,43 +369,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
       <CarouselPromotionCourses />
 
       {/* THAIS SECTION */}
-      <Section classNameInner="lg:grid lg:grid-cols-12 lg:gap-24 lg:items-center">
-        <div className="text-left lg:col-span-7">
-          <h2>Hi! I’m Thais.</h2>
-
-          <MHAPageText
-            className="font-medium lg:my-6"
-            content="I’m a personal development expert, best-selling author and founder of 
-            The Personal Development School."
-          />
-
-          <MHAPageText
-            content="After completing my master’s degree, my Ph.D. and over 13 different certifications in a variety of disciplines, 
-            such as Cognitive Behavioral Therapy, Hypnosis, Somatic Experiencing and more – I ran an extremely busy client-based practice 
-            for the better part of a decade."
-          />
-
-          <MHAPageText
-            className="lg:my-6"
-            content="Now I help clients across the globe overcome lifelong emotional challenges through the Personal 
-            Development School."
-          />
-
-          <MHAPageText
-            content="Since co-creating the Personal Development School and my years of research and client experience, 
-            I have become a leading authority on healing attachment trauma and have built a thriving membership and online community, 
-            including over 40,000 members in 120+ countries worldwide, more than 50,000,000 views on YouTube and 70,000+ course enrollments."
-          />
-        </div>
-
-        <Image
-          alt="a headshot of Thais Gibson"
-          className="w-full rounded-full max-w-106 lg:max-w-none lg:col-span-5 lg:p-4"
-          width={285}
-          height={285}
-          src="/images/thais_headshot.png"
-        />
-      </Section>
+      <ThaisIntro />
 
       {/* MENTAL HEALTH SECTION */}
       <Image

@@ -78,12 +78,12 @@ export default function DreamLifeHolidayFTPage() {
           </p>
 
           <p className="font-bold mb-8">
-            Ready to rise in 2025? Shatter old patterns, heal past wounds, empower yourself, and
-            create unshakable relationships with 7 FREE days of the All-Access Pass. Gain access to
-            every transformational course at The Personal Development School, master our proprietary
-            and proven healing method, and get expert guidance directly from me (founder, Thais
-            Gibson) to get the life you deserve. Don’t just set goals — conquer them and become
-            unstoppable this new year. Your breakthrough starts NOW!
+            Shatter old patterns, heal past wounds, empower yourself, and create unshakable
+            relationships with 7 FREE days of the All-Access Pass. Gain access to every
+            transformational course at The Personal Development School, master our groundbreaking,
+            proprietary process, and get expert guidance directly from me (founder, Thais Gibson) to
+            get the life you deserve. Don’t just set goals — conquer them and become unstoppable in
+            2025!
           </p>
 
           <CheckoutButton href={checkoutUrl} label="SIGN UP & TRANSFORM" />

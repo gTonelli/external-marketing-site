@@ -1,3 +1,4 @@
+import Link from 'next/link'
 // components
 import { IDefaultProps } from '.'
 import { CheckoutButton } from './CheckoutButton'
@@ -65,19 +66,21 @@ export const PaymentOptions = ({ className, configKey }: IPaymentOptionsProps) =
   const config = allConfigs[configKey]
   return (
     <div className={cx(`flex flex-col space-y-4 lg:justify-between items-center`, className)}>
-      <div className="relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5">
-        <p className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4">
-          {config.offerLabel}
-        </p>
+      <Link href={config.checkoutUrl}>
+        <div className="relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5">
+          <p className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4">
+            {config.offerLabel}
+          </p>
 
-        <div className="text-left">
-          {config.offerType && <p className="tracking-33 font-bold">{config.offerType}</p>}
+          <div className="text-left">
+            {config.offerType && <p className="tracking-33 font-bold">{config.offerType}</p>}
 
-          <h2 className="mt-3">{config.title}</h2>
+            <h2 className="mt-3">{config.title}</h2>
 
-          <p className="max-w-[336px] mt-4 lg:block">{config.copy}</p>
+            <p className="max-w-[336px] mt-4 lg:block">{config.copy}</p>
+          </div>
         </div>
-      </div>
+      </Link>
 
       <CheckoutButton
         className="w-fit !font-bold border-none p-4 mt-4 mb-4 lg:mt-10"

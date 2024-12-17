@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 interface ICommunityTeaserProps {
   includeBgImage?: boolean
   includePaymentOptions?: boolean
+  sectionHeading?: string
   teaserHeading?: string
   paymentOptionsConfigKey: TPaymentOptionsConfigKey
 }
@@ -18,6 +19,7 @@ interface ICommunityTeaserProps {
 export const CommunityTeaser = ({
   includeBgImage = false,
   includePaymentOptions = true,
+  sectionHeading = TH.COMMUNITY.heading,
   teaserHeading = TH.COMMUNITY.subheading,
   paymentOptionsConfigKey,
 }: ICommunityTeaserProps) => {
@@ -46,7 +48,7 @@ export const CommunityTeaser = ({
         )}
 
         <div className="relative max-w-5xl text-center text-white mx-auto">
-          <h2 className="max-w-xl mx-auto">{TH.COMMUNITY.heading}</h2>
+          <h2 className="max-w-xl mx-auto">{sectionHeading}</h2>
 
           <div className="flex row justify-between space-x-4 mt-12 overflow-x-auto scrollbar-hide lg:mt-15">
             {TH.COMMUNITY.cards.map((card, index) => (

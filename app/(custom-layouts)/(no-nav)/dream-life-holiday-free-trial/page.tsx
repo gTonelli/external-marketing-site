@@ -1,7 +1,8 @@
+// core
 import Image from 'next/image'
+// components
 import { Page } from '@/components/Page'
 import { CheckoutButton } from '@/components/CheckoutButton'
-import { EExternalRoutes } from '@/utils/constants'
 import { Section } from '@/components/Section'
 import {
   faCircleCheck,
@@ -18,6 +19,8 @@ import { Card } from '@/components/Card/Card'
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { ThaisIntro } from '@/components/ThaisIntro'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 
 const benefits = [
   {
@@ -60,17 +63,19 @@ export default function DreamLifeHolidayFTPage() {
             height={796}
           />
 
-          <h1 className="mb-4">End the Year With Purpose – Start Your Transformation Today</h1>
+          <h1 className="mb-4">Your Dream Life Isn’t Waiting – It’s Calling You in 2025.</h1>
 
           <p className="tracking-33 font-bold text-xl mb-8">
-            WITH YOUR 7-DAY FREE TRIAL TO THE ALL ACCESS PASS
+            EMBRACE IT RIGHT NOW WITH YOUR 7-DAY FREE TRIAL TO THE ALL ACCESS PASS!
           </p>
 
           <p className="font-bold mb-8">
-            Start the New Year with renewed purpose, new hopes, and expected breakthroughs with our
-            All-Access Pass. Get 7 days FREE and unlock all our courses, our proprietary and
-            game-changing healing method, and expert guidance that will transform your life and
-            relationships and help you achieve your goals in 2025!
+            Ready to rise in 2025? Shatter old patterns, heal past wounds, empower yourself, and
+            create unshakable relationships with 7 FREE days of the All-Access Pass. Gain access to
+            every transformational course at The Personal Development School, master our proprietary
+            and proven healing method, and get expert guidance directly from me (founder, Thais
+            Gibson) to get the life you deserve. Don’t just set goals — conquer them and become
+            unstoppable this new year. Your breakthrough starts NOW!
           </p>
 
           <CheckoutButton href={checkoutUrl} label="SIGN UP & TRANSFORM" />
@@ -120,7 +125,7 @@ export default function DreamLifeHolidayFTPage() {
               listItems={[
                 `**A Complete Library of Courses:** Take any of our 60+ video courses that you can watch anytime, anywhere. These courses focus on helping you find lasting love, heal your relationships, and unlock personal growth.`,
                 `**Live Weekly Webinars & Q&A Sessions:** Learn new tools while getting your questions answered in real-time by me, Thais Gibson, founder of The Personal Development School, and my team of Certified Coaches. Watch recordings so you’ll never miss a session.`,
-                `**Ongoing Community Support:** Join a safe and encouraging online forum with like-minded individuals who encourage growth and discussion. Plus, join weekly support groups led by expert coaches to help you continue your journey.`,
+                `**Ongoing Community Support:** Join a safe and encouraging online forum with like-minded individuals who encourage growth and discussion. Plus, attend weekly support groups led by expert coaches to help you continue your journey.`,
               ]}
             />
           </div>
@@ -136,7 +141,7 @@ export default function DreamLifeHolidayFTPage() {
 
       <Section className="bg-primary-light-50">
         <h2>
-          Can Your Mental Health And Emotional Wellness Really Keep Taking A Backseat This Season?
+          Can Your Mental Health & Emotional Wellness Really Keep Taking A Backseat This Season?
         </h2>
 
         <p className="max-w-3xl mx-auto lg:my-8">
@@ -182,15 +187,15 @@ export default function DreamLifeHolidayFTPage() {
             </div>
 
             <p className="w-3/4 mx-auto lg:w-auto">
-              How much longer can I left my self-esteem derail my relationships?
+              How much longer can I let my self-esteem derail my relationships?
             </p>
           </div>
         </div>
 
         <p className="max-w-xl mx-auto mb-4">
           With this free, limited-time offer, you can finally discover why you feel and act the way
-          you do each year, how to break your self-sabotaging patterns in relationships with
-          yourself and others, and start experiencing the change you want to see in your life.
+          you do each year, how to break your personal and relationship self-sabotaging patterns,
+          and start experiencing the change you want to see in your life.
         </p>
 
         <p className="max-w-xl font-bold mx-auto mb-8">
@@ -264,7 +269,9 @@ export default function DreamLifeHolidayFTPage() {
         />
 
         <div className="section-inner-wrapper relative">
-          <h2 className="mb-8">Here’s What You’re Getting With Your 7-Day All-Access Pass:</h2>
+          <h2 className="mb-8">
+            Your 7-Day All-Access Pass is the Key to Unlock Your New Reality:
+          </h2>
 
           <Card
             className="default-padding text-left border-none my-4 
@@ -321,6 +328,7 @@ export default function DreamLifeHolidayFTPage() {
       <CommunityTeaser
         includeBgImage
         paymentOptionsConfigKey="dreamLifeHoliday"
+        sectionHeading="Step Into the New Year with Us – Join Our Unstoppable Community!"
         teaserHeading="Step Into the Life You Deserve This New Year – Take Our 7-Day Free Trial"
       />
     </Page>

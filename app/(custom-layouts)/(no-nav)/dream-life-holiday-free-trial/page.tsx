@@ -1,5 +1,6 @@
 // core
 import Image from 'next/image'
+import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
 import { CheckoutButton } from '@/components/CheckoutButton'
@@ -21,6 +22,13 @@ import { ThaisIntro } from '@/components/ThaisIntro'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
+
+export const metadata: Metadata = {
+  title: 'Sign up for a 7-Day Free Trial this Holiday Season!',
+  description:
+    ' End the year with purpose! Sign up for our 7-Day Free Trial to the All-Access Pass to get everything you need to transform this coming new year!',
+  robots: 'noindex',
+}
 
 const benefits = [
   {

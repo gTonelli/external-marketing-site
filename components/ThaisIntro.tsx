@@ -1,4 +1,6 @@
+// core
 import Image from 'next/image'
+// components
 import { Section } from './Section'
 
 export const ThaisIntro = () => {

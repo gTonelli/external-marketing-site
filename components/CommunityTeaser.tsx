@@ -1,39 +1,54 @@
 // core
 import Image from 'next/image'
 // components
-import { PaymentOptions } from './PaymentOptions'
+import { PaymentOptions, TPaymentOptionsConfigKey } from './PaymentOptions'
 import { faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { EExternalRoutes } from '@/utils/constants'
 
 interface ICommunityTeaserProps {
+  includeBgImage?: boolean
   includePaymentOptions?: boolean
+  sectionHeading?: string
   teaserHeading?: string
-  checkoutUrl?: EExternalRoutes
+  paymentOptionsConfigKey: TPaymentOptionsConfigKey
 }
 
 export const CommunityTeaser = ({
+  includeBgImage = false,
   includePaymentOptions = true,
-  teaserHeading = TH.COMMUNITY.bullets.heading,
-  checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
+  sectionHeading = TH.COMMUNITY.heading,
+  teaserHeading = TH.COMMUNITY.subheading,
+  paymentOptionsConfigKey,
 }: ICommunityTeaserProps) => {
   return (
     <>
-      <Image
-        alt="A dark wave"
-        className="w-full mt-10 -mb-1 lg:mt-0"
-        src="/images/TrialHeadspace/community-bg.png"
-        tabIndex={-1}
-        width={1920}
-        height={121}
-      />
+      {!includeBgImage && (
+        <Image
+          alt="A dark wave"
+          className="w-full mt-10 -mb-1 lg:mt-0"
+          src="/images/TrialHeadspace/community-bg.png"
+          tabIndex={-1}
+          width={1920}
+          height={121}
+        />
+      )}
 
-      <section className="w-full bg-black px-4 py-20">
-        <div className="max-w-5xl text-center text-white mx-auto">
-          <h2 className="max-w-xl mx-auto">{TH.COMMUNITY.heading}</h2>
+      <section className="relative w-full bg-black px-4 py-20">
+        {includeBgImage && (
+          <Image
+            className="absolute w-full h-full top-0 left-0 z-0 opacity-30"
+            src="/images/TrialHeadspace/snowflakes-bg.webp"
+            alt="hero-mockup"
+            width={3000}
+            height={2000}
+          />
+        )}
+
+        <div className="relative max-w-5xl text-center text-white mx-auto">
+          <h2 className="max-w-xl mx-auto">{sectionHeading}</h2>
 
           <div className="flex row justify-between space-x-4 mt-12 overflow-x-auto scrollbar-hide lg:mt-15">
             {TH.COMMUNITY.cards.map((card, index) => (
@@ -52,48 +67,28 @@ export const CommunityTeaser = ({
 
                 <h2 className="text-black mt-3">{card.stat}</h2>
 
-                <p className="text-[#7B7B7B] mt-6">{card.copy}</p>
+                <p className="text-black mt-6">{card.copy}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 lg:mt-[70px]">
-            <h2 className="text-center lg:text-left">{teaserHeading}</h2>
+          <div className="text-left mt-12 lg:mt-[70px]">
+            <h2 className="mb-8">{teaserHeading}</h2>
 
-            <div className="flex flex-col space-y-11 text-left mt-10 md:space-x-10 md:space-y-0 md:flex-row md:mt-20">
-              <div>
-                <div className="flex row items-center space-x-6 lg:space-x-10">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+              {TH.COMMUNITY.bullets.map((bullet, idx) => (
+                <div key={`community_perk_${idx}`} className="flex items-center space-x-6">
                   <FontAwesomeIcon icon={faCheck} size="2x" />
 
-                  <p className="text-lg">{TH.COMMUNITY.bullets.bullet1}</p>
+                  <p className="text-lg">{bullet}</p>
                 </div>
-
-                <div className="flex row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <FontAwesomeIcon icon={faCheck} size="2x" />
-
-                  <p className="text-lg">{TH.COMMUNITY.bullets.bullet2} </p>
-                </div>
-              </div>
-
-              <div>
-                <div className="flex row items-center space-x-6 lg:space-x-10">
-                  <FontAwesomeIcon icon={faCheck} size="2x" />
-
-                  <p className="text-lg">{TH.COMMUNITY.bullets.bullet3} </p>
-                </div>
-
-                <div className="flex row items-center space-x-6 mt-11 lg:space-x-10 lg:mt-14">
-                  <FontAwesomeIcon icon={faCheck} size="2x" />
-
-                  <p className="text-lg">{TH.COMMUNITY.bullets.bullet4}</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           {includePaymentOptions && (
             <div className="mt-24">
-              <PaymentOptions placement="bottom" checkoutUrl={checkoutUrl} />
+              <PaymentOptions configKey={paymentOptionsConfigKey} />
             </div>
           )}
         </div>

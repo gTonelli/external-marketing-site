@@ -1,5 +1,3 @@
-// core
-import Image from 'next/image'
 //components
 import { Page } from '@/components/Page'
 import { Articles } from '@/components/Articles'
@@ -8,15 +6,13 @@ import VideoTeaser from '@/components/Video/variants/VideoTeaser'
 import { TestimonialSection } from '@/components/TestimonialSection'
 import { DreamLifeBanner } from '@/components/DreamLifeBanner'
 import { CheckoutButton } from '@/components/CheckoutButton'
-// config
-import { TRIAL_HEADSPACE as TH } from './config'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 
 export default function DreamLifePage() {
   return (
     <Page className="relative w-full overflow-hidden" page_name="7 Day Free Trial Headspace">
-      <DreamLifeBanner />
+      <DreamLifeBanner paymentOptionsConfigKey="dreamLife" />
 
       {/**TESTIMONIAL*/}
       <section className="max-w-4xl mx-auto px-4 pt-9 lg:pt-[102px]">
@@ -41,7 +37,7 @@ export default function DreamLifePage() {
 
       <Articles />
 
-      <CommunityTeaser />
+      <CommunityTeaser paymentOptionsConfigKey="dreamLife" />
     </Page>
   )
 }

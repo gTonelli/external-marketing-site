@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function BlackFridayVariant() {
   return (
     <Page className="w-full overflow-hidden" page_name="Black Friday Variant Page">
-      <DreamLifeBanner fourteenDayFT pageName="BLACK FRIDAY" />
+      <DreamLifeBanner fourteenDayFT paymentOptionsConfigKey="blackFriday14day" />
 
       <SpecialPromotionBody showFirstSection={false} />
     </Page>

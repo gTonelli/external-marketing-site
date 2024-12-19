@@ -326,6 +326,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
       <CommunityTeaser
         includePaymentOptions={false}
         teaserHeading="Join The Personal Development School for 30% Off"
+        paymentOptionsConfigKey="dreamLife"
       />
 
       <Section className="bg-black text-center text-white">

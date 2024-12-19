@@ -31,9 +31,9 @@ export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IRe
     // mb-14
     <div className={cx('relative 2xl:mb-0 h-full flex flex-col items-center', className)}>
       {/* REVIEW AUTHOR */}
-      <div className="flex items-center relative top-6 left-8">
+      <div className="flex relative top-6 left-8">
         <Image
-          className="max-w-28 max-h-28 rounded-full"
+          className="w-20 h-20 rounded-full"
           width={36}
           height={36}
           src={`/images/${review.author.picture}`}

@@ -22,7 +22,6 @@ import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
 // utils
 import { TStyle } from '@/utils/types'
-import { useSplitTest } from '@/utils/hooks'
 
 let modifiedQuestions = [...questions]
 
@@ -52,12 +51,6 @@ export const AttachmentQuizQuestions = ({
     gender: '',
     relationshipIntend: '',
     relationshipSatisfaction: '',
-  })
-  const { isVariant } = useSplitTest({
-    key: 'GM-1327',
-    experimentName: 'Attachment Quiz Form Style',
-    variantRatio: 0.5,
-    useCookies: false,
   })
 
   // ======================== Hooks ====================
@@ -238,7 +231,6 @@ export const AttachmentQuizQuestions = ({
         </div>
       ) : (
         <AttachmentQuizForm
-          isVariant={isVariant}
           quiz_traffic_source={quiz_traffic_source}
           userInfo={userInfo}
           userStyle={style as TStyle}

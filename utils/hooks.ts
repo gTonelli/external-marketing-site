@@ -157,48 +157,46 @@ interface IUseSplitTestProps {
   useCookies?: boolean
 }
 
-export function useSplitTest({
+export function getSplitTest({
   key,
   variantRatio,
   experimentName,
   useCookies = true,
 }: IUseSplitTestProps) {
-  const [isVariant, setIsVariant] = useState()
+  let isVariant = false
+  const cookies = new Cookies()
+  const storageVar = useCookies ? cookies.get(key) : Storage.get(key)
 
-  useEffect(() => {
-    const cookies = new Cookies()
-    const storageVar = useCookies ? cookies.get(key) : Storage.get(key)
-
-    if (typeof storageVar === 'string' || typeof storageVar === 'boolean') {
-      try {
-        return setIsVariant(typeof storageVar === 'string' ? JSON.parse(storageVar) : storageVar)
-      } catch {
-        return
-      }
+  if (typeof storageVar === 'string' || typeof storageVar === 'boolean') {
+    try {
+      isVariant = typeof storageVar === 'string' ? JSON.parse(storageVar) : storageVar
+      return isVariant
+    } catch {
+      return isVariant
     }
+  }
 
-    const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
-    if (randomFloat > variantRatio * 2) {
-      useCookies
-        ? cookies.set(key, false, {
-            domain: '.personaldevelopmentschool.com',
-            maxAge: 7776000,
-          })
-        : Storage.set(key, false)
-    } else {
-      const showVariant = randomFloat < variantRatio
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': experimentName,
-        'Variant name': showVariant ? 'Variant 1' : 'Control',
-      })
-      useCookies
-        ? cookies.set(key, showVariant, {
-            domain: '.personaldevelopmentschool.com',
-            maxAge: 7776000,
-          })
-        : Storage.set(key, showVariant)
-    }
-  }, [experimentName, key, useCookies, variantRatio])
+  const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+  if (randomFloat > variantRatio * 2) {
+    useCookies
+      ? cookies.set(key, false, {
+          domain: '.personaldevelopmentschool.com',
+          maxAge: 7776000,
+        })
+      : Storage.set(key, false)
+  } else {
+    isVariant = randomFloat < variantRatio
+    Mixpanel.track.ExperimentStarted({
+      'Experiment name': experimentName,
+      'Variant name': isVariant ? 'Variant 1' : 'Control',
+    })
+    useCookies
+      ? cookies.set(key, isVariant, {
+          domain: '.personaldevelopmentschool.com',
+          maxAge: 7776000,
+        })
+      : Storage.set(key, isVariant)
+  }
 
-  return { isVariant, setIsVariant }
+  return isVariant
 }

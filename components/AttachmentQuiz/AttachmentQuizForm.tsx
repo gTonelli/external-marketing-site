@@ -11,6 +11,7 @@ import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
+import { getSplitTest } from '@/utils/hooks'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -24,11 +25,17 @@ export const AttachmentQuizForm = ({
   quiz_traffic_source,
   userInfo,
   userStyle,
-  isVariant,
 }: IAttachmentQuizFormProps) => {
   const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
   const router = useRouter()
+  const isVariant = getSplitTest({
+    key: 'GM-1327',
+    experimentName: 'Attachment Quiz Form Style',
+    variantRatio: 0.5,
+    useCookies: false,
+  })
+  console.log('isVariant', isVariant)
 
   // ==================== Events ====================
   const determineRoute = () => {

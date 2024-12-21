@@ -1,7 +1,5 @@
 'use client'
 
-// core
-import { useSearchParams } from 'next/navigation'
 // components
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
@@ -64,7 +62,6 @@ export const RegistrationFormVariant = ({
   userStyle,
 }: IRegistrationFormProps) => {
   // =========== Hooks =========
-  const searchParams = useSearchParams()
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
 

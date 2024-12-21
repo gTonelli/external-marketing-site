@@ -11,7 +11,7 @@ import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
-import { getSplitTest } from '@/utils/hooks'
+import { getSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -88,7 +88,7 @@ export const AttachmentQuizForm = ({
 
             <p className="mb-4">
               Enter your information below to receive a{' '}
-              <strong>free, in-depth personalized email report</strong> to help you{' '}
+              <strong>free, in-depth, personalized email report</strong> to help you{' '}
               <strong className="text-primary">
                 build the relationships of your life starting today
               </strong>
@@ -102,6 +102,10 @@ export const AttachmentQuizForm = ({
               userStyle={userStyle}
               onAfterSubmit={onAfterSubmit}
             />
+
+            <p className="font-effra font-bold mt-4 tracking-widest">
+              TO GET YOUR FREE PERSONALIZED REPORT.
+            </p>
           </>
         ) : (
           <>
@@ -117,10 +121,10 @@ export const AttachmentQuizForm = ({
               userStyle={userStyle}
               onAfterSubmit={onAfterSubmit}
             />
+
+            <h5 className="font-effra mt-4">AND also get a free emailed report.</h5>
           </>
         )}
-
-        <h5 className="font-effra mt-4">AND also get a free emailed report.</h5>
       </div>
     </section>
   )

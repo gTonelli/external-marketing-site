@@ -238,7 +238,7 @@ export const AttachmentQuizQuestions = ({
         </div>
       ) : (
         <AttachmentQuizForm
-          isVariant={isVariant || false}
+          isVariant={isVariant}
           quiz_traffic_source={quiz_traffic_source}
           userInfo={userInfo}
           userStyle={style as TStyle}

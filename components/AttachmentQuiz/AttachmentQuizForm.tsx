@@ -17,7 +17,7 @@ interface IAttachmentQuizFormProps {
   userInfo?: IUserInfo
   quiz_traffic_source: TQuizTrafficSources
   isYoung?: boolean
-  isVariant: boolean
+  isVariant?: boolean
 }
 
 export const AttachmentQuizForm = ({

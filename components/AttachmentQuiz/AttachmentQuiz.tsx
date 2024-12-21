@@ -7,20 +7,13 @@ import dynamic from 'next/dynamic'
 import { IDefaultProps } from '@/components'
 import { Button } from '../Button/Button'
 import { Text } from '../Text/Text'
-import { Loader } from '../Loader'
+import { AttachmentQuizQuestions } from './AttachmentQuizQuestions'
 // config
 import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 // libraries
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-
-const AttachmentQuizQuestions = dynamic(
-  () => import('./AttachmentQuizQuestions').then((mod) => mod.AttachmentQuizQuestions),
-  {
-    loading: () => <Loader />,
-  }
-)
 
 export interface IUserInfo {
   relationshipStatus?: string

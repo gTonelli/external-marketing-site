@@ -20,6 +20,7 @@ import { orderBy } from 'lodash'
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
+// utils
 import { TStyle } from '@/utils/types'
 
 let modifiedQuestions = [...questions]

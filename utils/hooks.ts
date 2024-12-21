@@ -7,6 +7,7 @@ import { IViewport } from './interfaces'
 import { throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import Cookies from 'universal-cookie'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 
 // ==============================
 //          R E S I Z E
@@ -147,4 +148,57 @@ export function useAttachmentQuizSplitTest(showingVariant: boolean) {
       page_name: config.pageName as Pages,
     })
   })
+}
+
+interface IUseSplitTestProps {
+  key: TStorageKeys
+  variantRatio: 0.25 | 0.5
+  experimentName: string
+  useCookies?: boolean
+}
+
+export function useSplitTest({
+  key,
+  variantRatio,
+  experimentName,
+  useCookies = true,
+}: IUseSplitTestProps) {
+  const [isVariant, setIsVariant] = useState()
+
+  useEffect(() => {
+    const cookies = new Cookies()
+    const storageVar = useCookies ? cookies.get(key) : Storage.get(key)
+
+    if (typeof storageVar === 'string' || typeof storageVar === 'boolean') {
+      try {
+        return setIsVariant(typeof storageVar === 'string' ? JSON.parse(storageVar) : storageVar)
+      } catch {
+        return
+      }
+    }
+
+    const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+    if (randomFloat > variantRatio * 2) {
+      useCookies
+        ? cookies.set(key, false, {
+            domain: '.personaldevelopmentschool.com',
+            maxAge: 7776000,
+          })
+        : Storage.set(key, false)
+    } else {
+      const showVariant = randomFloat < variantRatio
+      Mixpanel.track.ExperimentStarted({
+        'Experiment name': experimentName,
+        'Variant name': showVariant ? 'Variant 1' : 'Control',
+      })
+      useCookies
+        ? cookies.set(key, showVariant, {
+            domain: '.personaldevelopmentschool.com',
+            maxAge: 7776000,
+          })
+        : Storage.set(key, showVariant)
+    }
+  }, [experimentName, key, useCookies, variantRatio])
+
+  return { isVariant, setIsVariant }
 }

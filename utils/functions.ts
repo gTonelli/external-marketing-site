@@ -3,6 +3,7 @@ import { IStrapiFetchProps, IStrapiResponse, TDict } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
+import Cookies from 'universal-cookie'
 
 /**
  * Check if property is function
@@ -47,23 +48,55 @@ export type TSplitTestKey = `${string}-${number}-${string}` | `${string}-${numbe
 
 export interface IGetSplitTest {
   key: TSplitTestKey
-  variantRatio?: 0.2 | 0.5
-  experimentName?: string
+  experimentName: string
+  variantRatio?: 0.25 | 0.5
+  useCookies?: boolean
   props?: TDict
 }
 
-export const getSplitTest = ({ key, experimentName, props, variantRatio = 0.5 }: IGetSplitTest) => {
-  if (!key) return undefined
-  let isVariant: Boolean = Storage.get(key)
-  if (isVariant === null) {
-    isVariant = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
-    Storage.set(key, isVariant)
+export function getSplitTest({
+  key,
+  experimentName,
+  props,
+  useCookies = true,
+  variantRatio = 0.5,
+}: IGetSplitTest) {
+  let isVariant = false
+  const cookies = new Cookies()
+  const storageVar = useCookies ? cookies.get(key) : Storage.get(key)
+
+  if (typeof storageVar === 'string' || typeof storageVar === 'boolean') {
+    try {
+      isVariant = typeof storageVar === 'string' ? JSON.parse(storageVar) : storageVar
+      return isVariant
+    } catch {
+      return isVariant
+    }
+  }
+
+  const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+  if (randomFloat > variantRatio * 2) {
+    useCookies
+      ? cookies.set(key, false, {
+          domain: '.personaldevelopmentschool.com',
+          maxAge: 7776000,
+        })
+      : Storage.set(key, false)
+  } else {
+    isVariant = randomFloat < variantRatio
     Mixpanel.track.ExperimentStarted({
-      'Experiment name': experimentName || key,
+      'Experiment name': experimentName,
       'Variant name': isVariant ? 'Variant 1' : 'Control',
       ...props,
     })
+    useCookies
+      ? cookies.set(key, isVariant, {
+          domain: '.personaldevelopmentschool.com',
+          maxAge: 7776000,
+        })
+      : Storage.set(key, isVariant)
   }
+
   return isVariant
 }
 

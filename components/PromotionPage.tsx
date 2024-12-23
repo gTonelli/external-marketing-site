@@ -6,9 +6,10 @@ import Image from 'next/image'
 import { Section } from '@/components/Section'
 import { SpecialPromotionBody } from '@/components/SpecialPromotion'
 import { MHAButton } from './MHAButton'
-import { getSplitTest } from '@/utils/functions'
 import { useEffect, useState } from 'react'
 import { Loader } from './Loader'
+// utils
+import { getSplitTest } from '@/utils/functions'
 
 interface PromotionPageProps {
   page: 'Black Friday' | 'Cyber Monday'

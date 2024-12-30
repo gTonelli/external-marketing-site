@@ -88,7 +88,7 @@ export const CommunityTeaser = ({
 
           {includePaymentOptions && (
             <div className="mt-24">
-              <PaymentOptions configKey={paymentOptionsConfigKey} />
+              <PaymentOptions configKey={paymentOptionsConfigKey} placement="bottom" />
             </div>
           )}
         </div>

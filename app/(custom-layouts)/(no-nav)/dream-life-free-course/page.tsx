@@ -87,15 +87,7 @@ export default function DreamLifeFreeCoursePage() {
         </div>
       </Section>
 
-      <section className="relative overflow-hidden h-full py-48">
-        <Image
-          className="absolute top-0 left-0 w-full h-auto z-0"
-          alt="Vector background"
-          src="/images/pds-bg-vector.png"
-          width={1440}
-          height={591}
-        />
-
+      <section className="relative  py-48">
         <div className="default-padding relative max-w-5xl z-10 mx-auto">
           <h2>
             Get the Discover, Embrace & Fulfill Your Personal Needs Course FREE for LIFE with a

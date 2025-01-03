@@ -117,7 +117,7 @@ export default function DreamLifeFreeCoursePage() {
       </Section>
 
       <Section>
-        <h2 className="mb-8">A 7-Day Free Trial to our All-Access Pass Gives You:</h2>
+        <h2 className="mb-8">A 7-Day Free Trial to Our All-Access Pass Gives You:</h2>
 
         <div className="grid grid-cols-1 gap-4 mb-8 lg:grid-cols-3">
           {PDS_FEATURES.map((feature, idx) => (
@@ -219,7 +219,7 @@ export default function DreamLifeFreeCoursePage() {
       <Section>
         <div className="max-w-3xl mx-auto">
           <h2 className="mb-4">
-            Master Your Needs With Our Revolutionary Model and Unlock Your Full Potential
+            Master Your Needs With Our Revolutionary Model & Unlock Your Full Potential
           </h2>
 
           <p className="mb-4">

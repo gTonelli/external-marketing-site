@@ -66,7 +66,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
           <Animation direction="fromBottom" delay={0.15}>
             <Image
               alt="A thumbnail for the PDS Course: Discover, Embrace & Fulfill Your Personal Needs"
-              src="/images/course-personal-needs-alt.png"
+              src="/images/course-personal-needs-alt.jpg"
               width={224}
               height={125}
               quality={95}

@@ -52,7 +52,7 @@ export const PaymentOptions = ({
             'max-w-xl mx-auto',
             placement === 'top' ? 'text-gray-800' : 'text-gray-200'
           )}>
-          {config.disclaimer}
+          <i>{config.disclaimer}</i>
         </p>
       )}
     </div>
@@ -104,7 +104,7 @@ const allConfigs = {
     offerLabel: 'Free Trial & Exclusive Bonus Offer',
     offerType: '',
     title: 'Needs Course for Life + 7-Day Free Trial',
-    copy: 'Take Our Free Trial to Unlock Everything We Offer. Plus, Get the the Discover, Embrace & Fulfill Your Personal Needs Course For FREE for LIFE to Support Your Growth!',
+    copy: 'Take Our Free Trial to Our All-Access Pass Membership. Plus, Get the Discover, Embrace & Fulfill Your Personal Needs Course For FREE for LIFE to Support Your Growth!',
     ctaLabel: 'JOIN & START YOUR COURSE',
     checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
     disclaimer:

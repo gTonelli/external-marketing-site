@@ -4,14 +4,17 @@
 import { useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Text } from '@/components/Text/Text'
-import { Video } from '../Video'
+import { VideoThumbnail } from './VideoThumbnail'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import cx from 'classnames'
 
-export default function VideoTeaser({ className }: IDefaultProps) {
+interface IVideoTeaserProps extends IDefaultProps {
+  description?: string
+}
+
+export default function VideoTeaser({ className, description }: IVideoTeaserProps) {
   const [videoIndex, setVideoIndex] = useState(0)
 
   return (
@@ -28,22 +31,19 @@ export default function VideoTeaser({ className }: IDefaultProps) {
                     : 'bg-primary hover:bg-primary-light border-primary'
                 } border-2 transition-all text-white rounded-10 cursor-pointer px-2 py-2 lg:w-[204px] lg:py-4`}
                 onClick={() => setVideoIndex(index)}>
-                <Text.Paragraph
-                  className="font-bold !text-[12px] lg:text-base"
-                  content={category.name}
-                />
+                <p className="font-bold !text-[12px] lg:text-base">{category.name}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <Text.Paragraph
-          className="max-w-[430px] mx-auto mt-10"
-          content="Learn to communicate more effectively, connect deeply, and repair any relationship in a matter of weeks."
-        />
+        <p className="max-w-xl mx-auto mt-10">
+          {description ||
+            'Learn to communicate more effectively, connect deeply, and repair any relationship in a matter of weeks.'}
+        </p>
 
         <div>
-          <Video.Thumbnail
+          <VideoThumbnail
             playAuto
             playInline
             className="mt-5 lg:mx-auto lg:mt-10"

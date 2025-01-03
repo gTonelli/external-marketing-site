@@ -80,7 +80,11 @@ export const CommunityTeaser = ({
                 <div key={`community_perk_${idx}`} className="flex items-center space-x-6">
                   <FontAwesomeIcon icon={faCheck} size="2x" />
 
-                  <p className="text-lg">{bullet}</p>
+                  <p className="text-lg">
+                    {paymentOptionsConfigKey === 'dreamLifeFreeCourse' && idx === 3
+                      ? 'Use the Needs Course anytime you want to rediscover your needs during any life stage.'
+                      : bullet}
+                  </p>
                 </div>
               ))}
             </div>

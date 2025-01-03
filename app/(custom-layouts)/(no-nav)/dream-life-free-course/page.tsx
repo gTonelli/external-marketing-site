@@ -1,13 +1,23 @@
+// core
 import Image from 'next/image'
-import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { CheckoutButton } from '@/components/CheckoutButton'
-import { CommunityTeaser } from '@/components/CommunityTeaser'
+import { Metadata } from 'next'
+// components
 import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import VideoTeaser from '@/components/Video/variants/VideoTeaser'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { CheckoutButton } from '@/components/CheckoutButton'
+import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { PaymentOptions } from '@/components/PaymentOptions'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import VideoTeaser from '@/components/Video/variants/VideoTeaser'
+
+export const metadata: Metadata = {
+  title: 'Get Your Dream Life with a Free Trial & Course for Life!',
+  description:
+    'It’s time for you to discover your needs in life. Sign up for our 7-Day Free Trial to our All-Access Pass and get our Needs Course for Free for LIFE!',
+  robots: 'noindex',
+}
 
 export default function DreamLifeFreeCoursePage() {
   return (
@@ -60,41 +70,51 @@ export default function DreamLifeFreeCoursePage() {
         height={88}
       />
 
-      <Section classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <div>Image</div>
+      <Section>
+        <h2 className="mb-8">
+          Rebuild Your Life — With This Course, Your Needs Get Met Now & Forever!
+        </h2>
 
-        <div className="text-left">
-          <h2 className="mb-4">
-            Rebuild Your Life — With This Course, Your Needs Get Met Now & Forever!
-          </h2>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div>
+            <Image
+              className="rounded-xl"
+              alt="Needs Course Thumbnail"
+              src="/images/course-personal-needs-alt.jpg"
+              width={640}
+              height={360}
+            />
+          </div>
 
-          <p className="mb-4">
-            <strong>
-              Take the All-Access Pass Free Trial to Get Lifetime Access to the Discover, Embrace &
-              Fulfill Your Personal Needs Course
-            </strong>
-          </p>
+          <div className="text-left">
+            <p className="mb-4">
+              <strong>
+                Take the All-Access Pass Free Trial to Get Lifetime Access to the Discover, Embrace
+                & Fulfill Your Personal Needs Course
+              </strong>
+            </p>
 
-          <p className="mb-4">
-            Discover who you truly are, what you truly “need” in life and relationships to feel
-            fulfilled, and how to get them with our Needs Course – which you get for FREE for LIFE.
-            It’s part of our All-Access Pass Membership, which you’ll get for FREE for 7 days!
-            That’s access to this beginner course that will pave the way for continuous personal
-            growth and transformation and always be there when you need it in the future.
-          </p>
+            <p className="mb-4">
+              Discover who you truly are, what you truly “need” in life and relationships to feel
+              fulfilled, and how to get them with our Needs Course – which you get to KEEP for FREE
+              for LIFE. It’s part of our All-Access Pass Membership, which you’ll get for FREE for 7
+              days! That’s access to this beginner course that will pave the way for continuous
+              personal growth and transformation and always be there when you need it in the future.
+            </p>
 
-          <CheckoutButton label="JOIN TO TAKE THE COURSE" />
+            <CheckoutButton label="JOIN TO TAKE THE COURSE" />
+          </div>
         </div>
       </Section>
 
-      <section className="relative  py-48">
-        <div className="default-padding relative max-w-5xl z-10 mx-auto">
-          <h2>
-            Get the Discover, Embrace & Fulfill Your Personal Needs Course FREE for LIFE with a
-            7-Day Free Trial to the All-Access Pass!
-          </h2>
-        </div>
-      </section>
+      <Section
+        className="!max-w-full bg-[url('/images/pds-bg-vector.svg')] bg-center bg-no-repeat !bg-cover mx-auto !p-0"
+        classNameInner="px-4 py-24 lg:py-48">
+        <h2>
+          Get the Discover, Embrace & Fulfill Your Personal Needs Course FREE for LIFE with a 7-Day
+          Free Trial to the All-Access Pass!
+        </h2>
+      </Section>
 
       <Section>
         <h2 className="mb-8">A 7-Day Free Trial to our All-Access Pass Gives You:</h2>
@@ -102,7 +122,9 @@ export default function DreamLifeFreeCoursePage() {
         <div className="grid grid-cols-1 gap-4 mb-8 lg:grid-cols-3">
           {PDS_FEATURES.map((feature, idx) => (
             <div key={`feature_${idx}`}>
-              <div className="mb-4">Image</div>
+              <div className="flex justify-center mb-4">
+                <Image alt="vector icon" src={feature.icon} width={92} height={86} />
+              </div>
 
               <h3 className="mb-4">{feature.title}</h3>
 
@@ -113,7 +135,7 @@ export default function DreamLifeFreeCoursePage() {
 
         <div className="max-w-3xl mx-auto">
           <h2 className="mb-8">
-            Ready for a Love Life Like No Other? Get Results You Can’t Find Anywhere Else with Our
+            Ready for a Love Life Like No Other? Get Results You Can’t Find Anywhere Else With Our
             Needs Course!
           </h2>
 
@@ -151,20 +173,43 @@ export default function DreamLifeFreeCoursePage() {
         </div>
       </Section>
 
-      <Section
-        className="bg-black"
-        classNameInner="grid grid-cols-1 gap-8 text-white !text-left lg:grid-cols-3 !py-16">
-        {STEPS_TO_PURCHASE.map((item, idx) => (
-          <div key={`puchase_steps_${idx}`} className="grid ">
-            <div>Image</div>
+      <Section className="bg-black text-white !py-16">
+        <div className="grid grid-cols-1 gap-8 !text-left lg:grid-cols-3">
+          {STEPS_TO_PURCHASE.map((item, idx) => (
+            <div key={`puchase_steps_${idx}`}>
+              <div className="min-h-48 mb-4">
+                <Image
+                  className="rounded-xl"
+                  alt="PDS Journey Step"
+                  src={item.image}
+                  width={360}
+                  height={180}
+                />
+              </div>
 
-            <p className="font-bold tracking-33">{item.step}</p>
+              <p className="font-bold tracking-33 mb-4">{item.step}</p>
 
-            <h3>{item.title}</h3>
+              <h3 className="mb-4">{item.title}</h3>
 
-            <p>{item.copy}</p>
-          </div>
-        ))}
+              <p>{item.copy}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="max-w-3xl mx-auto mt-16">
+          <h2 className="mb-4">
+            Become Your Best Self By Using Our Results Driven Proprietary Method Found Exclusively
+            Only At The Personal Development School
+          </h2>
+
+          <p className="mb-8">
+            We're the only platform that utilizes the groundbreaking Integrated Attachment Theory™
+            to help you understand what you want and how to get it faster than ever before by
+            unlocking and rewiring your subconscious patterns.
+          </p>
+
+          <CheckoutButton label="YOUR JOURNEY STARTS NOW" />
+        </div>
       </Section>
 
       <Section className="max-w-full !p-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
@@ -186,27 +231,31 @@ export default function DreamLifeFreeCoursePage() {
           <CheckoutButton label="TRY THEM WITH A FREE TRIAL" />
         </div>
 
-        <VideoTeaser />
+        <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can use what you learned in the Needs course to continue your personal and relationship growth." />
       </Section>
 
-      <CommunityTeaser paymentOptionsConfigKey="dreamLifeFreeCourse" />
+      <CommunityTeaser
+        paymentOptionsConfigKey="dreamLifeFreeCourse"
+        sectionHeading="Experience Belonging to an Unstoppable Powerhouse Community That Ignites Your Life!"
+        teaserHeading="Get a 7-Day Free Trial + Lifetime Access to Our Needs Course"
+      />
     </Page>
   )
 }
 
 const PDS_FEATURES = [
   {
-    icon: '',
+    icon: '/images/TrialHeadspace/watching-on-laptop.svg',
     title: '65+ Video Courses',
     subtitle: 'Choose and take any of our 65+ courses on needs, attachment styles, and more.',
   },
   {
-    icon: '',
+    icon: '/images/TrialHeadspace/couple-holding-heart-message.svg',
     title: 'Weekly Webinars & Q&As',
-    subtitle: 'Attend live webinars and Q&As with me, Thais Gibson, and Certified Coaches.',
+    subtitle: 'Attend live webinars and Q&As with me, Thais Gibson, and our Certified Coaches.',
   },
   {
-    icon: '',
+    icon: '/images/TrialHeadspace/fly-on-rocket.svg',
     title: 'An Online Community',
     subtitle: 'Learn and grow with like-minded people from around the world in our community.',
   },
@@ -217,18 +266,18 @@ const STEPS_TO_PURCHASE = [
     step: 'STEP ONE',
     title: 'Sign Up for the 7-Day Free Trial',
     copy: 'Sign up for our 7-day free trial to the All-Access Pass Membership to start your healing journey with the Needs course! You have a week to try everything we offer at The Personal Development School.',
-    image: '',
+    image: '/images/RoyalRumblePage/rr-offer.png',
   },
   {
     step: 'STEP TWO',
     title: 'Go Ahead & Take Your Needs Course',
     copy: 'Use the powerful and simple tools and strategies from the Needs Course to rediscover who you are, what you truly desire in yourself and your relationships, and, most importantly, get them met!',
-    image: '',
+    image: '/images/course-personal-needs-alt.jpg',
   },
   {
     step: 'STEP THREE',
     title: 'Continue Your Journey to Become Securely Attached',
-    copy: 'The Needs Course is the first step in your journey to become securely attached! With this as your foundation, continue your growth by taking our Attachment Style intro courses – for free for 7 days!',
-    image: '',
+    copy: 'The Needs Course is the first step in your journey to become securely attached! With this as your foundation, continue your growth by taking our Attachment Style intro courses – for FREE for 7 days!',
+    image: '/images/TrialHeadspace/pds-courses-mockup.png',
   },
 ]

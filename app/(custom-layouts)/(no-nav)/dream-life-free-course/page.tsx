@@ -155,7 +155,7 @@ export default function DreamLifeFreeCoursePage() {
               classNameIcon="!text-green"
               classNameListItems="mb-4"
               listItems={[
-                'Understand the power of procrastination and self-sabotage and how they derail your growth and love life – and how to stop them from happening!',
+                'Understand the power of procrastination and self-sabotage and how they derail your growth and love life – and how to stop them from happening',
                 'Start your journey to becoming securely attached so you have the fulfilling, peaceful, and harmonious life and relationships you want',
               ]}
             />

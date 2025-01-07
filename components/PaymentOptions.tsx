@@ -67,7 +67,7 @@ export const PaymentOptions = ({ className, configKey }: IPaymentOptionsProps) =
   const config = allConfigs[configKey]
   return (
     <div className={cx(`flex flex-col space-y-4 lg:justify-between items-center`, className)}>
-      <Link href={config.checkoutUrl}>
+      <Link href={config.checkoutUrl} className="hover:!no-underline">
         <div className="relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5">
           <p className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4">
             {config.offerLabel}

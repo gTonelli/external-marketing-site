@@ -1,7 +1,7 @@
 // core
 import Image from 'next/image'
 // components
-import { PaymentOptions } from './PaymentOptions'
+import { PaymentOptions, TPaymentOptionsConfigKey } from './PaymentOptions'
 import { CheckoutButton } from './CheckoutButton'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
@@ -10,14 +10,10 @@ import { EExternalRoutes } from '@/utils/constants'
 
 interface IDreamLifeBanner {
   fourteenDayFT?: boolean
-  pageName?: string
+  paymentOptionsConfigKey: TPaymentOptionsConfigKey
 }
 
-export const DreamLifeBanner = ({ fourteenDayFT = false, pageName }: IDreamLifeBanner) => {
-  const checkoutUrl = fourteenDayFT
-    ? EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL
-    : EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
-
+export const DreamLifeBanner = ({ fourteenDayFT, paymentOptionsConfigKey }: IDreamLifeBanner) => {
   return (
     <>
       {/* HERO SECTION */}
@@ -41,12 +37,7 @@ export const DreamLifeBanner = ({ fourteenDayFT = false, pageName }: IDreamLifeB
         )}
 
         <div className="relative mt-8 lg:mt-12">
-          <PaymentOptions
-            className="lg:flex-col"
-            checkoutUrl={checkoutUrl}
-            fourteenDayFT={fourteenDayFT}
-            pageName={pageName}
-          />
+          <PaymentOptions className="lg:flex-col" configKey={paymentOptionsConfigKey} />
         </div>
       </section>
 
@@ -110,7 +101,11 @@ export const DreamLifeBanner = ({ fourteenDayFT = false, pageName }: IDreamLifeB
               <CheckoutButton
                 className="mt-8 px-6 lg:mt-11"
                 label="TRY FOR FREE"
-                href={checkoutUrl}
+                href={
+                  fourteenDayFT
+                    ? EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL
+                    : EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
+                }
               />
             </div>
 

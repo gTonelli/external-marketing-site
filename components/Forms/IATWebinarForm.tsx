@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { SignupForm } from './SignupForm'
@@ -10,6 +10,7 @@ import { Button } from '../Button/Button'
 import { faClose } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useGoogleTagManager } from '@/modules/GTM'
 
 export const IATWebinarForm = () => {
   const router = useRouter()
@@ -32,7 +33,20 @@ interface IIATWebinarSuccessModalProps {
 }
 
 export const IATWebinarSuccessModal = ({ modalSuccess }: IIATWebinarSuccessModalProps) => {
+
+  // =========== Hook =========
+  const tagManager = useGoogleTagManager()
+  // =========== State =========
   const [isOpen, setIsOpen] = useState(modalSuccess)
+
+  useEffect(() => {
+    tagManager?.track({
+      event: 'iat_webinar_signup',
+      eventCategory: 'IAT Webinar Signup',
+      eventAction: 'Form',
+      eventLabel: 'Submit',
+    })
+  }, [tagManager])
 
   return (
     <Dialog className="max-w-xl p-4 bg-white rounded-20" isShown={isOpen}>

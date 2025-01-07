@@ -20,6 +20,7 @@ import { orderBy } from 'lodash'
 import Mixpanel from '@/modules/Mixpanel'
 import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
+// utils
 import { TStyle } from '@/utils/types'
 
 let modifiedQuestions = [...questions]
@@ -220,7 +221,7 @@ export const AttachmentQuizQuestions = ({
               ) : (
                 <button
                   key={`option_${index}`}
-                  className="w-3/4 rounded bg-primary-old border-2 border-primary text-white lg:w-full lg:py-4 lg:hover:bg-opacity-50 lg:hover:shadow-md"
+                  className="w-3/4 rounded bg-primary-old border-2 border-primary text-white py-3 lg:w-full lg:py-4 lg:hover:bg-opacity-50 lg:hover:shadow-md"
                   onClick={onQuestionAnswer(obj)}>
                   {obj}
                 </button>

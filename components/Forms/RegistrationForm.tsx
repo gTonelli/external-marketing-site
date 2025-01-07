@@ -1,6 +1,5 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
 // components
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
@@ -45,18 +44,12 @@ export const RegistrationForm = ({
   submitButtonLabel,
 }: IRegistrationFormProps) => {
   // =========== Hooks =========
-  const searchParams = useSearchParams()
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
     const { email, firstName, lastName } = values
     setUserData({ email, firstName, lastName, userStyle })
-
-    const utmDataRaw: IUtmData = {}
-    searchParams.forEach((value, key) => {
-      utmDataRaw[key] = value
-    })
 
     Mixpanel.setUser(values.email)
     Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
@@ -102,11 +95,7 @@ export const RegistrationForm = ({
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
       {({ isSubmitting }) => (
-        <Form
-          className={cx(
-            'w-full max-w-xl flex-col justify-center mx-auto xxs:!px-3 xs:!px-4 md:pt-8',
-            className
-          )}>
+        <Form className={cx('w-full max-w-xl flex-col justify-center mx-auto', className)}>
           <div className="md:px-4">
             {newQuiz ? (
               <div>
@@ -172,7 +161,7 @@ export const RegistrationForm = ({
   )
 }
 
-const RegistrationFormValidationSchema = yup
+export const RegistrationFormValidationSchema = yup
   .object()
   .shape({
     firstName: yup.string().defined().ensure().required('First name required'),
@@ -189,9 +178,9 @@ const RegistrationFormValidationSchema = yup
 export interface IQuizRegistrationFormSchema
   extends yup.InferType<typeof RegistrationFormValidationSchema> {}
 
-const registrationFormInitialValues: IQuizRegistrationFormSchema =
+export const registrationFormInitialValues: IQuizRegistrationFormSchema =
   RegistrationFormValidationSchema.cast({})
 
-interface IUtmData {
+export interface IUtmData {
   [key: string]: string
 }

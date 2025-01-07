@@ -30,13 +30,11 @@ export const CarouselPromotionCourses = () => {
 
   return (
     <Section className="max-w-[100vw] 2xl:pt-24" classNameInner="max-w-screen-2xl">
-      <h2 className="text-2xl">Explore Some of Our Life-Changing Courses.</h2>
+      <h2>Get Instant Access To All 65+ Courses At The Personal Development School</h2>
 
       <MHAPageText
         className="max-w-4xl mx-auto"
-        content="Take a sneak peek at some of the courses that have 
-            helped thousands of students break their destructive habits, build their self-esteem, release resentments, and transform 
-            their lives from the inside out."
+        content="Take our best-selling and most powerful courses that have helped thousands of students break their destructive habits, build their self-esteem, become securely attached, and transform their lives from the inside out."
       />
 
       <div className="relative w-full">

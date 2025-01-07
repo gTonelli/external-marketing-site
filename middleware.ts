@@ -116,9 +116,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
   }
 }
 
-export const config = {
-  matcher: ['/quiz/results/fa'],
-}
+export const config = {}
 
 interface IConfigWithRegex {
   /** This regex will be used to match the request path and return a split test config */
@@ -129,12 +127,7 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const configs: Array<IConfigWithRegex> = [
-    {
-      regex: /^\/quiz\/results\/fa/,
-      config: splitTestConfigs.simplifiedFaTest,
-    },
-  ]
+  const configs: Array<IConfigWithRegex> = []
 
   return configs.find((config) => config.regex.test(path))?.config
 }
@@ -219,9 +212,9 @@ const sendEventUnsafe = async (
 
 const splitTestConfigs: TSplitTestConfigs = {
   simplifiedFaTest: {
-    cookieKey: 'gm-1299-simplified-fa-test',
+    cookieKey: 'gm-1324-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1299-Simplified-FA-Test-Relaunch',
+    experimentName: 'GM-1324-Simplified-FA-Test-Relaunch',
     variantUrl: {
       path: '/quiz/results/fearful-avoidant',
     },

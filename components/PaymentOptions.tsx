@@ -106,7 +106,7 @@ const allConfigs = {
     title: 'Needs Course for Life + 7-Day Free Trial',
     copy: 'Take Our Free Trial to Our All-Access Pass Membership. Plus, Get the Discover, Embrace & Fulfill Your Personal Needs Course For FREE for LIFE to Support Your Growth!',
     ctaLabel: 'JOIN & START YOUR COURSE',
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
     disclaimer:
       '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
   },

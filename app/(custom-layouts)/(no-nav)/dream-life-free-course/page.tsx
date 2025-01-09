@@ -11,6 +11,8 @@ import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { PaymentOptions } from '@/components/PaymentOptions'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Get Your Dream Life with a Free Trial & Course for Life!',
@@ -20,6 +22,8 @@ export const metadata: Metadata = {
 }
 
 export default function DreamLifeFreeCoursePage() {
+  const checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL
+
   return (
     <Page page_name="Dreamlife Free Course Page" className="relative">
       <section className="w-full text-center bg-grey-7 pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
@@ -102,7 +106,7 @@ export default function DreamLifeFreeCoursePage() {
               personal growth and transformation and always be there when you need it in the future.
             </p>
 
-            <CheckoutButton label="JOIN TO TAKE THE COURSE" />
+            <CheckoutButton href={checkoutUrl} label="JOIN TO TAKE THE COURSE" />
           </div>
         </div>
       </Section>
@@ -161,7 +165,7 @@ export default function DreamLifeFreeCoursePage() {
             />
           </div>
 
-          <CheckoutButton label="START THE COURSE NOW!*" className="mb-8" />
+          <CheckoutButton href={checkoutUrl} label="START THE COURSE NOW!*" className="mb-8" />
 
           <p className="max-w-2xl mx-auto">
             <i>
@@ -208,7 +212,7 @@ export default function DreamLifeFreeCoursePage() {
             unlocking and rewiring your subconscious patterns.
           </p>
 
-          <CheckoutButton label="YOUR JOURNEY STARTS NOW" />
+          <CheckoutButton href={checkoutUrl} label="YOUR JOURNEY STARTS NOW" />
         </div>
       </Section>
 
@@ -228,7 +232,7 @@ export default function DreamLifeFreeCoursePage() {
             the categories below!
           </p>
 
-          <CheckoutButton label="TRY THEM WITH A FREE TRIAL" />
+          <CheckoutButton href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" />
         </div>
 
         <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can use what you learned in the Needs course to continue your personal and relationship growth." />

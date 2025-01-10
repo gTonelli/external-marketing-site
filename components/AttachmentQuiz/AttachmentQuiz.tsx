@@ -2,11 +2,9 @@
 
 // core
 import { useState, useCallback } from 'react'
-import dynamic from 'next/dynamic'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '../Button/Button'
-import { Text } from '../Text/Text'
 import { AttachmentQuizQuestions } from './AttachmentQuizQuestions'
 // config
 import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
@@ -37,6 +35,7 @@ interface IAttachmentQuizProps extends IDefaultProps {
   quiz_traffic_source: TQuizTrafficSources
   quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz' | 'Main Funnel Quiz Variant'
   showStartButton?: boolean
+  isQuizVariant?: boolean
 }
 
 export const AttachmentQuiz = ({
@@ -45,8 +44,9 @@ export const AttachmentQuiz = ({
   quiz_traffic_source,
   quizName = 'Main Funnel Quiz',
   showStartButton = true,
+  isQuizVariant,
 }: IAttachmentQuizProps) => {
-  const [viewQuiz, setViewQuiz] = useState(!showStartButton)
+  const [viewQuiz, setViewQuiz] = useState(!showStartButton || isQuizVariant)
 
   const onStartQuiz = useCallback(() => {
     Mixpanel.track.QuizStarted({
@@ -55,14 +55,32 @@ export const AttachmentQuiz = ({
     setViewQuiz(true)
   }, [quizName])
 
-  if (!viewQuiz) {
+  if (viewQuiz) {
+    return (
+      <>
+        <AttachmentQuizQuestions
+          className={className}
+          quiz_traffic_source={quiz_traffic_source}
+          quizName={quizName}
+          newQuiz={newQuiz}
+          isQuizVariant={isQuizVariant}
+        />
+
+        {isQuizVariant && (
+          <p className="max-w-3xl mt-4 mx-auto">
+            <strong>
+              Complete this quiz to determine your attachment style. Knowing your attachment style
+              is the first step to creating more meaningful connections, feeling valued and
+              developing more harmony in all of your relationships!
+            </strong>
+          </p>
+        )}
+      </>
+    )
+  } else {
     return (
       <div className={cx('text-center', className)}>
-        <Text.Paragraph
-          useMD
-          className="max-w-3xl mt-4 mx-10 lg:mx-0"
-          content={REGULAR_COPY.copy}
-        />
+        <p className="max-w-3xl mt-4 mx-10 lg:mx-0">{REGULAR_COPY.copy}</p>
 
         <Button
           className="mt-7 px-20 py-4 lg:mt-8"
@@ -70,15 +88,6 @@ export const AttachmentQuiz = ({
           onClick={onStartQuiz}
         />
       </div>
-    )
-  } else {
-    return (
-      <AttachmentQuizQuestions
-        className={className}
-        quiz_traffic_source={quiz_traffic_source}
-        quizName={quizName}
-        newQuiz={newQuiz}
-      />
     )
   }
 }

@@ -29,6 +29,7 @@ export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
   quizName: string
   quiz_traffic_source: TQuizTrafficSources
+  isQuizVariant?: boolean
 }
 
 export const AttachmentQuizQuestions = ({
@@ -36,6 +37,7 @@ export const AttachmentQuizQuestions = ({
   newQuiz,
   quizName,
   quiz_traffic_source,
+  isQuizVariant,
 }: IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -101,6 +103,12 @@ export const AttachmentQuizQuestions = ({
       let _sa = saPoints
 
       if (currentIndex === 0) {
+        if (isQuizVariant)
+          Mixpanel.track.QuizStarted({
+            quiz_name: quizName,
+            quiz_traffic_source,
+          })
+
         if (answer === 'Yes') {
           modifiedQuestions.splice(1, 0, detailedQuestions[4])
           modifiedQuestions.splice(2, 0, detailedQuestions[2])
@@ -177,7 +185,7 @@ export const AttachmentQuizQuestions = ({
   }
 
   return (
-    <section className={cx('w-full default-padding mx-auto lg:mt-16 lg:max-w-3xl', className)}>
+    <section className={cx('w-full default-padding mx-auto lg:max-w-3xl', className)}>
       {/* QUIZ SECTION */}
       {currentIndex !== modifiedQuestions.length ? (
         <div className="text-center">

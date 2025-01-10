@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
-import { RegistrationFormVariant } from '../Forms/RegistrationFormVariant'
 // modules
 import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
@@ -33,13 +32,15 @@ export const AttachmentQuizForm = ({
   const [isVariant, setIsVariant] = useState(false)
 
   useEffect(() => {
-    const isFormVariant = getSplitTest({
-      key: 'GM-1348',
-      experimentName: 'GM-1348 Attachment Quiz Form Meta',
-      variantRatio: 0.5,
-      useCookies: false,
-    })
-    setIsVariant(isFormVariant)
+    if (quiz_traffic_source === 'paidMeta') {
+      const isFormVariant = getSplitTest({
+        key: 'GM-1348-Form',
+        experimentName: 'GM-1348 Attachment Quiz Form Meta Test',
+        variantRatio: 0.5,
+        useCookies: false,
+      })
+      setIsVariant(isFormVariant)
+    }
   }, [])
 
   // ==================== Events ====================
@@ -99,36 +100,28 @@ export const AttachmentQuizForm = ({
               </strong>
               . We do not ever sell your information.
             </p>
-
-            <RegistrationFormVariant
-              clientTag={`attachment-quiz-${userStyle}`}
-              submitButtonLabel="SEE MY RESULTS"
-              userInfo={userInfo}
-              userStyle={userStyle}
-              onAfterSubmit={onAfterSubmit}
-            />
-
-            <p className="font-effra font-bold mt-4 tracking-widest">
-              TO GET YOUR FREE PERSONALIZED REPORT.
-            </p>
           </>
         ) : (
-          <>
-            <h2 className="font-bold font-sspb mx-4 text-center">
-              Fill Out the Form Below to View Your Free Results!
-            </h2>
+          <h2 className="font-bold font-sspb mx-4 text-center">
+            Fill Out the Form Below to View Your Free Results!
+          </h2>
+        )}
 
-            {/* QUIZ COMPLETION FORM */}
-            <RegistrationForm
-              clientTag={`attachment-quiz-${userStyle}`}
-              submitButtonLabel="SEE MY RESULTS"
-              userInfo={userInfo}
-              userStyle={userStyle}
-              onAfterSubmit={onAfterSubmit}
-            />
+        {/* QUIZ COMPLETION FORM */}
+        <RegistrationForm
+          clientTag={`attachment-quiz-${userStyle}`}
+          submitButtonLabel="SEE MY RESULTS"
+          userInfo={userInfo}
+          userStyle={userStyle}
+          onAfterSubmit={onAfterSubmit}
+        />
 
-            <h5 className="font-effra mt-4">AND also get a free emailed report.</h5>
-          </>
+        {isVariant && quiz_traffic_source === 'paidMeta' ? (
+          <p className="font-effra font-bold mt-4 tracking-widest">
+            TO GET YOUR FREE PERSONALIZED REPORT.
+          </p>
+        ) : (
+          <p className="font-effra mt-4">AND also get a free emailed report.</p>
         )}
       </div>
     </section>

@@ -9,7 +9,7 @@ import {
   IUtmData,
   registrationFormInitialValues,
   RegistrationFormValidationSchema,
-} from './RegistrationForm'
+} from './RegistrationFormControl'
 // libraries
 import { MD5 } from 'crypto-js'
 import { Field, Form, Formik } from 'formik'
@@ -139,7 +139,7 @@ export const RegistrationFormVariant = ({
 
           <p className="text-left md:text-center">
             By clicking Submit, I agree to receive my attachment style report and other email
-            communication. If you haven't received your report, please be sure to check your
+            communication. If you haven&apos;t received your report, please be sure to check your
             Spam/Junk folder.
           </p>
 

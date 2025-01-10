@@ -255,7 +255,11 @@ class Mixpanel {
       this.event('Quiz Progress', props)
     },
 
-    QuizStarted: (props: { quiz_name: string; quiz_type?: 'romantic' | 'friends' | 'family' }) => {
+    QuizStarted: (props: {
+      quiz_name: string
+      quiz_type?: 'romantic' | 'friends' | 'family'
+      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta'
+    }) => {
       this.event('Quiz Started', props)
     },
 

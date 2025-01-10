@@ -1,7 +1,7 @@
 'use client'
 
 // components
-import { RegistrationForm } from '../Forms/RegistrationForm'
+import { RegistrationForm } from '../Forms/RegistrationFormControl'
 import { IQuizOutputs, getResult } from './Quiz'
 import { Text } from '../Text/Text'
 

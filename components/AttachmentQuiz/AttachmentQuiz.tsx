@@ -44,13 +44,14 @@ export const AttachmentQuiz = ({
   quiz_traffic_source,
   quizName = 'Main Funnel Quiz',
   showStartButton = true,
-  isQuizVariant,
+  isQuizVariant = false,
 }: IAttachmentQuizProps) => {
   const [viewQuiz, setViewQuiz] = useState(!showStartButton || isQuizVariant)
 
   const onStartQuiz = useCallback(() => {
     Mixpanel.track.QuizStarted({
       quiz_name: quizName,
+      quiz_traffic_source,
     })
     setViewQuiz(true)
   }, [quizName])

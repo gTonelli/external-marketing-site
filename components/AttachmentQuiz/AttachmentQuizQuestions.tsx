@@ -150,6 +150,7 @@ export const AttachmentQuizQuestions = ({
       if (currentIndex === modifiedQuestions.length - 1) {
         Mixpanel.track.QuizFinished({
           quiz_name: quizName,
+          quiz_traffic_source,
         })
 
         tagManager?.track({

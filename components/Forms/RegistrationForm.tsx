@@ -3,12 +3,10 @@
 // components
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
-import { Input } from '../Input/Input'
-import { Text } from '../Text/Text'
 import { IDefaultProps } from '..'
 // libraries
 import { MD5 } from 'crypto-js'
-import { Form, Formik } from 'formik'
+import { Field, Form, Formik } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
 // modules
@@ -24,8 +22,6 @@ interface IRegistrationFormProps extends IDefaultProps {
   onAfterSubmit?(): void
   /** String or function that retuirns a string for generating client tags */
   clientTag?: string
-  /** New Quiz Variant? */
-  newQuiz?: boolean
   /** Additional user info used by attachment quiz */
   userInfo?: IUserInfo
   /** Optional user style information to append to users profile */
@@ -34,11 +30,30 @@ interface IRegistrationFormProps extends IDefaultProps {
   submitButtonLabel?: string
 }
 
+type TFieldConfig = {
+  key: 'firstName' | 'lastName' | 'email'
+  label: string
+  autoComplete?: string
+}
+
+const fields: TFieldConfig[] = [
+  {
+    key: 'firstName',
+    label: 'First Name',
+    autoComplete: 'given-name',
+  },
+  {
+    key: 'lastName',
+    label: 'Last Name',
+    autoComplete: 'family-name',
+  },
+  { key: 'email', label: 'Email' },
+]
+
 export const RegistrationForm = ({
   onAfterSubmit,
   className,
   clientTag,
-  newQuiz = false,
   userInfo,
   userStyle,
   submitButtonLabel,
@@ -94,59 +109,36 @@ export const RegistrationForm = ({
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ isSubmitting }) => (
-        <Form className={cx('w-full max-w-xl flex-col justify-center mx-auto', className)}>
-          <div className="md:px-4">
-            {newQuiz ? (
-              <div>
-                <Text className="mb-2" content="First Name:" />
+      {({ isSubmitting, errors }) => (
+        <Form className={cx('w-full mx-auto text-left', className)}>
+          {fields.map((field) => (
+            <div key={`field_${field.key}`}>
+              <label className="font-bold" htmlFor={field.key}>
+                {field.label}
+              </label>
 
-                <Input.Field
-                  className="w-full rounded-lg mb-4"
-                  name="firstName"
-                  placeholder="Your First Name Here..."
-                  type="text"
-                />
+              <Field
+                autoComplete={field.autoComplete || field.key}
+                className={`w-full outline-none focus:ring-transparent py-2 px-4 rounded-md ${
+                  errors[field.key] ? 'mb-0 border-danger' : 'mb-2 border-black'
+                }`}
+                placeholder={field.label + '...'}
+                name={field.key}
+              />
 
-                <Text className="mb-2" content="Last Name:" />
-
-                <Input.Field
-                  className="w-full rounded-lg mb-4"
-                  name="lastName"
-                  placeholder="Your Last Name Here..."
-                  type="text"
-                />
-
-                <Text className="mb-2" content="Email Address:" />
-
-                <Input.Field
-                  className="w-full rounded-lg mb-4"
-                  name="email"
-                  placeholder="Your Email Address Here..."
-                  type="email"
-                />
-              </div>
-            ) : (
-              <div>
-                <Input.Field label="First name" name="firstName" />
-
-                <Input.Field label="Last name" name="lastName" />
-
-                <Input.Field label="Email Address" name="email" />
-              </div>
-            )}
-          </div>
-
-          {newQuiz ? (
-            <div className="flex items-start px-4">
-              <Text.Paragraph content="By Clicking Submit, I Agree To Receive My Attachment Style Report And Other Email Communication. If You Haven't Received Your Report, Please Be Sure To Check Your Spam/Junk Folder." />
+              {errors[field.key] && (
+                <p className="text-danger">
+                  <i>*{errors[field.key]}</i>
+                </p>
+              )}
             </div>
-          ) : (
-            <Text.Paragraph
-              className="text-left py-2 px-4 md:text-center"
-              content="By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder."
-            />
-          )}
+          ))}
+
+          <p className="text-left md:text-center">
+            By clicking Submit, I agree to receive my attachment style report and other email
+            communication. If you haven&apos;t received your report, please be sure to check your
+            Spam/Junk folder.
+          </p>
 
           <div className="flex justify-center">
             <Button.Submit

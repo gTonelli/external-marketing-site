@@ -5,13 +5,13 @@ import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
-import { RegistrationFormVariant } from '../Forms/RegistrationFormVariant'
 // modules
 import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
 import { getSplitTest } from '@/utils/functions'
+import { useEffect, useState } from 'react'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -29,13 +29,19 @@ export const AttachmentQuizForm = ({
   const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
   const router = useRouter()
-  const isVariant = getSplitTest({
-    key: 'GM-1327',
-    experimentName: 'Attachment Quiz Form Style',
-    variantRatio: 0.5,
-    useCookies: false,
-  })
-  console.log('isVariant', isVariant)
+  const [isVariant, setIsVariant] = useState(false)
+
+  useEffect(() => {
+    if (quiz_traffic_source === 'paidMeta') {
+      const isFormVariant = getSplitTest({
+        key: 'GM-1348-Form',
+        experimentName: 'GM-1348 Attachment Quiz Form Meta Test',
+        variantRatio: 0.5,
+        useCookies: false,
+      })
+      setIsVariant(isFormVariant)
+    }
+  }, [])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -79,7 +85,7 @@ export const AttachmentQuizForm = ({
   return (
     <section className="flex justify-center">
       <div className="max-w-5xl w-full text-center rounded-2xl mt-6 mx-2 p-2 xxs:p-3 xs:p-4 xxs:shadow-centered md:mx-4 md:p-8 lg:px-12 xl:px-16">
-        {isVariant ? (
+        {isVariant && quiz_traffic_source === 'paidMeta' ? (
           <>
             <h2 className="font-bold font-sspb text-center mb-4">
               You're <strong className="text-primary">One Step Away</strong> From Changing Your
@@ -94,36 +100,28 @@ export const AttachmentQuizForm = ({
               </strong>
               . We do not ever sell your information.
             </p>
-
-            <RegistrationFormVariant
-              clientTag={`attachment-quiz-${userStyle}`}
-              submitButtonLabel="SEE MY RESULTS"
-              userInfo={userInfo}
-              userStyle={userStyle}
-              onAfterSubmit={onAfterSubmit}
-            />
-
-            <p className="font-effra font-bold mt-4 tracking-widest">
-              TO GET YOUR FREE PERSONALIZED REPORT.
-            </p>
           </>
         ) : (
-          <>
-            <h2 className="font-bold font-sspb mx-4 text-center">
-              Fill Out the Form Below to View Your Free Results!
-            </h2>
+          <h2 className="font-bold font-sspb mx-4 text-center">
+            Fill Out the Form Below to View Your Free Results!
+          </h2>
+        )}
 
-            {/* QUIZ COMPLETION FORM */}
-            <RegistrationForm
-              clientTag={`attachment-quiz-${userStyle}`}
-              submitButtonLabel="SEE MY RESULTS"
-              userInfo={userInfo}
-              userStyle={userStyle}
-              onAfterSubmit={onAfterSubmit}
-            />
+        {/* QUIZ COMPLETION FORM */}
+        <RegistrationForm
+          clientTag={`attachment-quiz-${userStyle}`}
+          submitButtonLabel="SEE MY RESULTS"
+          userInfo={userInfo}
+          userStyle={userStyle}
+          onAfterSubmit={onAfterSubmit}
+        />
 
-            <h5 className="font-effra mt-4">AND also get a free emailed report.</h5>
-          </>
+        {isVariant && quiz_traffic_source === 'paidMeta' ? (
+          <p className="font-effra font-bold mt-4 tracking-widest">
+            TO GET YOUR FREE PERSONALIZED REPORT.
+          </p>
+        ) : (
+          <p className="font-effra mt-4">AND also get a free emailed report.</p>
         )}
       </div>
     </section>

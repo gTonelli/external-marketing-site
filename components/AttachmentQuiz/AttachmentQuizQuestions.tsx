@@ -30,6 +30,7 @@ export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   quizName: string
   quiz_traffic_source: TQuizTrafficSources
   isQuizVariant?: boolean
+  onQuizFinished?: () => void
 }
 
 export const AttachmentQuizQuestions = ({
@@ -38,6 +39,7 @@ export const AttachmentQuizQuestions = ({
   quizName,
   quiz_traffic_source,
   isQuizVariant,
+  onQuizFinished,
 }: IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -151,7 +153,9 @@ export const AttachmentQuizQuestions = ({
         Mixpanel.track.QuizFinished({
           quiz_name: quizName,
           quiz_traffic_source,
+          progress: '100%',
         })
+        onQuizFinished?.()
 
         tagManager?.track({
           event: 'quiz_tracking',
@@ -222,7 +226,7 @@ export const AttachmentQuizQuestions = ({
               newQuiz ? (
                 <button
                   key={`option_${index}`}
-                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 lg:py-4 sm:!w-full 
+                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 py-4 sm:!w-full 
                     lg:hover:bg-opacity-50 lg:hover:text-white lg:hover:shadow-md"
                   onClick={onQuestionAnswer(obj)}>
                   {obj}

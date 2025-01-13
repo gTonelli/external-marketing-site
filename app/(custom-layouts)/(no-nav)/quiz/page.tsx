@@ -39,8 +39,7 @@ export default function AttachmentQuizPage() {
 
           {isQuizVariant ? (
             <span className="max-w-3xl font-bold tracking-33 mb-4">
-              UNLOCK THE SECRET TO BUILDING THRIVING RELATIONSHIPS - FREE 5-MIN QUIZ, FREE REPORT,
-              INSTANT RESULTS!
+              FREE 5-MIN QUIZ, FREE PERSONALIZED REPORT, INSTANT RESULTS!
             </span>
           ) : (
             <>
@@ -77,9 +76,17 @@ export default function AttachmentQuizPage() {
       {/* BREAKTHROUGH SECTION */}
       <section className="flex flex-col flex-center mt-4">
         <div className="flex flex-col items-center">
-          <h3 className="max-w-2xl mb-4 lg:hidden">{quizCopy.breakthroughs_header_mobile}</h3>
+          {isQuizVariant ? (
+            <h3 className="max-w-2xl mb-4">
+              Unlock The Secret To Building Thriving Relationships!
+            </h3>
+          ) : (
+            <>
+              <h3 className="max-w-2xl mb-4 lg:hidden">{quizCopy.breakthroughs_header_mobile}</h3>
 
-          <h3 className="max-w-3xl hidden lg:block">{quizCopy.headline}</h3>
+              <h3 className="max-w-3xl hidden lg:block">{quizCopy.headline}</h3>
+            </>
+          )}
         </div>
 
         {!isQuizVariant && (

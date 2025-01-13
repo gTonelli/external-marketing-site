@@ -47,6 +47,7 @@ export const AttachmentQuiz = ({
   isQuizVariant = false,
 }: IAttachmentQuizProps) => {
   const [viewQuiz, setViewQuiz] = useState(!showStartButton || isQuizVariant)
+  const [showVariantCopy, setShowVariantCopy] = useState(isQuizVariant)
 
   const onStartQuiz = useCallback(() => {
     Mixpanel.track.QuizStarted({
@@ -55,6 +56,10 @@ export const AttachmentQuiz = ({
     })
     setViewQuiz(true)
   }, [quizName])
+
+  const onQuizFinished = useCallback(() => {
+    if (isQuizVariant) setShowVariantCopy(false)
+  }, [isQuizVariant])
 
   if (viewQuiz) {
     return (
@@ -65,10 +70,11 @@ export const AttachmentQuiz = ({
           quizName={quizName}
           newQuiz={newQuiz}
           isQuizVariant={isQuizVariant}
+          onQuizFinished={onQuizFinished}
         />
 
-        {isQuizVariant && (
-          <p className="max-w-3xl mt-4 mx-auto">
+        {isQuizVariant && showVariantCopy && (
+          <p className="max-w-3xl pt-8 px-4 mx-auto">
             <strong>
               Complete this quiz to determine your attachment style. Knowing your attachment style
               is the first step to creating more meaningful connections, feeling valued and

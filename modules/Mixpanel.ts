@@ -243,7 +243,12 @@ class Mixpanel {
       this.event('Page Viewed', { page_name: props.page_name || window.location.pathname })
     },
 
-    QuizFinished: (props: { quiz_name: string; quiz_type?: 'romantic' | 'friends' | 'family' }) => {
+    QuizFinished: (props: {
+      quiz_name: string
+      quiz_type?: 'romantic' | 'friends' | 'family'
+      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta'
+      progress?: string
+    }) => {
       this.event('Quiz Finished', props)
     },
 
@@ -256,7 +261,11 @@ class Mixpanel {
       this.event('Quiz Progress', props)
     },
 
-    QuizStarted: (props: { quiz_name: string; quiz_type?: 'romantic' | 'friends' | 'family' }) => {
+    QuizStarted: (props: {
+      quiz_name: string
+      quiz_type?: 'romantic' | 'friends' | 'family'
+      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta'
+    }) => {
       this.event('Quiz Started', props)
     },
 

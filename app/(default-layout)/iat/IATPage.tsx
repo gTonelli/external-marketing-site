@@ -2,7 +2,7 @@
 
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
@@ -42,11 +42,11 @@ import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
-import { Storage } from '@/modules/Storage'
-
+// utils
+import { getSplitTest } from '@/utils/functions'
+// styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { useSplitTest } from '@/utils/hooks'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -903,7 +903,7 @@ const IATPriceCard = ({
   benefits,
   heading,
   isLive = false,
-  isVariant = false,
+  isVariant,
   originalPrice,
   prices,
   salePrice,
@@ -912,39 +912,7 @@ const IATPriceCard = ({
   // ================== State =============
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedCardIndex, setSelectedCardIndex] = useState(0)
-  const [showModal, setShowModal] = useState<boolean>(false)
-  const [formSubmited, setformSubmited] = useState<boolean>(false)
   const router = useRouter()
-
-  const onToggleDialog = useCallback(() => {
-    setShowModal(!showModal)
-  }, [showModal, setShowModal])
-
-  const onSubmitForm = (values: ContactUsVariables) => {
-    const { name, email, captcha } = values
-    const requestBody = {
-      client_tag: 'iat-july-2023-subscriber',
-      name: name,
-      email: email,
-      'g-recaptcha-response': captcha,
-    }
-
-    fetch(
-      process.env.NEXT_PUBLIC_AC_LEAD_URL ||
-        'https://pds-marketing-api.herokuapp.com/api/post/contact',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }
-    ).catch((error) => {
-      console.log(error)
-    })
-
-    setformSubmited(!formSubmited)
-  }
 
   return (
     <>
@@ -1078,11 +1046,19 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            <Button
-              className="trial-btn mt-12 lg:mt-14"
-              label="SEE PRICES"
-              onClick={() => setIsExpanded(true)}
-            />
+            {isVariant ? (
+              <Button
+                className="trial-btn mt-12 lg:mt-14"
+                label="BUY NOW"
+                onClick={() => router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025)}
+              />
+            ) : (
+              <Button
+                className="trial-btn mt-12 lg:mt-14"
+                label="SEE PRICES"
+                onClick={() => setIsExpanded(true)}
+              />
+            )}
 
             <Text.Paragraph
               className="italic mt-3"
@@ -1231,11 +1207,7 @@ const IATCurriculumCard = ({
 }
 
 const IATPriceCardSection = () => {
-  const { isVariant } = useSplitTest({
-    key: 'prod-3571',
-    experimentName: 'IAT Klarna Test',
-    variantRatio: 0.5,
-  })
+  const isVariant = getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' })
 
   return (
     <Section classNameInner="max-w-md mt-12 lg:max-w-5xl lg:mt-0">

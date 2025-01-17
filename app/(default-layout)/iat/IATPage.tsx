@@ -1038,25 +1038,27 @@ const IATPriceCard = ({
               />
             )}
 
-            <div className="grid grid-cols-3 gap-9 mt-4">
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="3 Months" />
+            {!isVariant && (
+              <div className="grid grid-cols-3 gap-9 mt-4">
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="3 Months" />
 
-                <Text.Paragraph content="$689/m" />
+                  <Text.Paragraph content="$689/m" />
+                </div>
+
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="6 Months" />
+
+                  <Text.Paragraph content="$359/m" />
+                </div>
+
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="12 Months" />
+
+                  <Text.Paragraph content="$189/m" />
+                </div>
               </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="6 Months" />
-
-                <Text.Paragraph content="$359/m" />
-              </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="12 Months" />
-
-                <Text.Paragraph content="$189/m" />
-              </div>
-            </div>
+            )}
 
             <List
               className="text-left mt-7"
@@ -1267,7 +1269,7 @@ const IATPriceCardSection = () => {
           originalPrice="$4,000.00"
           prices={iatRecordedPrices}
           salePrice=" $1,999.00"
-          subheading="MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:"
+          subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE${isVariant ? '!' : ':'}`}
         />
       </div>
     </Section>

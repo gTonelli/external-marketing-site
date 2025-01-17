@@ -39,6 +39,8 @@ import {
 import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
+import { Elements, PaymentMethodMessagingElement } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -899,6 +901,11 @@ interface IIATPriceCard {
   subheading?: string
 }
 
+const stripe = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_TX9ha9wfpmmbbQF0kpuVuNRl00r3Lanubq',
+  { stripeAccount: 'acct_1Pv1BOCWMNXx1IFm' }
+)
+
 const IATPriceCard = ({
   benefits,
   heading,
@@ -919,7 +926,7 @@ const IATPriceCard = ({
       {!isExpanded ? (
         isLive ? (
           // LIVE, NOT EXPANDED
-          <Section className="relative rounded-3xl border-2 border-green-check px-3 pt-16 pb-12 lg:px-11">
+          <Section className="relative rounded-3xl border-2 border-green-check px-3 pt-4 pb-4 lg:px-4 lg:pb-6 lg:pt-6">
             <div className="absolute -mt-24 left-1/2 -translate-x-1/2 ">
               <Text.Paragraph
                 className="w-[280px] text-center text-white font-bold bg-green-check rounded-10 py-4 md:px-4"
@@ -966,31 +973,44 @@ const IATPriceCard = ({
             />
 
             {isVariant ? (
-              <Button
-                className="trial-btn mt-12 lg:mt-14"
-                label="BUY NOW"
-                onClick={() =>
-                  router.push(
-                    'https://ngrok.personaldevelopmentschool.com/api/enroll/3213092?price_id=4101790&coupon=iatbundleupfrontlivespring25'
-                  )
-                }
-              />
-            ) : (
-              <Button
-                className="trial-btn mt-12 lg:mt-14"
-                label="SEE PRICES"
-                onClick={() => setIsExpanded(true)}
-              />
-            )}
+              <>
+                <Button
+                  className="trial-btn mt-12 lg:mt-14"
+                  label="BUY NOW"
+                  onClick={() => router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025)}
+                />
 
-            <Text.Paragraph
-              className="italic mt-3"
-              content="Book a call to get additional 5% OFF"
-            />
+                <Elements stripe={stripe}>
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={{
+                      amount: 349900,
+                      currency: 'USD',
+                      countryCode: 'US',
+                      paymentMethodTypes: ['klarna'],
+                    }}
+                  />
+                </Elements>
+              </>
+            ) : (
+              <>
+                <Button
+                  className="trial-btn mt-12 lg:mt-14"
+                  label="SEE PRICES"
+                  onClick={() => setIsExpanded(true)}
+                />
+                <Text.Paragraph
+                  className="italic mt-3"
+                  content="Book a call to get additional 5% OFF"
+                />
+              </>
+            )}
           </Section>
         ) : (
           // RECORDED, NOT EXPANDED
-          <Section className="relative rounded-3xl shadow-2xl px-3 pt-16 pb-12 lg:px-11">
+          <Section
+            className="flex flex-col relative rounded-3xl shadow-2xl px-3 pt-4 pb-4 lg:px-4 lg:pb-6 lg:pt-6"
+            classNameInner="flex flex-col flex-grow">
             <Text.Heading content={heading} />
 
             {originalPrice && (
@@ -1047,23 +1067,41 @@ const IATPriceCard = ({
             />
 
             {isVariant ? (
-              <Button
-                className="trial-btn mt-12 lg:mt-14"
-                label="BUY NOW"
-                onClick={() => router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025)}
-              />
-            ) : (
-              <Button
-                className="trial-btn mt-12 lg:mt-14"
-                label="SEE PRICES"
-                onClick={() => setIsExpanded(true)}
-              />
-            )}
+              <div className="mt-auto">
+                <Button
+                  className="trial-btn mt-12 lg:mt-0"
+                  label="BUY NOW"
+                  onClick={() =>
+                    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT)
+                  }
+                />
 
-            <Text.Paragraph
-              className="italic mt-3"
-              content="Book a call to get additional 5% OFF"
-            />
+                <Elements stripe={stripe}>
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={{
+                      amount: 199900,
+                      currency: 'USD',
+                      countryCode: 'US',
+                      paymentMethodTypes: ['klarna'],
+                    }}
+                  />
+                </Elements>
+              </div>
+            ) : (
+              <>
+                <Button
+                  className="trial-btn mt-12 lg:mt-14"
+                  label="SEE PRICES"
+                  onClick={() => setIsExpanded(true)}
+                />
+
+                <Text.Paragraph
+                  className="italic mt-3"
+                  content="Book a call to get additional 5% OFF"
+                />
+              </>
+            )}
           </Section>
         )
       ) : (

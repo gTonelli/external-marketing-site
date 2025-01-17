@@ -76,12 +76,7 @@ export function getSplitTest({
 
   const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
   if (randomFloat > variantRatio * 2) {
-    useCookies
-      ? cookies.set(key, false, {
-          domain: '.personaldevelopmentschool.com',
-          maxAge: 7776000,
-        })
-      : Storage.set(key, false)
+    isVariant = false
   } else {
     isVariant = randomFloat < variantRatio
     Mixpanel.track.ExperimentStarted({
@@ -89,13 +84,13 @@ export function getSplitTest({
       'Variant name': isVariant ? 'Variant 1' : 'Control',
       ...props,
     })
-    useCookies
-      ? cookies.set(key, isVariant, {
-          domain: '.personaldevelopmentschool.com',
-          maxAge: 7776000,
-        })
-      : Storage.set(key, isVariant)
   }
+  useCookies
+    ? cookies.set(key, isVariant, {
+        domain: '.personaldevelopmentschool.com',
+        maxAge: 7776000,
+      })
+    : Storage.set(key, isVariant)
 
   return isVariant
 }

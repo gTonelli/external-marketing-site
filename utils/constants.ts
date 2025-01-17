@@ -142,7 +142,7 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3090108?price_id=3960147&coupon=iatwebinarwinter256mnthlive',
   THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3090108?price_id=3960148&coupon=iatwebinarwinter25cohort212mnthlive',
   // IAT Live Spring 2025
-  THINKIFIC_CHECKOUT_IAT_SPRING_2025 = 'https://staging.strapi.personaldevelopmentschool.com/api/enroll/3213092?price_id=4101790&coupon=iatbundleupfrontlivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025 = 'https://staging.strapi.personaldevelopmentschool.com/api/enroll/3213092?price_id=4101790&coupon=iatbundleupfrontlivespring25', // TODO: Update to live links
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',

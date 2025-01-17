@@ -995,7 +995,7 @@ const IATPriceCard = ({
             ) : (
               <>
                 <Button
-                  className="trial-btn mt-12 lg:mt-14"
+                  className="w-max mx-auto trial-btn mt-12 lg:mt-14"
                   label="SEE PRICES"
                   onClick={() => setIsExpanded(true)}
                 />
@@ -1091,7 +1091,7 @@ const IATPriceCard = ({
             ) : (
               <>
                 <Button
-                  className="trial-btn mt-12 lg:mt-14"
+                  className="trial-btn mt-12 w-max mx-auto lg:mt-14"
                   label="SEE PRICES"
                   onClick={() => setIsExpanded(true)}
                 />

@@ -39,7 +39,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
         <Section
           className="2xl:py-24"
           classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
-          <div className="col-start-2 lg:text-left xl:max-w-">
+          <div className="col-start-2 lg:text-left">
             <MHAPageText
               className="lg:mt-0"
               content="Does the same challenge or negative pattern keep surfacing in your life over and over again? Are you still having a hard time letting go of your ex or starting to date again? Or are you struggling to form a healthy new habit no matter how hard you try?"
@@ -118,82 +118,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
           </div>
         </div>
 
-        <SocialProofBar
-          cardNumbers={[4700000, 50000000, 120]}
-          cardTexts={['Attachment Styles Discovered', 'Youtube Views', 'Countries']}
-          className="text-black"
-          classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
-          classNameIcon="!bg-white"
-          iconImgs={[
-            'BlackFridayPage/envelope-open-text.svg',
-            'BlackFridayPage/users.svg',
-            'BlackFridayPage/earth-americas.svg',
-          ]}
-        />
-
-        {/* JOIN THOUSANDS OF OUR MEMBERS HERO SECTION */}
-        <h2 className="text-left lg:mb-12">
-          Join Thousands of Our Members in Learning Practical, Powerful, and Proven Techniques for
-          Creating Change That Actually Lasts.
-        </h2>
-
-        <div className="text-left lg:grid lg:grid-cols-12 lg:gap-6">
-          <div className="lg:col-span-6">
-            <MHAPageText content="Wondering why we’re giving away free access to our platform?" />
-
-            <MHAPageText content="That’s because we know that our courses work. " />
-
-            <MHAPageText
-              content="The techniques we teach inside of The Personal Development School work directly
-                with the different parts of your mind to bring you the breakthrough you need to create change that 
-                lasts a lifetime."
-            />
-
-            <MHAPageText
-              content="We’ve surveyed thousands of our students from around the world who have taken our 
-                courses and given us honest ratings. They consistently report:"
-            />
-
-            <List
-              classNameIcon="!text-white !text-xxs pt-[6px]"
-              classNameListItems="font-medium my-4 text-lg"
-              icon={faCircle}
-              listItems={[
-                '3X more self-confidence and fulfillment in their dating lives (if single).',
-                'A 50% improvement in their current relationship (if in a committed relationship).',
-                'A 40% improvement in their self-esteem and self-talk.',
-                '30% fewer anxiety and panic attacks than they had before.',
-                '90% success rate in forming a new habit within 21 days.',
-              ]}
-            />
-
-            <MHAPageText
-              className="lg:hidden"
-              content="Whether you need help building healthier habits, understanding where your toxic relationship 
-                patterns come from, or learning healthy coping mechanisms for dealing with your anxiety week to week, you’ll spend 
-                the next 14 days learning essential tools that will help you create the change you’re looking for in a short amount 
-                of time."
-            />
-          </div>
-
-          <Image
-            alt="a woman hugging herself"
-            className="rounded-20 lg:mt-4 lg:col-span-6"
-            width={656}
-            height={714}
-            src="/images/BlackFridayPage/mha-woman-hugging-herself.jpg"
-          />
-        </div>
-
-        <MHAPageText
-          className="hidden text-left mb-8 lg:block"
-          content="Whether you need help building healthier habits, understanding where your toxic relationship 
-                patterns come from, or learning healthy coping mechanisms for dealing with your anxiety week to week, you’ll spend 
-                the next 14 days learning essential tools that will help you create the change you’re looking for in a short amount 
-                of time."
-        />
-
-        <MHAButton label="JOIN & TRANSFORM LIVES!" />
+        <PDSSocialProof />
       </Section>
 
       <Image
@@ -223,148 +148,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
       </div>
 
       {/* HERES WHAT YOU GET CARDS */}
-      <Section className="bg-blue-lightest 2xl:py-24">
-        <h2 className="mb-4">Here’s What You Get With Your 14-Day All-Access Pass:</h2>
-
-        <Card
-          className="default-padding text-left border-none my-4 
-            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
-            xl:p-8">
-          <div>
-            <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
-              EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE
-            </p>
-
-            <Image
-              alt="dashboard mockup"
-              className="w-full"
-              width={768}
-              height={617}
-              src="/images/BlackFridayPage/dashboard-preview.jpg"
-            />
-          </div>
-
-          <div>
-            <MHAPageText
-              className="lg:mt-0"
-              content="Take 14 days to explore our complete list of tailed courses carefully designed to 
-                help you tackle a wide range of personal challenges you might be facing, like:"
-            />
-
-            <List
-              classNameIcon="!text-black text-[0.25em] pt-[6px]"
-              classNameListItems="font-bold text-lg"
-              icon={faCircle}
-              listItems={[
-                'Setting boundaries to end compulsive people-pleasing',
-                'Learning your relationship needs to feel truly loved',
-                'Building your self-esteem',
-                'Repairing your relationship',
-                'Releasing resentments',
-                'And many more!',
-              ]}
-            />
-
-            <MHAPageText
-              content="Courses range from between 1 and 3 hours in length and will give you the simple, 
-                step-by-step roadmaps you need to see a significant transformation in a short period of time."
-            />
-
-            <MHAPageText
-              content="Each course comes with a PDF workbook filled with thought-provoking exercises you 
-                can apply to your daily life to see results faster."
-            />
-          </div>
-        </Card>
-
-        <Card
-          className="default-padding text-left border-none my-4 
-            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
-            xl:p-8">
-          <div>
-            <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
-              INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS
-            </p>
-
-            <Image
-              alt="live webinar mockup"
-              className="w-full lg:mt-20"
-              width={400}
-              height={213}
-              src="/images/BlackFridayPage/live-webinar.jpg"
-            />
-          </div>
-
-          <div>
-            <MHAPageText
-              className="lg:mt-0"
-              content="Get additional guidance and information from me, Thais Gibson (founder of The Personal Development School and industry leader), and our Certified Coaches, as you make your way through our courses and face the deeper parts of yourself."
-            />
-
-            <List
-              classNameIcon="!text-black text-[0.25em] pt-[6px]"
-              classNameListItems="text-lg"
-              icon={faCircle}
-              listItems={[
-                `**Live webinars** - Each week, I’ll break down your course learnings in more detail and share practical tips and examples 
-                on how to use the tools and techniques in your life.`,
-                `**Q&A sessions** – Got something that’s keeping you up at night? During these webinars, I’ll personally answer your questions and guide you in resolving your biggest challenges.`,
-                `**Live webinars and Q&As** are totally optional! They are not a required part of any course but are simply there for extra 
-                support and connection! I’ll be there 4X each week to answer your questions, guide you on your journey and help you see any 
-                blind spots you might be missing!`,
-                `**Access past recordings** – Listen (or re-listen) to all of our webinars and Q&As from our extensive library whenever is convenient for you so you never miss out.`,
-              ]}
-            />
-          </div>
-        </Card>
-
-        <Card
-          className="default-padding text-left border-none my-4 
-            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-center lg:my-12 
-            xl:p-8">
-          <div>
-            <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
-              A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU
-            </p>
-
-            <Image
-              alt="socials preview mockup"
-              className="w-full"
-              width={768}
-              height={617}
-              src="/images/BlackFridayPage/socials-preview.jpg"
-            />
-          </div>
-
-          <div>
-            <MHAPageText
-              className="lg:mt-0"
-              content="You don’t need to go through this healing journey on your own."
-            />
-
-            <MHAPageText
-              content="As a member, you can join our **online study groups, sharing circles, self-love routines** and **other 
-              support groups** led by our trained coaches."
-            />
-
-            <MHAPageText
-              content="Plus, you’ll also get access to our **private online forum and Facebook group,** where you can connect
-              with like-minded people also working on improving their emotions, relationships and attachment styles."
-            />
-
-            <MHAPageText
-              content="**This is also an optional feature** and is not required to see massive results. It’s here for daily guidance, 
-              inspiration and connection with like-minded people if you find that to be a supportive part of your learning process!"
-            />
-          </div>
-        </Card>
-
-        <div className="lg:row-start-2 lg:col-span-2">
-          <MHAButton />
-
-          <p className="font-bold italic mt-3">* This offer is available for a limited time *</p>
-        </div>
-      </Section>
+      <PDS14dftFeatureOffers />
       {/* COURSES CAROUSEL */}
       <CarouselPromotionCourses />
 
@@ -501,6 +285,244 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
         <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
       </Section>
 
+      <PDS14dftVideoFAQ />
+    </>
+  )
+}
+
+export const PDSSocialProof = () => {
+  return (
+    <>
+      <SocialProofBar
+        cardNumbers={[4700000, 50000000, 120]}
+        cardTexts={['Attachment Styles Discovered', 'Youtube Views', 'Countries']}
+        className="text-black"
+        classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
+        classNameIcon="!bg-white"
+        iconImgs={[
+          'BlackFridayPage/envelope-open-text.svg',
+          'BlackFridayPage/users.svg',
+          'BlackFridayPage/earth-americas.svg',
+        ]}
+      />
+
+      {/* JOIN THOUSANDS OF OUR MEMBERS HERO SECTION */}
+      <h2 className="text-left lg:text-center lg:mb-12">
+        Join Thousands of Our Members in Learning Practical, Powerful, and Proven Techniques for
+        Creating Change That Actually Lasts.
+      </h2>
+
+      <div className="text-left lg:grid lg:grid-cols-12 lg:gap-6">
+        <div className="lg:col-span-6">
+          <MHAPageText content="Wondering why we’re giving away free access to our platform?" />
+
+          <MHAPageText content="That’s because we know that our courses work. " />
+
+          <MHAPageText
+            content="The techniques we teach inside of The Personal Development School work directly
+                with the different parts of your mind to bring you the breakthrough you need to create change that 
+                lasts a lifetime."
+          />
+
+          <MHAPageText
+            content="We’ve surveyed thousands of our students from around the world who have taken our 
+                courses and given us honest ratings. They consistently report:"
+          />
+
+          <List
+            classNameIcon="!text-white !text-xxs pt-[6px]"
+            classNameListItems="font-medium my-4 text-lg"
+            icon={faCircle}
+            listItems={[
+              '3X more self-confidence and fulfillment in their dating lives (if single).',
+              'A 50% improvement in their current relationship (if in a committed relationship).',
+              'A 40% improvement in their self-esteem and self-talk.',
+              '30% fewer anxiety and panic attacks than they had before.',
+              '90% success rate in forming a new habit within 21 days.',
+            ]}
+          />
+
+          <MHAPageText
+            className="lg:hidden"
+            content="Whether you need help building healthier habits, understanding where your toxic relationship 
+                patterns come from, or learning healthy coping mechanisms for dealing with your anxiety week to week, you’ll spend 
+                the next 14 days learning essential tools that will help you create the change you’re looking for in a short amount 
+                of time."
+          />
+        </div>
+
+        <Image
+          alt="a woman hugging herself"
+          className="rounded-20 mb-8 lg:mt-4 lg:col-span-6"
+          width={656}
+          height={714}
+          src="/images/BlackFridayPage/mha-woman-hugging-herself.jpg"
+        />
+      </div>
+
+      <MHAPageText
+        className="hidden text-left mb-8 lg:block"
+        content="Whether you need help building healthier habits, understanding where your toxic relationship 
+                patterns come from, or learning healthy coping mechanisms for dealing with your anxiety week to week, you’ll spend 
+                the next 14 days learning essential tools that will help you create the change you’re looking for in a short amount 
+                of time."
+      />
+
+      <MHAButton className="my-4" label="JOIN & TRANSFORM LIVES!" />
+    </>
+  )
+}
+
+export const PDS14dftFeatureOffers = () => {
+  return (
+    <Section className="bg-blue-lightest 2xl:py-24">
+      <h2 className="mb-4">Here’s What You Get With Your 14-Day All-Access Pass:</h2>
+
+      <Card
+        className="default-padding text-left border-none my-4 
+            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
+            xl:p-8">
+        <div>
+          <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
+            EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE
+          </p>
+
+          <Image
+            alt="dashboard mockup"
+            className="w-full"
+            width={768}
+            height={617}
+            src="/images/BlackFridayPage/dashboard-preview.jpg"
+          />
+        </div>
+
+        <div>
+          <MHAPageText
+            className="lg:mt-0"
+            content="Take 14 days to explore our complete list of tailed courses carefully designed to 
+                help you tackle a wide range of personal challenges you might be facing, like:"
+          />
+
+          <List
+            classNameIcon="!text-black text-[0.25em] pt-[6px]"
+            classNameListItems="font-bold text-lg"
+            icon={faCircle}
+            listItems={[
+              'Setting boundaries to end compulsive people-pleasing',
+              'Learning your relationship needs to feel truly loved',
+              'Building your self-esteem',
+              'Repairing your relationship',
+              'Releasing resentments',
+              'And many more!',
+            ]}
+          />
+
+          <MHAPageText
+            content="Courses range from between 1 and 3 hours in length and will give you the simple, 
+                step-by-step roadmaps you need to see a significant transformation in a short period of time."
+          />
+
+          <MHAPageText
+            content="Each course comes with a PDF workbook filled with thought-provoking exercises you 
+                can apply to your daily life to see results faster."
+          />
+        </div>
+      </Card>
+
+      <Card
+        className="default-padding text-left border-none my-4 
+            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
+            xl:p-8">
+        <div>
+          <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
+            INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS
+          </p>
+
+          <Image
+            alt="live webinar mockup"
+            className="w-full lg:mt-20"
+            width={400}
+            height={213}
+            src="/images/BlackFridayPage/live-webinar.jpg"
+          />
+        </div>
+
+        <div>
+          <MHAPageText
+            className="lg:mt-0"
+            content="Get additional guidance and information from me, Thais Gibson (founder of The Personal Development School and industry leader), and our Certified Coaches, as you make your way through our courses and face the deeper parts of yourself."
+          />
+
+          <List
+            classNameIcon="!text-black text-[0.25em] pt-[6px]"
+            classNameListItems="text-lg"
+            icon={faCircle}
+            listItems={[
+              `**Live webinars** - Each week, I’ll break down your course learnings in more detail and share practical tips and examples 
+                on how to use the tools and techniques in your life.`,
+              `**Q&A sessions** – Got something that’s keeping you up at night? During these webinars, I’ll personally answer your questions and guide you in resolving your biggest challenges.`,
+              `**Live webinars and Q&As** are totally optional! They are not a required part of any course but are simply there for extra 
+                support and connection! I’ll be there 4X each week to answer your questions, guide you on your journey and help you see any 
+                blind spots you might be missing!`,
+              `**Access past recordings** – Listen (or re-listen) to all of our webinars and Q&As from our extensive library whenever is convenient for you so you never miss out.`,
+            ]}
+          />
+        </div>
+      </Card>
+
+      <Card
+        className="default-padding text-left border-none my-4 
+            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-center lg:my-12 
+            xl:p-8">
+        <div>
+          <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
+            A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU
+          </p>
+
+          <Image
+            alt="socials preview mockup"
+            className="w-full"
+            width={768}
+            height={617}
+            src="/images/BlackFridayPage/socials-preview.jpg"
+          />
+        </div>
+
+        <div>
+          <MHAPageText
+            className="lg:mt-0"
+            content="You don’t need to go through this healing journey on your own."
+          />
+
+          <MHAPageText
+            content="As a member, you can join our **online study groups, sharing circles, self-love routines** and **other 
+              support groups** led by our trained coaches."
+          />
+
+          <MHAPageText
+            content="Plus, you’ll also get access to our **private online forum and Facebook group,** where you can connect
+              with like-minded people also working on improving their emotions, relationships and attachment styles."
+          />
+
+          <MHAPageText
+            content="**This is also an optional feature** and is not required to see massive results. It’s here for daily guidance, 
+              inspiration and connection with like-minded people if you find that to be a supportive part of your learning process!"
+          />
+        </div>
+      </Card>
+
+      <div className="lg:row-start-2 lg:col-span-2">
+        <MHAButton />
+
+        <p className="font-bold italic mt-3">* This offer is available for a limited time *</p>
+      </div>
+    </Section>
+  )
+}
+
+export const PDS14dftVideoFAQ = () => {
+  return (
+    <>
       {/* VIDEO SECTION */}
       <Section className="2xl:pb-24">
         <h2 className="my-4 max-w-4xl mx-auto lg:mb-12">
@@ -509,11 +531,14 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
         </h2>
 
         <VideoThumbnail
+          className="mb-8"
           srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
           thumbnailAlt={`Video thumbnail`}
           thumbnailUrl="BlackFridayPage/mha-video-thumbnail.png"
           type="testimonial"
         />
+
+        <MHAButton label="Enjoy Our Thriving Community" />
       </Section>
 
       {/* FAQ SECTION */}
@@ -529,7 +554,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
 }
 
 export const MHAPageText = ({ className, content }: ITextDefaultProps) => (
-  <ReactMarkdown className={cx('text-lg my-4', className)}>{String(content)}</ReactMarkdown>
+  <ReactMarkdown className={cx('my-4', className)}>{String(content)}</ReactMarkdown>
 )
 
 export const ValentinesFAQs = [

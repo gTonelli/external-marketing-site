@@ -23,18 +23,26 @@ const courses = [
   `course-emotional-mastery.jpg`,
 ]
 
-export const CarouselPromotionCourses = () => {
+interface ICarouselPromotionCoursesProps {
+  title?: string
+  copy?: string
+}
+
+export const CarouselPromotionCourses = ({ title, copy }: ICarouselPromotionCoursesProps) => {
   // ==================== State ====================
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
 
   return (
     <Section className="max-w-[100vw] 2xl:pt-24" classNameInner="max-w-screen-2xl">
-      <h2>Get Instant Access To All 65+ Courses At The Personal Development School</h2>
+      <h2>{title || 'Get Instant Access To All 65+ Courses At The Personal Development School'}</h2>
 
       <MHAPageText
         className="max-w-4xl mx-auto"
-        content="Take our best-selling and most powerful courses that have helped thousands of students break their destructive habits, build their self-esteem, become securely attached, and transform their lives from the inside out."
+        content={
+          copy ||
+          'Take our best-selling and most powerful courses that have helped thousands of students break their destructive habits, build their self-esteem, become securely attached, and transform their lives from the inside out.'
+        }
       />
 
       <div className="relative w-full">

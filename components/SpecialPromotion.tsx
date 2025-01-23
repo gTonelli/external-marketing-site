@@ -285,7 +285,11 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
         <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
       </Section>
 
-      <PDS14dftVideoFAQ />
+      {/* VIDEO SECTION */}
+      <PDS14dftTestimonialVideo />
+
+      {/* FAQs */}
+      <PDS14dftFAQ />
     </>
   )
 }
@@ -520,36 +524,36 @@ export const PDS14dftFeatureOffers = () => {
   )
 }
 
-export const PDS14dftVideoFAQ = () => {
+export const PDS14dftTestimonialVideo = () => {
   return (
-    <>
-      {/* VIDEO SECTION */}
-      <Section className="2xl:pb-24">
-        <h2 className="my-4 max-w-4xl mx-auto lg:mb-12">
-          Curious to See How the All-Access Pass Can Change Your Life? Hit Play to Find Out What
-          Awaits You.
-        </h2>
+    <Section className="2xl:pb-24">
+      <h2 className="my-4 max-w-4xl mx-auto lg:mb-12">
+        Curious to See How the All-Access Pass Can Change Your Life? Hit Play to Find Out What
+        Awaits You.
+      </h2>
 
-        <VideoThumbnail
-          className="mb-8"
-          srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
-          thumbnailAlt={`Video thumbnail`}
-          thumbnailUrl="BlackFridayPage/mha-video-thumbnail.png"
-          type="testimonial"
-        />
+      <VideoThumbnail
+        className="mb-8"
+        srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
+        thumbnailAlt={`Video thumbnail`}
+        thumbnailUrl="BlackFridayPage/mha-video-thumbnail.png"
+        type="testimonial"
+      />
 
-        <MHAButton label="Enjoy Our Thriving Community" />
-      </Section>
+      <MHAButton label="Enjoy Our Thriving Community" />
+    </Section>
+  )
+}
 
-      {/* FAQ SECTION */}
-      <Section className="bg-blue-lightest 2xl:py-24">
-        <FaqSecondary
-          className="bg-transparent py-0"
-          faq={ValentinesFAQs}
-          subheaderTextDesktop="BEFORE STARTING YOUR FREE TRIAL"
-        />
-      </Section>
-    </>
+export const PDS14dftFAQ = () => {
+  return (
+    <Section className="bg-blue-lightest 2xl:py-24">
+      <FaqSecondary
+        className="bg-transparent py-0"
+        faq={ValentinesFAQs}
+        subheaderTextDesktop="BEFORE STARTING YOUR FREE TRIAL"
+      />
+    </Section>
   )
 }
 

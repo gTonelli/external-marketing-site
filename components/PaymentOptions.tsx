@@ -10,64 +10,21 @@ import cx from 'classnames'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 
-type TConfig = {
-  offerLabel: string
-  offerType?: string
-  title: string
-  copy: string
-  ctaLabel: string
-  checkoutUrl: EExternalRoutes
-  disclaimer?: {
-    text: string
-    className?: string
-  }
-}
-const baseConfig: TConfig = {
-  offerLabel: 'BEST VALUE',
-  offerType: TH.HERO.offer.type,
-  title: TH.HERO.offer.title,
-  copy: TH.HERO.offer.copy,
-  ctaLabel: 'TRY FOR FREE',
-  checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
-}
-
-const fourteendayFTConfig: TConfig = {
-  offerLabel: 'LIMITED TIME OFFER',
-  offerType: 'GET UNLIMITED ACCESS',
-  title: '14-Day Free Trial',
-  copy: 'Unlock 60+ Courses, Personalized Tools, and Expert Guidance to Experience Breakthroughs, Overcome Relationship Challenges, and Achieve Personal Goals',
-  ctaLabel: 'START YOUR 14-DAY FREE TRIAL',
-  checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL,
-  disclaimer: {
-    text: '*$67.00/month after your free trial. Cancel any time before your trial ends to avoid being charged. This offer ends soon!*',
-  },
-}
-
-const allConfigs = {
-  dreamLife: baseConfig,
-  blackFriday14day: { ...fourteendayFTConfig, offerLabel: 'BLACK FRIDAY OFFER' },
-  cyberMonday14day: { ...fourteendayFTConfig, offerLabel: 'CYBER MONDAY OFFER' },
-  dreamLifeHoliday: {
-    ...baseConfig,
-    offerType: '',
-    ctaLabel: 'SIGN UP & TRANSFORM',
-    disclaimer: {
-      text: '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
-      className: '!text-gray-300',
-    },
-  },
-} satisfies Record<string, TConfig>
-
-export type TPaymentOptionsConfigKey = keyof typeof allConfigs
 interface IPaymentOptionsProps extends IDefaultProps {
+  placement?: 'top' | 'bottom'
   configKey: TPaymentOptionsConfigKey
 }
 
-export const PaymentOptions = ({ className, configKey }: IPaymentOptionsProps) => {
+export const PaymentOptions = ({
+  className,
+  placement = 'top',
+  configKey,
+}: IPaymentOptionsProps) => {
   const config = allConfigs[configKey]
+
   return (
     <div className={cx(`flex flex-col space-y-4 lg:justify-between items-center`, className)}>
-      <Link href={config.checkoutUrl}>
+      <Link href={config.checkoutUrl} className="hover:!no-underline">
         <div className="relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5">
           <p className="absolute -top-5 font-bold text-black bg-blue rounded-10 py-2 px-4">
             {config.offerLabel}
@@ -90,10 +47,69 @@ export const PaymentOptions = ({ className, configKey }: IPaymentOptionsProps) =
       />
 
       {config.disclaimer && (
-        <p className={cx('max-w-xl text-gray-600 mx-auto', config.disclaimer.className)}>
-          {config.disclaimer.text}
+        <p
+          className={cx(
+            'max-w-xl mx-auto',
+            placement === 'top' ? 'text-gray-800' : 'text-gray-200'
+          )}>
+          <i>{config.disclaimer}</i>
         </p>
       )}
     </div>
   )
 }
+
+type TConfig = {
+  offerLabel: string
+  offerType?: string
+  title: string
+  copy: string
+  ctaLabel: string
+  checkoutUrl: EExternalRoutes
+  disclaimer?: string
+}
+
+const baseConfig: TConfig = {
+  offerLabel: 'BEST VALUE',
+  offerType: TH.HERO.offer.type,
+  title: TH.HERO.offer.title,
+  copy: TH.HERO.offer.copy,
+  ctaLabel: 'TRY FOR FREE',
+  checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
+}
+
+const fourteendayFTConfig: TConfig = {
+  offerLabel: 'LIMITED TIME OFFER',
+  offerType: 'GET UNLIMITED ACCESS',
+  title: '14-Day Free Trial',
+  copy: 'Unlock 60+ Courses, Personalized Tools, and Expert Guidance to Experience Breakthroughs, Overcome Relationship Challenges, and Achieve Personal Goals',
+  ctaLabel: 'START YOUR 14-DAY FREE TRIAL',
+  checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL,
+  disclaimer:
+    '*$67.00/month after your free trial. Cancel any time before your trial ends to avoid being charged. This offer ends soon!*',
+}
+
+const allConfigs = {
+  dreamLife: baseConfig,
+  blackFriday14day: { ...fourteendayFTConfig, offerLabel: 'BLACK FRIDAY OFFER' },
+  cyberMonday14day: { ...fourteendayFTConfig, offerLabel: 'CYBER MONDAY OFFER' },
+  dreamLifeHoliday: {
+    ...baseConfig,
+    offerType: '',
+    ctaLabel: 'SIGN UP & TRANSFORM',
+    disclaimer:
+      '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
+  },
+  dreamLifeFreeCourse: {
+    offerLabel: 'Free Trial & Exclusive Bonus Offer',
+    offerType: '',
+    title: 'Needs Course for Life + 7-Day Free Trial',
+    copy: 'Take Our Free Trial to Our All-Access Pass Membership. Plus, Get the Discover, Embrace & Fulfill Your Personal Needs Course For FREE for LIFE to Support Your Growth!',
+    ctaLabel: 'JOIN & START YOUR COURSE',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
+    disclaimer:
+      '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
+  },
+} satisfies Record<string, TConfig>
+
+export type TPaymentOptionsConfigKey = keyof typeof allConfigs

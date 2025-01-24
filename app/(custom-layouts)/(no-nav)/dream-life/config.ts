@@ -102,8 +102,8 @@ export const TRIAL_HEADSPACE = {
     bullets: [
       `Unlimited access to all courses and programs.`,
       `Learn about yourself and others through optional live webinars.`,
-      `Ask me questions about relationships, life, and challenges in weekly Q&A sessions.`,
       `Connect with like-minded individuals through social events and our online community.`,
+      `Ask me questions about relationships, life, and challenges in weekly Q&A sessions.`,
       `Access everything you need to build the best relationships of your life.`,
       `Start your healing journey and embrace personal growth.`,
     ],

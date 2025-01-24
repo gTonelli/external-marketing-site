@@ -260,7 +260,7 @@ export default function SimplifiedFAResultsPage() {
       <CarouselTestimonialThinkific className="mt-8 mb-16" initialSlide={1} />
 
       <Section
-        className="!max-w-full bg-[url('/images/pds-bg-vector.png')] bg-right-bottom bg-no-repeat !bg-cover mx-auto !p-0"
+        className="!max-w-full bg-[url('/images/pds-bg-vector.svg')] bg-right-bottom bg-no-repeat !bg-cover mx-auto !p-0"
         classNameInner="px-4 py-24 lg:py-36">
         <h2 className="mb-4">
           Get The 7 Days to Transform Relationships Course & Start Having A Healthy, Loving

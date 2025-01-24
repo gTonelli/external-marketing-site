@@ -29,6 +29,8 @@ export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
   quizName: string
   quiz_traffic_source: TQuizTrafficSources
+  isQuizVariant?: boolean
+  onQuizFinished?: () => void
 }
 
 export const AttachmentQuizQuestions = ({
@@ -36,6 +38,8 @@ export const AttachmentQuizQuestions = ({
   newQuiz,
   quizName,
   quiz_traffic_source,
+  isQuizVariant,
+  onQuizFinished,
 }: IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -101,6 +105,12 @@ export const AttachmentQuizQuestions = ({
       let _sa = saPoints
 
       if (currentIndex === 0) {
+        if (isQuizVariant)
+          Mixpanel.track.QuizStarted({
+            quiz_name: quizName,
+            quiz_traffic_source,
+          })
+
         if (answer === 'Yes') {
           modifiedQuestions.splice(1, 0, detailedQuestions[4])
           modifiedQuestions.splice(2, 0, detailedQuestions[2])
@@ -142,7 +152,10 @@ export const AttachmentQuizQuestions = ({
       if (currentIndex === modifiedQuestions.length - 1) {
         Mixpanel.track.QuizFinished({
           quiz_name: quizName,
+          quiz_traffic_source,
+          progress: '100%',
         })
+        onQuizFinished?.()
 
         tagManager?.track({
           event: 'quiz_tracking',
@@ -177,7 +190,7 @@ export const AttachmentQuizQuestions = ({
   }
 
   return (
-    <section className={cx('w-full default-padding mx-auto lg:mt-16 lg:max-w-3xl', className)}>
+    <section className={cx('w-full default-padding mx-auto lg:max-w-3xl', className)}>
       {/* QUIZ SECTION */}
       {currentIndex !== modifiedQuestions.length ? (
         <div className="text-center">
@@ -213,7 +226,7 @@ export const AttachmentQuizQuestions = ({
               newQuiz ? (
                 <button
                   key={`option_${index}`}
-                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 lg:py-4 sm:!w-full 
+                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 py-4 sm:!w-full 
                     lg:hover:bg-opacity-50 lg:hover:text-white lg:hover:shadow-md"
                   onClick={onQuestionAnswer(obj)}>
                   {obj}

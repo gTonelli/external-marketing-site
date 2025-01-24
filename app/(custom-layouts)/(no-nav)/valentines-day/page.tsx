@@ -25,7 +25,6 @@ import {
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { string } from 'yup'
 
 export const metadata: Metadata = {
   title: 'Valentine’s Day 14-Day Free Trial – Join Now!',
@@ -191,7 +190,7 @@ export const ValentinesDayHero = () => {
 
         <MHAButton label="START YOUR TRANSFORMATION NOW" />
 
-        <p className="mt-2 font-bold italic text-success">
+        <p className="max-w-xl italic mx-auto mt-4">
           *Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel
           anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t
           last!*

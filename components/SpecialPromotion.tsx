@@ -320,7 +320,7 @@ export const PDSSocialProof = () => {
         <div className="lg:col-span-6">
           <MHAPageText content="Wondering why we’re giving away free access to our platform?" />
 
-          <MHAPageText content="That’s because we know that our courses work. " />
+          <MHAPageText content="Because we know that our courses work." />
 
           <MHAPageText
             content="The techniques we teach inside of The Personal Development School work directly

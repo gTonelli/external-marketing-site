@@ -43,9 +43,9 @@ export default function ValentinesDayPage() {
         classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
         <div className="col-start-2 text-left">
           <p className="mb-4">
-            With our revolutionary one-of-a-kind proprietary healing model, you can unlock the
-            hidden force of your subconscious mind to heal your relationships, rebuild trust, create
-            a soulful and balanced connection, and uncover the secrets to lasting love in your life.
+            With our revolutionary one-of-a-kind healing model, you can unlock the hidden force of
+            your subconscious mind to heal your relationships, rebuild trust, create a soulful and
+            balanced connection, and uncover the secrets to lasting love in your life.
           </p>
 
           <p className="mb-4">
@@ -320,7 +320,8 @@ export const ValentinesDayNegativePatterns = ({ background = 'bg-primary-light-5
             </div>
 
             <p className="w-3/4 mx-auto lg:w-auto">
-              Can I constantly let my need for independence and freedom ruin my chance at real love?
+              Can I consistently let my need for independence and freedom ruin my chance at real
+              love?
             </p>
           </div>
 

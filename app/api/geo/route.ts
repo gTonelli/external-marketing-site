@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export const config = { runtime: 'edge' }
+export const runtime = 'edge'
 
 export async function GET(request: NextRequest, response: NextResponse) {
   console.log('Running route handler')

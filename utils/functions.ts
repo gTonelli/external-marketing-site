@@ -1,7 +1,7 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
 import { IStrapiFetchProps, IStrapiResponse, TDict } from './types'
 import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
 import Cookies from 'universal-cookie'
 
@@ -95,6 +95,21 @@ export function getSplitTest({
   return isVariant
 }
 
+interface ISetSplitTest {
+  key: TSplitTestKey
+  useCookies?: boolean
+  value: boolean
+}
+
+export function setSplitTest({ key, value, useCookies = true }: ISetSplitTest) {
+  if (useCookies) {
+    const cookies = new Cookies()
+    cookies.set(key, value)
+  } else {
+    Storage.set(key, value)
+  }
+}
+
 /**
  * Stops the `propagation` and prevents `default` behaviour of a provided event
  * Executes a callback method afterwards, if provided
@@ -140,4 +155,17 @@ export const isPhoneValid = (phone: string) => {
   } catch (error) {
     return false
   }
+}
+
+export const getUserCountry = () => {
+  const userCountry = Storage.get('userCountry') as string | undefined
+
+  return userCountry
+    ? Promise.resolve(userCountry)
+    : fetch('/api/geo')
+        .then((res) => res.json())
+        .then((data) => {
+          Storage.set('userCountry', data.countryCode)
+          return data.countryCode as string
+        })
 }

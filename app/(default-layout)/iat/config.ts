@@ -289,6 +289,26 @@ export const IAT_COPY = {
       `Live Q&A With Thais.`,
     ],
 
+    live_mode_variant: [
+      `Integrated Attachment Theory™ Certification.`,
+
+      `Weekly live practice sessions with supervised feedback from Thais.`,
+
+      `Weekly live Q&A time to gain extra support and get your questions answered.`,
+
+      `12 Weeks of video content that teaches mastery of every tool needed to create secure attachment.`,
+
+      `Materials to use in your business, including worksheets, workbooks and intake forms.`,
+
+      `Training on how to launch your coaching business and build systems that drive clients into your practice.`,
+
+      `Business skills that will allow you to continuously expand and evolve.`,
+
+      `Monthly plans available.`,
+
+      `Live Q&A With Thais.`,
+    ],
+
     recorded_mode: [
       `Integrated Attachment Theory™ Certification.`,
 

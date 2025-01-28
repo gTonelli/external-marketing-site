@@ -40,15 +40,16 @@ import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { Elements, PaymentMethodMessagingElement } from '@stripe/react-stripe-js'
-import { loadStripe } from '@stripe/stripe-js'
+import { loadStripe, StripePaymentMethodMessagingElementOptions } from '@stripe/stripe-js'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
 // utils
-import { getSplitTest } from '@/utils/functions'
+import { getSplitTest, getUserCountry, setSplitTest } from '@/utils/functions'
 // styles
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { Loader } from '@/components/Loader'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -892,6 +893,7 @@ type TIATPrice = {
 
 interface IIATPriceCard {
   benefits: string[]
+  countryCode?: string
   heading: string
   isLive?: boolean
   isVariant?: boolean
@@ -908,6 +910,7 @@ const stripe = loadStripe(
 
 const IATPriceCard = ({
   benefits,
+  countryCode,
   heading,
   isLive = false,
   isVariant,
@@ -980,17 +983,14 @@ const IATPriceCard = ({
                   onClick={() => router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025)}
                 />
 
-                <Elements stripe={stripe}>
-                  <PaymentMethodMessagingElement
-                    className="mt-4 mb-0"
-                    options={{
-                      amount: 349900,
-                      currency: 'USD',
-                      countryCode: 'US',
-                      paymentMethodTypes: ['klarna'],
-                    }}
-                  />
-                </Elements>
+                {(countryCode === 'US' || countryCode === 'CA') && (
+                  <Elements stripe={stripe}>
+                    <PaymentMethodMessagingElement
+                      className="mt-4 mb-0"
+                      options={getPaymentMethodMessagingElementOptions(countryCode, 'live')}
+                    />
+                  </Elements>
+                )}
               </>
             ) : (
               <>
@@ -1078,17 +1078,14 @@ const IATPriceCard = ({
                   }
                 />
 
-                <Elements stripe={stripe}>
-                  <PaymentMethodMessagingElement
-                    className="mt-4 mb-0"
-                    options={{
-                      amount: 199900,
-                      currency: 'USD',
-                      countryCode: 'US',
-                      paymentMethodTypes: ['klarna'],
-                    }}
-                  />
-                </Elements>
+                {(countryCode === 'US' || countryCode === 'CA') && (
+                  <Elements stripe={stripe}>
+                    <PaymentMethodMessagingElement
+                      className="mt-4 mb-0"
+                      options={getPaymentMethodMessagingElementOptions(countryCode, 'recorded')}
+                    />
+                  </Elements>
+                )}
               </div>
             ) : (
               <>
@@ -1247,28 +1244,51 @@ const IATCurriculumCard = ({
 }
 
 const IATPriceCardSection = () => {
-  const isVariant = getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' })
+  const [countryCode, setCountryCode] = useState<string | undefined>()
+  const [isVariant, setIsVariant] = useState<boolean | undefined>()
+
+  useEffect(() => {
+    const abortController = new AbortController()
+    getUserCountry().then((countryCode) => {
+      if (abortController.signal.aborted) return
+      if (countryCode !== 'CA' && countryCode !== 'US') {
+        setIsVariant(false)
+        setSplitTest({ key: 'PROD-3571', value: false })
+      } else {
+        setIsVariant(getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' }))
+      }
+      setCountryCode(countryCode)
+    })
+
+    return () => {
+      abortController.abort()
+    }
+  })
+
+  if (!countryCode || isVariant === undefined) return <Loader className="!py-96" />
 
   return (
     <Section classNameInner="max-w-md mt-12 lg:max-w-5xl lg:mt-0">
       <div className="lg:grid-cols-2 lg:grid lg:gap-8">
         <IATPriceCard
           isLive
+          countryCode={countryCode}
           isVariant={isVariant}
-          benefits={IAT.price.live_mode}
+          benefits={isVariant ? IAT.price.live_mode_variant : IAT.price.live_mode}
           heading="Live Training"
-          originalPrice="$7000.00"
+          originalPrice={countryCode === 'CA' ? '$10,000' : '$7,000.00'}
           prices={iatLivePrices}
-          salePrice="$3,499.00"
+          salePrice={countryCode === 'CA' ? '$4,999' : '$3,499.00'}
         />
 
         <IATPriceCard
+          countryCode={countryCode}
           isVariant={isVariant}
           benefits={IAT.price.recorded_mode}
           heading="On Demand"
-          originalPrice="$4,000.00"
+          originalPrice={countryCode === 'CA' ? '$5,800' : '$4,000.00'}
           prices={iatRecordedPrices}
-          salePrice=" $1,999.00"
+          salePrice={countryCode === 'CA' ? '$2,899' : '$1,999.00'}
           subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE${isVariant ? '!' : ':'}`}
         />
       </div>
@@ -1503,4 +1523,40 @@ const IATRegistrationForm = () => {
       )}
     </Formik>
   )
+}
+
+function getPaymentMethodMessagingElementOptions(
+  countryCode: string | undefined,
+  type: 'live' | 'recorded'
+): StripePaymentMethodMessagingElementOptions | undefined {
+  switch (countryCode) {
+    case 'CA':
+      return type === 'recorded'
+        ? {
+            amount: 289900,
+            currency: 'CAD',
+            countryCode,
+            paymentMethodTypes: ['klarna'],
+          }
+        : {
+            amount: 499900,
+            currency: 'CAD',
+            countryCode,
+            paymentMethodTypes: ['klarna'],
+          }
+    default:
+      return type === 'recorded'
+        ? {
+            amount: 199900,
+            currency: 'USD',
+            countryCode: 'US',
+            paymentMethodTypes: ['klarna'],
+          }
+        : {
+            amount: 349900,
+            currency: 'USD',
+            countryCode: 'US',
+            paymentMethodTypes: ['klarna'],
+          }
+  }
 }

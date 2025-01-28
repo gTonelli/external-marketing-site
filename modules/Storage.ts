@@ -5,6 +5,7 @@ import { TSplitTestKey } from '@/utils/functions'
 /* Collection of all keys used to store data in localStorage */
 export type TStorageKeys =
   | 'lastUserEmail'
+  | 'userCountry'
   | 'userFirstName'
   | 'userFullName'
   | 'canViewResults'

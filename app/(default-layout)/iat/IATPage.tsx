@@ -23,6 +23,7 @@ import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from './config'
 import { IATBanner } from './IATBanner'
+import { Loader } from '@/components/Loader'
 // libraries
 import cx from 'classnames'
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik'
@@ -40,7 +41,12 @@ import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { Elements, PaymentMethodMessagingElement } from '@stripe/react-stripe-js'
-import { loadStripe, StripePaymentMethodMessagingElementOptions } from '@stripe/stripe-js'
+import {
+  loadStripe,
+  Stripe,
+  StripeConstructorOptions,
+  StripePaymentMethodMessagingElementOptions,
+} from '@stripe/stripe-js'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -49,7 +55,6 @@ import { getSplitTest, getUserCountry, setSplitTest } from '@/utils/functions'
 // styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Loader } from '@/components/Loader'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -903,11 +908,6 @@ interface IIATPriceCard {
   subheading?: string
 }
 
-const stripe = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_TX9ha9wfpmmbbQF0kpuVuNRl00r3Lanubq',
-  { stripeAccount: 'acct_1Pv1BOCWMNXx1IFm' }
-)
-
 const IATPriceCard = ({
   benefits,
   countryCode,
@@ -984,12 +984,10 @@ const IATPriceCard = ({
                 />
 
                 {(countryCode === 'US' || countryCode === 'CA') && (
-                  <Elements stripe={stripe}>
-                    <PaymentMethodMessagingElement
-                      className="mt-4 mb-0"
-                      options={getPaymentMethodMessagingElementOptions(countryCode, 'live')}
-                    />
-                  </Elements>
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={getPaymentMethodMessagingElementOptions(countryCode, 'live')}
+                  />
                 )}
               </>
             ) : (
@@ -1079,12 +1077,10 @@ const IATPriceCard = ({
                 />
 
                 {(countryCode === 'US' || countryCode === 'CA') && (
-                  <Elements stripe={stripe}>
-                    <PaymentMethodMessagingElement
-                      className="mt-4 mb-0"
-                      options={getPaymentMethodMessagingElementOptions(countryCode, 'recorded')}
-                    />
-                  </Elements>
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={getPaymentMethodMessagingElementOptions(countryCode, 'recorded')}
+                  />
                 )}
               </div>
             ) : (
@@ -1246,6 +1242,7 @@ const IATCurriculumCard = ({
 const IATPriceCardSection = () => {
   const [countryCode, setCountryCode] = useState<string | undefined>()
   const [isVariant, setIsVariant] = useState<boolean | undefined>()
+  const [stripe, setStripe] = useState<Stripe | null>(null)
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -1256,6 +1253,13 @@ const IATPriceCardSection = () => {
         setSplitTest({ key: 'PROD-3571', value: false })
       } else {
         setIsVariant(getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' }))
+        const options: StripeConstructorOptions = {}
+        if (countryCode === 'US') options.stripeAccount = 'acct_1Pv1BOCWMNXx1IFm'
+        loadStripe(
+          process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ||
+            'pk_test_TX9ha9wfpmmbbQF0kpuVuNRl00r3Lanubq',
+          options
+        ).then((s) => setStripe(s))
       }
       setCountryCode(countryCode)
     })
@@ -1270,27 +1274,29 @@ const IATPriceCardSection = () => {
   return (
     <Section classNameInner="max-w-md mt-12 lg:max-w-5xl lg:mt-0">
       <div className="lg:grid-cols-2 lg:grid lg:gap-8">
-        <IATPriceCard
-          isLive
-          countryCode={countryCode}
-          isVariant={isVariant}
-          benefits={isVariant ? IAT.price.live_mode_variant : IAT.price.live_mode}
-          heading="Live Training"
-          originalPrice={countryCode === 'CA' ? '$10,000' : '$7,000.00'}
-          prices={iatLivePrices}
-          salePrice={countryCode === 'CA' ? '$4,999' : '$3,499.00'}
-        />
+        <Elements stripe={stripe}>
+          <IATPriceCard
+            isLive
+            countryCode={countryCode}
+            isVariant={isVariant}
+            benefits={isVariant ? IAT.price.live_mode_variant : IAT.price.live_mode}
+            heading="Live Training"
+            originalPrice={isVariant && countryCode === 'CA' ? '$10,000' : '$7,000.00'}
+            prices={iatLivePrices}
+            salePrice={isVariant && countryCode === 'CA' ? '$4,999' : '$3,499.00'}
+          />
 
-        <IATPriceCard
-          countryCode={countryCode}
-          isVariant={isVariant}
-          benefits={IAT.price.recorded_mode}
-          heading="On Demand"
-          originalPrice={countryCode === 'CA' ? '$5,800' : '$4,000.00'}
-          prices={iatRecordedPrices}
-          salePrice={countryCode === 'CA' ? '$2,899' : '$1,999.00'}
-          subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE${isVariant ? '!' : ':'}`}
-        />
+          <IATPriceCard
+            countryCode={countryCode}
+            isVariant={isVariant}
+            benefits={IAT.price.recorded_mode}
+            heading="On Demand"
+            originalPrice={isVariant && countryCode === 'CA' ? '$5,800' : '$4,000.00'}
+            prices={iatRecordedPrices}
+            salePrice={isVariant && countryCode === 'CA' ? '$2,899' : '$1,999.00'}
+            subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE${isVariant ? '!' : ':'}`}
+          />
+        </Elements>
       </div>
     </Section>
   )
@@ -1535,13 +1541,13 @@ function getPaymentMethodMessagingElementOptions(
         ? {
             amount: 289900,
             currency: 'CAD',
-            countryCode,
+            countryCode: 'CA',
             paymentMethodTypes: ['klarna'],
           }
         : {
             amount: 499900,
             currency: 'CAD',
-            countryCode,
+            countryCode: 'CA',
             paymentMethodTypes: ['klarna'],
           }
     default:

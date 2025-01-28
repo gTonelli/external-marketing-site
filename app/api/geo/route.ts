@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from 'next/server'
 export const runtime = 'edge'
 
 export async function GET(request: NextRequest, response: NextResponse) {
-  console.log('Running route handler')
   return fetch(
     `http://ip-api.com/json/${
       request.headers.get('x-forwarded-for')?.split(',')[0] || request.ip

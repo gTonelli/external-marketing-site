@@ -80,7 +80,7 @@ export default function ValentinesDayPage() {
       <Section className="!py-16">
         <div className="grid grid-cols-1 gap-8 !text-left lg:grid-cols-3">
           {STEPS_TO_PURCHASE.map((item, idx) => (
-            <div key={`puchase_steps_${idx}`}>
+            <div key={`purchase_steps_${idx}`}>
               <div className="min-h-48 mb-4">
                 <Image
                   className="rounded-xl"
@@ -387,6 +387,6 @@ const STEPS_TO_PURCHASE = [
     step: 'STEP THREE',
     title: 'Continue Your Journey to a Fulfilled Love Life',
     copy: 'Your Attachment Style Course is your first step toward mastering secure and fulfilled relationships. With this foundation, you can continue building meaningful connections, improving your dating life, and strengthening your self-care with our other courses – all for FREE for 14 days!',
-    image: '/images/TrialHeadspace/pds-courses-mockup.png',
+    image: '/images/TrialHeadspace/pds-courses-mockup-2.png',
   },
 ]

@@ -19,5 +19,6 @@ export default function robots(): MetadataRoute.Robots {
         '/beliefs/',
       ],
     },
+    sitemap: 'https://attachment.personaldevelopmentschool.com/sitemap.xml',
   }
 }

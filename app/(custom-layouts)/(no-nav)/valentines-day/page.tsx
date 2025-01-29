@@ -143,15 +143,7 @@ export default function ValentinesDayPage() {
 
       <Image
         alt="purple wave vector"
-        className="w-full lg:hidden"
-        width={792}
-        height={426}
-        src="/images/BlackFridayPage/mha-purple-wave.jpg"
-      />
-
-      <Image
-        alt="purple wave vector"
-        className="w-full hidden lg:block"
+        className="w-full"
         width={2881}
         height={430}
         src="/images/BlackFridayPage/mha-purple-wave-desktop.jpg"

@@ -1,11 +1,11 @@
 'use client'
 
 // core
+import Image from 'next/image'
 import { forwardRef, useContext, useState } from 'react'
 // components
 import { IDefaultProps } from '@/components'
 import { Testimonial } from '@/components/Testimonial/Testimonial'
-import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 // libraries
 import cx from 'classnames'
@@ -132,13 +132,7 @@ export const CarouselTestimonial = forwardRef(
 
     const isPrimary = testimonialType === 'primary'
 
-    const noOfslides = isPrimary
-      ? windowWidth <= EWindowWidth.md
-        ? 1
-        : windowWidth < EWindowWidth['xl']
-        ? 2
-        : 3
-      : 1
+    const noOfslides = isPrimary ? (windowWidth <= EWindowWidth.lg ? 1 : 3) : 1
 
     return (
       //   px-page-xxs md:px-page-xs lg:px-page-md 3xl:px-page
@@ -158,7 +152,13 @@ export const CarouselTestimonial = forwardRef(
           {/* LEFT QUOTE */}
           {showQuotations ? (
             <div>
-              <Image className="hidden lg:block" src="homepage_quote_left.png" />
+              <Image
+                className="hidden lg:block"
+                src="homepage_quote_left.png"
+                alt="left quote"
+                width={24}
+                height={24}
+              />
             </div>
           ) : null}
 
@@ -176,7 +176,13 @@ export const CarouselTestimonial = forwardRef(
 
           {/* RIGHT QUOTE */}
           {showQuotations ? (
-            <Image className="hidden lg:block" src="homepage_quote_right.png" />
+            <Image
+              className="hidden lg:block"
+              src="homepage_quote_right.png"
+              alt="right quote"
+              width={24}
+              height={24}
+            />
           ) : null}
         </div>
 
@@ -195,9 +201,9 @@ export const CarouselTestimonial = forwardRef(
             }}
             pagination={{
               clickable: true,
-              bulletActiveClass: '!opacity-100 !w-6 !h-6 !my-0',
+              bulletActiveClass: '!opacity-100',
               bulletClass:
-                'inline-block w-4 h-4 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer lg:hover:opacity-100',
+                'inline-block w-3 h-3 mx-1 my-1 bg-primary rounded-full opacity-25 cursor-pointer lg:hover:opacity-100',
             }}
             slidesPerGroup={noOfslides}
             slidesPerView={noOfslides}
@@ -216,16 +222,16 @@ export const CarouselTestimonial = forwardRef(
           {/* LEFT ARROW ICON */}
           <div
             ref={(node) => setPrevEl(node)}
-            className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 left-1/3 cursor-pointer
-            lg:top-1/2 lg:hover:border-primary lg:flex lg:-left-4 xl:-left-10 2xl:-left-8">
+            className="hidden absolute w-10 h-10 z-5 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 left-1/3 cursor-pointer
+            lg:top-1/2 lg:hover:border-primary lg:flex lg:-left-10">
             <FontAwesomeIcon className="text-primary" icon={faChevronLeft} size="lg" />
           </div>
 
           {/* RIGHT ARROW ICON */}
           <div
             ref={(node) => setNextEl(node)}
-            className="absolute w-10 h-10 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 right-1/3
-            lg:top-1/2 lg:hover:border-primary lg:cursor-pointer lg:flex lg:-right-4 xl:-right-10 2xl:-right-8">
+            className="hidden absolute w-10 h-10 z-5 flex-center rounded-full bg-grey/20 border border-transparent -bottom-10 right-1/3
+            lg:top-1/2 lg:hover:border-primary lg:cursor-pointer lg:flex lg:-right-10">
             <FontAwesomeIcon className="text-primary" icon={faChevronRight} size="lg" />
           </div>
         </div>

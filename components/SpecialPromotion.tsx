@@ -476,7 +476,7 @@ export const PDS14dftFeatureOffers = () => {
 
       <Card
         className="default-padding text-left border-none my-4 
-            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-center lg:my-12 
+            lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
         <div>
           <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">

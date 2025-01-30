@@ -9,6 +9,14 @@ export const ThaisIntro = () => {
       <div className="text-left lg:col-span-7">
         <h2 className="mb-8">Hi! I’m Thais.</h2>
 
+        <Image
+          alt="a headshot of Thais Gibson"
+          className="w-full rounded-full max-w-106 mb-4 lg:hidden lg:max-w-none lg:col-span-5 lg:p-4"
+          width={285}
+          height={285}
+          src="/images/thais_headshot.png"
+        />
+
         <p className="mb-4">
           <strong>
             I’m the co-founder of The Personal Development School, best-selling author, host of The
@@ -54,7 +62,7 @@ export const ThaisIntro = () => {
 
       <Image
         alt="a headshot of Thais Gibson"
-        className="w-full rounded-full max-w-106 lg:max-w-none lg:col-span-5 lg:p-4"
+        className="hidden w-full rounded-full max-w-106 lg:block lg:max-w-none lg:col-span-5 lg:p-4"
         width={285}
         height={285}
         src="/images/thais_headshot.png"

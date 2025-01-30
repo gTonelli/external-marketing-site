@@ -45,6 +45,7 @@ import { useGamAnalytics } from '@/modules/GAM'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { CheckoutButton } from '@/components/CheckoutButton'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -883,7 +884,7 @@ type TIATPrice = {
   price: string
   priceLabel?: string
   bottomText: string
-  link: EExternalRoutes | ERoutes
+  link: EExternalRoutes
 }
 
 interface IIATPriceCard {
@@ -1160,17 +1161,13 @@ const IATPriceCard = ({
               onClick={() => setIsExpanded(false)}
             />
 
-            <Button
+            <CheckoutButton
               className="trial-btn"
               label="BUY NOW"
-              onClick={() => {
-                Mixpanel.track.ButtonClicked({
-                  button_label: `Buy Now-${selectedCardIndex}`,
-                  page_name: 'External IAT Page',
-                  plan_type: `${isLive ? 'live' : 'recorded'}`,
-                })
-
-                window.location.assign(prices[selectedCardIndex].link)
+              href={prices[selectedCardIndex].link}
+              mpProps={{
+                plan_pricing: prices[selectedCardIndex].bottomText,
+                plan_type: `${isLive ? 'live' : 'recorded'}`,
               }}
             />
           </div>

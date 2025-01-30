@@ -152,16 +152,16 @@ export default function IATWebinarSqueezePage() {
             <span className="text-primary">Transform Lives</span> & Secure Your Financial Future
           </h1>
 
-          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on January 22nd, 2025</p>
+          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on March 20th, 2025</p>
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
-          {/* countdown for January 12, 2025, 05:00 PM ET */}
+          {/* countdown for March 20, 2025, 05:00 PM ET */}
           <CountdownTimer
             className="!justify-start"
             classNameDate="!bg-inherit !shadow-none !text-black !p-0"
             theme="light"
-            date={getOfferEndDate(new Date('2025-01-12T17:00:00-05:00'), 1)}
+            date={getOfferEndDate(new Date('2025-03-20T17:00:00-05:00'), 1)}
           />
 
           <ButtonScroll className="mt-8" label="JOIN NOW & SAVE $300" target="#pricing" />

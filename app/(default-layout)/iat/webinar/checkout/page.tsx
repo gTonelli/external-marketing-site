@@ -379,10 +379,10 @@ export default function IATWebinarSqueezePage() {
 
           <div className="h-fit bg-white shadow-md rounded-xl p-4">
             <Image
-              width={588}
-              height={334}
+              width={500}
+              height={282}
               alt="Thumbnail for IAT webinar"
-              src="/images/IATWebinar/iat-winter-2025.jpg"
+              src="/images/IATWebinar/iat-spring-2025.jpg"
             />
 
             <div className="border-b border-black pt-4 my-4">

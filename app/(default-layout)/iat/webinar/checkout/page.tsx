@@ -314,7 +314,11 @@ export default function IATWebinarSqueezePage() {
 
       <Section>
         <div id="pricing" className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <IATPricingCard cardDetails={IATLiveCardDetails} pricingMenu={IATLiveCardPricing} />
+          <IATPricingCard
+            isLive
+            cardDetails={IATLiveCardDetails}
+            pricingMenu={IATLiveCardPricing}
+          />
 
           <IATPricingCard
             cardDetails={OnDemandIATCardDetails}

@@ -16,13 +16,14 @@ import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
-import { EExternalRoutes, ERoutes, Regexes } from '@/utils/constants'
+import { EExternalRoutes, Regexes } from '@/utils/constants'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from './config'
 import { IATBanner } from './IATBanner'
+import { CheckoutButton } from '@/components/CheckoutButton'
 // libraries
 import cx from 'classnames'
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik'
@@ -42,8 +43,7 @@ import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
-import { Storage } from '@/modules/Storage'
-
+// styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -858,25 +858,25 @@ const iatLivePrices: TIATPrice[] = [
     price: '$3,499.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2025_UPFRONT,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT,
   },
   {
     price: '$1,209.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2025_3_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_3_MONTH_PLAN,
   },
   {
     price: '$629.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2025_6_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_6_MONTH_PLAN,
   },
   {
     price: '$339.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WINTER_2025_12_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_12_MONTH_PLAN,
   },
 ]
 
@@ -884,7 +884,7 @@ type TIATPrice = {
   price: string
   priceLabel?: string
   bottomText: string
-  link: EExternalRoutes | ERoutes
+  link: EExternalRoutes
 }
 
 interface IIATPriceCard {
@@ -1161,17 +1161,13 @@ const IATPriceCard = ({
               onClick={() => setIsExpanded(false)}
             />
 
-            <Button
+            <CheckoutButton
               className="trial-btn"
               label="BUY NOW"
-              onClick={() => {
-                Mixpanel.track.ButtonClicked({
-                  button_label: `Buy Now-${selectedCardIndex}`,
-                  page_name: 'External IAT Page',
-                  plan_type: `${isLive ? 'live' : 'recorded'}`,
-                })
-
-                window.location.assign(prices[selectedCardIndex].link)
+              href={prices[selectedCardIndex].link}
+              mpProps={{
+                plan_pricing: prices[selectedCardIndex].bottomText,
+                plan_type: `${isLive ? 'live' : 'recorded'}`,
               }}
             />
           </div>

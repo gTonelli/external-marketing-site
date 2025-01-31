@@ -25,6 +25,7 @@ export const CheckoutButton = ({
   label = 'SIGN UP NOW',
   theme = 'primary',
   onClick,
+  mpProps,
 }: ICheckoutButtonProps) => {
   return (
     // There is an issue with next/link and the Thinkific Checkout. If the user is logged in the browser enters an infinite loop.
@@ -39,6 +40,7 @@ export const CheckoutButton = ({
               className
             )
           )}
+          mpProps={mpProps}
           label={label}
           onClick={onClick}
         />

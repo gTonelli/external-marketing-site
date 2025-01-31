@@ -16,13 +16,14 @@ import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
-import { EExternalRoutes, ERoutes, Regexes } from '@/utils/constants'
+import { EExternalRoutes, Regexes } from '@/utils/constants'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from './config'
 import { IATBanner } from './IATBanner'
+import { CheckoutButton } from '@/components/CheckoutButton'
 // libraries
 import cx from 'classnames'
 import { Form, Formik, FormikConfig, FormikHelpers } from 'formik'
@@ -42,10 +43,9 @@ import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
-
+// styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { CheckoutButton } from '@/components/CheckoutButton'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,

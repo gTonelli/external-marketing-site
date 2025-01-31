@@ -127,11 +127,11 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
-  // IAT Winter 2025
-  THINKIFIC_CHECKOUT_IAT_WINTER_2025_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3090108?price_id=3960128&coupon=iatbundleupfrontlivewinter25',
-  THINKIFIC_CHECKOUT_IAT_WINTER_2025_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3090108?price_id=3960150&coupon=iatbundle3molivewinter25',
-  THINKIFIC_CHECKOUT_IAT_WINTER_2025_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3090108?price_id=3960151&coupon=iatbundle6molivewinter25',
-  THINKIFIC_CHECKOUT_IAT_WINTER_2025_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3090108?price_id=3960152&coupon=iatbundle12molivewinter25',
+  // IAT Spring 2025
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098384&coupon=iatbundleupfrontlivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098408&coupon=iatbundle3molivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098409&coupon=iatbundle6molivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098410&coupon=iatbundle12molivespring25',
   // IAT Recorded Webinar Winter 2025
   THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarwinter25ondemand',
   THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinarwinter253mnthondemand',

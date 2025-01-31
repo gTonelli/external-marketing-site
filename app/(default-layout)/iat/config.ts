@@ -24,7 +24,7 @@ export const IAT_COPY = {
 
     copy_left: `The Gibson Integrated Attachment Theory™ Certification Course is a revolutionary relationship coaching certification developed by Thais Gibson.
                 \nThis certification program spans over 12 weeks, available in both Live Training and On-Demand formats.
-                \n***Spots for the Live Training version of the program running from January 22, 2025 - April 9, 2025 are limited.**`,
+                \n***Spots for the Live Training version of the program running from March 20, 2025 - June 5, 2025 are limited.**`,
 
     copy_right: `It will teach you how to become a relationship coach, specializing in attachment theory. It will give you the exact tools and steps you need to become an industry leader, build a thriving practice, and make a massive impact on others’ lives and relationships through the lens of attachment theory.
                  \nEven if you have no prior coaching experience, this training will give you the tools and confidence to get started in a matter of weeks.`,
@@ -81,32 +81,32 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on January 22nd, 6 PM ET`,
+          `Attend 1-hour review session on March 20th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on January 29th, 6 PM ET`,
+          `Attend 1-hour review session on March 27th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on February 5th, 6 PM ET`,
+          `Attend 1-hour review session on April 3rd, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on February 12th, 6 PM ET`,
+          `Attend 1-hour review session on April 10th, 6 PM ET`,
         ],
       },
 
       intensive_week: {
         heading: [`Complete Your Intensive IAT Training With Thais`],
 
-        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from February 19 - April 9 every Wednesday at 6 PM ET for 8 weeks.
+        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from April 17th - June 5th every Thursday at 6 PM ET for 8 weeks.
                \nHere, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.  
                \nEach meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.`,
 

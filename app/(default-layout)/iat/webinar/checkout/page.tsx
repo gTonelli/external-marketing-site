@@ -152,16 +152,16 @@ export default function IATWebinarSqueezePage() {
             <span className="text-primary">Transform Lives</span> & Secure Your Financial Future
           </h1>
 
-          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on January 22nd, 2025</p>
+          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on March 20th, 2025</p>
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
-          {/* countdown for January 12, 2025, 05:00 PM ET */}
+          {/* countdown for March 20, 2025, 05:00 PM ET */}
           <CountdownTimer
             className="!justify-start"
             classNameDate="!bg-inherit !shadow-none !text-black !p-0"
             theme="light"
-            date={getOfferEndDate(new Date('2025-01-12T17:00:00-05:00'), 1)}
+            date={getOfferEndDate(new Date('2025-03-20T17:00:00-05:00'), 1)}
           />
 
           <ButtonScroll className="mt-8" label="JOIN NOW & SAVE $300" target="#pricing" />
@@ -314,7 +314,11 @@ export default function IATWebinarSqueezePage() {
 
       <Section>
         <div id="pricing" className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <IATPricingCard cardDetails={IATLiveCardDetails} pricingMenu={IATLiveCardPricing} />
+          <IATPricingCard
+            isLive
+            cardDetails={IATLiveCardDetails}
+            pricingMenu={IATLiveCardPricing}
+          />
 
           <IATPricingCard
             cardDetails={OnDemandIATCardDetails}
@@ -379,10 +383,10 @@ export default function IATWebinarSqueezePage() {
 
           <div className="h-fit bg-white shadow-md rounded-xl p-4">
             <Image
-              width={588}
-              height={334}
+              width={500}
+              height={282}
               alt="Thumbnail for IAT webinar"
-              src="/images/IATWebinar/iat-winter-2025.jpg"
+              src="/images/IATWebinar/iat-spring-2025.jpg"
             />
 
             <div className="border-b border-black pt-4 my-4">

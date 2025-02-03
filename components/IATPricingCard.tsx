@@ -31,11 +31,16 @@ export type TIATPriceOption = {
 }
 
 interface IIATPricingCardProps {
+  isLive?: boolean
   pricingMenu: TIATPriceOption[]
   cardDetails: TIATCardDetails
 }
 
-export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProps) => {
+export const IATPricingCard = ({
+  cardDetails,
+  pricingMenu,
+  isLive = false,
+}: IIATPricingCardProps) => {
   const [showPricing, setShowPricing] = useState(false)
   const [currentOption, setCurrentOption] = useState(0)
 
@@ -111,7 +116,14 @@ export const IATPricingCard = ({ cardDetails, pricingMenu }: IIATPricingCardProp
             Go Back
           </p>
 
-          <CheckoutButton label="SIGN UP NOW" href={pricingMenu[currentOption].checkout} />
+          <CheckoutButton
+            label="SIGN UP NOW"
+            href={pricingMenu[currentOption].checkout}
+            mpProps={{
+              plan_pricing: pricingMenu[currentOption].label,
+              plan_type: `${isLive ? 'live' : 'recorded'}`,
+            }}
+          />
         </div>
       </div>
     )

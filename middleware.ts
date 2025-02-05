@@ -240,7 +240,7 @@ const splitTestConfigs: TSplitTestConfigs = {
       path: '/pdf-report/fa',
     },
     variantRatio: 0.5,
-    forceControlOnNewUser: false,
+    forceControlOnNewUser: true,
   },
 }
 

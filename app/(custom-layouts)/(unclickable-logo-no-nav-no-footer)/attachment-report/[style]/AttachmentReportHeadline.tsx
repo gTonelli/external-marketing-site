@@ -109,7 +109,7 @@ export const AttachmentReportHeader = ({ style, isVariant }: IProps) => {
         <div>
           <VideoThumbnail
             srcUrl={
-              faVideoVariant
+              style === 'fa' && faVideoVariant
                 ? 'https://storage.googleapis.com/pds_videos/FA_pdf_50_2.mp4'
                 : COPY[style].banner.video
             }

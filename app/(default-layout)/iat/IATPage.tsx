@@ -983,7 +983,7 @@ const IATPriceCard = ({
                   onClick={() => router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025)}
                 />
 
-                {(countryCode === 'US' || countryCode === 'CA') && (
+                {countryCode === 'US' && (
                   <PaymentMethodMessagingElement
                     className="mt-4 mb-0"
                     options={getPaymentMethodMessagingElementOptions(countryCode, 'live')}
@@ -1076,7 +1076,7 @@ const IATPriceCard = ({
                   }
                 />
 
-                {(countryCode === 'US' || countryCode === 'CA') && (
+                {countryCode === 'US' && (
                   <PaymentMethodMessagingElement
                     className="mt-4 mb-0"
                     options={getPaymentMethodMessagingElementOptions(countryCode, 'recorded')}
@@ -1248,7 +1248,7 @@ const IATPriceCardSection = () => {
     const abortController = new AbortController()
     getUserCountry().then((countryCode) => {
       if (abortController.signal.aborted) return
-      if (countryCode !== 'CA' && countryCode !== 'US') {
+      if (countryCode !== 'US') {
         setIsVariant(false)
         setSplitTest({ key: 'PROD-3571', value: false })
       } else {

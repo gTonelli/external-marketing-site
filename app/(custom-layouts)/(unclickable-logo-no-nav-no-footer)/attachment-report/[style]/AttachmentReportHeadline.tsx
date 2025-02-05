@@ -12,7 +12,6 @@ import { REPORT_COPY as COPY } from './config'
 import { Storage } from '@/modules/Storage'
 // utils
 import { TStyle } from '@/utils/types'
-import { getSplitTest } from '@/utils/functions'
 
 interface IProps {
   style: TStyle

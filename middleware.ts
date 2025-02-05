@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/valentines-day'],
+  matcher: ['/valentines-day', '/attachment-report/fa'],
 }
 
 interface IConfigWithRegex {
@@ -133,6 +133,10 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       regex: /^\/valentines-day/,
       config: splitTestConfigs.valentinesDayTest,
+    },
+    {
+      regex: /^\/attachment-report\/fa/,
+      config: splitTestConfigs.vslReportFaVideoTest,
     },
   ]
 
@@ -226,6 +230,16 @@ const splitTestConfigs: TSplitTestConfigs = {
       path: '/valentines-day-promo',
     },
     variantRatio: 0.3,
+    forceControlOnNewUser: false,
+  },
+  vslReportFaVideoTest: {
+    cookieKey: 'gm-1447-vsl-rep-fa',
+    pageName: 'Attachment Style Report Old - fa',
+    experimentName: 'GM-1447-VSL-FA-Report',
+    variantUrl: {
+      path: '/pdf-report/fa',
+    },
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
 }

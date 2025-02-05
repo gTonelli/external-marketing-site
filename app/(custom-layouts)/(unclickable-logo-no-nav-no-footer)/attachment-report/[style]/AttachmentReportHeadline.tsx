@@ -1,14 +1,18 @@
 'use client'
 
+// core
+import Link from 'next/link'
 // components
-import { Link } from '@/components/Link'
 import { Section } from '@/components/Section'
+import { Button } from '@/components/Button/Button'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+// config
 import { REPORT_COPY as COPY } from './config'
 // modules
 import { Storage } from '@/modules/Storage'
 // utils
 import { TStyle } from '@/utils/types'
+import { getSplitTest } from '@/utils/functions'
 
 interface IProps {
   style: TStyle
@@ -71,6 +75,11 @@ const HEADER_CONFIG = {
 }
 
 export const AttachmentReportHeader = ({ style, isVariant }: IProps) => {
+  const faVideoVariant = getSplitTest({
+    key: 'gm-1447-vsl-rep-fa',
+    experimentName: 'GM-1447-VSL-FA-Report',
+  })
+
   if (!isVariant) {
     return (
       <Section
@@ -99,7 +108,11 @@ export const AttachmentReportHeader = ({ style, isVariant }: IProps) => {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 mb-8">
         <div>
           <VideoThumbnail
-            srcUrl={COPY[style].banner.video}
+            srcUrl={
+              faVideoVariant
+                ? 'https://storage.googleapis.com/pds_videos/FA_pdf_50_2.mp4'
+                : COPY[style].banner.video
+            }
             thumbnailAlt="Thais explaining your attachment style"
           />
         </div>
@@ -109,11 +122,9 @@ export const AttachmentReportHeader = ({ style, isVariant }: IProps) => {
         </div>
       </div>
 
-      <Link
-        className="inline-block border-2 rounded-full tracking-10 px-4 py-2 transition-colors active:shadow-md !no-underline lg:hover:text-white lg:hover:shadow-md bg-primary border-primary text-white active:bg-opacity-50 lg:hover:bg-opacity-50 cursor-pointer"
-        label={`${HEADER_CONFIG[style].ctaLabel}`}
-        url={COPY[style].footer.ctaLink}
-      />
+      <Link href={COPY[style].footer.ctaLink}>
+        <Button label={`${HEADER_CONFIG[style].ctaLabel}`} />
+      </Link>
 
       <h2 className="text-primary mt-16">{HEADER_CONFIG[style].nextSectionHeader}</h2>
     </Section>

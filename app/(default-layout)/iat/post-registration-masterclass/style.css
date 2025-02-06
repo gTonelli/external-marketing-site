@@ -1,6 +1,6 @@
 .bg-coach-mobile {
   position: relative;
-  background: url('/images/IATWebinar/girl-wearing-glasses.webp') no-repeat center left / cover;
+  background: url('/images/IATWebinar/girl-wearing-glasses.webp') no-repeat center right / cover;
   width: 100%;
   height: 300px;
 }
@@ -32,6 +32,17 @@
   .bg-coach {
     position: relative;
     background: url('/images/IATWebinar/girl-wearing-glasses.webp') no-repeat top left / cover;
+  }
+
+  .bg-coach::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(100deg, #e3eded 0%, rgba(213, 184, 216, 0) 100%);
+    z-index: 3;
   }
 
   .bg-thais {

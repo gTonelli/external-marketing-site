@@ -1,0 +1,26 @@
+.bg-thais-mobile {
+  position: relative;
+  background: url('/images/IATWebinar/thais-standing-portrait-bg.webp') no-repeat center left /
+    cover;
+  width: 100%;
+  height: 300px;
+}
+
+.bg-gradient {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(227, 237, 237, 0) 0%, #e3eded calc(300px), #fff 100%);
+}
+
+@media screen and (min-width: 1024px) {
+  .bg-thais {
+    position: relative;
+    background: url('/images/IATWebinar/thais-standing-portrait-bg.webp') no-repeat center 10% /
+      cover;
+  }
+}

@@ -11,9 +11,10 @@ import { Section } from '@/components/Section'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { IATCoachCareerBenefits } from '../../post-registration-masterclass/IATCoachCareerBenefits'
+// functions
+import { getOfferEndDate } from '@/utils/functions'
 // styles
 import './style.css'
-import { getOfferEndDate } from '@/utils/functions'
 
 export const metadata: Metadata = {
   title: 'Watch This Life-Altering IAT™ Masterclass Video!',

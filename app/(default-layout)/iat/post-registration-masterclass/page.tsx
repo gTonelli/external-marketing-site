@@ -10,13 +10,13 @@ import { ShowSuccessModal } from './ShowSuccessModal'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { IATCoachCareerBenefits } from './IATCoachCareerBenefits'
 // config
 import { IATTestimonials } from './config'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
-import { IATCoachCareerBenefits } from './IATCoachCareerBenefits'
 
 export const metadata: Metadata = {
   title: 'Thanks for Registering for the IAT™ Masterclass!',

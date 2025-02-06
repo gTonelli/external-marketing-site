@@ -2,6 +2,8 @@
 import { List } from '@/components/List'
 import { Section } from '@/components/Section'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// styles
+import './style.css'
 
 interface IATCoachCareerBenefitsProps {
   title?: string

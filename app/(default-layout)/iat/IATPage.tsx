@@ -1239,10 +1239,14 @@ const IATCurriculumCard = ({
   )
 }
 
+const stripe = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_TX9ha9wfpmmbbQF0kpuVuNRl00r3Lanubq',
+  { stripeAccount: 'acct_1Pv1BOCWMNXx1IFm' }
+)
+
 const IATPriceCardSection = () => {
   const [countryCode, setCountryCode] = useState<string | undefined>()
   const [isVariant, setIsVariant] = useState<boolean | undefined>()
-  const [stripe, setStripe] = useState<Stripe | null>(null)
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -1253,13 +1257,6 @@ const IATPriceCardSection = () => {
         setSplitTest({ key: 'PROD-3571', value: false })
       } else {
         setIsVariant(getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' }))
-        const options: StripeConstructorOptions = {}
-        if (countryCode === 'US') options.stripeAccount = 'acct_1Pv1BOCWMNXx1IFm'
-        loadStripe(
-          process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ||
-            'pk_test_TX9ha9wfpmmbbQF0kpuVuNRl00r3Lanubq',
-          options
-        ).then((s) => setStripe(s))
       }
       setCountryCode(countryCode)
     })

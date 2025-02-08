@@ -103,6 +103,7 @@ export type Pages =
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`
   | `Valentine's Day`
+  | `Valentine's Day - Short`
   | `vsl-${string}`
   | `VSL Royal Rumble Results - ${string}`
   | `Wellness Page`

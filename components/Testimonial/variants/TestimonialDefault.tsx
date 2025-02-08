@@ -31,7 +31,7 @@ export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IRe
     // mb-14
     <div className={cx('relative 2xl:mb-0 h-full flex flex-col items-center', className)}>
       {/* REVIEW AUTHOR */}
-      <div className="flex relative top-6 left-8">
+      <div className="flex relative top-4 left-0">
         <Image
           className="w-20 h-20 rounded-full"
           width={36}
@@ -40,9 +40,11 @@ export const TestimonialDefault = ({ className, review, ratingBg = 'teal' }: IRe
           alt="author picture"
         />
 
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center ml-2 pb-4">
           {/* NAME */}
-          <span className="font-bold text-left tracking-0.325 ml-2">{review.author.name}</span>
+          <span>
+            <strong>{review.author.name}</strong>
+          </span>
 
           {/* LOCATION */}
           {(review.author.state || review.author.country) && (

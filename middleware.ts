@@ -116,7 +116,9 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
   }
 }
 
-export const config = {}
+export const config = {
+  matcher: ['/valentines-day', '/attachment-report/fa'],
+}
 
 interface IConfigWithRegex {
   /** This regex will be used to match the request path and return a split test config */
@@ -127,7 +129,16 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
-  const configs: Array<IConfigWithRegex> = []
+  const configs: Array<IConfigWithRegex> = [
+    {
+      regex: /^\/valentines-day/,
+      config: splitTestConfigs.valentinesDayTest,
+    },
+    {
+      regex: /^\/attachment-report\/fa/,
+      config: splitTestConfigs.vslReportFaVideoTest,
+    },
+  ]
 
   return configs.find((config) => config.regex.test(path))?.config
 }
@@ -211,15 +222,25 @@ const sendEventUnsafe = async (
 }
 
 const splitTestConfigs: TSplitTestConfigs = {
-  simplifiedFaTest: {
-    cookieKey: 'gm-1324-simplified-fa-test',
-    pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1324-Simplified-FA-Test-Relaunch',
+  valentinesDayTest: {
+    cookieKey: 'gm-1435-valentines-day-test',
+    pageName: "Valentine's Day",
+    experimentName: 'GM-1435-Valentines-Day-Test',
     variantUrl: {
-      path: '/quiz/results/fearful-avoidant',
+      path: '/valentines-day-promo',
     },
-    variantRatio: 0.25,
+    variantRatio: 0.3,
     forceControlOnNewUser: false,
+  },
+  vslReportFaVideoTest: {
+    cookieKey: 'gm-1447-vsl-rep-fa',
+    pageName: 'Attachment Style Report Old - fa',
+    experimentName: 'GM-1447-VSL-FA-Report',
+    variantUrl: {
+      path: '/pdf-report/fa',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
   },
 }
 
@@ -250,7 +271,7 @@ type TSplitTestConfig = {
     base?: string
   }
   /** Ratio of users who will see the variant, with 1 being 100% */
-  variantRatio: 0.2 | 0.5 | 0.25
+  variantRatio: 0.2 | 0.3 | 0.5 | 0.25
   /** Should only be false if there are fallback browser events to send mixpanel data. Useful for top-of-funnel tests */
   forceControlOnNewUser: boolean
 }

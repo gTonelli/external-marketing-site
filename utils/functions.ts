@@ -75,6 +75,7 @@ export function getSplitTest({
   }
 
   const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+  // exclude users from the test if true
   if (randomFloat > variantRatio * 2) {
     isVariant = false
   } else {

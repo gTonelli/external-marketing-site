@@ -2,8 +2,8 @@
 
 /* eslint-disable @typescript-eslint/no-use-before-define */
 // core
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 // components
 import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
@@ -23,6 +23,7 @@ import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from './config'
 import { IATBanner } from './IATBanner'
+import { Loader } from '@/components/Loader'
 import { CheckoutButton } from '@/components/CheckoutButton'
 // libraries
 import cx from 'classnames'
@@ -40,9 +41,18 @@ import {
 import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
+import { Elements, PaymentMethodMessagingElement } from '@stripe/react-stripe-js'
+import {
+  loadStripe,
+  Stripe,
+  StripeConstructorOptions,
+  StripePaymentMethodMessagingElementOptions,
+} from '@stripe/stripe-js'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
+// utils
+import { getSplitTest, getUserCountry, setSplitTest } from '@/utils/functions'
 // styles
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -889,67 +899,38 @@ type TIATPrice = {
 
 interface IIATPriceCard {
   benefits: string[]
+  countryCode?: string
   heading: string
   isLive?: boolean
+  isVariant?: boolean
   originalPrice?: string
   prices: TIATPrice[]
   salePrice: string
   subheading?: string
-  waitlist?: boolean
 }
 
 const IATPriceCard = ({
   benefits,
+  countryCode,
   heading,
   isLive = false,
+  isVariant,
   originalPrice,
   prices,
   salePrice,
   subheading,
-  waitlist = false,
 }: IIATPriceCard) => {
   // ================== State =============
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedCardIndex, setSelectedCardIndex] = useState(0)
-  const [showModal, setShowModal] = useState<boolean>(false)
-  const [formSubmited, setformSubmited] = useState<boolean>(false)
-
-  const onToggleDialog = useCallback(() => {
-    setShowModal(!showModal)
-  }, [showModal, setShowModal])
-
-  const onSubmitForm = (values: ContactUsVariables) => {
-    const { name, email, captcha } = values
-    const requestBody = {
-      client_tag: 'iat-july-2023-subscriber',
-      name: name,
-      email: email,
-      'g-recaptcha-response': captcha,
-    }
-
-    fetch(
-      process.env.NEXT_PUBLIC_AC_LEAD_URL ||
-        'https://pds-marketing-api.herokuapp.com/api/post/contact',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }
-    ).catch((error) => {
-      console.log(error)
-    })
-
-    setformSubmited(!formSubmited)
-  }
+  const router = useRouter()
 
   return (
     <>
       {!isExpanded ? (
         isLive ? (
           // LIVE, NOT EXPANDED
-          <Section className="relative rounded-3xl border-2 border-green-check px-3 pt-16 pb-12 lg:px-11">
+          <Section className="relative rounded-3xl border-2 border-green-check px-3 pt-4 pb-4 lg:px-4 lg:pb-6 lg:pt-6">
             <div className="absolute -mt-24 left-1/2 -translate-x-1/2 ">
               <Text.Paragraph
                 className="w-[280px] text-center text-white font-bold bg-green-check rounded-10 py-4 md:px-4"
@@ -995,28 +976,42 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            {waitlist ? (
-              <Button
-                className="trial-btn mt-4 lg:mt-6"
-                label="SIGN UP FOR WAITLIST"
-                onClick={() => setShowModal(true)}
-              />
-            ) : (
-              <Button
-                className="trial-btn mt-12 lg:mt-14"
-                label="SEE PRICES"
-                onClick={() => setIsExpanded(true)}
-              />
-            )}
+            {isVariant ? (
+              <>
+                <Button
+                  className="trial-btn mt-12 lg:mt-14"
+                  label="BUY NOW"
+                  onClick={() =>
+                    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT)
+                  }
+                />
 
-            <Text.Paragraph
-              className="italic mt-3"
-              content="Book a call to get additional 5% OFF"
-            />
+                {countryCode === 'US' && (
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={getPaymentMethodMessagingElementOptions(countryCode, 'live')}
+                  />
+                )}
+              </>
+            ) : (
+              <>
+                <Button
+                  className="w-max mx-auto trial-btn mt-12 lg:mt-14"
+                  label="SEE PRICES"
+                  onClick={() => setIsExpanded(true)}
+                />
+                <Text.Paragraph
+                  className="italic mt-3"
+                  content="Book a call to get additional 5% OFF"
+                />
+              </>
+            )}
           </Section>
         ) : (
           // RECORDED, NOT EXPANDED
-          <Section className="relative rounded-3xl shadow-2xl px-3 pt-16 pb-12 lg:px-11">
+          <Section
+            className="flex flex-col relative rounded-3xl shadow-2xl px-3 pt-4 pb-4 lg:px-4 lg:pb-6 lg:pt-6"
+            classNameInner="flex flex-col flex-grow">
             <Text.Heading content={heading} />
 
             {originalPrice && (
@@ -1044,25 +1039,27 @@ const IATPriceCard = ({
               />
             )}
 
-            <div className="grid grid-cols-3 gap-9 mt-4">
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="3 Months" />
+            {!isVariant && (
+              <div className="grid grid-cols-3 gap-9 mt-4">
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="3 Months" />
 
-                <Text.Paragraph content="$689/m" />
+                  <Text.Paragraph content="$689/m" />
+                </div>
+
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="6 Months" />
+
+                  <Text.Paragraph content="$359/m" />
+                </div>
+
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="12 Months" />
+
+                  <Text.Paragraph content="$189/m" />
+                </div>
               </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="6 Months" />
-
-                <Text.Paragraph content="$359/m" />
-              </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="12 Months" />
-
-                <Text.Paragraph content="$189/m" />
-              </div>
-            </div>
+            )}
 
             <List
               className="text-left mt-7"
@@ -1072,24 +1069,37 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            {waitlist ? (
-              <Button
-                className="trial-btn mt-4 lg:mt-6"
-                label="SIGN UP FOR WAITLIST"
-                onClick={() => setShowModal(true)}
-              />
-            ) : (
-              <Button
-                className="trial-btn mt-12 lg:mt-14"
-                label="SEE PRICES"
-                onClick={() => setIsExpanded(true)}
-              />
-            )}
+            {isVariant ? (
+              <div className="mt-auto">
+                <Button
+                  className="trial-btn mt-12 lg:mt-0"
+                  label="BUY NOW"
+                  onClick={() =>
+                    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT)
+                  }
+                />
 
-            <Text.Paragraph
-              className="italic mt-3"
-              content="Book a call to get additional 5% OFF"
-            />
+                {countryCode === 'US' && (
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={getPaymentMethodMessagingElementOptions(countryCode, 'recorded')}
+                  />
+                )}
+              </div>
+            ) : (
+              <>
+                <Button
+                  className="trial-btn mt-12 w-max mx-auto lg:mt-14"
+                  label="SEE PRICES"
+                  onClick={() => setIsExpanded(true)}
+                />
+
+                <Text.Paragraph
+                  className="italic mt-3"
+                  content="Book a call to get additional 5% OFF"
+                />
+              </>
+            )}
           </Section>
         )
       ) : (
@@ -1173,26 +1183,6 @@ const IATPriceCard = ({
           </div>
         </Section>
       )}
-      {/* pop up modal */}
-      <Dialog className="relative max-w-2xl" isShown={showModal} onToggle={onToggleDialog}>
-        <div className="max-w-md w-full py-16 px-4">
-          <span
-            className="absolute top-4 right-6 text-4xl font-bold cursor-pointer"
-            onClick={() => setShowModal(false)}>
-            &times;
-          </span>
-
-          {formSubmited ? (
-            <Text.Heading content="Thank you for reserving your spot. We will be in touch soon!" />
-          ) : (
-            <>
-              <Text.Heading content="Enter your email below to reserve your spot!" />
-
-              <IATFormContactUs onSubmit={onSubmitForm} />
-            </>
-          )}
-        </div>
-      </Dialog>
     </>
   )
 }
@@ -1248,27 +1238,61 @@ const IATCurriculumCard = ({
   )
 }
 
+const stripe = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_TX9ha9wfpmmbbQF0kpuVuNRl00r3Lanubq',
+  { stripeAccount: 'acct_1Pv1BOCWMNXx1IFm' }
+)
+
 const IATPriceCardSection = () => {
+  const [countryCode, setCountryCode] = useState<string | undefined>()
+  const [isVariant, setIsVariant] = useState<boolean | undefined>()
+
+  useEffect(() => {
+    const abortController = new AbortController()
+    getUserCountry().then((countryCode) => {
+      if (abortController.signal.aborted) return
+      if (countryCode !== 'US') {
+        setIsVariant(false)
+        setSplitTest({ key: 'PROD-3571', value: false })
+      } else {
+        setIsVariant(getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' }))
+      }
+      setCountryCode(countryCode)
+    })
+
+    return () => {
+      abortController.abort()
+    }
+  })
+
+  if (!countryCode || isVariant === undefined) return <Loader className="!py-96" />
+
   return (
     <Section classNameInner="max-w-md mt-12 lg:max-w-5xl lg:mt-0">
       <div className="lg:grid-cols-2 lg:grid lg:gap-8">
-        <IATPriceCard
-          isLive
-          benefits={IAT.price.live_mode}
-          heading="Live Training"
-          originalPrice="$7000.00"
-          prices={iatLivePrices}
-          salePrice="$3,499.00"
-        />
+        <Elements stripe={stripe}>
+          <IATPriceCard
+            isLive
+            countryCode={countryCode}
+            isVariant={isVariant}
+            benefits={isVariant ? IAT.price.live_mode_variant : IAT.price.live_mode}
+            heading="Live Training"
+            originalPrice={isVariant && countryCode === 'CA' ? '$10,000' : '$7,000.00'}
+            prices={iatLivePrices}
+            salePrice={isVariant && countryCode === 'CA' ? '$4,999' : '$3,499.00'}
+          />
 
-        <IATPriceCard
-          benefits={IAT.price.recorded_mode}
-          heading="On Demand"
-          originalPrice="$4,000.00"
-          prices={iatRecordedPrices}
-          salePrice=" $1,999.00"
-          subheading="MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:"
-        />
+          <IATPriceCard
+            countryCode={countryCode}
+            isVariant={isVariant}
+            benefits={IAT.price.recorded_mode}
+            heading="On Demand"
+            originalPrice={isVariant && countryCode === 'CA' ? '$5,800' : '$4,000.00'}
+            prices={iatRecordedPrices}
+            salePrice={isVariant && countryCode === 'CA' ? '$2,899' : '$1,999.00'}
+            subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE${isVariant ? '!' : ':'}`}
+          />
+        </Elements>
       </div>
     </Section>
   )
@@ -1501,4 +1525,40 @@ const IATRegistrationForm = () => {
       )}
     </Formik>
   )
+}
+
+function getPaymentMethodMessagingElementOptions(
+  countryCode: string | undefined,
+  type: 'live' | 'recorded'
+): StripePaymentMethodMessagingElementOptions | undefined {
+  switch (countryCode) {
+    case 'CA':
+      return type === 'recorded'
+        ? {
+            amount: 289900,
+            currency: 'CAD',
+            countryCode: 'CA',
+            paymentMethodTypes: ['klarna'],
+          }
+        : {
+            amount: 499900,
+            currency: 'CAD',
+            countryCode: 'CA',
+            paymentMethodTypes: ['klarna'],
+          }
+    default:
+      return type === 'recorded'
+        ? {
+            amount: 199900,
+            currency: 'USD',
+            countryCode: 'US',
+            paymentMethodTypes: ['klarna'],
+          }
+        : {
+            amount: 349900,
+            currency: 'USD',
+            countryCode: 'US',
+            paymentMethodTypes: ['klarna'],
+          }
+  }
 }

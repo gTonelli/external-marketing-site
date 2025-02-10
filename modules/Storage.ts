@@ -5,6 +5,7 @@ import { TSplitTestKey } from '@/utils/functions'
 /* Collection of all keys used to store data in localStorage */
 export type TStorageKeys =
   | 'lastUserEmail'
+  | 'userCountry'
   | 'userFirstName'
   | 'userFullName'
   | 'canViewResults'
@@ -25,7 +26,7 @@ export const Storage = {
   },
 
   set: (key: TStorageKeys, value: any) => {
-    if (typeof window === 'undefined') return null
+    if (typeof window === 'undefined') return
     window.localStorage.setItem(key, typeof value === 'string' ? value : JSON.stringify(value))
   },
 

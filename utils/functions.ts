@@ -1,7 +1,7 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
 import { IStrapiFetchProps, IStrapiResponse, TDict } from './types'
 import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
 import Cookies from 'universal-cookie'
 
@@ -77,12 +77,7 @@ export function getSplitTest({
   const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
   // exclude users from the test if true
   if (randomFloat > variantRatio * 2) {
-    useCookies
-      ? cookies.set(key, false, {
-          domain: '.personaldevelopmentschool.com',
-          maxAge: 7776000,
-        })
-      : Storage.set(key, false)
+    isVariant = false
   } else {
     isVariant = randomFloat < variantRatio
     Mixpanel.track.ExperimentStarted({
@@ -90,15 +85,30 @@ export function getSplitTest({
       'Variant name': isVariant ? 'Variant 1' : 'Control',
       ...props,
     })
-    useCookies
-      ? cookies.set(key, isVariant, {
-          domain: '.personaldevelopmentschool.com',
-          maxAge: 7776000,
-        })
-      : Storage.set(key, isVariant)
   }
+  useCookies
+    ? cookies.set(key, isVariant, {
+        domain: '.personaldevelopmentschool.com',
+        maxAge: 7776000,
+      })
+    : Storage.set(key, isVariant)
 
   return isVariant
+}
+
+interface ISetSplitTest {
+  key: TSplitTestKey
+  useCookies?: boolean
+  value: boolean
+}
+
+export function setSplitTest({ key, value, useCookies = true }: ISetSplitTest) {
+  if (useCookies) {
+    const cookies = new Cookies()
+    cookies.set(key, value)
+  } else {
+    Storage.set(key, value)
+  }
 }
 
 /**
@@ -146,4 +156,17 @@ export const isPhoneValid = (phone: string) => {
   } catch (error) {
     return false
   }
+}
+
+export const getUserCountry = () => {
+  const userCountry = Storage.get('userCountry') as string | undefined
+
+  return userCountry
+    ? Promise.resolve(userCountry)
+    : fetch('/api/geo')
+        .then((res) => res.json())
+        .then((data) => {
+          Storage.set('userCountry', data.countryCode)
+          return data.countryCode as string
+        })
 }

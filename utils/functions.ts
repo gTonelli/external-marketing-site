@@ -105,7 +105,7 @@ interface ISetSplitTest {
 export function setSplitTest({ key, value, useCookies = true }: ISetSplitTest) {
   if (useCookies) {
     const cookies = new Cookies()
-    cookies.set(key, value)
+    cookies.set(key, value, { domain: '.personaldevelopmentschool.com' })
   } else {
     Storage.set(key, value)
   }

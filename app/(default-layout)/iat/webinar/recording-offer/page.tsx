@@ -55,7 +55,7 @@ export default function IATMasterclassRecordingPage() {
         </div>
       </Section>
 
-      <Section className="max-w-full w-full bg-black text-white">
+      <Section className="max-w-full w-full bg-gradient-to-b from-primary-light-50 to-white">
         <h2 className="mb-4">Are You Ready to Transform Lives & Secure Your Financial Future?</h2>
 
         <p className="mb-16">
@@ -70,6 +70,7 @@ export default function IATMasterclassRecordingPage() {
         {/* Countdown for Feb 21, 2025 11:59 PM ET */}
         <CountdownTimer
           className="mb-8"
+          theme="light"
           date={getOfferEndDate(new Date('2025-02-21T23:59:00-05:00'), 1)}
         />
       </Section>

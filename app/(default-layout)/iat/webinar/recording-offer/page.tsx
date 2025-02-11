@@ -128,9 +128,7 @@ export default function IATMasterclassRecordingPage() {
         <div className="relative text-black text-left p-4 z-20 lg:col-start-6 lg:col-span-6">
           <h2 className="mb-4">Unlock Your Inner Coach</h2>
 
-          <p className="font-bold tracking-33 mb-8">
-            DON'T MISS OUR HIGH IMPACT RELATIONSHIP COACH MASTERCLASS
-          </p>
+          <p className="font-bold tracking-33 mb-8">JOIN OUR LIVE IAT™ PROGRAM NOW</p>
 
           {[
             "Thank you for watching the latest High Impact Relationship Coach Masterclass! You've taken the first step toward transforming lives – including your own.",

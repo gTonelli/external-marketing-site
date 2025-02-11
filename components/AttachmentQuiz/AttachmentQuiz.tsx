@@ -35,7 +35,6 @@ interface IAttachmentQuizProps extends IDefaultProps {
   quiz_traffic_source: TQuizTrafficSources
   quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz' | 'Main Funnel Quiz Variant'
   showStartButton?: boolean
-  isQuizVariant?: boolean
 }
 
 export const AttachmentQuiz = ({
@@ -44,10 +43,8 @@ export const AttachmentQuiz = ({
   quiz_traffic_source,
   quizName = 'Main Funnel Quiz',
   showStartButton = true,
-  isQuizVariant = false,
 }: IAttachmentQuizProps) => {
-  const [viewQuiz, setViewQuiz] = useState(!showStartButton || isQuizVariant)
-  const [showVariantCopy, setShowVariantCopy] = useState(isQuizVariant)
+  const [viewQuiz, setViewQuiz] = useState(!showStartButton)
 
   const onStartQuiz = useCallback(() => {
     Mixpanel.track.QuizStarted({
@@ -57,32 +54,14 @@ export const AttachmentQuiz = ({
     setViewQuiz(true)
   }, [quizName])
 
-  const onQuizFinished = useCallback(() => {
-    if (isQuizVariant) setShowVariantCopy(false)
-  }, [isQuizVariant])
-
   if (viewQuiz) {
     return (
-      <>
-        <AttachmentQuizQuestions
-          className={className}
-          quiz_traffic_source={quiz_traffic_source}
-          quizName={quizName}
-          newQuiz={newQuiz}
-          isQuizVariant={isQuizVariant}
-          onQuizFinished={onQuizFinished}
-        />
-
-        {isQuizVariant && showVariantCopy && (
-          <p className="max-w-3xl pt-8 px-4 mx-auto">
-            <strong>
-              Complete this quiz to determine your attachment style. Knowing your attachment style
-              is the first step to creating more meaningful connections, feeling valued and
-              developing more harmony in all of your relationships!
-            </strong>
-          </p>
-        )}
-      </>
+      <AttachmentQuizQuestions
+        className={className}
+        quiz_traffic_source={quiz_traffic_source}
+        quizName={quizName}
+        newQuiz={newQuiz}
+      />
     )
   } else {
     return (

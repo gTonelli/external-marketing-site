@@ -1,17 +1,19 @@
 // core
-import Link from 'next/link'
 import Image from 'next/image'
 import { Metadata } from 'next'
 // components
-import { Button } from '@/components/Button/Button'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { IATCoachCareerBenefits } from '../../post-registration-masterclass/IATCoachCareerBenefits'
-// functions
+import { IATWebinarPricing } from '../checkout/IATWebinarPricing'
+// libraries
+import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
+// utils
 import { getOfferEndDate } from '@/utils/functions'
 // styles
 import './style.css'
@@ -70,11 +72,9 @@ export default function IATMasterclassRecordingPage() {
           className="mb-8"
           date={getOfferEndDate(new Date('2025-02-21T23:59:00-05:00'), 1)}
         />
-
-        <Link href="/iat/webinar/checkout">
-          <Button label="SIGN UP RIGHT NOW!" />
-        </Link>
       </Section>
+
+      <IATWebinarPricing />
 
       <Section>
         <p className="font-bold tracking-33">OUR SCHOOL HAS BEEN FEATURED ON</p>
@@ -93,18 +93,27 @@ export default function IATMasterclassRecordingPage() {
         <CarouselTestimonialThinkific initialSlide={1} />
       </Section>
 
-      <Section className="max-w-full w-full bg-black text-white">
-        <h2 className="mb-4">Unlock Your Coaching Potential Now!</h2>
+      <Section className="bg-black" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <div className="text-white text-left">
+          <h2 className="mb-4">Have Some Last-Minute Questions Before You Join?</h2>
 
-        <p className="mb-4">
-          Do you have any last-minute questions before joining? Book a quick chat with our Coaching
-          Specialist to discuss your experience, current goals, and how the IAT™ Program will work
-          for you – and claim your Masterclass discount!
-        </p>
+          {[
+            'Book a call with our IAT™ Coaching Specialist on a date and time that works for you.',
+            'Get your questions answered, discuss your Relationship Coaching goals, and talk through the next steps.',
+          ].map((item, idx) => (
+            <p key={idx} className="flex mb-4">
+              <span className="flex !w-7 !h-7 items-center justify-center bg-primary !rounded-full p-1 mr-4">
+                {idx + 1}
+              </span>
 
-        <Link href="https://calendly.com/info-pds/call-with-melanie-pds">
-          <Button label="BOOK YOUR FREE CALL" />
-        </Link>
+              <span className="font-bold">{item}</span>
+            </p>
+          ))}
+        </div>
+
+        <div className="min-h-min">
+          <InlineCalendlyWidget />
+        </div>
       </Section>
 
       <IATCoachCareerBenefits title="Here’s Your Life as a Certified IAT™ Coach" />
@@ -152,9 +161,7 @@ export default function IATMasterclassRecordingPage() {
             alt="Signature of Thais Gibson"
           />
 
-          <Link href="/iat/webinar/checkout">
-            <Button className="mt-4" label="CLAIM YOUR DISCOUNT NOW" />
-          </Link>
+          <ButtonScroll className="mt-8" label="CLAIM YOUR DISCOUNT NOW" target="#pricing" />
         </div>
       </Section>
     </Page>

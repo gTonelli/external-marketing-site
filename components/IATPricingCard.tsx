@@ -10,10 +10,10 @@ import { faChevronLeft, faCircle } from '@awesome.me/kit-545b942488/icons/classi
 // libraries
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// utils
 import { EExternalRoutes } from '@/utils/constants'
 
 export type TIATCardDetails = {
-  liveLogo?: boolean
   title: string
   originalPrice: { price: string; label?: string }[]
   currentPrice: string
@@ -48,11 +48,19 @@ export const IATPricingCard = ({
     return (
       <div className="flex flex-col bg-white text-left shadow-lg rounded-2xl p-6">
         <div className="h-11">
-          {cardDetails.liveLogo && (
+          {isLive ? (
             <Image
               src="/images/IATPage/live-icon-red.png"
               alt="IAT Live icon"
               width={120}
+              height={43}
+            />
+          ) : (
+            <Image
+              className="h-full"
+              src="/images/IATPage/recorded-icon-red.png"
+              alt="IAT Recorded icon"
+              width={180}
               height={43}
             />
           )}
@@ -132,12 +140,20 @@ export const IATPricingCard = ({
   return (
     <div className="flex flex-col text-left bg-white shadow-lg rounded-2xl p-6">
       <div className="h-11">
-        {cardDetails.liveLogo && (
+        {isLive ? (
           <Image
             src="/images/IATPage/live-icon-red.png"
             alt="IAT Live icon"
             width={120}
-            height={43}
+            height={44}
+          />
+        ) : (
+          <Image
+            className="h-full"
+            src="/images/IATPage/recorded-icon-red.png"
+            alt="IAT Recorded icon"
+            width={180}
+            height={44}
           />
         )}
       </div>

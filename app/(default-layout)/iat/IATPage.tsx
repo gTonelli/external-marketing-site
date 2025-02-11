@@ -1255,7 +1255,13 @@ const IATPriceCardSection = () => {
         setIsVariant(false)
         setSplitTest({ key: 'PROD-3571', value: false })
       } else {
-        setIsVariant(getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' }))
+        setIsVariant(
+          getSplitTest({
+            key: 'PROD-3571',
+            experimentName: 'PROD-3571-Klarna-Test',
+            props: { countryCode },
+          })
+        )
       }
       setCountryCode(countryCode)
     })

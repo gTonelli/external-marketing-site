@@ -128,20 +128,20 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
   // IAT Spring 2025
-  THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098384&coupon=iatbundleupfrontlivespring25',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2025_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098408&coupon=iatbundle3molivespring25',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2025_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098409&coupon=iatbundle6molivespring25',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2025_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098410&coupon=iatbundle12molivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098384&coupon=iatbundleupfrontlivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098408&coupon=iatbundle3molivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098409&coupon=iatbundle6molivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098410&coupon=iatbundle12molivespring25',
   // IAT Recorded Webinar Spring 2025
   THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarwinter25ondemand',
   THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinarwinter253mnthondemand',
   THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinarwinter256mnthondemand',
   THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinarwinter2512mnthondemand',
   // IAT Webinar Spring 2025
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098404&coupon=iatwebinarspring25live',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098405&coupon=iatwebinarspring253mnthlive',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098406&coupon=iatwebinarspring256mnthlive',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN = 'https://university.personaldevelopmentschool.com/enroll/3210080?price_id=4098407&coupon=iatwebinarspring2512mnthlive',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098404&coupon=iatwebinarspring25live',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098405&coupon=iatwebinarspring253mnthlive',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098406&coupon=iatwebinarspring256mnthlive',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098407&coupon=iatwebinarspring2512mnthlive',
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',

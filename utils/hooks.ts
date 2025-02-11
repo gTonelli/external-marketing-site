@@ -7,6 +7,7 @@ import { IViewport } from './interfaces'
 import { throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import Cookies from 'universal-cookie'
+import { Storage, TStorageKeys } from '@/modules/Storage'
 
 // ==============================
 //          R E S I Z E

@@ -1,5 +1,3 @@
-'use client'
-
 // core
 import Image from 'next/image'
 // components
@@ -13,17 +11,9 @@ import { REGULAR_COPY } from '../config'
 // libraries
 import 'swiper/css'
 import 'swiper/css/pagination'
-// utils
-import { getSplitTest } from '@/utils/functions'
 
 export default function AttachmentQuizPage() {
   const quizCopy = REGULAR_COPY
-  const isQuizVariant = getSplitTest({
-    key: 'GM-1348-Quiz',
-    experimentName: 'GM-1348 Attachment Quiz Start Google Test',
-    variantRatio: 0.5,
-    useCookies: false,
-  })
 
   return (
     <Page className="w-full text-center relative z-10" page_name="Main Funnel Quiz">
@@ -37,21 +27,11 @@ export default function AttachmentQuizPage() {
 
           <p className="font-bold mb-5 rounded-full bg-green w-max px-3 py-1">By Thais Gibson</p>
 
-          {isQuizVariant ? (
-            <span className="max-w-3xl font-bold tracking-33 mb-4">
-              FREE 5-MIN QUIZ, FREE PERSONALIZED REPORT, INSTANT RESULTS!
-            </span>
-          ) : (
-            <>
-              <span className="font-bold mb-4 !tracking-10 lg:hidden">
-                {quizCopy.subheader_mobile}
-              </span>
+          <span className="font-bold mb-4 !tracking-10 lg:hidden">{quizCopy.subheader_mobile}</span>
 
-              <span className="max-w-3xl font-bold mb-4 hidden !tracking-33 lg:block">
-                {quizCopy.subheader_desktop}
-              </span>
-            </>
-          )}
+          <span className="max-w-3xl font-bold mb-4 hidden !tracking-33 lg:block">
+            {quizCopy.subheader_desktop}
+          </span>
         </div>
       </section>
 
@@ -76,28 +56,16 @@ export default function AttachmentQuizPage() {
       {/* BREAKTHROUGH SECTION */}
       <section className="flex flex-col flex-center mt-4">
         <div className="flex flex-col items-center">
-          {isQuizVariant ? (
-            <h3 className="max-w-2xl mb-4">
-              Unlock The Secret To Building Thriving Relationships!
-            </h3>
-          ) : (
-            <>
-              <h3 className="max-w-2xl mb-4 lg:hidden">{quizCopy.breakthroughs_header_mobile}</h3>
+          <h3 className="max-w-2xl mb-4 lg:hidden">{quizCopy.breakthroughs_header_mobile}</h3>
 
-              <h3 className="max-w-3xl hidden lg:block">{quizCopy.headline}</h3>
-            </>
-          )}
+          <h3 className="max-w-3xl hidden lg:block">{quizCopy.headline}</h3>
         </div>
 
-        {!isQuizVariant && (
-          <>
-            <BreakThroughSectionDesktop />
+        <BreakThroughSectionDesktop />
 
-            <BreakThroughSectionMobile />
-          </>
-        )}
+        <BreakThroughSectionMobile />
 
-        <AttachmentQuiz quiz_traffic_source="paidGoogle" isQuizVariant={isQuizVariant} />
+        <AttachmentQuiz quiz_traffic_source="paidGoogle" />
       </section>
       {/* ATTACHMENT STYLES */}
       <div className="relative -z-1 mt-4 lg:mt-16">

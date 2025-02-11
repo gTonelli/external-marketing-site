@@ -38,8 +38,6 @@ export const AttachmentQuizQuestions = ({
   newQuiz,
   quizName,
   quiz_traffic_source,
-  isQuizVariant,
-  onQuizFinished,
 }: IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -105,12 +103,6 @@ export const AttachmentQuizQuestions = ({
       let _sa = saPoints
 
       if (currentIndex === 0) {
-        if (isQuizVariant)
-          Mixpanel.track.QuizStarted({
-            quiz_name: quizName,
-            quiz_traffic_source,
-          })
-
         if (answer === 'Yes') {
           modifiedQuestions.splice(1, 0, detailedQuestions[4])
           modifiedQuestions.splice(2, 0, detailedQuestions[2])
@@ -155,7 +147,6 @@ export const AttachmentQuizQuestions = ({
           quiz_traffic_source,
           progress: '100%',
         })
-        onQuizFinished?.()
 
         tagManager?.track({
           event: 'quiz_tracking',

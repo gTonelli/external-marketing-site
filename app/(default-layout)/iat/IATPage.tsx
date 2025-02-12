@@ -896,10 +896,8 @@ type TIATPrice = {
 
 interface IIATPriceCard {
   benefits: string[]
-  countryCode?: string
   heading: string
   isLive?: boolean
-  isVariant?: boolean
   originalPrice?: string
   prices: TIATPrice[]
   salePrice: string
@@ -908,10 +906,8 @@ interface IIATPriceCard {
 
 const IATPriceCard = ({
   benefits,
-  countryCode,
   heading,
   isLive = false,
-  isVariant,
   originalPrice,
   prices,
   salePrice,
@@ -955,7 +951,6 @@ const IATPriceCard = ({
                 spacing="tracking-0.325"
               />
             )}
-
             <div className="flex flex-center flex-row mt-1">
               <Text.Paragraph
                 className="font-ssp font-bold !text-green-check !text-[26px]"
@@ -973,36 +968,16 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            {isVariant ? (
-              <>
-                <Button
-                  className="trial-btn mt-12 lg:mt-14"
-                  label="BUY NOW"
-                  onClick={() =>
-                    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT)
-                  }
-                />
+            <Button
+              className="w-max mx-auto trial-btn mt-12 lg:mt-14"
+              label="SEE PRICES"
+              onClick={() => setIsExpanded(true)}
+            />
 
-                {countryCode === 'US' && (
-                  <PaymentMethodMessagingElement
-                    className="mt-4 mb-0"
-                    options={getPaymentMethodMessagingElementOptions(countryCode, 'live')}
-                  />
-                )}
-              </>
-            ) : (
-              <>
-                <Button
-                  className="w-max mx-auto trial-btn mt-12 lg:mt-14"
-                  label="SEE PRICES"
-                  onClick={() => setIsExpanded(true)}
-                />
-                <Text.Paragraph
-                  className="italic mt-3"
-                  content="Book a call to get additional 5% OFF"
-                />
-              </>
-            )}
+            <Text.Paragraph
+              className="italic mt-3"
+              content="Book a call to get additional 5% OFF"
+            />
           </Section>
         ) : (
           // RECORDED, NOT EXPANDED
@@ -1036,27 +1011,25 @@ const IATPriceCard = ({
               />
             )}
 
-            {!isVariant && (
-              <div className="grid grid-cols-3 gap-9 mt-4">
-                <div className="font-bold border rounded-10 py-3">
-                  <Text.Paragraph content="3 Months" />
+            <div className="grid grid-cols-3 gap-9 mt-4">
+              <div className="font-bold border rounded-10 py-3">
+                <Text.Paragraph content="3 Months" />
 
-                  <Text.Paragraph content="$689/m" />
-                </div>
-
-                <div className="font-bold border rounded-10 py-3">
-                  <Text.Paragraph content="6 Months" />
-
-                  <Text.Paragraph content="$359/m" />
-                </div>
-
-                <div className="font-bold border rounded-10 py-3">
-                  <Text.Paragraph content="12 Months" />
-
-                  <Text.Paragraph content="$189/m" />
-                </div>
+                <Text.Paragraph content="$689/m" />
               </div>
-            )}
+
+              <div className="font-bold border rounded-10 py-3">
+                <Text.Paragraph content="6 Months" />
+
+                <Text.Paragraph content="$359/m" />
+              </div>
+
+              <div className="font-bold border rounded-10 py-3">
+                <Text.Paragraph content="12 Months" />
+
+                <Text.Paragraph content="$189/m" />
+              </div>
+            </div>
 
             <List
               className="text-left mt-7"
@@ -1066,37 +1039,16 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            {isVariant ? (
-              <div className="mt-auto">
-                <Button
-                  className="trial-btn mt-12 lg:mt-0"
-                  label="BUY NOW"
-                  onClick={() =>
-                    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT)
-                  }
-                />
+            <Button
+              className="trial-btn mt-12 w-max mx-auto lg:mt-14"
+              label="SEE PRICES"
+              onClick={() => setIsExpanded(true)}
+            />
 
-                {countryCode === 'US' && (
-                  <PaymentMethodMessagingElement
-                    className="mt-4 mb-0"
-                    options={getPaymentMethodMessagingElementOptions(countryCode, 'recorded')}
-                  />
-                )}
-              </div>
-            ) : (
-              <>
-                <Button
-                  className="trial-btn mt-12 w-max mx-auto lg:mt-14"
-                  label="SEE PRICES"
-                  onClick={() => setIsExpanded(true)}
-                />
-
-                <Text.Paragraph
-                  className="italic mt-3"
-                  content="Book a call to get additional 5% OFF"
-                />
-              </>
-            )}
+            <Text.Paragraph
+              className="italic mt-3"
+              content="Book a call to get additional 5% OFF"
+            />
           </Section>
         )
       ) : (
@@ -1256,7 +1208,13 @@ const IATPriceCardSection = ({ showKlarnaTest }: { showKlarnaTest: boolean }) =>
         setIsVariant(false)
         setSplitTest({ key: 'PROD-3571', value: false })
       } else {
-        setIsVariant(getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' }))
+        setIsVariant(
+          getSplitTest({
+            key: 'PROD-3571',
+            experimentName: 'PROD-3571-Klarna-Test',
+            props: { countryCode },
+          })
+        )
       }
       setCountryCode(countryCode)
     })
@@ -1274,24 +1232,20 @@ const IATPriceCardSection = ({ showKlarnaTest }: { showKlarnaTest: boolean }) =>
         <Elements stripe={stripe}>
           <IATPriceCard
             isLive
-            countryCode={countryCode}
-            isVariant={isVariant}
-            benefits={isVariant ? IAT.price.live_mode_variant : IAT.price.live_mode}
+            benefits={IAT.price.live_mode}
             heading="Live Training"
-            originalPrice={isVariant && countryCode === 'CA' ? '$10,000' : '$7,000.00'}
+            originalPrice={'$7,000.00'}
             prices={iatLivePrices}
-            salePrice={isVariant && countryCode === 'CA' ? '$4,999' : '$3,499.00'}
+            salePrice={'$3,499.00'}
           />
 
           <IATPriceCard
-            countryCode={countryCode}
-            isVariant={isVariant}
             benefits={IAT.price.recorded_mode}
             heading="On Demand"
-            originalPrice={isVariant && countryCode === 'CA' ? '$5,800' : '$4,000.00'}
+            originalPrice={'$4,000.00'}
             prices={iatRecordedPrices}
-            salePrice={isVariant && countryCode === 'CA' ? '$2,899' : '$1,999.00'}
-            subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE${isVariant ? '!' : ':'}`}
+            salePrice={'$1,999.00'}
+            subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:'`}
           />
         </Elements>
       </div>

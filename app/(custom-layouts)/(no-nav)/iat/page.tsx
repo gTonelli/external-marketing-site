@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 }
 
 export default function IATSalePage() {
-  return <IATPage page_name="External IAT Page" />
+  return <IATPage showKlarnaTest page_name="External IAT Page" />
 }

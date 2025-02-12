@@ -42,12 +42,7 @@ import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { Elements, PaymentMethodMessagingElement } from '@stripe/react-stripe-js'
-import {
-  loadStripe,
-  Stripe,
-  StripeConstructorOptions,
-  StripePaymentMethodMessagingElementOptions,
-} from '@stripe/stripe-js'
+import { loadStripe, StripePaymentMethodMessagingElementOptions } from '@stripe/stripe-js'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -74,10 +69,12 @@ export const IATPage = ({
   page_name,
   pageUrl = 'other',
   showLeadGenForm = false,
+  showKlarnaTest = false,
 }: {
   page_name: Pages
   pageUrl?: 'other' | 'ebook'
   showLeadGenForm?: boolean
+  showKlarnaTest?: boolean
 }) => {
   const searchParams = useSearchParams()
 
@@ -670,7 +667,7 @@ export const IATPage = ({
 
       {/* PRICE CARDS */}
       <div ref={priceRef} className="text-center mb-12 lg:mb-18">
-        <IATPriceCardSection />
+        <IATPriceCardSection showKlarnaTest={showKlarnaTest} />
 
         <Text.Heading
           className="text-black text-[26px] mt-4 mb-8 mx-6"
@@ -1243,11 +1240,15 @@ const stripe = loadStripe(
   { stripeAccount: 'acct_1Pv1BOCWMNXx1IFm' }
 )
 
-const IATPriceCardSection = () => {
+const IATPriceCardSection = ({ showKlarnaTest }: { showKlarnaTest: boolean }) => {
   const [countryCode, setCountryCode] = useState<string | undefined>()
   const [isVariant, setIsVariant] = useState<boolean | undefined>()
-
+  console.log('showklarna', showKlarnaTest)
   useEffect(() => {
+    if (!showKlarnaTest) {
+      setCountryCode('Unknown')
+      return setIsVariant(false)
+    }
     const abortController = new AbortController()
     getUserCountry().then((countryCode) => {
       if (abortController.signal.aborted) return
@@ -1263,7 +1264,7 @@ const IATPriceCardSection = () => {
     return () => {
       abortController.abort()
     }
-  })
+  }, [showKlarnaTest])
 
   if (!countryCode || isVariant === undefined) return <Loader className="!py-96" />
 

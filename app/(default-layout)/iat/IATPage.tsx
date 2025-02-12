@@ -899,8 +899,10 @@ type TIATPrice = {
 
 interface IIATPriceCard {
   benefits: string[]
+  countryCode?: string
   heading: string
   isLive?: boolean
+  isVariant?: boolean
   originalPrice?: string
   prices: TIATPrice[]
   salePrice: string
@@ -909,8 +911,10 @@ interface IIATPriceCard {
 
 const IATPriceCard = ({
   benefits,
+  countryCode,
   heading,
   isLive = false,
+  isVariant,
   originalPrice,
   prices,
   salePrice,
@@ -954,6 +958,7 @@ const IATPriceCard = ({
                 spacing="tracking-0.325"
               />
             )}
+
             <div className="flex flex-center flex-row mt-1">
               <Text.Paragraph
                 className="font-ssp font-bold !text-green-check !text-[26px]"
@@ -971,16 +976,36 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            <Button
-              className="w-max mx-auto trial-btn mt-12 lg:mt-14"
-              label="SEE PRICES"
-              onClick={() => setIsExpanded(true)}
-            />
+            {isVariant ? (
+              <>
+                <Button
+                  className="trial-btn mt-12 lg:mt-14"
+                  label="BUY NOW"
+                  onClick={() =>
+                    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT)
+                  }
+                />
 
-            <Text.Paragraph
-              className="italic mt-3"
-              content="Book a call to get additional 5% OFF"
-            />
+                {countryCode === 'US' && (
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={getPaymentMethodMessagingElementOptions(countryCode, 'live')}
+                  />
+                )}
+              </>
+            ) : (
+              <>
+                <Button
+                  className="w-max mx-auto trial-btn mt-12 lg:mt-14"
+                  label="SEE PRICES"
+                  onClick={() => setIsExpanded(true)}
+                />
+                <Text.Paragraph
+                  className="italic mt-3"
+                  content="Book a call to get additional 5% OFF"
+                />
+              </>
+            )}
           </Section>
         ) : (
           // RECORDED, NOT EXPANDED
@@ -1014,25 +1039,27 @@ const IATPriceCard = ({
               />
             )}
 
-            <div className="grid grid-cols-3 gap-9 mt-4">
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="3 Months" />
+            {!isVariant && (
+              <div className="grid grid-cols-3 gap-9 mt-4">
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="3 Months" />
 
-                <Text.Paragraph content="$689/m" />
+                  <Text.Paragraph content="$689/m" />
+                </div>
+
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="6 Months" />
+
+                  <Text.Paragraph content="$359/m" />
+                </div>
+
+                <div className="font-bold border rounded-10 py-3">
+                  <Text.Paragraph content="12 Months" />
+
+                  <Text.Paragraph content="$189/m" />
+                </div>
               </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="6 Months" />
-
-                <Text.Paragraph content="$359/m" />
-              </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="12 Months" />
-
-                <Text.Paragraph content="$189/m" />
-              </div>
-            </div>
+            )}
 
             <List
               className="text-left mt-7"
@@ -1042,16 +1069,37 @@ const IATPriceCard = ({
               listItems={benefits}
             />
 
-            <Button
-              className="trial-btn mt-12 w-max mx-auto lg:mt-14"
-              label="SEE PRICES"
-              onClick={() => setIsExpanded(true)}
-            />
+            {isVariant ? (
+              <div className="mt-auto">
+                <Button
+                  className="trial-btn mt-12 lg:mt-0"
+                  label="BUY NOW"
+                  onClick={() =>
+                    router.push(EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT)
+                  }
+                />
 
-            <Text.Paragraph
-              className="italic mt-3"
-              content="Book a call to get additional 5% OFF"
-            />
+                {countryCode === 'US' && (
+                  <PaymentMethodMessagingElement
+                    className="mt-4 mb-0"
+                    options={getPaymentMethodMessagingElementOptions(countryCode, 'recorded')}
+                  />
+                )}
+              </div>
+            ) : (
+              <>
+                <Button
+                  className="trial-btn mt-12 w-max mx-auto lg:mt-14"
+                  label="SEE PRICES"
+                  onClick={() => setIsExpanded(true)}
+                />
+
+                <Text.Paragraph
+                  className="italic mt-3"
+                  content="Book a call to get additional 5% OFF"
+                />
+              </>
+            )}
           </Section>
         )
       ) : (
@@ -1196,26 +1244,53 @@ const stripe = loadStripe(
 )
 
 const IATPriceCardSection = () => {
+  const [countryCode, setCountryCode] = useState<string | undefined>()
+  const [isVariant, setIsVariant] = useState<boolean | undefined>()
+
+  useEffect(() => {
+    const abortController = new AbortController()
+    getUserCountry().then((countryCode) => {
+      if (abortController.signal.aborted) return
+      if (countryCode !== 'US') {
+        setIsVariant(false)
+        setSplitTest({ key: 'PROD-3571', value: false })
+      } else {
+        setIsVariant(getSplitTest({ key: 'PROD-3571', experimentName: 'PROD-3571-Klarna-Test' }))
+      }
+      setCountryCode(countryCode)
+    })
+
+    return () => {
+      abortController.abort()
+    }
+  })
+
+  if (!countryCode || isVariant === undefined) return <Loader className="!py-96" />
+
   return (
     <Section classNameInner="max-w-md mt-12 lg:max-w-5xl lg:mt-0">
       <div className="lg:grid-cols-2 lg:grid lg:gap-8">
         <Elements stripe={stripe}>
           <IATPriceCard
             isLive
-            benefits={IAT.price.live_mode}
+            countryCode={countryCode}
+            isVariant={isVariant}
+            benefits={isVariant ? IAT.price.live_mode_variant : IAT.price.live_mode}
             heading="Live Training"
-            originalPrice={'$7,000.00'}
+            originalPrice={isVariant && countryCode === 'CA' ? '$10,000' : '$7,000.00'}
             prices={iatLivePrices}
-            salePrice={'$3,499.00'}
+            salePrice={isVariant && countryCode === 'CA' ? '$4,999' : '$3,499.00'}
           />
 
           <IATPriceCard
+            countryCode={countryCode}
+            isVariant={isVariant}
             benefits={IAT.price.recorded_mode}
             heading="On Demand"
-            originalPrice={'$4,000.00'}
+            originalPrice={isVariant && countryCode === 'CA' ? '$5,800' : '$4,000.00'}
             prices={iatRecordedPrices}
-            salePrice={'$1,999.00'}
-            subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:'`}
+            salePrice={isVariant && countryCode === 'CA' ? '$2,899' : '$1,999.00'}
+            subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE${isVariant ? '!' : ':'}`}
           />
         </Elements>
       </div>

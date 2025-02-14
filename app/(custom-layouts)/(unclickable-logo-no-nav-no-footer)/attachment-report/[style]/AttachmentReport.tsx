@@ -188,6 +188,7 @@ export const AttachmentReport = ({
 
         <div className="flex justify-center">
           <Image
+            className="max-h-96 lg:max-h-max"
             src="/images/ReportsOld/couple-vector.svg"
             alt="A vector of a couple"
             width={270}

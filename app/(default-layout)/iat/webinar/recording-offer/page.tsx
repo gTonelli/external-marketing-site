@@ -37,7 +37,7 @@ export default function IATMasterclassRecordingPage() {
   return (
     <Page page_name="IAT Webinar Recording Page">
       <Section>
-        <h1 className="mb-4">This Is The Life-Altering Masterclass Video You Must Watch!</h1>
+        <h1 className="mb-4">This Is The Life-Altering Masterclass You Must Watch!</h1>
 
         <p className="max-w-3xl mx-auto mb-8">
           Watch Thais Gibson Describe In Detail What It’s Like To Be a High Impact Relationship

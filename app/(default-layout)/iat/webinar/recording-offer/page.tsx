@@ -9,8 +9,8 @@ import { Section } from '@/components/Section'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
-import { IATCoachCareerBenefits } from '../../post-registration-masterclass/IATCoachCareerBenefits'
-import { IATWebinarPricing } from '../checkout/IATWebinarPricing'
+import { IATWebinarPricing } from '@/components/IAT/IATWebinarPricing'
+import { IATCoachCareerBenefits } from '@/components/IAT/IATCoachCareerBenefits'
 // libraries
 import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
 // utils
@@ -59,8 +59,8 @@ export default function IATMasterclassRecordingPage() {
         <h2 className="mb-4">Are You Ready to Transform Lives & Secure Your Financial Future?</h2>
 
         <p className="mb-16">
-          Sign up for the Live IAT™ Program starting on Thursday, March 20th, 2025, and get your
-          exclusive Masterclass discount!
+          Sign up for the Live IAT™ Program starting on <strong>Thursday, March 20th, 2025</strong>,
+          and get your exclusive Masterclass discount!
         </p>
 
         <p className="mb-2">

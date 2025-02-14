@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import { useState } from 'react'
 // components
-import { CheckoutButton } from './CheckoutButton'
-import { Button } from './Button/Button'
+import { CheckoutButton } from '../CheckoutButton'
+import { Button } from '../Button/Button'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faChevronLeft, faCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // libraries

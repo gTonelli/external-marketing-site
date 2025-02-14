@@ -10,7 +10,7 @@ import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { IATWebinarPricing } from './IATWebinarPricing'
+import { IATWebinarPricing } from '@/components/IAT/IATWebinarPricing'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import {
   faFileLines,

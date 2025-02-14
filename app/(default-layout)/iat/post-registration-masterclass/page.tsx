@@ -6,11 +6,11 @@ import Link from 'next/link'
 import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
 import { Section } from '@/components/Section'
-import { ShowSuccessModal } from './ShowSuccessModal'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { IATCoachCareerBenefits } from './IATCoachCareerBenefits'
+import { ShowSuccessModal } from '@/components/IAT/ShowSuccessModal'
+import { IATCoachCareerBenefits } from '@/components/IAT/IATCoachCareerBenefits'
 // config
 import { IATTestimonials } from './config'
 // utils

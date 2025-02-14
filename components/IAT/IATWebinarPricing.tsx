@@ -1,6 +1,6 @@
 // components
 import { Section } from '@/components/Section'
-import { IATPricingCard, TIATCardDetails, TIATPriceOption } from '@/components/IATPricingCard'
+import { IATPricingCard, TIATCardDetails, TIATPriceOption } from './IATPricingCard'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 

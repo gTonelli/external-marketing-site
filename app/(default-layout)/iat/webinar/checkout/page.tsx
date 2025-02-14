@@ -10,7 +10,7 @@ import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { IATPricingCard, TIATCardDetails, TIATPriceOption } from '@/components/IATPricingCard'
+import { IATWebinarPricing } from '@/components/IAT/IATWebinarPricing'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import {
   faFileLines,
@@ -31,7 +31,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { getOfferEndDate } from '@/utils/functions'
-import { EExternalRoutes } from '@/utils/constants'
 // style
 import './style.css'
 
@@ -48,89 +47,6 @@ const trustbarSlides = [
   'new-york-post-logo.png',
   'ceo-weekly-logo.png',
   'yahoo-logo.png',
-]
-
-const IATLiveCardDetails: TIATCardDetails = {
-  liveLogo: true,
-  title: 'Live Training',
-  originalPrice: [
-    { price: '$7,000' },
-    { price: '$3,499', label: '(50%)' },
-    { price: '$3,299', label: '(Specialist Call Discount)' },
-  ],
-  currentPrice: '$2,999.00',
-  currentPriceLabel: '($300 Masterclass Discount)',
-  discount: 'TOTAL SAVINGS: $4,001',
-  subheader: 'Unleash Your Coaching Potential with this Interactive Experience',
-  copy: 'Join weekly practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
-  perks: [
-    '12-Week Comprehensive Live Program',
-    '8 Weeks of Intensive Training with Thais Gibson',
-    'Immersive & Engaging Classroom Experience',
-    'Designed for All Levels of Expertise',
-  ],
-}
-
-const OnDemandIATCardDetails: TIATCardDetails = {
-  title: 'On Demand',
-  originalPrice: [{ price: '$4,000' }, { price: '$1,999', label: '(50%)' }],
-  currentPrice: '$1,799.00',
-  currentPriceLabel: '(Masterclass Discount)',
-  discount: 'TOTAL SAVINGS: $2,200',
-  subheader: 'Ignite Your Career & Finances With a Self-Paced Format',
-  copy: "The perfect format for self-paced learners or those who can't make the weekly sessions. Get access to the same features as the Live Program IAT™, including pre-recorded video modules, essential client resources, and business materials to build your coaching practice. You can enroll for this Program at any time.",
-  perks: [
-    'Pre-Recorded & Detailed Video Modules',
-    'Self-Paced & Flexible Format',
-    'Monthly Payment Plans Available',
-    'Additional Prerequisites Courses',
-  ],
-}
-
-const IATLiveCardPricing: TIATPriceOption[] = [
-  {
-    label: 'ONE TIME PAYMENT',
-    price: '$2,999.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT,
-  },
-  {
-    label: '3 MONTH PAYMENT PLAN',
-    price: '$1,039.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN,
-  },
-  {
-    label: '6 MONTH PAYMENT PLAN',
-    price: '$539.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN,
-  },
-  {
-    label: '12 MONTH PAYMENT PLAN',
-    price: '$289.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN,
-  },
-]
-
-const OnDemandIATCardPricing: TIATPriceOption[] = [
-  {
-    label: 'ONE TIME PAYMENT',
-    price: '$1,799.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT,
-  },
-  {
-    label: '3 MONTH PAYMENT PLAN',
-    price: '$619.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN,
-  },
-  {
-    label: '6 MONTH PAYMENT PLAN',
-    price: '$319.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN,
-  },
-  {
-    label: '12 MONTH PAYMENT PLAN',
-    price: '$169.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN,
-  },
 ]
 
 export default function IATWebinarSqueezePage() {
@@ -156,12 +72,12 @@ export default function IATWebinarSqueezePage() {
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
-          {/* countdown for March 20, 2025, 05:00 PM ET */}
+          {/* countdown for Feb 21, 2025, 11:59 PM ET */}
           <CountdownTimer
             className="!justify-start"
             classNameDate="!bg-inherit !shadow-none !text-black !p-0"
             theme="light"
-            date={getOfferEndDate(new Date('2025-03-20T17:00:00-05:00'), 1)}
+            date={getOfferEndDate(new Date('2025-02-21T23:59:00-05:00'), 1)}
           />
 
           <ButtonScroll className="mt-8" label="JOIN NOW & SAVE $300" target="#pricing" />
@@ -312,20 +228,7 @@ export default function IATWebinarSqueezePage() {
         </div>
       </Section>
 
-      <Section>
-        <div id="pricing" className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <IATPricingCard
-            isLive
-            cardDetails={IATLiveCardDetails}
-            pricingMenu={IATLiveCardPricing}
-          />
-
-          <IATPricingCard
-            cardDetails={OnDemandIATCardDetails}
-            pricingMenu={OnDemandIATCardPricing}
-          />
-        </div>
-      </Section>
+      <IATWebinarPricing />
 
       <Section className="max-w-full !p-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
         <h2 className="mb-4">This How You Can Be Transforming Lives</h2>

@@ -1,6 +1,6 @@
 import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
-import { IAT_COPY as IAT } from './config'
+import { IAT_COPY as IAT } from '@/app/(default-layout)/iat/config'
 
 interface IIATBannerProps {
   page: 'other' | 'ebook'

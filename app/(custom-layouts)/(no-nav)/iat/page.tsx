@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { IATPage } from '../../../(default-layout)/iat/IATPage'
+import { IATPage } from '../../../../components/IAT/IATPage'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
@@ -15,5 +15,5 @@ export const metadata: Metadata = {
 }
 
 export default function IATSalePage() {
-  return <IATPage showKlarnaTest page_name="External IAT Page" />
+  return <IATPage page_name="External IAT Page" />
 }

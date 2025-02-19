@@ -26,18 +26,11 @@ import { getUserCountry } from '@/utils/functions'
 
 export const KlarnaPricing = () => {
   const [countryCode, setCountryCode] = useState<string | undefined>()
-  const [isVariant, setIsVariant] = useState<boolean | undefined>()
 
   useEffect(() => {
     const abortController = new AbortController()
     getUserCountry().then((countryCode) => {
       if (abortController.signal.aborted) return
-      console.log('countryCode', countryCode)
-      if (countryCode === 'US') {
-        setIsVariant(true)
-      } else {
-        setIsVariant(false)
-      }
       setCountryCode(countryCode)
     })
 
@@ -46,9 +39,8 @@ export const KlarnaPricing = () => {
     }
   }, [])
 
-  if (!countryCode || isVariant === undefined) return <Loader className="!py-96" />
+  if (!countryCode) return <Loader className="!py-96" />
 
-  console.log('countryCode', countryCode)
   if (countryCode !== 'US') {
     return <IATPriceCardSection />
   }
@@ -117,7 +109,7 @@ const LivePriceCard = () => {
           <div
             className={cx(
               'cursor-pointer rounded-10 border-2 p-3 border-purple-dark mb-4',
-              klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white'
+              klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white hover:bg-white-secondary'
             )}
             onClick={() => setSelectedPaymentMethod('klarna')}>
             <div className="flex items-center">
@@ -165,7 +157,7 @@ const LivePriceCard = () => {
           <div
             className={cx(
               'cursor-pointer rounded-10 border-2 p-3 border-purple-dark mb-4',
-              !klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white'
+              !klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white hover:bg-white-secondary'
             )}
             onClick={() => setSelectedPaymentMethod('card')}>
             <div className="flex items-center">
@@ -276,7 +268,7 @@ const OnDemandPriceCard = () => {
           <div
             className={cx(
               'cursor-pointer rounded-10 border-2 p-3 border-purple-dark mb-4',
-              klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white'
+              klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white hover:bg-white-secondary'
             )}
             onClick={() => setSelectedPaymentMethod('klarna')}>
             <div className="flex items-center">
@@ -324,7 +316,7 @@ const OnDemandPriceCard = () => {
           <div
             className={cx(
               'cursor-pointer rounded-10 border-2 p-3 border-purple-dark mb-4',
-              !klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white'
+              !klarnaIsSelected ? 'bg-purple-dark text-white' : 'bg-white hover:bg-white-secondary'
             )}
             onClick={() => setSelectedPaymentMethod('card')}>
             <div className="flex items-center">

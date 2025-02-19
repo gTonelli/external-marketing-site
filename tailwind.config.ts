@@ -113,6 +113,8 @@ const config: Config = {
 
         warning: colors.yellow[400],
 
+        'white-secondary': '#F1F2F5',
+
         tertiary: '#D23333',
 
         'blue-secondary': '#84C0C0',

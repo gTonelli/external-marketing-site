@@ -10,7 +10,6 @@ import { List } from '../List'
 import { IAT_COPY as config } from '@/app/(default-layout)/iat/config'
 import { Button } from '../Button/Button'
 import { IATPriceCardSection } from './IATPage'
-import { StripePaymentMethodMessagingElementOptions } from '@stripe/stripe-js'
 import Link from 'next/link'
 import {
   faCircleCheck,
@@ -66,7 +65,7 @@ export const KlarnaPricing = () => {
 }
 
 const LivePriceCard = () => {
-  const [showOverview, setShowOverview] = useState(false)
+  const [showOverview, setShowOverview] = useState(true)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('klarna')
 
   const klarnaIsSelected = selectedPaymentMethod === 'klarna'
@@ -127,7 +126,9 @@ const LivePriceCard = () => {
                 icon={klarnaIsSelected ? faCircleSolid : faCircle}
               />
 
-              <h2>Pay Later</h2>
+              <h2>
+                <span className="hidden lg:inline">Buy Now, </span>Pay Later
+              </h2>
 
               <Image
                 alt="The Klarna branding Icon - the word Klarna on a pink background"
@@ -157,13 +158,6 @@ const LivePriceCard = () => {
                     ]}
                   />
                 </div>
-
-                <Link
-                  className="mr-auto w-max block underline hover:text-white hover:opacity-75"
-                  href="#"
-                  target="_blank">
-                  Terms & Conditions
-                </Link>
               </>
             ) : null}
           </div>
@@ -186,35 +180,17 @@ const LivePriceCard = () => {
             </div>
 
             <p className={cx('text-left', klarnaIsSelected ? 'text-grey' : 'mb-4')}>
-              Pay with credit or debit
+              Pay with credit, debit or PayPal
             </p>
 
             {!klarnaIsSelected ? (
               <>
-                <div className="bg-white p-2 rounded mb-2">
-                  <List
-                    className="text-black pl-2 text-left"
-                    classNameListItems="mb-1"
-                    classNameIcon="text-[6px] !text-black !pt-2"
-                    icon={faCircleSolid}
-                    listItems={['No interest']}
-                  />
-                </div>
-
                 <div className="text-black bg-white p-2 rounded flex items-center">
                   <FontAwesomeIcon className="mr-2" icon={faCircleSolid} />
 
                   <p className="font-bold mr-2">$3,499</p>
 
-                  <p>ONE TIME PAYMENT</p>
-
-                  <Image
-                    alt="The PayPal logo - a blue P with the workd PayPal beside it"
-                    className="ml-auto"
-                    src="/images/IATPage/paypal-icon.svg"
-                    width={64}
-                    height={18}
-                  />
+                  <p>One Time Payment</p>
                 </div>
               </>
             ) : null}
@@ -237,7 +213,7 @@ const LivePriceCard = () => {
         {!showOverview && (
           <Link
             className="hover:no-underline lg:w-auto lg:flex-grow lg:flex"
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT}>
+            href={`${EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT}&klarna=true&pm=${selectedPaymentMethod}`}>
             <Button
               className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
               label="CHECKOUT"
@@ -252,7 +228,7 @@ const LivePriceCard = () => {
 }
 
 const OnDemandPriceCard = () => {
-  const [showOverview, setShowOverview] = useState(false)
+  const [showOverview, setShowOverview] = useState(true)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('klarna')
 
   const klarnaIsSelected = selectedPaymentMethod === 'klarna'
@@ -287,7 +263,7 @@ const OnDemandPriceCard = () => {
 
       {showOverview && (
         <List
-          className="text-left mt-3"
+          className="text-left mt-3 mb-12"
           classNameIcon="!text-green-check"
           classNameListItems="mt-4"
           icon={faCircleCheck}
@@ -309,7 +285,9 @@ const OnDemandPriceCard = () => {
                 icon={klarnaIsSelected ? faCircleSolid : faCircle}
               />
 
-              <h2>Pay Later</h2>
+              <h2>
+                <span className="hidden lg:inline">Buy Now, </span>Pay Later
+              </h2>
 
               <Image
                 alt="The Klarna branding Icon - the word Klarna on a pink background"
@@ -324,7 +302,7 @@ const OnDemandPriceCard = () => {
               Payment plans offered by Klarna
             </p>
 
-            {selectedPaymentMethod === 'klarna' ? (
+            {klarnaIsSelected ? (
               <>
                 <div className="bg-white p-2 rounded mb-2">
                   <List
@@ -339,13 +317,6 @@ const OnDemandPriceCard = () => {
                     ]}
                   />
                 </div>
-
-                <Link
-                  className="mr-auto w-max block underline hover:text-white hover:opacity-75"
-                  href="#"
-                  target="_blank">
-                  Terms & Conditions
-                </Link>
               </>
             ) : null}
           </div>
@@ -368,35 +339,17 @@ const OnDemandPriceCard = () => {
             </div>
 
             <p className={cx('text-left', klarnaIsSelected ? 'text-grey' : 'mb-4')}>
-              Pay with credit or debit
+              Pay with credit, debit or PayPal
             </p>
 
             {!klarnaIsSelected ? (
               <>
-                <div className="bg-white p-2 rounded mb-2">
-                  <List
-                    className="text-black pl-2 text-left"
-                    classNameListItems="mb-1"
-                    classNameIcon="text-[6px] !text-black !pt-2"
-                    icon={faCircleSolid}
-                    listItems={['No interest']}
-                  />
-                </div>
-
                 <div className="text-black bg-white p-2 rounded flex items-center">
                   <FontAwesomeIcon className="mr-2" icon={faCircleSolid} />
 
                   <p className="font-bold mr-2">$1,999</p>
 
-                  <p>ONE TIME PAYMENT</p>
-
-                  <Image
-                    alt="The PayPal logo - a blue P with the workd PayPal beside it"
-                    className="ml-auto"
-                    src="/images/IATPage/paypal-icon.svg"
-                    width={64}
-                    height={18}
-                  />
+                  <p>One Time Payment</p>
                 </div>
               </>
             ) : null}
@@ -419,7 +372,7 @@ const OnDemandPriceCard = () => {
         {!showOverview && (
           <Link
             className="hover:no-underline lg:w-auto lg:flex-grow lg:flex"
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT}>
+            href={`${EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT}&klarna=true&pm=${selectedPaymentMethod}`}>
             <Button
               className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
               label="CHECKOUT"

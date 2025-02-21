@@ -250,6 +250,8 @@ export const ValentinesDayPDSBenefits = () => {
           />
         </div>
       </div>
+
+      <MHAButton label="START YOUR FREE TRIAL" />
     </>
   )
 }

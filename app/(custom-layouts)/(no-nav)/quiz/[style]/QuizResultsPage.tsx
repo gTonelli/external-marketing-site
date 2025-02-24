@@ -27,16 +27,18 @@ import {
 import { EExternalRoutes } from '@/utils/constants'
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
-interface IQuizResultsPageProps {
+export interface IQuizResultsPageProps {
   style: TStyle
   ageVariant?: boolean
   melRobbinsVariant?: boolean
+  youtubeVariant?: boolean
 }
 
 export const QuizResultsPage = ({
   style,
   ageVariant = false,
   melRobbinsVariant = false,
+  youtubeVariant = false,
 }: IQuizResultsPageProps) => {
   const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : melRobbinsVariant ? MR_CONFIG : CONFIG
 
@@ -44,13 +46,17 @@ export const QuizResultsPage = ({
     <>
       {/* BANNER SECTION */}
       {(style === 'da' || style === 'sa') && !melRobbinsVariant ? (
-        <RoyalRumbleHeadline style={style} ageVariant={ageVariant} />
+        <RoyalRumbleHeadline youtubeVariant={youtubeVariant} style={style} ageVariant={ageVariant} />
       ) : (
         <section className="w-full">
           <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
             <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
               <AttachmentQuizHeading
-                copy={ROYAL_RUMBLE[style].HERO_SECTION.headline}
+                copy={
+                  youtubeVariant
+                    ? ROYAL_RUMBLE[style].HERO_SECTION.headlineYT
+                    : ROYAL_RUMBLE[style].HERO_SECTION.headline
+                }
                 className="!font-ssp !text-3xl text-center capitalize lg:!text-4xl"
               />
 
@@ -76,6 +82,10 @@ export const QuizResultsPage = ({
 
                 <div className="flex flex-col lg:flex-row justify-center items-center space-x-6 md:px-8">
                   <div className="mb-4">
+                    <h2 className="text-purple-dark mb-4 !text-3xl">
+                      {youtubeVariant && ROYAL_RUMBLE[style].HERO_SECTION.titleYT}
+                    </h2>
+
                     <VideoThumbnail
                       className="lg:max-w-screen-xs"
                       srcUrl={ROYAL_RUMBLE[style].HERO_SECTION.videoURL}
@@ -91,42 +101,58 @@ export const QuizResultsPage = ({
                       }
                       type="default"
                     />
+
+                    {youtubeVariant && (
+                      <>
+                        <p className="max-w-md font-bold text-center mt-8">
+                          {ROYAL_RUMBLE[style].BANNER_SEGMENT.copyYT}
+                        </p>
+
+                        <CheckoutButton
+                          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                          className="my-8 xxs:px-16"
+                          label="GET STARTED NOW!"
+                        />
+                      </>
+                    )}
                   </div>
 
-                  <div className="!mx-0 lg:text-left lg:!mx-4 lg:w-1/2">
-                    {melRobbinsVariant ? (
-                      <>
-                        <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center lg:hidden">
+                  {!youtubeVariant && (
+                    <div className="!mx-0 lg:text-left lg:!mx-4 lg:w-1/2">
+                      {melRobbinsVariant ? (
+                        <>
+                          <h2 className="text-purple-dark mb-2 !text-3xl max-w-2xl mx-auto text-center lg:hidden">
+                            {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                          </h2>
+
+                          <p className="font-bold mb-4 lg:hidden">
+                            Our groundbreaking, proprietary process is unlike anything you’ve ever
+                            seen before. It is disrupting the relationship industry, because of how
+                            fast it works, and how simple it is! As seen with thousands of students
+                            in the Personal Development School.
+                          </p>
+                        </>
+                      ) : (
+                        <h2 className="text-purple-dark mb-4 !text-3xl">
                           {ROYAL_RUMBLE[style].HERO_SECTION.title}
                         </h2>
+                      )}
 
-                        <p className="font-bold mb-4 lg:hidden">
-                          Our groundbreaking, proprietary process is unlike anything you’ve ever
-                          seen before. It is disrupting the relationship industry, because of how
-                          fast it works, and how simple it is! As seen with thousands of students in
-                          the Personal Development School.
-                        </p>
-                      </>
-                    ) : (
-                      <h2 className="text-purple-dark mb-4 !text-3xl">
-                        {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                      </h2>
-                    )}
+                      {melRobbinsVariant && (
+                        <List
+                          className="text-black"
+                          classNameListItems="mb-2"
+                          classNameIcon="!text-black w-2 h-2 !pt-1"
+                          // @ts-ignore
+                          listItems={ROYAL_RUMBLE[style].HERO_SECTION.list}
+                          icon={faCircle}
+                          iconSize="xs"
+                        />
+                      )}
 
-                    {melRobbinsVariant && (
-                      <List
-                        className="text-black"
-                        classNameListItems="mb-2"
-                        classNameIcon="!text-black w-2 h-2 !pt-1"
-                        // @ts-ignore
-                        listItems={ROYAL_RUMBLE[style].HERO_SECTION.list}
-                        icon={faCircle}
-                        iconSize="xs"
-                      />
-                    )}
-
-                    {!melRobbinsVariant && <p>{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>}
-                  </div>
+                      {!melRobbinsVariant && <p>{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>}
+                    </div>
+                  )}
                 </div>
 
                 {melRobbinsVariant && (
@@ -155,7 +181,16 @@ export const QuizResultsPage = ({
             </div>
           </div>
 
-          <div className="max-w-5xl mx-4 md:mx-auto md:px-4">
+          {youtubeVariant && (
+            <RegisterNowSection
+              ageVariant={ageVariant}
+              style={style}
+              melRobbinsVariant={melRobbinsVariant}
+              youtubeVariant={youtubeVariant}
+            />
+          )}
+
+          <div className="max-w-5xl mt-4 mx-4 md:mx-auto md:px-4">
             <div className="text-left">
               <p className="font-effra font-bold tracking-widest md:text-lg">
                 ABOUT YOUR ATTACHMENT STYLE:{' '}
@@ -179,7 +214,7 @@ export const QuizResultsPage = ({
                   in exclusive access.
                   <strong> By signing up today, you will save $265 for a limited time.</strong>
                 </p>
-              ) : (
+              ) : !youtubeVariant ? (
                 <p className="font-effra mt-8 md:mt-10 md:text-lg">
                   At The Personal Development School, we have a tailored program and suite of tools
                   to assist you in changing these patterns in as little as 30 days. This will allow
@@ -187,6 +222,13 @@ export const QuizResultsPage = ({
                   relationships with emotionally available people. Click the button below to enroll
                   in exclusive access.
                   <strong> This is 30% off for a limited time.</strong>
+                </p>
+              ) : (
+                <p className="font-effra mt-8 md:mt-10 md:text-lg">
+                  Too many people let their attachment styles, their beliefs, and their subconscious
+                  relationship patterns control their whole lives. But that doesn’t have to be you
+                  too, with our tailored programs you can find lasting change, and start building
+                  the best relationships of your life today.
                 </p>
               )}
             </div>
@@ -838,163 +880,20 @@ export const QuizResultsPage = ({
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
-      <section className="w-full mt-20 md:mt-32">
-        <div className="bg-gradient-to-b from-blue-lightest/50 to-primary-light/50 py-10 md:py-20">
-          <div className="max-w-5xl mx-4 md:mx-auto">
-            <h2 className="capitalize text-2xl text-primary">
-              {style !== 'sa'
-                ? ageVariant
-                  ? `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} Course Bundle`
-                  : `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} to Secure Attachment Program`
-                : `Start Building the Relationships you Deserve with ${
-                    ageVariant ? 'Secure Attachment Course Bundle' : 'the All-Access Program'
-                  }`}
-            </h2>
+      {!youtubeVariant && (
+        <RegisterNowSection
+          ageVariant={ageVariant}
+          style={style}
+          melRobbinsVariant={melRobbinsVariant}
+          youtubeVariant={youtubeVariant}
+        />
+      )}
 
-            <div
-              className="flex flex-center flex-col  py-10 text-left space-y-10 
-                        lg:flex-row lg:space-x-5 lg:space-y-0">
-              <div className="max-w-[502px]">
-                <p className="font-effra font-bold tracking-0.325 md:text-lg">WHAT'S INCLUDED?</p>
-
-                <p className="font-effra font-bold md:text-lg mt-3 md:mt-2">
-                  {ageVariant
-                    ? AGE_PRICING[style].copy1
-                    : style !== 'sa'
-                    ? `Heal Your Attachment Style in 30 Days with the ${ROYAL_RUMBLE[style].TITLE} to Securely Attached program.`
-                    : `All the tools you need to create the relationship you deserve.`}
-                </p>
-
-                {ageVariant ? (
-                  <List
-                    icon={faCircleCheck}
-                    iconSize="lg"
-                    className="mt-4"
-                    classNameIcon="text-primary !mt-4"
-                    classNameListItems="mb-4"
-                    classNameText="md:text-lg"
-                    listItems={AGE_PRICING[style].list}
-                  />
-                ) : (
-                  <ul className="font-effra mt-4 ml-3 list-decimal">
-                    <li>
-                      <p className="md:text-lg">
-                        {style !== 'sa'
-                          ? `The ${ROYAL_RUMBLE[style].TITLE} to Securely Attached program + coursework`
-                          : `The Securely Attached program + coursework`}
-                      </p>
-                    </li>
-                    <li>
-                      <p className="md:text-lg">
-                        All-access pass to The Personal Development School’s offering, granting you
-                        access to:
-                      </p>
-                    </li>
-                    <ul className="font-effra !ml-4 fa-ul">
-                      {ROYAL_RUMBLE[style].OFFER_SEGMENT.bullets.map((copy, index) => (
-                        <li key={`offer_${index}`}>
-                          <FontAwesomeIcon
-                            className="text-primary my-auto w-4 h-4 fa-li"
-                            icon={faCheckCircle}
-                            type="regular"
-                          />
-                          <p className="md:text-lg my-2 lg:my-1">{copy} </p>
-                        </li>
-                      ))}
-                    </ul>
-                  </ul>
-                )}
-              </div>
-              <div className="max-w-[502px] rounded-20 bg-primary-light py-11 px-4 md:px-10 text-center">
-                <p
-                  className={`max-w-[368px] font-effra font-bold p-1 text-${ROYAL_RUMBLE.OFFER_CARD.headingColor} border-y-2 border-${ROYAL_RUMBLE.OFFER_CARD.headingColor} mx-auto 
-                    md:uppercase md:text-lg `}>
-                  {ROYAL_RUMBLE.OFFER_CARD.heading}
-                </p>
-
-                <div className="max-w-[230px] mt-8 mx-auto">
-                  <p className="font-effra font-bold md:text-lg text-center">
-                    {ROYAL_RUMBLE.OFFER_CARD.subheading}
-                  </p>
-
-                  <p
-                    className={cx(
-                      'font-bold !text-[72px] text-primary after:text-sm md:after:text-lg',
-                      !ageVariant && "after:content-['/month']"
-                    )}>
-                    {ROYAL_RUMBLE.OFFER_CARD.price}
-                  </p>
-
-                  <p className="md:text-lg line-through">
-                    Regular Price = {ageVariant ? '$299' : '$97/month'}
-                  </p>
-                </div>
-                <div className="mt-2">
-                  <ul className="font-effra mt-8 ml-3 list-disc text-left">
-                    <li>
-                      <p className="md:text-lg">Special offer available for a limited time</p>
-                    </li>
-                    {!ageVariant && (
-                      <li>
-                        <p className="md:text-lg">
-                          Get 30% off of the All-Access Pass for life if you sign up today
-                        </p>
-                      </li>
-                    )}
-                    <li>
-                      <p className="md:text-lg">7-Day Money Back Guarantee, No Questions Asked!</p>
-                    </li>
-                  </ul>
-
-                  <CheckoutButton
-                    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-                    className="mt-6 md:mt-10"
-                    label="REGISTER NOW"
-                  />
-
-                  <p className="font-effra font-bold md:text-lg mt-2">
-                    {ageVariant
-                      ? 'SAVE AN ADDITIONAL $265 OFF THE ORIGINAL PRICE FOR A LIMITED TIME ONLY!!'
-                      : 'SAVE 30% NOW'}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-center flex-col md:flex-row justify-between space-y-10 md:space-y-0 md:px-4">
-              <div className="max-w-[502px]">
-                <Image
-                  alt="4 mockups on different devices of Thais teaching PDS content."
-                  src="/images/RoyalRumblePage/rr-offer.png"
-                  width={393}
-                  height={194}
-                />
-              </div>
-              <div className="max-w-[502px] text-left">
-                <p className="mb-2 md:text-lg">{`${
-                  style !== 'sa'
-                    ? `Enroll in The ${ROYAL_RUMBLE[style].TITLE} ${
-                        ageVariant ? '' : 'to Securely'
-                      }`
-                    : `Enroll in The Secure${ageVariant ? ' Attachment ' : 'ly'}`
-                } ${
-                  ageVariant ? 'Course Bundle' : 'Attached Program'
-                } now and prepare to create the safe home within yourself you’ve been looking for all along.`}</p>
-
-                <p className="font-bold mb-2">
-                  If you change your mind or are unable to commit we have a full 7-day money back
-                  guarantee!
-                </p>
-
-                <p>
-                  We’re happy to process a refund for you if that’s what you choose. No hard
-                  feelings, and no questions asked!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-[850px] mt-6 md:mt-32 mx-4 md:mx-auto md:px-4 text-left">
+      <section>
+        <div
+          className={`${
+            youtubeVariant ? 'max-w-5xl' : 'max-w-[850px]'
+          } mt-6 md:mt-32 mx-4 md:mx-auto md:px-4 text-left`}>
           <h2 className="capitalize text-2xl text-primary md:mb-10">
             If you don’t make a change now, then when? And if you don’t show up for yourself … who
             will?
@@ -1013,6 +912,7 @@ export const QuizResultsPage = ({
           />
         </div>
       </section>
+
       {/* FAQ SECTION */}
       <Faq
         className="my-16"
@@ -1021,5 +921,171 @@ export const QuizResultsPage = ({
         faq={ROYAL_RUMBLE.FAQs}
       />
     </>
+  )
+}
+
+export const RegisterNowSection = ({
+  ageVariant,
+  style,
+  melRobbinsVariant,
+  youtubeVariant,
+}: IQuizResultsPageProps) => {
+  const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : melRobbinsVariant ? MR_CONFIG : CONFIG
+
+  return (
+    <section className={`w-full ${youtubeVariant ? 'mb-10 md:mt-4 md:mb-12' : 'mt-20 md:mt-32'}`}>
+      <div className="bg-gradient-to-b from-blue-lightest/50 to-primary-light/50 py-10 md:py-20">
+        <div className="max-w-5xl mx-4 md:mx-auto">
+          <h2 className="capitalize text-2xl text-primary">
+            {style !== 'sa'
+              ? ageVariant
+                ? `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} Course Bundle`
+                : `Heal Your Attachment Style with the ${ROYAL_RUMBLE[style].TITLE} to Secure Attachment Program`
+              : `Start Building the Relationships you Deserve with ${
+                  ageVariant ? 'Secure Attachment Course Bundle' : 'the All-Access Program'
+                }`}
+          </h2>
+
+          <div
+            className="flex flex-center flex-col  py-10 text-left space-y-10 
+                        lg:flex-row lg:space-x-5 lg:space-y-0">
+            <div className="max-w-[502px]">
+              <p className="font-effra font-bold tracking-0.325 md:text-lg">WHAT'S INCLUDED?</p>
+
+              <p className="font-effra font-bold md:text-lg mt-3 md:mt-2">
+                {ageVariant
+                  ? AGE_PRICING[style].copy1
+                  : style !== 'sa'
+                  ? `Heal Your Attachment Style in 30 Days with the ${ROYAL_RUMBLE[style].TITLE} to Securely Attached program.`
+                  : `All the tools you need to create the relationship you deserve.`}
+              </p>
+
+              {ageVariant ? (
+                <List
+                  icon={faCircleCheck}
+                  iconSize="lg"
+                  className="mt-4"
+                  classNameIcon="text-primary !mt-4"
+                  classNameListItems="mb-4"
+                  classNameText="md:text-lg"
+                  listItems={AGE_PRICING[style].list}
+                />
+              ) : (
+                <ul className="font-effra mt-4 ml-3 list-decimal">
+                  <li>
+                    <p className="md:text-lg">
+                      {style !== 'sa'
+                        ? `The ${ROYAL_RUMBLE[style].TITLE} to Securely Attached program + coursework`
+                        : `The Securely Attached program + coursework`}
+                    </p>
+                  </li>
+                  <li>
+                    <p className="md:text-lg">
+                      All-access pass to The Personal Development School’s offering, granting you
+                      access to:
+                    </p>
+                  </li>
+                  <ul className="font-effra !ml-4 fa-ul">
+                    {ROYAL_RUMBLE[style].OFFER_SEGMENT.bullets.map((copy, index) => (
+                      <li key={`offer_${index}`}>
+                        <FontAwesomeIcon
+                          className="text-primary my-auto w-4 h-4 fa-li"
+                          icon={faCheckCircle}
+                          type="regular"
+                        />
+                        <p className="md:text-lg my-2 lg:my-1">{copy} </p>
+                      </li>
+                    ))}
+                  </ul>
+                </ul>
+              )}
+            </div>
+            <div className="max-w-[502px] rounded-20 bg-primary-light py-11 px-4 md:px-10 text-center">
+              <p
+                className={`max-w-[368px] font-effra font-bold p-1 text-${ROYAL_RUMBLE.OFFER_CARD.headingColor} border-y-2 border-${ROYAL_RUMBLE.OFFER_CARD.headingColor} mx-auto 
+                    md:uppercase md:text-lg `}>
+                {ROYAL_RUMBLE.OFFER_CARD.heading}
+              </p>
+
+              <div className="max-w-[230px] mt-8 mx-auto">
+                <p className="font-effra font-bold md:text-lg text-center">
+                  {ROYAL_RUMBLE.OFFER_CARD.subheading}
+                </p>
+
+                <p
+                  className={cx(
+                    'font-bold !text-[72px] text-primary after:text-sm md:after:text-lg',
+                    !ageVariant && "after:content-['/month']"
+                  )}>
+                  {ROYAL_RUMBLE.OFFER_CARD.price}
+                </p>
+
+                <p className="md:text-lg line-through">
+                  Regular Price = {ageVariant ? '$299' : '$97/month'}
+                </p>
+              </div>
+              <div className="mt-2">
+                <ul className="font-effra mt-8 ml-3 list-disc text-left">
+                  <li>
+                    <p className="md:text-lg">Special offer available for a limited time</p>
+                  </li>
+                  {!ageVariant && (
+                    <li>
+                      <p className="md:text-lg">
+                        Get 30% off of the All-Access Pass for life if you sign up today
+                      </p>
+                    </li>
+                  )}
+                  <li>
+                    <p className="md:text-lg">7-Day Money Back Guarantee, No Questions Asked!</p>
+                  </li>
+                </ul>
+
+                <CheckoutButton
+                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  className="mt-6 md:mt-10"
+                  label="REGISTER NOW"
+                />
+
+                <p className="font-effra font-bold md:text-lg mt-2">
+                  {ageVariant
+                    ? 'SAVE AN ADDITIONAL $265 OFF THE ORIGINAL PRICE FOR A LIMITED TIME ONLY!!'
+                    : 'SAVE 30% NOW'}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-center flex-col md:flex-row justify-between space-y-10 md:space-y-0 md:px-4">
+            <div className="max-w-[502px]">
+              <Image
+                alt="4 mockups on different devices of Thais teaching PDS content."
+                src="/images/RoyalRumblePage/rr-offer.png"
+                width={393}
+                height={194}
+              />
+            </div>
+            <div className="max-w-[502px] text-left">
+              <p className="mb-2 md:text-lg">{`${
+                style !== 'sa'
+                  ? `Enroll in The ${ROYAL_RUMBLE[style].TITLE} ${ageVariant ? '' : 'to Securely'}`
+                  : `Enroll in The Secure${ageVariant ? ' Attachment ' : 'ly'}`
+              } ${
+                ageVariant ? 'Course Bundle' : 'Attached Program'
+              } now and prepare to create the safe home within yourself you’ve been looking for all along.`}</p>
+
+              <p className="font-bold mb-2">
+                If you change your mind or are unable to commit we have a full 7-day money back
+                guarantee!
+              </p>
+
+              <p>
+                We’re happy to process a refund for you if that’s what you choose. No hard feelings,
+                and no questions asked!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

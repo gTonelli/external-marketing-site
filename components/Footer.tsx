@@ -19,10 +19,17 @@ const year = todaysDate.getFullYear()
 
 interface IFooterProps {
   includeLinks?: boolean
+  includeSocialLinks?: boolean
   centered?: boolean
+  showDisclaimer?: boolean
 }
 
-export const Footer = ({ includeLinks, centered }: IFooterProps) => (
+export const Footer = ({
+  includeLinks,
+  includeSocialLinks = true,
+  centered,
+  showDisclaimer = false,
+}: IFooterProps) => (
   <footer className="bg-[#252334] relative z-15 pb-0 lg:pt-14 lg:px-4 p-[19px]">
     <div className="relative flex flex-col text-white z-20 px-5 lg:px-0 lg:flex-row lg:pb-[75px] lg:max-w-[1120px] lg:mx-auto">
       <div className="flex flex-col lg:flex-1">
@@ -35,42 +42,44 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
             width={221}
           />
 
-          <div className="flex px-4">
-            <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
-              <FontAwesomeIcon
-                className="text-2xl text-primary-light transition-colors hover:text-primary"
-                icon={faYoutube}
-              />
-            </Link>
+          {includeSocialLinks && (
+            <div className="flex px-4">
+              <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
+                <FontAwesomeIcon
+                  className="text-2xl text-primary-light transition-colors hover:text-primary"
+                  icon={faYoutube}
+                />
+              </Link>
 
-            <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
-              <FontAwesomeIcon
-                className="text-2xl text-primary-light transition-colors hover:text-primary"
-                icon={faTiktok}
-              />
-            </Link>
+              <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
+                <FontAwesomeIcon
+                  className="text-2xl text-primary-light transition-colors hover:text-primary"
+                  icon={faTiktok}
+                />
+              </Link>
 
-            <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
-              <FontAwesomeIcon
-                className="text-2xl text-primary-light transition-colors hover:text-primary"
-                icon={faFacebook}
-              />
-            </Link>
+              <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
+                <FontAwesomeIcon
+                  className="text-2xl text-primary-light transition-colors hover:text-primary"
+                  icon={faFacebook}
+                />
+              </Link>
 
-            <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
-              <FontAwesomeIcon
-                className="text-2xl text-primary-light transition-colors hover:text-primary"
-                icon={faInstagram}
-              />
-            </Link>
+              <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
+                <FontAwesomeIcon
+                  className="text-2xl text-primary-light transition-colors hover:text-primary"
+                  icon={faInstagram}
+                />
+              </Link>
 
-            <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
-              <FontAwesomeIcon
-                className="text-2xl text-primary-light transition-colors hover:text-primary"
-                icon={faPodcast}
-              />
-            </Link>
-          </div>
+              <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
+                <FontAwesomeIcon
+                  className="text-2xl text-primary-light transition-colors hover:text-primary"
+                  icon={faPodcast}
+                />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
 
@@ -206,8 +215,17 @@ export const Footer = ({ includeLinks, centered }: IFooterProps) => (
     <div className="text-white py-4 border-t border-gray-500 lg:text-right lg:max-w-[calc(100%-340px)] lg:mx-auto">
       <p className={centered ? 'text-center' : ''}>
         © Copyright {year} <strong>PDS: The Personal Development School,</strong> All rights
-        Reserved
+        Reserved.{' '}
+        {showDisclaimer && (
+          <Link
+            className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
+            href={EExternalRoutes.PRIVACY}>
+            Privacy Policy
+          </Link>
+        )}
       </p>
+
+      {showDisclaimer && <p>This Quiz is not endorsed by Facebook or Google</p>}
     </div>
   </footer>
 )

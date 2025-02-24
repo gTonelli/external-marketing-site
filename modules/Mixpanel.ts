@@ -108,6 +108,7 @@ export type Pages =
   | `vsl-${string}`
   | `VSL Royal Rumble Results - ${string}`
   | `Wellness Page`
+  | `Youtube Funnel Quiz`
 
 export type ExperimentVariant = 'Control' | 'Variant 1' | 'Variant 2'
 
@@ -248,7 +249,7 @@ class Mixpanel {
     QuizFinished: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta'
+      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
       progress?: string
     }) => {
       this.event('Quiz Finished', props)
@@ -266,7 +267,7 @@ class Mixpanel {
     QuizStarted: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta'
+      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
     }) => {
       this.event('Quiz Started', props)
     },

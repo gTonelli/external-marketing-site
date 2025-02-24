@@ -20,9 +20,13 @@ import { EExternalRoutes } from '@/utils/constants'
 
 interface IFAResultsPageProps {
   ageVariant?: boolean
+  youtubeVariant?: boolean
 }
 
-export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
+export const FAResultsPage = ({
+  ageVariant = false,
+  youtubeVariant = false,
+}: IFAResultsPageProps) => {
   const style = 'fa'
 
   return (
@@ -32,7 +36,11 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
         <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
           <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
             <AttachmentQuizHeading
-              copy={RESULTS[style].HERO_SECTION.headline}
+              copy={
+                youtubeVariant
+                  ? RESULTS[style].HERO_SECTION.headlineYT
+                  : RESULTS[style].HERO_SECTION.headline
+              }
               className="!font-ssp !text-3xl capitalize lg:!text-4xl"
             />
 
@@ -44,34 +52,58 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             <div className="max-w-5xl w-full md:my-8">
               <div className="flex flex-col md:flex-row justify-center items-center space-x-6 md:px-8">
                 <div>
+                  <h2 className="text-purple-dark mb-4 !text-3xl">
+                    {youtubeVariant && RESULTS[style].HERO_SECTION.titleYT}
+                  </h2>
+
                   <VideoThumbnail
                     srcUrl={RESULTS[style].HERO_SECTION.videoURL}
                     thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
                     thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                   />
+
+                  {youtubeVariant && (
+                    <>
+                      <p className="max-w-md font-bold text-center mt-8">
+                        {RESULTS[style].HERO_SECTION.copyYT}
+                      </p>
+
+                      <CheckoutButton
+                        href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                        className="my-8 xxs:px-16"
+                        label="GET STARTED NOW!"
+                      />
+                    </>
+                  )}
                 </div>
 
-                <div className="!mx-0 mb-4 md:text-left md:!m-4 md:w-1/2">
-                  <h2 className="text-purple-dark !text-3xl hidden md:block">
-                    {RESULTS[style].HERO_SECTION.title}
-                  </h2>
+                {!youtubeVariant && (
+                  <div className="!mx-0 mb-4 md:text-left md:!m-4 md:w-1/2">
+                    <h2 className="text-purple-dark !text-3xl hidden md:block">
+                      {RESULTS[style].HERO_SECTION.title}
+                    </h2>
 
-                  <p className="mt-4 hidden md:block">{RESULTS[style].HERO_SECTION.copy}</p>
+                    <p className="mt-4 hidden md:block">{RESULTS[style].HERO_SECTION.copy}</p>
 
-                  <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">
-                    {RESULTS[style].HERO_SECTION.title}
-                  </h2>
+                    <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">
+                      {RESULTS[style].HERO_SECTION.title}
+                    </h2>
 
-                  <p className="mt-4 md:hidden">{RESULTS[style].HERO_SECTION.copy}</p>
-                </div>
+                    <p className="mt-4 md:hidden">{RESULTS[style].HERO_SECTION.copy}</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {youtubeVariant && (
+        <PromotionSection ageVariant={ageVariant} youtubeVariant={youtubeVariant} />
+      )}
+
       {/* DOES ANY OF THIS SOUND LIKE YOU */}
-      <section className="w-full">
+      <section className={`w-full ${youtubeVariant && 'mt-12'}`}>
         <h2 className="text-purple-dark mb-4 text-2xl">Does Any Of This Sound Like You?</h2>
 
         <div className="w-full flex flex-col items-center px-4 mb-8 md:mt-8">
@@ -239,115 +271,11 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
       </div>
 
       {/* PROMOTION_1 | "BY TAKING OUR [STYLE] COURSE..." | COUNT DOWN TIMER */}
-      <section className="w-full bg-gradient-to-b from-white to-purple-dark to-95% mt-8">
-        <div className="w-full flex flex-col items-center justify-center ">
-          <div className="max-w-5xl flex flex-col items-center mx-4">
-            <h1 className="max-w-2x uppercase font-effra font-bold l mb-8">
-              {ageVariant
-                ? 'BY TAKING OUR FEARFUL AVOIDANT COURSE BUNDLE, YOU WILL LEARN...'
-                : RESULTS[style].PROMOTION_1.title}
-            </h1>
+      {!youtubeVariant && (
+        <PromotionSection ageVariant={ageVariant} youtubeVariant={youtubeVariant} />
+      )}
 
-            {/* STAR BULLET */}
-            <div className="flex flex-col md:flex-row md:items-start md:px-8">
-              {/* LEFT COL  */}
-              <div className="md:w-1/2 md:px-8">
-                {RESULTS[style].PROMOTION_1.bullets.left.map((bullet, index) => (
-                  <List
-                    key={index}
-                    className="flex flex-row"
-                    classNameIcon="text-yellow-secondary text-xl"
-                    classNameListItems="text-left mb-8"
-                    icon={faStar}
-                    listItems={[`${bullet}`]}
-                  />
-                ))}
-              </div>
-              {/* RIGHT COL */}
-              <div className="md:w-1/2 md:px-8">
-                {RESULTS[style].PROMOTION_1.bullets.right.map((bullet, index) => (
-                  <List
-                    key={index}
-                    className="flex flex-row"
-                    classNameIcon="text-yellow-secondary text-xl"
-                    classNameListItems="text-left mb-8"
-                    icon={faStar}
-                    listItems={[`${bullet}`]}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col lg:flex-row lg:items-center my-8 lg:px-8">
-              {/* LEFT COL  */}
-              <div className="flex justify-center items-center lg:w-1/2 lg:px-8">
-                <div className="w-3/4 max-w-xs lg:w-full">
-                  <Image
-                    alt="Money back 7 day Guarantee"
-                    className="w-full"
-                    src="/images/money-back-7-day.png"
-                    width={224}
-                    height={224}
-                  />
-                </div>
-              </div>
-              {/* RIGHT COL */}
-              <div className="max-w-3xl text-left mt-8 lg:w-1/2 lg:mt-0 lg:px-8">
-                {ageVariant ? (
-                  <>
-                    <p className="font-bold mb-4">
-                      If you join today, you’ll get these courses for a one-time fee of just $34.99,
-                      which is an additional $265 off of the original price—and you’ll get to keep
-                      the courses for life!
-                    </p>
-
-                    <p className="my-4">
-                      On top of that, we offer a full 7-day money-back guarantee if you don’t see
-                      the massive breakthrough in your dating and love life that you’ve been waiting
-                      for. Just ask for a refund before your first 7 days are up, and we’ll get you
-                      a full refund.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <p className="my-4 text-primary !text-lg">
-                      {RESULTS[style].PROMOTION_1.copy6.part1}
-                    </p>
-
-                    <p className="my-4 !text-lg">{RESULTS[style].PROMOTION_1.copy6.part2}</p>
-
-                    <p className="my-4 !text-lg">{RESULTS[style].PROMOTION_1.copy6.part3}</p>
-                  </>
-                )}
-              </div>
-            </div>
-
-            <div className="my-4">
-              <h2 className="text-white mb-8">{RESULTS[style].PROMOTION_2.title}</h2>
-
-              <p className="max-w-xl mx-auto mb-8 text-white">
-                {ageVariant
-                  ? "Because the first course in the bundle is only an hour long, it's easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!"
-                  : RESULTS[style].PROMOTION_2.copy1}
-              </p>
-
-              <CheckoutButton
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-                className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-purple-dark">
-        <div className="default-padding pt-4 lg:pt-8">
-          <div>
-            <div className="my-8">
-              <CountdownTimer theme="dark" />
-            </div>
-          </div>
-        </div>
+      <section className={`${!youtubeVariant && 'bg-purple-dark'}`}>
         {/* BANNER IMAGE TRANSITION */}
         <div className="w-full">
           <Image
@@ -674,5 +602,130 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
         </div>
       </section>
     </>
+  )
+}
+
+const PromotionSection = ({ ageVariant = false, youtubeVariant = false }: IFAResultsPageProps) => {
+  const style = 'fa'
+
+  return (
+    <section className="w-full bg-gradient-to-b from-white to-purple-dark to-95% mt-8">
+      <div className="w-full flex flex-col items-center justify-center ">
+        <div className="max-w-5xl flex flex-col items-center mx-4">
+          <h1 className="max-w-2x uppercase font-effra font-bold l mb-8">
+            {ageVariant
+              ? 'BY TAKING OUR FEARFUL AVOIDANT COURSE BUNDLE, YOU WILL LEARN...'
+              : RESULTS[style].PROMOTION_1.title}
+          </h1>
+
+          {/* STAR BULLET */}
+          <div className="flex flex-col md:flex-row md:items-start md:px-8">
+            {/* LEFT COL  */}
+            <div className="md:w-1/2 md:px-8">
+              {RESULTS[style].PROMOTION_1.bullets.left.map((bullet, index) => (
+                <List
+                  key={index}
+                  className="flex flex-row"
+                  classNameIcon="text-yellow-secondary text-xl"
+                  classNameListItems="text-left mb-8"
+                  icon={faStar}
+                  listItems={[`${bullet}`]}
+                />
+              ))}
+            </div>
+            {/* RIGHT COL */}
+            <div className="md:w-1/2 md:px-8">
+              {RESULTS[style].PROMOTION_1.bullets.right.map((bullet, index) => (
+                <List
+                  key={index}
+                  className="flex flex-row"
+                  classNameIcon="text-yellow-secondary text-xl"
+                  classNameListItems="text-left mb-8"
+                  icon={faStar}
+                  listItems={[`${bullet}`]}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row lg:items-center my-8 lg:px-8">
+            {/* LEFT COL  */}
+            <div className="flex justify-center items-center lg:w-1/2 lg:px-8">
+              <div className="w-3/4 max-w-xs lg:w-full">
+                <Image
+                  alt="Money back 7 day Guarantee"
+                  className="w-full"
+                  src="/images/money-back-7-day.png"
+                  width={224}
+                  height={224}
+                />
+              </div>
+            </div>
+            {/* RIGHT COL */}
+            <div className="max-w-3xl text-left mt-8 lg:w-1/2 lg:mt-0 lg:px-8">
+              {ageVariant ? (
+                <>
+                  <p className="font-bold mb-4">
+                    If you join today, you’ll get these courses for a one-time fee of just $34.99,
+                    which is an additional $265 off of the original price—and you’ll get to keep the
+                    courses for life!
+                  </p>
+
+                  <p className="my-4">
+                    On top of that, we offer a full 7-day money-back guarantee if you don’t see the
+                    massive breakthrough in your dating and love life that you’ve been waiting for.
+                    Just ask for a refund before your first 7 days are up, and we’ll get you a full
+                    refund.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="my-4 text-primary !text-lg">
+                    {youtubeVariant
+                      ? RESULTS[style].PROMOTION_1.copyYT6.part1
+                      : RESULTS[style].PROMOTION_1.copy6.part1}
+                  </p>
+
+                  <p className="my-4 !text-lg">
+                    {youtubeVariant
+                      ? RESULTS[style].PROMOTION_1.copyYT6.part2
+                      : RESULTS[style].PROMOTION_1.copy6.part2}
+                  </p>
+
+                  <p className="my-4 !text-lg">
+                    {youtubeVariant
+                      ? RESULTS[style].PROMOTION_1.copyYT6.part3
+                      : RESULTS[style].PROMOTION_1.copy6.part3}
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="my-4">
+            <h2 className="text-white mb-8">{RESULTS[style].PROMOTION_2.title}</h2>
+
+            <p className="max-w-xl mx-auto mb-8 text-white">
+              {ageVariant
+                ? "Because the first course in the bundle is only an hour long, it's easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!"
+                : RESULTS[style].PROMOTION_2.copy1}
+            </p>
+
+            <CheckoutButton
+              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="default-padding pt-4 lg:pt-8">
+        <div>
+          <div className="my-8">
+            <CountdownTimer theme="dark" />
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

@@ -2,11 +2,15 @@ export const RESULTS = {
   fa: {
     HERO_SECTION: {
       headline: 'Are you ready to start having the best relationships of your life?',
+      headlineYT: 'Your quiz results are on the way! Watch this video while you wait.',
       subheadline: `The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
       videoURLVariant: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Variant.mp4',
       title: 'Who Is The Fearful Avoidant?',
+      titleYT: 'This is the Fearful Avoidant',
       copy: 'While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.',
+      copyYT:
+        'At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns,  in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access to our All-Access Pass. This is 30% off for a limited time only!',
     },
     STYLE_TRAITS: {
       bullets_left: [
@@ -89,6 +93,38 @@ export const RESULTS = {
         part1: `If you join today, you’ll get this course for 30% off for life!`,
         part2: `If you sign up now, you’ll get it for just $67 (regularly priced at $97).\n\n Not only does your $67 get you access to The Fearful Avoidant 7-Day Transformation Course. It also unlocks access to ALL of The Personal Development School’s courses, so you can take as many as you choose to, **all for one price.**`,
         part3: `On top of that, we offer a full 7-day money-back guarantee if you don’t see the massive breakthrough in your dating and love life that you’ve been waiting for. Just ask for a refund before your first 7 days are up, and we’ll get you a full refund.`,
+      },
+
+      copyYT6: {
+        part1: `And if you join today, you’ll get this course and our All-Access Pass membership for just $67 per month instead of the regular price of $97.`,
+        part2: [
+          <p>
+            The <strong>7 Days to Transform Relationships Course</strong> is the first step in your
+            journey towards healing, empowered, and happier and healthier relationships.
+          </p>,
+
+          <p>
+            It’s partof our <strong>All-Access Pass Membership!</strong>
+          </p>,
+
+          <p>
+            This all-inclusive membership gives you access to this life-changing Fearful Avoidant
+            course and everything else we offer at The Personal Development School: courses and
+            programs, live webinars and Q&As, study groups, and a private online community.{' '}
+          </p>,
+        ],
+        part3: [
+          <p>
+            The best part? <strong>You unlock everything for one price</strong> instead of paying
+            $197 for the 7 Days to Transform Relationships Course alone.
+          </p>,
+
+          <p>
+            On top of that, we offer a <strong>full 7-day money-back guarantee</strong> if you don’t
+            see a massive breakthrough in your dating and love life. Just ask for a refund before
+            your first 7 days are up, and we’ll get you a full refund.`
+          </p>,
+        ],
       },
     },
     PROMOTION_2: {

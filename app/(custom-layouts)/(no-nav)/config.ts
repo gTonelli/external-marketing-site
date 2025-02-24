@@ -197,9 +197,9 @@ export const EXTERNALQUIZQUESTIONS = [
 
 export const REGULAR_COPY = {
   header: 'The Attachment Style Quiz',
-  subheader_mobile: 'TAKE OUR FREE QUIZ NOW TO FIND OUT!',
+  subheader_mobile: 'TAKE OUR FREE QUIZ TO FIND OUT YOUR ATTACHMENT STYLE!',
   subheader_desktop: 'TAKE OUR FREE QUIZ TO FIND OUT YOUR ATTACHMENT STYLE!',
-  headline: 'Create Breakthroughs In Your Relationships Today!',
+  headline: 'Start the Quiz Now!',
   breakthroughs_header_mobile: 'Improve Your Relationships Today!',
   copy: `Take this quiz to determine your attachment style. Knowing your attachment style is the first step to creating more meaningful connections, feeling valued and developing more harmony in all of your relationships!`,
   button_label: 'START QUIZ',

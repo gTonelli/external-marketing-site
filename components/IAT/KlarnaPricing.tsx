@@ -100,7 +100,12 @@ const LivePriceCard = () => {
           classNameIcon="!text-green-check"
           classNameListItems="mt-4"
           icon={faCircleCheck}
-          listItems={config.price.live_mode}
+          listItems={config.price.live_mode.map((str) => {
+            if (str === '3 months, 6 months and 12 months plans available.') {
+              return 'Monthly payment plans available'
+            }
+            return str
+          })}
         />
       )}
 

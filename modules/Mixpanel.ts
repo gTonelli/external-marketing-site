@@ -64,6 +64,7 @@ export type Pages =
   | `Dreamlife Free Course Page`
   | `Dreamlife Holiday Free Trial Page`
   | `External IAT Page`
+  | `External IAT Page (Klarna)`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`
   | `Explore Courses Page`

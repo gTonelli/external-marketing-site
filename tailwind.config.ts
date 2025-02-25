@@ -65,6 +65,7 @@ const config: Config = {
         'grey-5': '#7D7B84',
         'grey-6': '#9D9D9D',
         'grey-7': '#DEEAEA',
+        'grey-8': '#F1F2F4',
         'gray-light': '#F5F4FB',
         'gray-lightest': '#F5F5F5',
         'gray-dark': '#BFBFBF',
@@ -111,6 +112,8 @@ const config: Config = {
         'teal-dark': '#4794A1',
 
         warning: colors.yellow[400],
+
+        'white-secondary': '#F1F2F5',
 
         tertiary: '#D23333',
 

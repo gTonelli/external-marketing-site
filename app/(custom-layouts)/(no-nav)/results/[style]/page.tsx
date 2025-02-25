@@ -31,27 +31,17 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
   return (
     <Page page_name={`Attachment Style Results - ${params.style.toUpperCase()}`}>
-      <Section className="bg-hero-mobile z-15 lg:hidden">
-        <div className="text-black text-left relative z-20 lg:col-span-7">
-          <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
-
-          <p className="mb-6">
-            Your attachment style is formed during childhood and is the #1 factor that determines
-            whether your relationships will fail or succed. What's your attachment style? Keep
-            reading to learn more about your attachment profile!
-          </p>
-
-          <CheckoutButton />
-        </div>
-      </Section>
-
       <Section
-        className={`w-full min-h-52 z-10 bg-${params.style}-hero lg:py-24 xl:py-28 2xl:py-32 3xl:py-40`}
-        classNameInner="relative z-10 lg:grid lg:grid-cols-12">
-        <div className="text-black text-left hidden lg:col-span-7 lg:block">
-          <h2 className="capitalize leading-9 mb-6">{copy.hero.header}</h2>
+        className={`bg-hero-${params.style} w-full min-h-52 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40`}
+        classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
 
-          <p className="mb-6">
+        <div className={`bg-hero-${params.style}-mobile lg:hidden`} />
+
+        <div className="relative text-black text-left p-4 z-5 lg:col-span-7">
+          <h1 className="capitalize leading-9 mb-6">{copy.hero.header}</h1>
+
+          <p className="mb-8">
             Your attachment style is formed during childhood and is the #1 factor that determines
             whether your relationships will fail or succed. What's your attachment style? Keep
             reading to learn more about your attachment profile!
@@ -138,7 +128,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
         <Image
           alt="A mockup of PDS courses on 2 phones side by side."
-          className="w-full mt-12 mb-8 lg:hidden"
+          className="w-auto max-h-96 mt-12 mb-8 mx-auto lg:hidden lg:max-h-max"
           src="/images/AttachmentQuizResults/offer-mockup-1.png"
           width={425}
           height={465}

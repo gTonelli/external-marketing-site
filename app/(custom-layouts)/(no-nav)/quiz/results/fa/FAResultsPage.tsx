@@ -239,7 +239,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
       </div>
 
       {/* PROMOTION_1 | "BY TAKING OUR [STYLE] COURSE..." | COUNT DOWN TIMER */}
-      <section className="w-full bg-gradient-to-b from-white to-purple-dark to-95% mt-8">
+      <section className="w-full mt-8">
         <div className="w-full flex flex-col items-center justify-center ">
           <div className="max-w-5xl flex flex-col items-center mx-4">
             <h1 className="max-w-2x uppercase font-effra font-bold l mb-8">
@@ -310,7 +310,7 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
                   </>
                 ) : (
                   <>
-                    <p className="my-4 text-primary !text-lg">
+                    <p className="my-4 text-primary font-bold !text-lg">
                       {RESULTS[style].PROMOTION_1.copy6.part1}
                     </p>
 
@@ -323,9 +323,9 @@ export const FAResultsPage = ({ ageVariant = false }: IFAResultsPageProps) => {
             </div>
 
             <div className="my-4">
-              <h2 className="text-white mb-8">{RESULTS[style].PROMOTION_2.title}</h2>
+              <h2 className="mb-8">{RESULTS[style].PROMOTION_2.title}</h2>
 
-              <p className="max-w-xl mx-auto mb-8 text-white">
+              <p className="max-w-xl mx-auto mb-8">
                 {ageVariant
                   ? "Because the first course in the bundle is only an hour long, it's easy to get through within 7 days. And it gives you everything you need to start experiencing major breakthroughs in your relationships - fast!"
                   : RESULTS[style].PROMOTION_2.copy1}

@@ -1,5 +1,6 @@
-// components
+// core
 import Image from 'next/image'
+// components
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
@@ -8,24 +9,25 @@ import { Faq } from '@/components/Faq/Faq'
 import { List } from '@/components/List'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { RoyalRumbleHeadline } from './RoyalRumbleHeadline'
-// libraries
-import cx from 'classnames'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import {
   faCheckCircle,
   faCircleCheck,
   faSquareCheck,
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
-// utils
-import { TStyle } from '@/utils/types'
+// config
 import {
   ROYAL_RUMBLE as CONFIG,
   AGE_CONFIG,
   AGE_PRICING,
   MEL_ROBBINS_CONFIG as MR_CONFIG,
 } from './config'
+// libraries
+import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// utils
+import { TStyle } from '@/utils/types'
 import { EExternalRoutes } from '@/utils/constants'
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IQuizResultsPageProps {
   style: TStyle
@@ -155,7 +157,7 @@ export const QuizResultsPage = ({
             </div>
           </div>
 
-          <div className="max-w-5xl mx-4 md:mx-auto md:px-4">
+          <div className="max-w-5xl mt-8 mx-4 md:mx-auto md:px-4">
             <div className="text-left">
               <p className="font-effra font-bold tracking-widest md:text-lg">
                 ABOUT YOUR ATTACHMENT STYLE:{' '}
@@ -839,7 +841,7 @@ export const QuizResultsPage = ({
       </section>
       {/* REGISTER NOW SECTION */}
       <section className="w-full mt-20 md:mt-32">
-        <div className="bg-gradient-to-b from-blue-lightest/50 to-primary-light/50 py-10 md:py-20">
+        <div className="bg-gradient-to-b from-blue-lightest/50 to-primary-light/50 py-10 md:px-4 md:py-20">
           <div className="max-w-5xl mx-4 md:mx-auto">
             <h2 className="capitalize text-2xl text-primary">
               {style !== 'sa'

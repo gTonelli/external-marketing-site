@@ -98,32 +98,32 @@ export const RESULTS = {
       copyYT6: {
         part1: `And if you join today, you’ll get this course and our All-Access Pass membership for just $67 per month instead of the regular price of $97.`,
         part2: [
-          <p>
+          <>
             The <strong>7 Days to Transform Relationships Course</strong> is the first step in your
             journey towards healing, empowered, and happier and healthier relationships.
-          </p>,
+          </>,
 
-          <p>
+          <>
             It’s partof our <strong>All-Access Pass Membership!</strong>
-          </p>,
+          </>,
 
-          <p>
+          <>
             This all-inclusive membership gives you access to this life-changing Fearful Avoidant
             course and everything else we offer at The Personal Development School: courses and
             programs, live webinars and Q&As, study groups, and a private online community.{' '}
-          </p>,
+          </>,
         ],
         part3: [
-          <p>
+          <>
             The best part? <strong>You unlock everything for one price</strong> instead of paying
             $197 for the 7 Days to Transform Relationships Course alone.
-          </p>,
+          </>,
 
-          <p>
+          <>
             On top of that, we offer a <strong>full 7-day money-back guarantee</strong> if you don’t
             see a massive breakthrough in your dating and love life. Just ask for a refund before
             your first 7 days are up, and we’ll get you a full refund.`
-          </p>,
+          </>,
         ],
       },
     },

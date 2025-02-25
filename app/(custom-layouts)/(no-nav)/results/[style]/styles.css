@@ -1,70 +1,74 @@
-.bg-fa-hero {
+.bg-hero-fa-mobile {
   position: relative;
   background: url('/images/AttachmentQuizResults/fa-hero.jpg') no-repeat top right / cover;
+  width: 100%;
+  height: 300px;
 }
 
-.bg-ap-hero {
+.bg-hero-ap-mobile {
   position: relative;
   background: url('/images/AttachmentQuizResults/ap-hero.jpg') no-repeat top right / cover;
+  width: 100%;
+  height: 300px;
 }
 
-.bg-da-hero {
+.bg-hero-da-mobile {
   position: relative;
   background: url('/images/AttachmentQuizResults/da-hero.jpg') no-repeat top right / cover;
+  width: 100%;
+  height: 300px;
 }
 
-.bg-sa-hero {
+.bg-hero-sa-mobile {
   position: relative;
   background: url('/images/AttachmentQuizResults/sa-hero.jpg') no-repeat top right / cover;
-}
-
-.bg-hero-mobile {
-  position: relative;
-}
-
-.bg-hero-mobile::after {
-  content: '';
-  position: absolute;
   width: 100%;
-  height: calc(100% + 15rem);
+  height: 300px;
+}
+
+.bg-gradient {
+  position: absolute;
+  content: '';
   top: 0;
   left: 0;
-  background: linear-gradient(
-    180deg,
-    #e3eded 0%,
-    rgba(227, 237, 237, 0.5) 75%,
-    rgba(227, 237, 237, 0) 100%
-  );
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(227, 237, 237, 0) 0%, #e3eded calc(300px), #fff 100%);
 }
 
 @media screen and (min-width: 1024px) {
-  .bg-fa-hero::after,
-  .bg-ap-hero::after,
-  .bg-sa-hero::after,
-  .bg-da-hero::after {
+  .bg-hero-fa {
+    position: relative;
+    background: url('/images/AttachmentQuizResults/fa-hero.jpg') no-repeat top right / cover;
+  }
+
+  .bg-hero-ap {
+    position: relative;
+    background: url('/images/AttachmentQuizResults/ap-hero.jpg') no-repeat top right / cover;
+  }
+
+  .bg-hero-da {
+    position: relative;
+    background: url('/images/AttachmentQuizResults/da-hero.jpg') no-repeat top right / cover;
+  }
+
+  .bg-hero-sa {
+    position: relative;
+    background: url('/images/AttachmentQuizResults/sa-hero.jpg') no-repeat top right / cover;
+  }
+
+  .bg-hero-fa::after,
+  .bg-hero-ap::after,
+  .bg-hero-da::after,
+  .bg-hero-sa::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 5;
-    background: linear-gradient(108deg, #e3eded 0%, rgba(213, 184, 216, 0) 71.01%);
-  }
-
-  .bg-fa-hero {
-    background: url('/images/AttachmentQuizResults/fa-hero-desktop.jpg') no-repeat top right / cover;
-  }
-
-  .bg-ap-hero {
-    background: url('/images/AttachmentQuizResults/ap-hero-desktop.jpg') no-repeat top right / cover;
-  }
-
-  .bg-da-hero {
-    background: url('/images/AttachmentQuizResults/da-hero-desktop.jpg') no-repeat top right / cover;
-  }
-
-  .bg-sa-hero {
-    background: url('/images/AttachmentQuizResults/sa-hero-desktop.jpg') no-repeat top right / cover;
+    background: linear-gradient(100deg, #e3eded 0%, rgba(213, 184, 216, 0) 100%);
+    z-index: 3;
   }
 }

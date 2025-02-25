@@ -63,7 +63,7 @@ type TConfig = {
   offerLabel: string
   offerType?: string
   title: string
-  copy: string
+  copy: string | JSX.Element
   ctaLabel: string
   checkoutUrl: EExternalRoutes
   disclaimer?: string
@@ -109,6 +109,22 @@ const allConfigs = {
     checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
     disclaimer:
       '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
+  },
+  dreamLifeSexCourse: {
+    offerLabel: 'Get Free Course For Life!',
+    offerType: '',
+    title: 'Get Your Emotional Intimacy & Sex Roadmap For Life - For FREE!',
+    copy: (
+      <>
+        Sign up for a Free Trial to own the <strong>Attachment Styles & Sex Course</strong> for
+        LIFE, so you can always navigate intimacy with clarity, build deeper connections, and
+        embrace more enjoyable experiences.
+      </>
+    ),
+    ctaLabel: 'SIGN UP FOR YOUR BEST LOVE LIFE!*',
+    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_MARCH_2025_PROMO_TRIAL,
+    disclaimer:
+      '*When you sign up today, you’ll get a 7-day free trial to the All-Access Pass Membership. At the end of the 7-day trial, you’ll move to a $67.00/month plan. If you cancel before your trial ends, you get to keep and access the Attachment Styles & Sex Course for life.',
   },
 } satisfies Record<string, TConfig>
 

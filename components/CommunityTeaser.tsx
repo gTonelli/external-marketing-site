@@ -14,6 +14,7 @@ interface ICommunityTeaserProps {
   sectionHeading?: string
   teaserHeading?: string
   paymentOptionsConfigKey: TPaymentOptionsConfigKey
+  communityBullets?: string[]
 }
 
 export const CommunityTeaser = ({
@@ -22,7 +23,10 @@ export const CommunityTeaser = ({
   sectionHeading = TH.COMMUNITY.heading,
   teaserHeading = TH.COMMUNITY.subheading,
   paymentOptionsConfigKey,
+  communityBullets,
 }: ICommunityTeaserProps) => {
+  const communityBulletsCopy = communityBullets || TH.COMMUNITY.bullets
+
   return (
     <>
       {!includeBgImage && (
@@ -76,7 +80,7 @@ export const CommunityTeaser = ({
             <h2 className="mb-8">{teaserHeading}</h2>
 
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              {TH.COMMUNITY.bullets.map((bullet, idx) => (
+              {communityBulletsCopy.map((bullet, idx) => (
                 <div key={`community_perk_${idx}`} className="flex items-center space-x-6">
                   <FontAwesomeIcon icon={faCheck} size="2x" />
 

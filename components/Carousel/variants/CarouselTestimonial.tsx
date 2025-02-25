@@ -154,7 +154,7 @@ export const CarouselTestimonial = forwardRef(
             <div>
               <Image
                 className="hidden lg:block"
-                src="/homepage_quote_left.png"
+                src="/images/homepage_quote_left.png"
                 alt="left quote"
                 width={24}
                 height={24}
@@ -178,7 +178,7 @@ export const CarouselTestimonial = forwardRef(
           {showQuotations ? (
             <Image
               className="hidden lg:block"
-              src="/homepage_quote_right.png"
+              src="/images/homepage_quote_right.png"
               alt="right quote"
               width={24}
               height={24}

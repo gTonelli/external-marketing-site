@@ -128,7 +128,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
         <Image
           alt="A mockup of PDS courses on 2 phones side by side."
-          className="w-full mt-12 mb-8 lg:hidden"
+          className="w-auto max-h-96 mt-12 mb-8 mx-auto lg:hidden lg:max-h-max"
           src="/images/AttachmentQuizResults/offer-mockup-1.png"
           width={425}
           height={465}

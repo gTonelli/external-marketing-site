@@ -123,14 +123,12 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP = 'https://checkout.personaldevelopmentschool.com/enroll/2996140?price_id=3853225&coupon=148off',
   THINKIFIC_CHECKOUT_SIMPLIFIED_FA = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1285773&bci=2178659',
   // IAT Recorded
-  // THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT = 'https://staging.strapi.personaldevelopmentschool.com/api/enroll/2751990?price_id=3577378&coupon=iatbundleupfrontrecorded',
+  THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
   // IAT Spring 2025
-  //  THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098384&coupon=iatbundleupfrontlivespring25',
-  THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT = 'https://staging.strapi.personaldevelopmentschool.com/api/enroll/3213092?price_id=4101790&coupon=iatbundleupfrontlivespring25',
+  THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098384&coupon=iatbundleupfrontlivespring25',
   THINKIFIC_CHECKOUT_IAT_SPRING_2025_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098408&coupon=iatbundle3molivespring25',
   THINKIFIC_CHECKOUT_IAT_SPRING_2025_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098409&coupon=iatbundle6molivespring25',
   THINKIFIC_CHECKOUT_IAT_SPRING_2025_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098410&coupon=iatbundle12molivespring25',

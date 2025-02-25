@@ -13,7 +13,6 @@ import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
-import { EExternalRoutes } from '@/utils/constants'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
@@ -40,6 +39,8 @@ import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
+// utils
+import { EExternalRoutes } from '@/utils/constants'
 // styles
 import 'swiper/css'
 import 'swiper/css/navigation'

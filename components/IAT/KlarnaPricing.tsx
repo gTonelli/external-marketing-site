@@ -2,6 +2,7 @@
 
 // core
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 // components
 import { Loader } from '../Loader'
 import { Section } from '../Section'
@@ -10,7 +11,6 @@ import { List } from '../List'
 import { IAT_COPY as config } from '@/app/(default-layout)/iat/config'
 import { Button } from '../Button/Button'
 import { IATPriceCardSection } from './IATPage'
-import Link from 'next/link'
 import {
   faCircleCheck,
   faCircle,

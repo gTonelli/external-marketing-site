@@ -9,6 +9,7 @@ import { faCircle, faHeart, faStar } from '@awesome.me/kit-545b942488/icons/clas
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // config
 import { REPORT_COPY, AGE_REPORT_COPY } from './config'
+// utils
 import { TStyle } from '@/utils/types'
 
 interface IAttachmentReportProps {
@@ -102,7 +103,9 @@ export const AttachmentReport = ({
               {COPY.copy4.list.map((listItem, idx) => (
                 <div
                   key={idx}
-                  className="flex justify-center items-center font-bold bg-teal-light rounded-3xl p-8">
+                  className={`${
+                    style === 'ap' && 'last:col-span-2 lg:last:col-span-1'
+                  } flex justify-center items-center font-bold bg-teal-light rounded-3xl p-8`}>
                   {listItem}
                 </div>
               ))}
@@ -188,6 +191,7 @@ export const AttachmentReport = ({
 
         <div className="flex justify-center">
           <Image
+            className="max-h-96 lg:max-h-max"
             src="/images/ReportsOld/couple-vector.svg"
             alt="A vector of a couple"
             width={270}

@@ -1,13 +1,10 @@
 'use client'
 
-/* eslint-disable @typescript-eslint/no-use-before-define */
 // core
 import { useEffect, useRef, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 // components
-import { IDefaultProps } from '@/components'
 import { Button } from '@/components/Button/Button'
-import { Captcha } from '@/components/Captcha'
 import { Dialog } from '@/components/Dialog/Dialog'
 import { Expandable } from '@/components/Expandable'
 import { Faq } from '@/components/Faq/Faq'
@@ -16,18 +13,16 @@ import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Input } from '@/components/Input/Input'
 import { List } from '@/components/List'
-import { EExternalRoutes, Regexes } from '@/utils/constants'
 import { Section } from '@/components/Section'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
-import { IAT_COPY as IAT } from './config'
-import { IATBanner } from './IATBanner'
-import { Loader } from '@/components/Loader'
+import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
 import { CheckoutButton } from '@/components/CheckoutButton'
+import { IATBanner } from '@/components/IAT/IATBanner'
+import { KlarnaPricing } from './KlarnaPricing'
 // libraries
-import cx from 'classnames'
-import { Form, Formik, FormikConfig, FormikHelpers } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import { Autoplay, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import * as Yup from 'yup'
@@ -41,18 +36,11 @@ import {
 import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
-import { Elements, PaymentMethodMessagingElement } from '@stripe/react-stripe-js'
-import {
-  loadStripe,
-  Stripe,
-  StripeConstructorOptions,
-  StripePaymentMethodMessagingElementOptions,
-} from '@stripe/stripe-js'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { useGamAnalytics } from '@/modules/GAM'
 // utils
-import { getSplitTest, getUserCountry, setSplitTest } from '@/utils/functions'
+import { EExternalRoutes } from '@/utils/constants'
 // styles
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -74,10 +62,12 @@ export const IATPage = ({
   page_name,
   pageUrl = 'other',
   showLeadGenForm = false,
+  showKlarna = false,
 }: {
   page_name: Pages
   pageUrl?: 'other' | 'ebook'
   showLeadGenForm?: boolean
+  showKlarna?: boolean
 }) => {
   const searchParams = useSearchParams()
 
@@ -670,7 +660,7 @@ export const IATPage = ({
 
       {/* PRICE CARDS */}
       <div ref={priceRef} className="text-center mb-12 lg:mb-18">
-        <IATPriceCardSection />
+        {showKlarna ? <KlarnaPricing /> : <IATPriceCardSection />}
 
         <Text.Heading
           className="text-black text-[26px] mt-4 mb-8 mx-6"
@@ -919,7 +909,6 @@ const IATPriceCard = ({
   // ================== State =============
   const [isExpanded, setIsExpanded] = useState(false)
   const [selectedCardIndex, setSelectedCardIndex] = useState(0)
-  const router = useRouter()
 
   return (
     <>
@@ -954,6 +943,7 @@ const IATPriceCard = ({
                 spacing="tracking-0.325"
               />
             )}
+
             <div className="flex flex-center flex-row mt-1">
               <Text.Paragraph
                 className="font-ssp font-bold !text-green-check !text-[26px]"
@@ -976,7 +966,6 @@ const IATPriceCard = ({
               label="SEE PRICES"
               onClick={() => setIsExpanded(true)}
             />
-
             <Text.Paragraph
               className="italic mt-3"
               content="Book a call to get additional 5% OFF"
@@ -1013,26 +1002,6 @@ const IATPriceCard = ({
                 spacing="tracking-0.325"
               />
             )}
-
-            <div className="grid grid-cols-3 gap-9 mt-4">
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="3 Months" />
-
-                <Text.Paragraph content="$689/m" />
-              </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="6 Months" />
-
-                <Text.Paragraph content="$359/m" />
-              </div>
-
-              <div className="font-bold border rounded-10 py-3">
-                <Text.Paragraph content="12 Months" />
-
-                <Text.Paragraph content="$189/m" />
-              </div>
-            </div>
 
             <List
               className="text-left mt-7"
@@ -1190,105 +1159,29 @@ const IATCurriculumCard = ({
   )
 }
 
-const stripe = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_test_TX9ha9wfpmmbbQF0kpuVuNRl00r3Lanubq',
-  { stripeAccount: 'acct_1Pv1BOCWMNXx1IFm' }
-)
-
-const IATPriceCardSection = () => {
+export const IATPriceCardSection = () => {
   return (
     <Section classNameInner="max-w-md mt-12 lg:max-w-5xl lg:mt-0">
       <div className="lg:grid-cols-2 lg:grid lg:gap-8">
-        <Elements stripe={stripe}>
-          <IATPriceCard
-            isLive
-            benefits={IAT.price.live_mode}
-            heading="Live Training"
-            originalPrice={'$7,000.00'}
-            prices={iatLivePrices}
-            salePrice={'$3,499.00'}
-          />
+        <IATPriceCard
+          isLive
+          benefits={IAT.price.live_mode}
+          heading="Live Training"
+          originalPrice={'$7,000.00'}
+          prices={iatLivePrices}
+          salePrice={'$3,499.00'}
+        />
 
-          <IATPriceCard
-            benefits={IAT.price.recorded_mode}
-            heading="On Demand"
-            originalPrice={'$4,000.00'}
-            prices={iatRecordedPrices}
-            salePrice={'$1,999.00'}
-            subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:'`}
-          />
-        </Elements>
+        <IATPriceCard
+          benefits={IAT.price.recorded_mode}
+          heading="On Demand"
+          originalPrice={'$4,000.00'}
+          prices={iatRecordedPrices}
+          salePrice={'$1,999.00'}
+          subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:`}
+        />
       </div>
     </Section>
-  )
-}
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-interface ContactUsVariables {
-  name: string
-  email: string
-  captcha: string
-}
-
-interface IFormDefaultProps<Values>
-  extends Omit<FormikConfig<Values>, 'initialValues'>,
-    IDefaultProps {
-  initialValues?: Values
-}
-
-const schema: Yup.Schema<ContactUsVariables> = Yup.object({
-  name: Yup.string().defined().ensure().required('Name is required').default(''),
-  email: Yup.string()
-    .defined()
-    .ensure()
-    .required('E-mail is required')
-    .matches(Regexes.email, 'Email must be valid')
-    .default(''),
-  captcha: Yup.string().defined().ensure().required(),
-})
-
-export type TFormContactUs = Yup.InferType<typeof schema>
-const initialValues = schema.cast({}) as TFormContactUs
-
-interface IFormContactUsProps<TForm> extends IFormDefaultProps<TForm> {}
-
-const IATFormContactUs = (props: IFormContactUsProps<TFormContactUs>) => {
-  const defaultInputClasses = '!rounded-10  border-1 border-primary !border-solid py-3 mt-4'
-
-  return (
-    <Formik<TFormContactUs> {...props} initialValues={initialValues} validationSchema={schema}>
-      {({ setFieldValue }) => (
-        <Form className="flex flex-col justify-start">
-          <Input.Field
-            noStyles
-            classNameInput={cx(defaultInputClasses)}
-            name="name"
-            placeholder="Name"
-          />
-
-          <Input.Field
-            noStyles
-            classNameInput={cx(defaultInputClasses)}
-            name="email"
-            placeholder="Email"
-            type="email"
-          />
-
-          <Captcha
-            className={
-              (cx(defaultInputClasses),
-              'transform origin-left scale-[80%] sm:transform-none sm:pt-4')
-            }
-            onError={() => setFieldValue('captcha', false)}
-            onSuccess={(val) => {
-              setFieldValue('captcha', val)
-            }}
-          />
-
-          <Button.Submit className="px-8 mt-8 rounded-full" label="Submit" />
-        </Form>
-      )}
-    </Formik>
   )
 }
 
@@ -1450,40 +1343,4 @@ const IATRegistrationForm = () => {
       )}
     </Formik>
   )
-}
-
-function getPaymentMethodMessagingElementOptions(
-  countryCode: string | undefined,
-  type: 'live' | 'recorded'
-): StripePaymentMethodMessagingElementOptions | undefined {
-  switch (countryCode) {
-    case 'CA':
-      return type === 'recorded'
-        ? {
-            amount: 289900,
-            currency: 'CAD',
-            countryCode: 'CA',
-            paymentMethodTypes: ['klarna'],
-          }
-        : {
-            amount: 499900,
-            currency: 'CAD',
-            countryCode: 'CA',
-            paymentMethodTypes: ['klarna'],
-          }
-    default:
-      return type === 'recorded'
-        ? {
-            amount: 199900,
-            currency: 'USD',
-            countryCode: 'US',
-            paymentMethodTypes: ['klarna'],
-          }
-        : {
-            amount: 349900,
-            currency: 'USD',
-            countryCode: 'US',
-            paymentMethodTypes: ['klarna'],
-          }
-  }
 }

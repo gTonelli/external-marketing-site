@@ -64,6 +64,7 @@ export type Pages =
   | `Dreamlife Free Course Page`
   | `Dreamlife Holiday Free Trial Page`
   | `External IAT Page`
+  | `External IAT Page (Klarna)`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`
   | `Explore Courses Page`
@@ -74,6 +75,7 @@ export type Pages =
   | `IAT Info Page`
   | `IAT Webinar Page`
   | `IAT Webinar Squeeze Page`
+  | `IAT Webinar Recording Page`
   | `IAT Post Registration Masterclass Page`
   | `Intent Project - FA`
   | `Learn - 30% OFF`

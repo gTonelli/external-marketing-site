@@ -67,7 +67,6 @@ export default function IATMasterclassRecordingPage() {
           <strong>Time Left to Claim Your Exclusive Masterclass Discount</strong>
         </p>
 
-        {/* Countdown for March 13, 2025 11:59 PM ET */}
         <CountdownTimer
           className="mb-8"
           theme="light"

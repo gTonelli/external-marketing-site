@@ -72,7 +72,6 @@ export default function IATWebinarSqueezePage() {
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
-          {/* countdown for March 13, 2025, 11:59 PM ET */}
           <CountdownTimer
             className="!justify-start"
             classNameDate="!bg-inherit !shadow-none !text-black !p-0"

@@ -7,12 +7,12 @@ import { forwardRef, useContext, useState } from 'react'
 import { IDefaultProps } from '@/components'
 import { Testimonial } from '@/components/Testimonial/Testimonial'
 import { Text } from '@/components/Text/Text'
+import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // libraries
 import cx from 'classnames'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { TTestimonial } from '../../Testimonial/variants/TestimonialDefault'
@@ -140,27 +140,22 @@ export const CarouselTestimonial = forwardRef(
         ref={ref}
         className={cx(
           className,
-          `w-full flex flex-col items-center mb-10 ${
+          `w-full flex flex-col items-center my-8 ${
             isPrimary ? 'lg:px-page-xs xl:px-page-md 2xl:px-page' : ''
           }`
         )}>
         {/* QUOTE HEADER */}
-        <div
-          className="w-full flex items-center justify-around mb-10 
-            xl:max-w-3/4 
-            3xl:max-w-1/2">
+        <div className="w-full flex items-center justify-around mb-4">
           {/* LEFT QUOTE */}
-          {showQuotations ? (
-            <div>
-              <Image
-                className="hidden lg:block"
-                src="/images/homepage_quote_left.png"
-                alt="left quote"
-                width={24}
-                height={24}
-              />
-            </div>
-          ) : null}
+          {showQuotations && (
+            <Image
+              className="hidden lg:block"
+              src="/images/homepage_quote_left.png"
+              alt="left quote"
+              width={24}
+              height={24}
+            />
+          )}
 
           <div className="default-padding text-center">
             {/* HEADING */}
@@ -175,7 +170,7 @@ export const CarouselTestimonial = forwardRef(
           </div>
 
           {/* RIGHT QUOTE */}
-          {showQuotations ? (
+          {showQuotations && (
             <Image
               className="hidden lg:block"
               src="/images/homepage_quote_right.png"
@@ -183,7 +178,7 @@ export const CarouselTestimonial = forwardRef(
               width={24}
               height={24}
             />
-          ) : null}
+          )}
         </div>
 
         {/* SLIDER */}

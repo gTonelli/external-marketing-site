@@ -4,6 +4,7 @@ import Mixpanel from '@/modules/Mixpanel'
 import { Storage, TStorageKeys } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
 import Cookies from 'universal-cookie'
+import dayjs from 'dayjs'
 
 /**
  * Check if property is function
@@ -158,15 +159,19 @@ export const isPhoneValid = (phone: string) => {
   }
 }
 
-export const getUserCountry = () => {
-  const userCountry = Storage.get('userCountry') as string | undefined
+export const getUserCountry = async () => {
+  const data = Storage.get('userCountry')
+  if (data && dayjs(data?.expires).isAfter(dayjs()) && data?.countryCode) {
+    return Promise.resolve(data.countryCode as string)
+  }
 
-  return userCountry
-    ? Promise.resolve(userCountry)
-    : fetch('/api/geo')
-        .then((res) => res.json())
-        .then((data) => {
-          Storage.set('userCountry', data.countryCode)
-          return data.countryCode as string
-        })
+  const res = await fetch('/api/geo').then((res) => res.json())
+  Storage.set(
+    'userCountry',
+    JSON.stringify({
+      countryCode: res.countryCode,
+      expires: dayjs().add(7, 'days').toISOString(),
+    })
+  )
+  return res.countryCode as string
 }

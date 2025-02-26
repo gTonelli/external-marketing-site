@@ -1,5 +1,6 @@
-// components
+// core
 import Image from 'next/image'
+// components
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
@@ -8,24 +9,25 @@ import { Faq } from '@/components/Faq/Faq'
 import { List } from '@/components/List'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { RoyalRumbleHeadline } from './RoyalRumbleHeadline'
-// libraries
-import cx from 'classnames'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import {
   faCheckCircle,
   faCircleCheck,
   faSquareCheck,
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
-// utils
-import { TStyle } from '@/utils/types'
+// config
 import {
   ROYAL_RUMBLE as CONFIG,
   AGE_CONFIG,
   AGE_PRICING,
   MEL_ROBBINS_CONFIG as MR_CONFIG,
 } from './config'
+// libraries
+import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// utils
+import { TStyle } from '@/utils/types'
 import { EExternalRoutes } from '@/utils/constants'
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export interface IQuizResultsPageProps {
   style: TStyle

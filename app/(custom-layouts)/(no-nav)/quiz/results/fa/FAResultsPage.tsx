@@ -690,12 +690,22 @@ const PromotionSection = ({ ageVariant = false, youtubeVariant = false }: IFARes
               ) : (
                 <>
                   <p className="my-4 text-primary font-bold !text-lg">
-                    {RESULTS[style].PROMOTION_1.copy6.part1}
+                    {youtubeVariant
+                      ? RESULTS[style].PROMOTION_1.copyYT6.part1
+                      : RESULTS[style].PROMOTION_1.copy6.part1}
                   </p>
 
-                  <p className="my-4 !text-lg">{RESULTS[style].PROMOTION_1.copy6.part2}</p>
+                  <p className="my-4 !text-lg">
+                    {youtubeVariant
+                      ? RESULTS[style].PROMOTION_1.copyYT6.part2
+                      : RESULTS[style].PROMOTION_1.copy6.part2}
+                  </p>
 
-                  <p className="my-4 !text-lg">{RESULTS[style].PROMOTION_1.copy6.part3}</p>
+                  <p className="my-4 !text-lg">
+                    {youtubeVariant
+                      ? RESULTS[style].PROMOTION_1.copyYT6.part3
+                      : RESULTS[style].PROMOTION_1.copy6.part3}
+                  </p>
                 </>
               )}
             </div>

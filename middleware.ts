@@ -259,7 +259,7 @@ const splitTestConfigs: TSplitTestConfigs = {
   ytQuizFunnelTest: {
     cookieKey: 'gm-1525-yt-quiz-funnel',
     pageName: 'Main Funnel Quiz',
-    experimentName: 'GM-1525-Quiz-Funnel',
+    experimentName: 'GM-1525-YT-Quiz-Funnel',
     variantUrl: {
       path: '/yt-quiz',
     },

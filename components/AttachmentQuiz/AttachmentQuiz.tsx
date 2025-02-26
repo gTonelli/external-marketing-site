@@ -33,7 +33,7 @@ export interface IResultProps extends IDefaultProps {
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean
   quiz_traffic_source: TQuizTrafficSources
-  quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz' | 'Main Funnel Quiz Variant'
+  quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz' | 'Main Funnel Quiz Variant' | 'Youtube Funnel Quiz'
   showStartButton?: boolean
 }
 
@@ -78,4 +78,4 @@ export const AttachmentQuiz = ({
   }
 }
 
-export type TQuizTrafficSources = 'organic' | 'paidGoogle' | 'paidMeta'
+export type TQuizTrafficSources = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'

@@ -4,6 +4,7 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { CheckoutButton } from '@/components/CheckoutButton'
 import { List } from '@/components/List'
 import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG } from './config'
+import { RegisterNowSection } from './QuizResultsPage'
 // libraries
 import { faChevronDoubleRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
@@ -13,9 +14,16 @@ import { EExternalRoutes } from '@/utils/constants'
 type Props = {
   style: Extract<TStyle, 'da' | 'sa'>
   ageVariant?: boolean
+  melRobbinsVariant?: boolean
+  youtubeVariant?: boolean
 }
 
-export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
+export const RoyalRumbleHeadline = ({
+  style,
+  ageVariant,
+  melRobbinsVariant = false,
+  youtubeVariant = false,
+}: Props) => {
   const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : CONFIG
 
   return (
@@ -23,7 +31,11 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
       <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
         <div className="flex flex-col justify-center items-center max-w-5xl pt-10 md:pt-20 px-4 md:mx-auto">
           <AttachmentQuizHeading
-            copy={ROYAL_RUMBLE[style].HERO_SECTION.headline}
+            copy={
+              youtubeVariant
+                ? ROYAL_RUMBLE[style].HERO_SECTION.headlineYT
+                : ROYAL_RUMBLE[style].HERO_SECTION.headline
+            }
             className="!font-ssp !text-3xl capitalize lg:!text-4xl"
           />
 
@@ -35,31 +47,60 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
           <div className="max-w-5xl w-full md:my-8">
             <div className="flex flex-col md:flex-row justify-center items-center space-x-6 md:px-8">
               <div>
+                <h2 className="text-purple-dark mb-4 !text-3xl">
+                  {youtubeVariant && ROYAL_RUMBLE[style].HERO_SECTION.titleYT}
+                </h2>
+
                 <VideoThumbnail
                   srcUrl={ROYAL_RUMBLE[style].HERO_SECTION.videoURL}
                   thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
                   thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
                   type="default"
                 />
+
+                {youtubeVariant && (
+                  <>
+                    <p className="max-w-md font-bold text-center mt-8">
+                      {ROYAL_RUMBLE[style].BANNER_SEGMENT.copyYT}
+                    </p>
+
+                    <CheckoutButton
+                      href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                      className="my-8 xxs:px-16"
+                      label="GET STARTED NOW!"
+                    />
+                  </>
+                )}
               </div>
 
-              <div className="m-4 md:text-left md:w-1/2">
-                <h2 className="text-purple-dark !text-3xl hidden md:block">
-                  {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                </h2>
+              {!youtubeVariant && (
+                <div className="m-4 md:text-left md:w-1/2">
+                  <h2 className="text-purple-dark !text-3xl hidden md:block">
+                    {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                  </h2>
 
-                <p className="mt-4 hidden md:block">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                  <p className="mt-4 hidden md:block">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
 
-                <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">
-                  {ROYAL_RUMBLE[style].HERO_SECTION.title}
-                </h2>
+                  <h2 className="text-purple-dark !text-3xl mt-6 md:hidden">
+                    {ROYAL_RUMBLE[style].HERO_SECTION.title}
+                  </h2>
 
-                <p className="mt-4 md:hidden">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
-              </div>
+                  <p className="mt-4 md:hidden">{ROYAL_RUMBLE[style].HERO_SECTION.copy}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
+
+      {youtubeVariant && (
+        <RegisterNowSection
+          ageVariant={ageVariant}
+          style={style}
+          melRobbinsVariant={melRobbinsVariant}
+          youtubeVariant={youtubeVariant}
+        />
+      )}
 
       <div className="max-w-[850px] text-left mx-4 mt-8 md:w-calc(100%-2rem) lg:mx-auto lg:max-w-[1008px]">
         <h2>{ROYAL_RUMBLE[style].BANNER_SEGMENT.variantSubheader}</h2>
@@ -86,11 +127,17 @@ export const RoyalRumbleHeadline = ({ style, ageVariant }: Props) => {
           Goals
         </h2>
 
-        {ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy3.map((copy, index) => (
-          <p key={`banner_segment_copy_v_${index}`} className="mb-4 md:text-lg">
-            {copy}
-          </p>
-        ))}
+        {youtubeVariant
+          ? ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopyYT3.map((copy, index) => (
+              <p key={`banner_segment_copy_v_${index}`} className="mb-4 md:text-lg">
+                {copy}
+              </p>
+            ))
+          : ROYAL_RUMBLE[style].BANNER_SEGMENT.variantCopy3.map((copy, index) => (
+              <p key={`banner_segment_copy_v_${index}`} className="mb-4 md:text-lg">
+                {copy}
+              </p>
+            ))}
 
         <div className="flex justify-center">
           <CheckoutButton

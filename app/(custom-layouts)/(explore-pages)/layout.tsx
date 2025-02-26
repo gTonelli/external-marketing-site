@@ -25,7 +25,7 @@ export default function ExploreCoursesLayout({ children }: { children: React.Rea
 
       {children}
 
-      <Footer />
+      <Footer/>
     </>
   )
 }

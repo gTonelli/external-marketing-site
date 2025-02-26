@@ -122,9 +122,11 @@ export const ROYAL_RUMBLE = {
     HERO_SECTION: {
       headline:
         'Are You Ready For A Committed, Intimate, And Loving Relationship With Someone Who Values And Prioritizes You?',
+      headlineYT: 'Your quiz results are on the way! Watch this video while you wait.',
       subheadline: `The First Step Is Watching The Short Video Below To Learn And Understand Your Relationship Patterns – And How They’re Shockingly Accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
       title: 'Who Is The Anxious Preoccupied?',
+      titleYT: 'This is the Anxious Preoccupied',
       copy: 'As we send over your personalized report, take a few moments to watch this short video and read on to discover your anxious preoccupied attachment style. You’ll learn about your relationship and personal patterns and how to start your healing journey to become securely attached.',
     },
 
@@ -139,6 +141,8 @@ export const ROYAL_RUMBLE = {
 
         'Because of this internal struggle, it’s common for you to become angry and resentful towards your partner when they’re not meeting your expectations. Not knowing how to express yourself best, you may pick fights with your partner constantly, pushing them away, only to reaffirm your beliefs that you’re going to be abandoned to end up alone.',
       ],
+      copyYT:
+        'At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access to our All-Access Pass. This is 30% off for a limited time only!',
     },
 
     FAMILIAR_SEGMENTS: {
@@ -423,9 +427,11 @@ export const ROYAL_RUMBLE = {
     HERO_SECTION: {
       headline:
         'Do You Want A Happy, Harmonious Relationship That Still Allows You To Be Independent And Have Free Time?',
+      headlineYT: 'Your quiz results are on the way! Watch this video while you wait.',
       subheadline: `The First Step Is Watching The Short Video Below To Learn And Understand Your Relationship Patterns – And How They’re Shockingly Accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
       title: 'Who Is The Dismissive Avoidant?',
+      titleYT: 'This is the Dismissive Avoidant',
       copy: 'While we send your personalized report, watch this short video and read on to learn about your dismissive avoidant attachment style, including your relationship patterns and fears, and how you can start your healing journey to become securely attached.',
     },
 
@@ -438,6 +444,8 @@ export const ROYAL_RUMBLE = {
 
         'Your only strategy when you feel this inner conflict is to detach from others, distance yourself, and get very protective over your time and space alone. It’s so common for you to go to great lengths to avoid letting people in, that it can come across like you don’t need your partner, friends, or family at all. The truth is that you do value their connection, you just feel wildly misunderstood and don’t know how to get out of your head or let your guard down to truly connect.',
       ],
+      copyYT:
+        'Achieve your personal and relationship goals, and heal your insecure attachment through on-demand courses – all created and developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal Development School. Click the button below to enroll and gain exclusive access to our All-Access Pass. This is 30% off for life, for a limited time only!',
       variantSubheader:
         'Keep Reading to Learn About Your Dismissive Avoidant Attachment Style And How You Can Heal It…',
       variantCopy1: [
@@ -474,6 +482,20 @@ export const ROYAL_RUMBLE = {
             Click the button below to enroll and gain exclusive access. This is 30% off for life,
             for a limited time only!
           </strong>
+        </>,
+      ],
+      variantCopyYT3: [
+        "In each course, I'll teach you tailored concepts, tools, and strategies that guide your transformation from dismissive avoidant to securely attached, helping you create and foster the relationships you desire.",
+        <>
+          You’ll learn to conquer your fears, let down your barriers, overcome your patterns, and
+          open yourself to forming loving relationships with emotionally available people in less
+          than less than <em>30 days</em>.
+        </>,
+        <>
+          Too many people let their attachment styles, their beliefs, and their subconscious
+          relationship patterns control their whole lives. But that doesn’t have to be you too, with
+          our tailored programs you can find lasting change, and start building the best
+          relationships of your life today.
         </>,
       ],
     },
@@ -754,9 +776,11 @@ export const ROYAL_RUMBLE = {
 
     HERO_SECTION: {
       headline: 'Are you ready to start having the best relationships of your life?',
+      headlineYT: 'Your quiz results are on the way! Watch this video while you wait.',
       subheadline: `The first step is watching the video below and understand your relationship patterns – and how they’re shockingly accurate!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
       title: 'Who Is The Fearful Avoidant?',
+      titleYT: 'This is the Fearful Avoidant',
       copy: 'While we email your personalized report, read on to discover your fearful avoidant attachment style, your relationship and personal patterns, and how you can start your healing journey to become securely attached.',
     },
 
@@ -771,6 +795,8 @@ export const ROYAL_RUMBLE = {
 
         'In the history of your adult romantic relationships, you may experience a lot of feeling “hot and cold.” One day you may feel deeply connected and committed to a relationship, and the next you may feel really discouraged, frustrated and withdrawn. Fearful Avoidant Attachment Styles often go back and forth in their mind between optimism and doubt when it comes to their relationships. This tends to happen the most intensely when there is a deeper connection and people are getting close to you. It can be scary for you to trust others and to let people in. This can lead to arguments, feeling like you are on a rollercoaster in relationships and feeling frustrated and let down by the people you love.',
       ],
+      copyYT:
+        'At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns,  in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access to our All-Access Pass. This is 30% off for a limited time only!',
     },
     FAMILIAR_SEGMENTS: {
       traits: [
@@ -1056,9 +1082,11 @@ export const ROYAL_RUMBLE = {
     HERO_SECTION: {
       headline:
         'Are You Ready To Find That Spark In Your Love Life Again – And Meet A Loving And Secure Partner?',
+      headlineYT: 'Your quiz results are on the way! Watch this video while you wait.',
       subheadline: `The First Step Is Watching This Short – And Shockingly Accurate – Video About Being A Securely Attached Person!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
       title: 'Who Is The Securely Attached?',
+      titleYT: 'This is the Securely Attached',
       copy: 'While we email your personalized report, watch this video and read on to discover your secure attachment style, how it impacts your relationships and patterns, and how to use it to find, nurture, and maintain a long-lasting and loving relationship.',
     },
 
@@ -1067,6 +1095,8 @@ export const ROYAL_RUMBLE = {
       copy: [
         'You’re a warm and friendly person who feels comfortable in relationships (both intimate and platonic). You connect with people easily, generally feel confident in who you are, and have a strong sense of self-worth. You are quite good at communicating your needs, feelings, and opinions to others. Letting people in is easy for you because you feel safe, can set healthy boundaries, and have the skills to step away from situations that don’t deserve your time. When faced with relationship problems with your partner, friends, family, or coworkers, you see most problems as solvable and have strong conflict resolution skills. When you are faced with situations that are triggering, you are able to sit with your emotions and regulate them appropriately. When it comes to supporting others, you are an empathetic listener and are happy to be their rock. Your romantic relationships are generally stable and you don’t have a problem with long-term commitments. However, you can sometimes end up in relationships that feel wildly out of balance and that can drain you. Although you are very adaptable to different types of people, you sometimes struggle to understand how they operate and what exactly you need to do to fully support them.',
       ],
+      copyYT:
+        'Achieve your personal and relationship goals, and understand the attachment styles of others that could be affecting your relationships through our on-demand courses – all created and developed by me, Thais Gibson – author, industry leader, and co-founder of The Personal Development School. Click the button below to enroll and gain exclusive access to our All-Access Pass. This is 30% off for life, for a limited time only!',
       variantSubheader:
         'Keep Reading to Learn About Your Secure Attachment Style And How It Impacts Your Relationships…',
       variantCopy1: [
@@ -1105,6 +1135,21 @@ export const ROYAL_RUMBLE = {
             Click the button below to enroll and gain exclusive access. This is 30% off for life,
             for a limited time only!
           </strong>
+        </>,
+      ],
+      variantCopyYT3: [
+        'Our courses will teach you how to navigate loving relationships with individuals who have insecure attachment styles, so you can foster and create fulfilling, lasting relationships.',
+        <>
+          In each course, I'll teach you concepts, tools, and strategies that can be used for as
+          little as <em>10 minutes a day</em>. You’ll learn how to return the balance to your
+          relationships, improve communication, remove conflict, and understand different attachment
+          styles to form new loving relationships in less than <em>30 days</em>.
+        </>,
+        <>
+          Too many people let their attachment styles, their beliefs, and their subconscious
+          relationship patterns control their whole lives. But that doesn’t have to be you too, with
+          our tailored programs you can find lasting change, and start building the best
+          relationships of your life today.
         </>,
       ],
     },

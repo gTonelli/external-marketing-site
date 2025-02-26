@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: TParams) {
 export default function RoyalRumble({ params }: TParams) {
   return (
     <Page className="w-full text-center z-10" page_name={`vsl-${params.style}`}>
-      <QuizResultsPage style={params.style} />
+      <QuizResultsPage style={params.style}/>
     </Page>
   )
 }

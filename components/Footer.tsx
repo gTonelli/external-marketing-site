@@ -44,35 +44,35 @@ export const Footer = ({
 
           {includeSocialLinks && (
             <div className="flex px-4">
-              <Link className="mx-[15px] mb-5" href={EExternalRoutes.YOUTUBE}>
+              <Link className="mx-4 mb-5" href={EExternalRoutes.YOUTUBE}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faYoutube}
                 />
               </Link>
 
-              <Link className="mx-[15px] mb-5" href={EExternalRoutes.TIKTOK}>
+              <Link className="mx-4 mb-5" href={EExternalRoutes.TIKTOK}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faTiktok}
                 />
               </Link>
 
-              <Link className="mx-[15px] mb-5" href={EExternalRoutes.FACEBOOK}>
+              <Link className="mx-4 mb-5" href={EExternalRoutes.FACEBOOK}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faFacebook}
                 />
               </Link>
 
-              <Link className="mx-[15px] mb-5" href={EExternalRoutes.INSTAGRAM}>
+              <Link className="mx-4 mb-5" href={EExternalRoutes.INSTAGRAM}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faInstagram}
                 />
               </Link>
 
-              <Link className="mx-[15px] mb-5" href={EExternalRoutes.PODCASTS}>
+              <Link className="mx-4 mb-5" href={EExternalRoutes.PODCASTS}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faPodcast}

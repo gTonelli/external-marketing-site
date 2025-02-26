@@ -1,5 +1,7 @@
-﻿import { Footer } from '@/components/Footer'
+﻿// core
 import type { Metadata } from 'next'
+// components
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'The Attachment Style Quiz',
@@ -12,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <>
       {children}
 
-      <Footer includeSocialLinks={false} showDisclaimer/>
+      <Footer showDisclaimer includeSocialLinks={false} />
     </>
   )
 }

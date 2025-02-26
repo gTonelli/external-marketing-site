@@ -11,7 +11,7 @@ import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/Brea
 import { Button } from '@/components/Button/Button'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 // config
-import { REGULAR_COPY } from '../../(no-nav)/config'
+import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 // libraries
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -44,7 +44,7 @@ export default function YoutubeQuizPage() {
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}
         <div className="flex flex-col items-center lg:-mb-16 xl:-mb-24">
-          <h4>The Personal Development School</h4>
+          <p className='text-lg font-bold'>The Personal Development School</p>
 
           <h1 className="mb-2 leading-10">What is Your Attachment Style?</h1>
 
@@ -61,7 +61,7 @@ export default function YoutubeQuizPage() {
       </section>
 
       <Image
-        alt=""
+        alt="PDS quiz banner background image desktop"
         className="w-full hidden relative z-5 lg:block"
         src="/images/external-quiz-banner-bg.png"
         width={1920}
@@ -70,7 +70,7 @@ export default function YoutubeQuizPage() {
         sizes="100vw"
       />
       <Image
-        alt=""
+        alt="PDS quiz banner background image mobile"
         className="w-full relative z-5 lg:hidden"
         src="/images/external-quiz-banner-bg-mobile.png"
         tabIndex={-1}
@@ -103,9 +103,7 @@ export default function YoutubeQuizPage() {
           )}
         </div>
 
-        {!viewQuiz && (
-          <Button className="my-4" label="START QUIZ" theme="primary" onClick={onStartQuiz} />
-        )}
+        {!viewQuiz && <Button className="my-4" label="START QUIZ" onClick={onStartQuiz} />}
       </section>
 
       <section className="max-w-5xl mx-auto my-10">
@@ -117,7 +115,7 @@ export default function YoutubeQuizPage() {
         </p>
       </section>
 
-      <CarouselTestimonialThinkific />
+      <CarouselTestimonialThinkific initialSlide={2} />
 
       {/* ATTACHMENT STYLES */}
       <div className="relative -z-1 mt-4 lg:mt-16">
@@ -131,7 +129,7 @@ export default function YoutubeQuizPage() {
         <AttachmentStylesTabs className="-mt-80 lg:mb-10" type="quizpage" />
       </div>
 
-      <Button className="ml-4 mb-8" label="START THE QUIZ" theme="primary" onClick={onStartQuiz} />
+      <Button className="ml-4 mb-8" label="START THE QUIZ" onClick={onStartQuiz} />
     </Page>
   )
 }

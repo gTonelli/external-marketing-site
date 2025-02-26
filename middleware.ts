@@ -147,10 +147,10 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     },
   ]
 
-  if (path.startsWith('/quiz') && utmSource === 'paid-youtube') {
+  if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
     configs.push({
-        regex: /^\/quiz/,
-        config: splitTestConfigs.ytQuizFunnelTest,
+      regex: /^\/quiz/,
+      config: splitTestConfigs.ytQuizFunnelTest,
     })
   }
 

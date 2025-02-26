@@ -47,7 +47,7 @@ export const AttachmentQuizForm = ({
 
       case 'paidYouTube':
         /*  Paid YouTube traffic: If user style is 'fa', redirect to specific page*/
-        return `yt-quiz/${userStyle}`
+        return `/yt-quiz/${userStyle}`
 
       default:
         // Default route: Go to quiz page with user style

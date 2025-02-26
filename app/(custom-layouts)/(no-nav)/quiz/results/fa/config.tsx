@@ -30,6 +30,8 @@ export const RESULTS = {
         "Having a Fearful Avoidant Attachment Style can feel as if relationships are chaotic and challenging, but it doesn't have to be this way. It is absolutely possible to get the deep connection you need in relationships, without fear, and without losing your independence and your freedom. ",
       copy2:
         'At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access. This is 30% off for a limited time.',
+      copyYT2:
+        'Too many people let their attachment styles, their beliefs, and their subconscious relationship patterns control their whole lives. But that doesn’t have to be you too, with our tailored programs you can find lasting change, and start building the best relationships of your life today.',
     },
     ATTACHMENT_EXPLAIN: {
       title: 'What Is An Attachment Style?',
@@ -104,7 +106,7 @@ export const RESULTS = {
           </>,
 
           <>
-            It’s partof our <strong>All-Access Pass Membership!</strong>
+            It’s part of our <strong>All-Access Pass Membership!</strong>
           </>,
 
           <>

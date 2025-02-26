@@ -112,6 +112,8 @@ export type Pages =
 
 export type ExperimentVariant = 'Control' | 'Variant 1' | 'Variant 2'
 
+export type QuizTrafficSource = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
+
 class Mixpanel {
   constructor() {
     mixpanel.init(
@@ -249,7 +251,7 @@ class Mixpanel {
     QuizFinished: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
+      quiz_traffic_source?: QuizTrafficSource
       progress?: string
     }) => {
       this.event('Quiz Finished', props)
@@ -267,7 +269,7 @@ class Mixpanel {
     QuizStarted: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
+      quiz_traffic_source?: QuizTrafficSource
     }) => {
       this.event('Quiz Started', props)
     },

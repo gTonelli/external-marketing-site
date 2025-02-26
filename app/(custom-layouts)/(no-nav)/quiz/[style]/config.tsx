@@ -142,7 +142,7 @@ export const ROYAL_RUMBLE = {
         'Because of this internal struggle, it’s common for you to become angry and resentful towards your partner when they’re not meeting your expectations. Not knowing how to express yourself best, you may pick fights with your partner constantly, pushing them away, only to reaffirm your beliefs that you’re going to be abandoned to end up alone.',
       ],
       copyYT:
-        'At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access. This is 30% off for a limited time.',
+        'At The Personal Development School, we have a tailored program and suite of tools to assist you in changing these patterns in as little as 30 days. This will allow you to improve existing relationships, create lasting love and build new relationships with emotionally available people. Click the button below to enroll in exclusive access to our All-Access Pass. This is 30% off for a limited time only!',
     },
 
     FAMILIAR_SEGMENTS: {

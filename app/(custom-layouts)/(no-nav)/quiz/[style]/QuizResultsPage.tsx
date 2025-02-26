@@ -254,7 +254,7 @@ export const QuizResultsPage = ({
         />
 
         <div className="w-full overflow-hidden bg-blue-lightest/60">
-          <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 inset-0 mb-12 md:mb-20">
+          <div className="max-w-4xl mx-4 md:mx-auto md:px-4 inset-0 mb-12 md:mb-20">
             <h2 className="capitalize mb-8 md:mb-10 text-2xl text-primary">
               Does any of this sound familiar?
             </h2>
@@ -278,7 +278,7 @@ export const QuizResultsPage = ({
                           {content.title}
                         </p>
                       </div>
-                      <p className="max-w-106 font-effra md:text-lg mt-2 text-left ml-6">
+                      <p className="max-w-md font-effra md:text-lg mt-2 text-left ml-6">
                         {content.copy}
                       </p>
                     </div>
@@ -324,7 +324,7 @@ export const QuizResultsPage = ({
 
       {/* ATTACHMENT ORIGIN SECTION */}
       <section className="w-full relative">
-        <div className="max-w-[850px] mt-6 md:mt-32  mx-4 md:mx-auto md:px-4 text-left">
+        <div className="max-w-4xl mt-6 md:mt-32  mx-4 md:mx-auto md:px-4 text-left">
           <h2 className="capitalize mb-8 md:mb-10 text-2xl text-primary">
             So where does your attachment style come from?
           </h2>
@@ -385,7 +385,7 @@ export const QuizResultsPage = ({
       {/* THAIS SECTION */}
       <div>
         <section className="w-full pt-10 md:pt-20 bg-gradient-to-b from-primary-light-4 to-primary-light-4">
-          <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 text-left inset-0">
+          <div className="max-w-4xl mx-4 md:mx-auto md:px-4 text-left inset-0">
             <h2 className="mb-8 md:mb-10 text-2xl text-primary">Hi, I’m Thais!</h2>
 
             <p className="mb-4 md:text-lg">
@@ -444,7 +444,7 @@ export const QuizResultsPage = ({
 
       {/*GAIN ACCESS SECTION */}
       <section className="w-full bg-black-secondary pb-10 pt-10 md:pt-[68px]">
-        <div className="max-w-[850px] mx-4 md:mx-auto md:px-4 inset-0">
+        <div className="max-w-4xl mx-4 md:mx-auto md:px-4 inset-0">
           <div className="flex flex-col md:flex-row -space-y-2 md:space-y-0 space-x-2 justify-center">
             <h2 className="capitalize text-2xl text-white">Gain access to your</h2>
 
@@ -613,7 +613,7 @@ export const QuizResultsPage = ({
         />
 
         <div className="bg-grey-7 pb-14 md:pb-20">
-          <div className="max-w-[1024px] mx-4 md:mx-auto inset-0 pt-14 md:pt-0">
+          <div className="max-w-5xl mx-4 md:mx-auto inset-0 pt-14 md:pt-0">
             <h2 className="capitalize text-h3-mobile">You will learn how to:</h2>
 
             <div className="mt-8 md:mt-20">
@@ -623,7 +623,7 @@ export const QuizResultsPage = ({
                 return (
                   <div key={`learn_${index}`} className="mb-8 md:mb-10">
                     <div className="flex row max-w-2xl items-center md:mx-auto mx-4 justify-between space-x-5 md:space-[107px]">
-                      <div className="w-full max-w-96">
+                      <div className="w-full max-w-sm">
                         <Image
                           alt={image.alt}
                           className="w-full h-full"
@@ -635,7 +635,7 @@ export const QuizResultsPage = ({
 
                       <div
                         className={cx(
-                          'py-[11px] text-left max-w-[240px]',
+                          'py-[11px] text-left max-w-3xs',
                           index % 2 === 1 && '-order-1'
                         )}>
                         <span className="md:text-lg font-sspb capitalize text-primary">
@@ -650,7 +650,7 @@ export const QuizResultsPage = ({
               })}
             </div>
 
-            <div className="max-w-[850px] mt-20 md:mt-32 md:px-4 md:mx-auto">
+            <div className="max-w-4xl mt-20 md:mt-32 md:px-4 md:mx-auto">
               <h2 className="capitalize text-2xl text-primary text-left lg:!text-3xl">
                 Use the 3 Step Formula {ageVariant && 'In Your Course Bundle'} To Create Deep
                 Attachment Style Healing in {ageVariant ? '7' : '30'} Days AND Get Access to These
@@ -658,7 +658,7 @@ export const QuizResultsPage = ({
               </h2>
 
               <div className="mt-8 md:mt-10 flex flex-col md:grid md:grid-cols-2 md:gap-4 text-left justify-between">
-                <ul className="font-effra !ml-6 fa-ul max-w-[415px]">
+                <ul className="font-effra !ml-6 fa-ul max-w-md">
                   {ROYAL_RUMBLE.EXCLUSIVEBONUS_SEGMENT.map((copy, index) => (
                     <li key={`bonus_${index}`} className="mb-6">
                       <FontAwesomeIcon
@@ -671,7 +671,7 @@ export const QuizResultsPage = ({
                   ))}
                 </ul>
 
-                <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-[415px]">
+                <ul className="font-effra md:text-lg !ml-6 fa-ul max-w-md">
                   <li className="font-bold text-primary mb-4">
                     <FontAwesomeIcon
                       className="text-primary mr-2 my-auto w-4 h-4 fa-li"
@@ -700,7 +700,7 @@ export const QuizResultsPage = ({
       </section>
       {/*STILL NOT SURE SECTION */}
       <section className="w-full">
-        <div className="max-w-[850px] mt-6 md:mx-auto text-left md:mt-32">
+        <div className="max-w-4xl mt-6 md:mx-auto text-left md:mt-32">
           <div className="px-2 xxs:px-3 xs:px-4">
             <h2 className="capitalize text-2xl text-primary">
               Still not sure if our {ageVariant ? 'courses' : 'programs'} are right for you?
@@ -764,7 +764,7 @@ export const QuizResultsPage = ({
 
       {/*BEST SELF SECTION */}
       <section className="w-full mt-8 md:mt-16 bg-black pt-10 pb-8 md:pb-10">
-        <div className="max-w-[1024px] mx-4 md:mx-auto md:px-4 mt-10 inset-0">
+        <div className="max-w-5xl mx-4 md:mx-auto md:px-4 mt-10 inset-0">
           <div className="flex flex-center flex-col md:flex-row md:space-x-[85px]">
             <div className="my-auto text-left">
               <h2 className="capitalize text-2xl text-primary-light">
@@ -795,7 +795,7 @@ export const QuizResultsPage = ({
                   return (
                     <div
                       key={`bestSelfContent_${index}`}
-                      className={`max-w-[492px] ${MARGIN} md:mb-0`}>
+                      className={`max-w-lg ${MARGIN} md:mb-0`}>
                       <p className="font-effra font-medium text-white uppercase tracking-0.325 md:text-lg">
                         {content.title}
                       </p>
@@ -817,7 +817,7 @@ export const QuizResultsPage = ({
       </section>
       {/* MY QUESTION SECTION */}
       <section className="w-full">
-        <div className="mt-6 md:mt-32 max-w-[1024px] mx-4 md:mx-auto md:px-4 md:mb-10 text-left">
+        <div className="mt-6 md:mt-32 max-w-5xl mx-4 md:mx-auto md:px-4 md:mb-10 text-left">
           <h2 className="capitalize text-2xl text-primary">
             My question to you is: can you really afford to keep going the way that you are?
           </h2>
@@ -892,7 +892,7 @@ export const QuizResultsPage = ({
       <section>
         <div
           className={`${
-            youtubeVariant ? 'max-w-5xl' : 'max-w-[850px]'
+            youtubeVariant ? 'max-w-5xl' : 'max-w-4xl'
           } mt-6 md:mt-32 mx-4 md:mx-auto md:px-4 text-left`}>
           <h2 className="capitalize text-2xl text-primary md:mb-10">
             If you don’t make a change now, then when? And if you don’t show up for yourself … who
@@ -949,7 +949,7 @@ export const RegisterNowSection = ({
           <div
             className="flex flex-center flex-col  py-10 text-left space-y-10 
                         lg:flex-row lg:space-x-5 lg:space-y-0">
-            <div className="max-w-[502px]">
+            <div className="max-w-lg">
               <p className="font-effra font-bold tracking-0.325 md:text-lg">WHAT'S INCLUDED?</p>
 
               <p className="font-effra font-bold md:text-lg mt-3 md:mt-2">
@@ -1000,14 +1000,14 @@ export const RegisterNowSection = ({
                 </ul>
               )}
             </div>
-            <div className="max-w-[502px] rounded-20 bg-primary-light py-11 px-4 md:px-10 text-center">
+            <div className="max-w-lg rounded-20 bg-primary-light py-11 px-4 md:px-10 text-center">
               <p
-                className={`max-w-[368px] font-effra font-bold p-1 text-${ROYAL_RUMBLE.OFFER_CARD.headingColor} border-y-2 border-${ROYAL_RUMBLE.OFFER_CARD.headingColor} mx-auto 
+                className={`max-w-sm font-effra font-bold p-1 text-${ROYAL_RUMBLE.OFFER_CARD.headingColor} border-y-2 border-${ROYAL_RUMBLE.OFFER_CARD.headingColor} mx-auto 
                     md:uppercase md:text-lg `}>
                 {ROYAL_RUMBLE.OFFER_CARD.heading}
               </p>
 
-              <div className="max-w-[230px] mt-8 mx-auto">
+              <div className="max-w-3xs mt-8 mx-auto">
                 <p className="font-effra font-bold md:text-lg text-center">
                   {ROYAL_RUMBLE.OFFER_CARD.subheading}
                 </p>
@@ -1056,7 +1056,7 @@ export const RegisterNowSection = ({
             </div>
           </div>
           <div className="flex flex-center flex-col md:flex-row justify-between space-y-10 md:space-y-0 md:px-4">
-            <div className="max-w-[502px]">
+            <div className="max-w-lg">
               <Image
                 alt="4 mockups on different devices of Thais teaching PDS content."
                 src="/images/RoyalRumblePage/rr-offer.png"
@@ -1064,7 +1064,7 @@ export const RegisterNowSection = ({
                 height={194}
               />
             </div>
-            <div className="max-w-[502px] text-left">
+            <div className="max-w-lg text-left">
               <p className="mb-2 md:text-lg">{`${
                 style !== 'sa'
                   ? `Enroll in The ${ROYAL_RUMBLE[style].TITLE} ${ageVariant ? '' : 'to Securely'}`

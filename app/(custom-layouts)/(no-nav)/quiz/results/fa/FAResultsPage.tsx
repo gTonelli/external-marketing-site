@@ -149,7 +149,9 @@ export const FAResultsPage = ({
               </p>
             ) : (
               <p className="max-w-2xl font-bold mx-auto mb-4 lg:mb-8">
-                {RESULTS[style].STYLE_TRAITS.copy2}
+                {youtubeVariant
+                  ? RESULTS[style].STYLE_TRAITS.copyYT2
+                  : RESULTS[style].STYLE_TRAITS.copy2}
               </p>
             )}
 

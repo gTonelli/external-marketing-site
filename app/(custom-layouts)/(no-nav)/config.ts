@@ -197,10 +197,12 @@ export const EXTERNALQUIZQUESTIONS = [
 
 export const REGULAR_COPY = {
   header: 'The Attachment Style Quiz',
-  subheader_mobile: 'TAKE OUR FREE QUIZ TO FIND OUT YOUR ATTACHMENT STYLE!',
+  subheader_mobile: 'TAKE OUR FREE QUIZ NOW TO FIND OUT!',
   subheader_desktop: 'TAKE OUR FREE QUIZ TO FIND OUT YOUR ATTACHMENT STYLE!',
-  headline: 'Start the Quiz Now!',
+  subheaderYT: 'TAKE OUR FREE QUIZ TO FIND OUT YOUR ATTACHMENT STYLE!',
+  headline: 'Create Breakthroughs In Your Relationships Today!',
   breakthroughs_header_mobile: 'Improve Your Relationships Today!',
+  headlineYT: 'Start the Quiz Now!',
   copy: `Take this quiz to determine your attachment style. Knowing your attachment style is the first step to creating more meaningful connections, feeling valued and developing more harmony in all of your relationships!`,
   button_label: 'START QUIZ',
   attachment_copy: `Attachment Theory is the single largest predictor of success in your relationships, whether they are

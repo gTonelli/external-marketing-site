@@ -44,7 +44,7 @@ export default function YoutubeQuizPage() {
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}
         <div className="flex flex-col items-center lg:-mb-16 xl:-mb-24">
-          <p className='text-lg font-bold'>The Personal Development School</p>
+          <p className="text-lg font-bold">The Personal Development School</p>
 
           <h1 className="mb-2 leading-10">What is Your Attachment Style?</h1>
 
@@ -55,7 +55,7 @@ export default function YoutubeQuizPage() {
           </span>
 
           <span className="max-w-3xl font-bold mb-4 hidden !tracking-33 lg:block">
-            {quizCopy.subheader_desktop}
+            {quizCopy.subheaderYT}
           </span>
         </div>
       </section>
@@ -81,9 +81,7 @@ export default function YoutubeQuizPage() {
       {/* BREAKTHROUGH SECTION */}
       <section className="flex flex-col flex-center mt-4">
         <div className="flex flex-col items-center">
-          <h3 className="max-w-2xl mb-4 lg:hidden">{quizCopy.breakthroughs_header_mobile}</h3>
-
-          <h3 className="max-w-3xl hidden lg:block">{quizCopy.headline}</h3>
+          <h3 className="max-w-3xl">{quizCopy.headlineYT}</h3>
         </div>
 
         <BreakThroughSectionDesktop />

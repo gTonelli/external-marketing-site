@@ -150,7 +150,7 @@ const LivePriceCard = () => {
                     icon={faCircleSolid}
                     listItems={[
                       'Flexible payment plans as low as $158 per month.',
-                      'Payments start in 30 days.',
+                      'Pay $0 today.',
                       'Credit check required.',
                     ]}
                   />
@@ -309,7 +309,7 @@ const OnDemandPriceCard = () => {
                     icon={faCircleSolid}
                     listItems={[
                       'Flexible payment plans as low as $90 per month.',
-                      'Payments start in 30 days.',
+                      'Pay $0 today.',
                       'Credit check required.',
                     ]}
                   />

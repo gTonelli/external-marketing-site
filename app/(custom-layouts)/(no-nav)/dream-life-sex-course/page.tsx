@@ -28,14 +28,6 @@ export default function DreamLifeSexCoursePage() {
   return (
     <Page page_name="Dreamlife Sex Course Page" className="relative">
       <section className="w-full text-center bg-grey-7 pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
-        <Image
-          className="w-full mx-auto sm:w-3/4 md:w-1/2 lg:hidden"
-          src="/images/TrialHeadspace/hero-left-mockup.png"
-          alt="hero-mockup-left"
-          width={729}
-          height={796}
-        />
-
         <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
           What if Sex & Relationships Could Feel Easier, Comfortable & Joyful?
         </h1>
@@ -254,7 +246,7 @@ const PDS_FEATURES = [
     icon: '/images/TrialHeadspace/couple-holding-heart-message.svg',
     title: 'Interactive Webinars',
     subtitle:
-      'Embrace a classroom experience by attending weekly live webinars and Q&As with me, Thais Gibson, and our team of Certified Coaches.',
+      'Embrace a classroom experience by attending weekly live webinars and Q&A sessions with me, Thais Gibson, and our team of Certified Relationship Coaches.',
   },
   {
     icon: '/images/TrialHeadspace/fly-on-rocket.svg',
@@ -267,7 +259,7 @@ const PDS_FEATURES = [
 const STEPS_TO_PURCHASE = [
   {
     step: 'STEP ONE',
-    title: 'Sign Up for the Free Trial',
+    title: 'Sign Up for the Free Trial Today',
     copy: "Take the free trial to keep and reuse the Attachment Styles & Sex Course for life – even if you don't stay on as a member!",
     image: '/images/RoyalRumblePage/rr-offer.png',
   },

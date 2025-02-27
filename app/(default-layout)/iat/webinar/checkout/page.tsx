@@ -76,7 +76,7 @@ export default function IATWebinarSqueezePage() {
             className="!justify-start"
             classNameDate="!bg-inherit !shadow-none !text-black !p-0"
             theme="light"
-            date={getOfferEndDate(new Date('2025-03-13T23:59:00-05:00'), 1)}
+            date={getOfferEndDate(new Date('2025-03-14T23:59:00-05:00'), 1)}
           />
 
           <ButtonScroll className="mt-8" label="JOIN NOW & SAVE $300" target="#pricing" />

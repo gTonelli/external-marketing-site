@@ -111,7 +111,7 @@ const allConfigs = {
       '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
   },
   dreamLifeSexCourse: {
-    offerLabel: 'Get Free Course For Life!',
+    offerLabel: 'Free Course For Life!',
     offerType: '',
     title: 'Get Your Emotional Intimacy & Sex Roadmap For Life - For FREE!',
     copy: (

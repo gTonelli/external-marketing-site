@@ -10,10 +10,10 @@ import { CheckoutButton } from '@/components/CheckoutButton'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { PaymentOptions } from '@/components/PaymentOptions'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export const metadata: Metadata = {
   title: 'Have the Best Sex Life Ever – Thanks to This Course!',
@@ -99,8 +99,8 @@ export default function DreamLifeSexCoursePage() {
           <div>
             <Image
               className="rounded-xl"
-              alt="Needs Course Thumbnail"
-              src="/images/course-personal-needs-alt.jpg"
+              alt="Attachment Styles & Sex Course Thumbnail"
+              src="/images/course-attachment-styles-and-sex.jpg"
               width={640}
               height={360}
             />
@@ -123,7 +123,7 @@ export default function DreamLifeSexCoursePage() {
             listItems={[
               'Unlock the key role sex plays in strengthening your relationship',
               'Identify why intimacy may diminish and how to reignite the passion',
-              'How to set healthy and realistic expectations for yourself and others',
+              'Learn how to set healthy and realistic expectations for yourself and others',
             ]}
           />
 
@@ -142,12 +142,12 @@ export default function DreamLifeSexCoursePage() {
         <CheckoutButton href={checkoutUrl} label="SIGN UP FOR FREE!*" className="mb-8" />
 
         <p className="max-w-2xl mx-auto">
-          <i>
+          <em>
             *When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the
             trial, you’ll automatically become a member of the $67.00/month plan. If you cancel
             before your trial ends, you still get to keep and access the Attachment Styles & Sex
             Course for life.
-          </i>
+          </em>
         </p>
       </Section>
 
@@ -160,8 +160,8 @@ export default function DreamLifeSexCoursePage() {
         <p className="mb-8">
           <strong>
             We're the only platform that utilizes the groundbreaking Integrated Attachment Theory™
-            to help you understand what you want in your sex life and relationships and get it
-            faster than ever before by unlocking and rewiring your subconscious patterns.
+            to help you understand what you want in your sex life and relationships and how to get
+            it faster than ever before by unlocking and rewiring your subconscious patterns.
           </strong>
         </p>
 
@@ -234,7 +234,7 @@ export default function DreamLifeSexCoursePage() {
         teaserHeading="Free Trial = Attachment Styles & Sex Course for LIFE"
         communityBullets={[
           'Sign up for the 7-day Free Trial to get Lifetime access to the Attachment Styles & Sex Course',
-          'Use real strategies within our proven framework to create deeper and more intense loving intimacy and connections',
+          'Use our proven framework to create deeper and more intense loving intimacy and connections',
           'Try our All-Access Pass Membership for free to access everything we offer',
           'Stay on as a member after your trial ends to continue your personal growth journey',
         ]}
@@ -252,15 +252,15 @@ const PDS_FEATURES = [
   },
   {
     icon: '/images/TrialHeadspace/couple-holding-heart-message.svg',
-    title: 'Interactive Webinars & Q&As',
+    title: 'Interactive Webinars',
     subtitle:
-      'Transform your life or relationships by becoming securely attached. Explore and choose from our 65+ courses on attachment styles, relationships, and more.',
+      'Embrace a classroom experience by attending weekly live webinars and Q&As with me, Thais Gibson, and our team of Certified Coaches.',
   },
   {
     icon: '/images/TrialHeadspace/fly-on-rocket.svg',
     title: 'Supportive Community',
     subtitle:
-      'Transform your life or relationships by becoming securely attached. Explore and choose from our 65+ courses on attachment styles, relationships, and more.',
+      'Take inspiration, share your experiences, and learn and grow with like-minded people from around the world in our private online community.',
   },
 ]
 
@@ -275,7 +275,7 @@ const STEPS_TO_PURCHASE = [
     step: 'STEP TWO',
     title: 'Become Confident, Connected, & Satisfied',
     copy: 'Use the powerful and simple IAT™ tools from the Attachment Styles & Sex Course to navigate intimacy with confidence, overcome barriers, and deepen connections.',
-    image: '/images/course-personal-needs-alt.jpg',
+    image: '/images/course-attachment-styles-and-sex.jpg',
   },
   {
     step: 'STEP THREE',

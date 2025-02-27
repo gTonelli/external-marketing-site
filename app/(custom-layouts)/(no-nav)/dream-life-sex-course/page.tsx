@@ -213,7 +213,7 @@ export default function DreamLifeSexCoursePage() {
           <CheckoutButton href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" className="mb-8" />
         </div>
 
-        <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can use what you learned in the Needs course to continue your personal and relationship growth." />
+        <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can continue your personal and relationship growth." />
       </Section>
 
       <Section className="max-w-full !p-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
@@ -226,7 +226,7 @@ export default function DreamLifeSexCoursePage() {
         teaserHeading="Free Trial = Attachment Styles & Sex Course for LIFE"
         communityBullets={[
           'Sign up for the 7-day Free Trial to get Lifetime access to the Attachment Styles & Sex Course',
-          'Use our proven framework to create deeper and more intense loving intimacy and connections',
+          'Use our proven framework to create deeper and more intense intimacy and connection',
           'Try our All-Access Pass Membership for free to access everything we offer',
           'Stay on as a member after your trial ends to continue your personal growth journey',
         ]}

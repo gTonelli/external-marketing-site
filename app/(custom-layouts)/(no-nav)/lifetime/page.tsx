@@ -1,36 +1,33 @@
 'use client'
 
 // core
-import { useContext, useEffect, useRef, useState } from 'react'
-import { Metadata } from 'next'
+import Image from 'next/image'
 // components
-import { LIFETIME } from './config'
-import { ViewportContext } from '@/utils/contexts'
 import { Page } from '@/components/Page'
-import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
-import { Image } from '@/components/Image'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { List } from '@/components/List'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { Card } from '@/components/Card/Card'
-import { Loader } from '@/components/Loader'
-//libraries
-import cx from 'classnames'
-import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+//libraries
+import cx from 'classnames'
+import { Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+// config
+import { LIFETIME } from './config'
 // utils
 import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
-import { formatPrice, getOfferEndDate } from '@/utils/functions'
+import { formatPrice } from '@/utils/functions'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { Section } from '@/components/Section'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
+import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 
 interface IPricingPlan {
   title: string
@@ -78,184 +75,180 @@ const pricingPlan: IPricingPlan[] = [
 ]
 
 export default function LifeTimePage() {
-  const page_name = `Lifetime` as Pages
-  // ==================== Context ====================
-  const { windowWidth } = useContext(ViewportContext)
-
-  // ==================== Hook ====================
-  const pricingTableRef = useRef<null | HTMLDivElement>(null)
-
-  // ==================== State ====================
-  const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
-
-  useEffect(() => {
-    setOfferEndDate(getOfferEndDate(new Date(`2023-06-29T00:00:00`), 1))
-  }, [])
-
-  // Mixpanel Button Clicks
-  const onGoToCheckout = (event: React.MouseEvent<HTMLButtonElement>, link: EExternalRoutes) => {
-    window.location.assign(link)
-  }
-
-  const onClickPurchase = () => {
-    if (pricingTableRef.current) pricingTableRef.current.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <Page page_name="Lifetime">
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">
-          {offerEndDate ? (
-            <CountdownTimer date={offerEndDate} theme="dark" />
-          ) : (
-            <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
-          )}
+          <CountdownTimer date={new Date(`2023-06-29T00:00:00`)} theme="dark" />
         </div>
       </section>
 
       {/* HERO SECTION */}
-      <section className="w-full bg-blue-lightest">
-        <div className="max-w-5xl mx-auto pt-8 pb-4 md:pt-8 md:pb-0">
-          <div className="flex flex-col items-center text-center md:pt-4">
-            <Text.Paragraph
-              className="max-w-md font-bold uppercase text-black mx-auto"
-              content={LIFETIME.HERO_SECTION.subheader}
-              spacing="tracking-0.325"
-            />
+      <Section className="max-w-full bg-blue-lightest">
+        <p className="max-w-md font-bold uppercase tracking-33 text-black mx-auto">
+          {LIFETIME.HERO_SECTION.subheader}
+        </p>
 
-            <Text.Heading
-              className="max-w-3xl font-bold font-sspb text-4xl text-purple-dark pt-4"
-              content={LIFETIME.HERO_SECTION.header}
-            />
+        <h1 className="max-w-3xl font-bold text-purple-dark pt-4">
+          {LIFETIME.HERO_SECTION.header}
+        </h1>
 
-            <Text.Paragraph
-              className="text-green-check font-bold mt-4 md:mt-6"
-              content={LIFETIME.HERO_SECTION.promo_text}
-            />
+        <p className="text-green-check font-bold mt-4 md:mt-6">
+          {LIFETIME.HERO_SECTION.promo_text}
+        </p>
 
-            <div className="mx-auto mt-4 md:mt-8">
-              <Button
-                className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-                label="ENROLL NOW AND SAVE"
-                onClick={onClickPurchase}
-              />
-            </div>
-          </div>
+        <div className="mx-auto mt-4 md:mt-8">
+          <ButtonScroll
+            className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
+            label="ENROLL NOW AND SAVE"
+            target="pricing"
+          />
         </div>
-      </section>
-      <Image alt="" className="w-full" src="styled-wave-green.png" />
+      </Section>
+
+      <Image
+        alt="green wave"
+        className="w-full"
+        src="styled-wave-green.png"
+        width={1700}
+        height={90}
+      />
 
       {/* SITUATIONS SECTION */}
-      <section className="w-full">
-        <Text.Heading
-          className="text-center pt-8"
-          content={LIFETIME.SITUATION_SECTION.header}
-          size={3}
-        />
+      <Section>
+        <h2 className="text-center pt-8">{LIFETIME.SITUATION_SECTION.header}</h2>
 
-        <div className="max-w-6xl flex flex-col mx-auto my-4 px-4 md:flex-row md:items-center md:items-top md:px-8 md:my-8">
-          {/* LEFT COL  */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="max-w-sm flex justify-center mt-4 mx-auto md:w-1/2 md:mt-0 md:pr-4">
-            <Image alt="" className="" src="LifeTimePage/lifetime_situation.jpg" />
+            <Image
+              alt="an upset couple"
+              src="/images/LifeTimePage/lifetime_situation.jpg"
+              width={462}
+              height={380}
+            />
           </div>
 
-          {/* RIGHT COL */}
           <div className="flex flex-col justify-center mt-4 md:w-1/2 md:mt-0 md:pl-2">
             <List
+              iconSize="xs"
+              icon={faCircleSmall}
               className="flex flex-col items-start py-4"
               classNameIcon="!text-black !pt-[10px] pr-2"
               classNameListItems="text-left text-black !leading-6 pt-4"
-              icon={faCircleSmall}
-              iconSize="xs"
               listItems={LIFETIME.SITUATION_SECTION.bullets}
             />
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* IMAGINE SECTION */}
-      <Image alt="" className="w-full" src="LifeTimePage/purple-wave.png" />
-      <section className="w-full bg-primary-light-50">
-        <div className="max-w-6xl flex flex-col mx-auto pb-4 px-4 md:flex-row md:items-center md:items-top md:px-8 md:pb-8">
-          {/* LEFT COL  */}
-          <div className="flex flex-col justify-center mt-4 md:w-1/2 md:mt-0 md:pr-4">
-            <Text.Heading
-              className="text-center md:text-left"
-              content={LIFETIME.IMAGINE_SECTION.header}
-              size={3}
-            />
+      <Image
+        alt="purple"
+        className="w-full"
+        src="/images/LifeTimePage/purple-wave.png"
+        width={1440}
+        height={205}
+      />
 
-            <List
-              className="flex flex-col items-start py-4"
-              classNameIcon="!text-black !pt-[10px] pr-2"
-              classNameListItems="text-left text-black !leading-6 pt-4"
-              icon={faCircleSmall}
-              iconSize="xs"
-              listItems={LIFETIME.IMAGINE_SECTION.bullets}
-            />
-          </div>
+      <Section
+        className="max-w-full bg-primary-light-50"
+        classNameInner="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div>
+          <h2 className="text-center md:text-left">{LIFETIME.IMAGINE_SECTION.header}</h2>
 
-          {/* RIGHT COL */}
-          <div className="max-w-sm flex justify-center mt-4 mx-auto md:w-1/2 md:mt-0 md:pl-2">
-            <Image alt="" className="" src="LifeTimePage/woman-headshot.png" />
-          </div>
+          <List
+            icon={faCircleSmall}
+            iconSize="xs"
+            className="flex flex-col items-start py-4"
+            classNameIcon="!text-black !pt-[10px] pr-2"
+            classNameListItems="text-left text-black !leading-6 pt-4"
+            listItems={LIFETIME.IMAGINE_SECTION.bullets}
+          />
         </div>
-      </section>
+
+        <div>
+          <Image
+            alt="a confident woman"
+            src="/images/LifeTimePage/woman-headshot.png"
+            width={462}
+            height={592}
+          />
+        </div>
+      </Section>
 
       {/* FEATURE SECTION */}
-      <section className="w-full">
-        <div className="max-w-6xl  mx-auto my-8 px-4 md:my-12 lg:px-8">
-          <div className="grid gridcols-1 justify-items-center sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-none">
-            {LIFETIME.FEATURE_SECTION.bullets.map((bullet, index) => (
-              <div
-                key={`attachment_program_section_bullet${index}`}
-                className="max-w-[400px] flex flex-col items-center py-2 lg:py-8 px-6">
-                <Image className="w-auto h-[150px]" src={`LifeTimePage/${bullet.img}`} />
+      <Section>
+        <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-none">
+          {LIFETIME.FEATURE_SECTION.bullets.map((bullet, index) => (
+            <div
+              key={`attachment_program_section_bullet${index}`}
+              className="max-w-[400px] flex flex-col items-center py-2 lg:py-8 px-6">
+              <Image
+                alt="vector icon"
+                className="w-auto h-[150px]"
+                src={`/images/LifeTimePage/${bullet.img}`}
+                width={150}
+                height={150}
+              />
 
-                <Text.Paragraph className="font-bold text-left h-full mt-8" content={bullet.text} />
-              </div>
-            ))}
-          </div>
+              <p className="font-bold text-left h-full mt-8">{bullet.text}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* ATTACHMENT PROGRAM SECTION */}
       <section className="w-full bg-black-secondary text-white">
         <div className="max-w-6xl flex flex-col items-center text-center mx-auto pt-12 px-4 md:px-8 md:pt-16">
-          <Image alt="mock-up" src="LifeTimePage/lifetime_mock_up.png" />
+          <Image
+            alt="PDS courses mockup"
+            src="LifeTimePage/lifetime_mock_up.png"
+            width={506}
+            height={229}
+          />
 
-          <Text.Heading className="mt-8" content={LIFETIME.UNLOCK_SECTION.header} />
+          <h2 className="mt-8">{LIFETIME.UNLOCK_SECTION.header}</h2>
 
           <div className="mx-auto mt-8">
             <List
+              icon={faCircleCheck}
               className="flex flex-col md:grid md:grid-cols-2 md:grid-rows-3 gap-x-12 md:gap-y-8"
               classNameIcon="!text-green-check pt-[4px] pr-2"
               classNameListItems="text-left !text-lg !leading-6 pb-4 md:pb-0"
-              icon={faCircleCheck}
               listItems={LIFETIME.UNLOCK_SECTION.bullets}
             />
           </div>
         </div>
       </section>
 
-      <Image alt="" className="w-full" src="LifeTimePage/black-wave.png" />
+      <Image
+        alt="black wave"
+        className="w-full"
+        src="/images/LifeTimePage/black-wave.png"
+        width={1440}
+        height={102}
+      />
+
       {/* ATTACHMENT PROGRAM SECTION PART 2 */}
       <section className="w-full">
         <div className="max-w-6xl flex flex-col items-center text-center mx-auto py-12 px-4 md:flex-row md:px-8 md:py-16">
-          <Text.Paragraph
-            className="w-full text-left md:w-1/2"
-            content={LIFETIME.UNLOCK_SECTION.text}
-          />
+          <p className="w-full text-left md:w-1/2">{LIFETIME.UNLOCK_SECTION.text}</p>
 
           <div className="w-9/12 mt-4 md:w-1/2 md:mt-0">
-            <Image alt="" className="w-full" src="LifeTimePage/lifetime-thais.jpg" />
+            <Image
+              alt="Thais and PDS product"
+              className="w-full"
+              src="/images/LifeTimePage/lifetime-thais.jpg"
+              width={481}
+              height={568}
+            />
           </div>
         </div>
       </section>
 
       {/* TESTIMONIAL SECTION */}
-      <Carousel.Testimonial
+      <CarouselTestimonial
         className="lg:mt-12"
         classNameHeader="px-2"
         headingText="What Our Students Are Saying"
@@ -265,7 +258,7 @@ export default function LifeTimePage() {
       <section className="w-full bg-blue-lightest">
         <div className="max-w-5xl mx-auto py-8 md:py-16">
           <div className="flex flex-col items-center text-center">
-            <Text.Heading
+            <h2
               className="max-w-5xl font-sspb text-4xl text-purple-dark"
               content={LIFETIME.MEMBERSHIP_SECTION.header}
             />
@@ -277,10 +270,10 @@ export default function LifeTimePage() {
             />
 
             <div className="mx-auto mt-4 md:mt-8">
-              <Button
+              <ButtonScroll
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="ENROLL NOW AND SAVE"
-                onClick={onClickPurchase}
+                target="pricing"
               />
             </div>
           </div>
@@ -687,10 +680,10 @@ export default function LifeTimePage() {
           <div className="flex-center flex-col">
             <Image className="mb-8 lg:mb-10" src="LifeTimePage/lifetime_page_explore.png" />
 
-            <Button
+            <ButtonScroll
               className="bg-gradient-to-b from-purple-medium to-purple-dark border-noGne drop-shadow-lg hover:!text-white"
               label="GET LIFETIME ACCESS"
-              onClick={onClickPurchase}
+              target="pricing"
             />
           </div>
         </div>

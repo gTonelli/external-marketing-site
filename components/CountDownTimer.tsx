@@ -1,16 +1,18 @@
 ﻿'use client'
 
 // core
-import React, { FC, forwardRef } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 // components
-import { Text } from './Text/Text'
+import { Loader } from './Loader'
 // libraries
 import cx from 'classnames'
 import CountdownPlugin from 'react-countdown'
 import Countdown from 'react-countdown'
 import dayjs from 'dayjs'
+// utils
+import { getOfferEndDate } from '@/utils/functions'
 
-type Props = {
+interface ICountdownTimerProps {
   autoStart?: boolean
   className?: string
   classNameDate?: string
@@ -26,15 +28,33 @@ interface ICountdownRendererProps {
   hours: number
 }
 
-export const CountdownTimer: FC<Props> = forwardRef(
+export const CountdownTimer = forwardRef(
   (
-    { autoStart, className, classNameDate, classNameLabel, date, theme = 'dark' },
+    {
+      autoStart,
+      className,
+      classNameDate,
+      classNameLabel,
+      date,
+      theme = 'dark',
+    }: ICountdownTimerProps,
     ref: React.LegacyRef<Countdown>
   ) => {
+    // ==================== State ====================
+    const [loading, setLoading] = useState(true)
+    const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
+
+    useEffect(() => {
+      setOfferEndDate(getOfferEndDate(date!, 1))
+      setLoading(false)
+    }, [date])
+
+    if (loading) return <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+
     return (
       <CountdownPlugin
         autoStart={autoStart}
-        date={date || dayjs().hour(24).minute(0).toISOString()}
+        date={offerEndDate || dayjs().hour(24).minute(0).toISOString()}
         ref={ref}
         renderer={({ days, hours, minutes, seconds }: ICountdownRendererProps) => {
           const data = [
@@ -55,21 +75,21 @@ export const CountdownTimer: FC<Props> = forwardRef(
                   <div key={`timer-${index}`} className="flex items-center">
                     <div className="flex flex-col items-center justify-center">
                       <div className="flex">
-                        <Text
+                        <p
                           className={cx(
                             'bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl',
                             classNameDate
-                          )}
-                          content={number.digits.charAt(1) || 0}
-                        />
+                          )}>
+                          {number.digits.charAt(1) || 0}
+                        </p>
 
-                        <Text
+                        <p
                           className={cx(
                             'bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl',
                             classNameDate
-                          )}
-                          content={number.digits.charAt(0)}
-                        />
+                          )}>
+                          {number.digits.charAt(0)}
+                        </p>
                       </div>
 
                       <div className={cx('mt-2', classNameLabel)}>
@@ -83,10 +103,9 @@ export const CountdownTimer: FC<Props> = forwardRef(
                     </div>
 
                     {index < data.length - 1 && (
-                      <Text
-                        className={`${theme === 'dark' ? 'text-white' : 'text-black'} -mt-8 mx-1`}
-                        content=":"
-                      />
+                      <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} -mt-8 mx-1`}>
+                        :
+                      </p>
                     )}
                   </div>
                 ))}

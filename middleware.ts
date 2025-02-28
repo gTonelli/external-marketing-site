@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/valentines-day', '/attachment-report/fa', '/quiz/results/fa'],
+  matcher: ['/valentines-day', '/attachment-report/fa', '/quiz', '/quiz/results/fa'],
 }
 
 interface IConfigWithRegex {
@@ -129,6 +129,9 @@ interface IConfigWithRegex {
 
 const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const path = request.nextUrl.pathname
+  const searchParams = request.nextUrl.searchParams
+  const utmSource = searchParams.get('utm_source')
+
   const configs: Array<IConfigWithRegex> = [
     {
       regex: /^\/valentines-day/,
@@ -143,6 +146,13 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
       config: splitTestConfigs.simplifiedFAResultsTest,
     },
   ]
+
+  if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
+    configs.push({
+      regex: /^\/quiz/,
+      config: splitTestConfigs.ytQuizFunnelTest,
+    })
+  }
 
   return configs.find((config) => config.regex.test(path))?.config
 }
@@ -245,6 +255,16 @@ const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,
+  },
+  ytQuizFunnelTest: {
+    cookieKey: 'gm-1525-yt-quiz-funnel',
+    pageName: 'Main Funnel Quiz',
+    experimentName: 'GM-1525-YT-Quiz-Funnel',
+    variantUrl: {
+      path: '/yt-quiz',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
   },
   simplifiedFAResultsTest: {
     cookieKey: 'gm-1526-simplified-fa-test',

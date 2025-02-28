@@ -71,7 +71,7 @@ export default function OrganicQuizPage() {
               </em>
             </p>
 
-            <Button label="TAKE QUIZ" theme="primary" onClick={onStartQuiz} />
+            <Button label="TAKE QUIZ" onClick={onStartQuiz} />
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ export default function OrganicQuizPage() {
         </div>
 
         {!viewQuiz && (
-          <Button className="my-4" label="START QUIZ" theme="primary" onClick={onStartQuiz} />
+          <Button className="my-4" label="START QUIZ" onClick={onStartQuiz} />
         )}
       </Section>
 
@@ -284,7 +284,6 @@ export default function OrganicQuizPage() {
           <Button
             className="ml-4 mb-8"
             label="START OUR FREE QUIZ NOW"
-            theme="primary"
             onClick={onStartQuiz}
           />
         </div>

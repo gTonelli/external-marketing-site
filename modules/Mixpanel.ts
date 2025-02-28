@@ -64,6 +64,7 @@ export type Pages =
   | `Dreamlife Free Course Page`
   | `Dreamlife Holiday Free Trial Page`
   | `External IAT Page`
+  | `External IAT Page (Klarna)`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`
   | `Explore Courses Page`
@@ -108,8 +109,11 @@ export type Pages =
   | `vsl-${string}`
   | `VSL Royal Rumble Results - ${string}`
   | `Wellness Page`
+  | `Youtube Funnel Quiz`
 
 export type ExperimentVariant = 'Control' | 'Variant 1' | 'Variant 2'
+
+export type QuizTrafficSource = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
 
 class Mixpanel {
   constructor() {
@@ -248,7 +252,7 @@ class Mixpanel {
     QuizFinished: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta'
+      quiz_traffic_source?: QuizTrafficSource
       progress?: string
     }) => {
       this.event('Quiz Finished', props)
@@ -266,7 +270,7 @@ class Mixpanel {
     QuizStarted: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: 'organic' | 'paidGoogle' | 'paidMeta'
+      quiz_traffic_source?: QuizTrafficSource
     }) => {
       this.event('Quiz Started', props)
     },

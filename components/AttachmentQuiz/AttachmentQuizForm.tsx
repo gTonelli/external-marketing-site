@@ -45,6 +45,10 @@ export const AttachmentQuizForm = ({
             If no split test, go to default quiz B results page with user style */
         return `/quiz/b/results/${userStyle}`
 
+      case 'paidYouTube':
+        /*  Paid YouTube traffic: If user style is 'fa', redirect to specific page*/
+        return `/yt-quiz/${userStyle}`
+
       default:
         // Default route: Go to quiz page with user style
         return `/quiz/${userStyle}`

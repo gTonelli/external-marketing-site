@@ -38,7 +38,7 @@ export default function DreamLifeSexCoursePage() {
       </section>
 
       <Image
-        className="hidden absolute w-1/2 top-20 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
+        className="hidden absolute w-1/2 top-36 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
         src="/images/TrialHeadspace/hero-left-mockup.png"
         alt="hero-mockup-left"
         width={729}
@@ -46,7 +46,7 @@ export default function DreamLifeSexCoursePage() {
       />
 
       <Image
-        className="hidden absolute w-1/2 lg:-right-56 top-20 lg:block xl:w-1/3 xl:-right-32"
+        className="hidden absolute w-1/2 top-36 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
         src="/images/TrialHeadspace/hero-right-mockup.png"
         alt="hero-mockup-right"
         width={656}
@@ -216,7 +216,7 @@ export default function DreamLifeSexCoursePage() {
         <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can continue your personal and relationship growth." />
       </Section>
 
-      <Section className="max-w-full !p-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
+      <Section className="max-w-full p-4 my-8 lg:!p-0" classNameInner="!max-w-full !m-0 !p-0">
         <CarouselTestimonialThinkific initialSlide={1} />
       </Section>
 

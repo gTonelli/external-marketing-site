@@ -67,11 +67,10 @@ export default function IATMasterclassRecordingPage() {
           <strong>Time Left to Claim Your Exclusive Masterclass Discount</strong>
         </p>
 
-        {/* Countdown for Feb 21, 2025 11:59 PM ET */}
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2025-02-21T23:59:00-05:00'), 1)}
+          date={getOfferEndDate(new Date('2025-03-14T23:59:00-05:00'), 1)}
         />
       </Section>
 

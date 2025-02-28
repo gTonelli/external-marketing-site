@@ -72,12 +72,11 @@ export default function IATWebinarSqueezePage() {
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
-          {/* countdown for Feb 21, 2025, 11:59 PM ET */}
           <CountdownTimer
             className="!justify-start"
             classNameDate="!bg-inherit !shadow-none !text-black !p-0"
             theme="light"
-            date={getOfferEndDate(new Date('2025-02-21T23:59:00-05:00'), 1)}
+            date={getOfferEndDate(new Date('2025-03-14T23:59:00-05:00'), 1)}
           />
 
           <ButtonScroll className="mt-8" label="JOIN NOW & SAVE $300" target="#pricing" />

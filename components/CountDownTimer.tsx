@@ -41,15 +41,13 @@ export const CountdownTimer = forwardRef(
     ref: React.LegacyRef<Countdown>
   ) => {
     // ==================== State ====================
-    const [loading, setLoading] = useState(true)
     const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
 
     useEffect(() => {
       setOfferEndDate(getOfferEndDate(date!, 1))
-      setLoading(false)
     }, [date])
 
-    if (loading) return <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
+    if (!offerEndDate) return <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
 
     return (
       <CountdownPlugin

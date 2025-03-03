@@ -58,13 +58,15 @@ export const LIFETIME = {
       '**Weekly live Q&As with Thais Gibson.** Every week, Thais hosts webinars on different topics – like relationships, boundaries, or confidence – followed by a Q&A where you can get your personal questions answered by her.',
       '**Ability to book a 1:1 session** with one of our Integrated Attachment Theory coaches (add-on).',
     ],
-    text: ` “Sounds great”, you may think, “but I’ve tried to heal before and it didn’t work”, or maybe you’ve already gotten to the point of telling yourself “maybe loving and lasting relationships aren’t possible for me.” \n
-    If this is you, let us tell you something: relationships are much more science than we may think.\n
-    Our courses continuously receive top ratings from our students. The reason some consider our courses even more helpful than therapy, and more powerful than other programs, is the unique blend of subconscious reprogramming and the groundbreaking Integrated Attachment Theory (IAT) framework.\n
-    When we work on the conscious mind alone, we access only 3-5% of our total mental power. Leveraging the subconscious mind is the secret sauce that makes the whole difference. Your subconscious mind is where bad habits and limiting beliefs live – and can finally be changed!\n
-    Our founder, Thais Gibson, has over a decade of experience studying the subconscious mind – and 13 certifications. She has worked with clients who had tried everything and finally saw results using the IAT framework. Thanks to its success, she started The Personal Development School to further spread her transformative teachings and help change lives all over the world.\n
-    Our courses efficiently target the root cause of relationship issues like going hot and cold, being clingy, always falling for the “wrong” people, and arguing over the same things. When you join with the All-Access Pass, you get instant access to all our courses based on this framework – with easy step-by-step guidance to heal any relationship issue.\n
-    Try for yourself – if you don’t see a major breakthrough within 7 days, you’ll get your money back.`,
+    text: [
+      ` “Sounds great”, you may think, “but I’ve tried to heal before and it didn’t work”, or maybe you’ve already gotten to the point of telling yourself “maybe loving and lasting relationships aren’t possible for me.”`,
+      `If this is you, let us tell you something: relationships are much more science than we may think.`,
+      `Our courses continuously receive top ratings from our students. The reason some consider our courses even more helpful than therapy, and more powerful than other programs, is the unique blend of subconscious reprogramming and the groundbreaking Integrated Attachment Theory (IAT) framework.`,
+      `When we work on the conscious mind alone, we access only 3-5% of our total mental power. Leveraging the subconscious mind is the secret sauce that makes the whole difference. Your subconscious mind is where bad habits and limiting beliefs live – and can finally be changed!`,
+      `Our founder, Thais Gibson, has over a decade of experience studying the subconscious mind – and 13 certifications. She has worked with clients who had tried everything and finally saw results using the IAT framework. Thanks to its success, she started The Personal Development School to further spread her transformative teachings and help change lives all over the world.`,
+      `Our courses efficiently target the root cause of relationship issues like going hot and cold, being clingy, always falling for the “wrong” people, and arguing over the same things. When you join with the All-Access Pass, you get instant access to all our courses based on this framework – with easy step-by-step guidance to heal any relationship issue.`,
+      `Try for yourself – if you don’t see a major breakthrough within 7 days, you’ll get your money back.`,
+    ],
   },
   MEMBERSHIP_SECTION: {
     header: 'This Membership Can Be the 1 Thing That Changes Everything!',

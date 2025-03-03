@@ -44,7 +44,7 @@ export default function LifeTimePage() {
         <div className="mx-auto mt-4 md:mt-8">
           <ButtonScroll
             className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-            label="ENROLL NOW AND SAVE"
+            label="UNLOCK LIFETIME ACCESS & SAVE $$$"
             target="#pricing"
           />
         </div>
@@ -120,13 +120,53 @@ export default function LifeTimePage() {
         </div>
       </Section>
 
+      {/* ATTACHMENT PROGRAM SECTION */}
+      <Section className="max-w-full bg-black-secondary" classNameInner="text-white">
+        <div className="flex flex-col items-center text-center pt-12 px-4 md:px-8 md:pt-16">
+          <Image
+            alt="PDS courses mockup"
+            src="/images/LifeTimePage/lifetime_mock_up.png"
+            width={506}
+            height={229}
+          />
+
+          <h2 className="mt-8">{LIFETIME.UNLOCK_SECTION.header}</h2>
+
+          <p className="mt-8">{LIFETIME.UNLOCK_SECTION.subheader}</p>
+
+          <div className="mx-auto mt-8">
+            <List
+              icon={faCircleCheck}
+              className="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3 gap-x-12 lg:gap-y-8"
+              classNameIcon="!text-green-check mt-1 pr-2"
+              classNameListItems="text-left !text-lg !leading-6 pb-4"
+              listItems={LIFETIME.UNLOCK_SECTION.bullets}
+            />
+          </div>
+        </div>
+
+        <ButtonScroll
+          className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
+          label="UNLOCK LIFETIME ACCESS NOW!"
+          target="#pricing"
+        />
+      </Section>
+
+      <Image
+        alt="black wave"
+        className="w-full"
+        src="/images/LifeTimePage/black-wave.png"
+        width={1440}
+        height={102}
+      />
+
       {/* FEATURE SECTION */}
       <Section>
         <div className="grid grid-cols-1 justify-items-center sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-none">
           {LIFETIME.FEATURE_SECTION.bullets.map((bullet, index) => (
             <div
               key={`attachment_program_section_bullet${index}`}
-              className="max-w-96 flex flex-col items-center py-2 lg:py-8 px-6">
+              className="max-w-96 flex flex-col items-center py-2 px-6">
               <Image
                 alt="vector icon"
                 className="w-auto h-36"
@@ -141,56 +181,30 @@ export default function LifeTimePage() {
         </div>
       </Section>
 
-      {/* ATTACHMENT PROGRAM SECTION */}
-      <Section className="max-w-full bg-black-secondary" classNameInner="text-white">
-        <div className="flex flex-col items-center text-center pt-12 px-4 md:px-8 md:pt-16">
-          <Image
-            alt="PDS courses mockup"
-            src="/images/LifeTimePage/lifetime_mock_up.png"
-            width={506}
-            height={229}
-          />
+      {/* ATTACHMENT PROGRAM SECTION PART 2 */}
+      <Section>
+        <h2 className="mb-8">{LIFETIME.THAIS_SECTION.header}</h2>
 
-          <h2 className="mt-8">{LIFETIME.UNLOCK_SECTION.header}</h2>
+        <p className="font-bold mb-8">{LIFETIME.THAIS_SECTION.subheader}</p>
 
-          <div className="mx-auto mt-8">
-            <List
-              icon={faCircleCheck}
-              className="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-3 gap-x-12 lg:gap-y-8"
-              classNameIcon="!text-green-check mt-1 pr-2"
-              classNameListItems="text-left !text-lg !leading-6 pb-4"
-              listItems={LIFETIME.UNLOCK_SECTION.bullets}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="text-left">
+            {LIFETIME.THAIS_SECTION.text.map((item, index) => (
+              <p key={`unlock_section_text_${index}`} className="mb-4">
+                {item}
+              </p>
+            ))}
+          </div>
+
+          <div className="mt-4 md:mt-0">
+            <Image
+              alt="Thais and PDS products"
+              className="w-full"
+              src="/images/LifeTimePage/lifetime-thais.jpg"
+              width={481}
+              height={568}
             />
           </div>
-        </div>
-      </Section>
-
-      <Image
-        alt="black wave"
-        className="w-full"
-        src="/images/LifeTimePage/black-wave.png"
-        width={1440}
-        height={102}
-      />
-
-      {/* ATTACHMENT PROGRAM SECTION PART 2 */}
-      <Section classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <div className="text-left">
-          {LIFETIME.UNLOCK_SECTION.text.map((item, index) => (
-            <p key={`unlock_section_text_${index}`} className="mb-4">
-              {item}
-            </p>
-          ))}
-        </div>
-
-        <div className="mt-4 md:mt-0">
-          <Image
-            alt="Thais and PDS products"
-            className="w-full"
-            src="/images/LifeTimePage/lifetime-thais.jpg"
-            width={481}
-            height={568}
-          />
         </div>
       </Section>
 
@@ -204,16 +218,20 @@ export default function LifeTimePage() {
       {/* MEMBERSHIP_SECTION */}
       <Section className="max-w-full bg-blue-lightest">
         <div className="flex flex-col items-center text-center">
-          <h2 className="text-purple-dark">{LIFETIME.MEMBERSHIP_SECTION.header}</h2>
+          <h2 className="text-purple-dark mb-8">{LIFETIME.MEMBERSHIP_SECTION.header}</h2>
 
-          <p className="max-w-xl font-bold text-black mx-auto py-8 px-4">
-            {LIFETIME.MEMBERSHIP_SECTION.text}
-          </p>
+          <div className="max-w-4xl mx-auto">
+            {LIFETIME.MEMBERSHIP_SECTION.text.map((item, index) => (
+              <p key={`membership_section_text_${index}`} className="mb-4">
+                {item}
+              </p>
+            ))}
+          </div>
 
           <div className="mx-auto mt-4 md:mt-8">
             <ButtonScroll
               className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-              label="ENROLL NOW AND SAVE"
+              label="UNLOCK LIFETIME ACCESS NOW!"
               target="#pricing"
             />
           </div>
@@ -224,11 +242,11 @@ export default function LifeTimePage() {
       <Section>
         <h2 className="text-center">{LIFETIME.LEVEL_SECTION.header}</h2>
 
-        <div className="grid gridcols-1 justify-items-center pt-8 md:grid-cols-3 md:grid-rows-none">
+        <div className="grid grid-cols-1 justify-items-center pt-8 lg:grid-cols-3">
           {LIFETIME.LEVEL_SECTION.bullets.map((bullet, index) => (
             <div
               key={`attachment_program_section_bullet${index}`}
-              className="max-w-96 flex flex-col items-center py-2 lg:py-8 px-6">
+              className="flex flex-col items-center py-2 lg:py-8 px-6">
               <Image
                 alt="vector icon"
                 className="w-auto max-h-32"
@@ -237,7 +255,9 @@ export default function LifeTimePage() {
                 height={125}
               />
 
-              <p className="text-center h-full mt-8">{bullet.text}</p>
+              <h4 className="mt-8 mb-4">{bullet.title}</h4>
+
+              <p className="text-center h-full">{bullet.text}</p>
             </div>
           ))}
         </div>
@@ -250,7 +270,6 @@ export default function LifeTimePage() {
       <Section>
         <CarouselPopularCourses
           className="lg:!px-0 xl:!px-0"
-          classNameHeading="text-primary"
           classNameSubheading="max-w-4xl mx-auto !mb-8"
           heading="Our Most Popular Courses"
           subheading="Courses range from: Repairing Any Relationship, Communicating in Relationships, Overcoming Anxiety for Peace of Mind, Beating Procrastination and Setting Goals, Skyrocketing Your Self-Esteem and more!"
@@ -273,19 +292,25 @@ export default function LifeTimePage() {
       <Section>
         <h2 className="mb-8">{LIFETIME.COURSE_BENEFITS_SECTION.header}</h2>
 
-        <p className="mb-8">{LIFETIME.COURSE_BENEFITS_SECTION.subheader}</p>
+        <p className="max-w-3xl mb-8 mx-auto">{LIFETIME.COURSE_BENEFITS_SECTION.subheader}</p>
 
-        <div className="flex flex-col lg:flex-row">
-          <div
-            className="w-full flex flex-col self-center space-y-4 mb-5 
-                lg:items-start lg:mr-20 lg:mb-0">
-            {LIFETIME.COURSE_BENEFITS_SECTION.bullets.map((benefit, index) => (
-              <div key={`lifetime_explore_course_benefit_${index}`} className="flex space-x-4">
-                <FontAwesomeIcon className="text-primary pt-1" icon={faCircleCheck} />
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="text-left">
+            <div className="w-full flex flex-col self-center space-y-4 mb-5 lg:items-start lg:mr-20 lg:mb-0">
+              {LIFETIME.COURSE_BENEFITS_SECTION.bullets.map((benefit, index) => (
+                <div key={`lifetime_explore_course_benefit_${index}`} className="flex space-x-4">
+                  <FontAwesomeIcon className="text-primary pt-1" icon={faCircleCheck} />
 
-                <p>{benefit}</p>
-              </div>
-            ))}
+                  <p>{benefit}</p>
+                </div>
+              ))}
+            </div>
+
+            <ButtonScroll
+              className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg mt-8 hover:!text-white"
+              label="LAST CHANCE FOR LIFETIME ACCESS!"
+              target="#pricing"
+            />
           </div>
 
           <div className="flex-center flex-col">
@@ -295,12 +320,6 @@ export default function LifeTimePage() {
               src="/images/LifeTimePage/lifetime_page_explore.png"
               width={269}
               height={200}
-            />
-
-            <ButtonScroll
-              className="bg-gradient-to-b from-purple-medium to-purple-dark border-noGne drop-shadow-lg hover:!text-white"
-              label="GET LIFETIME ACCESS"
-              target="#pricing"
             />
           </div>
         </div>

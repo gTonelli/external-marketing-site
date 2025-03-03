@@ -30,18 +30,18 @@ interface IPricingPlan {
 }
 
 const pricingPlanbenefits: string[] = [
-  'All 65+ Courses',
-  'Interactive Workbooks',
-  'Certificate of Completion',
-  'Weekly Webinars',
-  'Community Social Events',
-  'Private Discussion Forums',
+  'Daily Live Webinars and Q&As with Thais',
+  'Daily Support Groups with Trained Coaches',
+  'Unlimited Access to 65+ Courses & Programs',
+  'Interactive Workbooks and Exercises',
+  'Private Online Community Access',
+  'Mobile App',
 ]
 
 const pricingPlan: IPricingPlan[] = [
   {
     title: 'ONE TIME PAYMENT',
-    currentPrice: 1799,
+    currentPrice: 1399,
     originalPrice: 2399,
     isRecommended: true,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
@@ -49,7 +49,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '6 MONTH PAYMENT PLAN',
-    currentPrice: 339,
+    currentPrice: 269,
     originalPrice: 449,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
@@ -57,7 +57,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '12 MONTH PAYMENT PLAN',
-    currentPrice: 179,
+    currentPrice: 149,
     originalPrice: 239,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,
@@ -71,7 +71,7 @@ export const LifetimePricing = () => {
   return (
     <section id="pricing" className="w-full">
       {/* mobile ver */}
-      <div className="relative w-full max-w-[400px] flex mx-auto lg:hidden">
+      <div className="relative w-full max-w-96 flex mx-auto lg:hidden">
         <Swiper
           autoplay={{ delay: 6000 }}
           className="!overflow-hidden !pb-14"
@@ -147,23 +147,28 @@ export const LifetimePricing = () => {
       {/* desktop ver */}
       <div className="hidden max-w-6xl  mx-auto py-8 px-4 md:my-12 lg:block lg:px-8">
         <section className="container shadow-centered rounded-2xl mx-auto p-6 overflow-x-auto">
-          <div className="w-full grid grid-cols-5 grid-rows-7 gap-y-1 text-center place-items-center">
-            <div className="h-[250px] flex col-span-2 place-self-start items-center">
+          <div className="w-full grid grid-cols-6 grid-rows-7 gap-y-1 text-center place-items-center">
+            <div className="h-64 flex col-span-2 place-self-start items-center">
               <div className=" text-purple-dark text-2xl pl-4 ">
                 <h2>Lifetime Access</h2>
 
                 <h2>All-Access Pass</h2>
               </div>
             </div>
+            {/* total costs */}
+            <div className="h-full col-start-3 row-start-1 place-self-start mt-4">
+              <p className="text-md font-medium tracking-widest px-2 mb-2">TOTAL COSTS</p>
+
+              <p className="text-xl mt-8">
+                <strong>$3,785</strong>
+              </p>
+            </div>
 
             {/* one time payment */}
-            <div className="col-start-3 row-start-1 ">
+            <div className="col-start-4 row-start-1 place-self-start mt-4">
               <p className="text-md font-medium tracking-widest px-2 mb-2">ONE TIME PAYMENT PLAN</p>
 
               <div className="mb-2">
-                <p className="line-through text-grey font-medium inline pr-2">
-                  {`${formatPrice(pricingPlan[0].originalPrice)}`}
-                </p>
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
                   {`${formatPrice(pricingPlan[0].currentPrice)}`}
                 </p>
@@ -179,14 +184,10 @@ export const LifetimePricing = () => {
               />
             </div>
             {/* 6 month payment */}
-            <div className="col-start-4 row-start-1">
+            <div className="col-start-5 row-start-1 place-self-start mt-4">
               <p className="text-md font-medium tracking-widest px-2 mb-2">6 MONTH PAYMENT PLAN</p>
 
               <div className="mb-2">
-                <p className="line-through text-grey font-medium inline pr-2">
-                  {`${formatPrice(pricingPlan[1].originalPrice)}`}
-                </p>
-
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
                   {`${formatPrice(pricingPlan[1].currentPrice)}`}
                 </p>
@@ -204,14 +205,10 @@ export const LifetimePricing = () => {
               />
             </div>
             {/* 12 month payment */}
-            <div className="col-start-5 row-start-1">
+            <div className="col-start-6 row-start-1 place-self-start mt-4">
               <p className="text-md font-medium tracking-widest px-2 mb-2">12 MONTH PAYMENT PLAN</p>
 
               <div className="mb-2">
-                <p className="line-through text-grey font-medium inline pr-2">
-                  {`${formatPrice(pricingPlan[2].originalPrice)}`}
-                </p>
-
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
                   {`${formatPrice(pricingPlan[2].currentPrice)}`}
                 </p>
@@ -229,14 +226,16 @@ export const LifetimePricing = () => {
               />
             </div>
             {/* Background highlight */}
-            <div className="col-start-3 col-end-4 row-start-1 row-span-full row-end-8 -z-10 w-full h-full bg-primary-light/20 rounded-20 border-2 border-solid border-primary" />
+            {/* <div className="col-start-3 col-end-4 row-start-1 row-span-full row-end-8 -z-10 w-full h-full bg-primary-light/20 rounded-20 border-2 border-solid border-primary" /> */}
 
             <div className="col-span-2 row-start-2 place-self-start pl-4">
-              <p className="text-black !font-sspb font-medium py-3">On-Demand Course Video</p>
+              <p className="text-black !font-sspb font-medium py-3">
+                Daily Live Webinars and Q&As with Thais
+              </p>
             </div>
 
             <div className="col-start-3 row-start-2">
-              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+              <p>$1,200</p>
             </div>
 
             <div className="col-start-4 row-start-2">
@@ -247,28 +246,40 @@ export const LifetimePricing = () => {
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
+            <div className="col-start-6 row-start-2">
+              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+            </div>
+
             <div className="col-span-2 row-start-3 place-self-start w-full bg-primary-light/20 text-left rounded-l-full pl-4">
-              <p className="text-black !font-sspb font-medium py-3">Interactive Workbooks</p>
+              <p className="text-black !font-sspb font-medium py-3">
+                Daily Support Groups with Trained Coaches
+              </p>
             </div>
 
             <div className="col-start-3 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20">
-              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+              <p>$300</p>
             </div>
 
             <div className="col-start-4 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20">
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
-            <div className="col-start-5 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
+            <div className="col-start-5 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20">
+              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+            </div>
+
+            <div className="col-start-6 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
             <div className="col-span-2 row-start-4 place-self-start pl-4">
-              <p className="text-black !font-sspb font-medium py-3">Certificate Of Completion</p>
+              <p className="text-black text-left !font-sspb font-medium py-3">
+                Unlimited Access to 65+ Courses & Programs
+              </p>
             </div>
 
             <div className="col-start-3 row-start-4">
-              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+              <p>$185</p>
             </div>
 
             <div className="col-start-4 row-start-4">
@@ -279,30 +290,40 @@ export const LifetimePricing = () => {
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
+            <div className="col-start-6 row-start-4">
+              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+            </div>
+
             <div className="col-span-2 row-start-5 place-self-start w-full bg-primary-light/20 text-left rounded-l-full pl-4">
               <p className="text-black !font-sspb font-medium py-3">
-                Live Weekly Webinars with Thais
+                Interactive Workbooks and Exercises
               </p>
             </div>
 
             <div className="col-start-3 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20">
-              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+              <p>$1,550</p>
             </div>
 
             <div className="col-start-4 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20">
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
-            <div className="col-start-5 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
+            <div className="col-start-5 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20">
+              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+            </div>
+
+            <div className="col-start-6 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
             <div className="col-span-2 row-start-6 place-self-start pl-4">
-              <p className="text-black !font-sspb font-medium py-3">Access to 65+ Courses</p>
+              <p className="text-black !font-sspb font-medium py-3">
+                Private Online Community Access
+              </p>
             </div>
 
             <div className="col-start-3 row-start-6">
-              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+              <p>$500</p>
             </div>
 
             <div className="col-start-4 row-start-6">
@@ -313,19 +334,27 @@ export const LifetimePricing = () => {
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
+            <div className="col-start-6 row-start-6">
+              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+            </div>
+
             <div className="col-span-2 row-start-7 place-self-start w-full bg-primary-light/20 text-left rounded-l-full pl-4">
-              <p className="text-black !font-sspb font-medium py-3">Private Discussion Forums</p>
+              <p className="text-black !font-sspb font-medium py-3">Mobile App</p>
             </div>
 
             <div className="col-start-3 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20">
-              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+              <p>$50</p>
             </div>
 
             <div className="col-start-4 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20">
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
 
-            <div className="col-start-5 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
+            <div className="col-start-5 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20">
+              <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
+            </div>
+
+            <div className="col-start-6 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20 rounded-r-full">
               <FontAwesomeIcon className="text-green-check" icon={faCircleCheck} />
             </div>
           </div>

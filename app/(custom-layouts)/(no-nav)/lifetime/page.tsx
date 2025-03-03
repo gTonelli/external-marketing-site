@@ -1,23 +1,21 @@
-'use client'
-
 // core
 import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
-import { CountdownTimer } from '@/components/CountDownTimer'
-import { List } from '@/components/List'
-import { Carousel } from '@/components/Carousel/Carousel'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Section } from '@/components/Section'
+import { List } from '@/components/List'
+import { CountdownTimer } from '@/components/CountDownTimer'
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
+import { CarouselPopularCourses } from '@/components/Carousel/variants/CarouselPopularCourses'
 import { LifetimePricing } from '@/components/LifetimePricing'
+import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
 import { LIFETIME } from './config'
-import { CarouselPopularCourses } from '@/components/Carousel/variants/CarouselPopularCourses'
 
 export default function LifeTimePage() {
   return (
@@ -128,10 +126,10 @@ export default function LifeTimePage() {
           {LIFETIME.FEATURE_SECTION.bullets.map((bullet, index) => (
             <div
               key={`attachment_program_section_bullet${index}`}
-              className="max-w-[400px] flex flex-col items-center py-2 lg:py-8 px-6">
+              className="max-w-96 flex flex-col items-center py-2 lg:py-8 px-6">
               <Image
                 alt="vector icon"
-                className="w-auto h-[150px]"
+                className="w-auto h-36"
                 src={`/images/LifeTimePage/${bullet.img}`}
                 width={150}
                 height={150}
@@ -230,10 +228,10 @@ export default function LifeTimePage() {
           {LIFETIME.LEVEL_SECTION.bullets.map((bullet, index) => (
             <div
               key={`attachment_program_section_bullet${index}`}
-              className="max-w-[400px] flex flex-col items-center py-2 lg:py-8 px-6">
+              className="max-w-96 flex flex-col items-center py-2 lg:py-8 px-6">
               <Image
                 alt="vector icon"
-                className="w-auto max-h-[125px]"
+                className="w-auto max-h-32"
                 src={`/images/LifeTimePage/${bullet.img}`}
                 width={125}
                 height={125}
@@ -272,14 +270,14 @@ export default function LifeTimePage() {
       </Section>
 
       {/* EXPLORE COURSE SECTION */}
-      <section className="w-full flex flex-col items-center justify-center px-4 py-8 pb-24">
+      <Section>
         <h2 className="mb-8">{LIFETIME.COURSE_BENEFITS_SECTION.header}</h2>
 
         <p className="mb-8">{LIFETIME.COURSE_BENEFITS_SECTION.subheader}</p>
 
         <div className="flex flex-col lg:flex-row">
           <div
-            className="w-full max-w-[400px] flex flex-col self-center space-y-4 mb-5 
+            className="w-full flex flex-col self-center space-y-4 mb-5 
                 lg:items-start lg:mr-20 lg:mb-0">
             {LIFETIME.COURSE_BENEFITS_SECTION.bullets.map((benefit, index) => (
               <div key={`lifetime_explore_course_benefit_${index}`} className="flex space-x-4">
@@ -306,7 +304,7 @@ export default function LifeTimePage() {
             />
           </div>
         </div>
-      </section>
+      </Section>
     </Page>
   )
 }

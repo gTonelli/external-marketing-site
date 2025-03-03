@@ -1,3 +1,5 @@
+'use client'
+
 // core
 import { useContext } from 'react'
 // components
@@ -16,6 +18,7 @@ import { formatPrice } from '@/utils/functions'
 // styles
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 interface IPricingPlan {
   title: string

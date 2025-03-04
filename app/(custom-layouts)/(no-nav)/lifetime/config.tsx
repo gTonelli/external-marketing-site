@@ -2,8 +2,7 @@ export const LIFETIME = {
   HERO_SECTION: {
     header:
       'Unlock the Proven Programs & Proprietary Platform That Will Help You Every Step of the Way, Forever!',
-    subheader:
-      'Exclusive Offer, Unmatched Value & Lifelong Support. Get Lifetime Access to the All-Access Pass',
+    subheader: 'Exclusive Offer, Unmatched Value: Get Lifetime Access to the All-Access Pass!',
     promo_text:
       "Don't Miss This Limited-Time Offer. Secure Your Lifetime Access Today & Save Up to $1000!",
   },
@@ -39,7 +38,7 @@ export const LIFETIME = {
       },
       {
         img: 'lifetime_feature_icon2.png',
-        text: 'Weekly live webinars with Thais Gibson to get personalized guidance on your roadblocks and challenges.',
+        text: 'Join Thais Gibson for weekly live webinars for personalized guidance and advice.',
       },
       {
         img: 'lifetime_feature_icon3.png',
@@ -58,10 +57,10 @@ export const LIFETIME = {
       'Why pay again and again? Enjoy Lifetime Access to on-demand courses, transformational tools, expert coaching, and an exclusive community designed to help you thrive—forever.',
     bullets: [
       '**Break Through Barriers with Science-Backed Courses** - Get instant “aha” moments with 65+ bite-sized, results-driven, expert-designed courses designed to create real, lasting breakthroughs in your relationships and life. Just one tool from one self-paced course could revolutionize your love life!',
-      '**Direct Learning From An Industry Leader & Trusted Expert** - Join our live, interactive webinars and Q&As multiple times a week with industry leader Thais Gibson and her team of certified coaches. Discover new tools, have tough conversations, and overcome roadblocks with clarity and confidence.',
-      '**Thrive Within a Global Community of 110+ Countries** - You’re never alone in this journey! Connect with like-minded people on our platform, where breakout rooms and private forums create intimate, meaningful discussions. Share challenges, celebrate wins, and experience the power of real support.',
+      '**Direct Learning From An Industry Leader & Trusted Expert** - Join our live, interactive webinars and Q&As multiple times a week with industry leader Thais Gibson and her team of certified coaches. Discover new tools and overcome roadblocks together.',
+      '**Thrive Within a Global Community of 110+ Countries** - You’re never alone in this journey! Connect with like-minded people on our platform, where breakout rooms and private forums create intimate, meaningful discussions. Share challenges, celebrate wins, and embrace real support.',
       '**Keep Learning With Instant Access to 500+ Webinars** - Did you miss a life-altering webinar or Q&A session? No problem! Dive into our extensive library of past webinars packed with insights, strategies, and breakthroughs—available anytime you need them.',
-      '**One-Time Payment, Huge Savings** - Save up to $1000 and skip the hassle of renewals. You’ll never have to worry about renewals, price increases, or missing out on valuable content. This exclusive discount gives you premium access at a fraction of the cost.',
+      '**One-Time Payment, Huge Savings** - Save up to $1000 and skip the hassle of monthly-payments. You’ll never have to worry about renewals, price increases, or missing out on valuable content. This exclusive discount gives you premium access at a fraction of the cost.',
       '**Lifetime Support, Unlimited Growth—Forever** - With a Lifetime Membership to our All-Access Pass, you’ll never be alone in your journey. Gain unlimited support and access to everything we offer to help you break through and keep growing—for life.',
     ],
   },
@@ -72,12 +71,31 @@ export const LIFETIME = {
     text: [
       `You might be thinking, "I've tried before, and it didn’t work," or "Maybe lasting relationships aren't possible for me."`,
       `If this is you, let us tell you something: relationships are much more science than we may think.`,
-      `This is why we stand apart from others: we utilize the revolutionary subconscious reprogramming framework of Integrated Attachment Theory™ (IAT™).`,
+      <>
+        This is why we stand apart from others: we utilize the revolutionary subconscious
+        reprogramming framework of <strong>Integrated Attachment Theory™ (IAT™).</strong>
+      </>,
       `Unlike traditional methods that only tap into the conscious mind (which only accesses 3-5% of our total mental power), our approach works with the subconscious mind, where self-sabotaging habits and limiting beliefs live, and transform them within.`,
-      `It’s our little, life-changing secret.`,
-      `Founded by Thais Gibson, with over a decade of experience and 13 certifications, we utilize IAT™ within our courses, webinars, Q&A sessions, and study groups.`,
-      `It's why our students find us more helpful than therapy and more powerful than other programs. IAT™ is so simple that anyone can learn it—even if you spent years with traditional modalities—and it can used for any application in life–relationships, personal development, career, family dynamics, and more.`,
-      `And we're so confident of the results that if you don’t experience a breakthrough within 7 days, you get your money back.`,
+      <>
+        <strong>It’s our little, life-changing secret.</strong>
+      </>,
+      <>
+        Founded by <strong>Thais Gibson</strong>, with over a decade of experience and 13
+        certifications, we utilize <strong>IAT™</strong> within our courses, webinars, Q&A sessions,
+        and study groups.
+      </>,
+      <>
+        It's why our students find us more helpful than therapy and more powerful than other
+        programs. <strong>IAT™</strong> is so simple that anyone can learn it—even if you spent
+        years with traditional modalities—and it can used for any application in life–relationships,
+        personal development, career, family dynamics, and more.
+      </>,
+      <>
+        <strong>
+          And we're so confident of the results that if you don’t experience a breakthrough within 7
+          days, you get your money back.
+        </strong>
+      </>,
     ],
   },
   MEMBERSHIP_SECTION: {
@@ -95,7 +113,7 @@ export const LIFETIME = {
       {
         img: 'lifetime_level-up_icon1.png',
         title: 'Experience The Love You Deserve',
-        text: 'See your romantic relationships become more joyous, trusting, and fulfilled. If you’re single, get ready to attract your ideal partner.',
+        text: 'Embrace more joyous, trusting, and fulfilled relationships. If you’re single, get ready to attract your ideal partner.',
       },
       {
         img: 'lifetime_level-up_icon2.png',
@@ -104,7 +122,7 @@ export const LIFETIME = {
       },
       {
         img: 'lifetime_level-up_icon3.png',
-        title: 'Cultivate Self-Compassion to Live Effortlessly',
+        title: 'Cultivate Self-Compassion',
         text: 'Build more self-compassion and self-love and, as a result, gain the courage to pursue what you truly want and need in life.',
       },
     ],

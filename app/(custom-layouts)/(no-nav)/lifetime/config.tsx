@@ -38,7 +38,7 @@ export const LIFETIME = {
       },
       {
         img: 'lifetime_feature_icon2.png',
-        text: 'Join Thais Gibson for weekly live webinars for personalized guidance and advice.',
+        text: 'Join Thais Gibson for weekly webinars for personalized guidance and advice.',
       },
       {
         img: 'lifetime_feature_icon3.png',

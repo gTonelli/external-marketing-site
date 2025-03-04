@@ -208,7 +208,7 @@ export const LifetimePricing = () => {
 
               <div className="mb-2">
                 <p className="line-through text-grey font-medium inline pr-2">
-                  {`${formatPrice(pricingPlan[0].originalPrice)}`}
+                  {`${formatPrice(pricingPlan[1].originalPrice)}`}
                 </p>
 
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
@@ -233,7 +233,7 @@ export const LifetimePricing = () => {
 
               <div className="mb-2">
                 <p className="line-through text-grey font-medium inline pr-2">
-                  {`${formatPrice(pricingPlan[0].originalPrice)}`}
+                  {`${formatPrice(pricingPlan[2].originalPrice)}`}
                 </p>
 
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">

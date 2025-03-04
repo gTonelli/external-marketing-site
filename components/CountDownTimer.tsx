@@ -44,7 +44,7 @@ export const CountdownTimer = forwardRef(
     const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
 
     useEffect(() => {
-      setOfferEndDate(getOfferEndDate(date!, 1))
+      setOfferEndDate(getOfferEndDate(date || dayjs().hour(23).minute(60).toDate(), 1))
     }, [date])
 
     if (!offerEndDate) return <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />

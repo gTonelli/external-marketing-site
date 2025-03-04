@@ -186,8 +186,8 @@ export const CarouselPopularCourses = ({
     // POPULAR COURSES
     <section
       className={cx(
-        `relative w-full flex flex-col px-page-xxs pt-10 mb-15
-        lg:px-page-md lg:mb-20
+        `relative w-full flex flex-col px-page-xxs pt-10
+        lg:px-page-md
         xl:px-page`,
         className
       )}>

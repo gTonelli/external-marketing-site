@@ -99,9 +99,14 @@ export const LifetimePricing = () => {
                 className="flex justify-evenly mx-auto px-3 pt-4  xs:px-5">
                 <Card
                   className={cx(
-                    'w-full flex flex-col items-center justify-center shadow-centered p-4 rounded-3xl',
+                    'relative w-full flex flex-col items-center justify-center shadow-centered p-4 rounded-3xl overflow-hidden',
                     isRecommended && 'border-2 border-primary bg-primary-light/20'
                   )}>
+                  {isRecommended && (
+                    <div className="absolute top-4 left-36 py-1 px-12 rotate-45 bg-green-check text-center text-white text-sm font-bold w-full">
+                      SAVE 50%
+                    </div>
+                  )}
                   <p className="text-md font-bold tracking-widest px-2 mb-2">{plan.title}</p>
 
                   <div className="mb-2">
@@ -109,7 +114,7 @@ export const LifetimePricing = () => {
                       {`${formatPrice(plan.originalPrice)}`}
                     </p>
 
-                    <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
+                    <p className="!text-3xl font-ssp font-bold text-purple-dark inline">
                       {`${formatPrice(plan.currentPrice)}`}
                     </p>
 
@@ -121,7 +126,11 @@ export const LifetimePricing = () => {
                   </p>
 
                   {/* ENROLL BTN */}
-                  <CheckoutButton label="SELECT" href={plan.url} />
+                  <CheckoutButton
+                    className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
+                    label="SELECT"
+                    href={plan.url}
+                  />
 
                   {/* BENEFITS */}
                   <div className="w-full mt-8">
@@ -142,17 +151,16 @@ export const LifetimePricing = () => {
                           <p className="font-sspb text-sm">{benefit.text}</p>
                         </div>
 
-                        <div>{benefit.price}</div>
+                        <div className="text-purple-dark">
+                          <strong>{benefit.price}</strong>
+                        </div>
                       </div>
                     ))}
                   </div>
 
-                  {/* commented out for immediate launch */}
-                  {/* <div className="w-full flex justify-between items-center text-2xl mt-4">
-                    <p>Total Cost</p>
-
-                    <p className="text-primary font-bold">$3,785</p>
-                  </div> */}
+                  <div className="w-full text-center text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
+                    <strong>Savings worth over $3,000</strong>
+                  </div>
                 </Card>
               </SwiperSlide>
             )
@@ -161,34 +169,34 @@ export const LifetimePricing = () => {
       </div>
       {/* desktop ver */}
       <div className="hidden max-w-6xl  mx-auto py-8 px-4 md:my-12 lg:block lg:px-8">
-        <section className="container shadow-centered rounded-2xl mx-auto p-6 overflow-x-auto">
-          <div className="w-full grid grid-cols-6 grid-rows-7 gap-y-1 text-center place-items-center">
-            <div className="h-64 flex col-span-2 place-self-start items-center">
+        <section className="container shadow-centered rounded-2xl mx-auto p-6 overflow-visible">
+          <div className="relative w-full grid grid-cols-6 grid-rows-7 gap-y-2 text-center place-items-center overflow-visible">
+            <div className="h-fit flex col-span-2 place-self-start mt-4">
               <div className=" text-purple-dark text-2xl pl-4 ">
                 <h2>Lifetime Access</h2>
 
                 <h2>All-Access Pass</h2>
+
+                <div className="w-fit text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
+                  <strong>Savings worth over $3,000</strong>
+                </div>
               </div>
             </div>
-            {/* total costs: commenting out for immediate launch */}
-            {/* <div className="h-full col-start-3 row-start-1 place-self-start mt-4">
-              <p className="text-md font-medium tracking-widest px-2 mb-2">TOTAL COSTS</p>
-
-              <p className="text-xl mt-8">
-                <strong>$3,785</strong>
-              </p>
-            </div> */}
 
             {/* one time payment */}
-            <div className="col-start-4 row-start-1 place-self-start mt-4">
-              <p className="text-md font-medium tracking-widest px-2 mb-2">ONE TIME PAYMENT PLAN</p>
+            <div className="col-start-4 row-start-1 mt-4 z-10">
+              <p className="text-sm font-bold tracking-widest px-2 mb-2">
+                ONE TIME
+                <br />
+                PAYMENT PLAN
+              </p>
 
               <div className="mb-2">
                 <p className="line-through text-grey font-medium inline pr-2">
                   {`${formatPrice(pricingPlan[0].originalPrice)}`}
                 </p>
 
-                <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
+                <p className="!text-3xl font-ssp font-bold text-purple-dark inline">
                   {`${formatPrice(pricingPlan[0].currentPrice)}`}
                 </p>
               </div>
@@ -198,20 +206,25 @@ export const LifetimePricing = () => {
               </p>
 
               <CheckoutButton
+                className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT}
               />
             </div>
             {/* 6 month payment */}
-            <div className="col-start-5 row-start-1 place-self-start mt-4">
-              <p className="text-md font-medium tracking-widest px-2 mb-2">6 MONTH PAYMENT PLAN</p>
+            <div className="col-start-5 row-start-1 mt-4">
+              <p className="text-sm font-bold tracking-widest px-2 mb-2">
+                6 MONTH
+                <br />
+                PAYMENT PLAN
+              </p>
 
               <div className="mb-2">
                 <p className="line-through text-grey font-medium inline pr-2">
                   {`${formatPrice(pricingPlan[1].originalPrice)}`}
                 </p>
 
-                <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
+                <p className="!text-3xl font-ssp font-bold text-purple-dark inline">
                   {`${formatPrice(pricingPlan[1].currentPrice)}`}
                 </p>
 
@@ -223,20 +236,24 @@ export const LifetimePricing = () => {
               </p>
 
               <CheckoutButton
+                className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN}
               />
             </div>
             {/* 12 month payment */}
-            <div className="col-start-6 row-start-1 place-self-start mt-4">
-              <p className="text-md font-medium tracking-widest px-2 mb-2">12 MONTH PAYMENT PLAN</p>
+            <div className="col-start-6 row-start-1 mt-4">
+              <p className="text-sm font-bold tracking-widest px-2 mb-2">
+                12 MONTH <br />
+                PAYMENT PLAN
+              </p>
 
               <div className="mb-2">
                 <p className="line-through text-grey font-medium inline pr-2">
                   {`${formatPrice(pricingPlan[2].originalPrice)}`}
                 </p>
 
-                <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
+                <p className="!text-3xl font-ssp font-bold text-purple-dark inline">
                   {`${formatPrice(pricingPlan[2].currentPrice)}`}
                 </p>
 
@@ -248,10 +265,14 @@ export const LifetimePricing = () => {
               </p>
 
               <CheckoutButton
+                className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN}
               />
             </div>
+
+            {/* highlight */}
+            <div className="absolute w-full h-[120%] -top-12 left-0 col-start-4 col-end-5 row-start-1 row-end-8 rounded-xl border-2 border-primary bg-primary/10 overflow-hidden z-5 before:absolute before:top-4 before:left-12 before:py-1 before:px-12 before:rotate-45 before:bg-green-check before:text-white before:text-sm before:font-bold before:w-full before:content-['SAVE_50%']"></div>
 
             <div className="col-span-2 row-start-2 place-self-start pl-4">
               <p className="text-black !font-sspb font-medium py-3">
@@ -259,7 +280,7 @@ export const LifetimePricing = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-2">
+            <div className="col-start-3 row-start-2 text-purple-dark font-bold">
               <p>$1,200</p>
             </div>
 
@@ -281,7 +302,7 @@ export const LifetimePricing = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-3 place-self-stretch flex justify-center items-center bg-primary-light/20">
+            <div className="col-start-3 row-start-3 place-self-stretch font-bold flex justify-center items-center text-purple-dark bg-primary-light/20">
               <p>$300</p>
             </div>
 
@@ -303,7 +324,7 @@ export const LifetimePricing = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-4">
+            <div className="col-start-3 row-start-4 text-purple-dark font-bold">
               <p>$185</p>
             </div>
 
@@ -325,7 +346,7 @@ export const LifetimePricing = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-5 place-self-stretch flex justify-center items-center bg-primary-light/20">
+            <div className="col-start-3 row-start-5 place-self-stretch font-bold flex justify-center items-center text-purple-dark bg-primary-light/20">
               <p>$1,550</p>
             </div>
 
@@ -347,7 +368,7 @@ export const LifetimePricing = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-6">
+            <div className="col-start-3 row-start-6 text-purple-dark font-bold">
               <p>$500</p>
             </div>
 
@@ -367,7 +388,7 @@ export const LifetimePricing = () => {
               <p className="text-black !font-sspb font-medium py-3">Mobile App</p>
             </div>
 
-            <div className="col-start-3 row-start-7 place-self-stretch flex justify-center items-center bg-primary-light/20">
+            <div className="col-start-3 row-start-7 place-self-stretch font-bold flex justify-center items-center text-purple-dark bg-primary-light/20">
               <p>$50</p>
             </div>
 

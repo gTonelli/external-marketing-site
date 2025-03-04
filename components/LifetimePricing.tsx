@@ -143,9 +143,9 @@ export const LifetimePricing = () => {
                         )}>
                         <div className="flex pr-4">
                           <FontAwesomeIcon
-                            className="text-green-500 mr-2"
+                            className="!text-purple-dark mr-2 mt-1"
                             icon={faCircleCheck}
-                            size="lg"
+                            size="sm"
                           />
 
                           <p className="font-sspb text-sm">{benefit.text}</p>

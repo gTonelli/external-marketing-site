@@ -20,22 +20,26 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
+interface IPricingPlanBenefit {
+  text: string
+  price: string
+}
 interface IPricingPlan {
   title: string
   currentPrice: number
   originalPrice: number
   isRecommended: boolean
   url: EExternalRoutes
-  benefits: string[]
+  benefits: IPricingPlanBenefit[]
 }
 
-const pricingPlanbenefits: string[] = [
-  'Daily Live Webinars and Q&As with Thais',
-  'Daily Support Groups with Trained Coaches',
-  'Unlimited Access to 65+ Courses & Programs',
-  'Interactive Workbooks and Exercises',
-  'Private Online Community Access',
-  'Mobile App',
+const pricingPlanbenefits: IPricingPlanBenefit[] = [
+  { text: 'Daily Live Webinars and Q&As with Thais', price: '$1,200' },
+  { text: 'Daily Support Groups with Trained Coaches', price: '$300' },
+  { text: 'Unlimited Access to 65+ Courses & Programs', price: '$185' },
+  { text: 'Interactive Workbooks and Exercises', price: '$1,550' },
+  { text: 'Private Online Community Access', price: '$500' },
+  { text: 'Mobile App', price: '$50' },
 ]
 
 const pricingPlan: IPricingPlan[] = [
@@ -95,7 +99,7 @@ export const LifetimePricing = () => {
                 className="flex justify-evenly mx-auto px-3 pt-4  xs:px-5">
                 <Card
                   className={cx(
-                    'w-full flex flex-col items-center justify-center shadow-centered px-2 py-12 xs:px-8',
+                    'w-full flex flex-col items-center justify-center shadow-centered p-4 rounded-3xl',
                     isRecommended && 'border-2 border-primary bg-primary-light/20'
                   )}>
                   <p className="text-md font-bold tracking-widest px-2 mb-2">{plan.title}</p>
@@ -120,24 +124,35 @@ export const LifetimePricing = () => {
                   <CheckoutButton label="SELECT" href={plan.url} />
 
                   {/* BENEFITS */}
-                  <div className="w-full flex flex-col px-4 mt-8">
+                  <div className="w-full mt-8">
                     {plan.benefits.map((benefit, benefitIndex) => (
                       <div
                         key={`pricingPlanBenefitMobile_${benefitIndex}`}
                         className={cx(
-                          'w-full flex justify-start items-center rounded-full pl-5 py-3 pr-3',
-                          benefitIndex % 2 !== 0 && 'bg-primary-light/20'
+                          'w-full col-span-4 flex justify-between items-center rounded-full pl-5 py-3 pr-3',
+                          benefitIndex & 1 && 'bg-primary-light/20'
                         )}>
-                        <FontAwesomeIcon
-                          className="text-green-500 mr-2"
-                          icon={faCircleCheck}
-                          size="lg"
-                        />
+                        <div className="flex pr-4">
+                          <FontAwesomeIcon
+                            className="text-green-500 mr-2"
+                            icon={faCircleCheck}
+                            size="lg"
+                          />
 
-                        <p className="font-sspb text-sm">{benefit}</p>
+                          <p className="font-sspb text-sm">{benefit.text}</p>
+                        </div>
+
+                        <div>{benefit.price}</div>
                       </div>
                     ))}
                   </div>
+
+                  {/* commented out for immediate launch */}
+                  {/* <div className="w-full flex justify-between items-center text-2xl mt-4">
+                    <p>Total Cost</p>
+
+                    <p className="text-primary font-bold">$3,785</p>
+                  </div> */}
                 </Card>
               </SwiperSlide>
             )
@@ -155,20 +170,24 @@ export const LifetimePricing = () => {
                 <h2>All-Access Pass</h2>
               </div>
             </div>
-            {/* total costs */}
-            <div className="h-full col-start-3 row-start-1 place-self-start mt-4">
+            {/* total costs: commenting out for immediate launch */}
+            {/* <div className="h-full col-start-3 row-start-1 place-self-start mt-4">
               <p className="text-md font-medium tracking-widest px-2 mb-2">TOTAL COSTS</p>
 
               <p className="text-xl mt-8">
                 <strong>$3,785</strong>
               </p>
-            </div>
+            </div> */}
 
             {/* one time payment */}
             <div className="col-start-4 row-start-1 place-self-start mt-4">
               <p className="text-md font-medium tracking-widest px-2 mb-2">ONE TIME PAYMENT PLAN</p>
 
               <div className="mb-2">
+                <p className="line-through text-grey font-medium inline pr-2">
+                  {`${formatPrice(pricingPlan[0].originalPrice)}`}
+                </p>
+
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
                   {`${formatPrice(pricingPlan[0].currentPrice)}`}
                 </p>
@@ -188,6 +207,10 @@ export const LifetimePricing = () => {
               <p className="text-md font-medium tracking-widest px-2 mb-2">6 MONTH PAYMENT PLAN</p>
 
               <div className="mb-2">
+                <p className="line-through text-grey font-medium inline pr-2">
+                  {`${formatPrice(pricingPlan[0].originalPrice)}`}
+                </p>
+
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
                   {`${formatPrice(pricingPlan[1].currentPrice)}`}
                 </p>
@@ -209,6 +232,10 @@ export const LifetimePricing = () => {
               <p className="text-md font-medium tracking-widest px-2 mb-2">12 MONTH PAYMENT PLAN</p>
 
               <div className="mb-2">
+                <p className="line-through text-grey font-medium inline pr-2">
+                  {`${formatPrice(pricingPlan[0].originalPrice)}`}
+                </p>
+
                 <p className="!text-3xl !font-sspb font-medium text-purple-dark inline">
                   {`${formatPrice(pricingPlan[2].currentPrice)}`}
                 </p>
@@ -225,8 +252,6 @@ export const LifetimePricing = () => {
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN}
               />
             </div>
-            {/* Background highlight */}
-            {/* <div className="col-start-3 col-end-4 row-start-1 row-span-full row-end-8 -z-10 w-full h-full bg-primary-light/20 rounded-20 border-2 border-solid border-primary" /> */}
 
             <div className="col-span-2 row-start-2 place-self-start pl-4">
               <p className="text-black !font-sspb font-medium py-3">

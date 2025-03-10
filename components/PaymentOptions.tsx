@@ -111,17 +111,18 @@ const allConfigs = {
       '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
   },
   dreamLifeSexCourse: {
-    offerLabel: 'Free Course For Life!',
+    offerLabel: 'Free Course For Life + Free Trial',
     offerType: '',
-    title: 'Get Your Emotional Intimacy & Sex Roadmap For Life - For FREE!',
+    title: 'Get Your Attachment Styles & Sex Course ($250 Value) - For Free!',
     copy: (
       <>
-        Sign up for a Free Trial to own the <strong>Attachment Styles & Sex Course</strong> for
-        LIFE, so you can always navigate intimacy with clarity, build deeper connections, and
+        Sign up for a 7-day Free Trial to our All-Access Pass and KEEP the Attachment Styles & Sex
+        Course for LIFE, even if you don’t stay with us after 7 days. The course gives you access to
+        a roadmap that helps you navigate intimacy with clarity, build deeper connections, and
         embrace more enjoyable experiences.
       </>
     ),
-    ctaLabel: 'SIGN UP FOR YOUR BEST LOVE LIFE!*',
+    ctaLabel: 'SIGN UP FOR YOUR FREE TRIAL',
     checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_MARCH_2025_PROMO_TRIAL,
     disclaimer:
       '*When you sign up today, you’ll get a 7-day free trial to the All-Access Pass Membership. At the end of the 7-day trial, you’ll move to a $67.00/month plan. If you cancel before your trial ends, you get to keep and access the Attachment Styles & Sex Course for life.',

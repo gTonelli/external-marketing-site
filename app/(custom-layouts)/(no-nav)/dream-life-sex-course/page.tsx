@@ -100,7 +100,7 @@ export default function DreamLifeSexCoursePage() {
           </div>
         </div>
 
-        <p className="mb-4">
+        <p className="mb-4 font-bold">
           With this exclusive offer, you get a 7-day FREE trial to our All-Access Pass, our
           all-inclusive membership that gives you access to our science-backed, results-driven
           proprietary method that will help you become secure and see real results in as little as 1
@@ -109,13 +109,13 @@ export default function DreamLifeSexCoursePage() {
           and yourself!
         </p>
 
-        <p className="mb-4">
+        <p className="mb-4 font-bold">
           What’s even better? If you choose to cancel before your trial ends, you still get to keep
           the Attachment Styles and Sex Course for life. That way you can refer back to it on the
           go, whenever you need it. That’s a total value of $250 for FREE!
         </p>
 
-        <p className="mb-4">
+        <p className="mb-4 font-bold">
           Why are we giving all this away at no cost? We’re so confident that you’ll love all that
           The Personal Development School has to offer, that we’re willing to let you try it to
           believe it, at no risk or cost to you.

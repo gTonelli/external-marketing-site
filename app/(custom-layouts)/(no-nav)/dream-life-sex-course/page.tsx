@@ -29,7 +29,8 @@ export default function DreamLifeSexCoursePage() {
     <Page page_name="Dreamlife Sex Course Page" className="relative">
       <section className="w-full text-center bg-grey-7 pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          What if Sex & Relationships Could Feel Easier, Comfortable & Joyful?
+          Incredible Limited Time Offer - What if Sex and Relationships Could Feel Easier, and More
+          Comfortable?
         </h1>
 
         <div className="relative mt-8 lg:mt-12">
@@ -64,7 +65,7 @@ export default function DreamLifeSexCoursePage() {
       <Section>
         <h2 className="mb-8">Discover More Ease, Confidence, and Joy in Your Sex Life</h2>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 mb-4 lg:grid-cols-2">
           <div className="text-left">
             <p className="text-xl mb-4">
               <strong>
@@ -99,7 +100,28 @@ export default function DreamLifeSexCoursePage() {
           </div>
         </div>
 
-        <CheckoutButton className="mt-8" href={checkoutUrl} label="UNLOCK YOUR NEW LOVE LIFE" />
+        <p className="mb-4 font-bold">
+          With this exclusive offer, you get a 7-day FREE trial to our All-Access Pass, our
+          all-inclusive membership that gives you access to our science-backed, results-driven
+          proprietary method that will help you become secure and see real results in as little as 1
+          week. We have tailored programs, courses and a suite of tools to assist you in changing
+          unhealthy patterns, and start building the best relationships of your life, with others,
+          and yourself!
+        </p>
+
+        <p className="mb-4 font-bold">
+          What’s even better? If you choose to cancel before your trial ends, you still get to keep
+          the Attachment Styles and Sex Course for life. That way you can refer back to it on the
+          go, whenever you need it. That’s a total value of $250 for FREE!
+        </p>
+
+        <p className="mb-4 font-bold">
+          Why are we giving all this away at no cost? We’re so confident that you’ll love all that
+          The Personal Development School has to offer, that we’re willing to let you try it to
+          believe it, at no risk or cost to you.
+        </p>
+
+        <CheckoutButton className="mt-8" href={checkoutUrl} label="UNLOCK YOUR BEST LOVE LIFE" />
       </Section>
 
       <Section className="max-w-3xl mx-auto">
@@ -271,8 +293,8 @@ const STEPS_TO_PURCHASE = [
   },
   {
     step: 'STEP THREE',
-    title: 'Explore Our All-Inclusive Membership',
-    copy: 'Use our All-Access Pass Membership for FREE for 7 days to choose from 65+ courses, attend live webinars with me, Thais Gibson, and join our inspiring community.',
+    title: 'Explore Our All-Access Pass',
+    copy: 'Use our All-Access Pass Membership for FREE for 7 days to choose from 65+ courses, attend live webinars with me, Thais Gibson, and join our inspiring community. Start your journey towards healing your insecure attachment, leaving your unhealthy patterns behind, and building deep, meaningful relationships.',
     image: '/images/TrialHeadspace/pds-courses-mockup.png',
   },
 ]

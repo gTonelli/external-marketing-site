@@ -11,6 +11,7 @@ import { TextHeading } from '@/components/Text/variants/TextHeading'
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import { SplitTestContext } from '@/utils/contexts'
 
 export default function OrganicQuizPage() {
   // ================= State =======================
@@ -99,19 +100,24 @@ export default function OrganicQuizPage() {
         <div ref={quizSectionRef} className="w-full">
           {viewQuiz && (
             <div className="w-full flex justify-center mx-auto py-16">
-              <AttachmentQuiz
-                className="!max-w-5xl"
-                quizName="Attachment Style Quiz"
-                quiz_traffic_source="organic"
-                showStartButton={false}
-              />
+              <SplitTestContext.Provider
+                value={{
+                  experimentName: 'PROD-3779-Single-Step-Checkout',
+                  key: 'PROD-3779',
+                  useCookies: false,
+                }}>
+                <AttachmentQuiz
+                  className="!max-w-5xl"
+                  quizName="Attachment Style Quiz"
+                  quiz_traffic_source="organic"
+                  showStartButton={false}
+                />
+              </SplitTestContext.Provider>
             </div>
           )}
         </div>
 
-        {!viewQuiz && (
-          <Button className="my-4" label="START QUIZ" onClick={onStartQuiz} />
-        )}
+        {!viewQuiz && <Button className="my-4" label="START QUIZ" onClick={onStartQuiz} />}
       </Section>
 
       <Section
@@ -281,11 +287,7 @@ export default function OrganicQuizPage() {
             and unlock the keys to a healthy, loving relationship!
           </p>
 
-          <Button
-            className="ml-4 mb-8"
-            label="START OUR FREE QUIZ NOW"
-            onClick={onStartQuiz}
-          />
+          <Button className="ml-4 mb-8" label="START OUR FREE QUIZ NOW" onClick={onStartQuiz} />
         </div>
 
         <div className="min-w-64 h-auto">

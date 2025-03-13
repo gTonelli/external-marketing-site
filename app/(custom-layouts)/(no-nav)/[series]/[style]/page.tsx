@@ -5,7 +5,7 @@ import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
 import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // config
 import { EMAIL_RESULTS as SERIES_BELIEFS_RESULTS, FA_EMAIL_RESULTS } from './config'
 // modules
@@ -105,7 +105,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
           {seriesParam === 'needs' && (
             <div className="max-w-lg">
               <div className="flex justify-center mb-4 lg:hidden">
-                <CheckoutButton
+                <ButtonCheckout
                   href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   label="GET STARTED"
                 />
@@ -158,7 +158,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
                 </p>
 
                 <div className="flex justify-center mt-4">
-                  <CheckoutButton
+                  <ButtonCheckout
                     href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                     label="GET STARTED"
                   />
@@ -177,7 +177,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
                 )}
 
                 <div className="flex justify-center mt-4">
-                  <CheckoutButton
+                  <ButtonCheckout
                     href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                     label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
                   />

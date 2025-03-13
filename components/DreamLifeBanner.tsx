@@ -2,7 +2,7 @@
 import Image from 'next/image'
 // components
 import { PaymentOptions, TPaymentOptionsConfigKey } from './PaymentOptions'
-import { CheckoutButton } from './CheckoutButton'
+import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // utils
@@ -98,7 +98,7 @@ export const DreamLifeBanner = ({ fourteenDayFT, paymentOptionsConfigKey }: IDre
 
               <p className="mt-6 lg:mt-11">{TH.DREAM_LIFE.copy}</p>
 
-              <CheckoutButton
+              <ButtonCheckout
                 className="mt-8 px-6 lg:mt-11"
                 label="TRY FOR FREE"
                 href={

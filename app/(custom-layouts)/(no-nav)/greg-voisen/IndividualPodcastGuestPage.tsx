@@ -1,7 +1,7 @@
 // core
 import Image from 'next/image'
 // components
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { Section } from '@/components/Section'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import {
@@ -61,7 +61,7 @@ export const IndividualPodcastGuestPage = ({
             Development School.
           </p>
 
-          <CheckoutButton label="CREATE YOUR DREAM LIFE NOW" href={checkoutUrl} />
+          <ButtonCheckout label="CREATE YOUR DREAM LIFE NOW" href={checkoutUrl} />
         </div>
       </Section>
 
@@ -166,7 +166,7 @@ export const IndividualPodcastGuestPage = ({
             industry because it’s simple, fast, and effective!
           </p>
 
-          <CheckoutButton label="START YOUR TRANSFORMATION" href={checkoutUrl} />
+          <ButtonCheckout label="START YOUR TRANSFORMATION" href={checkoutUrl} />
         </div>
 
         <div>
@@ -234,7 +234,7 @@ export const IndividualPodcastGuestPage = ({
             and the best part is that you can do it on your own terms.
           </p>
 
-          <CheckoutButton label="UNLOCK YOUR POTENTIAL" href={checkoutUrl} />
+          <ButtonCheckout label="UNLOCK YOUR POTENTIAL" href={checkoutUrl} />
         </div>
       </Section>
 
@@ -277,7 +277,7 @@ export const IndividualPodcastGuestPage = ({
             relationships of your life – on your terms.
           </p>
 
-          <CheckoutButton label="BUILD YOUR DREAM LIFE" href={checkoutUrl} />
+          <ButtonCheckout label="BUILD YOUR DREAM LIFE" href={checkoutUrl} />
         </div>
 
         <div className="flex justify-center items-center">
@@ -308,7 +308,7 @@ export const IndividualPodcastGuestPage = ({
               <span className="!text-base">{config.BANNER.pricing.timePeriod}</span>
             </p>
 
-            <CheckoutButton
+            <ButtonCheckout
               className="mb-8"
               label={config.BANNER.pricing.ctaLabel}
               href={checkoutUrl}
@@ -418,7 +418,7 @@ export const IndividualPodcastGuestPage = ({
 
           <p className="mb-4">We hope you join us.</p>
 
-          <CheckoutButton label="BUILD YOUR DREAM LIFE" href={checkoutUrl} />
+          <ButtonCheckout label="BUILD YOUR DREAM LIFE" href={checkoutUrl} />
         </div>
 
         <div>

@@ -5,7 +5,7 @@ import { CommunityTeaser } from '@/components/CommunityTeaser'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
 import { TestimonialSection } from '@/components/TestimonialSection'
 import { DreamLifeBanner } from '@/components/DreamLifeBanner'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 
@@ -25,7 +25,7 @@ export default function DreamLifePage() {
             Explore some snippets of our most popular courses from each of the categories below!
           </p>
 
-          <CheckoutButton
+          <ButtonCheckout
             className="text-black bg-blue mt-8"
             label="TRY FOR FREE"
             href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}

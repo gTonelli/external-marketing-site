@@ -264,7 +264,7 @@ const splitTestConfigs: TSplitTestConfigs = {
       path: '/yt-quiz',
     },
     variantRatio: 0.5,
-    forceControlOnNewUser: false,
+    forceControlOnNewUser: true,
   },
   simplifiedFAResultsTest: {
     cookieKey: 'gm-1526-simplified-fa-test',

@@ -1,5 +1,7 @@
 'use client'
 
+// core
+import { useEffect, useState } from 'react'
 // components
 import { ButtonCheckout, IButtonCheckoutProps } from '@/components/Button/variants/ButtonCheckout'
 // utils
@@ -22,7 +24,11 @@ export const ButtonCheckoutSplitTest = ({
   useCookies = true,
   ...otherProps
 }: IButtonCheckoutSplitTest) => {
-  const isVariant = getSplitTest({ key: experimentKey, experimentName, useCookies })
+  const [isVariant, setIsVariant] = useState<boolean | undefined>()
+
+  useEffect(() => {
+    setIsVariant(getSplitTest({ key: experimentKey, experimentName, useCookies }))
+  }, [experimentKey, experimentName, setIsVariant, useCookies])
 
   return (
     <ButtonCheckout href={isVariant ? variantUrl : controlUrl} {...otherProps}>

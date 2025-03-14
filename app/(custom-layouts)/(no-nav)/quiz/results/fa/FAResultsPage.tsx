@@ -3,7 +3,7 @@ import Image from 'next/image'
 // components
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { List } from '@/components/List'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
@@ -68,7 +68,7 @@ export const FAResultsPage = ({
                         {RESULTS[style].HERO_SECTION.copyYT}
                       </p>
 
-                      <CheckoutButton
+                      <ButtonCheckout
                         href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                         className="my-8 xxs:px-16"
                         label="GET STARTED NOW!"
@@ -155,7 +155,7 @@ export const FAResultsPage = ({
               </p>
             )}
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               theme="secondary"
             />
@@ -202,7 +202,7 @@ export const FAResultsPage = ({
                 secure in yourself and your relationship.
               </p>
 
-              <CheckoutButton href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION} />
+              <ButtonCheckout href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION} />
             </div>
           )}
         </div>
@@ -256,7 +256,7 @@ export const FAResultsPage = ({
               </div>
             )}
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none"
             />
@@ -387,7 +387,7 @@ export const FAResultsPage = ({
             </div>
           </div>
 
-          <CheckoutButton
+          <ButtonCheckout
             href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="font-bold"
             theme="secondary"
@@ -446,7 +446,7 @@ export const FAResultsPage = ({
           </div>
         </div>
 
-        <CheckoutButton
+        <ButtonCheckout
           href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
           theme="secondary"
         />
@@ -483,7 +483,7 @@ export const FAResultsPage = ({
               />
             </div>
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8"
               theme="secondary"
@@ -536,7 +536,7 @@ export const FAResultsPage = ({
                   </p>
                 ))}
 
-                <CheckoutButton
+                <ButtonCheckout
                   href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   className="tracking-normal underline font-bold inline !p-0 text-blue-darkest from-transparent to-transparent bg-transparent border-none text-left
                   hover:!text-blue-darkest hover:!bg-transparent hover:!shadow-none mt-4"
@@ -604,7 +604,7 @@ export const FAResultsPage = ({
 
           <p className="max-w-3xl mb-8">{RESULTS[style].PROMOTION_4.copy6}</p>
 
-          <CheckoutButton
+          <ButtonCheckout
             href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             theme="secondary"
           />
@@ -720,7 +720,7 @@ const PromotionSection = ({ ageVariant = false, youtubeVariant = false }: IFARes
                 : RESULTS[style].PROMOTION_2.copy1}
             </p>
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
             />

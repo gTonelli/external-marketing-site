@@ -109,9 +109,7 @@ export default function OrganicQuizPage() {
           )}
         </div>
 
-        {!viewQuiz && (
-          <Button className="my-4" label="START QUIZ" onClick={onStartQuiz} />
-        )}
+        {!viewQuiz && <Button className="my-4" label="START QUIZ" onClick={onStartQuiz} />}
       </Section>
 
       <Section
@@ -281,11 +279,7 @@ export default function OrganicQuizPage() {
             and unlock the keys to a healthy, loving relationship!
           </p>
 
-          <Button
-            className="ml-4 mb-8"
-            label="START OUR FREE QUIZ NOW"
-            onClick={onStartQuiz}
-          />
+          <Button className="ml-4 mb-8" label="START OUR FREE QUIZ NOW" onClick={onStartQuiz} />
         </div>
 
         <div className="min-w-64 h-auto">

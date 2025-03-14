@@ -7,7 +7,7 @@ import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselT
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { List } from '@/components/List'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { RoyalRumbleHeadline } from './RoyalRumbleHeadline'
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import {
@@ -48,7 +48,11 @@ export const QuizResultsPage = ({
     <>
       {/* BANNER SECTION */}
       {(style === 'da' || style === 'sa') && !melRobbinsVariant ? (
-        <RoyalRumbleHeadline youtubeVariant={youtubeVariant} style={style} ageVariant={ageVariant} />
+        <RoyalRumbleHeadline
+          youtubeVariant={youtubeVariant}
+          style={style}
+          ageVariant={ageVariant}
+        />
       ) : (
         <section className="w-full">
           <div className="bg-gradient-to-b from-blue-lightest to-white via-blue-lightest">
@@ -110,7 +114,7 @@ export const QuizResultsPage = ({
                           {ROYAL_RUMBLE[style].BANNER_SEGMENT.copyYT}
                         </p>
 
-                        <CheckoutButton
+                        <ButtonCheckout
                           href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                           className="my-8 xxs:px-16"
                           label="GET STARTED NOW!"
@@ -171,7 +175,7 @@ export const QuizResultsPage = ({
                     </p>
 
                     <div className="text-center mb-4 lg:mb-0">
-                      <CheckoutButton
+                      <ButtonCheckout
                         href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                         className="xxs:px-16"
                         label="UNLOCK MY DISCOUNT"
@@ -235,7 +239,7 @@ export const QuizResultsPage = ({
               )}
             </div>
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8 xxs:px-16 md:mt-10"
               label="UNLOCK MY DISCOUNT"
@@ -314,7 +318,7 @@ export const QuizResultsPage = ({
                 </p>
               )}
 
-              <CheckoutButton
+              <ButtonCheckout
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                 className="mt-4 px-16 md:mt-10"
                 label="GET STARTED"
@@ -368,7 +372,7 @@ export const QuizResultsPage = ({
               </p>
             )}
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="px-16"
               label="GET STARTED"
@@ -595,7 +599,7 @@ export const QuizResultsPage = ({
               ))}
             </ul>
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-8 md:mt-10 px-16"
               label="SIGN UP NOW"
@@ -689,7 +693,7 @@ export const QuizResultsPage = ({
                   ))}
 
                   <li className="mt-8 md:mt-10">
-                    <CheckoutButton
+                    <ButtonCheckout
                       href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                       label="ENROLL NOW"
                     />
@@ -749,13 +753,13 @@ export const QuizResultsPage = ({
 
             <CarouselTestimonialAlt />
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
@@ -795,9 +799,7 @@ export const QuizResultsPage = ({
                 {element.map((content, index) => {
                   const MARGIN = index % 2 === 0 ? 'mb-6' : ''
                   return (
-                    <div
-                      key={`bestSelfContent_${index}`}
-                      className={`max-w-lg ${MARGIN} md:mb-0`}>
+                    <div key={`bestSelfContent_${index}`} className={`max-w-lg ${MARGIN} md:mb-0`}>
                       <p className="font-effra font-medium text-white uppercase tracking-0.325 md:text-lg">
                         {content.title}
                       </p>
@@ -809,7 +811,7 @@ export const QuizResultsPage = ({
               </div>
             ))}
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
               className="mt-2"
               label="I WANT THIS"
@@ -874,7 +876,7 @@ export const QuizResultsPage = ({
             </p>
           </div>
 
-          <CheckoutButton
+          <ButtonCheckout
             href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="mt-6 md:mt-8"
             label="SIGN ME UP"
@@ -907,7 +909,7 @@ export const QuizResultsPage = ({
             </p>
           ))}
 
-          <CheckoutButton
+          <ButtonCheckout
             href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
             label="REWRITE MY STORY"
@@ -1043,7 +1045,7 @@ export const RegisterNowSection = ({
                   </li>
                 </ul>
 
-                <CheckoutButton
+                <ButtonCheckout
                   href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                   className="mt-6 md:mt-10"
                   label="REGISTER NOW"

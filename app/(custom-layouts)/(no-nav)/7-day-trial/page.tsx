@@ -10,7 +10,7 @@ import { Text } from '@/components/Text/Text'
 import { SocialProofBar } from '@/components/SocialProofBar'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { Page } from '@/components/Page'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // libraries
 import cx from 'classnames'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
@@ -70,7 +70,7 @@ export default function TrialPage() {
             />
 
             <div className="text-center py-4 lg:text-left">
-              <CheckoutButton
+              <ButtonCheckout
                 className="trial-btn mb-4"
                 label="TRY FOR $0"
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
@@ -130,7 +130,7 @@ export default function TrialPage() {
             might **feel others' emotions intensely,** and naturally then put their needs above your own.`}
           />
 
-          <CheckoutButton
+          <ButtonCheckout
             className="hidden trial-btn mt-12 lg:block"
             label="GET STARTED TODAY!"
             href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
@@ -156,7 +156,7 @@ export default function TrialPage() {
           />
 
           <div className="text-center">
-            <CheckoutButton
+            <ButtonCheckout
               className="trial-btn my-4 lg:hidden"
               label="GET STARTED TODAY!"
               href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
@@ -264,7 +264,7 @@ export default function TrialPage() {
           />
 
           <div className="text-center">
-            <CheckoutButton
+            <ButtonCheckout
               className="trial-btn my-4"
               label="TRY FOR $0"
               href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
@@ -366,7 +366,7 @@ export default function TrialPage() {
         <CourseSlider />
 
         <div className="text-center">
-          <CheckoutButton
+          <ButtonCheckout
             className="trial-btn mt-6"
             label="TRY FOR $0"
             href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
@@ -398,7 +398,7 @@ export default function TrialPage() {
             emotions and life at the Personal Development School."
           />
 
-          <CheckoutButton
+          <ButtonCheckout
             className="trial-btn mt-6"
             label="TRY FOR $0"
             href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}

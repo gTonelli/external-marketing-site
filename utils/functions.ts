@@ -62,6 +62,7 @@ export function getSplitTest({
   useCookies = true,
   variantRatio = 0.5,
 }: IGetSplitTest) {
+  if (!key || !experimentName) return false
   let isVariant = false
   const cookies = new Cookies()
   const storageVar = useCookies ? cookies.get(key) : Storage.get(key)

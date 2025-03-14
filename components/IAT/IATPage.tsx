@@ -18,7 +18,7 @@ import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { IATBanner } from '@/components/IAT/IATBanner'
 import { KlarnaPricing } from './KlarnaPricing'
 // libraries
@@ -1092,7 +1092,7 @@ const IATPriceCard = ({
               onClick={() => setIsExpanded(false)}
             />
 
-            <CheckoutButton
+            <ButtonCheckout
               className="trial-btn"
               label="BUY NOW"
               href={prices[selectedCardIndex].link}

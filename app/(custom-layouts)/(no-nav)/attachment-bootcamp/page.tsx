@@ -9,7 +9,7 @@ import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { Faq } from '@/components/Faq/Faq'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { Link } from '@/components/Link'
+import Link from 'next/link'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // libraries
@@ -505,9 +505,9 @@ export default function AttachmentBootcampPage() {
             You can find her best-selling book,{' '}
             <Link
               className="!underline"
-              url="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH"
-              label="Learning Love"
-            />
+              href="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH">
+              Learning Love
+            </Link>
             , on Amazon now, explaining how you can get the best relationships of your life.
             <br />
             <br />
@@ -550,9 +550,9 @@ export default function AttachmentBootcampPage() {
             You can find her best-selling book,{' '}
             <Link
               className="!underline"
-              url="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH"
-              label="Learning Love"
-            />
+              href="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH">
+              Learning Love
+            </Link>
             , on Amazon now, explaining how you can get the best relationships of your life.
             <br />
             <br />
@@ -794,8 +794,8 @@ const BootcampPriceCard = () => (
 
 const ButtonCheckout = ({ className, label }: IButtonDefaultProps) => {
   return (
-    <a href={EExternalRoutes.THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP}>
+    <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP}>
       <Button className={className} label={label} />
-    </a>
+    </Link>
   )
 }

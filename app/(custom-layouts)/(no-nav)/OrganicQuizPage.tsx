@@ -11,7 +11,6 @@ import { TextHeading } from '@/components/Text/variants/TextHeading'
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { SplitTestContext } from '@/utils/contexts'
 
 export default function OrganicQuizPage() {
   // ================= State =======================
@@ -100,19 +99,12 @@ export default function OrganicQuizPage() {
         <div ref={quizSectionRef} className="w-full">
           {viewQuiz && (
             <div className="w-full flex justify-center mx-auto py-16">
-              <SplitTestContext.Provider
-                value={{
-                  experimentName: 'PROD-3779-Single-Step-Checkout',
-                  key: 'PROD-3779',
-                  useCookies: false,
-                }}>
-                <AttachmentQuiz
-                  className="!max-w-5xl"
-                  quizName="Attachment Style Quiz"
-                  quiz_traffic_source="organic"
-                  showStartButton={false}
-                />
-              </SplitTestContext.Provider>
+              <AttachmentQuiz
+                className="!max-w-5xl"
+                quizName="Attachment Style Quiz"
+                quiz_traffic_source="organic"
+                showStartButton={false}
+              />
             </div>
           )}
         </div>

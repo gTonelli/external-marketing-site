@@ -9,7 +9,7 @@ import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { Faq } from '@/components/Faq/Faq'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { Link } from '@/components/Link'
+import Link from 'next/link'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // libraries
@@ -86,7 +86,7 @@ export default function AttachmentBootcampPage() {
             <strong>Only for $149 – up to 50% off the total price!</strong>
           </p>
 
-          <CheckoutButton label="SIGN UP FOR BOOTCAMP" />
+          <ButtonCheckout label="SIGN UP FOR BOOTCAMP" />
         </div>
       </Section>
 
@@ -107,7 +107,7 @@ export default function AttachmentBootcampPage() {
             <strong>Only for $149 – up to 50% off the total price!</strong>
           </p>
 
-          <CheckoutButton label="SIGN UP FOR BOOTCAMP" />
+          <ButtonCheckout label="SIGN UP FOR BOOTCAMP" />
         </div>
       </Section>
 
@@ -150,7 +150,7 @@ export default function AttachmentBootcampPage() {
             Say goodbye to uncertainty and hello to thriving connections in just 90 days!
           </p>
 
-          <CheckoutButton label="JOIN BOOTCAMP TODAY" className="mb-4" />
+          <ButtonCheckout label="JOIN BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join now.</small>
@@ -268,7 +268,7 @@ export default function AttachmentBootcampPage() {
           can cancel at any time with no commitment.
         </p>
 
-        <CheckoutButton label="SIGN UP NOW" />
+        <ButtonCheckout label="SIGN UP NOW" />
       </Section>
 
       <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -292,7 +292,7 @@ export default function AttachmentBootcampPage() {
             becoming securely attached.
           </p>
 
-          <CheckoutButton label="START YOUR BOOTCAMP TODAY" className="mb-4" />
+          <ButtonCheckout label="START YOUR BOOTCAMP TODAY" className="mb-4" />
 
           <p>
             <small>*Offer valid for a limited time only. Join Now.</small>
@@ -460,7 +460,7 @@ export default function AttachmentBootcampPage() {
           </div>
         </div>
 
-        <CheckoutButton label="START YOUR TRANSFORMATION" className="mb-4" />
+        <ButtonCheckout label="START YOUR TRANSFORMATION" className="mb-4" />
 
         <p>
           <small>*Offer valid for a limited time only. Join now.</small>
@@ -505,9 +505,9 @@ export default function AttachmentBootcampPage() {
             You can find her best-selling book,{' '}
             <Link
               className="!underline"
-              url="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH"
-              label="Learning Love"
-            />
+              href="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH">
+              Learning Love
+            </Link>
             , on Amazon now, explaining how you can get the best relationships of your life.
             <br />
             <br />
@@ -550,9 +550,9 @@ export default function AttachmentBootcampPage() {
             You can find her best-selling book,{' '}
             <Link
               className="!underline"
-              url="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH"
-              label="Learning Love"
-            />
+              href="https://www.amazon.com/Learning-Love-Relationships-Integrated-Attachment/dp/B0CFGFV5CH">
+              Learning Love
+            </Link>
             , on Amazon now, explaining how you can get the best relationships of your life.
             <br />
             <br />
@@ -685,7 +685,7 @@ export default function AttachmentBootcampPage() {
           </div>
         </div>
 
-        <CheckoutButton label="START YOUR BOOTCAMP NOW" className="mb-8" />
+        <ButtonCheckout label="START YOUR BOOTCAMP NOW" className="mb-8" />
 
         <div className="max-w-2xl mx-auto">
           <p>
@@ -780,7 +780,7 @@ const BootcampPriceCard = () => (
       <span>per quarter</span>
     </p>
 
-    <CheckoutButton className="mb-8" label="PAY $149 & SAVE 50%" />
+    <ButtonCheckout className="mb-8" label="PAY $149 & SAVE 50%" />
 
     <div className="flex flex-wrap justify-around">
       <FontAwesomeIcon icon={faCcAmex} size="2x" />
@@ -792,10 +792,10 @@ const BootcampPriceCard = () => (
   </div>
 )
 
-const CheckoutButton = ({ className, label }: IButtonDefaultProps) => {
+const ButtonCheckout = ({ className, label }: IButtonDefaultProps) => {
   return (
-    <a href={EExternalRoutes.THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP}>
+    <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP}>
       <Button className={className} label={label} />
-    </a>
+    </Link>
   )
 }

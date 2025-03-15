@@ -17,7 +17,7 @@ export interface IPage {
 }
 
 export interface ISplitTest extends IGetSplitTest {
-  variantUrl: string
+  variantUrl?: string
 }
 
 /**

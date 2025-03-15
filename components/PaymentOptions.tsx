@@ -2,7 +2,7 @@
 import Link from 'next/link'
 // components
 import { IDefaultProps } from '.'
-import { CheckoutButton } from './CheckoutButton'
+import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
@@ -40,7 +40,7 @@ export const PaymentOptions = ({
         </div>
       </Link>
 
-      <CheckoutButton
+      <ButtonCheckout
         className="w-fit !font-bold border-none p-4 mt-4 mb-4 lg:mt-10"
         label={config.ctaLabel}
         href={config.checkoutUrl}

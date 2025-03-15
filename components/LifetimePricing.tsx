@@ -4,7 +4,7 @@
 import { useContext } from 'react'
 // components
 import { Card } from './Card/Card'
-import { CheckoutButton } from './CheckoutButton'
+import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //libraries
@@ -126,7 +126,7 @@ export const LifetimePricing = () => {
                   </p>
 
                   {/* ENROLL BTN */}
-                  <CheckoutButton
+                  <ButtonCheckout
                     className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                     label="SELECT"
                     href={plan.url}
@@ -205,7 +205,7 @@ export const LifetimePricing = () => {
                 {`SAVE ${formatPrice(pricingPlan[0].originalPrice - pricingPlan[0].currentPrice)}`}
               </p>
 
-              <CheckoutButton
+              <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT}
@@ -235,7 +235,7 @@ export const LifetimePricing = () => {
                 {`SAVE ${formatPrice(pricingPlan[1].originalPrice - pricingPlan[1].currentPrice)}`}
               </p>
 
-              <CheckoutButton
+              <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN}
@@ -264,7 +264,7 @@ export const LifetimePricing = () => {
                 {`SAVE ${formatPrice(pricingPlan[2].originalPrice - pricingPlan[2].currentPrice)}`}
               </p>
 
-              <CheckoutButton
+              <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN}

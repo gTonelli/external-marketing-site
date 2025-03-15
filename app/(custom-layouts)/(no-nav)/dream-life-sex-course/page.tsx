@@ -6,7 +6,7 @@ import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { PaymentOptions } from '@/components/PaymentOptions'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
@@ -121,7 +121,7 @@ export default function DreamLifeSexCoursePage() {
           believe it, at no risk or cost to you.
         </p>
 
-        <CheckoutButton className="mt-8" href={checkoutUrl} label="UNLOCK YOUR BEST LOVE LIFE" />
+        <ButtonCheckout className="mt-8" href={checkoutUrl} label="UNLOCK YOUR BEST LOVE LIFE" />
       </Section>
 
       <Section className="max-w-3xl mx-auto">
@@ -153,7 +153,7 @@ export default function DreamLifeSexCoursePage() {
           />
         </div>
 
-        <CheckoutButton href={checkoutUrl} label="SIGN UP FOR FREE!*" className="mb-8" />
+        <ButtonCheckout href={checkoutUrl} label="SIGN UP FOR FREE!*" className="mb-8" />
 
         <p className="max-w-2xl mx-auto">
           <em>
@@ -232,7 +232,7 @@ export default function DreamLifeSexCoursePage() {
             relationships with our most popular courses.
           </p>
 
-          <CheckoutButton href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" className="mb-8" />
+          <ButtonCheckout href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" className="mb-8" />
         </div>
 
         <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can continue your personal and relationship growth." />

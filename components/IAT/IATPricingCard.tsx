@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 // components
-import { CheckoutButton } from '../CheckoutButton'
+import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 import { Button } from '../Button/Button'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faChevronLeft, faCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
@@ -124,7 +124,7 @@ export const IATPricingCard = ({
             Go Back
           </p>
 
-          <CheckoutButton
+          <ButtonCheckout
             label="SIGN UP NOW"
             href={pricingMenu[currentOption].checkout}
             mpProps={{

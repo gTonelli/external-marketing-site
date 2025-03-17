@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/valentines-day', '/attachment-report/fa', '/quiz', '/quiz/results/fa'],
+  matcher: ['/quiz', '/quiz/results/fa'],
 }
 
 interface IConfigWithRegex {
@@ -133,14 +133,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const utmSource = searchParams.get('utm_source')
 
   const configs: Array<IConfigWithRegex> = [
-    {
-      regex: /^\/valentines-day/,
-      config: splitTestConfigs.valentinesDayTest,
-    },
-    {
-      regex: /^\/attachment-report\/fa/,
-      config: splitTestConfigs.vslReportFaVideoTest,
-    },
     {
       regex: /^\/quiz\/results\/fa/,
       config: splitTestConfigs.simplifiedFAResultsTest,
@@ -236,26 +228,6 @@ const sendEventUnsafe = async (
 }
 
 const splitTestConfigs: TSplitTestConfigs = {
-  valentinesDayTest: {
-    cookieKey: 'gm-1435-valentines-day-test',
-    pageName: "Valentine's Day",
-    experimentName: 'GM-1435-Valentines-Day-Test',
-    variantUrl: {
-      path: '/valentines-day-promo',
-    },
-    variantRatio: 0.3,
-    forceControlOnNewUser: false,
-  },
-  vslReportFaVideoTest: {
-    cookieKey: 'gm-1447-vsl-rep-fa',
-    pageName: 'Attachment Style Report Old - fa',
-    experimentName: 'GM-1447-VSL-FA-Report',
-    variantUrl: {
-      path: '/pdf-report/fa',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
   ytQuizFunnelTest: {
     cookieKey: 'gm-1525-yt-quiz-funnel',
     pageName: 'Main Funnel Quiz',

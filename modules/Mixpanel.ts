@@ -112,7 +112,7 @@ export type Pages =
   | `Wellness Page`
   | `Youtube Funnel Quiz`
 
-export type ExperimentVariant = 'Control' | 'Variant 1' | 'Variant 2'
+export type ExperimentVariant = 'Control' | `Variant ${number}`
 
 export type QuizTrafficSource = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
 

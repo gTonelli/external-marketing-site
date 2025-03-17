@@ -12,7 +12,6 @@ import { AttachmentQuizForm } from './AttachmentQuizForm'
 import {
   QUIZ_DETAILED_QUESTIONS as detailedQuestions,
   EXTERNALQUIZQUESTIONS as questions,
-  SHORTQUIZQUESTIONS as shortQuestions,
 } from './config'
 // libraries
 import cx from 'classnames'
@@ -24,7 +23,7 @@ import { isMobile } from 'react-device-detect'
 // utils
 import { TStyle } from '@/utils/types'
 
-let modifiedQuestions = [...shortQuestions]
+let modifiedQuestions = [...questions]
 
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean

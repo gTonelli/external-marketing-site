@@ -140,10 +140,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   ]
 
   if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
-    configs.push({
-      regex: /^\/quiz/,
-      config: splitTestConfigs.ytQuizFunnelTest,
-    })
+    return splitTestConfigs.ytQuizFunnelTest
   }
 
   return configs.find((config) => config.regex.test(path))?.config
@@ -227,7 +224,7 @@ const sendEventUnsafe = async (
   }
 }
 
-const splitTestConfigs: TSplitTestConfigs = {
+export const splitTestConfigs: TSplitTestConfigs = {
   ytQuizFunnelTest: {
     cookieKey: 'gm-1525-yt-quiz-funnel',
     pageName: 'Main Funnel Quiz',
@@ -236,7 +233,7 @@ const splitTestConfigs: TSplitTestConfigs = {
       path: '/yt-quiz',
     },
     variantRatio: 0.5,
-    forceControlOnNewUser: true,
+    forceControlOnNewUser: false,
   },
   simplifiedFAResultsTest: {
     cookieKey: 'gm-1526-simplified-fa-test',
@@ -254,7 +251,7 @@ type TSplitTestConfigs = {
   [key: string]: TSplitTestConfig
 }
 
-type TSplitTestConfig = {
+export type TSplitTestConfig = {
   /** Key for the split test cookie */
   cookieKey: string
   /** To be sent to Mixpanel as an event prop */

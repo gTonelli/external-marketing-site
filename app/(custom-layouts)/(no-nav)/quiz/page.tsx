@@ -6,17 +6,28 @@ import { AttachmentStylesTabs } from '@/components/AttachmentStylesTabs/Attachme
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
+import { SplitTestTracker } from '@/components/SplitTestTracker'
 // config
 import { REGULAR_COPY } from '../config'
+import { splitTestConfigs } from '@/middleware'
 // libraries
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-export default function AttachmentQuizPage() {
+export default async function AttachmentQuizPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
   const quizCopy = REGULAR_COPY
+  const isYouTubeSplitTestControl = (await searchParams).utm_source === 'paid-youtube'
 
   return (
     <Page className="w-full text-center relative z-10" page_name="Main Funnel Quiz">
+      {isYouTubeSplitTestControl && (
+        <SplitTestTracker variant="Control" {...splitTestConfigs.ytQuizFunnelTest} />
+      )}
+
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}

@@ -79,15 +79,15 @@ export default function AbandonedCartOffer({ params }: TParams) {
             <p>{subheading}</p>
 
             <CountdownTimer
+              includeDays={false}
               className="!justify-start mb-4 transparent"
               classNameDate="!text-4xl font-ssp lg:!text-5xl"
               classNameDateSeperator="text-transparent"
               classNameLabel="lowercase"
-              includeDays={false}
               theme="transparent"
             />
 
-            <ButtonCheckout label="UNLOCK YOUR DREAM LIFE" />
+            <ButtonCheckout href={checkoutLink} label="UNLOCK YOUR DREAM LIFE" />
           </div>
         </div>
       </Section>

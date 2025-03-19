@@ -17,8 +17,7 @@ import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { TStyle } from '@/utils/types'
 import { Regexes } from '@/utils/constants'
-import { getSplitTest, isPhoneValid } from '@/utils/functions'
-import { useEffect, useState } from 'react'
+import { isPhoneValid } from '@/utils/functions'
 // styles
 import 'react-international-phone/style.css'
 

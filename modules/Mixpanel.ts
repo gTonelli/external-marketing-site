@@ -103,6 +103,7 @@ export type Pages =
   | `Podcast Freebie`
   | `Site Links`
   | `Speaker Gift`
+  | `Spin The Wheel`
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`
   | `Valentine's Day`

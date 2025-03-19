@@ -4458,6 +4458,11 @@ react-countup@^6.4.2:
     "@rollup/plugin-babel" "^6.0.3"
     countup.js "^2.5.0"
 
+react-custom-roulette@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-custom-roulette/-/react-custom-roulette-1.4.1.tgz#2b16ef5d95ecbc4d99f2c169e7bd6183a720776f"
+  integrity sha512-v5Mrww/lbysSNcAF0PHU7KzdY+ljtTysu6A5Hx5s0Fi2V7CIj36Q2Df+l/1izl8yzX06nnQzvgbwSLenm8vYDQ==
+
 react-device-detect@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-2.2.3.tgz#97a7ae767cdd004e7c3578260f48cf70c036e7ca"

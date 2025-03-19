@@ -9,7 +9,6 @@ import cx from 'classnames'
 import CountdownPlugin from 'react-countdown'
 import Countdown from 'react-countdown'
 import dayjs from 'dayjs'
-import { overrideTailwindClasses as two } from 'tailwind-override'
 // utils
 import { getOfferEndDate } from '@/utils/functions'
 

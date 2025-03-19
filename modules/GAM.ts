@@ -17,6 +17,7 @@ interface ISetUserDataArgs {
   email?: string
   firstName?: string
   lastName?: string
+  phone?: string
   userStyle?: TStyle
 }
 
@@ -24,10 +25,11 @@ export const useGamAnalytics = () => {
   const cookies = new Cookies()
 
   // Creating an identity of user in mixpanel
-  const setUserData = ({ email, firstName, lastName, userStyle }: ISetUserDataArgs) => {
+  const setUserData = ({ email, firstName, lastName, phone, userStyle }: ISetUserDataArgs) => {
     Mixpanel.setUser(email)
     Storage.set('userFirstName', firstName)
     Storage.set('lastUserEmail', email)
+    Storage.set('userPhone', phone)
     cookies.set('firstName', firstName)
 
     const { gamLastTouchData, gamFirstTouchData } = getUserData()

@@ -9,6 +9,7 @@ import { MD5 } from 'crypto-js'
 import { Field, Form, Formik } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
+import { PhoneInput } from 'react-international-phone'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -16,6 +17,10 @@ import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { TStyle } from '@/utils/types'
 import { Regexes } from '@/utils/constants'
+import { getSplitTest, isPhoneValid } from '@/utils/functions'
+import { useEffect, useState } from 'react'
+// styles
+import 'react-international-phone/style.css'
 
 interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
@@ -61,10 +66,21 @@ export const RegistrationForm = ({
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
+  const [showPhoneField, setShowPhoneField] = useState<boolean | undefined>()
+
+  useEffect(() => {
+    setShowPhoneField(
+      getSplitTest({
+        key: 'gm-1592-phone-field-test',
+        experimentName: 'GM-1592-Phone-Field-Test',
+        useCookies: false,
+      })
+    )
+  }, [])
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
-    const { email, firstName, lastName } = values
-    setUserData({ email, firstName, lastName, userStyle })
+    const { email, firstName, lastName, phone } = values
+    setUserData({ email, firstName, lastName, phone, userStyle })
 
     Mixpanel.setUser(values.email)
     Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
@@ -86,6 +102,7 @@ export const RegistrationForm = ({
       firstName,
       lastName,
       email,
+      phone,
       listIds: [2],
       insertId,
     }
@@ -109,7 +126,7 @@ export const RegistrationForm = ({
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ isSubmitting, errors }) => (
+      {({ values, setFieldValue, isSubmitting, errors }) => (
         <Form className={cx('w-full mx-auto text-left', className)}>
           {fields.map((field) => (
             <div key={`field_${field.key}`}>
@@ -128,13 +145,42 @@ export const RegistrationForm = ({
 
               {errors[field.key] && (
                 <p className="text-danger">
-                  <i>*{errors[field.key]}</i>
+                  <em>*{errors[field.key]}</em>
                 </p>
               )}
             </div>
           ))}
 
-          <p className="text-left md:text-center">
+          {showPhoneField && (
+            <div>
+              <label className="font-bold" htmlFor="phone">
+                Phone Number
+              </label>
+
+              <PhoneInput
+                disableDialCodePrefill
+                value={values.phone}
+                className={`!rounded-xl bg-white !border items-center ${
+                  errors['phone'] ? 'border-danger' : 'border-[#6b7280]'
+                }`}
+                inputClassName="w-[80%] !text-base !border-none !ml-2"
+                countrySelectorStyleProps={{ buttonClassName: '!border-none !ml-4' }}
+                name="phone"
+                placeholder="Phone Number (Optional)"
+                onChange={(val) => {
+                  setFieldValue('phone', val)
+                }}
+              />
+
+              {errors['phone'] && (
+                <p className="text-danger">
+                  <em>*{errors['phone']}</em>
+                </p>
+              )}
+            </div>
+          )}
+
+          <p className="text-left md:text-cente mt-4">
             By clicking Submit, I agree to receive my attachment style report and other email
             communication. If you haven&apos;t received your report, please be sure to check your
             Spam/Junk folder.
@@ -164,6 +210,12 @@ export const RegistrationFormValidationSchema = yup
       .ensure()
       .matches(Regexes.email, 'Please enter a valid email')
       .required('Email required'),
+    phone: yup
+      .string()
+      .transform((value) => (value === '' ? null : value))
+      .test('isPhoneValid', 'Please enter a valid phone number', (value) =>
+        value ? isPhoneValid(value) : true
+      ),
   })
   .defined()
 

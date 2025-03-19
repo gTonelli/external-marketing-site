@@ -14,8 +14,8 @@ import { TStyle } from '@/utils/types'
 var gamUserTracking: TGAM | undefined
 
 interface ISetUserDataArgs {
-  email?: string
-  firstName?: string
+  email: string
+  firstName: string
   lastName?: string
   phone?: string
   userStyle?: TStyle
@@ -27,9 +27,11 @@ export const useGamAnalytics = () => {
   // Creating an identity of user in mixpanel
   const setUserData = ({ email, firstName, lastName, phone, userStyle }: ISetUserDataArgs) => {
     Mixpanel.setUser(email)
-    Storage.set('userFirstName', firstName)
+
     Storage.set('lastUserEmail', email)
-    Storage.set('userPhone', phone)
+    Storage.set('userFirstName', firstName)
+    if (phone) Storage.set('userPhone', phone)
+
     cookies.set('firstName', firstName)
 
     const { gamLastTouchData, gamFirstTouchData } = getUserData()

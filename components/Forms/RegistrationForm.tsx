@@ -33,6 +33,8 @@ interface IRegistrationFormProps extends IDefaultProps {
   userStyle?: TStyle
   /** Split test on button text */
   submitButtonLabel?: string
+  /** whether or not to show the phone number field */
+  showPhoneField?: boolean
 }
 
 type TFieldConfig = {
@@ -62,21 +64,11 @@ export const RegistrationForm = ({
   userInfo,
   userStyle,
   submitButtonLabel,
+  showPhoneField = false,
 }: IRegistrationFormProps) => {
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
-  const [showPhoneField, setShowPhoneField] = useState<boolean | undefined>()
-
-  useEffect(() => {
-    setShowPhoneField(
-      getSplitTest({
-        key: 'gm-1592-phone-field-test',
-        experimentName: 'GM-1592-Phone-Field-Test',
-        useCookies: false,
-      })
-    )
-  }, [])
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
     const { email, firstName, lastName, phone } = values

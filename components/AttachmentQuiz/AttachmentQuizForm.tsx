@@ -1,6 +1,7 @@
 'use client'
 
 //core
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
@@ -10,6 +11,7 @@ import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
+import { getSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -27,6 +29,18 @@ export const AttachmentQuizForm = ({
   const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
   const router = useRouter()
+
+  const [showPhoneFieldVariant, setShowPhoneFieldVariant] = useState<boolean | undefined>()
+
+  useEffect(() => {
+    setShowPhoneFieldVariant(
+      getSplitTest({
+        key: 'gm-1592-phone-field-test',
+        experimentName: 'GM-1592-Phone-Field-Test',
+        useCookies: false,
+      })
+    )
+  }, [])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -78,8 +92,13 @@ export const AttachmentQuizForm = ({
           Fill Out the Form Below to View Your Free Results!
         </h2>
 
+        {showPhoneFieldVariant && (
+          <p className="font-bold mb-4">AND also get a free emailed report.</p>
+        )}
+
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
+          showPhoneField={showPhoneFieldVariant}
           clientTag={`attachment-quiz-${userStyle}`}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
@@ -87,7 +106,9 @@ export const AttachmentQuizForm = ({
           onAfterSubmit={onAfterSubmit}
         />
 
-        <p className="font-effra mt-4">AND also get a free emailed report.</p>
+        {!showPhoneFieldVariant && (
+          <p className="font-effra mt-4">AND also get a free emailed report.</p>
+        )}
       </div>
     </section>
   )

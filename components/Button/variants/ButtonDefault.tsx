@@ -74,7 +74,6 @@ export const ButtonDefault = ({
 
   const _onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (isDisabled || isLoading) return
-    console.log('==>', mpProps)
     Mixpanel.track.ButtonClicked({
       button_label: event.currentTarget.innerText,
       page_name,

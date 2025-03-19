@@ -94,6 +94,7 @@ const config: Config = {
         pink: '#D35592',
         'pink-secondary': '#E49FC2',
         'pink-tertiary': '#EDEAF3',
+        'pink-auxiliary': '#FFF2FF',
         'pink-light': '#F4E9F0',
         'pink-dark': '#D35592',
         'pale-pink': '#e4d9d3b3',

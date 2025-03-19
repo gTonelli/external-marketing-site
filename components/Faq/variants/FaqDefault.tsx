@@ -35,6 +35,8 @@ export interface IFAQsProps extends IDefaultProps {
    * Classname for Plus/Minus Icon
    */
   classNameIcon?: string
+  /** Heading text */
+  heading?: string
   /**
    * Display the heading?
    * @default true
@@ -83,6 +85,7 @@ export const FaqDefault = ({
   classNameHeading,
   classNameIcon,
   classNameQuestion,
+  heading = 'Frequently Asked Questions',
   includeHeading = true,
   faq = DEFAULT_FAQs,
   useMD = true,
@@ -95,7 +98,7 @@ export const FaqDefault = ({
       {includeHeading && (
         <Text.Heading
           className={cx('text-black text-3xl text-left mb-4', classNameHeading)}
-          content="Frequently Asked Questions"
+          content={heading}
         />
       )}
 

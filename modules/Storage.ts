@@ -8,6 +8,7 @@ export type TStorageKeys =
   | 'userCountry'
   | 'userFirstName'
   | 'userFullName'
+  | 'userPhone'
   | 'canViewResults'
   | 'userTag'
   | 'gam_user_tracking'

@@ -74,6 +74,7 @@ export type Pages =
   | `Greg Voisen Podcast Guest Page`
   | `IAT Attachment Quiz`
   | `IAT Info Page`
+  | `IAT Info Variant Page`
   | `IAT Webinar Page`
   | `IAT Webinar Squeeze Page`
   | `IAT Webinar Recording Page`

@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/quiz', '/quiz/results/fa'],
+  matcher: ['/quiz', '/quiz/results/fa', '/iat/info'],
 }
 
 interface IConfigWithRegex {
@@ -141,6 +141,10 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
     return splitTestConfigs.ytQuizFunnelTest
+  }
+
+  if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
+    return splitTestConfigs.iatEbookTest
   }
 
   return configs.find((config) => config.regex.test(path))?.config
@@ -244,6 +248,16 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.25,
     forceControlOnNewUser: true,
+  },
+  iatEbookTest: {
+    cookieKey: 'ip-1248-iat-ebook-banner',
+    pageName: 'IAT Info Page',
+    experimentName: 'IP-1248-IAT-Ebook-Banner-Test',
+    variantUrl: {
+      path: '/iat/info-ebook',
+    },
+    variantRatio: 0.25,
+    forceControlOnNewUser: false,
   },
 }
 

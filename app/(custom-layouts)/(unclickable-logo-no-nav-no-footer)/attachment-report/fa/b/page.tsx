@@ -17,6 +17,13 @@ import './style.css'
 import { List } from '@/components/List'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 
+export const metadata = {
+  title: 'Discover & Learn About Your Attachment Style',
+  description:
+    'Discover, learn, and take the first steps to having your dream life by uncovering your attachment style. Get all the essential information you need!',
+  robots: 'noindex',
+}
+
 export default function FearfulAvoidantResultsPageB() {
   return (
     <Page page_name="Attachment Style Results - FA">

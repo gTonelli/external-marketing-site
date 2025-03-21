@@ -18,6 +18,8 @@ import { config } from './config'
 
 export type TParams = { params: { version: 'trial' | 'membership' } }
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return [{ version: 'membership' }, { version: 'trial' }]
 }
@@ -49,7 +51,7 @@ export default function AbandonedCartOffer({ params }: TParams) {
       page_name={`Abandoned Card Offer - ${params.version}`}>
       <Section
         className="!p-0"
-        classNameInner="relative overflow-hidden md:!max-w-none md:grid md:grid-cols-2">
+        classNameInner="relative overflow-hidden xs:!max-w-none md:grid md:grid-cols-2">
         <div
           className="absolute w-full h-full top-0 left-0 bg-gradient-to-b from-transparent via-[#ECF7F9] to-primary-light z-15
          md:bg-gradient-to-r md:from-[rgba(227,237,237,0.5)] md:via-[rgba(213,184,216,0.75)] md:to-[rgba(213,184,216,0.75)]

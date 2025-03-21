@@ -144,7 +144,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   }
 
   if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
-    console.log('LOGG')
     return splitTestConfigs.iatEbookTest
   }
 

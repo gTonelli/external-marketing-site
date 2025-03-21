@@ -1,20 +1,21 @@
+// core
+import Image from 'next/image'
+import Link from 'next/link'
+import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import Image from 'next/image'
-import { SignupForm } from '@/components/Forms/SignupForm'
 import { Button } from '@/components/Button/Button'
 import { Animation } from '@/components/Animation'
-import Link from 'next/link'
-// config
-import { ebookFeatureList, trustbarSlides } from './config'
-// styles
-import './style.css'
-
-import type { Metadata } from 'next'
 import { CarouselTestimonialPlain } from '@/components/Carousel/variants/CarouselTestimonialPlain'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { IATEbookForm } from '@/components/Forms/IATEbookForm'
+// config
+import { ebookFeatureList, trustbarSlides } from './config'
+// modules
+import { Pages } from '@/modules/Mixpanel'
+// styles
+import './style.css'
 
 export const metadata: Metadata = {
   title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
@@ -22,30 +23,65 @@ export const metadata: Metadata = {
   robots: 'noindex',
 }
 
-export default function IATInfoPage() {
+interface IATInfoPageProps {
+  pageName?: Pages
+  isVariant?: boolean
+}
+
+export default function IATInfoPage({ pageName, isVariant = false }: IATInfoPageProps) {
   return (
-    <Page page_name="IAT Info Page">
+    <Page page_name={pageName || 'IAT Info Page'}>
       <Section
         className="bg-gradient-to-b from-blue-lightest/10 via-blue-lightest to-primary-light/50 rounded-bl-[100px]"
         classNameInner="!max-w-screen-xl !text-left pb-24 lg:pb-36 lg:grid lg:grid-cols-[588px_1fr] lg:items-center lg:gap-32">
         <Animation>
-          <p className="tracking-33 font-bold">BECOME A RELATIONSHIP EXPERT TODAY...</p>
+          {isVariant ? (
+            <>
+              <p className="tracking-33 font-bold">
+                ARE YOU READY TO BECOME A WORLD-CLASS RELATIONSHIP COACH?
+              </p>
 
-          <h1>Learn How to Create a Thriving Coaching Business</h1>
+              <h1>The Future of Relationship Coaching Starts With This Guide!</h1>
 
-          <p>
-            If you're looking to build a coaching practice with{' '}
-            <strong>the most effective tools</strong>, <strong>best client results</strong>, and to{' '}
-            <strong>become financially free</strong>, you're in the right place!
-          </p>
+              <p>
+                Get the #1 FREE resource to learn how the IAT™ Relationship Coaching Program is
+                redefining the coaching industry. This science-backed, results-driven training
+                equips you with a proprietary healing model that will deliver real, lasting
+                results—for you and your clients. Plus, with proven in-house strategies, you’ll
+                create a profitable, impact-driven coaching business that stands out in the
+                marketplace.
+              </p>
 
-          <p>
-            The first step is downloading <strong className="text-primary">our free e-book</strong>{' '}
-            to learn how exactly to get started.
-            <i> Note: It's only free for a limited time, so act fast!</i>
-          </p>
+              <p>
+                Discover why industry titan and leader Thais Gibson’s revolutionary approach is
+                trusted by 1000’s of top coaches, therapists, and psychologists worldwide — and how
+                you can start making an impact in just 12 weeks!
+              </p>
 
-          <IATEbookForm />
+              <IATEbookForm submitButtonLabel="DOWNLOAD YOUR FREE GUIDE NOW!" />
+            </>
+          ) : (
+            <>
+              <p className="tracking-33 font-bold">BECOME A RELATIONSHIP EXPERT TODAY...</p>
+
+              <h1>Learn How to Create a Thriving Coaching Business</h1>
+
+              <p>
+                If you're looking to build a coaching practice with{' '}
+                <strong>the most effective tools</strong>, <strong>best client results</strong>, and
+                to <strong>become financially free</strong>, you're in the right place!
+              </p>
+
+              <p>
+                The first step is downloading{' '}
+                <strong className="text-primary">our free e-book</strong> to learn how exactly to
+                get started.
+                <i> Note: It's only free for a limited time, so act fast!</i>
+              </p>
+
+              <IATEbookForm />
+            </>
+          )}
         </Animation>
 
         <Animation direction="fromRight">

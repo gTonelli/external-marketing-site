@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 }
 
 export default function IATInfoVariantPage() {
-  return <IATInfoPage isVariant />
+  return <IATInfoPage isVariant pageName="IAT Info Variant Page" />
 }

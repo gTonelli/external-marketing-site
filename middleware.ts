@@ -137,14 +137,15 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
       regex: /^\/quiz\/results\/fa/,
       config: splitTestConfigs.simplifiedFAResultsTest,
     },
-    {
-      regex: /^\/iat\/info/,
-      config: splitTestConfigs.iatEbookTest,
-    },
   ]
 
   if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
     return splitTestConfigs.ytQuizFunnelTest
+  }
+
+  if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
+    console.log('LOGG')
+    return splitTestConfigs.iatEbookTest
   }
 
   return configs.find((config) => config.regex.test(path))?.config
@@ -257,7 +258,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
       path: '/iat/info-ebook',
     },
     variantRatio: 0.25,
-    forceControlOnNewUser: true,
+    forceControlOnNewUser: false,
   },
 }
 

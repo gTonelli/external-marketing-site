@@ -1,7 +1,11 @@
 // core
 import { Metadata } from 'next'
 // components
-import IATInfoPage from '../info/page'
+import { SplitTestTracker } from '@/components/SplitTestTracker'
+import { Page } from '@/components/Page'
+import { IATInfo } from '../info/IATInfo'
+// middleware
+import { splitTestConfigs } from '@/middleware'
 
 export const metadata: Metadata = {
   title: 'Get the #1 FREE resource on IAT™ Relationship Coaching',
@@ -11,5 +15,11 @@ export const metadata: Metadata = {
 }
 
 export default function IATInfoVariantPage() {
-  return <IATInfoPage isVariant pageName="IAT Info Variant Page" />
+  return (
+    <Page page_name="IAT Info Variant Page">
+      <SplitTestTracker variant="Variant 1" {...splitTestConfigs.iatEbookTest} />
+
+      <IATInfo isVariant />
+    </Page>
+  )
 }

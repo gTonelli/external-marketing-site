@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/quiz', '/quiz/results/fa'],
+  matcher: ['/quiz', '/quiz/results/fa', '/attachment-report/fa'],
 }
 
 interface IConfigWithRegex {
@@ -136,6 +136,11 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       regex: /^\/quiz\/results\/fa/,
       config: splitTestConfigs.simplifiedFAResultsTest,
+    },
+
+    {
+      regex: /^\/attachment-report\/fa/,
+      config: splitTestConfigs.faReport,
     },
   ]
 
@@ -235,6 +240,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
+
   simplifiedFAResultsTest: {
     cookieKey: 'gm-1526-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
@@ -243,6 +249,17 @@ export const splitTestConfigs: TSplitTestConfigs = {
       path: '/quiz/results/fearful-avoidant',
     },
     variantRatio: 0.25,
+    forceControlOnNewUser: true,
+  },
+
+  faReport: {
+    cookieKey: 'GM-1480',
+    pageName: 'Attachment Style Results - FA',
+    experimentName: 'GM-1480-FA-Report',
+    variantUrl: {
+      path: '/attachment-report/fa/b',
+    },
+    variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
 }

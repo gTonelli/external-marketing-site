@@ -10,9 +10,7 @@ import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/Bre
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
 import { Button } from '@/components/Button/Button'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { SplitTestTracker } from '@/components/SplitTestTracker'
 // config
-import { splitTestConfigs } from '@/middleware'
 import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 // libraries
 import 'swiper/css'
@@ -42,8 +40,6 @@ export default function YoutubeQuizPage() {
 
   return (
     <Page className="w-full text-center relative z-10" page_name="Youtube Funnel Quiz">
-      <SplitTestTracker variant="Variant 1" {...splitTestConfigs.ytQuizFunnelTest} />
-
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}

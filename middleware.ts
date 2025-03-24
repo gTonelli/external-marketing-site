@@ -139,11 +139,8 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     },
   ]
 
-  if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
-    return splitTestConfigs.ytQuizFunnelTest
-  }
-
-  if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
+  if (/^\/iat\/info$/.test(path) && utmSource === 'paid-youtube') {
+    console.log('inside if')
     return splitTestConfigs.iatEbookTest
   }
 
@@ -229,16 +226,6 @@ const sendEventUnsafe = async (
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  ytQuizFunnelTest: {
-    cookieKey: 'gm-1525-yt-quiz-funnel',
-    pageName: 'Main Funnel Quiz',
-    experimentName: 'GM-1525-YT-Quiz-Funnel',
-    variantUrl: {
-      path: '/yt-quiz',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: false,
-  },
   simplifiedFAResultsTest: {
     cookieKey: 'gm-1526-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',

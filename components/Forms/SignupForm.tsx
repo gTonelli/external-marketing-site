@@ -5,7 +5,7 @@
  */
 
 // core
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 // components
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
@@ -17,6 +17,7 @@ import { Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
 // utils
 import { isPhoneValid } from '@/utils/functions'
+import { PageContext } from '@/utils/contexts'
 // modules
 import { useFunnelytics } from '@/modules/Funnelytics'
 import Mixpanel from '@/modules/Mixpanel'
@@ -60,6 +61,8 @@ export const SignupForm = ({
   showPhoneField,
   onSuccess,
 }: ISignupFormProps) => {
+  // =========== Context =========
+  const { page_name } = useContext(PageContext)
   // =========== State =========
   const [submitted, setSubmitted] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -92,7 +95,7 @@ export const SignupForm = ({
       })
     } else {
       funnelytics?.track('Form Tracking', {
-        pageName: 'Podcast Freebie',
+        pageName: page_name,
       })
     }
 

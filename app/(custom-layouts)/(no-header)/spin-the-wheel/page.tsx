@@ -7,12 +7,12 @@ import { Section } from '@/components/Section'
 import { SpinningWheel } from '@/components/SpinningWheel'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
 import { SPIN_THE_WHEEL_CONFIG as CONFIG } from './config'
-import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 
 const trustbarSlides = [
   'mel-robbins-logo.png',
@@ -46,7 +46,7 @@ export default function SpinTheWheelPage() {
       <Section className="!mt-0" classNameInner="relative">
         <SpinningWheel />
 
-        <div className="pt-96 grid grid-cols-1 gap-8 text-left lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 text-left pt-[650px] lg:grid-cols-2 xs:pt-[750px] lg:pt-96">
           <div className="pt-16">
             <h2 className="mb-4">
               Your Exclusive Membership That Gives You Access to The Personal Development School — A
@@ -78,10 +78,10 @@ export default function SpinTheWheelPage() {
         </div>
       </Section>
 
-      <Section classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <Section classNameInner="grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2">
         {CONFIG.PERKS.map((perk, idx) => (
-          <div key={`perk_${idx}`} className={`flex text-left rounded-2xl bg-[${perk.bgColor}]`}>
-            <div className="p-4">
+          <div key={`perk_${idx}`} className={`flex text-left rounded-2xl ${perk.bgColor}`}>
+            <div className="p-2 lg:p-4">
               <p className="mb-2">
                 <strong>{perk.title}</strong>
               </p>
@@ -89,9 +89,9 @@ export default function SpinTheWheelPage() {
               <p>{perk.copy}</p>
             </div>
 
-            <div className="w-full max-w-24 lg:max-w-36">
+            <div className="w-full min-w-28 max-w-28 lg:max-w-36">
               <Image
-                className="h-full"
+                className="w-full h-full"
                 alt="A happy couple"
                 src={`/images/SpinTheWheel/${perk.image}`}
                 width={150}
@@ -116,7 +116,7 @@ export default function SpinTheWheelPage() {
           deserve.
         </p>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2">
           {CONFIG.CHOOSE_PDS.map((bullet, idx) => (
             <div
               key={`bullet_${idx}`}
@@ -159,8 +159,9 @@ export default function SpinTheWheelPage() {
           />
         </div>
 
-        <div className="lg:!w-60">
+        <div className="flex items-center justify-center lg:!w-60">
           <Image
+            className="w-64 h-64 lg:h-full"
             alt="7 day money back guarantee badge"
             src="/images/money-back-7-day.png"
             width={335}

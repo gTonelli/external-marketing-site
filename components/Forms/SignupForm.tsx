@@ -15,6 +15,7 @@ import * as yup from 'yup'
 import cx from 'classnames'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
+import { MD5 } from 'crypto-js'
 // utils
 import { isPhoneValid } from '@/utils/functions'
 import { PageContext } from '@/utils/contexts'
@@ -42,6 +43,8 @@ interface ISignupFormProps extends IDefaultProps {
   successMessage?: string
   /** classname success message */
   classNameSuccessMessage?: string
+  /** submit button additional mixpanel props */
+  submitButtonMpProps?: { [key: string]: string }
   /** onSuccess callback function */
   onSuccess?: () => void
   /** show Phone field on the form */
@@ -59,6 +62,7 @@ export const SignupForm = ({
   listIds,
   successMessage = 'Thank you for your submission!',
   showPhoneField,
+  submitButtonMpProps,
   onSuccess,
 }: ISignupFormProps) => {
   // =========== Context =========
@@ -99,12 +103,15 @@ export const SignupForm = ({
       })
     }
 
+    const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
+
     const requestBody = {
       tags: userTags,
       firstName,
       email,
       phone,
       listIds,
+      insertId,
     }
 
     fetch(
@@ -122,7 +129,7 @@ export const SignupForm = ({
       .then((res) => {
         if (!res.success) throw res?.message || 'An unexpected error occured'
         else {
-          Mixpanel.track.SignUp({ distinct_id: email })
+          Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
           onSuccess?.()
           setSubmitted(true)
         }
@@ -193,6 +200,7 @@ export const SignupForm = ({
             className="mt-4"
             disabled={isSubmitting}
             label={submitButtonLabel || 'SUBMIT'}
+            mpProps={submitButtonMpProps}
           />
 
           {errorMessage && <p className="font-bold text-danger">{errorMessage}</p>}

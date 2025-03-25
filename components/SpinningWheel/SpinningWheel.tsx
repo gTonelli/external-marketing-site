@@ -5,11 +5,13 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 // components
 import { Loader } from '../Loader'
+import { List } from '../List'
 import { SignupForm } from '../Forms/SignupForm'
 import { Button } from '../Button/Button'
 import { Dialog } from '../Dialog/Dialog'
 import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 import { faCircleExclamation, faClose } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import {
   TSpinWheelVariant,
@@ -20,11 +22,10 @@ import {
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MD5 } from 'crypto-js'
+import Confetti from 'react-confetti-boom'
 // modules
 import { Storage } from '@/modules/Storage'
 import Mixpanel from '@/modules/Mixpanel'
-import { List } from '../List'
-import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface ISpinWheelProps {
   pageVariant: TSpinWheelVariant
@@ -143,29 +144,34 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         />
 
         <Dialog
-          className="w-full max-w-4xl p-6 bg-white rounded-20"
+          className="w-full max-w-5xl p-4 bg-white rounded-20 md:p-8 lg:p-12"
           isShown={showPrizePopup}
           onToggle={() => setShowPrizePopup(!showPrizePopup)}>
-          <div className="w-full flex justify-end mb-8">
-            <FontAwesomeIcon
-              icon={faClose}
-              size="2x"
-              role="button"
-              onClick={() => setShowPrizePopup(false)}
-            />
-          </div>
+          <div className="overflow-scroll">
+            <Confetti mode="boom" particleCount={1000} spreadDeg={360} />
 
-          <div className="grid grid-cols-1 gap-8 py-10 lg:grid-cols-2">
-            <div>
-              <Image
-                alt="Congratulations image with gifts and balloons"
-                src="/images/congratulations.png"
-                width={370}
-                height={350}
+            <div className="w-full flex justify-end mb-8">
+              <FontAwesomeIcon
+                icon={faClose}
+                size="2x"
+                role="button"
+                onClick={() => setShowPrizePopup(false)}
               />
             </div>
 
-            <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="popup" />
+            <div className="grid grid-cols-1 gap-4 py-4 lg:py-10 lg:grid-cols-2">
+              <div className="flex justify-center">
+                <Image
+                  className="w-60 md:w-96 lg:w-full"
+                  alt="Congratulations image with gifts and balloons"
+                  src="/images/congratulations.png"
+                  width={370}
+                  height={350}
+                />
+              </div>
+
+              <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="popup" />
+            </div>
           </div>
         </Dialog>
       </div>

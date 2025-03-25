@@ -115,7 +115,7 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
             <FontAwesomeIcon icon={faSparkles} className="!text-primary" />
           </div>
 
-          <div>
+          <div className="text-left">
             <p>
               <strong>
                 Ask Yourself: Can I afford not to take action today? What would my life look like if
@@ -146,7 +146,7 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
           {CONFIG.CHOOSE_PDS.map((bullet, idx) => (
             <div
               key={`bullet_${idx}`}
-              className="flex rounded-2xl text-left bg-white-secondary p-6">
+              className="flex rounded-2xl text-left bg-white-secondary p-2 lg:p-6">
               <div className="!w-6 mr-2">
                 <FontAwesomeIcon icon={bullet.icon} className="!text-primary" />
               </div>

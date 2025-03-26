@@ -6,8 +6,7 @@ import { useRouter } from 'next/navigation'
 // components
 import { SignupForm } from './SignupForm'
 // modules
-import Mixpanel from '@/modules/Mixpanel'
-import { Storage } from '@/modules/Storage'
+import { getSplitTest } from '@/utils/functions'
 
 interface IIATEbookFormProps {
   id?: string
@@ -22,20 +21,12 @@ export const IATEbookForm = ({ id, classNameFields, submitButtonLabel }: IIATEbo
   const [isVariant, setIsVariant] = useState(false)
 
   useEffect(() => {
-    let randomFloat = window.crypto.getRandomValues(new Uint8Array(1))[0] / 255 
-    let showVariant = Storage.get('ip-1219-ebook-v2') === 'yes'
-
-    if (randomFloat < 0.5 && Storage.get('ip-1219-ebook-v2') === null) {
-      showVariant = randomFloat < 0.25
-
-      Storage.set('ip-1219-ebook-v2', showVariant ? 'yes' : 'no')
-      Mixpanel.track.ExperimentStarted({
-        'Experiment name': 'IP-1219-ebook-v2',
-        'Variant name': showVariant ? 'Variant 1' : 'Control'
-      })
-    }
-
-    setIsVariant(showVariant)
+    setIsVariant(getSplitTest({
+      key: 'ip-1219-ebook-v2',
+      experimentName: 'IP-1219-ebook-v2',
+      variantRatio: 0.25,
+      useCookies: false
+    }))
   }, [])
 
 

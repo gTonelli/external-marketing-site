@@ -17,7 +17,7 @@ export const prizes = [
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
-    userTag: 'spin-wheel-7dft',
+    userTag: 'mkt-spin-wheel-7dft',
   },
   {
     option: '14-day free trial',
@@ -32,7 +32,7 @@ export const prizes = [
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL,
-    userTag: 'spin-wheel-14dft',
+    userTag: 'mkt-spin-wheel-14dft',
   },
   {
     option: '60% off first month',
@@ -46,7 +46,7 @@ export const prizes = [
     disclaimer:
       'At the end of the first month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
     checkoutLink: EExternalRoutes.STRIPE_CHECKOUT_39_FIRST_MONTH,
-    userTag: 'spin-wheel-39fmo',
+    userTag: 'mkt-spin-wheel-39fmo',
   },
   {
     option: 'Free Trial + Free Course',
@@ -61,7 +61,7 @@ export const prizes = [
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan. You’ll still keep the Needs Course for life even if you don’t stay on.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
-    userTag: 'spin-wheel-ft-fc',
+    userTag: 'mkt-spin-wheel-ft-fc',
   },
   {
     option: '50% off quarterly',
@@ -75,10 +75,10 @@ export const prizes = [
       'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE.',
     disclaimer: 'You can cancel at any time with no commitment.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
-    userTag: 'spin-wheel-50off-quarterly',
+    userTag: 'mkt-spin-wheel-50off-quarterly',
   },
   {
-    option: 'Free 1 Month Membership',
+    option: '1 Month Free Membership',
     title: (
       <>
         Congratulations – You’ve Won{' '}
@@ -89,7 +89,7 @@ export const prizes = [
       'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE.',
     disclaimer: 'You can cancel at any time with no commitment.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
-    userTag: 'spin-wheel-50off-quarterly',
+    userTag: 'mkt-spin-wheel-1mo-free',
   },
 ]
 
@@ -102,11 +102,11 @@ const spinWheelEmailPrizes: WheelData[] = [
 ]
 
 const spinWheelOSMPrizes: WheelData[] = spinWheelEmailPrizes.slice(0, 4)
-// spinWheelOSMPrizes.push({ option: prizes[4].option, style: { backgroundColor: '#EDECCD' } })
+spinWheelOSMPrizes.push({ option: prizes[5].option, style: { backgroundColor: '#EDECCD' } })
 
 const spinWheelEmailPrizeProbabilities = [30, 25, 10, 25, 10]
 
-const spinWheelOSMPrizeProbabilities = [30, 30, 5, 35]
+const spinWheelOSMPrizeProbabilities = [30, 30, 4, 35, 1]
 
 /** cummulative probabilities array of email prizes */
 const spinWheelEmailPrizeDistribution = spinWheelEmailPrizeProbabilities.reduce<number[]>(

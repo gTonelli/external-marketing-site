@@ -74,6 +74,7 @@ export const SignupForm = ({
   const FBQ = useFacebookPixel()
   const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
+  // TODO: add GAM
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
     const { email, firstName, phone } = values

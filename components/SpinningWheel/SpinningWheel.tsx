@@ -121,7 +121,6 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       className="absolute w-full grid grid-cols-1 gap-8 bg-white shadow-xl rounded-lg overflow-hidden -top-16 left-0 p-4 z-10 md:-top-20 lg:-top-32 lg:grid-cols-2 lg:p-6">
       <div>
         <Wheel
-          perpendicularText
           textDistance={75}
           fontSize={18}
           spinDuration={0.5}
@@ -148,7 +147,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           isShown={showPrizePopup}
           onToggle={() => setShowPrizePopup(!showPrizePopup)}>
           <div className="overflow-scroll">
-            <Confetti mode="boom" particleCount={1000} spreadDeg={360} />
+            <Confetti particleCount={1000} spreadDeg={360} />
 
             <div className="w-full flex justify-end mb-8">
               <FontAwesomeIcon

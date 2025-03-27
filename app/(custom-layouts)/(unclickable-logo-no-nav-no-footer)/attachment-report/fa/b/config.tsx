@@ -138,7 +138,7 @@ export const config = {
         'You test people’s loyalty by pulling away or creating distance to see if they’ll chase you.',
         'You bottle up emotions until they explode, then regret how you reacted.',
         'You hint at your needs instead of stating them directly, hoping someone will figure it out.',
-        'You push people away when you feel too close, but panic when they start to leave.,',
+        'You push people away when you feel too close, but panic when they start to leave.',
       ],
     },
   ],
@@ -249,7 +249,7 @@ export const config = {
     {
       icon: faSquare2,
       title: 'Apply the Revolutionary Tools Everyday',
-      body: 'Use our simple strategies for 10 minutes a day to build confident in how you navigate life.',
+      body: 'Use our simple strategies for 10 minutes a day to build confidence in how you navigate life.',
     },
 
     {

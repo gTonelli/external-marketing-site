@@ -61,7 +61,7 @@ export default function FearfulAvoidantResultsPageB() {
           </div>
 
           <Link href="/limited-offer/fa">
-            <Button label="LEARN MORE TO UNLOCK YOUR TRANFORMATION" />
+            <Button label="LEARN MORE TO UNLOCK YOUR TRANSFORMATION" />
           </Link>
         </div>
       </Section>
@@ -107,7 +107,7 @@ export default function FearfulAvoidantResultsPageB() {
         <p>Fearful Avoidants often find themselves trapped in a cycle of emotional conflict:</p>
 
         <Image
-          className="mb-4 lg:hidden"
+          className="mb-4 mx-auto lg:hidden"
           quality={100}
           width={343}
           height={343}
@@ -140,7 +140,7 @@ export default function FearfulAvoidantResultsPageB() {
           </i>
         </p>
 
-        <div className="bg-pink-6 flex items-center max-w-max mx-auto mb-12 rounded-lg">
+        <div className="bg-pink-6 flex items-center max-w-max mx-auto mb-12 rounded-lg p-2">
           <FontAwesomeIcon className="text-primary" icon={faLightbulbGear} />
 
           <p className="mb-0">
@@ -204,7 +204,7 @@ export default function FearfulAvoidantResultsPageB() {
         </p>
       </Section>
 
-      <Section classNameInner="lg:!max-w-screen-xl lg:grid lg:grid-cols-[384px_792px] lg:gap-6">
+      <Section classNameInner="lg:!max-w-screen-xl lg:grid lg:grid-cols-[321px_642px] lg:gap-6 lg:items-center xl:items-start xl:grid-cols-[384px_792px]">
         <Image
           className="w-full rounded-20 mb-6 lg:mb-0"
           src="/images/FAReportVariant/woman-holding-coffee.png"

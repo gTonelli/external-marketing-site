@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/quiz', '/quiz/results/fa', '/attachment-report/fa'],
+  matcher: ['/quiz', '/quiz/results/fa', '/iat/info', '/attachment-report/fa'],
 }
 
 interface IConfigWithRegex {
@@ -144,8 +144,8 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     },
   ]
 
-  if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
-    return splitTestConfigs.ytQuizFunnelTest
+  if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
+    return splitTestConfigs.iatEbookTest
   }
 
   return configs.find((config) => config.regex.test(path))?.config
@@ -230,17 +230,6 @@ const sendEventUnsafe = async (
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  ytQuizFunnelTest: {
-    cookieKey: 'gm-1525-yt-quiz-funnel',
-    pageName: 'Main Funnel Quiz',
-    experimentName: 'GM-1525-YT-Quiz-Funnel',
-    variantUrl: {
-      path: '/yt-quiz',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: false,
-  },
-
   simplifiedFAResultsTest: {
     cookieKey: 'gm-1526-simplified-fa-test',
     pageName: 'VSL Royal Rumble Results - fa',
@@ -261,6 +250,17 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,
+  },
+
+  iatEbookTest: {
+    cookieKey: 'ip-1248-iat-ebook-banner',
+    pageName: 'IAT Info Page',
+    experimentName: 'IP-1248-IAT-Ebook-Banner-Test',
+    variantUrl: {
+      path: '/iat/info-ebook',
+    },
+    variantRatio: 0.25,
+    forceControlOnNewUser: false,
   },
 }
 

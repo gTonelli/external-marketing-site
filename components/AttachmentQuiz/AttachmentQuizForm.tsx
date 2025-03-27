@@ -92,10 +92,6 @@ export const AttachmentQuizForm = ({
           Fill Out the Form Below to View Your Free Results!
         </h2>
 
-        {showPhoneFieldVariant && (
-          <p className="font-bold mb-4">AND also get a free emailed report.</p>
-        )}
-
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
           showPhoneField={showPhoneFieldVariant}
@@ -106,9 +102,7 @@ export const AttachmentQuizForm = ({
           onAfterSubmit={onAfterSubmit}
         />
 
-        {!showPhoneFieldVariant && (
-          <p className="font-effra mt-4">AND also get a free emailed report.</p>
-        )}
+        <p className="font-effra mt-4">AND also get a free emailed report.</p>
       </div>
     </section>
   )

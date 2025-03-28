@@ -140,7 +140,7 @@ export default function IATMasterclassRecordingPage() {
             </>,
             'This revolutionary program is designed to equip you with the practical tools and knowledge from our proprietary healing model and the business solutions to turn your passion for helping people into a fulfilling and financially rewarding career.',
             <>
-              Enrolment for our next cohort starting <strong>Thursday, March 20th, 2025</strong>, is
+              Enrolment for our next cohort starting <strong>Wednesday, May 21st, 2025</strong>, is
               closing soon!
             </>,
             'This is your final chance to be part of a groundbreaking movement that is changing the way people experience personal growth and transformation.',

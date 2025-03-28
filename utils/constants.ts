@@ -134,16 +134,16 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_IAT_SPRING_2025_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098408&coupon=iatbundle3molivespring25',
   THINKIFIC_CHECKOUT_IAT_SPRING_2025_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098409&coupon=iatbundle6molivespring25',
   THINKIFIC_CHECKOUT_IAT_SPRING_2025_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098410&coupon=iatbundle12molivespring25',
-  // IAT Recorded Webinar Spring 2025
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarwinter25ondemand',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinarwinter253mnthondemand',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinarwinter256mnthondemand',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinarwinter2512mnthondemand',
-  // IAT Webinar Spring 2025
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098404&coupon=iatwebinarspring25live',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098405&coupon=iatwebinarspring253mnthlive',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098406&coupon=iatwebinarspring256mnthlive',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3210080?price_id=4098407&coupon=iatwebinarspring2512mnthlive',
+  // IAT Recorded Webinar Summer 2025
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarsummer25ondemand',
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinarsummer253mnthondemand',
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinarsummer256mnthondemand',
+  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinarsummer2512mnthondemand',
+  // IAT Webinar Summer 2025
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211457&coupon=iatwebinarsummer25live',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211458&coupon=iatwebinarsummer253mnthlive',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211461&coupon=iatwebinarsummer256mnthlive',
+  THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211462&coupon=iatwebinarsummer2512mnthlive',
   //Lifetime payment
   THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
   THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',

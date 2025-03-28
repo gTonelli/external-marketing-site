@@ -3,6 +3,12 @@ import { WheelData } from 'react-custom-roulette/dist/components/Wheel/types'
 
 export type TSpinWheelVariant = 'email' | 'osm'
 
+const features = [
+  'Live Webinars & Q&As with Thais Gibson',
+  'All Attachment Style Courses + All Courses Inside the School',
+  'Access to Our Supportive Community & Study Groups',
+]
+
 export const prizes = [
   {
     option: '7-day free trial',
@@ -13,7 +19,8 @@ export const prizes = [
       </>
     ),
     subheader:
-      'You’ve won a 7-day Free Trial to the Access Pass! That’s unlimited access to our school’s entire collection — for free for 7 days!',
+      'Get unlimited access to our school’s entire collection — for free for 7 days! That includes:',
+    features,
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
@@ -28,7 +35,8 @@ export const prizes = [
       </>
     ),
     subheader:
-      'You’ve won a 14-day Free Trial to the Access Pass! That’s unlimited access to our school’s entire collection — for free for 14 days!',
+      'Get unlimited access to our school’s entire collection — for free for 14 days! That includes:',
+    features,
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL,
@@ -42,14 +50,15 @@ export const prizes = [
       </>
     ),
     subheader:
-      'Start your healing journey for less! You’ve unlocked this epic discount on the Access Pass—for only $39 for your first month—instead of the usual $97!',
+      'Start your healing journey for less! You’ve unlocked this epic discount on the Access Pass—for only $39 for your first month—instead of the usual $97!  You’ll get:',
+    features,
     disclaimer:
       'At the end of the first month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
     checkoutLink: EExternalRoutes.STRIPE_CHECKOUT_39_FIRST_MONTH,
     userTag: 'mkt-spin-wheel-39fmo',
   },
   {
-    option: 'Free Trial + Free Course',
+    option: 'Free trial + free course',
     title: (
       <>
         Congratulations – You’ve Won a{' '}
@@ -57,7 +66,12 @@ export const prizes = [
       </>
     ),
     subheader:
-      'You’ve won a 7-day Free Trial to the Access Pass! Plus, keep the Needs Course for LIFE!',
+      'You’ve won a 7-day Free Trial to the Access Pass and can keep the Needs Course for LIFE! You’ll enjoy:',
+    features: [
+      'Live Webinars & Q&As with Thais + Community Access',
+      'All Attachment Style Courses + All Courses Inside the School',
+      'Keep the Needs Course for Life',
+    ],
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan. You’ll still keep the Needs Course for life even if you don’t stay on.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
@@ -72,22 +86,25 @@ export const prizes = [
       </>
     ),
     subheader:
-      'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE.',
+      'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE. You’ll get:',
+    features,
     disclaimer: 'You can cancel at any time with no commitment.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
     userTag: 'mkt-spin-wheel-50off-quarterly',
   },
   {
-    option: '1 Month Free Membership',
+    option: 'Free month membership',
     title: (
       <>
-        Congratulations – You’ve Won{' '}
-        <span className="text-primary">50% off a Quarterly Membership for Life!</span>
+        Congratulations – You’ve Won a{' '}
+        <span className="text-primary">Free 1-Month Membership!</span>
       </>
     ),
     subheader:
-      'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE.',
-    disclaimer: 'You can cancel at any time with no commitment.',
+      'Enjoy everything the All-Access Pass has to offer for FREE for 1-month! For 30 days, you’ll get:',
+    features,
+    disclaimer:
+      'At the end of the month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
     userTag: 'mkt-spin-wheel-1mo-free',
   },

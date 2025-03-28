@@ -121,11 +121,11 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       className="absolute w-full grid grid-cols-1 gap-8 bg-white shadow-xl rounded-lg overflow-hidden -top-16 left-0 p-4 z-10 md:-top-20 lg:-top-32 lg:grid-cols-2 lg:p-6">
       <div>
         <Wheel
-          textDistance={75}
-          fontSize={18}
+          textDistance={52}
+          fontSize={17}
           spinDuration={0.5}
           radiusLineColor="white"
-          radiusLineWidth={5}
+          radiusLineWidth={3}
           innerBorderColor="none"
           outerBorderWidth={0}
           innerBorderWidth={0}
@@ -146,7 +146,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           className="w-full max-w-5xl p-4 bg-white rounded-20 md:p-8 lg:p-12"
           isShown={showPrizePopup}
           onToggle={() => setShowPrizePopup(!showPrizePopup)}>
-          <div className="overflow-scroll">
+          <div className="overflow-auto">
             <Confetti particleCount={1000} spreadDeg={360} />
 
             <div className="w-full flex justify-end mb-8">
@@ -232,11 +232,7 @@ const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) 
         <strong>{prizes[prizeNumber].subheader}</strong>
       </p>
 
-      <List
-        className="mb-4"
-        icon={faCircleSmall}
-        listItems={['Webinars', 'Community', 'Webinar']}
-      />
+      <List className="mb-4" icon={faCircleSmall} listItems={prizes[prizeNumber].features} />
 
       <div className="flex bg-[#ECEFFF] rounded-lg p-2 mb-8">
         <div className="w-6">

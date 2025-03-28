@@ -59,7 +59,7 @@ export default function IATMasterclassRecordingPage() {
         <h2 className="mb-4">Are You Ready to Transform Lives & Secure Your Financial Future?</h2>
 
         <p className="mb-16">
-          Sign up for the Live IAT™ Program starting on <strong>Thursday, March 20th, 2025</strong>,
+          Sign up for the Live IAT™ Program starting on <strong>Wednesday, May 21st, 2025</strong>,
           and get your exclusive Masterclass discount!
         </p>
 
@@ -70,7 +70,7 @@ export default function IATMasterclassRecordingPage() {
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2025-03-14T23:59:00-05:00'), 1)}
+          date={getOfferEndDate(new Date('2025-04-18T23:59:59-04:00'), 1)}
         />
       </Section>
 

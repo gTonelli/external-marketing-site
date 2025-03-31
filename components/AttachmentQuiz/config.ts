@@ -150,6 +150,122 @@ export const EXTERNALQUIZQUESTIONS = [
   },
 ]
 
+export const SHORTQUIZQUESTIONS = [
+  {
+    question: 'Are you in a relationship?',
+    association: 'relationshipStatus',
+    options: ['Yes', 'No'],
+  },
+  {
+    // 1
+    question:
+      'I often express anger very strongly when I feel hurt, powerless, or betrayed by someone I love (a potential romantic partner, family member, or close friend).',
+    association: 'fa',
+  },
+  {
+    // 2
+    question:
+      'I don’t like when people I am dating set boundaries with me because it feels like I am being rejected.',
+    association: 'ap',
+  },
+  {
+    // 3
+    question:
+      'I feel conflict is resolvable in close relationships and feel equipped to work through problems effectively.',
+    association: 'sec',
+  },
+  {
+    // 4
+    question:
+      'When I dated people in the past, I often felt like I couldn’t decide whether to stay in or leave relationships. This constant flip-flopping felt exhausting.',
+    association: 'fa',
+  },
+  {
+    // 5
+    question:
+      'I can be cold and stand-offish at times when I don’t know others very well. It takes me time to lower my guard when I’m getting to know someone romantically.',
+    association: 'da',
+  },
+  {
+    // 6
+    question:
+      'I am very present when I am with people in person, but I can be distant or avoidant when I am apart from them.',
+    association: 'fa',
+  },
+  {
+    question: 'I know that I am worthy of healthy, happy relationships in my life.', // 7
+    association: 'sec',
+  },
+  {
+    // 8
+    question:
+      'When I am dating someone, I often wish that my partner would take care of their own emotions and needs and involve me less.',
+    association: 'da',
+  },
+  {
+    // 9
+    question:
+      'When I am dating someone and get into an argument, I often think about leaving the relationship immediately and wanting to escape.',
+    association: 'fa',
+  },
+  {
+    // 10
+    question:
+      'I do not feel as though I need much from someone I am dating, and I do not like when people put pressure on me to meet too quickly.',
+    association: 'da',
+  },
+  {
+    // 11
+    question:
+      'In any close relationship, I am good at listening to other people’s needs and expressing my own.',
+    association: 'sec',
+  },
+  {
+    // 12
+    question:
+      'When I start dating someone and developing feelings, I can become very afraid that they will lose feelings and want to end the relationship with me.',
+    association: 'ap',
+  },
+  {
+    // 13
+    question:
+      'I generally do not like being single and often spend time constantly looking for a romantic partner because it is hard for me to be alone. If I’m in a relationship, I want to be with my partner constantly.',
+    association: 'ap',
+  },
+  {
+    // 14
+    question:
+      'If someone’s behavior hurts me in a relationship, I will express my feelings respectfully and try to understand what caused them to act that way.',
+    association: 'sec',
+  },
+  {
+    // 15
+    question:
+      'When I am dating someone, I can easily find myself people-pleasing and hungering for their approval.',
+    association: 'ap',
+  },
+  {
+    // 16
+    question:
+      'I often lose feelings in relationships when people expect a commitment too soon. I like to move slower than most others when I start dating someone.',
+    association: 'da',
+  },
+  {
+    question: 'I have previous knowledge of attachment theory.',
+    association: 'attachment',
+  },
+  {
+    question: 'How old are you?',
+    association: 'age',
+    options: ['Prefer not to say', '18-24', '25-34', '35-44', '45-54', '55+'],
+  },
+  {
+    question: 'What is your gender?',
+    association: 'gender',
+    options: ['Prefer not to say', 'Male', 'Female', 'Other'],
+  },
+]
+
 export const QUIZ_DETAILED_QUESTIONS = [
   {
     question: 'What is your current relationship status?',

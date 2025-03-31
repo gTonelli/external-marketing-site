@@ -205,6 +205,7 @@ export const Footer = ({
                   height={32}
                   width={108}
                 />
+                
               </Link> */}
             </div>
           </>

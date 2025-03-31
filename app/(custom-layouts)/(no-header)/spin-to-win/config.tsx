@@ -14,8 +14,8 @@ export const SPIN_THE_WHEEL_CONFIG = {
       find <strong>an evidence-based, proprietary, and proven model</strong> that rewires
       deep-rooted behavioral and belief patterns that are keeping you from living your best life.
     </>,
-    'Through every facet of our membership—courses, programs, and workbooks — we’ll teach you science-backed strategies and tools proven to heal attachment wounds, rebuild self-worth, create secure, fulfilling relationships, and overcome any challenges you face.',
-    'And you won’t do it alone. With live weekly webinars with me — PDS founder Thais Gibson — coaching guidance, and a private support community, you’ll have everything you need to eliminate second-guessing, constant pain, and waiting for change.',
+    'Through every facet of our membership—courses, programs, and workbooks—we’ll teach you science-backed strategies and tools proven to heal attachment wounds, rebuild self-worth, create secure, fulfilling relationships, and overcome any challenges you face.',
+    'And you won’t do it alone. With live weekly webinars with me — PDS founder Thais Gibson—coaching guidance, and a private support community, you’ll have everything you need to eliminate second-guessing, constant pain, and waiting for change.',
     <>
       <strong>Your transformation starts when you spin the wheel!</strong>
     </>,
@@ -29,7 +29,7 @@ export const SPIN_THE_WHEEL_CONFIG = {
     },
     {
       title: 'Rewire Your Subconscious Patterns',
-      copy: 'The game-changer — transform and reprogram your self-sabotaging thoughts, patterns, and beliefs to embrace more confidence, motivation, and success.',
+      copy: 'Reprogram your self-sabotaging thoughts, patterns, and beliefs to embrace positive transformation.',
       bgColor: 'bg-[#F5FBFC]',
       image: 'pds-perks-couple-2.png',
     },

@@ -78,8 +78,8 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
       <Section classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <div className="text-left">
           <h2 className="mb-4">
-            Your Exclusive Membership That Gives You Access to The Personal Development School — A
-            Complete Platform for Healing
+            It’s Your Exclusive Membership to The Personal Development School & A Complete Platform
+            for Healing
           </h2>
 
           <p className="tracking-33 mb-4">
@@ -158,7 +158,7 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
         </p>
 
         <p className="mb-8">
-          At The Personal Development School, we don’t just teach relationship advice — we give you
+          At The Personal Development School, we don’t just teach relationship advice—we give you
           the revolutionary tools to rewrite the subconscious patterns that keep you stuck in
           painful cycles so you can finally experience the love, security, and confidence you
           deserve.

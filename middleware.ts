@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/quiz', '/quiz/results/fa', '/iat/info'],
+  matcher: ['/iat/info'],
 }
 
 interface IConfigWithRegex {
@@ -132,12 +132,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const searchParams = request.nextUrl.searchParams
   const utmSource = searchParams.get('utm_source')
 
-  const configs: Array<IConfigWithRegex> = [
-    {
-      regex: /^\/quiz\/results\/fa/,
-      config: splitTestConfigs.simplifiedFAResultsTest,
-    },
-  ]
+  const configs: Array<IConfigWithRegex> = []
 
   if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
     return splitTestConfigs.iatEbookTest
@@ -225,16 +220,6 @@ const sendEventUnsafe = async (
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  simplifiedFAResultsTest: {
-    cookieKey: 'gm-1526-simplified-fa-test',
-    pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1526-Simplified-FA-Retest',
-    variantUrl: {
-      path: '/quiz/results/fearful-avoidant',
-    },
-    variantRatio: 0.25,
-    forceControlOnNewUser: true,
-  },
   iatEbookTest: {
     cookieKey: 'ip-1248-iat-ebook-banner',
     pageName: 'IAT Info Page',

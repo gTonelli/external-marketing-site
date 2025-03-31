@@ -186,7 +186,7 @@ export const Footer = ({
               </Link>
             </div>
 
-            {/* <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
+            <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
               <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">Get Our App</p>
 
               <Link className="mb-4" href={EExternalRoutes.IOS_APP}>
@@ -198,15 +198,15 @@ export const Footer = ({
                 />
               </Link>
 
-              <Link className="mb-4" href={EExternalRoutes.ANDROID_APP}>
+              {/* <Link className="mb-4" href={EExternalRoutes.ANDROID_APP}>
                 <Image
                   alt="Download the app on Google Play"
                   src="/images/app-store-google-icon.svg"
                   height={32}
                   width={108}
                 />
-              </Link>
-            </div> */}
+              </Link> */}
+            </div>
           </>
         )}
       </div>

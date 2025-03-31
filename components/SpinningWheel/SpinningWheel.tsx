@@ -179,10 +179,16 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="card" />
       ) : pageVariant === 'email' && firstName && email ? (
         <div className="flex flex-col justify-center items-center">
-          <h2 className="mb-4">Feeling Lucky? Spin for a Special Offer!</h2>
+          <h2 className="mb-4">
+            Feeling Lucky? Spin Now for Your Chance to Win Your Exclusive Offer on the All-Access
+            Pass!
+          </h2>
 
           <p className="mb-4">
-            <strong>Hurry! This offer is only valid for a limited time.</strong>
+            <strong>
+              Hurry! We’ve Never Offered an Opportunity Like This Before! This Offer is Only Valid
+              for a Very Limited Time!
+            </strong>
           </p>
 
           <Button
@@ -194,10 +200,13 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         </div>
       ) : (
         <div className="text-left">
-          <h2 className="mb-4">Spin to Win in Life!</h2>
+          <h2 className="mb-4">Spin Now for Your Chance to Win the All-Access Pass!</h2>
 
           <p className="mb-8">
-            <strong>Limited Time Only! Enter Your Details For a Chance to Spin the Wheel!</strong>
+            <strong>
+              Hurry! Enter Your Details For a Chance to Spin the Wheel! We’ve Never Offered an
+              Opportunity Like This Before! This Offer is Only Valid for a Very Limited Time!
+            </strong>
           </p>
 
           <SignupForm

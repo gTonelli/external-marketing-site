@@ -49,39 +49,61 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
         </p>
       </Section>
 
-      <Section className="!mt-0" classNameInner="relative">
+      <Section classNameInner="relative min-h-96 pt-[850px] xs:pt-[900px] lg:pt-96">
         <SpinningWheel pageVariant={pageVariant} firstName={firstName} email={email} />
+      </Section>
 
-        <div className="grid grid-cols-1 gap-8 text-left pt-[650px] lg:grid-cols-2 xs:pt-[750px] lg:pt-96">
-          <div className="pt-16">
-            <h2 className="mb-4">
-              Your Exclusive Membership That Gives You Access to The Personal Development School — A
-              Complete Platform for Healing
-            </h2>
+      <Section
+        className="bg-white-secondary"
+        classNameInner="max-w-3xl flex flex-col items-center mx-auto">
+        <Image
+          className="mb-4"
+          alt="Limited Offer Illustration"
+          src="/images/limited-offer-vector.png"
+          width={150}
+          height={90}
+        />
+        <h2 className="mb-4">
+          You Get a Chance at Winning An Exclusive Offer From The Most Successful Promotions We’ve
+          Ever Run
+        </h2>
 
-            <p className="tracking-33 mb-4">
-              <strong>
-                NO MORE GUESSWORK. NO MORE PAIN. JUST A REVOLUTIONARY APPROACH, EXPERT GUIDANCE &
-                REAL, LIFE-CHANGING RESULTS.
-              </strong>
+        <p>
+          <strong>
+            So, What Does the All-Access Pass at The Personal Development School Give You?
+          </strong>
+        </p>
+      </Section>
+
+      <Section classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="text-left">
+          <h2 className="mb-4">
+            Your Exclusive Membership That Gives You Access to The Personal Development School — A
+            Complete Platform for Healing
+          </h2>
+
+          <p className="tracking-33 mb-4">
+            <strong>
+              NO MORE GUESSWORK. NO MORE PAIN. JUST A REVOLUTIONARY APPROACH, EXPERT GUIDANCE &
+              REAL, LIFE-CHANGING RESULTS.
+            </strong>
+          </p>
+
+          {CONFIG.MEMBERSHIP.map((copy, idx) => (
+            <p key={`membership_${idx}`} className="mb-4">
+              {copy}
             </p>
+          ))}
+        </div>
 
-            {CONFIG.MEMBERSHIP.map((copy, idx) => (
-              <p key={`membership_${idx}`} className="mb-4">
-                {copy}
-              </p>
-            ))}
-          </div>
-
-          <div className="pt-16">
-            <Image
-              priority
-              alt="Courses mockup"
-              src={`/images/SpinTheWheel/pds-courses-phone-mockup.png`}
-              width={601}
-              height={634}
-            />
-          </div>
+        <div>
+          <Image
+            priority
+            alt="Courses mockup"
+            src={`/images/SpinTheWheel/pds-courses-phone-mockup.png`}
+            width={601}
+            height={634}
+          />
         </div>
       </Section>
 

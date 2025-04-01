@@ -94,7 +94,7 @@ export const prizes = {
         'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE. You’ll get:',
       features,
       disclaimer: 'You can cancel at any time with no commitment.',
-      checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
+      checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_149,
       userTag: 'mkt-spin-wheel-50off-quarterly',
     },
   ],

@@ -7,6 +7,8 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Button } from '@/components/Button/Button'
 import Link from 'next/link'
 import { FearfulAvoidantInAdulthood } from './FearfulAvoidantInAdulthood'
+import { List } from '@/components/List'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
 import { config } from './config'
 // libraries
@@ -14,8 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLightbulbGear } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // styles
 import './style.css'
-import { List } from '@/components/List'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export const metadata = {
   title: 'Discover & Learn About Your Attachment Style',
@@ -61,7 +61,7 @@ export default function FearfulAvoidantResultsPageB() {
           </div>
 
           <Link href="/limited-offer/fa">
-            <Button label="LEARN MORE TO UNLOCK YOUR TRANSFORMATION" />
+            <Button label="LEARN ABOUT YOUR TRANSFORMATIONAL JOURNEY" />
           </Link>
         </div>
       </Section>
@@ -214,7 +214,7 @@ export default function FearfulAvoidantResultsPageB() {
         />
 
         <div className="text-left">
-          <h3>The Science Behind Healing</h3>
+          <h3>Your Healing Journey Starts with the Right Tools </h3>
 
           <p>
             Fearful Avoidant patterns are learned — they are not permanent. Research shows that you
@@ -251,7 +251,7 @@ export default function FearfulAvoidantResultsPageB() {
           </p>
 
           <Link href="/limited-offer/fa">
-            <Button label="LEARN MORE ABOUT YOUR JOURNEY" />
+            <Button label="TAKE THE NEXT STEP IN YOUR JOUNREY" />
           </Link>
         </div>
       </Section>
@@ -278,7 +278,7 @@ export default function FearfulAvoidantResultsPageB() {
       </Section>
 
       <Section classNameInner="lg:!max-w-screen-xl">
-        <h3>Your Path to Becoming Secure</h3>
+        <h3>Your Path to Becoming Securely Attached</h3>
 
         <p>
           You don't have to stay stuck in this cycle forever. Here's how your transformation will

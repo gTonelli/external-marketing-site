@@ -242,8 +242,8 @@ export const config = {
   pathItems: [
     {
       icon: faSquare1,
-      title: 'Take Your Transformational Course',
-      body: 'Understand your attachment style and notice how it impacts your life.',
+      title: 'Begin Your Transformation',
+      body: 'Sign up for the All-Access Pass and start the Fearful Avoidant 7-Day Transformation Course.',
     },
 
     {

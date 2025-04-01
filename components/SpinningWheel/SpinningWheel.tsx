@@ -57,7 +57,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       setShowPrizePopup(true)
       setWheelHasSpun(true)
     } else {
-      const newPrizeNumber = Math.floor((crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 100)
+      const newPrizeNumber = Math.floor((crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 99)
       for (let i = 0; i < spinWheelDistribution.length; i++) {
         if (newPrizeNumber < spinWheelDistribution[i]) {
           setPrizeNumber(i)
@@ -77,7 +77,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       const insertId = MD5(Date.now() + JSON.stringify({ email })).toString()
 
       const requestBody = {
-        tags: [prizes[prizeNumber].userTag],
+        tags: [prizes[pageVariant][prizeNumber].userTag],
         firstName,
         email,
         listIds: [40],
@@ -167,14 +167,18 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
                 />
               </div>
 
-              <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="popup" />
+              <SpinWheelSuccess
+                pageVariant={pageVariant}
+                prizeNumber={prizeNumber}
+                ctaLocation="popup"
+              />
             </div>
           </div>
         </Dialog>
       </div>
 
       {wheelHasSpun ? (
-        <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="card" />
+        <SpinWheelSuccess pageVariant={pageVariant} prizeNumber={prizeNumber} ctaLocation="card" />
       ) : pageVariant === 'email' && firstName && email ? (
         <div className="flex flex-col justify-center items-center">
           <h2 className="mb-4">
@@ -192,7 +196,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           <Button
             disabled={submitting}
             label="SPIN NOW!"
-            mpProps={{ wheelPrize: prizes[prizeNumber].option }}
+            mpProps={{ wheelPrize: prizes[pageVariant][prizeNumber].option }}
             onClick={handleSpinClick}
           />
         </div>
@@ -211,9 +215,9 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
             classNameFields="!flex-col !gap-y-4"
             submitButtonLabel="SPIN NOW!"
             successMessage="Spinning..."
-            userTags={[prizes[prizeNumber].userTag]}
+            userTags={[prizes[pageVariant][prizeNumber].userTag]}
             listIds={[40]}
-            submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].option }}
+            submitButtonMpProps={{ wheelPrize: prizes[pageVariant][prizeNumber].option }}
             onSuccess={handleSpinClick}
           />
         </div>
@@ -223,20 +227,25 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
 }
 
 interface ISpinWheelSuccessProps {
+  pageVariant: TSpinWheelVariant
   prizeNumber: number
   ctaLocation: 'popup' | 'card'
 }
 
-const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) => {
+const SpinWheelSuccess = ({ pageVariant, prizeNumber, ctaLocation }: ISpinWheelSuccessProps) => {
   return (
     <div className="text-left">
-      <h2 className="text-3xl mb-4">{prizes[prizeNumber].title}</h2>
+      <h2 className="text-3xl mb-4">{prizes[pageVariant][prizeNumber].title}</h2>
 
       <p className="mb-4">
-        <strong>{prizes[prizeNumber].subheader}</strong>
+        <strong>{prizes[pageVariant][prizeNumber].subheader}</strong>
       </p>
 
-      <List className="mb-4" icon={faCircleSmall} listItems={prizes[prizeNumber].features} />
+      <List
+        className="mb-4"
+        icon={faCircleSmall}
+        listItems={prizes[pageVariant][prizeNumber].features}
+      />
 
       <div className="flex bg-[#ECEFFF] rounded-lg p-2 mb-8">
         <div className="w-6">
@@ -246,7 +255,7 @@ const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) 
         <div>
           <p>
             <em>
-              <strong>Disclaimer: </strong> {prizes[prizeNumber].disclaimer}
+              <strong>Disclaimer: </strong> {prizes[pageVariant][prizeNumber].disclaimer}
             </em>
           </p>
         </div>
@@ -254,8 +263,8 @@ const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) 
 
       <ButtonCheckout
         label="CLAIM YOUR PRIZE!"
-        href={prizes[prizeNumber].checkoutLink}
-        mpProps={{ wheelPrize: prizes[prizeNumber].option, ctaLocation }}
+        href={prizes[pageVariant][prizeNumber].checkoutLink}
+        mpProps={{ wheelPrize: prizes[pageVariant][prizeNumber].option, ctaLocation }}
       />
     </div>
   )

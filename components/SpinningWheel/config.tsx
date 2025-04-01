@@ -9,7 +9,7 @@ const features = [
   'Access to Our Supportive Community & Study Groups',
 ]
 
-export const prizes = [
+const commonPrizes = [
   {
     option: '7-day free trial',
     title: (
@@ -46,7 +46,7 @@ export const prizes = [
     option: '60% off first month',
     title: (
       <>
-        Congratulations – You’ve Won <span className="text-primary">60% Off your First Month!</span>
+        Congratulations – You’ve Won <span className="text-primary">60% Off Your First Month!</span>
       </>
     ),
     subheader:
@@ -77,49 +77,58 @@ export const prizes = [
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
     userTag: 'mkt-spin-wheel-ft-fc',
   },
-  {
-    option: '50% off quarterly',
-    title: (
-      <>
-        Congratulations – You’ve Won{' '}
-        <span className="text-primary">50% off a Quarterly Membership for Life!</span>
-      </>
-    ),
-    subheader:
-      'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE. You’ll get:',
-    features,
-    disclaimer: 'You can cancel at any time with no commitment.',
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
-    userTag: 'mkt-spin-wheel-50off-quarterly',
-  },
-  {
-    option: 'Free month membership',
-    title: (
-      <>
-        Congratulations – You’ve Won a{' '}
-        <span className="text-primary">Free 1-Month Membership!</span>
-      </>
-    ),
-    subheader:
-      'Enjoy everything the All-Access Pass has to offer for FREE for 1-month! For 30 days, you’ll get:',
-    features,
-    disclaimer:
-      'At the end of the month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
-    userTag: 'mkt-spin-wheel-1mo-free',
-  },
 ]
 
+export const prizes = {
+  email: [
+    ...commonPrizes,
+    {
+      option: '50% off quarterly',
+      title: (
+        <>
+          Congratulations – You’ve Won{' '}
+          <span className="text-primary">50% Off a Quarterly Membership for Life!</span>
+        </>
+      ),
+      subheader:
+        'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE. You’ll get:',
+      features,
+      disclaimer: 'You can cancel at any time with no commitment.',
+      checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
+      userTag: 'mkt-spin-wheel-50off-quarterly',
+    },
+  ],
+  osm: [
+    ...commonPrizes,
+    {
+      option: 'Free month membership',
+      title: (
+        <>
+          Congratulations – You’ve Won a{' '}
+          <span className="text-primary">Free 1-Month Membership!</span>
+        </>
+      ),
+      subheader:
+        'Enjoy everything the All-Access Pass has to offer for FREE for 1-month! For 30 days, you’ll get:',
+      features,
+      disclaimer:
+        'At the end of the month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
+      checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_1_MONTH_FREE,
+      userTag: 'mkt-spin-wheel-1mo-free',
+    },
+  ],
+}
+
 const spinWheelEmailPrizes: WheelData[] = [
-  { option: prizes[0].option, style: { backgroundColor: '#EDDBCD' } },
-  { option: prizes[1].option, style: { backgroundColor: '#D1CDED' } },
-  { option: prizes[2].option, style: { backgroundColor: '#E9CDED' } },
-  { option: prizes[3].option, style: { backgroundColor: '#CDEDD1' } },
-  { option: prizes[4].option, style: { backgroundColor: '#EDECCD' } },
+  { option: prizes['email'][0].option, style: { backgroundColor: '#EDDBCD' } },
+  { option: prizes['email'][1].option, style: { backgroundColor: '#D1CDED' } },
+  { option: prizes['email'][2].option, style: { backgroundColor: '#E9CDED' } },
+  { option: prizes['email'][3].option, style: { backgroundColor: '#CDEDD1' } },
+  { option: prizes['email'][4].option, style: { backgroundColor: '#EDECCD' } },
 ]
 
 const spinWheelOSMPrizes: WheelData[] = spinWheelEmailPrizes.slice(0, 4)
-spinWheelOSMPrizes.push({ option: prizes[5].option, style: { backgroundColor: '#EDECCD' } })
+spinWheelOSMPrizes.push({ option: prizes['osm'][4].option, style: { backgroundColor: '#EDECCD' } })
 
 const spinWheelEmailPrizeProbabilities = [30, 25, 10, 25, 10]
 

@@ -41,8 +41,7 @@ const Wheel = dynamic(() => import('react-custom-roulette').then((mod) => mod.Wh
 export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps) => {
   const spinWheelPrizes = getSpinWheelPrizes(pageVariant)
   const spinWheelDistribution = getSpinWheelPrizeDistribution(pageVariant)
-  // TEARDOWN
-  const PROD_MODE = false
+
   // ========= STATE =========
   const [loading, setLoading] = useState(true)
   const [mustSpin, setMustSpin] = useState(false)
@@ -74,8 +73,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
     if (wheelHasSpun) return
 
     setMustSpin(true)
-    // TEARDOWN PROD_MODE
-    if (pageVariant === 'email' && firstName && email && PROD_MODE) {
+    if (pageVariant === 'email' && firstName && email) {
       const insertId = MD5(Date.now() + JSON.stringify({ email })).toString()
 
       const requestBody = {
@@ -218,9 +216,6 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
             submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].option }}
             onSuccess={handleSpinClick}
           />
-
-          {/* TEARDOWN */}
-          <Button className="mt-4" label="TEST SPIN NOW!" onClick={handleSpinClick} />
         </div>
       )}
     </div>

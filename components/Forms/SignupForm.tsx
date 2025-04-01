@@ -24,6 +24,7 @@ import { useFunnelytics } from '@/modules/Funnelytics'
 import Mixpanel from '@/modules/Mixpanel'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGoogleTagManager } from '@/modules/GTM'
+import { useGamAnalytics } from '@/modules/GAM'
 // styles
 import 'react-international-phone/style.css'
 
@@ -74,10 +75,12 @@ export const SignupForm = ({
   const FBQ = useFacebookPixel()
   const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
-  // TODO: add GAM
+  const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
     const { email, firstName, phone } = values
+    setUserData({ email, firstName })
+
     Mixpanel.setUser(email)
     FBQ?.trackLead({
       email: email,

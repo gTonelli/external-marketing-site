@@ -26,6 +26,7 @@ import Confetti from 'react-confetti-boom'
 // modules
 import { Storage } from '@/modules/Storage'
 import Mixpanel from '@/modules/Mixpanel'
+import { Toast } from '../Toast'
 
 interface ISpinWheelProps {
   pageVariant: TSpinWheelVariant
@@ -45,6 +46,8 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   // ========= STATE =========
   const [loading, setLoading] = useState(true)
   const [mustSpin, setMustSpin] = useState(false)
+  const [showToast, setShowToast] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
   const [prizeNumber, setPrizeNumber] = useState(0)
   const [wheelHasSpun, setWheelHasSpun] = useState(false)
   const [showPrizePopup, setShowPrizePopup] = useState(false)
@@ -72,7 +75,6 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
     setSubmitting(true)
     if (wheelHasSpun) return
 
-    setMustSpin(true)
     if (pageVariant === 'email' && firstName && email) {
       const insertId = MD5(Date.now() + JSON.stringify({ email })).toString()
 
@@ -101,13 +103,17 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           else {
             Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
             Storage.set(`gm-1549-spin-wheel-${pageVariant}`, prizeNumber)
+            setMustSpin(true)
           }
         })
         .catch((error) => {
+          setToastMessage(error)
+          setShowToast(true)
           console.error(error)
         })
     } else {
       Storage.set(`gm-1549-spin-wheel-${pageVariant}`, prizeNumber)
+      setMustSpin(true)
     }
   }
 
@@ -138,6 +144,13 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
             setShowPrizePopup(true)
             setWheelHasSpun(true)
           }}
+        />
+
+        <Toast
+          type="error"
+          showToast={showToast}
+          setShowToast={setShowToast}
+          message={toastMessage}
         />
 
         <Dialog

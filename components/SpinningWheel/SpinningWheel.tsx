@@ -10,6 +10,7 @@ import { SignupForm } from '../Forms/SignupForm'
 import { Button } from '../Button/Button'
 import { Dialog } from '../Dialog/Dialog'
 import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
+import { Toast } from '../Toast'
 import { faCircleExclamation, faClose } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
@@ -26,7 +27,6 @@ import Confetti from 'react-confetti-boom'
 // modules
 import { Storage } from '@/modules/Storage'
 import Mixpanel from '@/modules/Mixpanel'
-import { Toast } from '../Toast'
 
 interface ISpinWheelProps {
   pageVariant: TSpinWheelVariant

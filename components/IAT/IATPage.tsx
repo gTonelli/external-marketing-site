@@ -1274,7 +1274,7 @@ const IATRegistrationForm = () => {
 
   const onSubmit = async (values: IRegistrationFormSchema, formikHelpers: FormikHelpers<any>) => {
     setFormSubmissionError('')
-    await fetch('https://strapi.personaldevelopmentschool.com/api/register', {
+    await fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
       method: 'POST',
       body: JSON.stringify({
         email: values.email,

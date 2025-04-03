@@ -118,17 +118,13 @@ export const SignupForm = ({
       insertId,
     }
 
-    fetch(
-      process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register' ||
-        'https://strapi.personaldevelopmentschool.com/api/register',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }
-    )
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    })
       .then((res) => res.json())
       .then((res) => {
         if (!res.success) throw res?.message || 'An unexpected error occured'

@@ -60,9 +60,9 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       setShowPrizePopup(true)
       setWheelHasSpun(true)
     } else {
-      const newPrizeNumber = Math.floor((crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 99)
+      const newPrizeNumber = Math.floor((crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 100)
       for (let i = 0; i < spinWheelDistribution.length; i++) {
-        if (newPrizeNumber < spinWheelDistribution[i]) {
+        if (newPrizeNumber <= spinWheelDistribution[i]) {
           setPrizeNumber(i)
           break
         }
@@ -86,17 +86,13 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         insertId,
       }
 
-      fetch(
-        process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register' ||
-          'https://strapi.personaldevelopmentschool.com/api/register',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestBody),
-        }
-      )
+      fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      })
         .then((res) => res.json())
         .then((res) => {
           if (!res.success) throw res?.message || 'An unexpected error occured'

@@ -67,7 +67,7 @@ a {
 }
 
 .section-inner-wrapper {
-  @apply w-full max-w-lg mx-auto text-center lg:max-w-screen-lg;
+  @apply w-full max-w-lg mx-auto text-center lg:max-w-screen-xl;
 }
 
 .default-padding {

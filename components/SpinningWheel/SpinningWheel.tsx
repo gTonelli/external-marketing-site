@@ -215,8 +215,8 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
 
           <p className="mb-8">
             <strong>
-              Hurry! Enter Your Details For a Chance to Spin the Wheel! We’ve Never Offered an
-              Opportunity Like This Before! This Offer is Only Valid for a Very Limited Time!
+              Hurry! We've Never Offered an Opportunity Like This Before. Spin and Unlock Expert
+              Guidance, Deep Healing, and a Secure Love Life. Valid Only for a Very LIMITED Time.
             </strong>
           </p>
 
@@ -229,6 +229,11 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
             submitButtonMpProps={{ wheelPrize: prizes[pageVariant][prizeNumber].option }}
             onSuccess={handleSpinClick}
           />
+
+          <p className="text-gray-500 text-sm mt-2">
+            By redeeming this offer, you agree to receive promotions and content from the Personal
+            Development School.
+          </p>
         </div>
       )}
     </div>

@@ -120,10 +120,12 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=530903',
   THINKIFIC_CHECKOUT_MARCH_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=1585312',
   THINKIFIC_CHECKOUT_QUARTERLY_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=withyouquarterly',
+  THINKIFIC_CHECKOUT_QUARTERLY_149 = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=148off',
   THINKIFIC_CHECKOUT_QUARTERLY_PLAN_GREG_VOISEN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=ipg50',
   THINKIFIC_CHECKOUT_ANNUAL_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1084476&coupon=withyouannually',
   THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP = 'https://checkout.personaldevelopmentschool.com/enroll/2996140?price_id=3853225&coupon=148off',
   THINKIFIC_CHECKOUT_SIMPLIFIED_FA = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1285773&bci=2178659',
+  THINKIFIC_CHECKOUT_1_MONTH_FREE = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1285773&coupon=1monthoff',
   // IAT Recorded
   THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded',
   THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded',

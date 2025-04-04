@@ -55,6 +55,9 @@ const config: Config = {
         'green-secondary': '#00ba10',
         'green-check': '#41BD22',
         'green-light': '#E3EDED',
+        'green-4': '#D7EAEF',
+        'green-5': '#D7EFD7',
+        'green-6': '#E7EFF1',
 
         // secondaries
         'black-light': '#2C3E42',
@@ -86,6 +89,7 @@ const config: Config = {
         'yellow-secondary': '#FFC123',
         'yellow-tertiary': '#FFCD32',
         'yellow-tertiary-light': '#FFDE89',
+        'yellow-5': '#EFEFD7',
 
         // bordel
         'teal-light-35': 'rgba(227, 237, 237, 0.35)',
@@ -96,6 +100,8 @@ const config: Config = {
         'pink-tertiary': '#EDEAF3',
         'pink-light': '#F4E9F0',
         'pink-dark': '#D35592',
+        'pink-5': '#F2E9F4',
+        'pink-6': '#F6F0F7',
         'pale-pink': '#e4d9d3b3',
 
         'purple-dark': '#523DAD',
@@ -103,6 +109,7 @@ const config: Config = {
         'purple-medium': '#9747FF',
         'purple-light': '#7557FA80',
 
+        'red-1': '#EFD7D9',
         success: colors.green[500],
 
         teal: '#71C2C1',
@@ -170,6 +177,7 @@ const config: Config = {
           '0 5px 25px -5px rgb(255 255 255 / 50%), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         sidepanel: '0 0px 30px 13px rgba(0, 0, 0, 0.35)',
         centered: '0 3px 14px 5px rgba(0, 0, 0, 0.2)',
+        'centered-card': '0px 0px 16px 0px rgba(0, 0, 0, 0.16)',
         'center-light': '0 2px 12px 2px rgba(0, 0, 0, 0.1)',
       },
       fill: (theme) => ({

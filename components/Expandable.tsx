@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
+import { Loader } from './Loader'
 // libraries
 import cx from 'classnames'
 import Collapsible, { CollapsibleProps } from 'react-collapsible'
@@ -20,12 +21,12 @@ export const Expandable = ({
   ...otherProps
 }: IExpandableProps) => {
   // Effectively disable SSR
-  const [shouldRender, setShouldRender] = useState(false)
+  const [showCollapsible, setShowCollapsible] = useState(false)
   useEffect(() => {
-    setShouldRender(true)
-  }, [setShouldRender])
+    setShowCollapsible(true)
+  }, [])
 
-  if (!shouldRender) return null
+  if (!showCollapsible) return <Loader />
   else {
     return (
       <Collapsible className={cx('', className)} transitionTime={transitionTime} {...otherProps}>

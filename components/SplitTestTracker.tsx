@@ -25,14 +25,14 @@ export const SplitTestTracker = ({
     const cookies = new Cookies()
     const eventWasTracked = cookies.get(cookieKey)
 
-    if (!eventWasTracked) {
+    if (eventWasTracked === undefined) {
       Mixpanel.track.ExperimentStarted({
         'Experiment name': experimentName,
         'Variant name': variant,
         page_name: pageContext.page_name,
       })
 
-      cookies.set(cookieKey, variant === 'Control' ? 'false' : 'true')
+      cookies.set(cookieKey, variant === 'Control' ? 'false' : 'true', { maxAge: 7776000 })
     }
   }, [cookieKey, experimentName, pageContext.page_name, variant])
 

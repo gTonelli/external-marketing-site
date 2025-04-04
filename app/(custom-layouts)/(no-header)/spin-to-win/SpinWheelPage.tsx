@@ -44,8 +44,9 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
         <h1 className="mt-8 mb-4">Spin &amp; Win. No Risks. Only Rewards.</h1>
 
         <p className="mb-16">
-          Spin Now for a Guaranteed Offer on the All-Access Pass. Unlock expert guidance, deep
-          healing, and a secure love life.
+          {pageVariant === 'email' && firstName && email
+            ? 'Hit the SPIN NOW button below for a Guaranteed Offer on The All-Access Pass. Unlock Expert Guidance, Deep Healing and a Secure Love Life.'
+            : 'Enter Your Details Below and Hit SPIN NOW to Win a Guaranteed Offer on the All-Access Pass.'}
         </p>
       </Section>
 

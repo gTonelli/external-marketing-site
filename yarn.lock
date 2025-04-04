@@ -4443,6 +4443,11 @@ react-collapsible@^2.10.0:
   resolved "https://registry.yarnpkg.com/react-collapsible/-/react-collapsible-2.10.0.tgz#57330f9f4f968a41ece49c651b56cf30f9a06d19"
   integrity sha512-kEVsmlFfXBMTCnU5gwIv19MdmPAhbIPzz5Er37TiJSzRKS0IHrqAKQyQeHEmtoGIQMTcVI46FzE4z3NlVTx77A==
 
+react-confetti-boom@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-confetti-boom/-/react-confetti-boom-1.1.2.tgz#9a27763c50a6ad25d93d7e40daf0ae9062976011"
+  integrity sha512-JeJojpoIcF5xcNhkM3ifCW+XL6ScTOJUrr4eTLcrwa0rrLqc9hW3DTyn2IJ806PGWJHp2PjpMyWS2h0SAoadzg==
+
 react-countdown@^2.3.5:
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/react-countdown/-/react-countdown-2.3.5.tgz#70c035b5cbc7e8fdb4ad91fe5f44afd7a7933a68"
@@ -4457,6 +4462,11 @@ react-countup@^6.4.2:
   dependencies:
     "@rollup/plugin-babel" "^6.0.3"
     countup.js "^2.5.0"
+
+react-custom-roulette@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-custom-roulette/-/react-custom-roulette-1.4.1.tgz#2b16ef5d95ecbc4d99f2c169e7bd6183a720776f"
+  integrity sha512-v5Mrww/lbysSNcAF0PHU7KzdY+ljtTysu6A5Hx5s0Fi2V7CIj36Q2Df+l/1izl8yzX06nnQzvgbwSLenm8vYDQ==
 
 react-device-detect@^2.2.3:
   version "2.2.3"

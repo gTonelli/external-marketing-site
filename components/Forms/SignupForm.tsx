@@ -5,7 +5,7 @@
  */
 
 // core
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 // components
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
@@ -15,13 +15,16 @@ import * as yup from 'yup'
 import cx from 'classnames'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
+import { MD5 } from 'crypto-js'
 // utils
 import { isPhoneValid } from '@/utils/functions'
+import { PageContext } from '@/utils/contexts'
 // modules
 import { useFunnelytics } from '@/modules/Funnelytics'
 import Mixpanel from '@/modules/Mixpanel'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGoogleTagManager } from '@/modules/GTM'
+import { useGamAnalytics } from '@/modules/GAM'
 // styles
 import 'react-international-phone/style.css'
 
@@ -41,6 +44,8 @@ interface ISignupFormProps extends IDefaultProps {
   successMessage?: string
   /** classname success message */
   classNameSuccessMessage?: string
+  /** submit button additional mixpanel props */
+  submitButtonMpProps?: { [key: string]: string }
   /** onSuccess callback function */
   onSuccess?: () => void
   /** show Phone field on the form */
@@ -58,8 +63,11 @@ export const SignupForm = ({
   listIds,
   successMessage = 'Thank you for your submission!',
   showPhoneField,
+  submitButtonMpProps,
   onSuccess,
 }: ISignupFormProps) => {
+  // =========== Context =========
+  const { page_name } = useContext(PageContext)
   // =========== State =========
   const [submitted, setSubmitted] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
@@ -67,9 +75,12 @@ export const SignupForm = ({
   const FBQ = useFacebookPixel()
   const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
+  const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
     const { email, firstName, phone } = values
+    setUserData({ email, firstName })
+
     Mixpanel.setUser(email)
     FBQ?.trackLead({
       email: email,
@@ -92,9 +103,11 @@ export const SignupForm = ({
       })
     } else {
       funnelytics?.track('Form Tracking', {
-        pageName: 'Podcast Freebie',
+        pageName: page_name,
       })
     }
+
+    const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
 
     const requestBody = {
       tags: userTags,
@@ -102,24 +115,21 @@ export const SignupForm = ({
       email,
       phone,
       listIds,
+      insertId,
     }
 
-    fetch(
-      process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register' ||
-        'https://strapi.personaldevelopmentschool.com/api/register',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }
-    )
+    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    })
       .then((res) => res.json())
       .then((res) => {
         if (!res.success) throw res?.message || 'An unexpected error occured'
         else {
-          Mixpanel.track.SignUp({ distinct_id: email })
+          Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
           onSuccess?.()
           setSubmitted(true)
         }
@@ -190,6 +200,7 @@ export const SignupForm = ({
             className="mt-4"
             disabled={isSubmitting}
             label={submitButtonLabel || 'SUBMIT'}
+            mpProps={submitButtonMpProps}
           />
 
           {errorMessage && <p className="font-bold text-danger">{errorMessage}</p>}

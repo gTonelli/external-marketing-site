@@ -198,14 +198,15 @@ export const Footer = ({
                 />
               </Link>
 
-              <Link className="mb-4" href={EExternalRoutes.ANDROID_APP}>
+              {/* <Link className="mb-4" href={EExternalRoutes.ANDROID_APP}>
                 <Image
                   alt="Download the app on Google Play"
                   src="/images/app-store-google-icon.svg"
                   height={32}
                   width={108}
                 />
-              </Link>
+                
+              </Link> */}
             </div>
           </>
         )}

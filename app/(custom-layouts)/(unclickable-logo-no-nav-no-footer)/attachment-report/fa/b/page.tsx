@@ -39,7 +39,7 @@ export default function FearfulAvoidantResultsPageB() {
 
           <div className="shadow-centered-card rounded-10 mb-4 bg-white text-left items-center p-4 lg:mb-8 lg:grid lg:grid-cols-2 lg:gap-4 lg:p-8">
             <div className="hidden lg:block">
-              <h3>What Is a Fearful Avoidant Attachment Style?</h3>
+              <h2>What Is a Fearful Avoidant Attachment Style?</h2>
 
               <p>
                 Your attachment style is the subconscious framework you use to connect. For Fearful
@@ -67,7 +67,7 @@ export default function FearfulAvoidantResultsPageB() {
       </Section>
 
       <Section>
-        <h3>How Does Fearful Avoidant Attachment Develop?</h3>
+        <h2>How Does Fearful Avoidant Attachment Develop?</h2>
 
         <p>
           Your attachment style developed in childhood, based on how your caregivers met your
@@ -92,17 +92,17 @@ export default function FearfulAvoidantResultsPageB() {
         </div>
 
         <p>
-          <i>
+          <em>
             These early experiences taught your nervous system to stay on high alert and associate
             relationships with both comfort and risk.
-          </i>
+          </em>
         </p>
       </Section>
 
       <FearfulAvoidantInAdulthood />
 
       <Section>
-        <h3>Why Fearful Avoidants Feel Stuck</h3>
+        <h2>Why Fearful Avoidants Feel Stuck</h2>
 
         <p>Fearful Avoidants often find themselves trapped in a cycle of emotional conflict:</p>
 
@@ -150,7 +150,7 @@ export default function FearfulAvoidantResultsPageB() {
           </p>
         </div>
 
-        <h3>Core Fearful Avoidant Mindsets, Behaviors, Actions, and Fears</h3>
+        <h2>Core Fearful Avoidant Mindsets, Behaviors, Actions, and Fears</h2>
 
         <p className="mb-6">
           Fearful Avoidants often find themselves trapped in a cycle of emotional conflict:
@@ -161,7 +161,7 @@ export default function FearfulAvoidantResultsPageB() {
             <div
               key={`core_belief_${i}`}
               className="bg-grey-8 default-padding text-left rounded-20 lg:p-4">
-              <h4 className="lg:!text-h3">{title}</h4>
+              <h3 className="lg:!text-h3">{title}</h3>
 
               <List classNameIcon="text-primary" icon={faCheckCircle} listItems={beliefs} />
             </div>
@@ -170,7 +170,7 @@ export default function FearfulAvoidantResultsPageB() {
       </Section>
 
       <Section>
-        <h3>What Do Fearful Avoidants Deeply Want?</h3>
+        <h2>What Do Fearful Avoidants Deeply Want?</h2>
 
         <p>Beneath the fear and conflict, you have clear desires:</p>
 
@@ -197,10 +197,10 @@ export default function FearfulAvoidantResultsPageB() {
         </div>
 
         <p>
-          <i>
+          <em>
             These desires can feel impossible to achieve, but they are entirely within your reach
             with the right tools.
-          </i>
+          </em>
         </p>
       </Section>
 
@@ -214,7 +214,7 @@ export default function FearfulAvoidantResultsPageB() {
         />
 
         <div className="text-left">
-          <h3>Your Healing Journey Starts with the Right Tools </h3>
+          <h2>Your Healing Journey Starts with the Right Tools </h2>
 
           <p>
             Fearful Avoidant patterns are learned — they are not permanent. Research shows that you
@@ -236,10 +236,10 @@ export default function FearfulAvoidantResultsPageB() {
           </ul>
 
           <p>
-            <i>
+            <em>
               These skills allow you to feel calm, confident, and secure—in both relationships and
               yourself.
-            </i>
+            </em>
           </p>
 
           <p>
@@ -257,7 +257,7 @@ export default function FearfulAvoidantResultsPageB() {
       </Section>
 
       <Section className="text-white bg-black" classNameInner="lg:!max-w-screen-xl">
-        <h3>What Makes Our Approach Different?</h3>
+        <h2>What Makes Our Approach Different?</h2>
 
         <p className="mb-10">
           We’ve helped over 30,000 students heal their attachment styles, with a 99.7% satisfaction
@@ -278,7 +278,7 @@ export default function FearfulAvoidantResultsPageB() {
       </Section>
 
       <Section classNameInner="lg:!max-w-screen-xl">
-        <h3>Your Path to Becoming Securely Attached</h3>
+        <h2>Your Path to Becoming Securely Attached</h2>
 
         <p>
           You don't have to stay stuck in this cycle forever. Here's how your transformation will

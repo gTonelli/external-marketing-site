@@ -1,15 +1,19 @@
 'use client'
 
+// core
+import { useState } from 'react'
+// components
 import { Expandable } from '@/components/Expandable'
 import { Section } from '@/components/Section'
+import { List } from '@/components/List'
+// config
+import { config } from './config'
+// libraries
+import cx from 'classnames'
+import { isMobile } from 'react-device-detect'
 import { faChevronDown } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { config } from './config'
-import { useState } from 'react'
-import { List } from '@/components/List'
-import cx from 'classnames'
-import { isMobile } from 'react-device-detect'
 
 export const FearfulAvoidantInAdulthood = () => {
   return (

@@ -135,9 +135,9 @@ export default function FearfulAvoidantResultsPageB() {
         />
 
         <p>
-          <i>
+          <em>
             This cycle keeps you stuck, replaying patterns that reinforce fears and insecurities.
-          </i>
+          </em>
         </p>
 
         <div className="bg-pink-6 flex items-center max-w-max mx-auto mb-12 rounded-lg p-2">

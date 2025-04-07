@@ -11,11 +11,9 @@ type SiteLink = {
   iconAlt: string
   icon: {
     data: {
-      attributes: {
-        width: number
-        height: number
-        url: string
-      }
+      width: number
+      height: number
+      url: string
     }
   }
 }
@@ -27,8 +25,8 @@ const fetchSiteLinks = async () => {
       next: { tags: ['sitelinks'], revalidate: 86400 },
     }
   )
-  const data = await response.json()
-  return data.data.attributes?.link || []
+  const { data } = await response.json()
+  return data?.link || []
 }
 
 export default async function SiteLinksPage() {
@@ -48,7 +46,7 @@ export default async function SiteLinksPage() {
             siteLinks.map((button, idx) => (
               <SiteLinkButton
                 key={idx}
-                icon={button.icon.data.attributes}
+                icon={button.icon.data}
                 iconAlt={button.iconAlt}
                 target={button.target}
                 label={button.label}

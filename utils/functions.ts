@@ -1,5 +1,5 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { IStrapiFetchProps, IStrapiResponse, TDict } from './types'
+import { IStrapiFetchProps, TDict } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage, TStorageKeys } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
@@ -133,21 +133,19 @@ export const getInitials = (str: string) =>
     .join('')
     .toUpperCase()
 
-export const fetchAllPodcasts = (
-  podcasts: IStrapiResponse<IPodcast>[] = [],
+export const fetchAllPodcasts = async (
+  podcasts: IPodcast[] = [],
   page = 1
-): Promise<IStrapiResponse<IPodcast>[]> => {
-  return fetch(
+): Promise<IPodcast[]> => {
+  const response = await fetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=publishedAt&fields[1]=updatedAt&fields[2]=urlSlug&pagination[pageSize]=100&pagination[page]=${page}`,
     { next: { tags: ['podcasts'], revalidate: 86400 } }
   )
-    .then((response) => response.json())
-    .then((res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>) => {
-      if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total) {
-        return fetchAllPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
-      }
-      return podcasts.concat(res.data)
-    })
+  const res = await response.json()
+  if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total) {
+    return fetchAllPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
+  }
+  return podcasts.concat(res.data)
 }
 
 const phoneUtil = PhoneNumberUtil.getInstance()

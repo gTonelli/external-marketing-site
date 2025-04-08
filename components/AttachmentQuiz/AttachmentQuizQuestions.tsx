@@ -47,12 +47,13 @@ export const AttachmentQuizQuestions = ({
   const [saPoints, setSaPoints] = useState(0)
   const [style, setStyle] = useState('')
   const [userInfo, setUserInfo] = useState<IUserInfo>({
-    relationship: '',
-    attachment: '',
     age: '',
+    attachment: '',
     gender: '',
+    relationship: '',
     relationshipIntend: '',
     relationshipSatisfaction: '',
+    relationshipStatus: '',
   })
 
   // ======================== Hooks ====================
@@ -102,7 +103,17 @@ export const AttachmentQuizQuestions = ({
       let _da = daPoints
       let _sa = saPoints
 
-      if (currentIndex === 0) {
+      const currentQuestion = modifiedQuestions[currentIndex]
+
+      const updateUserInfo = (field: keyof IUserInfo, value: string) => {
+        setUserInfo((prev) => ({ ...prev, [field]: value }))
+      }
+
+      const handleInitialQuestion = () => {
+        if (currentQuestion.association === 'relationshipStatus') {
+          updateUserInfo('relationshipStatus', answer)
+        }
+
         if (answer === 'Yes') {
           modifiedQuestions.splice(1, 0, detailedQuestions[4])
           modifiedQuestions.splice(2, 0, detailedQuestions[2])
@@ -111,37 +122,36 @@ export const AttachmentQuizQuestions = ({
         }
       }
 
-      if (answer === 'True') {
-        // Save the score based on association and move to the next one
-        if (currentIndex >= 0) {
-          const question = modifiedQuestions[currentIndex]
-
-          if (question.association === 'fa') {
+      const handleScoreTracking = () => {
+        switch (currentQuestion.association) {
+          case 'fa':
             _fa += 1
             setFaPoints(_fa)
-          } else if (question.association === 'ap') {
+            break
+          case 'ap':
             _ap += 1
             setApPoints(_ap)
-          } else if (question.association === 'sec') {
-            _sa += 1
-            setSaPoints(_sa)
-          } else if (question.association === 'da') {
+            break
+          case 'da':
             _da += 1
             setDaPoints(_da)
-          } else if (question.association === 'relationship') {
-            setUserInfo({ ...userInfo, relationship: answer })
-          } else if (question.association === 'attachment') {
-            setUserInfo({ ...userInfo, attachment: answer })
-          }
-        }
-      } else {
-        const question = modifiedQuestions[currentIndex]
-        if (question.hasOwnProperty('options')) {
-          setUserInfo({ ...userInfo, [question.association]: answer })
+            break
+          case 'sec':
+            _sa += 1
+            setSaPoints(_sa)
+            break
+          case 'attachment':
+            updateUserInfo(currentQuestion.association as keyof IUserInfo, answer)
         }
       }
-      // Check if the question was last - go to the ResultsPage
-      if (currentIndex === modifiedQuestions.length - 1) {
+
+      const handleOptionAnswer = () => {
+        if (currentQuestion.associationType === 'userInfo') {
+          updateUserInfo(currentQuestion.association as keyof IUserInfo, answer)
+        }
+      }
+
+      const handleQuizEnd = () => {
         Mixpanel.track.QuizFinished({
           quiz_name: quizName,
           quiz_traffic_source,
@@ -156,9 +166,31 @@ export const AttachmentQuizQuestions = ({
 
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }
+
+      if (currentIndex == 0) {
+        handleInitialQuestion()
+      } else if (currentIndex === modifiedQuestions.length - 1) {
+        handleQuizEnd()
+      } else {
+        if (answer === 'True') {
+          handleScoreTracking()
+        } else {
+          handleOptionAnswer()
+        }
+      }
+
       setCurrentIndex(currentIndex + 1)
     },
-    [apPoints, faPoints, daPoints, saPoints, currentIndex, userInfo, quizName, tagManager]
+    [
+      apPoints,
+      daPoints,
+      faPoints,
+      saPoints,
+      currentIndex,
+      quizName,
+      quiz_traffic_source,
+      tagManager,
+    ]
   )
 
   let options = null

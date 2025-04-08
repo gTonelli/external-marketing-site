@@ -71,6 +71,12 @@ export const AttachmentQuizForm = ({
     router.push(route)
   }
 
+  const baseTag = `attachment-quiz-${userStyle}`
+
+  const additionalTag =
+    userInfo?.relationshipStatus === 'Yes' && userStyle === 'fa' ? 'single-fa' : ''
+  const clientTag = additionalTag ? `${baseTag},${additionalTag}` : baseTag
+
   return (
     <section className="flex justify-center">
       <div className="max-w-5xl w-full text-center rounded-2xl mt-6 mx-2 p-2 xxs:p-3 xs:p-4 xxs:shadow-centered md:mx-4 md:p-8 lg:px-12 xl:px-16">
@@ -80,7 +86,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={`attachment-quiz-${userStyle}`}
+          clientTag={clientTag}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

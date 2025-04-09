@@ -74,7 +74,7 @@ export const AttachmentQuizForm = ({
   const baseTag = `attachment-quiz-${userStyle}`
 
   const additionalTag =
-    userInfo?.relationshipStatus === 'Yes' && userStyle === 'fa' ? 'single-fa' : ''
+    userInfo?.relationshipStatus === 'No' && userStyle === 'fa' ? 'single-fa' : ''
   const clientTag = additionalTag ? `${baseTag},${additionalTag}` : baseTag
 
   return (

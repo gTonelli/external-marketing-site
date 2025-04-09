@@ -75,7 +75,7 @@ export const AttachmentQuizForm = ({
 
   const additionalTag =
     userInfo?.relationshipStatus === 'No' && userStyle === 'fa' ? 'single-fa' : ''
-  const clientTag = additionalTag ? `${baseTag},${additionalTag}` : baseTag
+  const tagArray = additionalTag ? [baseTag, additionalTag] : [baseTag]
 
   return (
     <section className="flex justify-center">
@@ -86,7 +86,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={clientTag}
+          clientTag={tagArray}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

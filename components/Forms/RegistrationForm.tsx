@@ -25,7 +25,7 @@ interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
   onAfterSubmit?(): void
   /** String or function that retuirns a string for generating client tags */
-  clientTag?: string
+  clientTag?: string[]
   /** Additional user info used by attachment quiz */
   userInfo?: IUserInfo
   /** Optional user style information to append to users profile */
@@ -89,7 +89,7 @@ export const RegistrationForm = ({
     })
 
     const requestBody = {
-      tags: [clientTag],
+      tags: clientTag,
       firstName,
       lastName,
       email,

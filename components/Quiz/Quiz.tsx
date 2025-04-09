@@ -118,7 +118,7 @@ export interface IQuizProps {
 export interface IQuizOutputs {
   min: number
   max: number
-  clientTag?: string[]
+  clientTag?: string
   report: string[]
   reportUrl?: string
 }

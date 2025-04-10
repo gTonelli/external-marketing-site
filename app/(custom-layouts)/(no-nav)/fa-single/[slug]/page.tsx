@@ -134,7 +134,7 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
         <p className="mb-8">
           Our step-by-step Fearful Avoidant to Securely Attached Program will give you the
           breakthroughs you need to transform your approach to love. Expect to experience more
-          success and confidence in your dating life or relationships.
+          success and confidence in your dating life and relationships.
         </p>
 
         <Link href={ctaUrl}>

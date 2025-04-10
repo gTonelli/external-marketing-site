@@ -105,7 +105,7 @@ export const AttachmentQuizQuestions = ({
 
       // added for testing will be removed while merging code to dev branch
       console.log(`_ap: ${_ap}, _da: ${_da}, _fa: ${_fa}, _sa: ${_sa}`)
-      console.log(`userInfo: ${userInfo}`)
+      console.log('userInfo:', userInfo)
 
       const currentQuestion = modifiedQuestions[currentIndex]
 

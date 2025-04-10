@@ -90,6 +90,7 @@ export const AttachmentQuizQuestions = ({
       const shortenQuiz = getSplitTest({
         key: 'gm-1346-shorten-quiz',
         experimentName: 'GN-1346-Shorten-Quiz',
+        variantRatio: 0.25,
         useCookies: false,
         props: { quiz_name: quizName, quiz_traffic_source },
       })

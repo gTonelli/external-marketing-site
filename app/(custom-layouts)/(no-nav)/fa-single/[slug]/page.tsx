@@ -1,16 +1,15 @@
 // core
 import { Metadata } from 'next'
+import Link from 'next/link'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { List } from '@/components/List'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
+import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
+import { Button } from '@/components/Button/Button'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
 import { FA_SINGLE_CONFIG as CONFIG } from './config'
-// utils
-import { EExternalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
 
@@ -46,7 +45,7 @@ export async function generateMetadata({ params }: IFASinglePageParams): Promise
 export default async function FASinglePage({ params }: IFASinglePageParams) {
   const { slug } = await params
   const config = CONFIG[slug]
-  const checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+  const ctaUrl = '/limited-offer/fa'
 
   return (
     <Page page_name={`FA Single - ${slug}`}>
@@ -55,10 +54,12 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
 
         <p className="mb-8">{config.subheader}</p>
 
-        <div className="w-fit bg-white rounded-2xl shadow-xl p-4 mx-auto">
-          <VideoThumbnail
-            srcUrl={config.videoUrl}
-            thumbnailUrl="/pds-video-thumbnail.jpg"
+        <div className="w-full bg-white rounded-2xl shadow-xl p-4 mx-auto">
+          <VideoYoutube
+            playInline
+            classNameThumbnail="w-full"
+            videoId={config.videoId}
+            thumbnail="/images/pds-video-thumbnail.jpg"
             thumbnailAlt={`Video about FA - ${slug}`}
           />
         </div>
@@ -86,7 +87,9 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
           courses, live webinars and Q&A sessions, study groups, and access to our online community.
         </p>
 
-        <ButtonCheckout href={checkoutUrl} label="TAKE CHARGE OF YOUR GROWTH" />
+        <Link href={ctaUrl}>
+          <Button label="TAKE CHARGE OF YOUR GROWTH" />
+        </Link>
       </Section>
 
       <Section
@@ -133,7 +136,9 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
           want.
         </p>
 
-        <ButtonCheckout href={checkoutUrl} label="SAY YES TO THE NEW YOU*" />
+        <Link href={ctaUrl}>
+          <Button label="SAY YES TO THE NEW YOU*" />
+        </Link>
 
         <p className="text-sm mt-8">
           <strong>
@@ -184,7 +189,9 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
             </strong>
           </p>
 
-          <ButtonCheckout href={checkoutUrl} label="TRANSFORM YOUR LIFE NOW!" />
+          <Link href={ctaUrl}>
+            <Button label="TRANSFORM YOUR LIFE NOW!" />
+          </Link>
         </div>
       </Section>
     </Page>

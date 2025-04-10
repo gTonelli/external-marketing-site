@@ -6,7 +6,7 @@ export const FA_SINGLE_CONFIG = {
     header: 'Your Relationships Are Always a Struggle. Watch This Video to Learn Why!',
     subheader:
       'This short video will help you take the first step toward overcoming your fears of betrayal, feeling trapped or unloved, and being stuck in unfulfilling relationships so that you can finally make deep, connective, and loving connections!',
-    videoUrl: '',
+    videoId: 'FzPwK6WHCWs',
   },
   'dating-tips': {
     seoTitle: 'Fearful Avoidant Singles | Dating Tips',
@@ -15,7 +15,7 @@ export const FA_SINGLE_CONFIG = {
     header: 'Dating Sucks! This Is How You Can Improve Your Dating Life ASAP.',
     subheader:
       'Understand why dating is harder than it should be – and why when you move into a more secure headspace, you’ll halt this painful cycle in its tracks and make room for the loving relationships you desire!',
-    videoUrl: '',
+    videoId: 'HZDOnuOI8XI',
   },
   'heal-triggers': {
     seoTitle: 'Fearful Avoidant Singles | Heal Your Triggers',
@@ -24,7 +24,7 @@ export const FA_SINGLE_CONFIG = {
     header: 'You’re Choosing The Wrong People – And It’s Triggering You!',
     subheader:
       'This short video will help you understand why you’re triggered, why you need to break free from these toxic patterns, and how to start choosing relationships based on trust, not fear – so you’ll get the happiness you want!',
-    videoUrl: '',
+    videoId: '1t7UqXNxAcs',
   },
   situationship: {
     seoTitle: 'Fearful Avoidant Singles | Situationships',
@@ -33,7 +33,7 @@ export const FA_SINGLE_CONFIG = {
     header: 'Here’s Why You’re Always Finding Yourself Stuck in The “Grey Area” of Relationships!',
     subheader:
       'Watch this to learn the truth about situationships and the powerful and simple key to escaping them so you can break this cycle and form relationships that you truly belong in! ',
-    videoUrl: '',
+    videoId: 'Mn14RYVKq_A',
   },
   'dating-apps': {
     seoTitle: 'Fearful Avoidant Singles | How to Use Dating Apps',
@@ -42,7 +42,7 @@ export const FA_SINGLE_CONFIG = {
     header: 'Here Is Why Your Tinder Trauma Is Real For You!',
     subheader:
       'You have to watch this video to understand why dating apps can lead to so many disappointments – and how setting boundaries, identifying needs, and proper vetting can turn disappointments into opportunities!',
-    videoUrl: '',
+    videoId: 'zMYooDbvsrs',
   },
   needs: {
     seoTitle: 'Fearful Avoidant Singles | What Are Your Needs?',
@@ -52,6 +52,6 @@ export const FA_SINGLE_CONFIG = {
       'Your Dealbreakers & Expectations Are Keeping You Single! Watch This Video to Learn Why!',
     subheader:
       'Discover why and how your fearful avoidant needs – like trust, presence, safety, and novelty – are what you need to embrace an authentic, honest, and transparent relationship that honors your values and worth!',
-    videoUrl: '',
+    videoId: 'Jc2TgBltPCQ',
   },
 }

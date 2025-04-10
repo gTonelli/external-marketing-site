@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 // config
 import { config } from './config'
+import { Metadata } from 'next'
 
 export type TParams = { params: { version: 'trial' | 'membership' } }
 
@@ -24,7 +25,7 @@ export function generateStaticParams() {
   return [{ version: 'membership' }, { version: 'trial' }]
 }
 
-export async function generateMetadata({ params }: TParams) {
+export async function generateMetadata({ params }: TParams): Promise<Metadata> {
   let title = 'PDS'
 
   switch (params.version) {
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: TParams) {
 
   return {
     title,
+    description: "Don't miss out on a limited time offer on your PDS membership!",
   }
 }
 

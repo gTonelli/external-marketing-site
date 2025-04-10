@@ -71,11 +71,11 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
         </h2>
 
         <p className="tracking-33 mb-8">
-          <strong>THIS IS THE COURSE &amp; TOOLS WILL TRANSFORM EVERYTHING!</strong>
+          <strong>THIS IS THE PROGRAM &amp; TOOLS WILL TRANSFORM EVERYTHING!</strong>
         </p>
 
         <p className="mb-8">
-          Our <strong>Fearful Avoidant 7-Day Transformation Course</strong> gives you the
+          Our <strong>Fearful Avoidant to Securely Attached Program</strong> gives you the
           personalized roadmap and revolutionary, practical tools (only available at our school) to
           break unhealthy patterns, build deeper connections, and thrive in emotionally strong
           relationships while maintaining your independence and freedom!
@@ -101,7 +101,7 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
 
         <div className="relative text-left p-4 z-5 lg:col-span-6">
           <h2 className="mb-4">
-            Get Ready for a Major Shift—Here’s What Our Fearful Avoidant Course Will Do for You
+            Get Ready for a Major Shift—Here’s What Our Fearful Avoidant Program Will Do for You
           </h2>
 
           <p className="tracking-33 mb-8">
@@ -127,13 +127,14 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
       </Section>
 
       <Section className="bg-black-secondary" classNameInner="text-white !max-w-4xl mx-auto">
-        <h2 className="mb-8">Are You Ready To Truly Unlock Your Best Self & Relationships?</h2>
+        <h2 className="mb-8">
+          Are You Ready to Truly Unlock Your Best Self & Your Best Relationships?
+        </h2>
 
         <p className="mb-8">
-          Our step-by-step Fearful Avoidant 7-Day Transformation Course will give you the
-          breakthroughs you need to transform how you approach love. Expect to experience more
-          success and confidence in your dating life or relationships to end up with the person you
-          want.
+          Our step-by-step Fearful Avoidant to Securely Attached Program will give you the
+          breakthroughs you need to transform your approach to love. Expect to experience more
+          success and confidence in your dating life or relationships.
         </p>
 
         <Link href={ctaUrl}>
@@ -144,9 +145,9 @@ export default async function FASinglePage({ params }: IFASinglePageParams) {
           <strong>
             <em>
               *When you sign up for the course, you’ll become an All-Access Pass Member for $67 per
-              month – a 30% discount! And because I know this course will change your life, I’ll
-              give you a 100% refund if you don’t see a transformation within 7 days – no questions
-              asked!
+              month, instead of $97 – a 30% discount for LIFE! And because I know this program will
+              change your life, I’ll give you a 100% refund if you don’t see a transformation within
+              7 days – no questions asked!
             </em>
           </strong>
         </p>

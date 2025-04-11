@@ -45,7 +45,7 @@ const pricingPlanbenefits: IPricingPlanBenefit[] = [
 const pricingPlan: IPricingPlan[] = [
   {
     title: 'ONE TIME PAYMENT',
-    currentPrice: 1399,
+    currentPrice: 1799,
     originalPrice: 2399,
     isRecommended: true,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
@@ -53,7 +53,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '6 MONTH PAYMENT PLAN',
-    currentPrice: 269,
+    currentPrice: 339,
     originalPrice: 449,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
@@ -61,7 +61,7 @@ const pricingPlan: IPricingPlan[] = [
   },
   {
     title: '12 MONTH PAYMENT PLAN',
-    currentPrice: 149,
+    currentPrice: 179,
     originalPrice: 239,
     isRecommended: false,
     url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,

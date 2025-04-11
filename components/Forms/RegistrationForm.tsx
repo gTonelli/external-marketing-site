@@ -89,7 +89,7 @@ export const RegistrationForm = ({
     })
 
     const requestBody = {
-      tags: [clientTag],
+      tags: clientTag ? clientTag.split(',').map(tag => tag.trim()) : [],
       firstName,
       lastName,
       email,

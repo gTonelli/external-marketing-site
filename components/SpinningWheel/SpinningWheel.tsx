@@ -71,6 +71,10 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
     setLoading(false)
   }, [spinWheelDistribution, pageVariant])
 
+  const onWheelClick = () => {
+    if (pageVariant === 'email' && firstName && email) handleSpinClick()
+  }
+
   const handleSpinClick = () => {
     setSubmitting(true)
     if (wheelHasSpun) return
@@ -119,7 +123,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
     <div
       id="spin-wheel"
       className="absolute w-full grid grid-cols-1 gap-8 bg-white shadow-xl rounded-lg overflow-hidden -top-16 left-0 p-4 z-10 md:-top-20 lg:-top-32 lg:grid-cols-2 lg:p-6">
-      <div>
+      <div role="button" onClick={onWheelClick}>
         <Wheel
           textDistance={52}
           fontSize={17}

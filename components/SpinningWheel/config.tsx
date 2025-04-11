@@ -130,7 +130,7 @@ const spinWheelEmailPrizes: WheelData[] = [
 const spinWheelOSMPrizes: WheelData[] = spinWheelEmailPrizes.slice(0, 4)
 spinWheelOSMPrizes.push({ option: prizes['osm'][4].option, style: { backgroundColor: '#EDECCD' } })
 
-const spinWheelEmailPrizeProbabilities = [30, 25, 10, 25, 10]
+const spinWheelEmailPrizeProbabilities = [35, 35, 5, 20, 5]
 
 const spinWheelOSMPrizeProbabilities = [30, 30, 4, 35, 1]
 

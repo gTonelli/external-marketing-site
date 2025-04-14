@@ -25,7 +25,7 @@ import { isMobile } from 'react-device-detect'
 import { TStyle } from '@/utils/types'
 import { getSplitTest } from '@/utils/functions'
 
-// let modifiedQuestions = [...shortQuestions]
+// let modifiedQuestions = [...questions]
 
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
@@ -90,7 +90,7 @@ export const AttachmentQuizQuestions = ({
     if (quiz_traffic_source === 'paidGoogle' || quiz_traffic_source === 'paidMeta') {
       const shortenQuiz = getSplitTest({
         key: 'gm-1346-shorten-quiz',
-        experimentName: 'GN-1346-Shorten-Quiz',
+        experimentName: 'GM-1346-Shorten-Quiz',
         variantRatio: 0.25,
         useCookies: false,
         props: { quiz_name: quizName, quiz_traffic_source },
@@ -119,10 +119,6 @@ export const AttachmentQuizQuestions = ({
       let _fa = faPoints
       let _da = daPoints
       let _sa = saPoints
-
-      // added for testing will be removed while merging code to dev branch
-      console.log(`_ap: ${_ap}, _da: ${_da}, _fa: ${_fa}, _sa: ${_sa}`)
-      console.log('userInfo:', userInfo)
 
       const currentQuestion = modifiedQuestions[currentIndex]
 
@@ -211,6 +207,7 @@ export const AttachmentQuizQuestions = ({
       quizName,
       quiz_traffic_source,
       tagManager,
+      modifiedQuestions,
     ]
   )
 

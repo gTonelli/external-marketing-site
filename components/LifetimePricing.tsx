@@ -102,11 +102,12 @@ export const LifetimePricing = () => {
                     'relative w-full flex flex-col items-center justify-center shadow-centered p-4 rounded-3xl overflow-hidden',
                     isRecommended && 'border-2 border-primary bg-primary-light/20'
                   )}>
-                  {isRecommended && (
+                  {/* badge for sale */}
+                  {/* {isRecommended && (
                     <div className="absolute top-4 left-36 py-1 px-12 rotate-45 bg-green-check text-center text-white text-sm font-bold w-full">
                       SAVE 50%
                     </div>
-                  )}
+                  )} */}
                   <p className="text-md font-bold tracking-widest px-2 mb-2">{plan.title}</p>
 
                   <div className="mb-2">
@@ -178,7 +179,7 @@ export const LifetimePricing = () => {
                 <h2>All-Access Pass</h2>
 
                 <div className="w-fit text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
-                  <strong>Savings worth over $3,000</strong>
+                  <strong>Savings worth over $2,000</strong>
                 </div>
               </div>
             </div>
@@ -272,7 +273,7 @@ export const LifetimePricing = () => {
             </div>
 
             {/* highlight */}
-            <div className="absolute w-full h-[120%] -top-12 left-0 col-start-4 col-end-5 row-start-1 row-end-8 rounded-xl border-2 border-primary bg-primary/10 overflow-hidden z-5 before:absolute before:top-4 before:left-12 before:py-1 before:px-12 before:rotate-45 before:bg-green-check before:text-white before:text-sm before:font-bold before:w-full before:content-['SAVE_50%']"></div>
+            <div className="absolute w-full h-[120%] -top-12 left-0 col-start-4 col-end-5 row-start-1 row-end-8 rounded-xl border-2 border-primary bg-primary/10 overflow-hidden z-5 "></div>
 
             <div className="col-span-2 row-start-2 place-self-start pl-4">
               <p className="text-black !font-sspb font-medium py-3">

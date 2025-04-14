@@ -4,7 +4,7 @@ export const LIFETIME = {
       'Unlock the Proven Programs & Proprietary Platform That Will Help You Every Step of the Way, Forever!',
     subheader: 'Exclusive Offer, Unmatched Value: Get Lifetime Access to the All-Access Pass!',
     promo_text:
-      "Don't Miss This Limited-Time Offer. Secure Your Lifetime Access Today & Save Up to $1000!",
+      "Don't Miss This Limited-Time Offer. Secure Your Lifetime Access Today & Save Up to $600!",
   },
   SITUATION_SECTION: {
     header: 'Do Any of These Situations Sound Familiar to You?',
@@ -60,7 +60,7 @@ export const LIFETIME = {
       '**Direct Learning From An Industry Leader & Trusted Expert** - Join our live, interactive webinars and Q&As multiple times a week with industry leader Thais Gibson and her team of certified coaches. Discover new tools and overcome roadblocks together.',
       '**Thrive Within a Global Community of 110+ Countries** - You’re never alone in this journey! Connect with like-minded people on our platform, where breakout rooms and private forums create intimate, meaningful discussions. Share challenges, celebrate wins, and embrace real support.',
       '**Keep Learning With Instant Access to 500+ Webinars** - Did you miss a life-altering webinar or Q&A session? No problem! Dive into our extensive library of past webinars packed with insights, strategies, and breakthroughs—available anytime you need them.',
-      '**One-Time Payment, Huge Savings** - Save up to $1000 and skip the hassle of monthly-payments. You’ll never have to worry about renewals, price increases, or missing out on valuable content. This exclusive discount gives you premium access at a fraction of the cost.',
+      '**One-Time Payment, Huge Savings** - Save up to $600 and skip the hassle of monthly-payments. You’ll never have to worry about renewals, price increases, or missing out on valuable content. This exclusive discount gives you premium access at a fraction of the cost.',
       '**Lifetime Support, Unlimited Growth—Forever** - With a Lifetime Membership to our All-Access Pass, you’ll never be alone in your journey. Gain unlimited support and access to everything we offer to help you break through and keep growing—for life.',
     ],
   },

@@ -10,13 +10,15 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
 import Image from 'next/image'
 import { TextParagraph } from '@/components/Text/variants/TextParagraph'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { IButtonCheckoutProps } from '@/components/Button/variants/ButtonCheckout'
+import { ButtonCheckoutSplitTest } from '@/components/Button/variants/ButtonCheckoutSplitTest'
 // config
 import { RESULTS_COPY } from './config'
 // libraries
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
+import { EExternalRoutes } from '@/utils/constants'
 // styles
 import './styles.css'
 
@@ -47,7 +49,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             reading to learn more about your attachment profile!
           </p>
 
-          <CheckoutButton />
+          <ButtonCheckout />
         </div>
       </Section>
 
@@ -78,7 +80,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
               </p>
             ))}
 
-            <CheckoutButton />
+            <ButtonCheckout />
           </div>
         </div>
       </Section>
@@ -103,7 +105,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           />
         </div>
 
-        <CheckoutButton />
+        <ButtonCheckout />
       </Section>
 
       {/**OFFER SECTION*/}
@@ -144,7 +146,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             height={1000}
           />
 
-          <CheckoutButton>
+          <ButtonCheckout className="hover:!no-underline">
             <div className="bg-primary text-white rounded-4xl default-padding">
               <h2>Step Into Your Dream Life</h2>
 
@@ -159,7 +161,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 
               <p>You can cancel all your subscription anytime – no strings attached.</p>
             </div>
-          </CheckoutButton>
+          </ButtonCheckout>
 
           <Image
             alt="A mockup of the PDS quiz and PDS webinar calendar on 2 phones side by side."
@@ -197,7 +199,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           />
         </div>
 
-        <CheckoutButton className="lg:hidden" />
+        <ButtonCheckout className="lg:hidden" />
       </Section>
 
       <Section
@@ -273,7 +275,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           </p>
 
           <div className="text-center lg:text-left">
-            <CheckoutButton className="my-8" label="SAY YES TO YOUR DREAMS" />
+            <ButtonCheckout className="my-8" label="SAY YES TO YOUR DREAMS" />
           </div>
         </div>
 
@@ -297,7 +299,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
             Explore some snippets of our most popular courses from each of the categories below!
           </p>
 
-          <CheckoutButton
+          <ButtonCheckout
             className="text-black bg-blue border-blue mt-8"
             label={
               params.style === 'sa'
@@ -329,12 +331,24 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
           tools for just $67/month (save 30% for a limited time).
         </p>
 
-        <CheckoutButton className="text-white my-6" label="SIGN UP NOW" />
+        <ButtonCheckout className="text-white my-6" label="SIGN UP NOW" />
 
         <p className="max-w-80 mx-auto mt-4">
           You can cancel all your subscription anytime – no strings attached.
         </p>
       </Section>
     </Page>
+  )
+}
+
+const ButtonCheckout = ({ ...props }: IButtonCheckoutProps) => {
+  return (
+    <ButtonCheckoutSplitTest
+      variantUrl={EExternalRoutes.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION}
+      experimentKey="PROD-3779"
+      experimentName="PROD-3779-Single-Step-Checkout"
+      useCookies={false}
+      {...props}
+    />
   )
 }

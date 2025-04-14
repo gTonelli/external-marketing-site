@@ -17,8 +17,10 @@ interface ICountdownTimerProps {
   className?: string
   classNameDate?: string
   classNameLabel?: string
+  classNameDateSeperator?: string
   date?: Date
-  theme?: string
+  theme?: 'dark' | 'light' | 'transparent'
+  includeDays?: boolean
 }
 
 interface ICountdownRendererProps {
@@ -35,8 +37,10 @@ export const CountdownTimer = forwardRef(
       className,
       classNameDate,
       classNameLabel,
+      classNameDateSeperator,
       date,
       theme = 'dark',
+      includeDays = true,
     }: ICountdownTimerProps,
     ref: React.LegacyRef<Countdown>
   ) => {
@@ -56,11 +60,17 @@ export const CountdownTimer = forwardRef(
         ref={ref}
         renderer={({ days, hours, minutes, seconds }: ICountdownRendererProps) => {
           const data = [
-            { digits: days.toString().split('').reverse().join(''), label: 'Days' },
             { digits: hours.toString().split('').reverse().join(''), label: 'Hours' },
             { digits: minutes.toString().split('').reverse().join(''), label: 'Minutes' },
             { digits: seconds.toString().split('').reverse().join(''), label: 'Seconds' },
           ]
+
+          if (includeDays) {
+            data.splice(0, 0, {
+              digits: days.toString().split('').reverse().join(''),
+              label: 'Days',
+            })
+          }
 
           return (
             <div className="flex flex-wrap">
@@ -75,7 +85,10 @@ export const CountdownTimer = forwardRef(
                       <div className="flex">
                         <p
                           className={cx(
-                            'bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl',
+                            'rounded-md xxs:text-lg xs:text-xl lg:!text-3xl',
+                            theme === 'transparent'
+                              ? 'bg-transparent'
+                              : 'p-2 mx-1 shadow-md bg-white',
                             classNameDate
                           )}>
                           {number.digits.charAt(1) || 0}
@@ -83,7 +96,10 @@ export const CountdownTimer = forwardRef(
 
                         <p
                           className={cx(
-                            'bg-white p-2 mx-1 rounded-md shadow-md xxs:text-lg xs:text-xl lg:!text-3xl',
+                            'rounded-md xxs:text-lg xs:text-xl lg:!text-3xl',
+                            theme === 'transparent'
+                              ? 'bg-transparent'
+                              : 'p-2 mx-1 shadow-md bg-white',
                             classNameDate
                           )}>
                           {number.digits.charAt(0)}
@@ -93,7 +109,11 @@ export const CountdownTimer = forwardRef(
                       <div className={cx('mt-2', classNameLabel)}>
                         <p
                           className={`text-sm font-normal ${
-                            theme === 'dark' ? 'text-white' : 'text-black'
+                            theme === 'dark'
+                              ? 'text-white'
+                              : theme === 'transparent'
+                              ? 'text-primary'
+                              : 'text-black'
                           } lg:text-base`}>
                           {number.label}
                         </p>
@@ -101,7 +121,17 @@ export const CountdownTimer = forwardRef(
                     </div>
 
                     {index < data.length - 1 && (
-                      <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} -mt-8 mx-1`}>
+                      <p
+                        className={cx(
+                          `${
+                            theme === 'dark'
+                              ? 'text-white'
+                              : theme === 'transparent'
+                              ? 'text-primary'
+                              : 'text-black'
+                          } -mt-8 mx-1`,
+                          classNameDateSeperator
+                        )}>
                         :
                       </p>
                     )}

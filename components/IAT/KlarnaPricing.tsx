@@ -210,7 +210,7 @@ const LivePriceCard = () => {
         {!showOverview && (
           <Link
             className="hover:no-underline lg:w-auto lg:flex-grow lg:flex"
-            href={`${EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT}&klarna=true&pm=${selectedPaymentMethod}`}>
+            href={`${EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_UPFRONT}&klarna=true&pm=${selectedPaymentMethod}`}>
             <Button
               className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
               label="CHECKOUT"

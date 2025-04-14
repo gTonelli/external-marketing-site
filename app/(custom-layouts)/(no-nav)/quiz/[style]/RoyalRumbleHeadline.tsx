@@ -1,7 +1,7 @@
 // components
 import { AttachmentQuizHeading } from '@/components/AttachmentQuiz/AttachmentQuizHeading'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { List } from '@/components/List'
 import { ROYAL_RUMBLE as CONFIG, AGE_CONFIG } from './config'
 import { RegisterNowSection } from './QuizResultsPage'
@@ -64,7 +64,7 @@ export const RoyalRumbleHeadline = ({
                       {ROYAL_RUMBLE[style].BANNER_SEGMENT.copyYT}
                     </p>
 
-                    <CheckoutButton
+                    <ButtonCheckout
                       href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
                       className="my-8 xxs:px-16"
                       label="GET STARTED NOW!"
@@ -140,7 +140,7 @@ export const RoyalRumbleHeadline = ({
             ))}
 
         <div className="flex justify-center">
-          <CheckoutButton
+          <ButtonCheckout
             href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
             className="mt-8 xxs:px-16 md:mt-10"
             label="UNLOCK MY DISCOUNT"

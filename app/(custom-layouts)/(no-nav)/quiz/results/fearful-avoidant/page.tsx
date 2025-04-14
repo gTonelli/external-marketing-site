@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { List } from '@/components/List'
 // libraries
@@ -60,7 +60,7 @@ export default function SimplifiedFAResultsPage() {
                 </strong>
               </p>
 
-              <CheckoutButton
+              <ButtonCheckout
                 href={EExternalRoutes.THINKIFIC_CHECKOUT_SIMPLIFIED_FA}
                 label="YES! I WANT A HEALTHY RELATIONSHIP"
               />
@@ -146,7 +146,7 @@ export default function SimplifiedFAResultsPage() {
               ]}
             />
 
-            <CheckoutButton
+            <ButtonCheckout
               href={EExternalRoutes.THINKIFIC_CHECKOUT_SIMPLIFIED_FA}
               label="YES! I WANT A HEALTHY RELATIONSHIP"
             />
@@ -278,7 +278,7 @@ export default function SimplifiedFAResultsPage() {
           </strong>
         </p>
 
-        <CheckoutButton
+        <ButtonCheckout
           href={EExternalRoutes.THINKIFIC_CHECKOUT_SIMPLIFIED_FA}
           label="YES! I WANT A HEALTHY RELATIONSHIP"
         />

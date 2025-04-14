@@ -18,7 +18,7 @@ import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { IATBanner } from '@/components/IAT/IATBanner'
 import { KlarnaPricing } from './KlarnaPricing'
 // libraries
@@ -858,25 +858,25 @@ const iatLivePrices: TIATPrice[] = [
     price: '$3,499.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_UPFRONT,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_UPFRONT,
   },
   {
     price: '$1,209.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_3_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_3_MONTH_PLAN,
   },
   {
     price: '$629.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_6_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_6_MONTH_PLAN,
   },
   {
     price: '$339.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SPRING_2025_12_MONTH_PLAN,
+    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_12_MONTH_PLAN,
   },
 ]
 
@@ -1092,7 +1092,7 @@ const IATPriceCard = ({
               onClick={() => setIsExpanded(false)}
             />
 
-            <CheckoutButton
+            <ButtonCheckout
               className="trial-btn"
               label="BUY NOW"
               href={prices[selectedCardIndex].link}
@@ -1274,7 +1274,7 @@ const IATRegistrationForm = () => {
 
   const onSubmit = async (values: IRegistrationFormSchema, formikHelpers: FormikHelpers<any>) => {
     setFormSubmissionError('')
-    await fetch('https://strapi.personaldevelopmentschool.com/api/register', {
+    await fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
       method: 'POST',
       body: JSON.stringify({
         email: values.email,

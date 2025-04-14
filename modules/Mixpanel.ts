@@ -41,6 +41,8 @@ export type Pages =
   | `7 Day Trial + 50% off first month`
   | `7 Days Trial Page Funnel - FA`
   | `7-Day Trial Page (Variant)`
+  | `Abandoned Card Offer - membership`
+  | `Abandoned Card Offer - trial`
   | `Age Funnel - ${string}`
   | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
@@ -74,6 +76,7 @@ export type Pages =
   | `Greg Voisen Podcast Guest Page`
   | `IAT Attachment Quiz`
   | `IAT Info Page`
+  | `IAT Info Variant Page`
   | `IAT Webinar Page`
   | `IAT Webinar Squeeze Page`
   | `IAT Webinar Recording Page`
@@ -103,6 +106,8 @@ export type Pages =
   | `Podcast Freebie`
   | `Site Links`
   | `Speaker Gift`
+  | `Spin The Wheel - Email`
+  | `Spin The Wheel - OSM`
   | `Secondary Sales - ${string}`
   | `Straight to Offer ${string}`
   | `Valentine's Day`
@@ -112,7 +117,7 @@ export type Pages =
   | `Wellness Page`
   | `Youtube Funnel Quiz`
 
-export type ExperimentVariant = 'Control' | 'Variant 1' | 'Variant 2'
+export type ExperimentVariant = 'Control' | `Variant ${number}`
 
 export type QuizTrafficSource = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
 

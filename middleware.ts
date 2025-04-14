@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/valentines-day', '/attachment-report/fa', '/quiz', '/quiz/results/fa'],
+  matcher: ['/iat/info', '/attachment-report/fa'],
 }
 
 interface IConfigWithRegex {
@@ -134,24 +134,13 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   const configs: Array<IConfigWithRegex> = [
     {
-      regex: /^\/valentines-day/,
-      config: splitTestConfigs.valentinesDayTest,
-    },
-    {
       regex: /^\/attachment-report\/fa/,
-      config: splitTestConfigs.vslReportFaVideoTest,
-    },
-    {
-      regex: /^\/quiz\/results\/fa/,
-      config: splitTestConfigs.simplifiedFAResultsTest,
+      config: splitTestConfigs.faReport,
     },
   ]
 
-  if (/^\/quiz(?!\/results)/.test(path) && utmSource === 'paid-youtube') {
-    configs.push({
-      regex: /^\/quiz/,
-      config: splitTestConfigs.ytQuizFunnelTest,
-    })
+  if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
+    return splitTestConfigs.iatEbookTest
   }
 
   return configs.find((config) => config.regex.test(path))?.config
@@ -235,46 +224,27 @@ const sendEventUnsafe = async (
   }
 }
 
-const splitTestConfigs: TSplitTestConfigs = {
-  valentinesDayTest: {
-    cookieKey: 'gm-1435-valentines-day-test',
-    pageName: "Valentine's Day",
-    experimentName: 'GM-1435-Valentines-Day-Test',
+export const splitTestConfigs: TSplitTestConfigs = {
+  faReport: {
+    cookieKey: 'GM-1480',
+    pageName: 'Attachment Style Results - FA',
+    experimentName: 'GM-1480-FA-Report',
     variantUrl: {
-      path: '/valentines-day-promo',
-    },
-    variantRatio: 0.3,
-    forceControlOnNewUser: false,
-  },
-  vslReportFaVideoTest: {
-    cookieKey: 'gm-1447-vsl-rep-fa',
-    pageName: 'Attachment Style Report Old - fa',
-    experimentName: 'GM-1447-VSL-FA-Report',
-    variantUrl: {
-      path: '/pdf-report/fa',
+      path: '/attachment-report/fa/b',
     },
     variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
-  ytQuizFunnelTest: {
-    cookieKey: 'gm-1525-yt-quiz-funnel',
-    pageName: 'Main Funnel Quiz',
-    experimentName: 'GM-1525-YT-Quiz-Funnel',
+
+  iatEbookTest: {
+    cookieKey: 'ip-1248-iat-ebook-banner',
+    pageName: 'IAT Info Page',
+    experimentName: 'IP-1248-IAT-Ebook-Banner-Test',
     variantUrl: {
-      path: '/yt-quiz',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: false,
-  },
-  simplifiedFAResultsTest: {
-    cookieKey: 'gm-1526-simplified-fa-test',
-    pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1526-Simplified-FA-Retest',
-    variantUrl: {
-      path: '/quiz/results/fearful-avoidant',
+      path: '/iat/info-ebook',
     },
     variantRatio: 0.25,
-    forceControlOnNewUser: true,
+    forceControlOnNewUser: false,
   },
 }
 
@@ -282,7 +252,7 @@ type TSplitTestConfigs = {
   [key: string]: TSplitTestConfig
 }
 
-type TSplitTestConfig = {
+export type TSplitTestConfig = {
   /** Key for the split test cookie */
   cookieKey: string
   /** To be sent to Mixpanel as an event prop */

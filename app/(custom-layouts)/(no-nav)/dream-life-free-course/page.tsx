@@ -6,7 +6,7 @@ import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { PaymentOptions } from '@/components/PaymentOptions'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
@@ -106,7 +106,7 @@ export default function DreamLifeFreeCoursePage() {
               personal growth and transformation and always be there when you need it in the future.
             </p>
 
-            <CheckoutButton href={checkoutUrl} label="JOIN TO TAKE THE COURSE" />
+            <ButtonCheckout href={checkoutUrl} label="JOIN TO TAKE THE COURSE" />
           </div>
         </div>
       </Section>
@@ -165,7 +165,7 @@ export default function DreamLifeFreeCoursePage() {
             />
           </div>
 
-          <CheckoutButton href={checkoutUrl} label="START THE COURSE NOW!*" className="mb-8" />
+          <ButtonCheckout href={checkoutUrl} label="START THE COURSE NOW!*" className="mb-8" />
 
           <p className="max-w-2xl mx-auto">
             <i>
@@ -212,7 +212,7 @@ export default function DreamLifeFreeCoursePage() {
             unlocking and rewiring your subconscious patterns.
           </p>
 
-          <CheckoutButton href={checkoutUrl} label="YOUR JOURNEY STARTS NOW" />
+          <ButtonCheckout href={checkoutUrl} label="YOUR JOURNEY STARTS NOW" />
         </div>
       </Section>
 
@@ -232,7 +232,7 @@ export default function DreamLifeFreeCoursePage() {
             the categories below!
           </p>
 
-          <CheckoutButton href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" />
+          <ButtonCheckout href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" />
         </div>
 
         <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can use what you learned in the Needs course to continue your personal and relationship growth." />

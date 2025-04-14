@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
-import { CheckoutButton } from '@/components/CheckoutButton'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { Section } from '@/components/Section'
 import {
   faCircleCheck,
@@ -86,7 +86,7 @@ export default function DreamLifeHolidayFTPage() {
             2025!
           </p>
 
-          <CheckoutButton href={checkoutUrl} label="SIGN UP & TRANSFORM" />
+          <ButtonCheckout href={checkoutUrl} label="SIGN UP & TRANSFORM" />
         </div>
 
         <Image
@@ -139,7 +139,7 @@ export default function DreamLifeHolidayFTPage() {
           </div>
         </div>
 
-        <CheckoutButton href={checkoutUrl} label="START YOUR 7-DAY FREE TRIAL" />
+        <ButtonCheckout href={checkoutUrl} label="START YOUR 7-DAY FREE TRIAL" />
 
         <p className="max-w-xl italic font-medium mx-auto mt-4">
           *At the end of the trial, you’ll automatically become an All-Access Pass member with plans
@@ -211,7 +211,7 @@ export default function DreamLifeHolidayFTPage() {
           overcome your troubles in just 7 days – perfect for our trial!
         </p>
 
-        <CheckoutButton href={checkoutUrl} label="SIGN UP & START HEALING" />
+        <ButtonCheckout href={checkoutUrl} label="SIGN UP & START HEALING" />
       </Section>
 
       <Image
@@ -255,7 +255,7 @@ export default function DreamLifeHolidayFTPage() {
       <Section className="!pt-0">
         <CarouselPromotionCourses />
 
-        <CheckoutButton href={checkoutUrl} label="TRY THEM FOR FREE NOW!" />
+        <ButtonCheckout href={checkoutUrl} label="TRY THEM FOR FREE NOW!" />
       </Section>
 
       <Section classNameInner="!max-w-full !w-full">
@@ -325,7 +325,7 @@ export default function DreamLifeHolidayFTPage() {
                 significant transformation in your daily life faster than ever.
               </p>
 
-              <CheckoutButton href={checkoutUrl} label="SIGN UP FOR FREE NOW!" />
+              <ButtonCheckout href={checkoutUrl} label="SIGN UP FOR FREE NOW!" />
             </div>
           </Card>
         </div>

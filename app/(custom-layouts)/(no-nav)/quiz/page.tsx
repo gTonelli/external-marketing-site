@@ -6,6 +6,7 @@ import { AttachmentStylesTabs } from '@/components/AttachmentStylesTabs/Attachme
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
+import { SplitTestTracker } from '@/components/SplitTestTracker'
 // config
 import { REGULAR_COPY } from '../config'
 // libraries

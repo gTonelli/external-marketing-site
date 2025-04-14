@@ -26,21 +26,20 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: TParams): Promise<Metadata> {
-  let title = 'PDS'
-
   switch (params.version) {
-    case 'membership':
-      title += ' Membership'
-      break
-
     case 'trial':
-      title += ' Free Trial'
-      break
-  }
+      return {
+        title: "Don't Forget to Take Your Free Trial!",
+        description:
+          'Are you ready to take up your free trial at The Personal Development School? Sign up and join our exclusive and welcoming community!',
+      }
 
-  return {
-    title,
-    description: "Don't miss out on a limited time offer on your PDS membership!",
+    case 'membership':
+      return {
+        title: 'Transform Your Life with the All-Access Pass!',
+        description:
+          'It’s your final chance to get everything you need to transform your life and relationships. Sign up for the All-Access Pass today!',
+      }
   }
 }
 

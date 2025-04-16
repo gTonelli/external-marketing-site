@@ -83,7 +83,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
             <AttachmentQuiz
               newQuiz
               className="!max-w-5xl"
-              quizName="Attachment Style Quiz"
+              quizName="Main Funnel Quiz Variant"
               quiz_traffic_source="paidMeta"
               showStartButton={false}
             />

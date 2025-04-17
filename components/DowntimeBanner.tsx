@@ -1,9 +1,12 @@
 'use client'
+// core
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+// components
 import { faRoadBarrier } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// libraries
 import dayjs from 'dayjs'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 export const DowntimeBanner = () => {
   const [downtime, setDowntime] = useState('-- to --')

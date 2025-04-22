@@ -4,11 +4,14 @@
 import { useRef } from 'react'
 // components
 import { IDefaultProps } from '.'
+import { Text } from './Text/Text'
+import { faCalendarCheck, faUserPlus } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
 // libraries
 import cx from 'classnames'
 import { useCountUp } from 'react-countup'
-import { Image } from './Image'
-import { Text } from './Text/Text'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 interface ISocialProofBarProps extends IDefaultProps {
   /**
@@ -23,7 +26,7 @@ interface ISocialProofBarProps extends IDefaultProps {
    * Icons to be displayed
    * @default '["images/TrialPage/trial-page-members-icon.svg", "images/TrialPage/trial-page-yt-icon.svg", "images/TrialPage/trial-page-facebook-icon.svg"]'
    */
-  iconImgs?: [string, string, string]
+  icons?: [IconProp, IconProp, IconProp]
   /**
    * Texts to display in the 3 cards
    * @default "['Members and Counting', 'Youtube Views', 'Facebook Group Members']"
@@ -37,16 +40,12 @@ interface ISocialProofBarProps extends IDefaultProps {
 }
 
 export const SocialProofBar = ({
-  cardTexts = ['Members and Counting', 'Youtube Views', 'Facebook Group Members'],
-  cardNumbers = [15000, 21000000, 15000],
+  cardTexts = ['Course Enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide'],
+  cardNumbers = [70000, 50000000, 45000],
   className,
   classNameCard,
   classNameIcon,
-  iconImgs = [
-    'TrialPage/trial-page-members-icon.svg',
-    'TrialPage/trial-page-yt-icon.svg',
-    'TrialPage/trial-page-facebook-icon.svg',
-  ],
+  icons = [faCalendarCheck, faYoutube, faUserPlus],
 }: ISocialProofBarProps) => {
   return (
     <div
@@ -55,12 +54,12 @@ export const SocialProofBar = ({
                     lg:gap-4  lg:max-w-screen-xl lg:grid lg:grid-cols-3 xl:gap-12`,
         className
       )}>
-      {iconImgs.map((icon, i) => (
+      {cardNumbers.map((_, i) => (
         <SocialProofCard
           key={`social_proof-card_${i}`}
           className={classNameCard}
           classNameIcon={classNameIcon}
-          img={iconImgs[i]}
+          icon={icons[i]}
           label={cardTexts[i]}
           metric={cardNumbers[i]}
         />
@@ -71,7 +70,7 @@ export const SocialProofBar = ({
 
 interface ISocialProofCardProps extends IDefaultProps {
   classNameIcon?: string
-  img: string
+  icon: IconProp
   metric: number
   label: string
 }
@@ -79,7 +78,7 @@ interface ISocialProofCardProps extends IDefaultProps {
 const SocialProofCard = ({
   className,
   classNameIcon,
-  img,
+  icon,
   metric,
   label,
 }: ISocialProofCardProps) => {
@@ -103,13 +102,9 @@ const SocialProofCard = ({
         className
       )}>
       <div className="grid grid-cols-12 gap-2 items-center">
-        <Image
-          className={cx(
-            'w-4/5 p-2 rounded-2xl bg-blue-lightest col-span-4 lg:w-4/5',
-            classNameIcon
-          )}
-          src={img}
-        />
+        <div className="flex justify-center items-center col-span-4">
+          <FontAwesomeIcon className={cx('!text-primary', classNameIcon)} icon={icon} size="2x" />
+        </div>
 
         <div className="col-span-8">
           <div ref={countUpRef} className="font-sspb text-3xl" />

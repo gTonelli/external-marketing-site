@@ -244,46 +244,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
       </Section>
 
       {/* BREATHROUGH SECTION */}
-      <Section className="bg-black-secondary text-white 2xl:py-24">
-        <h2>Ready for Your First Breakthrough?</h2>
-
-        <p className="max-w-64 tracking-widest text-xl mb-4 mx-auto xs:tracking-0.325 xs:max-w-80 lg:text-3xl lg:!max-w-xl lg:mt-8">
-          TRY OUR MEMBERSHIP FOR FREE FOR 14 DAYS.
-        </p>
-
-        <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:my-8">
-          <Image
-            alt="best value mockup"
-            className="w-full"
-            width={1980}
-            height={981}
-            src="/images/best-value-mockup.png"
-          />
-
-          <div className="text-left">
-            <MHAPageText className="font-medium" content="Join today and get instant access to:" />
-
-            <List
-              className="mb-4"
-              classNameIcon="text-success"
-              classNameListItems="my-4"
-              icon={faCircleCheck}
-              listItems={[
-                `Our complete library of video courses you can watch to manage emotions, learn new 
-            coping mechanisms, and get to the bottom of your biggest challenges.`,
-                `Weekly webinars and Q&A sessions where you can ask me questions and get even more 
-            support (plus recordings of these sessions so you never miss out).`,
-                `Community support to suit your needs, including our online forum and weekly support 
-            groups led by our trained coaches.`,
-              ]}
-            />
-          </div>
-        </div>
-
-        <MHAButton label="TRY FOR FREE FOR 14 DAYS" />
-
-        <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
-      </Section>
+      <PDS14dftBreakthrough />
 
       {/* VIDEO SECTION */}
       <PDS14dftTestimonialVideo />
@@ -298,16 +259,15 @@ export const PDSSocialProof = () => {
   return (
     <>
       <SocialProofBar
-        cardNumbers={[4700000, 50000000, 120]}
-        cardTexts={['Attachment Styles Discovered', 'Youtube Views', 'Countries']}
+        cardNumbers={[70000, 50000000, 45000]}
+        cardTexts={[
+          'Course enrolments',
+          'Views on YouTube',
+          'Members in over 120 countries worldwide',
+        ]}
         className="text-black"
         classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
         classNameIcon="!bg-white"
-        iconImgs={[
-          'BlackFridayPage/envelope-open-text.svg',
-          'BlackFridayPage/users.svg',
-          'BlackFridayPage/earth-americas.svg',
-        ]}
       />
 
       {/* JOIN THOUSANDS OF OUR MEMBERS HERO SECTION */}
@@ -383,17 +343,17 @@ export const PDS14dftFeatureOffers = () => {
       <h2 className="mb-4">Here’s What You Get With Your 14-Day All-Access Pass:</h2>
 
       <Card
-        className="default-padding text-left border-none my-4 
+        className="default-padding text-left bg-white rounded-2xl shadow-xl border-none my-4 
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
         <div>
-          <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
-            EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE
+          <p className="text-2xl tracking-33 mb-2 lg:mb-6">
+            <strong>EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE</strong>
           </p>
 
           <Image
             alt="dashboard mockup"
-            className="w-full"
+            className="w-fit"
             width={768}
             height={617}
             src="/images/BlackFridayPage/dashboard-preview.jpg"
@@ -409,7 +369,7 @@ export const PDS14dftFeatureOffers = () => {
 
           <List
             classNameIcon="!text-black text-[0.25em] pt-[6px]"
-            classNameListItems="font-bold text-lg"
+            classNameListItems="font-bold text-lg mb-2"
             icon={faCircle}
             listItems={[
               'Setting boundaries to end compulsive people-pleasing',
@@ -434,12 +394,12 @@ export const PDS14dftFeatureOffers = () => {
       </Card>
 
       <Card
-        className="default-padding text-left border-none my-4 
+        className="default-padding text-left bg-white rounded-2xl shadow-xl border-none my-4 
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
         <div>
-          <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
-            INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS
+          <p className="text-2xl tracking-33 mb-2 lg:mb-6">
+            <strong>INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS</strong>
           </p>
 
           <Image
@@ -475,17 +435,17 @@ export const PDS14dftFeatureOffers = () => {
       </Card>
 
       <Card
-        className="default-padding text-left border-none my-4 
+        className="default-padding text-left bg-white rounded-2xl shadow-xl border-none my-4 
             lg:grid lg:grid-cols-2 lg:gap-12 lg:p-6 lg:items-start lg:my-12 
             xl:p-8">
         <div>
-          <p className="text-primary font-thin italic text-2xl tracking-widest mb-2 lg:mb-6">
-            A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU
+          <p className="text-2xl tracking-33 mb-2 lg:mb-6">
+            <strong>A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU</strong>
           </p>
 
           <Image
             alt="socials preview mockup"
-            className="w-full"
+            className="w-fit"
             width={768}
             height={617}
             src="/images/BlackFridayPage/socials-preview.jpg"
@@ -533,14 +493,59 @@ export const PDS14dftTestimonialVideo = () => {
       </h2>
 
       <VideoThumbnail
-        className="mb-8"
+        className="w-fit bg-white rounded-2xl shadow-xl p-4 mb-8 mx-auto"
         srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
         thumbnailAlt={`Video thumbnail`}
-        thumbnailUrl="BlackFridayPage/mha-video-thumbnail.png"
+        thumbnailUrl="pds-video-thumbnail.jpg"
         type="testimonial"
       />
 
-      <MHAButton label="Enjoy Our Thriving Community" />
+      <MHAButton label="ENJOY OUR THRIVING COMMUNITY" />
+    </Section>
+  )
+}
+
+export const PDS14dftBreakthrough = () => {
+  return (
+    <Section className="bg-black-secondary text-white 2xl:py-24">
+      <h2>Ready for Your First Breakthrough?</h2>
+
+      <p className="max-w-64 tracking-33 my-4 mx-auto xs:max-w-80 lg:!max-w-xl">
+        TRY OUR MEMBERSHIP FOR FREE FOR 14 DAYS.
+      </p>
+
+      <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:my-8">
+        <Image
+          alt="best value mockup"
+          className="w-full"
+          width={1980}
+          height={981}
+          src="/images/best-value-mockup.png"
+        />
+
+        <div className="text-left">
+          <MHAPageText className="font-medium" content="Join today and get instant access to:" />
+
+          <List
+            className="mb-4"
+            classNameIcon="text-success"
+            classNameListItems="my-4"
+            icon={faCircleCheck}
+            listItems={[
+              `Our complete library of video courses you can watch to manage emotions, learn new 
+            coping mechanisms, and get to the bottom of your biggest challenges.`,
+              `Weekly webinars and Q&A sessions where you can ask me questions and get even more 
+            support (plus recordings of these sessions so you never miss out).`,
+              `Community support to suit your needs, including our online forum and weekly support 
+            groups led by our trained coaches.`,
+            ]}
+          />
+        </div>
+      </div>
+
+      <MHAButton label="TRY FOR FREE FOR 14 DAYS" />
+
+      <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
     </Section>
   )
 }

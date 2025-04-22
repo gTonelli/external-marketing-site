@@ -47,11 +47,13 @@ export async function generateMetadata({ params }: IMHASeriesPageParams): Promis
 export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
   const { category, status } = await params
   const config = CONFIG[category]
-  const ctaUrl = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
+  const ctaUrl = EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL
 
   return (
     <Page page_name={`MHA - ${category} ${status}`}>
-      <Section classNameInner="!max-w-4xl mx-auto">
+      <Section
+        className="bg-gradient-to-b from-pink-auxiliary to-white"
+        classNameInner="!max-w-4xl mx-auto">
         <h1 className="mb-8">{config[status].header}</h1>
 
         <p className="mb-8">{config[status].subheader}</p>
@@ -86,7 +88,7 @@ export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
         />
 
         <div className="flex justify-center mt-4">
-          <ButtonCheckout href={ctaUrl} />
+          <ButtonCheckout href={ctaUrl} label="SIGN UP TODAY" />
         </div>
       </Section>
 
@@ -142,7 +144,7 @@ export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
               listItems={config.finalSection.bullets}
             />
 
-            <ButtonCheckout className="mt-4" href={ctaUrl} />
+            <ButtonCheckout className="mt-4" href={ctaUrl} label="CLAIM YOUR FREE TRIAL NOW!" />
           </div>
         </div>
       </Section>

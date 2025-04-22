@@ -32,7 +32,7 @@ import { EExternalRoutes } from '@/utils/constants'
 // style
 import './style.css'
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: 'Find Calmness & Clarity with Our 14-Day Free Trial',
   description:
     'Your mental health matters. Make it a priority with our All-Access Pass, available for 14 days for FREE this Mental Health Awareness Month.',

@@ -12,10 +12,11 @@ export const DowntimeBanner = () => {
   const [downtime, setDowntime] = useState('-- to --')
 
   useEffect(() => {
+    const tz = new Date().toLocaleString('en', { timeZoneName: 'short' }).split(' ').pop()
     setDowntime(
-      `${dayjs('2025-04-24Z02:00:00-04:00').format('h:mm A')} to ${dayjs(
+      `${dayjs('2025-04-24Z02:00:00-04:00').format('h:mm A')} ${tz} to ${dayjs(
         '2025-04-24Z04:00:00-04:00'
-      ).format('h:mm A')}`
+      ).format('h:mm A')} ${tz}`
     )
   }, [])
 

@@ -9,11 +9,5 @@ export const metadata: Metadata = {
 }
 
 export default function NoHeaderFooterLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <DowntimeBanner />
-
-      {children}
-    </>
-  )
+  return <>{children}</>
 }

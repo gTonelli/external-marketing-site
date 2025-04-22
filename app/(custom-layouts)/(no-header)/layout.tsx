@@ -13,8 +13,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <DowntimeBanner />
-
       {children}
 
       <Footer showDisclaimer includeSocialLinks={false} />

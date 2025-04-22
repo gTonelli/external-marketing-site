@@ -29,7 +29,7 @@ export const DowntimeBanner = () => {
           className="underline hover:text-white"
           href="https://support.personaldevelopmentschool.com/en/articles/11095885-scheduled-downtime-april-24-2025-what-you-need-to-know"
           target="_blank">
-          Learn more
+          <strong>Learn more</strong>
         </Link>
       </p>
 

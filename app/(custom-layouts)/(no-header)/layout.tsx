@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 // components
 import { Footer } from '@/components/Footer'
+import { DowntimeBanner } from '@/components/DowntimeBanner'
 
 export const metadata: Metadata = {
   title: 'The Attachment Style Quiz',
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <DowntimeBanner />
+
       {children}
 
       <Footer showDisclaimer includeSocialLinks={false} />

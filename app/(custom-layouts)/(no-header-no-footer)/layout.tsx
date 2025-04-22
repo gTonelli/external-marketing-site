@@ -1,3 +1,4 @@
+import { DowntimeBanner } from '@/components/DowntimeBanner'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -8,5 +9,11 @@ export const metadata: Metadata = {
 }
 
 export default function NoHeaderFooterLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <>
+      <DowntimeBanner />
+
+      {children}
+    </>
+  )
 }

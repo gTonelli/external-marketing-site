@@ -9,6 +9,7 @@ import { Section } from '@/components/Section'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { ShareIcons } from '@/components/ShareIcons'
 import { IATEbookForm } from '@/components/Forms/IATEbookForm'
+import { DowntimeBanner } from '@/components/DowntimeBanner'
 import { IPodcast, PODCAST_PLATFORMS } from '../page'
 // libraries
 import cx from 'classnames'
@@ -173,6 +174,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
 
   return (
     <Page page_name={`Podcast Episode Page - ${epNo}`}>
+      <DowntimeBanner />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

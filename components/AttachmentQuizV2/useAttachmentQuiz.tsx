@@ -293,7 +293,6 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
   }, [questionGroups, router])
 
   const answerQuestion = (question: TQuizQuestion, val: any) => {
-    console.log('questionGroups', questionGroups)
     question.userResponse = val
   }
 

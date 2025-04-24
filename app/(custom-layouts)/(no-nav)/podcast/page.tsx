@@ -38,7 +38,7 @@ export interface IPodcast {
   youtubeId: string
   spotifyId: string
   applePodcastUrl: string
-  thumbnail: { data: IStrapiThumbnail }
+  thumbnail: IStrapiThumbnail
   isFeatured: boolean
   description: string
   seoTitle: string

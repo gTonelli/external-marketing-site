@@ -24,7 +24,6 @@ export const AttachmentQuizV2QuizQuestionGroup = ({
     orderBy(Object.keys(values)).forEach((key, i) => {
       answerQuestion(questionGroup.questions[i], values[key as keyof IQuizQuestionFormSchema])
     })
-    console.log('Submitting')
     onSubmitted()
   }
 

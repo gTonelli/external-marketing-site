@@ -21,14 +21,14 @@ import {
   faMagnifyingGlass,
 } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
-import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 import { PodcastListCTA } from './PodcastListCTA'
 import { PodcastPagination } from './PodcastPagination'
+import { IStrapiFetchProps } from '@/utils/types'
 
 interface IPodcastListProps {
   page: number
-  podcastCategories: IStrapiResponse<IPodcastCategory>[]
-  podcastTypes: IStrapiResponse<IPodcastType>[]
+  podcastCategories: IPodcastCategory[]
+  podcastTypes: IPodcastType[]
   selectedCategoryFilter?: string
   selectedTypeFilter?: string
   selectedSortFilter?: string
@@ -79,7 +79,7 @@ export const PodcastList = ({
   const [loading, setLoading] = useState(true)
   const [currentVideoId, setCurrentVideoId] = useState(-1)
   const [currentAudioId, setCurrentAudioId] = useState('')
-  const [podcastsList, setPodcastsList] = useState<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>>()
+  const [podcastsList, setPodcastsList] = useState<IStrapiFetchProps<IPodcast[]>>()
   const categoryRef = useRef<HTMLSelectElement>(null)
   const typeRef = useRef<HTMLSelectElement>(null)
   const sortRef = useRef<HTMLSelectElement>(null)
@@ -87,9 +87,7 @@ export const PodcastList = ({
   const router = useRouter()
 
   useEffect(() => {
-    async function fetchPodcasts(
-      page: number = 1
-    ): Promise<IStrapiFetchProps<IStrapiResponse<IPodcast>[]>> {
+    async function fetchPodcasts(page: number = 1): Promise<IStrapiFetchProps<IPodcast[]>> {
       try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?${FETCH_PODCASTS_QUERY(
@@ -150,8 +148,8 @@ export const PodcastList = ({
               <option value="all">All Categories</option>
 
               {podcastCategories.map((item, idx) => (
-                <option key={idx} value={item.attributes.name}>
-                  {item.attributes.name}
+                <option key={idx} value={item.name}>
+                  {item.name}
                 </option>
               ))}
             </select>
@@ -167,8 +165,8 @@ export const PodcastList = ({
               <option value="all">All Types</option>
 
               {podcastTypes.map((item, idx) => (
-                <option key={idx} value={item.attributes.name}>
-                  {item.attributes.name}
+                <option key={idx} value={item.name}>
+                  {item.name}
                 </option>
               ))}
             </select>
@@ -215,21 +213,19 @@ export const PodcastList = ({
               key={idx}
               className="w-full flex flex-col gap-4 border border-gray-light rounded-2xl p-4 lg:flex-row">
               <div className="w-full flex lg:w-64">
-                {currentVideoId === +item.attributes.epNo ? (
+                {currentVideoId === +item.epNo ? (
                   <iframe
                     allowFullScreen
                     className="w-full min-w-64 h-auto aspect-video rounded-xl lg:mr-4"
                     width="100%"
-                    src={`https://www.youtube.com/embed/${item.attributes.youtubeId}?autoplay=1`}
+                    src={`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1`}
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                   />
                 ) : (
                   <Image
-                    src={item.attributes.thumbnail.data.attributes.url}
-                    alt={
-                      item.attributes.thumbnail.data.attributes.alternativeText || 'Video Thumbnail'
-                    }
+                    src={item.thumbnail.data.url}
+                    alt={item.thumbnail.data.alternativeText || 'Video Thumbnail'}
                     width={240}
                     height={140}
                     className="min-w-64 w-full h-auto rounded-xl lg:mr-4"
@@ -240,19 +236,19 @@ export const PodcastList = ({
 
               <div className="w-full flex flex-col flex-1 gap-4 text-left lg:pl-4">
                 <p>
-                  EP {item.attributes.epNo} - {item.attributes.releaseDate.replaceAll('-', '.')}{' '}
-                  {item.attributes.guestName && (
+                  EP {item.epNo} - {item.releaseDate.replaceAll('-', '.')}{' '}
+                  {item.guestName && (
                     <>
                       <span className="mx-2">—</span>
                       <span>with </span>
-                      <strong>{item.attributes.guestName}</strong>{' '}
+                      <strong>{item.guestName}</strong>{' '}
                     </>
                   )}
                 </p>
 
                 <h2 className="!text-lg">
-                  <Link href={`/podcast/${item.attributes.urlSlug}`}>
-                    <strong>{item.attributes.title}</strong>
+                  <Link href={`/podcast/${item.urlSlug}`}>
+                    <strong>{item.title}</strong>
                   </Link>
                 </h2>
 
@@ -261,19 +257,17 @@ export const PodcastList = ({
                     <FontAwesomeIcon icon={faExternalLink} />
                   </span>
 
-                  <Link
-                    className="underline font-bold"
-                    href={`/podcast/${item.attributes.urlSlug}`}>
+                  <Link className="underline font-bold" href={`/podcast/${item.urlSlug}`}>
                     Read More
                   </Link>
                 </p>
               </div>
 
               <PodcastListCTA
-                id={+item.attributes.epNo}
+                id={+item.epNo}
                 setCurrentVideoId={setCurrentVideoId}
                 setCurrentAudioId={setCurrentAudioId}
-                spotifyId={item.attributes.spotifyId}
+                spotifyId={item.spotifyId}
               />
             </div>
           ))}

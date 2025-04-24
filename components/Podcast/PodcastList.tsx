@@ -224,8 +224,8 @@ export const PodcastList = ({
                   />
                 ) : (
                   <Image
-                    src={item.thumbnail.data.url}
-                    alt={item.thumbnail.data.alternativeText || 'Video Thumbnail'}
+                    src={item.thumbnail.url}
+                    alt={item.thumbnail.alternativeText || 'Video Thumbnail'}
                     width={240}
                     height={140}
                     className="min-w-64 w-full h-auto rounded-xl lg:mr-4"

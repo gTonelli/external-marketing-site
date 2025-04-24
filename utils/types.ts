@@ -56,13 +56,11 @@ export type TDict<T = any> = { [key: string]: T }
 
 export interface IStrapiThumbnail {
   id: number
-  attributes: {
-    name: string
-    alternativeText: string
-    url: string
-    width: number
-    height: number
-  }
+  name: string
+  alternativeText: string
+  url: string
+  width: number
+  height: number
 }
 
 export interface IStrapiFetchProps<T> {
@@ -75,8 +73,4 @@ export interface IStrapiFetchProps<T> {
       total: number
     }
   }
-}
-export interface IStrapiResponse<T> {
-  id: string
-  attributes: T
 }

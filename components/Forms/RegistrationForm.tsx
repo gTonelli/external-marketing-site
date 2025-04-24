@@ -98,8 +98,7 @@ export const RegistrationForm = ({
       insertId,
     }
 
-    // TODO change back to production
-    fetch('https://staging.strapi.personaldevelopmentschool.com/api/register', {
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

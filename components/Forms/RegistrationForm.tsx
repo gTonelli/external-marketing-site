@@ -89,7 +89,7 @@ export const RegistrationForm = ({
     })
 
     const requestBody = {
-      tags: clientTag ? clientTag.split(',').map(tag => tag.trim()) : [],
+      tags: clientTag ? clientTag.split(',').map((tag) => tag.trim()) : [],
       firstName,
       lastName,
       email,
@@ -98,7 +98,7 @@ export const RegistrationForm = ({
       insertId,
     }
 
-    fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

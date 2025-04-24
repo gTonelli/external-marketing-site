@@ -70,9 +70,9 @@ export async function generateMetadata({
         url: `https://attachment.personaldevelopmentschool.com/podcast/${podcast.urlSlug}`,
         images: [
           {
-            url: podcast.thumbnail.data.url,
-            width: podcast.thumbnail.data.width,
-            height: podcast.thumbnail.data.height,
+            url: podcast.thumbnail.url,
+            width: podcast.thumbnail.width,
+            height: podcast.thumbnail.height,
           },
         ],
       },
@@ -144,8 +144,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
     description: description,
     datePublished: releaseDate,
     url: `https://attachment.personaldevelopmentschool.com/podcast/${slug}`,
-    image: thumbnail.data.url,
-    thumbnailUrl: thumbnail.data.url,
+    image: thumbnail.url,
+    thumbnailUrl: thumbnail.url,
     author: {
       '@type': 'Person',
       name: 'Thais Gibson',
@@ -177,8 +177,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
             playInline
             classNameThumbnail="w-full"
             videoId={youtubeId}
-            thumbnail={thumbnail.data.url}
-            thumbnailAlt={thumbnail.data.alternativeText || 'Video thumbnail'}
+            thumbnail={thumbnail.url}
+            thumbnailAlt={thumbnail.alternativeText || 'Video thumbnail'}
             type="Podcast Episode Video"
           />
         </div>

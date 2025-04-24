@@ -49,8 +49,8 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
         <div className="relative">
           <Image
             className="w-full h-auto rounded-3xl"
-            src={featuredPodcast.thumbnail.data.url}
-            alt={featuredPodcast.thumbnail.data.alternativeText || 'Featured Podcast Thumbnail'}
+            src={featuredPodcast.thumbnail.url}
+            alt={featuredPodcast.thumbnail.alternativeText || 'Featured Podcast Thumbnail'}
             width={600}
             height={400}
           />

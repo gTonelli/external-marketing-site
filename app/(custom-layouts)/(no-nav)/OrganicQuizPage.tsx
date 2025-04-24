@@ -7,16 +7,16 @@ import Link from 'next/link'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
-import { TextHeading } from '@/components/Text/variants/TextHeading'
+import { List } from '@/components/List'
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
+import { faInstagram, faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
+import { faCheckCircle, faPenToSquare } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // style
 import './style.css'
-import { List } from '@/components/List'
-import { faCheckCircle, faPenToSquare } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { faInstagram, faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function OrganicQuizPage() {
   // ================= State =======================
@@ -172,7 +172,7 @@ export default function OrganicQuizPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 text-left my-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 text-left my-16 lg:grid-cols-2">
           <div>
             <h3 className="mb-4">Anxious Preoccupied</h3>
 
@@ -256,7 +256,11 @@ export default function OrganicQuizPage() {
 
         <div className="grid grid-cols-1 gap-8 text-left lg:grid-cols-2">
           {LEARN_MORE_LINKS.map((item, idx) => (
-            <Link key={`learn_more_${idx}`} href={item.link} className="hover:no-underline">
+            <Link
+              key={`learn_more_${idx}`}
+              href={item.link}
+              className="hover:no-underline"
+              target="_blank">
               <div className="flex bg-white-secondary rounded-2xl p-8">
                 <div className="w-full mr-4">
                   <div className="flex justify-between items-center mb-4">

@@ -30,7 +30,8 @@ export const IATCurriculumCard = ({
   return (
     <div
       className="text-left rounded-20 border-2 border-blue bg-white p-4 cursor-pointer pb-2 my-4 lg:my-8 lg:hover:bg-gray-50 lg:p-8 lg:pb-4"
-      onClick={() => setIsOpen(!isOpen)}>
+      onClick={() => setIsOpen(!isOpen)}
+      role="button">
       <div className="w-full flex justify-between items-center pb-2 lg:pb-4">
         <p className="font-semibold uppercase">{heading}</p>
 
@@ -41,7 +42,8 @@ export const IATCurriculumCard = ({
           icon={faChevronDown}
         />
       </div>
-      <Expandable className="" open={isOpen} trigger="">
+
+      <Expandable open={isOpen} trigger="">
         <p className="border-t-2 border-blue pt-2 mb-2 lg:pt-4 lg:mb-4">{textTop}</p>
 
         <List

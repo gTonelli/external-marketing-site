@@ -145,7 +145,7 @@ export const IATPriceCard = ({
 
           {originalPrice && <p className="text-xl font-medium line-through">{originalPrice}</p>}
 
-          <h1 className="text-black mb-6">{salePrice}</h1>
+          <h2 className="text-black mb-6 text-h1">{salePrice}</h2>
 
           {subheading && <p className="tracking-[0.2em] font-semibold mb-4">{subheading}</p>}
 

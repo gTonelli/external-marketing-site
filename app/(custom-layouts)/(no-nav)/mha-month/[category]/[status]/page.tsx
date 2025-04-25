@@ -77,14 +77,14 @@ export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
         </p>
 
         <p className="mb-8">
-          <strong>{config.offerFocus}</strong>
+          <strong>{config[status].offerFocus}</strong>
         </p>
 
         <List
           classNameIcon="text-primary mr-2"
           classNameListItems="mb-4"
           icon={faSparkles}
-          listItems={config.offers}
+          listItems={config[status].offers}
         />
 
         <div className="flex justify-center mt-4">

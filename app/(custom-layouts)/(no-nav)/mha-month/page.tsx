@@ -98,7 +98,7 @@ export default function MentalHealthAwarenessPage() {
 
           <p className="mb-4">Healing can feel overwhelming, but you don't have to do it alone.</p>
 
-          <ButtonCheckout href={ctaUrl} label="GET 14-DAYS FREE" />
+          <ButtonCheckout href={ctaUrl} label="LET'S HEAL TOGETHER" />
         </div>
       </Section>
 

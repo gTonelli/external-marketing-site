@@ -1,8 +1,7 @@
 // components
-import { Button } from '@/components/Button/Button'
+import { ButtonScroll } from '../Button/variants/ButtonScroll'
 // config
 import { IAT_COPY as IAT } from '@/app/(default-layout)/iat/config'
-import { ButtonScroll } from '../Button/variants/ButtonScroll'
 
 interface IIATBannerProps {
   page: 'other' | 'ebook'

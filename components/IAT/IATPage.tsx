@@ -15,6 +15,7 @@ import { IATCurriculumCard } from './IATCurriculumCard'
 import { IATTestimonialSection } from './IATTestimonialSection'
 import { IATRegistrationForm } from './IATRegistrationForm'
 import { FaqSecondary } from '../Faq/variants/FaqSecondary'
+import { ButtonScroll } from '../Button/variants/ButtonScroll'
 // config
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
 // libraries
@@ -26,7 +27,6 @@ import { Pages } from '@/modules/Mixpanel'
 // styles
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { ButtonScroll } from '../Button/variants/ButtonScroll'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,

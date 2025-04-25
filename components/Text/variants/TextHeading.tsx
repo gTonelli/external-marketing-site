@@ -24,7 +24,6 @@ export const TextHeading = ({
   font = 'font-sspb',
   spacing = 'tracking-normal', // 0
   size = 2,
-  useMD,
 }: ITextHeadingProps) => {
   switch (size) {
     case 1:

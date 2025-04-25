@@ -1,10 +1,11 @@
 'use client'
+
 // core
 import Image from 'next/image'
 import { useState } from 'react'
 // components
-import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
-import { Button } from '../Button/Button'
+import { Button } from '@/components/Button/Button'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faChevronLeft, faCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // libraries
@@ -30,17 +31,17 @@ export type TIATPriceOption = {
   checkout: EExternalRoutes
 }
 
-interface IIATPricingCardProps {
+interface IIATWebinarPriceCardProps {
   isLive?: boolean
   pricingMenu: TIATPriceOption[]
   cardDetails: TIATCardDetails
 }
 
-export const IATPricingCard = ({
+export const IATWebinarPriceCard = ({
   cardDetails,
   pricingMenu,
   isLive = false,
-}: IIATPricingCardProps) => {
+}: IIATWebinarPriceCardProps) => {
   const [showPricing, setShowPricing] = useState(false)
   const [currentOption, setCurrentOption] = useState(0)
 

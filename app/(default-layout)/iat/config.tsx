@@ -14,20 +14,29 @@ export const IAT_COPY = {
 
     subheading: `IN 12 WEEKS`,
 
-    copy: `Do you love connecting with people? Do you want to make an impact in the lives of others? Do you yearn for the freedom and flexibility of choosing your own schedule, working from home, and being able to travel anywhere you want?
-           \nThe Gibson Integrated Attachment Theory™ Certification Training is a 12-week program that will teach you everything you need to build a thriving business while truly making a lasting impact on others.
-           \nIt will give you a solid foundation and insight into what attachment theory is and how knowledge of it can create transformational change in the lives of people that need it.`,
+    copy: [
+      'Do you love connecting with people? Do you want to make an impact in the lives of others? Do you yearn for the freedom and flexibility of choosing your own schedule, working from home, and being able to travel anywhere you want?',
+      'The Gibson Integrated Attachment Theory™ Certification Training is a 12-week program that will teach you everything you need to build a thriving business while truly making a lasting impact on others.',
+      'It will give you a solid foundation and insight into what attachment theory is and how knowledge of it can create transformational change in the lives of people that need it.',
+    ],
   },
 
   relationship_section: {
     heading: `Become a Relationship Coach`,
 
-    copy_left: `The Gibson Integrated Attachment Theory™ Certification Course is a revolutionary relationship coaching certification developed by Thais Gibson.
-                \nThis certification program spans over 12 weeks, available in both Live Training and On-Demand formats.
-                \n***Spots for the Live Training version of the program running from May 21, 2025 - August 6, 2025 are limited.**`,
+    copy_left: [
+      'The Gibson Integrated Attachment Theory™ Certification Course is a revolutionary relationship coaching certification developed by Thais Gibson.',
+      'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
+      <strong>
+        *Spots for the Live Training version of the program running from May 21, 2025 - August 6,
+        2025 are limited.
+      </strong>,
+    ],
 
-    copy_right: `It will teach you how to become a relationship coach, specializing in attachment theory. It will give you the exact tools and steps you need to become an industry leader, build a thriving practice, and make a massive impact on others’ lives and relationships through the lens of attachment theory.
-                 \nEven if you have no prior coaching experience, this training will give you the tools and confidence to get started in a matter of weeks.`,
+    copy_right: [
+      'It will teach you how to become a relationship coach, specializing in attachment theory. It will give you the exact tools and steps you need to become an industry leader, build a thriving practice, and make a massive impact on others’ lives and relationships through the lens of attachment theory.',
+      'Even if you have no prior coaching experience, this training will give you the tools and confidence to get started in a matter of weeks.',
+    ],
   },
 
   initial_weeks: {
@@ -53,8 +62,10 @@ export const IAT_COPY = {
     ],
   },
 
-  trainingProgramTools: `In this program, Thais will be sharing the most impactful, results-oriented tools based on over a decade of research. Thais also draws on 10+ years of experience working directly with clients and over 1.5 million enrolments through her courses at The Personal Development School. 
-  \nThis training program is designed to equip you with the tools you need to rapidly impact the lives, relationships and self-esteem of your clients, all while building a thriving business in a very short period of time.`,
+  trainingProgramTools: [
+    'In this program, Thais will be sharing the most impactful, results-oriented tools based on over a decade of research. Thais also draws on 10+ years of experience working directly with clients and over 1.5 million enrolments through her courses at The Personal Development School.',
+    'This training program is designed to equip you with the tools you need to rapidly impact the lives, relationships and self-esteem of your clients, all while building a thriving business in a very short period of time.',
+  ],
 
   trustbar: [
     `amazon-logo.png`,
@@ -67,16 +78,23 @@ export const IAT_COPY = {
   ],
 
   training: {
-    copy: `The program is 100% online, giving you the choice to choose between two formats: **Live Training** or **On Demand Training**. 
-           \nBoth formats of the course give you the same accreditation once you pass your final exam, but each format offers different levels of support and flexibility.
-           \nHere is how these two training formats work:`,
+    copy: [
+      <>
+        The program is 100% online, giving you the choice to choose between two formats:{' '}
+        <strong>Live Training</strong> or <strong>On Demand Training</strong>.
+      </>,
+      'Both formats of the course give you the same accreditation once you pass your final exam, but each format offers different levels of support and flexibility.',
+      'Here is how these two training formats work:',
+    ],
 
     live_training: {
       prerequisite_week: {
         heading: [`Complete Your Prerequisites`, `Attend Weekly Review Webinars With IAT Coaches`],
 
-        copy: `In your first 4 weeks in the program, you’ll be expected to complete one course on your own time each week, then attend a 1-hour long course review webinar with our IAT coaches. They’ll be going through the courses’ main concepts and opening up discussions and Q&As. 
-              \nThe first 4 weeks of the program are intended to give you the foundations you need to understand attachment theory. `,
+        copy: [
+          'In your first 4 weeks in the program, you’ll be expected to complete one course on your own time each week, then attend a 1-hour long course review webinar with our IAT coaches. They’ll be going through the courses’ main concepts and opening up discussions and Q&As.',
+          'The first 4 weeks of the program are intended to give you the foundations you need to understand attachment theory.',
+        ],
 
         week1: [
           `Complete course: The Handbook for a Better Life`,
@@ -106,9 +124,11 @@ export const IAT_COPY = {
       intensive_week: {
         heading: [`Complete Your Intensive IAT Training With Thais`],
 
-        copy: `After completing your prerequisites and content course webinars, you’ll start your live training with Thais from June 18th - August 6th every Wednesday at 6 PM ET for 8 weeks.
-               \nHere, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.  
-               \nEach meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.`,
+        copy: [
+          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from June 18th - August 6th every Wednesday at 6 PM ET for 8 weeks.',
+          "Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.",
+          'Each meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.',
+        ],
 
         features: {
           heading: `The Live Training option also gets you access to:`,
@@ -129,9 +149,11 @@ export const IAT_COPY = {
     },
 
     on_demand_training: {
-      left_section: `You can enroll in this version of the IAT training anytime. 
-                     \nThis is a great option if you prefer to go at your own pace, or if you can't make the weekly Q&A times and practice sessions (or you don't feel you need the additional support).
-                     \nYou will still gain access to proven tools and strategies along with all of the materials and in-depth video training modules of the Gibson Integrated Attachment Theory™ Program. This format also includes access to the pre-recorded IAT online training course and client resources you can use in your own practice.`,
+      left_section: [
+        'You can enroll in this version of the IAT training anytime.',
+        "This is a great option if you prefer to go at your own pace, or if you can't make the weekly Q&A times and practice sessions (or you don't feel you need the additional support).",
+        'You will still gain access to proven tools and strategies along with all of the materials and in-depth video training modules of the Gibson Integrated Attachment Theory™ Program. This format also includes access to the pre-recorded IAT online training course and client resources you can use in your own practice.',
+      ],
 
       right_section: {
         heading: `The On-Demand format also gets you access to the additional 3 pre-requisite courses that are covered in the Live Training format`,
@@ -221,9 +243,11 @@ export const IAT_COPY = {
   },
 
   what_you_get: {
-    copy: `This is a RARE opportunity to be coached by Thais in a small group, with ample 1-1 feedback and supervision. You will learn exactly the tools and skills that Thais uses in The Personal Development School, along with even more in-depth tools for 1-1 practice.
-           \nThese results-oriented tools will enable you to dramatically impact the lives of others while improving your own relationships in profound ways.
-           \nThais will also share the skills she used to grow a highly-successful coaching practice so you can start your own – even if you come from a totally different professional background and have no prior coaching experience!`,
+    copy: [
+      'This is a RARE opportunity to be coached by Thais in a small group, with ample 1-1 feedback and supervision. You will learn exactly the tools and skills that Thais uses in The Personal Development School, along with even more in-depth tools for 1-1 practice.',
+      'These results-oriented tools will enable you to dramatically impact the lives of others while improving your own relationships in profound ways.',
+      'Thais will also share the skills she used to grow a highly-successful coaching practice so you can start your own – even if you come from a totally different professional background and have no prior coaching experience!',
+    ],
 
     benefits: [
       {
@@ -522,16 +546,18 @@ export const IAT_COPY = {
   },
 
   thais_section: {
-    copy: `This is an exclusive opportunity to learn Thais’ distilled knowledge from over 10 years of working in a client-based practice and specializing in researching the subconscious mind and attachment. 
-           \nThais Gibson has completed her PhD and over 13 different certifications in modalities including CBT, NLP, somatic experiencing, internal family systems, shadow work and more!
-           \nShe ran a private practice for the better part of a decade and has worked with over 40,000 clients 1-1, in workshops and through the Personal Development School programs. With a 99.7% satisfaction score on her programs and courses, Thais has developed ground-breaking techniques in rapid transformation and healing relationships that are shared throughout this program. 
-           \nThais's new book, " Learning Love," was released on Amazon in early December 2023 and offers a revolutionary approach to building fulfilling relationships. It's been a best-seller and has encouraged some big names to invite Thais as a guest star on several popular podcasts, including The Mel Robbins Podcast.
-           \nThais has also been a guest speaker for Google and has shared her cutting-edge knowledge with people in over 142 different countries. The Integrated Attachment Theory certification (IAT) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.`,
+    copy: [
+      'This is an exclusive opportunity to learn Thais’ distilled knowledge from over 10 years of working in a client-based practice and specializing in researching the subconscious mind and attachment.',
+      'Thais Gibson has completed her PhD and over 13 different certifications in modalities including CBT, NLP, somatic experiencing, internal family systems, shadow work and more!',
+      'She ran a private practice for the better part of a decade and has worked with over 40,000 clients 1-1, in workshops and through the Personal Development School programs. With a 99.7% satisfaction score on her programs and courses, Thais has developed ground-breaking techniques in rapid transformation and healing relationships that are shared throughout this program. ',
+      `Thais's new book, "Learning Love," was released on Amazon in early December 2023 and offers a revolutionary approach to building fulfilling relationships. It's been a best-seller and has encouraged some big names to invite Thais as a guest star on several popular podcasts, including The Mel Robbins Podcast.`,
+      'Thais has also been a guest speaker for Google and has shared her cutting-edge knowledge with people in over 142 different countries. The Integrated Attachment Theory certification (IAT) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.',
+    ],
 
     subsection: {
       heading: `Are you ready to impact the lives of others, while having the freedom and flexibility to choose your schedule and work from anywhere in the world?`,
 
-      subheading: `**Here are some important questions to reflect on:**`,
+      subheading: `Here are some important questions to reflect on:`,
 
       copy: [
         `What does it cost you to not take action today?`,

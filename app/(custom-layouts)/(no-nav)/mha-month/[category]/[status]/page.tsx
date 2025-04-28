@@ -93,31 +93,6 @@ export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
         </div>
       </Section>
 
-      <Section
-        className={`bg-${
-          status === 'singles' ? 'woman' : 'couple'
-        }-using-laptop min-h-52 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40`}
-        classNameInner="relative !max-w-screen-xl !m-0 lg:!mx-auto lg:grid lg:grid-cols-12">
-        <div className="bg-gradient lg:hidden" />
-
-        <div
-          className={`bg-${
-            status === 'singles' ? 'woman' : 'couple'
-          }-using-laptop-mobile lg:hidden`}
-        />
-
-        <div className="relative text-left p-4 z-5 lg:col-span-7">
-          <h2 className="mb-4">{config[status].benefits.header}</h2>
-
-          <List
-            classNameIcon="!text-primary mt-1"
-            classNameListItems="mb-4"
-            icon={faCheckCircle}
-            listItems={config[status].benefits.bullets}
-          />
-        </div>
-      </Section>
-
       <Section classNameInner="!max-w-4xl mx-auto">
         <h2 className="mb-8">{config.finalSection.header}</h2>
 
@@ -147,6 +122,31 @@ export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
 
             <ButtonCheckout className="mt-4" href={ctaUrl} label="CLAIM YOUR FREE TRIAL NOW!" />
           </div>
+        </div>
+      </Section>
+
+      <Section
+        className={`bg-${
+          status === 'singles' ? 'woman' : 'couple'
+        }-using-laptop min-h-52 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40`}
+        classNameInner="relative !max-w-screen-xl !m-0 lg:!mx-auto lg:grid lg:grid-cols-12">
+        <div className="bg-gradient lg:hidden" />
+
+        <div
+          className={`bg-${
+            status === 'singles' ? 'woman' : 'couple'
+          }-using-laptop-mobile lg:hidden`}
+        />
+
+        <div className="relative text-left p-4 z-5 lg:col-span-7">
+          <h2 className="mb-4">{config[status].benefits.header}</h2>
+
+          <List
+            classNameIcon="!text-primary mt-1"
+            classNameListItems="mb-4"
+            icon={faCheckCircle}
+            listItems={config[status].benefits.bullets}
+          />
         </div>
       </Section>
     </Page>

@@ -8,7 +8,7 @@ export const MHA_SERIES_CONFIG = {
       subheader:
         'When you regulate your nervous system, everything starts to shift. Watch this video to learn how to calm your system in real-time! ',
       offerHeader:
-        'When anxiety takes over, it can feel like everything’s too much and not enough at the same time.',
+        'When Anxiety Takes Over, It Can Feel Like Everything’s Too Much And Not Enough At The Same Time.',
       offerSubheader: "BUT IT DOESN'T HAVE TO BE THAT WAY",
       offerFocus:
         'What happens if you had the tools, support, and guidance to calm your anxiety and approach challenges with clarity and confidence?',
@@ -40,7 +40,7 @@ export const MHA_SERIES_CONFIG = {
       subheader:
         'Relationship anxiety isn’t your fault—and there’s a way through it. Watch this video to learn 3 simple steps to reprogram your anxious brain!',
       offerHeader:
-        'You now understand how anxiety impacts your brain. And when anxiety shows up in your relationship, it can feel like everything’s too much and not enough.',
+        'You Now Understand How Anxiety Impacts Your Brain. And When Anxiety Shows Up In Your Relationship, It Can Feel Like Everything’s Too Much And Not Enough.',
       offerSubheader: "BUT IT DOESN'T HAVE TO BE THAT WAY",
       offerFocus:
         'What happens if you had the tools, support, and guidance to calm your anxiety and approach challenges with clarity and confidence?',
@@ -92,7 +92,7 @@ export const MHA_SERIES_CONFIG = {
       subheader:
         'Watch this video to learn the powerful process to recognize and reframe negative thinking so you can shift your self-talk and build real confidence!',
       offerHeader:
-        'Low self-esteem doesn’t just impact how you feel about yourself—it affects how you show up in dating, in your friendships, and at work.',
+        'Low Self-Esteem Doesn’t Just Impact How You Feel About Yourself—It Affects How You Show Up In Dating, In Your Friendships, And At Work.',
       offerSubheader: "NOW IT'S TIME TO TAKE CONTROL OF IT AND CHANGE THAT NARRATIVE",
       offerFocus:
         'With us, you can access the tools and support to uncover and reprogram the limiting beliefs that affect how you connect—with yourself and others.',
@@ -124,7 +124,7 @@ export const MHA_SERIES_CONFIG = {
       subheader:
         'Watch this short video to learn how to start shifting your self-talk and start to feel more grounded, capable, and confident in your day-to-day life ',
       offerHeader:
-        'You’ve just learned how self-talk shapes your confidence in yourself and your relationships.',
+        'You’ve Just Learned How Self-Talk Shapes Your Confidence In Yourself And Your Relationships.',
       offerSubheader: "NOW IT'S TIME TO TAKE CONTROL AND EMPOWER YOUR SELF-WORTH",
       offerFocus:
         'You can have the tools, support, and guidance to build your self-esteem and approach life with unwavering confidence and clarity with us. ',

@@ -45,7 +45,7 @@ export default function MentalHealthAwarenessPage() {
   return (
     <Page page_name="mha-month">
       <Section
-        className="bg-gradient-to-b from-pink-auxiliary to-white"
+        className="bg-gradient-to-b from-[#d7e7ea] to-white"
         classNameInner="!max-w-4xl mx-auto py-8">
         <h1 className="mb-8">
           Put Yourself First. Your Mental Health Matters. Make it a Priority with Us.

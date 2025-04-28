@@ -238,8 +238,8 @@ export default function OrganicQuizPage() {
               fulfilling. You thrive in relationships with other secure individuals who are looking
               for long-term, meaningful connections but struggle with insecurely attached people due
               to different beliefs and communication patterns. The best part? Anyone can develop a
-              secure attachment style, leading to healthier relationships and greater emotional
-              fulfillment.{' '}
+              secure attachment style with subconscious reprogramming tools and strategies, leading
+              to healthier relationships and greater emotional fulfillment.{' '}
               <Link
                 className="underline"
                 href="https://university.personaldevelopmentschool.com/pages/the-sa"
@@ -311,7 +311,7 @@ const LEARN_MORE_LINKS = [
   },
   {
     title: 'Watch the Latest Vidoes',
-    copy: 'Learn directly from Thais Gibson with our extensive library of game-changing and life-changing YouTube videos.',
+    copy: 'Learn directly from Thais Gibson with our extensive library of industry-leading and life-changing YouTube videos.',
     icon: <FontAwesomeIcon className="!text-tertiary" icon={faYoutube} size="2x" />,
     label: 'WATCH VIDEOS NOW!',
     link: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',

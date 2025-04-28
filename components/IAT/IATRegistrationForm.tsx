@@ -3,7 +3,7 @@
 // core
 import { useState } from 'react'
 // comoponents
-import { Button } from '../Button/Button'
+import { ButtonSubmit } from '../Button/variants/ButtonSubmit'
 import { Input } from '../Input/Input'
 // libraries
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
@@ -94,7 +94,7 @@ export const IATRegistrationForm = () => {
             </div>
           )}
 
-          <Button.Submit
+          <ButtonSubmit
             className="block w-full font-bold text-base self-start text-center rounded-full tracking-widest mt-4"
             disabled={isSubmitting}
             label={'SUBMIT'}

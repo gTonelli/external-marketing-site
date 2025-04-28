@@ -1,7 +1,5 @@
-'use client'
-
 // components
-import { Button } from '@/components/Button/Button'
+import { ButtonScroll } from '../Button/variants/ButtonScroll'
 // config
 import { IAT_COPY as IAT } from '@/app/(default-layout)/iat/config'
 
@@ -10,12 +8,6 @@ interface IIATBannerProps {
 }
 
 export const IATBanner = ({ page }: IIATBannerProps) => {
-  const onClickPurchase = () => {
-    document
-      .querySelector('#click-purchase-target')
-      ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
   if (page === 'ebook') {
     return (
       <>
@@ -48,10 +40,10 @@ export const IATBanner = ({ page }: IIATBannerProps) => {
           process!
         </p>
 
-        <Button
+        <ButtonScroll
           className="trial-btn relative mt-11 md:top-6 md:mt-0 lg:mt-8"
           label="SIGN UP NOW"
-          onClick={onClickPurchase}
+          target="#click-purchase-target"
         />
       </>
     )
@@ -73,10 +65,10 @@ export const IATBanner = ({ page }: IIATBannerProps) => {
         </p>
       ))}
 
-      <Button
+      <ButtonScroll
         className="trial-btn relative mt-6 md:top-6 md:mt-0 lg:mt-6"
         label="GET STARTED NOW"
-        onClick={onClickPurchase}
+        target="#click-purchase-target"
       />
     </>
   )

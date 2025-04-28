@@ -15,7 +15,7 @@ import { IATCurriculumCard } from './IATCurriculumCard'
 import { IATTestimonialSection } from './IATTestimonialSection'
 import { IATRegistrationForm } from './IATRegistrationForm'
 import { FaqSecondary } from '../Faq/variants/FaqSecondary'
-import { IATPurchaseButton } from './IATPurchaseButton'
+import { ButtonScroll } from '../Button/variants/ButtonScroll'
 // config
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
 // libraries
@@ -101,7 +101,11 @@ export const IATPage = ({
 
         <IATVideo />
 
-        <IATPurchaseButton />
+        <ButtonScroll
+          className="trial-btn mt-8"
+          label="GET STARTED NOW"
+          target="#click-purchase-target"
+        />
       </Section>
 
       {showLeadGenForm && (
@@ -198,7 +202,7 @@ export const IATPage = ({
             <p className="font-bold">{IAT.initial_weeks.subheading}</p>
 
             <List
-              className="mt-5 text-left"
+              className="mt-5 text-left mb-8"
               classNameIcon="!text-black mt-3"
               classNameListItems="mt-5"
               icon={faCircle}
@@ -206,7 +210,11 @@ export const IATPage = ({
               listItems={IAT.initial_weeks.content}
             />
 
-            <IATPurchaseButton />
+            <ButtonScroll
+              className="trial-btn"
+              label="GET STARTED NOW"
+              target="#click-purchase-target"
+            />
           </div>
         </div>
       </Section>
@@ -219,7 +227,11 @@ export const IATPage = ({
           </p>
         ))}
 
-        <IATPurchaseButton label="SIGN UP TODAY" />
+        <ButtonScroll
+          className="trial-btn mt-4"
+          label="SIGN UP TODAY"
+          target="#click-purchase-target"
+        />
       </Section>
 
       {/* TRUST BAR SECTION */}
@@ -393,7 +405,7 @@ export const IATPage = ({
           </div>
         </div>
 
-        <div className="max-w-5xl text-center text-white bg-purple-dark rounded-3xl py-9 px-7 mt-9 lg:py-12">
+        <div className="max-w-5xl text-center text-white bg-purple-dark rounded-3xl py-9 px-7 mt-9 mb-8 lg:py-12">
           <h3 className="!text-[26px]">Complete Your Certification Exam</h3>
 
           <p className="mt-3">
@@ -402,7 +414,11 @@ export const IATPage = ({
           </p>
         </div>
 
-        <IATPurchaseButton />
+        <ButtonScroll
+          className="trial-btn"
+          label="GET STARTED NOW"
+          target="#click-purchase-target"
+        />
       </Section>
 
       <IATTestimonialSection />
@@ -411,7 +427,7 @@ export const IATPage = ({
       <Section className="pt-14 pb-8 lg:pb-18" classNameInner="xs:px-7">
         <div className="flex flex-col text-left space-y-6 lg:flex-row lg:space-y-0 lg:space-x-14">
           <div className="max-w-[502px]">
-            <h1 className="text-black">Who is this Certification for?</h1>
+            <h2 className="text-black text-h1">Who is this Certification for?</h2>
 
             <p className="mt-8 lg:mt-10">{IAT.certification.title} </p>
 
@@ -437,7 +453,7 @@ export const IATPage = ({
           </div>
         </div>
 
-        <div className="mt-14 lg:grid lg:grid-cols-3 lg:gap-5 lg:mt-16">
+        <div className="mt-14 mb-8 lg:grid lg:grid-cols-3 lg:gap-5 lg:mt-16">
           {IAT.certification.coaches.map((coach, index) => {
             return (
               <div key={`audience-${index}`} className="mt-9 lg:mt-0">
@@ -459,7 +475,11 @@ export const IATPage = ({
           })}
         </div>
 
-        <IATPurchaseButton label="SAVE MORE THAN 50% NOW" />
+        <ButtonScroll
+          className="trial-btn"
+          label="SAVE MORE THAN 50% NOW"
+          target="#click-purchase-target"
+        />
       </Section>
 
       {/* WHAT YOU'LL GET SECTION */}
@@ -514,9 +534,13 @@ export const IATPage = ({
 
               <p className="font-bold text-left mt-10 tracking-0.325 lg:mt-0">IT'S FOR EVERYONE</p>
 
-              <p className="text-left mt-2">{IAT.what_you_get.secondaryCopy}</p>
+              <p className="text-left mt-2 mb-6">{IAT.what_you_get.secondaryCopy}</p>
 
-              <IATPurchaseButton label="SIGN UP TODAY" />
+              <ButtonScroll
+                className="trial-btn"
+                label="SIGN UP TODAY"
+                target="#click-purchase-target"
+              />
             </div>
 
             <div className="w-full max-w-[502px]">
@@ -597,7 +621,7 @@ export const IATPage = ({
           />
         ))}
 
-        <IATPurchaseButton label="SIGN UP TODAY" />
+        <ButtonScroll className="trial-btn" label="SIGN UP TODAY" target="#click-purchase-target" />
       </Section>
 
       {/* HOW WILL YOU BE CERTIFIED SECTION */}
@@ -615,9 +639,13 @@ export const IATPage = ({
           <div className="lg:min-w-[502px]">
             <h2 className="text-black text-[32px] text-left">How Will You Be Certified?</h2>
 
-            <p className="text-left mt-8 md:mt-10 md:text-lg">{IAT.how_to_certify.copy}</p>
+            <p className="text-left mt-8 mb-8 md:mt-10 md:text-lg">{IAT.how_to_certify.copy}</p>
 
-            <IATPurchaseButton />
+            <ButtonScroll
+              className="trial-btn"
+              label="GET STARTED NOW"
+              target="#click-purchase-target"
+            />
           </div>
         </div>
 
@@ -662,7 +690,7 @@ export const IATPage = ({
               {IAT.thais_section.subsection.subheading}
             </p>
 
-            <ul className="font-effra text-left mt-4 ml-4 list-decimal">
+            <ul className="font-effra text-left mt-4 ml-4 mb-8 list-decimal">
               {IAT.thais_section.subsection.copy.map((copy, index) => (
                 <li key={`imapct_${index}`}>
                   <p className="mt-4">{copy}</p>
@@ -670,7 +698,11 @@ export const IATPage = ({
               ))}
             </ul>
 
-            <IATPurchaseButton />
+            <ButtonScroll
+              className="trial-btn"
+              label="GET STARTED NOW"
+              target="#click-purchase-target"
+            />
           </div>
         </div>
       </Section>

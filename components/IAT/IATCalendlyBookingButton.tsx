@@ -37,11 +37,6 @@ export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
     })
 
     window.location.assign(url.toString())
-
-    Mixpanel.track.ButtonClicked({
-      button_label: event.currentTarget.innerText,
-      page_name: page_name,
-    })
   }
 
   return <Button className="trial-btn mb-16" label={label} onClick={onBookNow} />

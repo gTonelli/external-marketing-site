@@ -7,6 +7,7 @@ import cx from 'classnames'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { DowntimeBanner } from './DowntimeBanner'
 
 interface IHeaderProps {
   /**

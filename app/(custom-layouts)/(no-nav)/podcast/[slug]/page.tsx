@@ -18,32 +18,25 @@ import ReactMarkdown from 'react-markdown'
 import { PodcastEpisode, WithContext } from 'schema-dts'
 import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// utils
-import { IStrapiFetchProps, IStrapiResponse } from '@/utils/types'
 // style
 import '../style.css'
 
-function fetchPodcasts(
-  podcasts: IStrapiResponse<IPodcast>[] = [],
-  page = 1
-): Promise<IStrapiResponse<IPodcast>[]> {
-  return fetch(
+async function fetchPodcasts(podcasts: IPodcast[] = [], page = 1): Promise<IPodcast[]> {
+  const response = await fetch(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=urlSlug&pagination[page]=${page}&pagination[pageSize]=100`,
     { next: { tags: ['podcasts'], revalidate: 86400 } }
   )
-    .then((response) => response.json())
-    .then((res: IStrapiFetchProps<IStrapiResponse<IPodcast>[]>) => {
-      if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total)
-        return fetchPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
-      return podcasts.concat(res.data)
-    })
+  const res = await response.json()
+  if (res.meta.pagination.pageSize * res.meta.pagination.page < res.meta.pagination.total)
+    return fetchPodcasts(podcasts.concat(res.data), res.meta.pagination.page + 1)
+  return podcasts.concat(res.data)
 }
 
 export async function generateStaticParams() {
   const podcasts = await fetchPodcasts()
 
   return podcasts.map((podcast) => ({
-    slug: podcast.attributes.urlSlug.toString(),
+    slug: podcast.urlSlug.toString(),
   }))
 }
 
@@ -60,26 +53,26 @@ export async function generateMetadata({
       }
     )
     const res = await response.json()
-    const podcast: IStrapiResponse<IPodcast> = res.data.pop()
+    const podcast: IPodcast = res.data.pop()
     const metadata: Metadata = {
       metadataBase: new URL('https://attachment.personaldevelopmentschool.com/podcast'),
-      title: podcast.attributes.seoTitle,
-      description: podcast.attributes.seoDescription,
+      title: podcast.seoTitle,
+      description: podcast.seoDescription,
       alternates: {
-        canonical: `/${podcast.attributes.urlSlug}`,
+        canonical: `/${podcast.urlSlug}`,
       },
       robots: 'all',
       openGraph: {
         type: 'website',
-        title: podcast.attributes.seoTitle,
-        description: podcast.attributes.seoDescription,
+        title: podcast.seoTitle,
+        description: podcast.seoDescription,
         siteName: 'Personal Development School',
-        url: `https://attachment.personaldevelopmentschool.com/podcast/${podcast.attributes.urlSlug}`,
+        url: `https://attachment.personaldevelopmentschool.com/podcast/${podcast.urlSlug}`,
         images: [
           {
-            url: podcast.attributes.thumbnail.data.attributes.url,
-            width: podcast.attributes.thumbnail.data.attributes.width,
-            height: podcast.attributes.thumbnail.data.attributes.height,
+            url: podcast.thumbnail.url,
+            width: podcast.thumbnail.width,
+            height: podcast.thumbnail.height,
           },
         ],
       },
@@ -90,7 +83,7 @@ export async function generateMetadata({
   }
 }
 
-async function fetchPodcastEpisode(slug: string): Promise<IStrapiResponse<IPodcast>> {
+async function fetchPodcastEpisode(slug: string): Promise<IPodcast> {
   try {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?filters[urlSlug]=${slug}&populate=thumbnail`,
@@ -105,7 +98,7 @@ async function fetchPodcastEpisode(slug: string): Promise<IStrapiResponse<IPodca
   }
 }
 
-async function fetchPodcastPrevNext(releaseDate: string): Promise<IStrapiResponse<IPodcast>[]> {
+async function fetchPodcastPrevNext(releaseDate: string): Promise<IPodcast[]> {
   try {
     const prevRes = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcasts?fields[0]=urlSlug&filters[releaseDate][$lt]=${releaseDate}&sort=releaseDate:desc&pagination[limit]=1`,
@@ -131,17 +124,15 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
   const slug = params.slug
 
   const {
-    attributes: {
-      epNo,
-      title,
-      description,
-      guestName,
-      youtubeId,
-      spotifyId,
-      applePodcastUrl,
-      thumbnail,
-      releaseDate,
-    },
+    epNo,
+    title,
+    description,
+    guestName,
+    youtubeId,
+    spotifyId,
+    applePodcastUrl,
+    thumbnail,
+    releaseDate,
   } = await fetchPodcastEpisode(slug)
 
   const [prev, next] = await fetchPodcastPrevNext(releaseDate)
@@ -153,8 +144,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
     description: description,
     datePublished: releaseDate,
     url: `https://attachment.personaldevelopmentschool.com/podcast/${slug}`,
-    image: thumbnail.data.attributes.url,
-    thumbnailUrl: thumbnail.data.attributes.url,
+    image: thumbnail.url,
+    thumbnailUrl: thumbnail.url,
     author: {
       '@type': 'Person',
       name: 'Thais Gibson',
@@ -186,8 +177,8 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
             playInline
             classNameThumbnail="w-full"
             videoId={youtubeId}
-            thumbnail={thumbnail.data.attributes.url}
-            thumbnailAlt={thumbnail.data.attributes.alternativeText || 'Video thumbnail'}
+            thumbnail={thumbnail.url}
+            thumbnailAlt={thumbnail.alternativeText || 'Video thumbnail'}
             type="Podcast Episode Video"
           />
         </div>
@@ -197,7 +188,7 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
             {prev && (
               <LinkWrapper
                 className="w-max flex items-center border border-solid border-gray-light rounded-10 px-4 py-2 hover:text-white hover:no-underline hover:bg-primary"
-                url={`/podcast/${prev.attributes.urlSlug}`}>
+                url={`/podcast/${prev.urlSlug}`}>
                 <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
 
                 <span className="font-bold tracking-33">PREV</span>
@@ -215,7 +206,7 @@ export default async function PodcastEpisodePage({ params }: { params: { slug: s
             {next && (
               <LinkWrapper
                 className="w-max flex items-center border border-solid border-gray-light rounded-10 px-4 py-2 hover:text-white hover:no-underline hover:bg-primary"
-                url={`/podcast/${next.attributes.urlSlug}`}>
+                url={`/podcast/${next.urlSlug}`}>
                 <span className="font-bold tracking-33 mr-2">NEXT</span>
 
                 <FontAwesomeIcon icon={faChevronRight} />

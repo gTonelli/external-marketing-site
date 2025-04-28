@@ -1,3 +1,4 @@
+import { DowntimeBanner } from '@/components/DowntimeBanner'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {

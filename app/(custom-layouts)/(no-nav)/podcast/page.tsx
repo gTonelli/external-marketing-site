@@ -19,7 +19,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 // style
 import './style.css'
 // utils
-import { IStrapiThumbnail, IStrapiResponse } from '@/utils/types'
+import { IStrapiThumbnail } from '@/utils/types'
 
 type Props = {
   searchParams: {
@@ -38,7 +38,7 @@ export interface IPodcast {
   youtubeId: string
   spotifyId: string
   applePodcastUrl: string
-  thumbnail: { data: IStrapiThumbnail }
+  thumbnail: IStrapiThumbnail
   isFeatured: boolean
   description: string
   seoTitle: string
@@ -85,7 +85,7 @@ export const PODCAST_PLATFORMS: IPodcastPlatform[] = [
   },
 ]
 
-async function fetchPodcastCategories(): Promise<IStrapiResponse<IPodcastCategory>[]> {
+async function fetchPodcastCategories(): Promise<IPodcastCategory[]> {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-categories`, {
       next: { tags: ['podcast-categories'], revalidate: 86400 },
@@ -97,7 +97,7 @@ async function fetchPodcastCategories(): Promise<IStrapiResponse<IPodcastCategor
   }
 }
 
-async function fetchPodcastTypes(): Promise<IStrapiResponse<IPodcastType>[]> {
+async function fetchPodcastTypes(): Promise<IPodcastType[]> {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/podcast-types`, {
       next: { tags: ['podcast-types'], revalidate: 86400 },

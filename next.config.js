@@ -4,7 +4,18 @@ const nextConfig = {
     missingSuspenseWithCSRBailout: false,
   },
   images: {
-    domains: ['pds-strapi-bucket.s3-accelerate.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pds-strapi-bucket.s3-accelerate.amazonaws.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pds-strapi-bucket.s3.ca-central-1.amazonaws.com',
+        pathname: '/**',
+      },
+    ],
   },
 }
 

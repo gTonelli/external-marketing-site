@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next'
 import { fetchAllPodcasts } from '@/utils/functions'
-import { IStrapiResponse } from '@/utils/types'
 import { IPodcast } from './(custom-layouts)/(no-nav)/podcast/page'
 
 interface SitemapXMLObject {
@@ -14,9 +13,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const podcasts = await fetchAllPodcasts()
 
   const data = podcasts.map(
-    (podcast: IStrapiResponse<IPodcast>): SitemapXMLObject => ({
-      url: `https://attachment.personaldevelopmentschool.com/podcast/${podcast.attributes.urlSlug.toString()}`,
-      lastModified: podcast.attributes.updatedAt || podcast.attributes.publishedAt,
+    (podcast: IPodcast): SitemapXMLObject => ({
+      url: `https://attachment.personaldevelopmentschool.com/podcast/${podcast.urlSlug.toString()}`,
+      lastModified: podcast.updatedAt || podcast.publishedAt,
       changeFrequency: 'yearly',
       priority: 0.9,
     })

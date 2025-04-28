@@ -10,11 +10,9 @@ import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
 // libraries
 import { faPlayCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// utils
-import { IStrapiResponse } from '@/utils/types'
 
 interface IFeaturedPodcastProps {
-  featuredPodcast: IStrapiResponse<IPodcast>
+  featuredPodcast: IPodcast
 }
 
 export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
@@ -23,11 +21,7 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
   if (playVideo)
     return (
       <Section className="max-w-5xl mx-auto mt-16 lg:mt-0">
-        <VideoYoutube
-          autoPlayInline
-          videoId={featuredPodcast.attributes.youtubeId}
-          type="Featured Podcast"
-        />
+        <VideoYoutube autoPlayInline videoId={featuredPodcast.youtubeId} type="Featured Podcast" />
       </Section>
     )
 
@@ -55,11 +49,8 @@ export const FeaturedPodcast = ({ featuredPodcast }: IFeaturedPodcastProps) => {
         <div className="relative">
           <Image
             className="w-full h-auto rounded-3xl"
-            src={featuredPodcast.attributes.thumbnail.data.attributes.url}
-            alt={
-              featuredPodcast.attributes.thumbnail.data.attributes.alternativeText ||
-              'Featured Podcast Thumbnail'
-            }
+            src={featuredPodcast.thumbnail.url}
+            alt={featuredPodcast.thumbnail.alternativeText || 'Featured Podcast Thumbnail'}
             width={600}
             height={400}
           />

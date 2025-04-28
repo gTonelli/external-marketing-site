@@ -65,6 +65,7 @@ export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
             videoId={config.videoId}
             thumbnail="/images/pds-video-thumbnail.jpg"
             thumbnailAlt={`Video about FA - ${category}`}
+            type={`mha ${category} ${status}`}
           />
         </div>
       </Section>

@@ -56,7 +56,7 @@ export const CarouselTestimonialThinkific = forwardRef(
     const centeredSlides = windowWidth >= EWindowWidth.md
 
     return (
-      <section ref={ref} className={cx(`w-full relative overflow-hidden`, className)}>
+      <section ref={ref} className={cx(`w-full relative overflow-hidden px-4 md:!px-0`, className)}>
         {/* SLIDER */}
         <Swiper
           loop

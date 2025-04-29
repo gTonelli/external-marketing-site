@@ -1,6 +1,10 @@
 // components
 import { Section } from '@/components/Section'
-import { IATPricingCard, TIATCardDetails, TIATPriceOption } from './IATPricingCard'
+import {
+  IATWebinarPriceCard,
+  TIATCardDetails,
+  TIATPriceOption,
+} from '../IATPriceCard/variants/IATWebinarPriceCard'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 
@@ -90,9 +94,16 @@ export const IATWebinarPricing = () => {
   return (
     <Section>
       <div id="pricing" className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <IATPricingCard isLive cardDetails={IATLiveCardDetails} pricingMenu={IATLiveCardPricing} />
+        <IATWebinarPriceCard
+          isLive
+          cardDetails={IATLiveCardDetails}
+          pricingMenu={IATLiveCardPricing}
+        />
 
-        <IATPricingCard cardDetails={OnDemandIATCardDetails} pricingMenu={OnDemandIATCardPricing} />
+        <IATWebinarPriceCard
+          cardDetails={OnDemandIATCardDetails}
+          pricingMenu={OnDemandIATCardPricing}
+        />
       </div>
     </Section>
   )

@@ -12,7 +12,6 @@ import { AttachmentQuizForm } from './AttachmentQuizForm'
 import {
   QUIZ_DETAILED_QUESTIONS as detailedQuestions,
   EXTERNALQUIZQUESTIONS as questions,
-  SHORTQUIZQUESTIONS as shortQuestions,
 } from './config'
 // libraries
 import cx from 'classnames'
@@ -23,9 +22,8 @@ import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
 // utils
 import { TStyle } from '@/utils/types'
-import { getSplitTest } from '@/utils/functions'
 
-// let modifiedQuestions = [...questions]
+let modifiedQuestions = [...questions]
 
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
@@ -42,7 +40,6 @@ export const AttachmentQuizQuestions = ({
   quiz_traffic_source,
 }: IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
-  const [modifiedQuestions, setModifiedQuestions] = useState([...questions])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [apPoints, setApPoints] = useState(0)
   const [daPoints, setDaPoints] = useState(0)
@@ -85,20 +82,6 @@ export const AttachmentQuizQuestions = ({
       })
     }
   }, [currentIndex, quizName])
-
-  useEffect(() => {
-    if (quiz_traffic_source === 'paidGoogle' || quiz_traffic_source === 'paidMeta') {
-      const shortenQuiz = getSplitTest({
-        key: 'gm-1346-shorten-quiz',
-        experimentName: 'GM-1346-Shorten-Quiz',
-        variantRatio: 0.25,
-        useCookies: false,
-        props: { quiz_name: quizName, quiz_traffic_source },
-      })
-
-      if (shortenQuiz) setModifiedQuestions([...shortQuestions])
-    }
-  }, [quiz_traffic_source, quizName])
 
   useEffect(() => {
     if (isMobile) {

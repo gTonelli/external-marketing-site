@@ -172,7 +172,7 @@ export default function OrganicQuizPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 text-left my-16 lg:grid-cols-2">
+        <div className="grid gap-8 text-left my-16 lg:grid-cols-2">
           <div>
             <h3 className="mb-4">Anxious Preoccupied</h3>
 
@@ -184,7 +184,7 @@ export default function OrganicQuizPage() {
               there are effective strategies to break free from this pattern and build healthier,
               more secure connections.{' '}
               <Link
-                className="underline"
+                className="text-primary underline"
                 href="https://university.personaldevelopmentschool.com/pages/the-ap"
                 target="_blank">
                 Read more about Anxiously Preoccupied in our guide here.
@@ -203,7 +203,7 @@ export default function OrganicQuizPage() {
               intimacy. The challenge lies in changing your approach and finding a healthy balance
               between closeness and independence without losing yourself.{' '}
               <Link
-                className="underline"
+                className="text-primary underline"
                 href="https://university.personaldevelopmentschool.com/pages/the-da"
                 target="_blank">
                 Read more about Dismissive Avoidant in our guide here.
@@ -222,7 +222,7 @@ export default function OrganicQuizPage() {
               independence. Healing is possible through targeted tools and strategies designed to
               restore balance and help you find emotional security.{' '}
               <Link
-                className="underline"
+                className="text-primary underline"
                 href="https://university.personaldevelopmentschool.com/pages/the-fa"
                 target="_blank">
                 Read more about Fearful Avoidant in our guide here.
@@ -241,7 +241,7 @@ export default function OrganicQuizPage() {
               secure attachment style with subconscious reprogramming tools and strategies, leading
               to healthier relationships and greater emotional fulfillment.{' '}
               <Link
-                className="underline"
+                className="text-primary underline"
                 href="https://university.personaldevelopmentschool.com/pages/the-sa"
                 target="_blank">
                 Read more about Securely Attached in our guide here.
@@ -254,7 +254,7 @@ export default function OrganicQuizPage() {
       <Section>
         <h2 className="mb-8">Want to learn more? Let us help you.</h2>
 
-        <div className="grid grid-cols-1 gap-8 text-left lg:grid-cols-2">
+        <div className="grid gap-8 text-left lg:grid-cols-2">
           {LEARN_MORE_LINKS.map((item, idx) => (
             <Link
               key={`learn_more_${idx}`}

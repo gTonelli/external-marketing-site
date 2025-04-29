@@ -123,11 +123,26 @@ export default function MentalHealthAwarenessPage() {
               classNameListItems="mb-4"
               icon={faCheckCircle}
               listItems={[
-                '**70+ Courses** on breaking toxic cycles, building confidence, and overcoming anxiety',
-                '**Attachment courses** that guide you to go from insecure to securely attached — the key to healthy relationships',
-                '**Live coaching webinars and Q&As with Thais Gibson** to help you learn, process, and heal',
-                "**A supportive community** that truly understands what you're going through",
-                '**Simple yet powerful tools** to create healthy habits, fundamental changes, and lasting transformations that stay with you',
+                <>
+                  <strong>70+ Courses</strong> on breaking toxic cycles, building confidence, and
+                  overcoming anxiety
+                </>,
+                <>
+                  <strong>Attachment courses</strong> that guide you to go from insecure to securely
+                  attached — the key to healthy relationships
+                </>,
+                <>
+                  <strong>Live coaching webinars and Q&As with Thais Gibson</strong> to help you
+                  learn, process, and heal
+                </>,
+                <>
+                  <strong>A supportive community</strong> that truly understands what you're going
+                  through
+                </>,
+                <>
+                  <strong>Simple yet powerful tools</strong> to create healthy habits, fundamental
+                  changes, and lasting transformations that stay with you
+                </>,
               ]}
             />
 
@@ -173,11 +188,26 @@ export default function MentalHealthAwarenessPage() {
               classNameText="lg:pl-3"
               icon={faStar}
               listItems={[
-                '**Calm your anxiety** and emotions to navigate life’s challenges with greater ease, clarity, and confidence.',
-                '**Rediscover hope** and a renewed sense of purpose to feel more engaged and connected to yourself and the world around you.',
-                '**Empower your confidence** to take risks and pursue your goals, knowing that you are capable and worthy of success.',
-                '**Enhance your understanding** and express your emotions more effectively to create deeper, more meaningful connections.',
-                '**Create sustainable habits** that promote mental well-being, improving your overall quality of life and sense of control.',
+                <>
+                  <strong>Calm your anxiety</strong> and emotions to navigate life’s challenges with
+                  greater ease, clarity, and confidence.
+                </>,
+                <>
+                  <strong>Rediscover hope</strong> and a renewed sense of purpose to feel more
+                  engaged and connected to yourself and the world around you.
+                </>,
+                <>
+                  <strong>Empower your confidence</strong> to take risks and pursue your goals,
+                  knowing that you are capable and worthy of success.
+                </>,
+                <>
+                  <strong>Enhance your understanding</strong> and express your emotions more
+                  effectively to create deeper, more meaningful connections.
+                </>,
+                <>
+                  <strong>Create sustainable habits</strong> that promote mental well-being,
+                  improving your overall quality of life and sense of control.
+                </>,
               ]}
             />
           </div>

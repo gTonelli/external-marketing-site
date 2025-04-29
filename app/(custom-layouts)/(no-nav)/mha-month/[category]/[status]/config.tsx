@@ -14,21 +14,55 @@ export const MHA_SERIES_CONFIG = {
         'What happens if you had the tools, support, and guidance to calm your anxiety and approach challenges with clarity and confidence?',
       offers: [
         'Anxiety doesn’t just "go away"—but it can be reprogrammed. And we’re here to show you how to do it in a supportive environment with the right tools (at a pace you decide) and with industry-leading guidance.',
-        "That’s why as part of Mental Health Awareness Month, we’re offering a **14-day free trial to the All-Access Pass**. This all-inclusive pass is your ultimate resource to help turn your anxiety into security. You'll get complete access to everything at The Personal Development School: 70+ courses, live webinars, and an online community.",
-        'We’ll even give you the perfect starting point when you sign up: the _Overcoming Anxiety for Peace of Mind_ course. It’s a chance to explore our evidence-based tools for calming anxiety and embracing security within yourself.',
+        <>
+          That’s why as part of Mental Health Awareness Month, we’re offering a{' '}
+          <strong>14-day free trial to the All-Access Pass</strong>. This all-inclusive pass is your
+          ultimate resource to help turn your anxiety into security. You'll get complete access to
+          everything at The Personal Development School: 70+ courses, live webinars, and an online
+          community.
+        </>,
+        <>
+          We’ll even give you the perfect starting point when you sign up: the{' '}
+          <em>Overcoming Anxiety for Peace of Mind</em> course. It’s a chance to explore our
+          evidence-based tools for calming anxiety and embracing security within yourself.
+        </>,
       ],
       benefits: {
         header:
           'From Anxiety to Security: Here’s The Major Shifts You Can Expect With Your Free Trial to the All Access Pass',
         bullets: [
-          '**Embrace Your Worth**: You no longer seek validation from others—your value comes from within.',
-          "**Trust Yourself**: You make decisions confidently, knowing you're capable of attracting love that aligns with your values.",
-          '**Attract Healthy Connections**: You draw in relationships that honor your self-respect, not ones that make you doubt yourself.',
-          '**Feel Secure in Love**: No more second-guessing—just the comfort of knowing you are truly loved.',
-          '**Date with Confidence**: Approach dating with a strong sense of self-worth, knowing that the right person will appreciate you for who you truly are.',
-          '**Set Boundaries with Ease**: You protect your energy, setting healthy boundaries that reflect your self-worth.',
-          '**Embody Confidence**: Your inner confidence shines through, making you irresistible to those who appreciate you for who you truly are.',
-          '**Release Fear of Rejection**: You trust that the right people will love you for your authentic self, freeing you from the fear of rejection.',
+          <>
+            <strong>Embrace Your Worth</strong>: You no longer seek validation from others—your
+            value comes from within.
+          </>,
+          <>
+            <strong>Trust Yourself</strong>: You make decisions confidently, knowing you're capable
+            of attracting love that aligns with your values.
+          </>,
+          <>
+            <strong>Attract Healthy Connections</strong>: You draw in relationships that honor your
+            self-respect, not ones that make you doubt yourself.
+          </>,
+          <>
+            <strong>Feel Secure in Love</strong>: No more second-guessing—just the comfort of
+            knowing you are truly loved.
+          </>,
+          <>
+            <strong>Date with Confidence</strong>: Approach dating with a strong sense of
+            self-worth, knowing that the right person will appreciate you for who you truly are.
+          </>,
+          <>
+            <strong>Set Boundaries with Ease</strong>: You protect your energy, setting healthy
+            boundaries that reflect your self-worth.
+          </>,
+          <>
+            <strong>Embody Confidence</strong>: Your inner confidence shines through, making you
+            irresistible to those who appreciate you for who you truly are.
+          </>,
+          <>
+            <strong>Release Fear of Rejection</strong>: You trust that the right people will love
+            you for your authentic self, freeing you from the fear of rejection.
+          </>,
         ],
       },
     },
@@ -46,21 +80,55 @@ export const MHA_SERIES_CONFIG = {
         'What happens if you had the tools, support, and guidance to calm your anxiety and approach challenges with clarity and confidence?',
       offers: [
         'Anxiety doesn’t just "go away"—but it can be reprogrammed. And we’re here to show you how to do it in a supportive environment with the right tools (at a pace you decide) and with industry-leading guidance.',
-        "That’s why as part of Mental Health Awareness Month, we’re offering a **14-day free trial to the All-Access Pass**. This all-inclusive pass is your ultimate resource to help turn your anxiety into security. You'll get complete access to everything at The Personal Development School: 70+ courses, live webinars, and an online community.",
-        'We’ll even give you the perfect starting point when you sign up: the _Overcoming Anxiety for Peace of Mind_ course. It’s a chance to explore our evidence-based tools for calming anxiety and embracing security within yourself.',
+        <>
+          That’s why as part of Mental Health Awareness Month, we’re offering a{' '}
+          <strong>14-day free trial to the All-Access Pass</strong>. This all-inclusive pass is your
+          ultimate resource to help turn your anxiety into security. You'll get complete access to
+          everything at The Personal Development School: 70+ courses, live webinars, and an online
+          community.
+        </>,
+        <>
+          We’ll even give you the perfect starting point when you sign up: the{' '}
+          <em>Overcoming Anxiety for Peace of Mind</em> course. It’s a chance to explore our
+          evidence-based tools for calming anxiety and embracing security within yourself.
+        </>,
       ],
       benefits: {
         header:
           'From Anxiety to Security: Here’s The Major Shifts You Can Expect With Your Free Trial to the All Access Pass',
         bullets: [
-          '**Feel Secure in Love**: No more second-guessing—just the comfort of knowing you are truly loved.',
-          '**Turn Conflict Into Connection**: Challenges become stepping stones to a deeper connection, not reasons to pull away.',
-          '**Express Yourself Freely**: Your voice matters, and your partner listens with love and respect.',
-          '**Build a Relationship on Trust & Ease**: Love feels safe, steady, and fulfilling—exactly as it should be.',
-          '**Confidence in Your Connection**: You no longer seek constant reassurance because you feel the love every day.',
-          '**Handle Conflict With Calm & Clarity**: Disagreements no longer feel like threats—they’re just part of growing together.',
-          '**Speak & Be Heard**: Your words flow easily, and you know you’re heard, understood, and valued.',
-          '**Trust in Love, Feel Safe Together**: Doubt fades away when you know, deep down, that love is secure.',
+          <>
+            <strong>Feel Secure in Love</strong>: No more second-guessing—just the comfort of
+            knowing you are truly loved.
+          </>,
+          <>
+            <strong>Turn Conflict Into Connection</strong>: Challenges become stepping stones to a
+            deeper connection, not reasons to pull away.
+          </>,
+          <>
+            <strong>Express Yourself Freely</strong>: Your voice matters, and your partner listens
+            with love and respect.
+          </>,
+          <>
+            <strong>Build a Relationship on Trust & Ease</strong>: Love feels safe, steady, and
+            fulfilling—exactly as it should be.
+          </>,
+          <>
+            <strong>Confidence in Your Connection</strong>: You no longer seek constant reassurance
+            because you feel the love every day
+          </>,
+          <>
+            <strong>Handle Conflict With Calm & Clarity</strong>: Disagreements no longer feel like
+            threats—they’re just part of growing together.
+          </>,
+          <>
+            <strong>Speak & Be Heard</strong>: Your words flow easily, and you know you’re heard,
+            understood, and valued.
+          </>,
+          <>
+            <strong>Trust in Love, Feel Safe Together</strong>: Doubt fades away when you know, deep
+            down, that love is secure.
+          </>,
         ],
       },
     },
@@ -97,22 +165,57 @@ export const MHA_SERIES_CONFIG = {
       offerFocus:
         'With us, you can access the tools and support to uncover and reprogram the limiting beliefs that affect how you connect—with yourself and others.',
       offers: [
-        "As part of Mental Health Awareness Month, we’re offering a **14-day free trial to the All-Access Pass**. This all-inclusive pass is your ultimate resource to help turn your doubts into unshakeable confidence. You'll get complete access to everything at The Personal Development School: 70+ courses, live webinars, and an online community.",
+        <>
+          As part of Mental Health Awareness Month, we’re offering a{' '}
+          <strong>14-day free trial to the All-Access Pass*</strong>. This all-inclusive pass is
+          your ultimate resource to help turn your doubts into unshakeable confidence. You'll get
+          complete access to everything at The Personal Development School: 70+ courses, live
+          webinars, and an online community.
+        </>,
         'When your inner voice is critical—“I’m not enough,” “They’ll leave me,” “I always ruin things”— those thoughts aren’t the truth; they’re just old, protective programming. We’re here to show you how to rework those painful patterns and rebuild your self-worth in a supportive environment with the right tools (at a pace you decide) and with industry-leading guidance.',
-        'We’ll even give you the perfect starting point when you sign up: the _Skyrocket Your Self-Esteem_ course. It’s a chance to explore our evidence-based tools to rewire your inner dialogue, so you can feel more grounded, capable, and confident in your day-to-day life.',
+        <>
+          We’ll even give you the perfect starting point when you sign up: the{' '}
+          <em>Skyrocket Your Self-Esteem</em> course. It’s a chance to explore our evidence-based
+          tools to rewire your inner dialogue, so you can feel more grounded, capable, and confident
+          in your day-to-day life.
+        </>,
       ],
       benefits: {
         header:
           'From Doubts to Unshakable Confidence: Here’s The Major Shifts You Can Expect With Your Free Trial to the All Access Pass',
         bullets: [
-          '**Embrace Your Worth**: You no longer seek validation from others—your value comes from within.',
-          '**Attract Healthy Connections**: You draw in relationships that honor your self-respect, not ones that make you doubt yourself.',
-          "**Trust Yourself**: You make decisions confidently, knowing you're capable of attracting love that aligns with your values.",
-          '**Set Boundaries with Ease**: You protect your energy, setting healthy boundaries that reflect your self-worth.',
-          '**Embody Confidence**: Your inner confidence shines through, making you irresistible to those who appreciate you for who you truly are.',
-          '**Release Fear of Rejection**: You trust that the right people will love you for your authentic self, freeing you from the fear of rejection.',
-          '**Feel Secure in Love**: No more second-guessing—just the comfort of knowing you are truly loved.',
-          '**Date with Confidence**: Approach dating with a strong sense of self-worth, knowing that the right person will appreciate you for who you truly are.',
+          <>
+            <strong>Embrace Your Worth</strong>: You no longer seek validation from others—your
+            value comes from within.
+          </>,
+          <>
+            <strong>Attract Healthy Connections</strong>: You draw in relationships that honor your
+            self-respect, not ones that make you doubt yourself.
+          </>,
+          <>
+            <strong>Trust Yourself</strong>: You make decisions confidently, knowing you're capable
+            of attracting love that aligns with your values.
+          </>,
+          <>
+            <strong>Set Boundaries with Ease</strong>: You protect your energy, setting healthy
+            boundaries that reflect your self-worth.
+          </>,
+          <>
+            <strong>Embody Confidence</strong>: Your inner confidence shines through, making you
+            irresistible to those who appreciate you for who you truly are.
+          </>,
+          <>
+            <strong>Release Fear of Rejection</strong>: You trust that the right people will love
+            you for your authentic self, freeing you from the fear of rejection.
+          </>,
+          <>
+            <strong>Feel Secure in Love</strong>: No more second-guessing—just the comfort of
+            knowing you are truly loved
+          </>,
+          <>
+            <strong>Date with Confidence</strong>: Approach dating with a strong sense of
+            self-worth, knowing that the right person will appreciate you for who you truly are.
+          </>,
         ],
       },
     },
@@ -129,22 +232,57 @@ export const MHA_SERIES_CONFIG = {
       offerFocus:
         'You can have the tools, support, and guidance to build your self-esteem and approach life with unwavering confidence and clarity with us. ',
       offers: [
-        "As part of Mental Health Awareness Month, we’re offering a **14-day free trial to the All-Access Pass**. This all-inclusive pass is your ultimate resource to help turn your doubts into unshakeable confidence. You'll get complete access to everything at The Personal Development School: 70+ courses, live webinars, and an online community.",
+        <>
+          As part of Mental Health Awareness Month, we’re offering a{' '}
+          <strong>14-day free trial to the All-Access Pass</strong>. This all-inclusive pass is your
+          ultimate resource to help turn your doubts into unshakeable confidence. You'll get
+          complete access to everything at The Personal Development School: 70+ courses, live
+          webinars, and an online community.
+        </>,
         'Don’t let your low self-esteem lead to overthinking, emotional distance, and self-sabotage. We’re here to show you how to break out of these painful patterns and rebuild your self-worth in a supportive environment with the right tools (at a pace you decide) and with industry-leading guidance.',
-        'We’ll even give you the perfect starting point when you sign up: the _Skyrocket Your Self-Esteem_ course. It’s a chance to explore our evidence-based tools to rewire your inner dialogue, so you can feel more grounded, capable, and confident in your day-to-day life.',
+        <>
+          We’ll even give you the perfect starting point when you sign up: the
+          <em>Skyrocket Your Self-Esteem</em> course. It’s a chance to explore our evidence-based
+          tools to rewire your inner dialogue, so you can feel more grounded, capable, and confident
+          in your day-to-day life.
+        </>,
       ],
       benefits: {
         header:
           'From Doubts to Unshakable Confidence: Here’s The Major Shifts You Can Expect With Your Free Trial to the All Access Pass',
         bullets: [
-          '**Trust in Your Abilities & Decisions**: You no longer second-guess yourself—your confidence in your choices empowers you to move forward.',
-          '**Embrace Challenges As Opportunities**: Tackle challenges with optimism, knowing they’re stepping stones to your success.',
-          '**Set Respectful Boundaries**: You confidently assert your needs and protect your energy, knowing your self-worth is non-negotiable.',
-          '**Feel Confident in Your Partner’s Love**: No more searching for reassurance—just the peace of knowing you’re truly valued.',
-          '**Release the Fear and Trust in Your Connection**: Say goodbye to overanalyzing—embrace the certainty that your partner’s love is real.',
-          '**Own Your Needs with Confidence**: Feel empowered to express yourself freely, knowing that healthy communication brings you closer.',
-          '**Know That You’re Enough**: Find comfort in the certainty that your worth doesn’t rely on anyone else’s approval.',
-          '**Approach Relationships with Authenticity**: Be your true self, knowing that genuine connections are built on trust, vulnerability, and mutual respect.',
+          <>
+            <strong>Trust in Your Abilities & Decisions</strong>: You no longer second-guess
+            yourself—your confidence in your choices empowers you to move forward
+          </>,
+          <>
+            <strong>Embrace Challenges As Opportunities</strong>: Tackle challenges with optimism,
+            knowing they’re stepping stones to your success.
+          </>,
+          <>
+            <strong>Set Respectful Boundaries</strong>: You confidently assert your needs and
+            protect your energy, knowing your self-worth is non-negotiable.
+          </>,
+          <>
+            <strong>Feel Confident in Your Partner’s Love</strong>: No more searching for
+            reassurance—just the peace of knowing you’re truly valued.
+          </>,
+          <>
+            <strong>Release the Fear and Trust in Your Connection</strong>: Say goodbye to
+            overanalyzing—embrace the certainty that your partner’s love is real.
+          </>,
+          <>
+            <strong>Own Your Needs with Confidence</strong>: Feel empowered to express yourself
+            freely, knowing that healthy communication brings you closer.
+          </>,
+          <>
+            <strong>Know That You’re Enough</strong>: Find comfort in the certainty that your worth
+            doesn’t rely on anyone else’s approval.
+          </>,
+          <>
+            <strong>Approach Relationships with Authenticity</strong>: Be your true self, knowing
+            that genuine connections are built on trust, vulnerability, and mutual respect.
+          </>,
         ],
       },
     },

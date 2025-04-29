@@ -33,7 +33,7 @@ interface IListProps extends IDefaultProps {
   /**
    * Icon type
    */
-  listItems: string[]
+  listItems: (string | JSX.Element)[]
 }
 
 export const List = ({
@@ -57,7 +57,11 @@ export const List = ({
             />
           )}
 
-          <Text useMD className={cx(classNameText)} content={data} />
+          {typeof data === 'string' ? (
+            <Text useMD className={cx(classNameText)} content={data} />
+          ) : (
+            <span className={cx(classNameText)}>{data}</span>
+          )}
         </li>
       ))}
     </ul>

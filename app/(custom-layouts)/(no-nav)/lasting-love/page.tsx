@@ -187,16 +187,15 @@ export default function LastingLovePage() {
         </div>
 
         <SocialProofBar
-          cardNumbers={[4100000, 33000000, 113]}
-          cardTexts={['Attachment Styles Discovered', 'Youtube Views', 'Countries']}
+          cardNumbers={[70000, 50000000, 45000]}
+          cardTexts={[
+            'Course enrolments',
+            'Views on YouTube',
+            'Members in over 120 countries worldwide',
+          ]}
           className="text-black"
           classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
           classNameIcon="!bg-white"
-          iconImgs={[
-            'BlackFridayPage/envelope-open-text.svg',
-            'BlackFridayPage/users.svg',
-            'BlackFridayPage/earth-americas.svg',
-          ]}
         />
 
         {/* JOIN THOUSANDS OF OUR MEMBERS HERO SECTION */}

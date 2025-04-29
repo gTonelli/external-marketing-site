@@ -1,5 +1,5 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { IStrapiFetchProps, TDict } from './types'
+import { IStrapiFetchProps, TDict, TStyle } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage, TStorageKeys } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
@@ -173,4 +173,17 @@ export const getUserCountry = async () => {
     })
   )
   return res.countryCode as string
+}
+
+export const getAttachmentStyleText = (style: TStyle) => {
+  switch (style) {
+    case 'fa':
+      return 'Fearful Avoidant'
+    case 'ap':
+      return 'Anxious Preoccupied'
+    case 'da':
+      return 'Dismissive Avoidant'
+    case 'sa':
+      return 'Secure Attachment'
+  }
 }

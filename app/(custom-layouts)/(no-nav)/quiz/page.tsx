@@ -6,7 +6,6 @@ import { AttachmentStylesTabs } from '@/components/AttachmentStylesTabs/Attachme
 import { AttachmentQuiz } from '@/components/AttachmentQuiz/AttachmentQuiz'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
-import { SplitTestTracker } from '@/components/SplitTestTracker'
 // config
 import { REGULAR_COPY } from '../config'
 // libraries
@@ -17,7 +16,10 @@ export default function AttachmentQuizPage() {
   const quizCopy = REGULAR_COPY
 
   return (
-    <Page className="w-full text-center relative z-10" page_name="Main Funnel Quiz">
+    <Page
+      className="w-full text-center relative z-10"
+      page_name="Main Funnel Quiz"
+      splitTestData={{ experimentName: 'GM-1362-ICP-Results', key: 'GM-1362', useCookies: false }}>
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}

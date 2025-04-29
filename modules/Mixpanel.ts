@@ -82,6 +82,7 @@ export type Pages =
   | `IAT Webinar Squeeze Page`
   | `IAT Webinar Recording Page`
   | `IAT Post Registration Masterclass Page`
+  | `ICP Results Page - ${string}`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`

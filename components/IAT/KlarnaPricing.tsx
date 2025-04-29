@@ -10,7 +10,7 @@ import Image from 'next/image'
 import { List } from '../List'
 import { IAT_COPY as config } from '@/app/(default-layout)/iat/config'
 import { Button } from '../Button/Button'
-import { IATPriceCardSection } from './IATPage'
+import { IATPriceCardSection } from './IATPriceCardSection'
 import {
   faCircleCheck,
   faCircle,

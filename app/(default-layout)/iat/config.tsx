@@ -27,10 +27,12 @@ export const IAT_COPY = {
     copy_left: [
       'The Gibson Integrated Attachment Theory™ Certification Course is a revolutionary relationship coaching certification developed by Thais Gibson.',
       'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
-      <strong>
-        *Spots for the Live Training version of the program running from May 21, 2025 - August 6,
-        2025 are limited.
-      </strong>,
+      <>
+        <strong>
+          *Spots for the Live Training version of the program running from May 21, 2025 - August 6,
+          2025 are limited.
+        </strong>
+      </>,
     ],
 
     copy_right: [

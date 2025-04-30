@@ -1,4 +1,36 @@
+import { fa1, fa2, fa3, fa4, fa5 } from '@awesome.me/kit-545b942488/icons/classic/solid'
+
 export const config = {
+  base: {
+    healingSteps: [
+      {
+        icon: fa1,
+        text: 'You join the Personal Development School with your All-Access Pass (at 30% off!) Unlock access to 70+ courses, live webinars, and our private community.',
+      },
+      {
+        icon: fa2,
+        text: 'You start the Fearful Avoidant to Securely Attached program. It introduces the core concepts that help you understand what’s been keeping you stuck.',
+      },
+      {
+        icon: fa3,
+        text: (
+          <p>
+            You apply new tools to your life, existing relationships, and new relationships and meet
+            people <strong>on the same journey as you.</strong>
+          </p>
+        ),
+      },
+      {
+        icon: fa4,
+        text: 'You attend your first live webinar with our founder, Thais Gibson. Get clarity, have your questions answered, and feel supported by someone who understands your experience—and has helped tens of thousands of people like you heal.',
+      },
+      {
+        icon: fa5,
+        text: 'You feel calm, clear, and confident—setting boundaries that stick, starting new relationships on the right foot, and finally attracting people who feel safe to love.',
+      },
+    ],
+  },
+
   fa: {
     title: 'Transform Your Relationships: Finally Feel Safe, Seen, and Loved',
 

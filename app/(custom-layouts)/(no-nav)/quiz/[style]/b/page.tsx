@@ -1,3 +1,5 @@
+// core
+import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { TParams } from '../page'
@@ -5,7 +7,6 @@ import { Section } from '@/components/Section'
 import { QuizResultsPage } from '../QuizResultsPage'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import Image from 'next/image'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Faq } from '@/components/Faq/Faq'
@@ -171,7 +172,7 @@ export default function QuizResultsB({ params }: TParams) {
       </Section>
 
       <Section className="bg-white-secondary !py-10 mb-10" classNameInner="lg:!max-w-[996px]">
-        <h1>That pattern has a name: {attachmentStyleLong}</h1>
+        <h2>That pattern has a name: {attachmentStyleLong}</h2>
 
         <div className="text-left mb-10 lg:grid lg:grid-cols-[384px_588px] lg:gap-6 lg:items-center">
           <Image
@@ -302,7 +303,7 @@ export default function QuizResultsB({ params }: TParams) {
 
         <p className="text-xl">But here’s the most important part:</p>
 
-        <div className="default-padding bg-black rounded-xl lg:py-6 lg:px-10">
+        <div className="default-padding bg-black rounded-xl mb-6 lg:py-6 lg:px-10">
           <p className="text-white text-h2 font-ssp font-bold">
             These patterns aren’t permanent.Because they were learned, they can be changed.And once
             you understand them, you can finally feel securely attached.

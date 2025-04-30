@@ -63,7 +63,11 @@ export const List = ({
             />
           )}
 
-          <Text useMD={useMD} className={cx(classNameText)} content={data} />
+          {typeof data === 'string' ? (
+            <Text useMD={useMD} className={cx(classNameText)} content={data} />
+          ) : (
+            <span className={cx(classNameText)}>{data}</span>
+          )}
         </li>
       ))}
     </ul>

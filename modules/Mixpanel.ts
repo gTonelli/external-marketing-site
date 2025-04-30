@@ -102,6 +102,7 @@ export type Pages =
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `MHA - ${string} ${string}`
   | `Podcast Page`
   | `Podcast Episode Page - ${string}`
   | `Podcast Guest Form`

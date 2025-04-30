@@ -7,6 +7,8 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import Image from 'next/image'
 import { List } from '@/components/List'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { Faq } from '@/components/Faq/Faq'
 // config
 import { config } from './config'
 // libraries
@@ -23,15 +25,6 @@ import {
 import { getAttachmentStyleText } from '@/utils/functions'
 // styles
 import './style.css'
-import { TestimonialSection } from '@/components/TestimonialSection'
-import { TestimonialSecondary } from '@/components/Testimonial/variants/TestimonialSecondary'
-import { TestimonialDefault } from '@/components/Testimonial/variants/TestimonialDefault'
-import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
-import { CarouselTestimonialAlt } from '@/components/Carousel/variants/CarouselTestimonialAlt'
-import { CarouselTestimonialPlain } from '@/components/Carousel/variants/CarouselTestimonialPlain'
-import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { FaqSecondary } from '@/components/Faq/variants/FaqSecondary'
-import { Faq } from '@/components/Faq/Faq'
 
 export async function generateMetadata({ params }: TParams) {
   let title = 'Your Attachment Style Results'

@@ -10,6 +10,10 @@ import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
+import { useContext } from 'react'
+import { SplitTestContext } from '@/utils/contexts'
+import { getSplitTest } from '@/utils/functions'
+import { split } from 'lodash'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -27,6 +31,8 @@ export const AttachmentQuizForm = ({
   const funnelytics = useFunnelytics()
   const tagManager = useGoogleTagManager()
   const router = useRouter()
+  const splitTestContext = useContext(SplitTestContext)
+  const isVariant = splitTestContext && getSplitTest(splitTestContext)
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -37,7 +43,11 @@ export const AttachmentQuizForm = ({
 
       case 'paidGoogle':
         // Paid Google traffic: If user style is 'fa', redirect to specific page
-        return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
+        if (isVariant) {
+          return `/quiz/${userStyle}/b`
+        } else {
+          return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
+        }
 
       case 'paidMeta':
         /*  Paid Meta traffic: Handle split test logic for quiz B

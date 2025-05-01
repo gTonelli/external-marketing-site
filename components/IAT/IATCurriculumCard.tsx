@@ -33,7 +33,7 @@ export const IATCurriculumCard = ({
       onClick={() => setIsOpen(!isOpen)}
       role="button">
       <div className="w-full flex justify-between items-center pb-2 lg:pb-4">
-        <p className="font-semibold uppercase">{heading}</p>
+        <p className="font-semibold uppercase mb-0">{heading}</p>
 
         <FontAwesomeIcon
           className={`text-primary transition-all font-semibold text-xl ml-4 ${

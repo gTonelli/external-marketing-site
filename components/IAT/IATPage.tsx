@@ -1,12 +1,14 @@
+// core
+import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { List } from '@/components/List'
 import { Section } from '@/components/Section'
-import { IATPriceCardSection } from './IATPriceCardSection'
-import Image from 'next/image'
+import { List } from '@/components/List'
 import { TrustbarSlider } from '../Trustbar/variants/TrustbarSlider'
+import { ButtonScroll } from '../Button/variants/ButtonScroll'
 import { IATBanner } from '@/components/IAT/IATBanner'
+import { IATPriceCardSection } from './IATPriceCardSection'
 import { KlarnaPricing } from './KlarnaPricing'
 import { IATEBookModal } from './IATEBookModal'
 import { IATCalendlyBookingButton } from './IATCalendlyBookingButton'
@@ -14,19 +16,15 @@ import { IATVideo } from './IATVideo'
 import { IATCurriculumCard } from './IATCurriculumCard'
 import { IATTestimonialSection } from './IATTestimonialSection'
 import { IATRegistrationForm } from './IATRegistrationForm'
-import { FaqSecondary } from '../Faq/variants/FaqSecondary'
-import { ButtonScroll } from '../Button/variants/ButtonScroll'
+import { Faq } from '../Faq/Faq'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
 // libraries
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { faBook, faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import { Pages } from '@/modules/Mixpanel'
-// styles
-import 'swiper/css'
-import 'swiper/css/navigation'
 
 const TRUSTBAR = [
   `psychology-today-logo.png`,
@@ -101,11 +99,7 @@ export const IATPage = ({
 
         <IATVideo />
 
-        <ButtonScroll
-          className="trial-btn mt-8"
-          label="GET STARTED NOW"
-          target="#click-purchase-target"
-        />
+        <ButtonScroll className="mt-8" label="GET STARTED NOW" target="#click-purchase-target" />
       </Section>
 
       {showLeadGenForm && (
@@ -210,11 +204,7 @@ export const IATPage = ({
               listItems={IAT.initial_weeks.content}
             />
 
-            <ButtonScroll
-              className="trial-btn"
-              label="GET STARTED NOW"
-              target="#click-purchase-target"
-            />
+            <ButtonScroll label="GET STARTED NOW" target="#click-purchase-target" />
           </div>
         </div>
       </Section>
@@ -227,21 +217,11 @@ export const IATPage = ({
           </p>
         ))}
 
-        <ButtonScroll
-          className="trial-btn mt-4"
-          label="SIGN UP TODAY"
-          target="#click-purchase-target"
-        />
+        <ButtonScroll className="mt-4" label="SIGN UP TODAY" target="#click-purchase-target" />
       </Section>
 
       {/* TRUST BAR SECTION */}
-      <Section className="w-full bg-grey-10 py-6 lg:py-8">
-        <p className="font-bold tracking-0.325 text-center lg:text-lg">
-          OUR PRODUCTS HAVE BEEN FEATURED IN
-        </p>
-
-        <TrustbarSlider brandLogosList={TRUSTBAR} />
-      </Section>
+      <IATTrustbar />
 
       {/* TRAINING SECTION */}
       <Section className="lg:mt-3" classNameInner="text-center lg:max-w-5xl">
@@ -265,160 +245,9 @@ export const IATPage = ({
           />
         </div>
 
-        <Image
-          alt="Live Icon"
-          className="hidden mx-auto lg:block"
-          src="/images/IATPage/live-icon.png"
-          width={97}
-          height={35}
-        />
+        <IATFormats />
 
-        <h3 className="text-black !text-[26px] mt-4">Live Training Format</h3>
-
-        <div className="flex flex-col text-left mt-11 lg:flex-row space-y-10 lg:space-y-0 lg:space-x-[60px] lg:mt-13">
-          <div>
-            <p className="font-effra font-bold text-purple-dark tracking-0.325 mb-4">
-              PREREQUISITE WEEK 1-4
-            </p>
-
-            <List
-              className="mb-4"
-              classNameIcon="!text-green-check"
-              classNameListItems="font-bold"
-              icon={faCircleCheck}
-              listItems={IAT.training.live_training.prerequisite_week.heading}
-            />
-
-            {IAT.training.live_training.prerequisite_week.copy.map((copy, i) => (
-              <p key={`live_training_prerequisite_copy_${i}`} className="mb-4">
-                {copy}
-              </p>
-            ))}
-
-            <p className="font-bold">Week One</p>
-
-            <List
-              className="mt-2"
-              classNameIcon="!text-black mt-2"
-              classNameListItems="mt-1"
-              icon={faCircle}
-              iconSize="2xs"
-              listItems={IAT.training.live_training.prerequisite_week.week1}
-            />
-
-            <p className="font-bold mt-6">Week Two</p>
-
-            <List
-              className="mt-2"
-              classNameIcon="!text-black mt-2"
-              classNameListItems="mt-1"
-              icon={faCircle}
-              iconSize="2xs"
-              listItems={IAT.training.live_training.prerequisite_week.week2}
-            />
-
-            <p className="font-bold mt-6">Week Three</p>
-
-            <List
-              className="mt-2"
-              classNameIcon="!text-black mt-2"
-              classNameListItems="mt-1"
-              icon={faCircle}
-              iconSize="2xs"
-              listItems={IAT.training.live_training.prerequisite_week.week3}
-            />
-
-            <p className="font-bold mt-6">Week Four</p>
-
-            <List
-              className="mt-2"
-              classNameIcon="!text-black mt-2"
-              classNameListItems="mt-1"
-              icon={faCircle}
-              iconSize="2xs"
-              listItems={IAT.training.live_training.prerequisite_week.week4}
-            />
-          </div>
-
-          <div>
-            <p className="font-effra font-bold text-purple-dark tracking-0.325 mb-4">
-              INTENSIVE TRAINING WEEK 5-12
-            </p>
-
-            <List
-              className="mb-4"
-              classNameIcon="!text-green-check"
-              classNameListItems="font-bold mt-2"
-              icon={faCircleCheck}
-              listItems={IAT.training.live_training.intensive_week.heading}
-            />
-
-            {IAT.training.live_training.intensive_week.copy.map((copy, i) => (
-              <p key={`live_training_intensive_week_copy_${i}`} className="mb-4">
-                {copy}
-              </p>
-            ))}
-
-            <p className="font-bold">
-              {IAT.training.live_training.intensive_week.features.heading}
-            </p>
-
-            <List
-              className="mt-2"
-              classNameIcon="!text-black mt-2"
-              classNameListItems="mt-1"
-              icon={faCircle}
-              iconSize="2xs"
-              listItems={IAT.training.live_training.intensive_week.features.copy}
-            />
-
-            <p className="font-bold mt-6">
-              {IAT.training.live_training.intensive_week.features.subheading}
-            </p>
-          </div>
-        </div>
-
-        <FontAwesomeIcon className="text-black mt-13" icon={faBook} size="3x" />
-
-        <h3 className="text-black !text-[26px] mt-4">On-Demand Training Format</h3>
-
-        <div className="flex flex-col text-left mt-11 lg:flex-row space-y-7 lg:space-y-0 lg:space-x-[60px] lg:mt-20">
-          <div className="max-w-[498px]">
-            {IAT.training.on_demand_training.left_section.map((copy, i) => (
-              <p key={`on_demand_training_left_section_copy_${i}`} className="mb-4">
-                {copy}
-              </p>
-            ))}
-          </div>
-
-          <div>
-            <p className="font-bold">{IAT.training.on_demand_training.right_section.heading}</p>
-
-            <List
-              className="mt-6"
-              classNameIcon="!text-black mt-2"
-              classNameListItems="mt-1"
-              icon={faCircle}
-              iconSize="2xs"
-              listItems={IAT.training.on_demand_training.right_section.course_material}
-            />
-          </div>
-        </div>
-
-        <div className="max-w-5xl text-center text-white bg-purple-dark rounded-3xl py-9 px-7 mt-9 mb-8 lg:py-12">
-          <h3 className="!text-[26px]">Complete Your Certification Exam</h3>
-
-          <p className="mt-3">
-            Whichever format you choose, you’ll be invited to complete your certification exam at
-            the end of your 12 weeks.
-          </p>
-        </div>
-
-        <ButtonScroll
-          className="trial-btn"
-          label="GET STARTED NOW"
-          target="#click-purchase-target"
-        />
+        <ButtonScroll label="GET STARTED NOW" target="#click-purchase-target" />
       </Section>
 
       <IATTestimonialSection />
@@ -453,131 +282,16 @@ export const IATPage = ({
           </div>
         </div>
 
-        <div className="mt-14 mb-8 lg:grid lg:grid-cols-3 lg:gap-5 lg:mt-16">
-          {IAT.certification.coaches.map((coach, index) => {
-            return (
-              <div key={`audience-${index}`} className="mt-9 lg:mt-0">
-                <Image
-                  alt={`IAT Coach - ${coach.title}`}
-                  className="w-3/4 mx-auto max-w-64"
-                  src={`/images/IATPage/iat-coaches-${index + 1}.png`}
-                  width={256}
-                  height={247}
-                />
+        <IATCertificationCoaches />
 
-                <p className="text-purple-dark font-bold my-4 tracking-0.325 lg:my-6">
-                  {coach.title}
-                </p>
-
-                <p>{coach.copy}</p>
-              </div>
-            )
-          })}
-        </div>
-
-        <ButtonScroll
-          className="trial-btn"
-          label="SAVE MORE THAN 50% NOW"
-          target="#click-purchase-target"
-        />
+        <ButtonScroll label="SAVE MORE THAN 50% NOW" target="#click-purchase-target" />
       </Section>
 
       {/* WHAT YOU'LL GET SECTION */}
-      <Section
-        className="bg-black-secondary text-white px-7 py-8 lg:py-14"
-        classNameInner="!text-left">
-        <div className="flex flex-col lg:space-x-14 lg:flex-row">
-          <div className="max-w-[502px] mt-6">
-            <h2 className="mb-10">What You'll Get</h2>
-
-            {IAT.what_you_get.copy.map((copy, i) => (
-              <p key={`what_you_get_copy_${i}`} className="mb-4">
-                {copy}
-              </p>
-            ))}
-
-            <Image
-              alt="IAT Certification Mockup 1"
-              className="mt-6 lg:w-full lg:mt-11"
-              src="/images/IATPage/iat-learn-mockup.png"
-              width={351}
-              height={266}
-            />
-          </div>
-
-          <div className="max-w-[502px]">
-            {IAT.what_you_get.benefits.map((benefit, index) => (
-              <div key={`benefit-${index}`}>
-                <div className="flex flex-row mt-10 lg:mt-6">
-                  <FontAwesomeIcon className="text-teal my-auto" icon={benefit.icon} size="lg" />
-
-                  <p className="font-bold ml-5 tracking-0.325">{benefit.title}</p>
-                </div>
-
-                <p className="font-normal mt-2">{benefit.copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mt-8 text-center lg:mt-28">
-          <h2>Is this certification for me?</h2>
-
-          <div className="flex flex-col mt-8 lg:mt-13 lg:flex-row lg:space-x-14">
-            <div className="max-w-[502px] text-center lg:text-left">
-              <Image
-                alt="IAT Benefits Mockup Mobile"
-                className="w-full lg:hidden"
-                src="/images/IATPage/benefits-mockup.png"
-                width={351}
-                height={452}
-              />
-
-              <p className="font-bold text-left mt-10 tracking-0.325 lg:mt-0">IT'S FOR EVERYONE</p>
-
-              <p className="text-left mt-2 mb-6">{IAT.what_you_get.secondaryCopy}</p>
-
-              <ButtonScroll
-                className="trial-btn"
-                label="SIGN UP TODAY"
-                target="#click-purchase-target"
-              />
-            </div>
-
-            <div className="w-full max-w-[502px]">
-              <Image
-                alt="IAT Benefits Mockup Desktop"
-                className="w-full hidden lg:block"
-                src="/images/IATPage/benefits-mockup-desktop.png"
-                width={434}
-                height={386}
-              />
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <div>
-        <Image
-          alt="Black Wave Background on Mobile"
-          className="w-full -mt-4 md:hidden"
-          src="/images/IATPage/benefits-bg.png"
-          width={375}
-          height={143}
-        />
-
-        <Image
-          alt="Black Wave Background on Desktop"
-          className="w-full hidden md:block"
-          src="/images/IATPage/benefits-bg-desktop.png"
-          width={1440}
-          height={162}
-          quality={100}
-          sizes="100vw"
-        />
-      </div>
+      <IATOfferFeatures />
 
       {/* PRICE CARDS */}
-      <div id="click-purchase-target" className="text-center mb-12 scroll-m-16 lg:mb-18">
+      <div id="click-purchase-target" className="text-center mt-16 mb-12 scroll-m-16 lg:mb-18">
         {showKlarna ? <KlarnaPricing /> : <IATPriceCardSection />}
 
         <p className="text-black text-[26px] mt-4 mb-8 mx-6">
@@ -590,39 +304,7 @@ export const IATPage = ({
       </div>
 
       {/* PROGRAM ITINERARY */}
-      <Image
-        alt="Grey Curve Background on Mobile"
-        className="w-full md:hidden"
-        src="/images/IATPage/iat-curriculum-bg.png"
-        width={375}
-        height={14}
-      />
-
-      <Image
-        alt="Grey Curve Background on Desktop"
-        className="relative z-10 hidden w-full md:block"
-        src="/images/IATPage/iat-curriculum-bg-desktop.jpg"
-        width={1440}
-        height={88}
-        quality={100}
-        sizes="100vw"
-      />
-      <Section className="relative z-5 bg-[#e3eded80] lg:bottom-12">
-        <h2 className="text-black text-[26px] mb-4 lg:mb-16">Program Itinerary</h2>
-
-        {IAT.itinerary.map((week, index) => (
-          <IATCurriculumCard
-            key={`itinerary_${index}`}
-            heading={week.heading}
-            initialOpenState={index == 0 ? true : false}
-            listItems={week.listItems}
-            textBottom={week.textBottom}
-            textTop={week.textTop}
-          />
-        ))}
-
-        <ButtonScroll className="trial-btn" label="SIGN UP TODAY" target="#click-purchase-target" />
-      </Section>
+      <IATProgramItinerary />
 
       {/* HOW WILL YOU BE CERTIFIED SECTION */}
       <Section classNameInner="lg:max-w-5xl lg:pt-4 lg:pb-10">
@@ -641,11 +323,7 @@ export const IATPage = ({
 
             <p className="text-left mt-8 mb-8 md:mt-10 md:text-lg">{IAT.how_to_certify.copy}</p>
 
-            <ButtonScroll
-              className="trial-btn"
-              label="GET STARTED NOW"
-              target="#click-purchase-target"
-            />
+            <ButtonScroll label="GET STARTED NOW" target="#click-purchase-target" />
           </div>
         </div>
 
@@ -698,38 +376,325 @@ export const IATPage = ({
               ))}
             </ul>
 
-            <ButtonScroll
-              className="trial-btn"
-              label="GET STARTED NOW"
-              target="#click-purchase-target"
-            />
+            <ButtonScroll label="GET STARTED NOW" target="#click-purchase-target" />
           </div>
         </div>
       </Section>
 
       {/* TESTIMONIAL VIDEO SECTION */}
-      <Section className="2xl:pb-24">
-        <h2 className="my-4 max-w-4xl mx-auto lg:mb-12">Here's What Our Students Say:</h2>
-
-        <VideoThumbnail
-          thumbnailUrl="IATPage/IAT-testimonial-thumbnail.png"
-          thumbnailAlt="IAT Testimonial Thumbnail"
-          srcUrl="https://storage.googleapis.com/pds_videos/Integrated_attachment_theory_coaching_training_testimonials.mp4"
-          type="testimonial"
-        />
-      </Section>
+      <IATTestimonialVideo />
 
       {/* FAQ SECTION */}
       <Section className="bg-blue-lightest py-0 lg:py-5">
-        <FaqSecondary
-          className="bg-transparent py-0"
-          classNameFAQ="mx-0"
-          faq={IAT.faq}
-          headerText="Frequently Asked Questions"
-          subheaderTextDesktop=""
-          subheaderTextMobile=""
-        />
+        <IATFAQ />
       </Section>
     </Page>
   )
 }
+
+export const IATTrustbar = () => (
+  <Section className="w-full bg-white-secondary py-6 lg:py-8">
+    <p className="font-bold tracking-0.325 text-center lg:text-lg">
+      OUR PRODUCTS HAVE BEEN FEATURED IN
+    </p>
+
+    <TrustbarSlider brandLogosList={TRUSTBAR} />
+  </Section>
+)
+
+export const IATFormats = () => {
+  return (
+    <>
+      <h3 className="text-left my-8">Live Training Format</h3>
+
+      <div className="flex flex-col text-left lg:flex-row space-y-10 lg:space-y-0 lg:space-x-[60px]">
+        <div>
+          <h4 className="mb-4">Prerequisite Week 1-4</h4>
+
+          <List
+            className="mb-4"
+            classNameIcon="!text-primary"
+            classNameListItems="font-bold mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.live_training.prerequisite_week.heading}
+          />
+
+          {IAT.training.live_training.prerequisite_week.copy.map((copy, i) => (
+            <p key={`live_training_prerequisite_copy_${i}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <p className="font-bold uppercase tracking-33">Week One</p>
+
+          <List
+            className="mt-2"
+            classNameIcon="!text-primary"
+            classNameListItems="mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.live_training.prerequisite_week.week1}
+          />
+
+          <p className="font-bold uppercase tracking-33 mt-4">Week Two</p>
+
+          <List
+            className="mt-2"
+            classNameIcon="!text-primary"
+            classNameListItems="mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.live_training.prerequisite_week.week2}
+          />
+
+          <p className="font-bold uppercase tracking-33 mt-4">Week Three</p>
+
+          <List
+            className="mt-2"
+            classNameIcon="!text-primary"
+            classNameListItems="mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.live_training.prerequisite_week.week3}
+          />
+
+          <p className="font-bold uppercase tracking-33 mt-4">Week Four</p>
+
+          <List
+            className="mt-2"
+            classNameIcon="!text-primary"
+            classNameListItems="mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.live_training.prerequisite_week.week4}
+          />
+        </div>
+
+        <div>
+          <h4 className="mb-4">Intensive Training Week 5-12</h4>
+
+          <List
+            className="mt-2"
+            classNameIcon="!text-primary"
+            classNameListItems="font-bold mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.live_training.intensive_week.heading}
+          />
+
+          {IAT.training.live_training.intensive_week.copy.map((copy, i) => (
+            <p key={`live_training_intensive_week_copy_${i}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <p className="font-bold uppercase tracking-33">
+            {IAT.training.live_training.intensive_week.features.heading}
+          </p>
+
+          <List
+            className="mt-2"
+            classNameIcon="!text-primary"
+            classNameListItems="mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.live_training.intensive_week.features.copy}
+          />
+
+          <p className="font-bold mt-4">
+            {IAT.training.live_training.intensive_week.features.subheading}
+          </p>
+        </div>
+      </div>
+
+      <div className="w-full h-[2px] bg-black mt-4"></div>
+
+      <h3 className="text-left my-8">On-Demand Training Format</h3>
+
+      <div className="flex flex-col text-left lg:flex-row space-y-7 lg:space-y-0 lg:space-x-[60px]">
+        <div className="max-w-[498px]">
+          {IAT.training.on_demand_training.left_section.map((copy, i) => (
+            <p key={`on_demand_training_left_section_copy_${i}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+        </div>
+
+        <div>
+          <p className="font-bold">{IAT.training.on_demand_training.right_section.heading}</p>
+
+          <List
+            className="mt-2"
+            classNameIcon="!text-primary"
+            classNameListItems="mb-2"
+            icon={faCircleCheck}
+            listItems={IAT.training.on_demand_training.right_section.course_material}
+          />
+        </div>
+      </div>
+
+      <div className="w-full text-center bg-primary-light rounded-3xl p-8 my-8 lg:py-12">
+        <h3>Complete Your Certification Exam</h3>
+
+        <p className="max-w-2xl mt-4 mx-auto">
+          <strong>
+            Whichever format you choose, you’ll be invited to complete your certification exam at
+            the end of your 12 weeks.
+          </strong>
+        </p>
+      </div>
+    </>
+  )
+}
+
+export const IATCertificationCoaches = () => {
+  return (
+    <div className="mt-16 mb-8 lg:grid lg:grid-cols-3 lg:gap-5">
+      {IAT.certification.coaches.map((coach, index) => {
+        return (
+          <div key={`audience-${index}`} className="mt-4 lg:mt-0">
+            <Image
+              alt={`IAT Coach - ${coach.title}`}
+              className="w-3/4 mx-auto max-w-64"
+              src={`/images/IATPage/iat-coaches-${index + 1}.png`}
+              width={256}
+              height={247}
+            />
+
+            <p className="font-bold tracking-0.33 my-4">{coach.title}</p>
+
+            <p>{coach.copy}</p>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+export const IATOfferFeatures = () => {
+  return (
+    <Section
+      className="bg-black-secondary text-white px-7 py-8 lg:py-14"
+      classNameInner="!text-left">
+      <div className="flex flex-col lg:space-x-14 lg:flex-row">
+        <div className="max-w-[502px] mt-6">
+          <h2 className="mb-10">What You'll Get</h2>
+
+          {IAT.what_you_get.copy.map((copy, i) => (
+            <p key={`what_you_get_copy_${i}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <Image
+            alt="IAT Certification Mockup 1"
+            className="mt-6 lg:w-full lg:mt-11"
+            src="/images/IATPage/iat-learn-mockup.png"
+            width={351}
+            height={266}
+          />
+        </div>
+
+        <div className="max-w-[502px]">
+          {IAT.what_you_get.benefits.map((benefit, index) => (
+            <div key={`benefit-${index}`}>
+              <div className="flex flex-row mt-10 lg:mt-6">
+                <FontAwesomeIcon className="text-primary my-auto" icon={benefit.icon} size="lg" />
+
+                <p className="font-bold tracking-33 ml-4 !mb-0">{benefit.title}</p>
+              </div>
+
+              <p className="font-normal mt-2">{benefit.copy}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-8 text-center lg:mt-28">
+        <h2>Is this certification for me?</h2>
+
+        <div className="flex flex-col mt-8 lg:mt-13 lg:flex-row lg:space-x-14">
+          <div className="max-w-[502px] text-center lg:text-left">
+            <Image
+              alt="IAT Benefits Mockup Mobile"
+              className="w-full lg:hidden"
+              src="/images/IATPage/benefits-mockup.png"
+              width={351}
+              height={452}
+            />
+
+            <p className="font-bold text-left mt-10 tracking-33 lg:mt-0">IT'S FOR EVERYONE!</p>
+
+            <p className="text-left mt-2 mb-4">{IAT.what_you_get.secondaryCopy1}</p>
+
+            <p className="text-left mt-2 mb-6">{IAT.what_you_get.secondaryCopy2}</p>
+
+            <ButtonScroll label="SIGN UP TODAY" target="#click-purchase-target" />
+          </div>
+
+          <div className="w-full max-w-[502px]">
+            <Image
+              alt="IAT Benefits Mockup Desktop"
+              className="w-full hidden lg:block"
+              src="/images/IATPage/benefits-mockup-desktop.png"
+              width={434}
+              height={386}
+            />
+          </div>
+        </div>
+      </div>
+    </Section>
+  )
+}
+
+export const IATProgramItinerary = () => {
+  return (
+    <>
+      <Image
+        alt="Grey Curve Background on Mobile"
+        className="w-full md:hidden"
+        src="/images/IATPage/iat-curriculum-bg.png"
+        width={375}
+        height={14}
+      />
+
+      <Image
+        alt="Grey Curve Background on Desktop"
+        className="relative z-10 hidden w-full md:block"
+        src="/images/IATPage/iat-curriculum-bg-desktop.jpg"
+        width={1440}
+        height={88}
+        quality={100}
+        sizes="100vw"
+      />
+      <Section className="relative z-5 bg-[#e3eded80] lg:bottom-12">
+        <h2 className="mb-4 lg:mb-16">Program Itinerary</h2>
+
+        {IAT.itinerary.map((week, index) => (
+          <IATCurriculumCard
+            key={`itinerary_${index}`}
+            heading={week.heading}
+            initialOpenState={index == 0 ? true : false}
+            listItems={week.listItems}
+            textBottom={week.textBottom}
+            textTop={week.textTop}
+          />
+        ))}
+
+        <ButtonScroll label="SIGN UP TODAY" target="#click-purchase-target" />
+      </Section>
+    </>
+  )
+}
+
+export const IATTestimonialVideo = () => (
+  <Section>
+    <h2 className="max-w-4xl mx-auto my-4 lg:mb-12">Here's What Our Students Say:</h2>
+
+    <div className="w-fit bg-white rounded-2xl shadow-xl p-4 mx-auto mb-16">
+      <VideoThumbnail
+        thumbnailUrl="IATPage/IAT-testimonial-thumbnail.png"
+        thumbnailAlt="IAT Testimonial Thumbnail"
+        srcUrl="https://storage.googleapis.com/pds_videos/Integrated_attachment_theory_coaching_training_testimonials.mp4"
+        type="iat-testimonial"
+      />
+    </div>
+  </Section>
+)
+
+export const IATFAQ = () => (
+  <Faq className="bg-transparent py-0" classNameHeading="text-center" faq={IAT.faq} />
+)

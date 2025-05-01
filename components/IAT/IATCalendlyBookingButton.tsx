@@ -6,7 +6,6 @@ import { useContext } from 'react'
 import { Button } from '@/components/Button/Button'
 // modules
 import { useGamAnalytics } from '@/modules/GAM'
-import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { EExternalRoutes } from '@/utils/constants'
 import { PageContext } from '@/utils/contexts'
@@ -15,7 +14,7 @@ export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
   const { getUserData } = useGamAnalytics()
   const { page_name } = useContext(PageContext)
 
-  const onBookNow = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const onBookNow = (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const url = new URL(EExternalRoutes.CALENDLY_MELANIE)
 
     const { gamLastTouchData } = getUserData()
@@ -39,5 +38,5 @@ export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
     window.location.assign(url.toString())
   }
 
-  return <Button className="trial-btn mb-16" label={label} onClick={onBookNow} />
+  return <Button className="mb-8" label={label} onClick={onBookNow} />
 }

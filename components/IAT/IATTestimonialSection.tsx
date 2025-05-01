@@ -1,86 +1,82 @@
 'use client'
 
 // core
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import Image from 'next/image'
 // components
 import { Section } from '../Section'
-import Image from 'next/image'
-// libraries
 import { faArrowLeftLong, faArrowRightLong } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Autoplay, Navigation } from 'swiper/modules'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // config
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
+// utils
+import { ViewportContext } from '@/utils/contexts'
+import { EWindowWidth } from '@/utils/constants'
+// styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 export const IATTestimonialSection = () => {
+  // ==================== Context ====================
+  const { windowWidth } = useContext(ViewportContext)
+
   // ==================== State ====================
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
 
+  const noOfslides = windowWidth <= EWindowWidth.md - 1 ? 1 : 'auto'
+  const spaceBetween = windowWidth <= EWindowWidth.md - 1 ? 0 : 36
+  const centeredSlides = windowWidth >= EWindowWidth.md
+
   return (
     <Section
-      className="relative max-w-7xl mx-auto py-8 px-0 xxs:px-0 xs:px-0"
-      classNameInner="lg:max-w-7xl">
+      className="w-full relative overflow-hidden px-4 md:!px-0"
+      classNameInner="!max-w-full w-full !m-0 !p-0">
       <Swiper
-        centeredSlides
         loop
+        className="!overflow-hidden !pb-16"
         autoplay={{
           delay: 6000,
         }}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 16,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 24,
-          },
+        pagination={{
+          clickable: true,
+          bulletActiveClass: '!opacity-100',
+          bulletClass:
+            'inline-block w-4 h-4 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer lg:hover:opacity-100',
         }}
-        className="!overflow-hidden !px-4 mb-4"
-        wrapperClass="!pb-4"
-        modules={[Autoplay, Navigation]}
-        navigation={{ prevEl, nextEl }}
-        slidesPerView={1}
-        spaceBetween={16}>
+        initialSlide={1}
+        modules={[Autoplay, Pagination]}
+        centeredSlides={centeredSlides}
+        slidesPerView={noOfslides}
+        spaceBetween={spaceBetween}>
         {IAT.testimonials.map((testimonial, index) => (
-          <SwiperSlide key={`iat_testimonial_${index}`} className="!h-auto">
-            {({ isActive }) => (
-              <div
-                className={`w-full h-full ${
-                  !isActive && 'bg-gray-bg-primary opacity-50'
-                } rounded-3xl shadow-lg transition-colors my-2 p-8`}>
-                <Image
-                  alt="Quotation Icon"
-                  className="!w-16 h-auto rotate-180"
-                  src="/images/TrialHeadspace/quotation-left.png"
-                  width={64}
-                  height={48}
-                />
+          <SwiperSlide
+            key={`iat_testimonial_${index}`}
+            className="!w-full !h-auto overflow-hidden md:!w-1/2">
+            <div className="h-full bg-white-secondary rounded-3xl my-2 p-8">
+              <Image
+                alt="Quotation Icon"
+                className="!w-16 h-auto rotate-180"
+                src="/images/TrialHeadspace/quotation-left.png"
+                width={64}
+                height={48}
+              />
 
-                <p className="text-left mt-8">{testimonial.review}</p>
+              <p className="text-left mt-8">{testimonial.review}</p>
 
-                <p className="text-left font-bold mt-4">{testimonial.author}</p>
+              <p className="text-left font-bold mt-4">{testimonial.author}</p>
 
-                <p className="text-left">{testimonial.designation}</p>
+              <p className="text-left">{testimonial.designation}</p>
 
-                <p className="text-left italic mt-4">{testimonial.location}</p>
-              </div>
-            )}
+              <p className="text-left italic mt-4">{testimonial.location}</p>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="absolute flex right-9 bottom-0">
-        <div ref={(node) => setPrevEl(node)} className="mx-2">
-          <FontAwesomeIcon icon={faArrowLeftLong} size="lg" />
-        </div>
-
-        <div ref={(node) => setNextEl(node)} className="mx-2">
-          <FontAwesomeIcon icon={faArrowRightLong} size="lg" />
-        </div>
-      </div>
     </Section>
   )
 }

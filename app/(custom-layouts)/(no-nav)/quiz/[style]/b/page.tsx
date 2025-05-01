@@ -28,28 +28,30 @@ import { getAttachmentStyleText } from '@/utils/functions'
 import './style.css'
 
 export async function generateMetadata({ params }: TParams) {
-  let title = 'Your Attachment Style Results'
-
   switch (params.style) {
     case 'fa':
-      title = 'Fearful Avoidant | ' + title
-      break
+      return {
+        title: 'Fearful Avoidant Attachment Style Report | PDS',
+        description:
+          'Discover your Fearful Avoidant attachment style with this detailed report. Learn how it impacts your relationships and get tools to heal and become secure.',
+      }
 
     case 'da':
-      title = 'Dismissive Avoidant | ' + title
-      break
+      return {
+        title: 'Dismissive Avoidant Attachment Style Report | PDS',
+        description:
+          'Uncover the patterns behind the Dismissive Avoidant attachment style. This report offers practical tools for emotional growth and deeper connection.',
+      }
 
     case 'ap':
-      title = 'Anxious Preoccupied | ' + title
-      break
+      return {
+        title: 'Anxious Preoccupied Attachment Style Report | PDS',
+        description:
+          'Explore the Anxious Preoccupied attachment style in this actionable report. Learn how to self-regulate, build secure bonds, and thrive in relationships.',
+      }
 
     case 'sa':
-      title = 'Securely Attached | ' + title
-      break
-  }
-
-  return {
-    title,
+      return { title: 'Securely Attached | Your Attachment Style Results' }
   }
 }
 
@@ -75,7 +77,7 @@ export default function QuizResultsB({ params }: TParams) {
 
         <VideoThumbnail
           className="shadow-centered p-4 rounded-20 max-w-[792px] mx-auto mb-6"
-          srcUrl={'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4'}
+          srcUrl={attachmentStyleConfig.videoSrc}
           thumbnailAlt="Thais Gibson sitting at a desk smiling and filling in a workbook."
           thumbnailUrl={'AttachmentQuizResults/thais-writing.jpg'}
           type="default"
@@ -780,7 +782,7 @@ export default function QuizResultsB({ params }: TParams) {
         </div>
       </Section>
 
-      <Faq />
+      <Faq faq={baseConfig.faqs} />
     </Page>
   )
 }

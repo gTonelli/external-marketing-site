@@ -29,6 +29,45 @@ export const config = {
         text: 'You feel calm, clear, and confident—setting boundaries that stick, starting new relationships on the right foot, and finally attracting people who feel safe to love.',
       },
     ],
+
+    faqs: [
+      {
+        question: 'Can I cancel anytime?',
+        answer:
+          'Yes, easily manage your subscription at any time. Plus, we offer a 7-day money-back guarantee—start risk-free and experience the benefits for yourself.',
+      },
+      {
+        question: 'How quickly will I see results?',
+        answer:
+          'Most users report noticeable changes within 30 days, with the first results appearing in just 7. ',
+      },
+      {
+        question: "What if I'm new to attachment theory?",
+        answer:
+          'Our courses and resources are beginner-friendly, designed specifically to guide you step-by-step.',
+      },
+      {
+        question: 'Is the community moderated?',
+        answer:
+          'Yes, our supportive community is actively moderated to ensure a safe, judgment-free space.',
+      },
+      {
+        question: 'Can I access the materials on my schedule?',
+        answer:
+          "Yes. All of our courses are on-demand, so you can take them whenever it works for you. Webinars are live each week, and we also offer replays in case you can't attend.",
+      },
+      {
+        question: 'Can I take courses that aren’t designed for my attachment style?',
+        answer:
+          'Absolutely. You can explore any of our 70+ courses. Even if a course isn’t designed for your specific style, it may help you better understand someone close to you—giving you the tools to improve and strengthen that relationship.',
+      },
+      {
+        question:
+          'Can I take the courses and attend webinars at my own pace without feeling overwhelmed?',
+        answer:
+          'Absolutely. You’re never required to complete content within a strict timeframe. The curriculum is designed to support your personal journey. Go slow or fast—whichever helps you feel safest and most authentic. We want you to maintain your sense of self throughout this process.',
+      },
+    ],
   },
 
   fa: {
@@ -54,6 +93,8 @@ export const config = {
       'If you attract people who seem great at first but turn out to be inconsistent, unpredictable, or hard to trust...',
       'If you constantly find yourself waiting for the other shoe to drop—in friendships, family dynamics, or dating...',
     ],
+
+    videoSrc: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
   },
 
   da: {
@@ -80,6 +121,8 @@ export const config = {
       'If emotional conversations feel overwhelming or unproductive, and you’d rather avoid them...',
       'If you feel unsure whether anyone can really meet your needs without overstepping your boundaries...',
     ],
+
+    videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
   },
 
   ap: {
@@ -106,5 +149,7 @@ export const config = {
       'If you keep ending up in relationships where you care more, try harder, or feel like you’re never quite enough...',
       'If you find yourself constantly wondering where you stand—in romantic relationships, friendships, or even family...',
     ],
+
+    videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
   },
 }

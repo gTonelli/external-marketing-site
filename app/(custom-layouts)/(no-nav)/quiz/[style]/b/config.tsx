@@ -2,14 +2,14 @@ import { fa1, fa2, fa3, fa4, fa5 } from '@awesome.me/kit-545b942488/icons/classi
 
 export const config = {
   base: {
-    healingSteps: [
+    healingSteps: (attachmentStyleLong: string) => [
       {
         icon: fa1,
         text: 'You join the Personal Development School with your All-Access Pass (at 30% off!) Unlock access to 70+ courses, live webinars, and our private community.',
       },
       {
         icon: fa2,
-        text: 'You start the Fearful Avoidant to Securely Attached program. It introduces the core concepts that help you understand what’s been keeping you stuck.',
+        text: `You start the ${attachmentStyleLong} to Securely Attached program. It introduces the core concepts that help you understand what’s been keeping you stuck.`,
       },
       {
         icon: fa3,
@@ -88,6 +88,19 @@ export const config = {
     hookFooter:
       'You crave stable, healthy relationships in every area of your life, but deep down, you don’t believe it’s real—or that it could last.',
 
+    patternListItems: [
+      'Who you’re drawn to',
+      'How safe you feel when someone gets close',
+      'How much you trust people to be consistent and honest',
+      'The way you express needs—or hide them',
+    ],
+
+    subsconsciousListItems: [
+      'It looks for what’s familiar.',
+      'It repeats what feels “normal,” even if that normal is painful.',
+      'It pulls you toward the people and dynamics that match your earliest experiences—even when those experiences taught you to expect confusion, inconsistency, or betrayal.',
+    ],
+
     repeatedPatternsBodyItems: [
       'If you keep ending up in relationships that feel intense but unstable—romantic or otherwise...',
       'If you attract people who seem great at first but turn out to be inconsistent, unpredictable, or hard to trust...',
@@ -95,6 +108,9 @@ export const config = {
     ],
 
     videoSrc: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
+
+    thaisBio:
+      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived the Fearful Avoidant experience—and healed. That’s why she created the Personal Development School: to help others do the same.',
   },
 
   da: {
@@ -116,6 +132,19 @@ export const config = {
     hookFooter:
       'You want peace, clarity, and relationships where your space is respected—without losing the option for closeness, too.',
 
+    patternListItems: [
+      'What makes you feel overwhelmed—or at ease—in relationships',
+      'How much closeness feels safe',
+      'Whether you trust others to meet your needs without pressure',
+      'The way you express support—or protect your emotional boundaries',
+    ],
+
+    subsconsciousListItems: [
+      'It looks for what’s familiar.',
+      'It repeats what feels “normal,” even if that normal is painful.',
+      'It pulls you toward the people and dynamics that match your earliest experiences—even when those experiences taught you that you can’t rely on anyone.',
+    ],
+
     repeatedPatternsBodyItems: [
       'If you find yourself pulling back when someone gets too close—without always knowing why...',
       'If emotional conversations feel overwhelming or unproductive, and you’d rather avoid them...',
@@ -123,6 +152,9 @@ export const config = {
     ],
 
     videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
+
+    thaisBio:
+      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created the Personal Development School: to help others do the same.',
   },
 
   ap: {
@@ -144,6 +176,19 @@ export const config = {
     hookFooter:
       'You long for connection, consistency, and to be chosen without having to earn it—but deep down, you may worry that love always slips away.',
 
+    patternListItems: [
+      'Who you’re drawn to',
+      'How safe you feel when someone pulls away',
+      'How much you believe you’ll be chosen and loved for who you are',
+      'How you show up in relationships with your loved ones',
+    ],
+
+    subsconsciousListItems: [
+      'It looks for what’s familiar.',
+      'It repeats what feels “normal,” even if that normal is painful.',
+      'It pulls you toward the people and dynamics that match your earliest experiences—even when those experiences taught you to expect confusion, inconsistency, or betrayal.',
+    ],
+
     repeatedPatternsBodyItems: [
       'If you attract people who seem invested at first, then slowly pull away...',
       'If you keep ending up in relationships where you care more, try harder, or feel like you’re never quite enough...',
@@ -151,5 +196,8 @@ export const config = {
     ],
 
     videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
+
+    thaisBio:
+      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created the Personal Development School: to help others do the same.',
   },
 }

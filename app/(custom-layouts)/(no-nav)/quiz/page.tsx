@@ -19,7 +19,12 @@ export default function AttachmentQuizPage() {
     <Page
       className="w-full text-center relative z-10"
       page_name="Main Funnel Quiz"
-      splitTestData={{ experimentName: 'GM-1362-ICP-Results', key: 'GM-1362', useCookies: false }}>
+      splitTestData={{
+        experimentName: 'GM-1362-ICP-Results',
+        key: 'GM-1362',
+        useCookies: false,
+        variantRatio: 0.25,
+      }}>
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">
         {/* TITLE + DESCRIPTION */}

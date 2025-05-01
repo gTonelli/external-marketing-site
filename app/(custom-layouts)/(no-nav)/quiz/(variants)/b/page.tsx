@@ -10,7 +10,12 @@ export default function AttachmentQuizVariantPage() {
     <AttachmentQuizVariant
       page_name={page_name}
       config={ATTACHMENT_QUIZ_VARIANT}
-      splitTestData={{ experimentName: 'GM-1362-ICP-Results', key: 'GM-1362', useCookies: false }}
+      splitTestData={{
+        experimentName: 'GM-1362-ICP-Results',
+        key: 'GM-1362',
+        useCookies: false,
+        variantRatio: 0.25,
+      }}
     />
   )
 }

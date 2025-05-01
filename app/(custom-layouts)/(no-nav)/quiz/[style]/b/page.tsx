@@ -10,6 +10,7 @@ import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Faq } from '@/components/Faq/Faq'
+import { PDSFeaturesSection } from './PDSFeaturesSection'
 // config
 import { config } from './config'
 // libraries
@@ -26,6 +27,7 @@ import {
 import { getAttachmentStyleText } from '@/utils/functions'
 // styles
 import './style.css'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 
 export async function generateMetadata({ params }: TParams) {
   switch (params.style) {
@@ -67,7 +69,7 @@ export default function QuizResultsB({ params }: TParams) {
   return (
     <Page page_name={`ICP Results Page - ${attachmentStyleShort.toUpperCase()}`}>
       <Section
-        className="bg-gradient-to-b from-pink-auxiliary via-white to-white mb-15"
+        className="bg-gradient-to-b from-pink-auxiliary via-white to-white mb-6 lg:pb-4"
         classNameInner="!max-w-[792px]">
         <h1 className="text-primary !text-5xl">{attachmentStyleConfig.title}</h1>
 
@@ -83,10 +85,10 @@ export default function QuizResultsB({ params }: TParams) {
           type="default"
         />
 
-        <ButtonCheckout label="READY TO CHANGE?" />
+        <ButtonScroll label="READY TO CHANGE?" target="#pds-offer" />
       </Section>
 
-      <Section className="mb-15 lg:mb-20" classNameInner="lg:!max-w-[996px]">
+      <Section className="mb-6 lg:py-4 lg:mb-20" classNameInner="lg:!max-w-[996px]">
         <h2>{attachmentStyleConfig.hookTitle}</h2>
 
         <p className="font-bold">{attachmentStyleConfig.hookSubtitle}</p>
@@ -114,10 +116,10 @@ export default function QuizResultsB({ params }: TParams) {
           <span>{attachmentStyleConfig.hookFooter}</span>
         </div>
 
-        <ButtonCheckout label="READY TO CHANGE?" />
+        <ButtonScroll label="READY TO CHANGE?" target="#pds-offer" />
       </Section>
 
-      <Section className="relative !pb-60 text-left mb-15 lg:!py-28 lg:!px-56 lg:mb-20 xl:!py-32 2xl:!py-40">
+      <Section className="relative !pb-60 text-left mb-6 lg:!py-28 lg:!px-56 xl:!py-32 2xl:!py-40">
         <h2 className="text-white text-left relative z-10 mb-0">
           If that feels familiar, you’re not broken.
         </h2>
@@ -147,7 +149,7 @@ export default function QuizResultsB({ params }: TParams) {
         />
       </Section>
 
-      <Section className="mb-15 lg:mb-20" classNameInner="lg:!max-w-[792px]">
+      <Section className="lg:pt-4" classNameInner="lg:!max-w-[792px]">
         <Image
           alt="A purple speech bubble that has no text, with a hand extended pointed upwards."
           className="mx-auto lg:w-36 lg:h-auto"
@@ -158,7 +160,7 @@ export default function QuizResultsB({ params }: TParams) {
 
         <h2>
           If You Keep Repeating the Same Relationship Dynamics, It's Not You. It's Your Attachment
-          Style
+          Style.
         </h2>
 
         {attachmentStyleConfig.repeatedPatternsBodyItems.map((text, i) => (
@@ -173,10 +175,10 @@ export default function QuizResultsB({ params }: TParams) {
         </p>
       </Section>
 
-      <Section className="bg-white-secondary !py-10 mb-10" classNameInner="lg:!max-w-[996px]">
+      <Section className="bg-white-secondary !py-10 mb-4" classNameInner="lg:!max-w-[996px]">
         <h2>That pattern has a name: {attachmentStyleLong}</h2>
 
-        <div className="text-left mb-10 lg:grid lg:grid-cols-[384px_588px] lg:gap-6 lg:items-center">
+        <div className="text-left mb-4 lg:grid lg:grid-cols-[384px_588px] lg:gap-6 lg:items-center">
           <Image
             alt="A vector image of a woman sitting on a ledge with a heart above her shoulder."
             className="w-full"
@@ -200,12 +202,7 @@ export default function QuizResultsB({ params }: TParams) {
             </p>
 
             <List
-              listItems={[
-                'Who you’re drawn to',
-                'How safe you feel when someone gets close',
-                'How much you trust people to be consistent and honest',
-                'The way you express needs—or hide them',
-              ]}
+              listItems={attachmentStyleConfig.patternListItems}
               classNameIcon="text-primary"
               icon={faCircleCheck}
             />
@@ -294,7 +291,7 @@ export default function QuizResultsB({ params }: TParams) {
         </div>
       </Section>
 
-      <Section className="mb-15 lg:mb-20">
+      <Section className="mb-4 lg:pb-4">
         <Image
           alt="A vector image of a megaphone"
           className="mx-auto mb-4"
@@ -307,8 +304,8 @@ export default function QuizResultsB({ params }: TParams) {
 
         <div className="default-padding bg-black rounded-xl mb-6 lg:py-6 lg:px-10">
           <p className="text-white text-h2 font-ssp font-bold">
-            These patterns aren’t permanent.Because they were learned, they can be changed.And once
-            you understand them, you can finally feel securely attached.
+            These patterns aren’t permanent. Because they were learned, they can be changed. And
+            once you understand them, you can finally feel securely attached.
           </p>
 
           <p className="text-white text-h2 font-ssp font-bold">
@@ -316,7 +313,7 @@ export default function QuizResultsB({ params }: TParams) {
           </p>
         </div>
 
-        <ButtonCheckout label="LEARN MORE" />
+        <ButtonScroll label="LEARN MORE" target="#pds-offer" />
       </Section>
 
       <Section classNameInner="!text-left lg:!max-w-screen-xl">
@@ -349,15 +346,9 @@ export default function QuizResultsB({ params }: TParams) {
             <p className="mb-0">And your subconscious isn’t thinking—it’s protecting.</p>
 
             <ul className="mb-4 pl-4 !list-disc">
-              <li>It looks for what’s familiar.</li>
-
-              <li>It repeats what feels “normal,” even if that normal is painful.</li>
-
-              <li>
-                It pulls you toward the people and dynamics that match your earliest
-                experiences—even when those experiences taught you to expect confusion,
-                inconsistency, or betrayal.
-              </li>
+              {attachmentStyleConfig.subsconsciousListItems.map((item, i) => (
+                <li key={`subconscious_li_${i}`}>{item}</li>
+              ))}
             </ul>
 
             <p>
@@ -466,14 +457,14 @@ export default function QuizResultsB({ params }: TParams) {
         </p>
       </Section>
 
-      <Section classNameInner="lg:!max-w-screen-xl">
+      <Section classNameInner="lg:!max-w-screen-xl" id="pds-offer">
         <h2>This Is Where We at The Personal Development School Come In</h2>
 
-        <p className="mb-10">
+        <p className="mb-4">
           <strong>We’ve helped thousands of people just like you. Now, it’s your turn.</strong>
         </p>
 
-        <div className="mb-10 lg:grid lg:grid-cols-2 lg:gap-6 lg:items-center">
+        <div className="mb-4 lg:grid lg:grid-cols-2 lg:gap-6 lg:items-center">
           <Image
             src="/images/AttachmentQuizResults/course-player-mockup.png"
             className="w-full mb-4 lg:mb-0"
@@ -495,17 +486,17 @@ export default function QuizResultsB({ params }: TParams) {
             </p>
 
             <p className="mb-0">
-              <strong>That’s why we created The Personal Development School</strong>
+              <strong>That’s why we created The Personal Development School.</strong>
             </p>
 
             <p>
-              .The Personal Development School is a dedicated space for healing—offering on-demand
+              The Personal Development School is a dedicated space for healing—offering on-demand
               courses designed to influence real change, live weekly webinars, and a private
               community of people who truly understand what you’re working through.
             </p>
 
-            <div className="flex bg-white-secondary text-primary rounded mb-4">
-              <FontAwesomeIcon icon={faSparkles} />
+            <div className="flex bg-white-secondary text-primary rounded mb-4 px-4 py-2">
+              <FontAwesomeIcon className="mt-1" icon={faSparkles} />
 
               <p className="ml-2 mb-0">
                 It’s designed so you can access everything you need to rewire old patterns and build
@@ -521,87 +512,13 @@ export default function QuizResultsB({ params }: TParams) {
 
         <Image
           src="/images/AttachmentQuizResults/course-player-mockup-2.png"
-          className="w-full max-w-[816px] mx-auto mb-10"
+          className="w-full max-w-[816px] mx-auto mb-4"
           alt="An image of the Pds course player on several devices: a 3 differnt size tablets, a phone, and a mac"
           width={343}
           height={113}
         />
 
-        <div className="mb-10 lg:grid lg:grid-cols-3 lg:gap-4">
-          <div className="default-padding bg-pink-auxiliary rounded-xl flex mb-4 text-left lg:mb-0 lg:py-4">
-            <FontAwesomeIcon
-              className="text-white bg-primary rounded py-1 px-2 mt-1"
-              icon={fa1}
-              size="lg"
-            />
-
-            <div className="ml-2">
-              <h3>Courses: Your Tools to Change</h3>
-
-              <p>
-                You’ll get immediate access to 70+ on-demand courses, all built using our
-                proprietary, evidence-based method. These courses are designed to help you gently
-                rewire subconscious patterns, shift your attachment style, and regulate your
-                emotions in real time.
-              </p>
-
-              <p>
-                It’s not just theory—it’s neuroscience-backed support that creates real, lasting
-                change.
-              </p>
-
-              <p>Start with our {attachmentStyleLong} to Securely Attached program.</p>
-            </div>
-          </div>
-
-          <div className="default-padding bg-[#FCF7F5] rounded-xl flex mb-4 text-left lg:mb-0 lg:py-4">
-            <FontAwesomeIcon
-              className="text-white bg-primary rounded py-1 px-2 mt-1"
-              icon={fa2}
-              size="lg"
-            />
-
-            <div className="ml-2">
-              <h3>Community: Your Safe, Judgment-Free Space</h3>
-
-              <p>
-                Inside our private, supportive community, you’ll find people who understand exactly
-                what you're working through. It’s a place where it’s safe to be vulnerable and where
-                real connections can start to grow.
-              </p>
-
-              <p>
-                Here, <strong>you won’t be alone or misunderstood</strong>. Our members have walked
-                a path similar to yours. Because everyone in our community ‘gets it,’ you’ll find
-                the courage to open up and explore new ways of relating without losing yourself in
-                the process.
-              </p>
-            </div>
-          </div>
-
-          <div className="default-padding bg-green-7 rounded-xl flex mb-4 text-left lg:mb-0 lg:py-4">
-            <FontAwesomeIcon
-              className="text-white bg-primary rounded py-1 px-2 mt-1"
-              icon={fa3}
-              size="lg"
-            />
-
-            <div className="ml-2">
-              <h3>Live Webinars: Practice With Support</h3>
-
-              <p>
-                Join weekly live sessions with our founder, Thais, attachment expert, and PhD, for
-                direct coaching, the opportunity to ask questions, get clarity, and integrate your
-                learning into daily life.{' '}
-              </p>
-
-              <p>
-                This is where new habits start to take root—through real-time support and gentle
-                accountability.
-              </p>
-            </div>
-          </div>
-        </div>
+        <PDSFeaturesSection attachmentStyleLong={attachmentStyleLong} />
 
         <p className="text-lg font-bold">So what does this look like for you?</p>
 
@@ -626,7 +543,7 @@ export default function QuizResultsB({ params }: TParams) {
           when real change becomes possible
         </p>
 
-        <p className="mb-10">
+        <p className="mb-4">
           <strong>Here’s what healing could look like for you:</strong>
         </p>
 
@@ -638,8 +555,8 @@ export default function QuizResultsB({ params }: TParams) {
           height={75}
         />
 
-        <div className="text-left mb-10 lg:grid lg:grid-cols-5 lg:gap-4">
-          {baseConfig.healingSteps.map((step, i) => (
+        <div className="text-left mb-4 lg:grid lg:grid-cols-5 lg:gap-4">
+          {baseConfig.healingSteps(attachmentStyleLong).map((step, i) => (
             <div
               key={`healing_step_${i}`}
               className="bg-white rounded-lg default-padding mb-4 lg:mb-0 lg:py-4">
@@ -675,7 +592,7 @@ export default function QuizResultsB({ params }: TParams) {
           </p>
         </div>
 
-        <CarouselTestimonialThinkific className="mb-10" />
+        <CarouselTestimonialThinkific className="mb-4" />
       </section>
 
       <Section className="!pb-0 bg-[#EFEDF2]" classNameInner="!text-left lg:!max-w-[792px]">
@@ -688,12 +605,7 @@ export default function QuizResultsB({ params }: TParams) {
           you get where you want to be.
         </p>
 
-        <p>
-          Thais isn’t just a founder. She is an industry leader, and the first person to prove that
-          attachment styles can be changed because she lived the Fearful Avoidant experience—and
-          healed. That’s why she created the Personal Development School: to help others do the
-          same.
-        </p>
+        <p>{attachmentStyleConfig.thaisBio}</p>
 
         <List
           useMD={false}
@@ -772,7 +684,7 @@ export default function QuizResultsB({ params }: TParams) {
             classNameIcon="text-primary mb-6"
             icon={faCircleCheck}
             listItems={[
-              'Unlimited access to 70+ transformative courses, including your starting point, the Fearful Avoidant to Securely Attached program.',
+              `Unlimited access to 70+ transformative courses, including your starting point, the ${attachmentStyleLong} to Securely Attached program.`,
               'Weekly personalized mentorship sessions with Thais Gibson.',
               'A private, supportive community for safe emotional growth.',
             ]}

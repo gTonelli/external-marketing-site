@@ -19,7 +19,9 @@ export const PDSFeaturesSection = ({ attachmentStyleLong }: { attachmentStyleLon
         text={[
           'You’ll get immediate access to 70+ on-demand courses, all built using our proprietary, evidence-based method. These courses are designed to help you gently rewire subconscious patterns, shift your attachment style, and regulate your emotions in real time.',
           'It’s not just theory—it’s neuroscience-backed support that creates real, lasting change.',
-          <em>Start with our {attachmentStyleLong} to Securely Attached program.</em>,
+          <em key={`pds_feature_em`}>
+            Start with our {attachmentStyleLong} to Securely Attached program.
+          </em>,
         ]}
       />
 
@@ -29,7 +31,12 @@ export const PDSFeaturesSection = ({ attachmentStyleLong }: { attachmentStyleLon
         title="Community: Your Safe, Judgment-Free Space"
         text={[
           "Inside our private, supportive community, you’ll find people who understand exactly what you're working through. It’s a place where it’s safe to be vulnerable and where real connections can start to grow.",
-          'Here, <strong>you won’t be alone or misunderstood</strong>. Our members have walked a path similar to yours. Because everyone in our community ‘gets it,’ you’ll find the courage to open up and explore new ways of relating without losing yourself in the process.',
+          <>
+            Here, <strong>you won’t be alone or misunderstood</strong>. Our members have walked a
+            path similar to yours. Because everyone in our community ‘gets it,’ you’ll find the
+            courage to open up and explore new ways of relating without losing yourself in the
+            process.
+          </>,
         ]}
       />
 

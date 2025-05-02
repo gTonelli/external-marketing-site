@@ -34,6 +34,11 @@ interface IListProps extends IDefaultProps {
    * Icon type
    */
   listItems: (string | JSX.Element)[]
+  /**
+   * Use Markdown?
+   * @default true
+   */
+  useMD?: boolean
 }
 
 export const List = ({
@@ -44,6 +49,7 @@ export const List = ({
   icon,
   iconSize,
   listItems,
+  useMD = true,
 }: IListProps) => {
   return (
     <ul className={className}>
@@ -58,7 +64,7 @@ export const List = ({
           )}
 
           {typeof data === 'string' ? (
-            <Text useMD className={cx(classNameText)} content={data} />
+            <Text useMD={useMD} className={cx(classNameText)} content={data} />
           ) : (
             <span className={cx(classNameText)}>{data}</span>
           )}

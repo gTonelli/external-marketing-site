@@ -30,7 +30,7 @@ export const SPIN_THE_WHEEL_CONFIG = {
     {
       title: 'Rewire Your Subconscious Patterns',
       copy: 'Reprogram your self-sabotaging thoughts, patterns, and beliefs to embrace positive transformation.',
-      bgColor: 'bg-[#F5FBFC]',
+      bgColor: 'bg-green-7',
       image: 'pds-perks-couple-2.png',
     },
     {

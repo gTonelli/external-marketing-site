@@ -16,9 +16,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+// utils
+import { ISplitTest } from '@/utils/interfaces'
 // styles
 import './style.css'
-import { ISplitTest } from '@/utils/interfaces'
 
 interface IQuizVariantProps {
   page_name: Pages

@@ -2,6 +2,7 @@
 
 //core
 import { useRouter } from 'next/navigation'
+import { useContext } from 'react'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
@@ -10,10 +11,8 @@ import { useFunnelytics } from '@/modules/Funnelytics'
 import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
-import { useContext } from 'react'
 import { SplitTestContext } from '@/utils/contexts'
 import { getSplitTest } from '@/utils/functions'
-import { split } from 'lodash'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle

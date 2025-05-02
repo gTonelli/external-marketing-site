@@ -1,11 +1,13 @@
 'use client'
 
+// core
+import { useState } from 'react'
+// components
 import { Expandable } from '@/components/Expandable'
 // libraries
 import { fa1, fa2, fa3, faChevronUp } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useState } from 'react'
 import { isMobile } from 'react-device-detect'
 
 export const PDSFeaturesSection = ({ attachmentStyleLong }: { attachmentStyleLong: string }) => {

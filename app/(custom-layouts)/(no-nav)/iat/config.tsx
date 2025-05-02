@@ -23,7 +23,7 @@ export const IAT_CONFIG = {
     copy2:
       'IAT™ focuses on unlocking and reprogramming the subconscious mind, the key part of the brain responsible for 95% of what keeps people stuck in their personal and relationship patterns.',
     copy3:
-      'This evidence-based method allows you and your clients to identify attachment styles – the key indicator of successful relationships – before healing their deep-rooted patterns and beliefs and fostering lasting personal and relational growth through subconscious programming.',
+      'This evidence-based method allows you and your clients to identify attachment styles – the key indicator of successful relationships – before healing their deep-rooted patterns and beliefs and fostering lasting personal and relational growth through subconscious reprogramming.',
     copy4:
       'Integrated Attachment Theory™ blends cutting-edge psychology with practical tools for a transformative, accessible approach to improving lives and relationships for everyone — and anyone, anywhere, can learn it!',
   },

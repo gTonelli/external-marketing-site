@@ -7,35 +7,35 @@ export const IAT_CONFIG = {
     copy2: (
       <>
         You can do it all with the <strong>Integrated Attachment Theory™ Program</strong>. This
-        12-week Certification program is <em>Accredited with the Association for Coaching</em> and
-        will teach you how to become a relationship coach — specializing in attachment theory — with
-        the exact tools and steps you need to become an industry leader, build a thriving practice,
-        and be a transformative figure in lives and relationships.
+        12-week Certification program is Accredited with the Association for Coaching and will teach
+        you how to become a relationship coach — specializing in attachment theory — with the exact
+        tools and steps you need to become an industry leader, build a thriving practice, and be a
+        transformative figure in lives and relationships.
       </>
     ),
     copy3:
       '*Sign up for the Live Training, starting May 21, 2025 to August 6, 2025. Spots are limited.',
   },
   intro: {
-    title: 'What is Integration Attachment Theory™ (IAT™)?',
+    title: 'What is Integrated Attachment Theory™ (IAT™)?',
     copy1:
       'Integrated Attachment Theory™ (IAT™) is a revolutionary, proprietary healing model developed by Thais Gibson that redefines how we understand, develop, and transform ourselves and our relationships.',
     copy2:
       'IAT™ focuses on unlocking and reprogramming the subconscious mind, the key part of the brain responsible for 95% of what keeps people stuck in their personal and relationship patterns.',
     copy3:
-      'This evidence-based method allows you and your clients to identify attachment styles – the key indicator of successful relationships – before them through subconscious reprogramming.',
+      'This evidence-based method allows you and your clients to identify attachment styles – the key indicator of successful relationships – before healing their deep-rooted patterns and beliefs and fostering lasting personal and relational growth through subconscious programming.',
     copy4:
       'Integrated Attachment Theory™ blends cutting-edge psychology with practical tools for a transformative, accessible approach to improving lives and relationships for everyone — and anyone, anywhere, can learn it!',
   },
   learn: {
     title: 'Learn Directly from Thais Gibson and Her Team',
     copy1:
-      'Thais Gibson is the co-founder of The Personal Development School, best-selling author, Ph.D. recipient, and creator of Integrated Attachment Theory™.',
+      'Thais Gibson is the co-founder of The Personal Development School, a best-selling author, Ph.D. recipient, and the creator of Integrated Attachment Theory™.',
     copy2:
       'Thais will be your unparalleled resource and teacher for your coaching journey, teaching you the secret to healing relationships, overcoming trauma, and breaking down barriers in this 12-week Program so everyone (including you and your clients) can finally experience real-life transformations that last.',
     listTitle: 'By enrolling in the Integrated Attachment Theory™ Program, you’ll:',
     learningOutcomes: [
-      'Reprogram limiting beliefs and patterns stopping clients from experiencing real change, allowing them to become securely attached.',
+      'Reprogram limiting beliefs and patterns that stop clients from experiencing real change, allowing them to become securely attached.',
       'Teach effective boundary-setting and communication skills to empower clients to build self-esteem, resolve conflicts, and strengthen connections.',
       'Guide clients to release their insecurities and build trust, creating healthier relationships grounded in respect and care.',
       'Launch and grow a thriving coaching practice that stands out in the billion-dollar marketplace with a unique approach.',

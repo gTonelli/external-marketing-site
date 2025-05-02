@@ -79,7 +79,7 @@ export const IATPriceCardSection = () => {
           originalPrice={'$4,000.00'}
           prices={iatRecordedPrices}
           salePrice={'$1,999.00'}
-          subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE:`}
+          subheading={`MONTHLY INSTALLMENT PAYMENT OPTIONS AVAILABLE`}
         />
       </div>
     </Section>

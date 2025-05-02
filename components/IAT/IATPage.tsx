@@ -572,7 +572,9 @@ export const IATOfferFeatures = () => {
       classNameInner="!text-left">
       <div className="flex flex-col lg:space-x-14 lg:flex-row">
         <div className="max-w-[502px] mt-6">
-          <h2 className="mb-10">What You'll Get</h2>
+          <h2 className="mb-10">
+            What You’ll Get with The Integrated Attachment Theory™ Certification
+          </h2>
 
           {IAT.what_you_get.copy.map((copy, i) => (
             <p key={`what_you_get_copy_${i}`} className="mb-4">
@@ -604,7 +606,7 @@ export const IATOfferFeatures = () => {
         </div>
       </div>
       <div className="mt-8 text-center lg:mt-28">
-        <h2>Is this certification for me?</h2>
+        <h2>Is This Certification For Me?</h2>
 
         <div className="flex flex-col mt-8 lg:mt-13 lg:flex-row lg:space-x-14">
           <div className="max-w-[502px] text-center lg:text-left">
@@ -621,6 +623,8 @@ export const IATOfferFeatures = () => {
             <p className="text-left mt-2 mb-4">{IAT.what_you_get.secondaryCopy1}</p>
 
             <p className="text-left mt-2 mb-6">{IAT.what_you_get.secondaryCopy2}</p>
+
+            <p className="text-left mt-2 mb-6">{IAT.what_you_get.secondaryCopy3}</p>
 
             <ButtonScroll label="SIGN UP TODAY" target="#click-purchase-target" />
           </div>

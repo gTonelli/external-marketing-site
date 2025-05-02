@@ -2,12 +2,12 @@
 
 // core
 import { useState } from 'react'
+import Image from 'next/image'
 // components
 import { Button } from '../Button/Button'
 import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 import { List } from '../List'
 import { Section } from '../Section'
-import Image from 'next/image'
 // libraries
 import { faCircleCheck, faCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -50,7 +50,7 @@ export const IATPriceCard = ({
         isLive ? (
           // LIVE, NOT EXPANDED
           <Section className="relative rounded-3xl border-2 border-green-check px-3 pt-4 pb-4 lg:px-4 lg:pb-6 lg:pt-6">
-            <div className="absolute -mt-24 left-1/2 -translate-x-1/2 ">
+            <div className="absolute -mt-20 left-1/2 -translate-x-1/2 ">
               <p className="w-[280px] text-center text-white font-bold bg-green-check rounded-10 py-4 tracking-0.325 md:px-4">
                 RECOMMENDED
               </p>
@@ -122,37 +122,7 @@ export const IATPriceCard = ({
               <h3 className="mt-1 mb-0">{` ${salePrice}`}</h3>
             </div>
 
-            {subheading && (
-              <>
-                <p className="font-bold tracking-33 mt-5">{subheading}</p>
-
-                <div className="flex justify-between items-center gap-8">
-                  <div className="flex-1 border border-black rounded-xl p-4 mx-auto">
-                    <p>
-                      <strong>3 months</strong>
-                    </p>
-
-                    <p className="mb-0">{prices[1].price}</p>
-                  </div>
-
-                  <div className="flex-1 border border-black rounded-xl p-4 mx-auto">
-                    <p>
-                      <strong>6 months</strong>
-                    </p>
-
-                    <p className="mb-0">{prices[2].price}</p>
-                  </div>
-
-                  <div className="flex-1 border border-black rounded-xl p-4 mx-auto">
-                    <p>
-                      <strong>12 months</strong>
-                    </p>
-
-                    <p className="mb-0">{prices[3].price}</p>
-                  </div>
-                </div>
-              </>
-            )}
+            {subheading && <p className="font-bold tracking-33 mt-5">{subheading}</p>}
 
             <List
               className="text-left mt-7"

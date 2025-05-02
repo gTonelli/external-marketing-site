@@ -5,7 +5,7 @@ export const config = {
     healingSteps: (attachmentStyleLong: string) => [
       {
         icon: fa1,
-        text: 'You join the Personal Development School with your All-Access Pass (at 30% off!) Unlock access to 70+ courses, live webinars, and our private community.',
+        text: 'You join The Personal Development School with your All-Access Pass (at 30% off!) Unlock access to 70+ courses, live webinars, and our private community.',
       },
       {
         icon: fa2,
@@ -95,6 +95,40 @@ export const config = {
       'The way you express needs—or hide them',
     ],
 
+    secureCard: [
+      <>
+        People with <strong>secure attachment</strong> feel safe in love.
+      </>,
+      'They can depend on others without fear of rejection or losing themselves. They naturally attract people who are consistent, emotionally available, and capable of healthy connection.',
+    ],
+
+    insecureCard: [
+      <>
+        People with <strong>insecure attachment</strong>—like the <strong>Fearful Avoidant</strong>{' '}
+        style—often feel unsafe in relationships, even when they deeply want connection.
+      </>,
+      'When you have a Fearful Avoidant attachment, your nervous system is always on high alert. You may subconsciously choose partners who are emotionally unavailable, inconsistent, or triggering in familiar ways.',
+    ],
+
+    patternsDescriptionOne:
+      'It’s not about preference—it’s about survival. Their system is drawn to what feels familiar, not what feels healthy.',
+
+    patternsDescriptionTwo: [
+      'These patterns develop based on how emotionally safe you felt growing up.',
+      <>
+        If love was unpredictable in early life, your nervous system learned to expect more of the
+        same. It developed <strong>protective mechanisms</strong> designed to help you{' '}
+        <strong>survive a difficult situation completely subconsciously.</strong>
+      </>,
+      <>
+        So even now, as an adult, you might find yourself pulled toward people who feel familiar—not{' '}
+        <strong>
+          because they’re healthy, but because they fit the emotional map you’ve carried since
+          adolescence.
+        </strong>
+      </>,
+    ],
+
     subsconsciousListItems: [
       'It looks for what’s familiar.',
       'It repeats what feels “normal,” even if that normal is painful.',
@@ -110,7 +144,7 @@ export const config = {
     videoSrc: 'https://storage.googleapis.com/pds_videos/FA_Funnel_Control.mp4',
 
     thaisBio:
-      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived the Fearful Avoidant experience—and healed. That’s why she created the Personal Development School: to help others do the same.',
+      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived the Fearful Avoidant experience—and healed. That’s why she created The Personal Development School: to help others do the same.',
   },
 
   da: {
@@ -139,6 +173,43 @@ export const config = {
       'The way you express support—or protect your emotional boundaries',
     ],
 
+    secureCard: [
+      <>
+        People with <strong>secure attachment</strong> trust that love will stay.
+      </>,
+      'They can depend on others without fear of rejection or losing themselves. They naturally attract people who are consistent, emotionally available, and capable of healthy connection.',
+    ],
+
+    insecureCard: [
+      <>
+        People with <strong>insecure attachment</strong>—like the{' '}
+        <strong>Dismissive Avoidant</strong> style—often feel unsafe in relationships, even when
+        they deeply want connection.
+      </>,
+      'When you have a Dismissive Avoidant attachment style, your nervous system is wired to prioritize emotional safety through distance and self-reliance.',
+      "You may choose distant partners who don't ask much of you—not because you want disconnection but because that's what feels safe.",
+    ],
+
+    patternsDescriptionOne:
+      'It’s not about preference—it’s about survival. Their system is drawn to what feels familiar, not what feels healthy.',
+
+    patternsDescriptionTwo: [
+      'These patterns develop based on how emotionally safe you felt growing up.',
+      <>
+        If you were pushed away, left to manage your own emotions, or denied love from your
+        caregivers, your nervous system learned to expect more of the same. It developed{' '}
+        <strong>protective mechanisms</strong> designed to help you{' '}
+        <strong>survive a difficult situation completely subconsciously.</strong>
+      </>,
+      <>
+        So even now, as an adult, you might find yourself pulled toward people who feel familiar—not{' '}
+        <strong>
+          because they’re healthy, but because they fit the emotional map you’ve carried since
+          adolescence.
+        </strong>
+      </>,
+    ],
+
     subsconsciousListItems: [
       'It looks for what’s familiar.',
       'It repeats what feels “normal,” even if that normal is painful.',
@@ -154,7 +225,7 @@ export const config = {
     videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleDAshortvideo.mp4',
 
     thaisBio:
-      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created the Personal Development School: to help others do the same.',
+      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created The Personal Development School: to help others do the same.',
   },
 
   ap: {
@@ -183,6 +254,31 @@ export const config = {
       'How you show up in relationships with your loved ones',
     ],
 
+    secureCard: [
+      <>
+        People with <strong>secure attachment</strong> feel safe in love.
+      </>,
+      'They feel confident being close to others and naturally attract people who are consistent, emotionally available, and clear about their intentions.',
+    ],
+
+    insecureCard: [
+      <>
+        People with <strong>insecure attachment</strong>—like the{' '}
+        <strong>Anxious Preoccupied</strong> style—often feel like love is fragile, unpredictable,
+        or something they need to earn.
+      </>,
+      'When you have an Anxious Preoccupied attachment style, your nervous system is wired to fear abandonment.',
+      'You may fixate on changes in connection, overextend yourself to hold onto relationships, or feel deeply hurt when your efforts go unreciprocated.',
+    ],
+
+    patternsDescriptionOne:
+      'It’s not because you’re clingy—it’s because your system is trying to keep you safe. Familiar dynamics feel comforting, even if they leave you anxious and unsure.',
+
+    patternsDescriptionTwo: [
+      'These patterns developed based on how emotionally secure you felt growing up. If love in early life was inconsistent—if you felt unseen, emotionally neglected, or like you had to try hard to matter—your nervous system learned that closeness was uncertain and had to be maintained at all costs.',
+      'So even now, as an adult, you may find yourself pulled toward people who feel familiar. Not because they’re healthy—but because they match the emotional blueprint you’ve carried for years.',
+    ],
+
     subsconsciousListItems: [
       'It looks for what’s familiar.',
       'It repeats what feels “normal,” even if that normal is painful.',
@@ -198,6 +294,6 @@ export const config = {
     videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
 
     thaisBio:
-      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created the Personal Development School: to help others do the same.',
+      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created The Personal Development School: to help others do the same.',
   },
 }

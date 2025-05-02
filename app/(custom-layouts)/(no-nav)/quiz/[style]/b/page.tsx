@@ -218,40 +218,31 @@ export default function QuizResultsB({ params }: TParams) {
           <div className="default-padding bg-primary-light rounded-2xl text-left mb-4 lg:py-4">
             <FontAwesomeIcon className="text-primary text-h1 mb-4" icon={faCircleCheck} />
 
-            <p>
-              People with <strong>secure attachment</strong> feel safe in love.
-            </p>
-
-            <p className="mb-0">
-              They can depend on others without fear of rejection or losing themselves. They
-              naturally attract people who are consistent, emotionally available, and capable of
-              healthy connection.
-            </p>
+            {attachmentStyleConfig.secureCard.map((text, i) => (
+              <p
+                key={`style_secure_card_text_${i}`}
+                className={i === attachmentStyleConfig.secureCard.length - 1 ? 'mb-0' : ''}>
+                {text}
+              </p>
+            ))}
           </div>
 
           <div className="default-padding bg-blue-light rounded-2xl text-left mb-4 lg:py-4">
             <FontAwesomeIcon className="text-blue-2 text-h1 mb-4" icon={faCircleQuestion} />
 
-            <p>
-              People with <strong>insecure attachment</strong>—like the{' '}
-              <strong>{attachmentStyleLong}</strong> style—often feel unsafe in relationships, even
-              when they deeply want connection.
-            </p>
-
-            <p className="mb-0">
-              When you have a Fearful Avoidant attachment, your nervous system is always on high
-              alert. You may subconsciously choose partners who are emotionally unavailable,
-              inconsistent, or triggering in familiar ways.
-            </p>
+            {attachmentStyleConfig.insecureCard.map((text, i) => (
+              <p
+                key={`style_secure_card_text_${i}`}
+                className={i === attachmentStyleConfig.insecureCard.length - 1 ? 'mb-0' : ''}>
+                {text}
+              </p>
+            ))}
           </div>
         </div>
 
         <div className="lg:grid lg:grid-cols-[588px_384px] lg:gap-6">
           <div className="text-left">
-            <p>
-              It’s not about preference—it’s about survival. Their system is drawn to what feels
-              familiar, not what feels healthy.
-            </p>
+            <p>{attachmentStyleConfig.patternsDescriptionOne}</p>
 
             <div className="text-center lg:grid lg:grid-cols-[366px_193px] lg:mb-4">
               <p className="text-primary border-2 border-b-0 border-primary text-xl mb-0 lg:border-b-2 lg:border-r-0">
@@ -263,22 +254,9 @@ export default function QuizResultsB({ params }: TParams) {
               </p>
             </div>
 
-            <p>These patterns develop based on how emotionally safe you felt growing up. </p>
-
-            <p>
-              If love was unpredictable in early life, your nervous system learned to expect more of
-              the same. It developed <strong>protective mechanisms</strong> designed to help you{' '}
-              <strong>survive a difficult situation completely subconsciously.</strong>
-            </p>
-
-            <p>
-              So even now, as an adult, you might find yourself pulled toward people who feel
-              familiar—not{' '}
-              <strong>
-                because they’re healthy, but because they fit the emotional map you’ve carried since
-                adolescence.
-              </strong>
-            </p>
+            {attachmentStyleConfig.patternsDescriptionTwo.map((text, i) => (
+              <p key={`pattern_description_${i}`}>{text}</p>
+            ))}
           </div>
 
           <Image
@@ -620,7 +598,7 @@ export default function QuizResultsB({ params }: TParams) {
             </>,
 
             <>
-              You’ll learn from someone who has helped <strong>over 30,000 people transform</strong>
+              You’ll learn from someone who has helped <strong>over 30,000 people transform</strong>{' '}
               and understands exactly what it takes because she’s walked that path herself.
             </>,
           ]}

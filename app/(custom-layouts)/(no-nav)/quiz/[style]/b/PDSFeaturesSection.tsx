@@ -45,7 +45,7 @@ export const PDSFeaturesSection = ({ attachmentStyleLong }: { attachmentStyleLon
         icon={fa3}
         title="Live Webinars: Practice With Support"
         text={[
-          'Join weekly live sessions with our founder, Thais, attachment expert, and PhD, for direct coaching, the opportunity to ask questions, get clarity, and integrate your learning into daily life.',
+          'Join weekly live sessions with our founder, Thais Gibson, attachment expert, and PhD, for direct coaching, the opportunity to ask questions, get clarity, and integrate your learning into daily life.',
           'This is where new habits start to take root—through real-time support and gentle accountability.',
         ]}
       />

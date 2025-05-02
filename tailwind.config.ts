@@ -58,6 +58,7 @@ const config: Config = {
         'green-4': '#D7EAEF',
         'green-5': '#D7EFD7',
         'green-6': '#E7EFF1',
+        'green-7': '#F5FBFC',
 
         // secondaries
         'black-light': '#2C3E42',

@@ -1,3 +1,4 @@
+// libraries
 import { fa1, fa2, fa3, fa4, fa5 } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export const config = {

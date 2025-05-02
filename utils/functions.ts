@@ -1,11 +1,10 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { IStrapiFetchProps, TDict, TStyle } from './types'
+import { TDict, TStyle } from './types'
 import Mixpanel from '@/modules/Mixpanel'
-import { Storage, TStorageKeys } from '@/modules/Storage'
+import { Storage } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
 import Cookies from 'universal-cookie'
 import dayjs from 'dayjs'
-import { Maybe } from 'yup'
 
 /**
  * Check if property is function

@@ -11,6 +11,7 @@ import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Faq } from '@/components/Faq/Faq'
 import { PDSFeaturesSection } from './PDSFeaturesSection'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 // config
 import { config } from './config'
 // libraries
@@ -27,7 +28,6 @@ import {
 import { getAttachmentStyleText } from '@/utils/functions'
 // styles
 import './style.css'
-import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 
 export async function generateMetadata({ params }: TParams) {
   switch (params.style) {

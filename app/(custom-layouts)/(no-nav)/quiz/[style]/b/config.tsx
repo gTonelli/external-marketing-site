@@ -10,7 +10,12 @@ export const config = {
       },
       {
         icon: fa2,
-        text: `You start the ${attachmentStyleLong} to Securely Attached program. It introduces the core concepts that help you understand what’s been keeping you stuck.`,
+        text: (
+          <>
+            You start the <strong>${attachmentStyleLong} to Securely Attached program.</strong> It
+            introduces the core concepts that help you understand what’s been keeping you stuck.
+          </>
+        ),
       },
       {
         icon: fa3,

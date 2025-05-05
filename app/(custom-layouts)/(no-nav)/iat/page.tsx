@@ -10,15 +10,13 @@ import { IATTestimonialSection } from '@/components/IAT/IATTestimonialSection'
 import { IATCalendlyBookingButton } from '@/components/IAT/IATCalendlyBookingButton'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { IATPriceCardSection } from '@/components/IAT/IATPriceCardSection'
-import {
-  IATCertificationCoaches,
-  IATFAQ,
-  IATFormats,
-  IATOfferFeatures,
-  IATProgramItinerary,
-  IATTestimonialVideo,
-  IATTrustbar,
-} from '@/components/IAT/IATPage'
+import { IATCertificationCoaches } from '@/components/IAT/IATCertificationCoaches'
+import { IATFAQ } from '@/components/IAT/IATFAQ'
+import { IATFormats } from '@/components/IAT/IATFormats'
+import { IATOfferFeatures } from '@/components/IAT/IATOfferFeatures'
+import { IATProgramItinerary } from '@/components/IAT/IATProgramItinerary'
+import { IATTestimonialVideo } from '@/components/IAT/IATTestimonialVideo'
+import { IATTrustbar } from '@/components/IAT/IATTrustbar'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
 import { IAT_CONFIG as CONFIG } from './config'

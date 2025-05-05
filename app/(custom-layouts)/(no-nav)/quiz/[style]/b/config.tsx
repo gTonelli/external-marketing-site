@@ -12,7 +12,7 @@ export const config = {
         icon: fa2,
         text: (
           <>
-            You start the <strong>${attachmentStyleLong} to Securely Attached program.</strong> It
+            You start the <strong>{attachmentStyleLong} to Securely Attached program.</strong> It
             introduces the core concepts that help you understand what’s been keeping you stuck.
           </>
         ),

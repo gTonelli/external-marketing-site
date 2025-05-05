@@ -1,0 +1,40 @@
+.bg-hero-mobile {
+  position: relative;
+  background: url('/images/AttachmentQuiz/organic-hero-desktop.jpg') no-repeat top right / cover;
+  width: 100%;
+  height: 300px;
+}
+
+.bg-gradient {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(227, 237, 237, 0) 0%,
+    #e3eded calc(300px),
+    rgba(213, 184, 216, 0.5) 100%
+  );
+}
+
+@media screen and (min-width: 1024px) {
+  .bg-hero {
+    position: relative;
+    background: url('/images/AttachmentQuiz/organic-hero-desktop.jpg') no-repeat top right / cover;
+  }
+
+  .bg-hero::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(108deg, #e3eded 0%, rgba(237, 220, 239, 0.2) 87%);
+    z-index: 3;
+  }
+}

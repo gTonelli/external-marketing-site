@@ -10,9 +10,10 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // libraries
 import cx from 'classnames'
 // utils
-import { PageContext, ScrollContext, ViewportContext } from '@/utils/contexts'
+import { PageContext, ScrollContext, SplitTestContext, ViewportContext } from '@/utils/contexts'
 import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/utils/hooks'
 import { useGamAnalytics } from '@/modules/GAM'
+import { ISplitTest } from '@/utils/interfaces'
 
 interface IPageProps extends IDefaultWrapperProps {
   page_name: Pages
@@ -21,9 +22,19 @@ interface IPageProps extends IDefaultWrapperProps {
    * @default false
    */
   withIntercom?: boolean
+  /**
+   * Optional split test data to pass down
+   */
+  splitTestData?: ISplitTest
 }
 
-export const Page = ({ children, className, page_name, withIntercom = false }: IPageProps) => {
+export const Page = ({
+  children,
+  className,
+  page_name,
+  splitTestData,
+  withIntercom = false,
+}: IPageProps) => {
   // ==================== Hooks ====================
   const viewportValues = useWindowWidth()
   const [scrollRef, scrollPercentage] = useScrollPercentage()
@@ -38,11 +49,13 @@ export const Page = ({ children, className, page_name, withIntercom = false }: I
     <ViewportContext.Provider value={viewportValues}>
       <ScrollContext.Provider value={{ scrollPercentage }}>
         <PageContext.Provider value={{ page_name }}>
-          <main ref={scrollRef} className={cx('overflow-x-hidden', className)}>
-            {children}
+          <SplitTestContext.Provider value={splitTestData}>
+            <main ref={scrollRef} className={cx('overflow-x-hidden', className)}>
+              {children}
 
-            {withIntercom && <Intercom />}
-          </main>
+              {withIntercom && <Intercom />}
+            </main>
+          </SplitTestContext.Provider>
         </PageContext.Provider>
       </ScrollContext.Provider>
     </ViewportContext.Provider>

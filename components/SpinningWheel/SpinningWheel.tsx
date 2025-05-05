@@ -267,7 +267,7 @@ const SpinWheelSuccess = ({ pageVariant, prizeNumber, ctaLocation }: ISpinWheelS
 
       <div className="flex bg-[#ECEFFF] rounded-lg p-2 mb-8">
         <div className="w-6">
-          <FontAwesomeIcon icon={faCircleExclamation} className="text-[#142BD5] mr-2" />
+          <FontAwesomeIcon icon={faCircleExclamation} className="text-blue-darkest mr-2" />
         </div>
 
         <div>

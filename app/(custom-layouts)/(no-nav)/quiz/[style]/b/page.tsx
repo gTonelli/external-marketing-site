@@ -497,11 +497,21 @@ export default function QuizResultsB({ params }: TParams) {
 
         <PDSFeaturesSection attachmentStyleLong={attachmentStyleLong} />
 
+        <Image
+          src="/images/AttachmentQuizResults/course-player-mockup-2.png"
+          className="w-full max-w-[816px] mx-auto mb-6 lg:mb-10"
+          alt="An image of the Pds course player on several devices: a 3 different size tablets, a phone, and a mac"
+          width={343}
+          height={113}
+          quality={100}
+          sizes="100vw"
+        />
+
         <p className="text-lg font-bold">So what does this look like for you?</p>
 
         <ButtonCheckout className="mb-4" label="JOIN THE ALL-ACCESS & SAVE 30%" />
 
-        <div className="bg-[#D9E0FE] flex text-blue-darkest p-4 rounded mb-6 lg:mb-10">
+        <div className="bg-[#D9E0FE] flex text-blue-darkest p-4 rounded">
           <FontAwesomeIcon className="mr-2" icon={faCircleInfo} />
 
           <p className="mb-0">
@@ -509,16 +519,6 @@ export default function QuizResultsB({ params }: TParams) {
             $97!
           </p>
         </div>
-
-        <Image
-          src="/images/AttachmentQuizResults/course-player-mockup-2.png"
-          className="w-full max-w-[816px] mx-auto mb-4 lg:mb-6"
-          alt="An image of the Pds course player on several devices: a 3 differnt size tablets, a phone, and a mac"
-          width={343}
-          height={113}
-          quality={100}
-          sizes="100vw"
-        />
       </Section>
 
       <Section className="bg-white-secondary">

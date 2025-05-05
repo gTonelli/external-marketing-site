@@ -442,13 +442,15 @@ export default function QuizResultsB({ params }: TParams) {
           <strong>We’ve helped thousands of people just like you. Now, it’s your turn.</strong>
         </p>
 
-        <div className="mb-4 lg:grid lg:grid-cols-2 lg:gap-6 lg:items-center">
+        <div className="mb-4 lg:mb-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:items-center">
           <Image
             src="/images/AttachmentQuizResults/course-player-mockup.png"
             className="w-full mb-4 lg:mb-0"
             alt="2 Card images overlaid on each other with some text. The first image is of a woman sitting and smiling doing a course workbook. The second image is a mockup of the PDS course player on a lap top. The text reads: 'Easy, step-by-step program. Teaches you everything you need to know about relationships.'"
             width={300}
             height={215}
+            quality={100}
+            sizes="100vw"
           />
 
           <div className="text-left">
@@ -488,15 +490,22 @@ export default function QuizResultsB({ params }: TParams) {
           </div>
         </div>
 
-        <Image
-          src="/images/AttachmentQuizResults/course-player-mockup-2.png"
-          className="w-full max-w-[816px] mx-auto mb-4"
-          alt="An image of the Pds course player on several devices: a 3 differnt size tablets, a phone, and a mac"
-          width={343}
-          height={113}
-        />
+        <h2 className="max-w-[lg:mb-6">
+          That Means You'll Get The Three Essential Elements You Need For Change In Your All-Acces
+          Pass. That Includes:
+        </h2>
 
         <PDSFeaturesSection attachmentStyleLong={attachmentStyleLong} />
+
+        <Image
+          src="/images/AttachmentQuizResults/course-player-mockup-2.png"
+          className="w-full max-w-[816px] mx-auto mb-6 lg:mb-10"
+          alt="An image of the Pds course player on several devices: a 3 different size tablets, a phone, and a mac"
+          width={343}
+          height={113}
+          quality={100}
+          sizes="100vw"
+        />
 
         <p className="text-lg font-bold">So what does this look like for you?</p>
 
@@ -573,36 +582,39 @@ export default function QuizResultsB({ params }: TParams) {
         <CarouselTestimonialThinkific className="mb-4" />
       </section>
 
-      <Section className="!pb-0 bg-[#EFEDF2]" classNameInner="!text-left lg:!max-w-[792px]">
-        <h2 className="mb-0">Meet Thais Gibson, PhD:</h2>
+      <Section className="!pb-0 bg-[#EFEDF2]" classNameInner="!text-left lg:grid lg:grid-cols-2">
+        <div>
+          <h2 className="mb-0">Meet Thais Gibson, PhD:</h2>
 
-        <h2>Your Mentor and Attachment Expert</h2>
+          <h2>Your Mentor and Attachment Expert</h2>
 
-        <p>
-          Your healing begins with someone who’s been where you are—and knows exactly how to help
-          you get where you want to be.
-        </p>
+          <p>
+            Your healing begins with someone who’s been where you are—and knows exactly how to help
+            you get where you want to be.
+          </p>
 
-        <p>{attachmentStyleConfig.thaisBio}</p>
+          <p>{attachmentStyleConfig.thaisBio}</p>
 
-        <List
-          useMD={false}
-          icon={faCircleCheck}
-          classNameListItems="mb-4"
-          listItems={[
-            <>
-              In our webinars, you’ll get live mentorship directly from Thais every week in the Q&A
-              Webinars. Each session is built on{' '}
-              <strong>respect for your individual boundaries</strong>, so you can finally trust that
-              you’re growing without sacrificing who you are.
-            </>,
+          <List
+            useMD={false}
+            icon={faCircleCheck}
+            classNameListItems="mb-4"
+            listItems={[
+              <>
+                In our webinars, you’ll get live mentorship directly from Thais every week in the
+                Q&A Webinars. Each session is built on{' '}
+                <strong>respect for your individual boundaries</strong>, so you can finally trust
+                that you’re growing without sacrificing who you are.
+              </>,
 
-            <>
-              You’ll learn from someone who has helped <strong>over 30,000 people transform</strong>{' '}
-              and understands exactly what it takes because she’s walked that path herself.
-            </>,
-          ]}
-        />
+              <>
+                You’ll learn from someone who has helped{' '}
+                <strong>over 30,000 people transform</strong> and understands exactly what it takes
+                because she’s walked that path herself.
+              </>,
+            ]}
+          />
+        </div>
 
         <Image
           src="/images/AttachmentQuizResults/thais-couch-mobile.png"
@@ -615,7 +627,7 @@ export default function QuizResultsB({ params }: TParams) {
         <Image
           src="/images/AttachmentQuizResults/thais-couch-desktop.png"
           alt="Thais sitting on a couch smiling with her head slightly tilted to the side."
-          className="hidden lg:block"
+          className="hidden lg:block lg:self-end"
           width={668}
           height={321}
         />
@@ -672,7 +684,11 @@ export default function QuizResultsB({ params }: TParams) {
         </div>
       </Section>
 
-      <Faq faq={baseConfig.faqs} />
+      <Faq
+        className="lg:grid lg:grid-cols-2 lg:max-w-screen-xl lg:gap-6"
+        classNameHeading="lg:col-span-2"
+        faq={baseConfig.faqs}
+      />
     </Page>
   )
 }

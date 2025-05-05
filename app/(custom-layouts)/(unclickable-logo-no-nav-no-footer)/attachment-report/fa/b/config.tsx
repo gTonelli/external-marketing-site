@@ -242,8 +242,8 @@ export const config = {
   pathItems: [
     {
       icon: faSquare1,
-      title: 'Begin Your Transformation',
-      body: 'Sign up for the All-Access Pass and start the Fearful Avoidant 7-Day Transformation Course.',
+      title: 'Begin Your Transformational Journey',
+      body: 'Sign up for the All-Access Pass and start the Fearful Avoidant to Securely Attached program to begin healing.',
     },
 
     {

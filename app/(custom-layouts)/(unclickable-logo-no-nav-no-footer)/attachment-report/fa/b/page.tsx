@@ -70,7 +70,7 @@ export default function FearfulAvoidantReportPageB() {
             />
           </div>
 
-          <ButtonScroll target="#pricing" label="LEARN MORE TO UNLOCK YOUR TRANSFORMATION" />
+          <ButtonScroll target="#pricing" label="START HEALING RIGHT HERE" />
         </div>
       </Section>
 
@@ -212,7 +212,7 @@ export default function FearfulAvoidantReportPageB() {
         </p>
       </Section>
 
-      <Section id="pricing">
+      <Section>
         <h2>Imagine Having Relationships That Feel Safe, Loving, and Free</h2>
 
         <div className="grid gap-8 text-left lg:grid-cols-2">
@@ -236,12 +236,14 @@ export default function FearfulAvoidantReportPageB() {
             />
           </div>
 
-          <div className="default-padding rounded-2xl shadow-centered-card relative overflow-hidden lg:py-10 lg:px-10">
+          <div
+            id="pricing"
+            className="default-padding rounded-2xl shadow-centered-card relative overflow-hidden lg:py-10 lg:px-10">
             <p className="w-full text-center text-white absolute top-8 -right-[calc(50%-39px)] rotate-45 bg-[#30A114]">
               SAVE 30%
             </p>
 
-            <p className="font-ssp lg:text-2xl">
+            <p className="font-ssp w-3/4 lg:w-full lg:text-2xl">
               <strong>
                 For just $67/month, your All-Access Pass gives you the complete roadmap to change:
               </strong>
@@ -319,6 +321,8 @@ export default function FearfulAvoidantReportPageB() {
               alt="2 Card images overlaid on each other with some text. The first image is of a woman sitting and smiling doing a course workbook. The second image is a mockup of the PDS course player on a lap top. The text reads: 'Easy, step-by-step program. Teaches you everything you need to know about relationships.'"
               width={300}
               height={215}
+              quality={100}
+              sizes="100vw"
             />
           </div>
 
@@ -337,16 +341,11 @@ export default function FearfulAvoidantReportPageB() {
               <FontAwesomeIcon className="text-primary mr-2" icon={faStars} />
 
               <p className="text-primary mb-0">
-                Ready to start building the love and trust you deserve? Sign up for the All-Access
-                Pass now for 30% off for life!
+                And you can access everything we offer to start building the love and trust you
+                deserve with our All-Access Pass! Now available for just $67/month — a 30% discount
+                for life!
               </p>
             </div>
-
-            <p>
-              <strong>
-                And it’s all included in your All-Access Pass, available for just $67/month
-              </strong>
-            </p>
 
             <ButtonCheckout label="JOIN US NOW!" />
           </div>
@@ -436,9 +435,9 @@ export default function FearfulAvoidantReportPageB() {
               <h3>Live Webinars: Practice With Support</h3>
 
               <p>
-                Join weekly live sessions with our founder, Thais, attachment expert, and PhD, for
-                direct coaching, the opportunity to ask questions, get clarity, and integrate your
-                learning into daily life.
+                Join weekly live sessions with our founder, Thais Gibson, attachment expert, and
+                PhD, for direct coaching, the opportunity to ask questions, get clarity, and
+                integrate your learning into daily life.
               </p>
 
               <p>
@@ -451,7 +450,7 @@ export default function FearfulAvoidantReportPageB() {
       </Section>
 
       <Section>
-        <h2>How much longer can you let fear dictate your relationships?</h2>
+        <h2>How Much Longer Can You Let Fear Dictate Your Relationships?</h2>
 
         <p>
           Start changing your attachment style today—with the tools, support, and safety you need to
@@ -475,6 +474,8 @@ export default function FearfulAvoidantReportPageB() {
             alt="An image of the Pds course player on several devices: a 3 differnt size tablets, a phone, and a mac"
             width={343}
             height={113}
+            quality={100}
+            sizes="100vw"
           />
         </div>
       </Section>

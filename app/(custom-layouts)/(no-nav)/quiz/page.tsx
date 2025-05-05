@@ -23,7 +23,7 @@ export default function AttachmentQuizPage() {
         experimentName: 'GM-1362-ICP-Results',
         key: 'GM-1362',
         useCookies: false,
-        variantRatio: 0.5,
+        variantRatio: 0.25,
       }}>
       {/* INTRO */}
       <section className="default-padding w-full flex-col flex-center bg-primary-light pt-11 pb-1 relative z-10">

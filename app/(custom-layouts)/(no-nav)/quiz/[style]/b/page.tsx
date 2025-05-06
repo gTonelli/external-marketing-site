@@ -491,7 +491,7 @@ export default function QuizResultsB({ params }: TParams) {
         </div>
 
         <h2 className="max-w-[lg:mb-6">
-          That Means You'll Get The Three Essential Elements You Need For Change In Your All-Acces
+          That Means You'll Get The Three Essential Elements You Need For Change In Your All-Access
           Pass. That Includes:
         </h2>
 

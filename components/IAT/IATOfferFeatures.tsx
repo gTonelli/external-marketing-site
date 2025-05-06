@@ -63,11 +63,11 @@ export const IATOfferFeatures = () => {
 
             <p className="font-bold text-left mt-10 tracking-33 lg:mt-0">IT'S FOR EVERYONE!</p>
 
-            <p className="text-left mt-2 mb-4">{IAT.what_you_get.secondaryCopy1}</p>
-
-            <p className="text-left mt-2 mb-6">{IAT.what_you_get.secondaryCopy2}</p>
-
-            <p className="text-left mt-2 mb-6">{IAT.what_you_get.secondaryCopy3}</p>
+            {IAT.what_you_get.secondaryCopy.map((copy, idx) => (
+              <p key={`secondary_copy_${idx}`} className="text-left mt-2 mb-4">
+                {copy}
+              </p>
+            ))}
 
             <ButtonScroll label="SIGN UP TODAY" target="#click-purchase-target" />
           </div>

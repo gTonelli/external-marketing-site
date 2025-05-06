@@ -289,12 +289,11 @@ export const IAT_COPY = {
       },
     ],
 
-    secondaryCopy1:
+    secondaryCopy: [
       'The Integrated Attachment Theory™ Certification is for anyone who wants to become a relationship expert and transform the lives of others! It is designed to give you an in-depth education on how attachment theory, communication, core wounds, and conflict resolution works.',
-    secondaryCopy2:
       ' You’ll also learn about how to build a business and set yourself up for success, freedom and financial abundance in your life. Whether you already have an established practice or are just beginning your personal development journey, this certification will provide you with integrated tools to build thriving relationships - personally and professionally.',
-    secondaryCopy3:
       'The certification can be used for 1-1 coaching, personal relationships, couples therapy and more. It is a flexible and in-depth training course that will walk you through relationship mastery. All levels of experience are welcome, and we’re so excited to see you in the training!',
+    ],
   },
 
   price: {

@@ -5,10 +5,8 @@ import { useContext, useState } from 'react'
 import Image from 'next/image'
 // components
 import { Section } from '../Section'
-import { faArrowLeftLong, faArrowRightLong } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // libraries
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // config
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'

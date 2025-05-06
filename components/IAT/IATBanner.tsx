@@ -41,7 +41,7 @@ export const IATBanner = ({ page }: IIATBannerProps) => {
         </p>
 
         <ButtonScroll
-          className="trial-btn relative mt-11 md:top-6 md:mt-0 lg:mt-8"
+          className="relative mt-11 md:top-6 md:mt-0 lg:mt-8"
           label="SIGN UP NOW"
           target="#click-purchase-target"
         />
@@ -66,7 +66,7 @@ export const IATBanner = ({ page }: IIATBannerProps) => {
       ))}
 
       <ButtonScroll
-        className="trial-btn relative mt-6 md:top-6 md:mt-0 lg:mt-6"
+        className="relative mt-6 md:top-6 md:mt-0 lg:mt-6"
         label="GET STARTED NOW"
         target="#click-purchase-target"
       />

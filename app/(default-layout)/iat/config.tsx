@@ -42,7 +42,7 @@ export const IAT_COPY = {
   },
 
   initial_weeks: {
-    heading: `YOU’LL HAVE GLOBAL LEADER, THAIS GIBSON, AS YOUR TEACHER FOR 8 WEEKS – HER EXPERIENCED TEAM OF CERTIFIED IAT COACHES WILL TEACH THE INITIAL 4 WEEKS.`,
+    heading: `YOU’LL HAVE GLOBAL LEADER, THAIS GIBSON, AS YOUR TEACHER FOR 8 WEEKS – HER EXPERIENCED TEAM OF CERTIFIED IAT™ COACHES WILL TEACH THE INITIAL 4 WEEKS.`,
 
     subheading: `BY ENROLLING IN THIS PROGRAM, YOU WILL MASTER:`,
 
@@ -91,10 +91,10 @@ export const IAT_COPY = {
 
     live_training: {
       prerequisite_week: {
-        heading: [`Complete Your Prerequisites`, `Attend Weekly Review Webinars With IAT Coaches`],
+        heading: [`Complete Your Prerequisites`, `Attend Weekly Review Webinars With IAT™ Coaches`],
 
         copy: [
-          'In your first 4 weeks in the program, you’ll be expected to complete one course on your own time each week, then attend a 1-hour long course review webinar with our IAT coaches. They’ll be going through the courses’ main concepts and opening up discussions and Q&As.',
+          'In your first 4 weeks in the program, you’ll be expected to complete one course on your own time each week, then attend a 1-hour long course review webinar with our IAT™ coaches. They’ll be going through the courses’ main concepts and opening up discussions and Q&As.',
           'The first 4 weeks of the program are intended to give you the foundations you need to understand attachment theory.',
         ],
 
@@ -124,7 +124,7 @@ export const IAT_COPY = {
       },
 
       intensive_week: {
-        heading: [`Complete Your Intensive IAT Training With Thais`],
+        heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
         copy: [
           'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from June 18th - August 6th every Wednesday at 6 PM ET for 8 weeks.',
@@ -144,7 +144,7 @@ export const IAT_COPY = {
 
             `In-depth resources for client sessions`,
 
-            `Our private Facebook group for the IAT cohort.`,
+            `Our private Facebook group for the IAT™ cohort.`,
           ],
         },
       },
@@ -152,9 +152,9 @@ export const IAT_COPY = {
 
     on_demand_training: {
       left_section: [
-        'You can enroll in this version of the IAT training anytime.',
+        'You can enroll in this version of the IAT™ training anytime.',
         "This is a great option if you prefer to go at your own pace, or if you can't make the weekly Q&A times and practice sessions (or you don't feel you need the additional support).",
-        'You will still gain access to proven tools and strategies along with all of the materials and in-depth video training modules of the Gibson Integrated Attachment Theory™ Program. This format also includes access to the pre-recorded IAT online training course and client resources you can use in your own practice.',
+        'You will still gain access to proven tools and strategies along with all of the materials and in-depth video training modules of the Integrated Attachment Theory™ Certification Program. This format also includes access to the pre-recorded IAT™ online training course and client resources you can use in your own practice.',
       ],
 
       right_section: {
@@ -181,7 +181,7 @@ export const IAT_COPY = {
       location: 'Google',
     },
     {
-      review: ` Thais Gibson's approach provides "the best tangible tools" I has ever encountered. Thais's Integrated Attachment Theory has a framework that is so well laid out. There isn’t a lot of guess work. We can learn a ton about different modalities and interventions but lack a specific plan with tangible tools. It’s changed the way I understand people. It takes me so much less time to understand what is going on below the surface. It is a life-changing experience.`,
+      review: ` Thais Gibson's approach provides "the best tangible tools" I has ever encountered. Thais's Integrated Attachment Theory™ has a framework that is so well laid out. There isn’t a lot of guess work. We can learn a ton about different modalities and interventions but lack a specific plan with tangible tools. It’s changed the way I understand people. It takes me so much less time to understand what is going on below the surface. It is a life-changing experience.`,
       author: 'Heather Holzhauser',
       designation: 'LCSW, LSCSW Adjunct Professor',
       location: 'University of Illinois Chicago',
@@ -193,19 +193,19 @@ export const IAT_COPY = {
       location: 'New York City',
     },
     {
-      review: `I just wanted to make a post to thank Thais and the whole PDS staff.  I’ve been part of the IAT summer coaching training (Integrated Attachment Theory) and it’s been amazing.  The learning and support is DEEP, the attention from Thais and the staff, the profound knowledge and patience, the breakdown of the info…even my fellow “learners” kick butt. If you’re looking to learn or get into a new career (like me) don’t hesitate.`,
+      review: `I just wanted to make a post to thank Thais and the whole PDS staff.  I’ve been part of the IAT™ summer coaching training (Integrated Attachment Theory™) and it’s been amazing.  The learning and support is DEEP, the attention from Thais and the staff, the profound knowledge and patience, the breakdown of the info…even my fellow “learners” kick butt. If you’re looking to learn or get into a new career (like me) don’t hesitate.`,
       author: 'Gary Upton',
       designation: '',
       location: 'IAT Facebook Group',
     },
     {
-      review: `Big coaching milestone for me; I'm starting a waitlist. I've been quite successful with my IAT Coaching practice, so much so that I can officially say that I cannot take on any more clients this Summer. It's only been 1 year since I started the program and my client roster is overflowing. Now it's time to start the transition into solely offering Coaching and to sell my other business. This has been such an incredible journey and I'm feeling so excited for this next chapter. Thank you Thais Gibson and Pds Team-member for helping me to find such fulfilling work through IAT Coaching.`,
+      review: `Big coaching milestone for me; I'm starting a waitlist. I've been quite successful with my IAT™ Coaching practice, so much so that I can officially say that I cannot take on any more clients this Summer. It's only been 1 year since I started the program and my client roster is overflowing. Now it's time to start the transition into solely offering Coaching and to sell my other business. This has been such an incredible journey and I'm feeling so excited for this next chapter. Thank you Thais Gibson and Pds Team-member for helping me to find such fulfilling work through IAT™ Coaching.`,
       author: 'Heather Jane',
       designation: '',
       location: 'IAT Facebook Group',
     },
     {
-      review: `I completed the 'on demand' IAT Coach course & it was amazing. I've always loved your content & it has not only helped transform my own personal life & relationships, but now I'm also helping my clients with the same principles & they love it. I can't thank you enough.`,
+      review: `I completed the 'on demand' IAT™ Coach course & it was amazing. I've always loved your content & it has not only helped transform my own personal life & relationships, but now I'm also helping my clients with the same principles & they love it. I can't thank you enough.`,
       author: 'Brii Kingsley',
       designation: '',
       location: 'IAT Facebook Group',
@@ -289,9 +289,11 @@ export const IAT_COPY = {
       },
     ],
 
-    secondaryCopy: `The Integrated Attachment Theory™ Certification is for anyone who wants to become a relationship expert and transform the lives of others! It is designed to give you an in-depth education on how attachment theory, communication, core wounds, and conflict resolution works. 
-                    \nYou’ll also learn about how to build a business and set yourself up for success, freedom and financial abundance in your life. Whether you already have an established practice or are just beginning your personal development journey, this certification will provide you with integrated tools to build thriving relationships - personally and professionally.
-                    \nThe certification can be used for 1-1 coaching, personal relationships, couples therapy and more. It is a flexible and in-depth training course that will walk you through relationship mastery. All levels of experience are welcome, and we’re so excited to see you in the training!`,
+    secondaryCopy: [
+      'The Integrated Attachment Theory™ Certification is for anyone who wants to become a relationship expert and transform the lives of others! It is designed to give you an in-depth education on how attachment theory, communication, core wounds, and conflict resolution works.',
+      ' You’ll also learn about how to build a business and set yourself up for success, freedom and financial abundance in your life. Whether you already have an established practice or are just beginning your personal development journey, this certification will provide you with integrated tools to build thriving relationships - personally and professionally.',
+      'The certification can be used for 1-1 coaching, personal relationships, couples therapy and more. It is a flexible and in-depth training course that will walk you through relationship mastery. All levels of experience are welcome, and we’re so excited to see you in the training!',
+    ],
   },
 
   price: {
@@ -356,7 +358,7 @@ export const IAT_COPY = {
         `The 12 key principles of the subconscious mind`,
         `The Subconscious Mind and Your emotional state`,
         `Core concepts of reprogramming the Subconscious Mind`,
-        `Q&A session with IAT Coaches (Live Program Only)`,
+        `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
       textBottom: ``,
@@ -371,7 +373,7 @@ export const IAT_COPY = {
         `Key Components to Reprogramming Your Reality Filter`,
         `Core Beliefs`,
         `Transforming Limiting Beliefs`,
-        `Q&A Session with IAT Coaches (Live Program Only)`,
+        `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
 
       textBottom: ``,
@@ -386,7 +388,7 @@ export const IAT_COPY = {
         `Thought Repatterning`,
         `Action Reprogramming`,
         `Reprogramming Tools`,
-        `Q&A Session with IAT Coaches (Live Program Only)`,
+        `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
 
       textBottom: ``,
@@ -402,7 +404,7 @@ export const IAT_COPY = {
         `The impact of Personality Needs on your life`,
         `How To Express Your Needs and Build Connection`,
         `Healthy Habits to Get Your Needs Met`,
-        ` Q&A session with IAT Coaches (Live Program Only)`,
+        ` Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
       textBottom: ``,
@@ -553,7 +555,7 @@ export const IAT_COPY = {
       'Thais Gibson has completed her PhD and over 13 different certifications in modalities including CBT, NLP, somatic experiencing, internal family systems, shadow work and more!',
       'She ran a private practice for the better part of a decade and has worked with over 40,000 clients 1-1, in workshops and through the Personal Development School programs. With a 99.7% satisfaction score on her programs and courses, Thais has developed ground-breaking techniques in rapid transformation and healing relationships that are shared throughout this program. ',
       `Thais's new book, "Learning Love," was released on Amazon in early December 2023 and offers a revolutionary approach to building fulfilling relationships. It's been a best-seller and has encouraged some big names to invite Thais as a guest star on several popular podcasts, including The Mel Robbins Podcast.`,
-      'Thais has also been a guest speaker for Google and has shared her cutting-edge knowledge with people in over 142 different countries. The Integrated Attachment Theory certification (IAT) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.',
+      'Thais has also been a guest speaker for Google and has shared her cutting-edge knowledge with people in over 142 different countries. The Integrated Attachment Theory™ certification (IAT™) will equip you with the best tools from Thais’ past decade of learning, giving you exactly what it takes to produce rapid results and impact people’s lives.',
     ],
 
     subsection: {
@@ -591,17 +593,13 @@ export const IAT_COPY = {
     },
 
     {
-      answer: `It is taught by Thais Gibson.
-        
-        \nThais is a respected author, speaker and leader in the personal development field, and the co-founder of The Personal Development School.
-        
-        \nShe's been recognized by Time Business News, The New York Post, Yahoo! News, Success Magazine and many other outlets for her cutting-edge research on the subconscious mind and personal transformation.
-        
-        \nThais has her MA, BA, and is certified in over 13 different modalities including Cognitive Behavioral Therapy, NLP, Somatic Processing, and Trauma Work.
-        
-        \nThroughout her academic training and client-based research, Thais has created renowned courses for personal development, growth and relationships. Prior to starting The Personal Development School, she ran her own busy client practice where 
-        
-        \nshe gained a deep understanding of attachment trauma patterns.`,
+      answer: [
+        'It is taught by Thais Gibson.',
+        'Thais is a respected author, speaker and leader in the personal development field, and the co-founder of The Personal Development School.',
+        "She's been recognized by Time Business News, The New York Post, Yahoo! News, Success Magazine and many other outlets for her cutting-edge research on the subconscious mind and personal transformation.",
+        'Thais has her MA, BA, and is certified in over 13 different modalities including Cognitive Behavioral Therapy, NLP, Somatic Processing, and Trauma Work.',
+        'Throughout her academic training and client-based research, Thais has created renowned courses for personal development, growth and relationships. Prior to starting The Personal Development School, she ran her own busy client practice where she gained a deep understanding of attachment trauma patterns.',
+      ],
       question: `Who is the course taught by?`,
     },
 

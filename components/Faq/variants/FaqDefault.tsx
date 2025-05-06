@@ -156,7 +156,7 @@ const FAQ = ({
           } p-4 transition-all !bg-opacity-20`}>
           <Text.Paragraph
             className={cx(
-              `font-bold text-left md:text-lg ${reverseIcon ? 'order-2' : ''}`,
+              `font-bold text-left md:text-lg mb-0 ${reverseIcon ? 'order-2' : ''}`,
               classNameQuestion
             )}
             content={question}

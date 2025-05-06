@@ -395,7 +395,7 @@ export default function FearfulAvoidantReportPageB() {
             </div>
           </div>
 
-          <div className="flex bg-[#FCF7F5] rounded-xl p-4">
+          <div className="flex bg-orange-auxillary rounded-xl p-4">
             <div className="mr-2">
               <FontAwesomeIcon
                 className="text-white bg-primary rounded py-1 px-2 mt-1"
@@ -460,9 +460,9 @@ export default function FearfulAvoidantReportPageB() {
         <ButtonCheckout className="mb-4" label="SIGN UP NOW!" />
 
         <div className="w-fit flex items-center bg-[#D9E0FE] py-2 px-4 mb-4 mx-auto">
-          <FontAwesomeIcon className="text-[#142BD5] mr-2" icon={faInfoCircle} />
+          <FontAwesomeIcon className="text-blue-darkest mr-2" icon={faInfoCircle} />
 
-          <p className="text-[#142BD5] mb-0">
+          <p className="text-blue-darkest mb-0">
             Join the All-Access Pass TODAY And Save 30% On Your Membership
           </p>
         </div>

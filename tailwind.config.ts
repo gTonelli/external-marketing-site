@@ -85,6 +85,7 @@ const config: Config = {
         'orange-secondary': '#E7A69D',
         'orange-light': '#FBEFED',
         'orange-dark': '#D35E4A',
+        'orange-auxillary': '#FCF7F5',
 
         yellow: '#F8BF53',
         'yellow-secondary': '#FFC123',

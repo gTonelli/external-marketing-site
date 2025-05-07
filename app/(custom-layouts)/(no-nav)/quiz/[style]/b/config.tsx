@@ -302,4 +302,73 @@ export const config = {
     thaisBio:
       'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created The Personal Development School: to help others do the same.',
   },
+
+  sa: {
+    title: 'Stay secure. Stay grounded. Stay true to yourself.',
+
+    hookTitle: 'What Does It Mean to Be Securely Attached?',
+
+    hookSubtitle:
+      'There are four main attachment styles—each shaped by the emotional experiences you had early in life. They fall into two broad categories: ',
+
+    hookListItems: [
+      'Constantly worry if the people you love will leave',
+      'Feel anxious when you don’t get a quick reply or clear reassurance',
+      'Try to be the “perfect” partner or friend—hoping it will make them stay',
+      'Overextend yourself to meet others’ needs, even when yours go unmet',
+      'Feel hurt when you give so much and still question where you stand',
+    ],
+
+    hookFooter:
+      'You long for connection, consistency, and to be chosen without having to earn it—but deep down, you may worry that love always slips away.',
+
+    patternListItems: [
+      'Who you’re drawn to',
+      'How safe you feel when someone pulls away',
+      'How much you believe you’ll be chosen and loved for who you are',
+      'How you show up in relationships with your loved ones',
+    ],
+
+    secureCard: [
+      <>
+        People with <strong>secure attachment</strong> feel safe in love.
+      </>,
+      'They feel confident being close to others and naturally attract people who are consistent, emotionally available, and clear about their intentions.',
+    ],
+
+    insecureCard: [
+      <>
+        People with <strong>insecure attachment</strong>—like the{' '}
+        <strong>Anxious Preoccupied</strong> style—often feel like love is fragile, unpredictable,
+        or something they need to earn.
+      </>,
+      'When you have an Anxious Preoccupied attachment style, your nervous system is wired to fear abandonment.',
+      'You may fixate on changes in connection, overextend yourself to hold onto relationships, or feel deeply hurt when your efforts go unreciprocated.',
+    ],
+
+    patternsDescriptionOne:
+      'It’s not because you’re clingy—it’s because your system is trying to keep you safe. Familiar dynamics feel comforting, even if they leave you anxious and unsure.',
+
+    patternsDescriptionTwo: [
+      'These patterns developed based on how emotionally secure you felt growing up. If love in early life was inconsistent—if you felt unseen, emotionally neglected, or like you had to try hard to matter—your nervous system learned that closeness was uncertain and had to be maintained at all costs.',
+      'So even now, as an adult, you may find yourself pulled toward people who feel familiar. Not because they’re healthy—but because they match the emotional blueprint you’ve carried for years.',
+    ],
+
+    subsconsciousListItems: [
+      'It looks for what’s familiar.',
+      'It repeats what feels “normal,” even if that normal is painful.',
+      'It pulls you toward the people and dynamics that match your earliest experiences—even when those experiences taught you to expect confusion, inconsistency, or betrayal.',
+    ],
+
+    repeatedPatternsBodyItems: [
+      'If you attract people who seem invested at first, then slowly pull away...',
+      'If you keep ending up in relationships where you care more, try harder, or feel like you’re never quite enough...',
+      'If you find yourself constantly wondering where you stand—in romantic relationships, friendships, or even family...',
+    ],
+
+    videoSrc: '',
+
+    thaisBio:
+      'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created The Personal Development School: to help others do the same.',
+  },
 }

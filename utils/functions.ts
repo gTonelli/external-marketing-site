@@ -184,6 +184,6 @@ export const getAttachmentStyleText = (style: TStyle) => {
     case 'da':
       return 'Dismissive Avoidant'
     case 'sa':
-      return 'Secure Attachment'
+      return 'Securely Attached'
   }
 }

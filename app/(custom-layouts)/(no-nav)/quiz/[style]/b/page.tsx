@@ -93,7 +93,7 @@ export default function QuizResultsB({ params }: TParams) {
           />
         </div>
 
-        <div className="flex rounded bg-pink-auxiliary text-primary text-left py-2 px-4 mb-4">
+        <div className="w-fit flex rounded bg-pink-auxiliary text-primary text-left py-2 px-4 mb-4 mx-auto">
           <FontAwesomeIcon className="mr-2 pt-2 lg:pt-0" icon={faSparkles} />
 
           <span>{attachmentStyleConfig.hookFooter}</span>

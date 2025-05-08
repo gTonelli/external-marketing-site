@@ -72,7 +72,7 @@ export default function QuizResultsSAB() {
         </div>
 
         <div className="grid gap-8 text-left my-8 lg:grid-cols-2">
-          <div>
+          <div className="pt-8">
             <p>
               Your attachment style was shaped by how emotionally safe and supported you felt with
               your caregivers and early relationships.
@@ -91,14 +91,30 @@ export default function QuizResultsSAB() {
             />
           </div>
 
-          <div>Image</div>
+          <div>
+            <Image
+              alt="A vector image of a woman sitting on a ledge with a heart above her shoulder."
+              className="w-full"
+              src="/images/AttachmentQuizResults/woman-sitting-heart.svg"
+              width={250}
+              height={254}
+            />
+          </div>
         </div>
 
         <div>
           <h3>As a result, securely attached individuals like you tend to:</h3>
 
           <div className="grid gap-8 text-left lg:grid-cols-2">
-            <div>Image</div>
+            <div>
+              <Image
+                alt="A vector image of two women sitting next to each other holding hands."
+                className="w-full"
+                src="/images/AttachmentQuizResults/two-women-sitting.svg"
+                width={300}
+                height={258}
+              />
+            </div>
 
             <div className="text-left">
               <List
@@ -131,7 +147,7 @@ export default function QuizResultsSAB() {
         <h2>You’ve done the work. Now protect what you’ve built.</h2>
 
         <div className="grid gap-8 text-left lg:grid-cols-2">
-          <div className="rounded-2xl border border-primary p-4">
+          <div className="rounded-2xl bg-pink-auxiliary p-4">
             <p>
               <strong>
                 You know your worth. You trust your instincts. You show up with honesty, empathy,
@@ -166,7 +182,7 @@ export default function QuizResultsSAB() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-primary p-4">
+          <div className="rounded-2xl bg-pink-auxiliary p-4">
             <p>
               <strong>
                 Even if you’ve done the healing, the world doesn’t always reflect it back.
@@ -198,9 +214,7 @@ export default function QuizResultsSAB() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-primary p-4">Image</div>
-
-          <div className="rounded-2xl border border-primary p-4">
+          <div className="rounded-2xl bg-pink-auxiliary p-4">
             <p>
               <strong>Being Secure Doesn’t Mean Relationships Are Always Simple</strong>
             </p>
@@ -238,6 +252,16 @@ export default function QuizResultsSAB() {
               But in order to protect the connection and your well-being, you need tools that match
               your growth.
             </p>
+          </div>
+
+          <div>
+            <Image
+              alt="An elderly woman sitting on a couch with her arms behind her back, looking upwards and smiling."
+              className="mb-6 w-full lg: h-full"
+              src="/images/AttachmentQuizResults/elderly-woman-couch.png"
+              width={343}
+              height={211}
+            />
           </div>
         </div>
       </Section>

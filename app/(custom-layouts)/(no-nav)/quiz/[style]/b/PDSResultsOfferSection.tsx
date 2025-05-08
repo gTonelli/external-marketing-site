@@ -42,7 +42,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
 
         <div className="mb-4 lg:mb-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:items-center">
           <Image
-            src={`/images/AttachmentQuizResults/course-mockup-player.png`}
+            src={`/images/AttachmentQuizResults/course-player-mockup-${attachmentStyleShort}.png`}
             className="w-full mb-4 lg:mb-0"
             alt="2 Card images overlaid on each other with some text. The first image is of a woman sitting and smiling doing a course workbook. The second image is a mockup of the PDS course player on a lap top. The text reads: 'Easy, step-by-step program. Teaches you everything you need to know about relationships.'"
             width={300}
@@ -69,8 +69,9 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
         </div>
 
         <h2 className="lg:mb-6">
-          That Means You'll Get The Three Essential Elements You Need For Change In Your All-Access
-          Pass. That Includes:
+          {attachmentStyleShort === 'sa'
+            ? "That Means You'll Get The Three Essential Elements You Need to Stay Secure & Keep Growing:"
+            : "That Means You'll Get The Three Essential Elements You Need For Change In Your All-Access Pass. That Includes:"}
         </h2>
 
         <PDSFeaturesSection
@@ -168,6 +169,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
           <List
             useMD={false}
             icon={faCircleCheck}
+            className="mb-16"
             classNameListItems="mb-4"
             listItems={[
               <>
@@ -176,7 +178,6 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
                 <strong>respect for your individual boundaries</strong>, so you can finally trust
                 that you’re growing without sacrificing who you are.
               </>,
-
               <>
                 You’ll learn from someone who has helped{' '}
                 <strong>over 30,000 people transform</strong> and understands exactly what it takes
@@ -216,7 +217,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
           <Image
             alt="A mockup of PDS courses on the PDs course players on 2 tablets and a laptop."
             className="mb-4 w-full max-w-[502px]"
-            src="/images/AttachmentQuizResults/course-player-mockup-3.png"
+            src={`/images/AttachmentQuizResults/course-player-mockup-3-${attachmentStyleShort}.png`}
             width={343}
             height={177}
           />
@@ -248,7 +249,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
               `Unlimited access to 70+ transformative courses${
                 attachmentStyleShort === 'sa'
                   ? '.'
-                  : `, including your starting point, the ${attachmentStyleLong} to Securely Attached program`
+                  : `, including your starting point, the ${attachmentStyleLong} to Securely Attached program.`
               }`,
               'Weekly personalized mentorship sessions with Thais Gibson.',
               'A private, supportive community for safe emotional growth.',
@@ -259,7 +260,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
         </div>
       </Section>
 
-      <Faq className="lg:max-w-screen-xl" faq={baseConfig.faqs} />
+      <Faq className="lg:max-w-screen-xl" classNameHeading="text-center" faq={baseConfig.faqs} />
     </>
   )
 }

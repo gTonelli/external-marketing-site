@@ -9,6 +9,7 @@ import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { fa1, fa2, fa3, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { PDSResultsOfferSection } from '@/app/(custom-layouts)/(no-nav)/quiz/[style]/b/PDSResultsOfferSection'
 
 export const metadata: Metadata = {
   title: 'Securely Attached Style Report | PDS',
@@ -33,7 +34,7 @@ export default function QuizResultsSAB() {
 
         <VideoThumbnail
           className="shadow-centered p-4 rounded-20 max-w-[792px] mx-auto mb-6"
-          srcUrl="TODO"
+          srcUrl="https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4"
           thumbnailAlt="Thais Gibson sitting at a desk smiling and filling in a workbook."
           thumbnailUrl={'AttachmentQuizResults/thais-writing.jpg'}
           type="default"
@@ -365,6 +366,8 @@ export default function QuizResultsSAB() {
           </em>
         </p>
       </Section>
+
+      <PDSResultsOfferSection attachmentStyleShort="sa" />
     </Page>
   )
 }

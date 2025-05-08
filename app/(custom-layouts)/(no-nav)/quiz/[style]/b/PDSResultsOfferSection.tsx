@@ -1,27 +1,48 @@
+// core
+import Image from 'next/image'
+// components
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Faq } from '@/components/Faq/Faq'
 import { List } from '@/components/List'
 import { Section } from '@/components/Section'
-import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PDSFeaturesSection } from './PDSFeaturesSection'
-import { faSparkles, faCircleInfo } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import Image from 'next/image'
+import { faCircleCheck, faInfoCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// utils
+import { TStyle } from '@/utils/types'
+import { getAttachmentStyleText } from '@/utils/functions'
+// config
+import { config } from './config'
+// style
+import './style.css'
 
-export const PDSResultsOfferSection = () => {
+interface IPDSResultsOfferProps {
+  attachmentStyleShort: TStyle
+}
+
+export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOfferProps) => {
+  const attachmentStyleLong = getAttachmentStyleText(attachmentStyleShort)
+  const { base: baseConfig } = config
+  const pdsGrowthConfig = baseConfig.pdsGrowth(attachmentStyleShort)
+  const pdsTestimonial = baseConfig.testimonials(attachmentStyleShort)
+
   return (
     <>
       <Section classNameInner="lg:!max-w-screen-xl" id="pds-offer">
-        <h2>This Is Where We at The Personal Development School Come In</h2>
+        <h2>{pdsGrowthConfig.title}</h2>
 
-        <p className="mb-4">
-          <strong>We’ve helped thousands of people just like you. Now, it’s your turn.</strong>
-        </p>
+        {pdsGrowthConfig.subtitle && (
+          <p className="mb-4">
+            <strong>{pdsGrowthConfig.subtitle}</strong>
+          </p>
+        )}
 
         <div className="mb-4 lg:mb-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:items-center">
           <Image
-            src="/images/AttachmentQuizResults/course-player-mockup.png"
+            src={`/images/AttachmentQuizResults/course-mockup-player.png`}
             className="w-full mb-4 lg:mb-0"
             alt="2 Card images overlaid on each other with some text. The first image is of a woman sitting and smiling doing a course workbook. The second image is a mockup of the PDS course player on a lap top. The text reads: 'Easy, step-by-step program. Teaches you everything you need to know about relationships.'"
             width={300}
@@ -31,34 +52,14 @@ export const PDSResultsOfferSection = () => {
           />
 
           <div className="text-left">
-            <p>
-              You now know what real healing requires:{' '}
-              <strong>safety, the right tools, and consistent support.</strong>
-            </p>
-
-            <p>
-              But most people don’t know where to find those things. They’re not taught in school.
-              They’re not easy to Google. And even when you want to heal, it’s hard to know where to
-              start.
-            </p>
-
-            <p className="mb-0">
-              <strong>That’s why we created The Personal Development School.</strong>
-            </p>
-
-            <p>
-              The Personal Development School is a dedicated space for healing—offering on-demand
-              courses designed to influence real change, live weekly webinars, and a private
-              community of people who truly understand what you’re working through.
-            </p>
+            {pdsGrowthConfig.copy.map((value, idx) => (
+              <p key={`pds_growth_${idx}`}>{value}</p>
+            ))}
 
             <div className="flex bg-white-secondary text-primary rounded mb-4 px-4 py-2">
               <FontAwesomeIcon className="mt-1" icon={faSparkles} />
 
-              <p className="ml-2 mb-0">
-                It’s designed so you can access everything you need to rewire old patterns and build
-                healthier relationships, all in one place.
-              </p>
+              <p className="ml-2 mb-0">{pdsGrowthConfig.hook}</p>
             </div>
 
             <p>
@@ -67,12 +68,15 @@ export const PDSResultsOfferSection = () => {
           </div>
         </div>
 
-        <h2 className="max-w-[lg:mb-6">
+        <h2 className="lg:mb-6">
           That Means You'll Get The Three Essential Elements You Need For Change In Your All-Access
           Pass. That Includes:
         </h2>
 
-        <PDSFeaturesSection attachmentStyleLong={attachmentStyleLong} />
+        <PDSFeaturesSection
+          style={attachmentStyleShort}
+          attachmentStyleLong={attachmentStyleLong}
+        />
 
         <Image
           src="/images/AttachmentQuizResults/course-player-mockup-2.png"
@@ -88,8 +92,8 @@ export const PDSResultsOfferSection = () => {
 
         <ButtonCheckout className="mb-4" label="JOIN THE ALL-ACCESS & SAVE 30%" />
 
-        <div className="bg-[#D9E0FE] flex text-blue-darkest p-4 rounded">
-          <FontAwesomeIcon className="mr-2" icon={faCircleInfo} />
+        <div className="w-fit bg-[#D9E0FE] flex items-center text-blue-darkest p-4 mx-auto">
+          <FontAwesomeIcon className="mr-2" icon={faInfoCircle} />
 
           <p className="mb-0">
             When you sign up, you'll pay the monthly membership of $67 instead of the regular price
@@ -120,7 +124,7 @@ export const PDSResultsOfferSection = () => {
         />
 
         <div className="text-left mb-4 lg:grid lg:grid-cols-5 lg:gap-4">
-          {baseConfig.healingSteps(attachmentStyleLong).map((step, i) => (
+          {baseConfig.healingSteps(attachmentStyleShort, attachmentStyleLong).map((step, i) => (
             <div
               key={`healing_step_${i}`}
               className="bg-white rounded-lg default-padding mb-4 lg:mb-0 lg:py-4">
@@ -141,23 +145,15 @@ export const PDSResultsOfferSection = () => {
         <ButtonCheckout label="START YOUR JOURNEY TODAY" />
       </Section>
 
-      <section>
-        <div className=" default-padding max-w-screen-lg mx-auto text-center">
-          <h2>Over 30,000 People Have Healed—Now It's Your Turn</h2>
+      <Section className="!px-4 lg:!px-0" classNameInner="!max-w-full">
+        <h2>{pdsTestimonial.title}</h2>
 
-          <p>
-            Thousands have successfully transformed their fearful relationship patterns into secure,
-            loving connections. They now live without fear of abandonment, betrayal, or losing
-            themselves.
-          </p>
+        {pdsTestimonial.text.map((copy, idx) => (
+          <p key={`pds_testimonial_${idx}`}>{copy}</p>
+        ))}
 
-          <p>
-            <em>You deserve relationships that feel safe, fulfilling, and deeply connected.</em>
-          </p>
-        </div>
-
-        <CarouselTestimonialThinkific className="mb-4" />
-      </section>
+        <CarouselTestimonialThinkific className="mb-4" initialSlide={1} />
+      </Section>
 
       <Section className="!pb-0 bg-[#EFEDF2]" classNameInner="!text-left lg:grid lg:grid-cols-2">
         <div>
@@ -165,12 +161,9 @@ export const PDSResultsOfferSection = () => {
 
           <h2>Your Mentor and Attachment Expert</h2>
 
-          <p>
-            Your healing begins with someone who’s been where you are—and knows exactly how to help
-            you get where you want to be.
-          </p>
-
-          <p>{attachmentStyleConfig.thaisBio}</p>
+          {baseConfig.thaisBio(attachmentStyleShort).map((copy, idx) => (
+            <p key={`pds_thais_bio_${idx}`}>{copy}</p>
+          ))}
 
           <List
             useMD={false}
@@ -215,8 +208,9 @@ export const PDSResultsOfferSection = () => {
           <h2>Your Next Step—Start Experiencing the Relationships You Truly Desire</h2>
 
           <p>
-            You deserve a love that feels safe, fulfilling, and authentically yours. Begin your
-            journey towards trust today.
+            {attachmentStyleShort === 'sa'
+              ? 'You deserve a love that feels safe, fulfilling, and authentically yours without losing yourself. Begin your journey towards trust today.'
+              : 'You deserve a love that feels safe, fulfilling, and authentically yours. Begin your journey towards trust today.'}
           </p>
 
           <Image
@@ -229,7 +223,7 @@ export const PDSResultsOfferSection = () => {
         </div>
 
         <div className="default-padding rounded-2xl shadow-centered-card relative overflow-hidden lg:py-10 lg:px-10">
-          <p className="w-full text-center text-white absolute top-8 -right-[calc(50%-39px)] rotate-45 bg-[#30A114]">
+          <p className="w-full text-center text-white absolute top-8 -right-[calc(50%-39px)] rotate-45 bg-green-check">
             SAVE 30%
           </p>
 
@@ -251,21 +245,21 @@ export const PDSResultsOfferSection = () => {
             classNameIcon="text-primary mb-6"
             icon={faCircleCheck}
             listItems={[
-              `Unlimited access to 70+ transformative courses, including your starting point, the ${attachmentStyleLong} to Securely Attached program.`,
+              `Unlimited access to 70+ transformative courses${
+                attachmentStyleShort === 'sa'
+                  ? '.'
+                  : `, including your starting point, the ${attachmentStyleLong} to Securely Attached program`
+              }`,
               'Weekly personalized mentorship sessions with Thais Gibson.',
               'A private, supportive community for safe emotional growth.',
             ]}
           />
 
-          <ButtonCheckout label="Feel Safe In Love–Start Healing Today" />
+          <ButtonCheckout label="FEEL SAFE IN LOVE-START HEALING TODAY" />
         </div>
       </Section>
 
-      <Faq
-        className="lg:grid lg:grid-cols-2 lg:max-w-screen-xl lg:gap-6"
-        classNameHeading="lg:col-span-2"
-        faq={baseConfig.faqs}
-      />
+      <Faq className="lg:max-w-screen-xl" faq={baseConfig.faqs} />
     </>
   )
 }

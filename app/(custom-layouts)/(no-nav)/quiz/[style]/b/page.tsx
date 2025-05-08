@@ -418,7 +418,7 @@ export default function QuizResultsB({ params }: TParams) {
         </p>
       </Section>
 
-      <PDSResultsOfferSection />
+      <PDSResultsOfferSection attachmentStyleShort={attachmentStyleShort} />
     </Page>
   )
 }

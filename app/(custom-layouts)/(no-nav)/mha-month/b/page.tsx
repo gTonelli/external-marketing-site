@@ -48,8 +48,9 @@ export default function MentalHealthAwarenessPage() {
         className="bg-gradient-to-b from-[#d7e7ea] to-white"
         classNameInner="!max-w-4xl mx-auto py-8">
         <h1 className="mb-8">
-          Put Yourself First This Mental Health Awareness Month. Get Unlimited Access to Courses
-          that will Transform Your Relationships With This 14-Day Free Trial.
+          Break Free From Toxic Relationship Patterns, Heal Your Attachment Style And Find Lasting
+          Love. Get Unlimited Access to Courses That Will Transform Your Relationships With This 14
+          - Day Free Trial.
         </h1>
 
         <p className="max-w-3xl mx-auto mb-8">

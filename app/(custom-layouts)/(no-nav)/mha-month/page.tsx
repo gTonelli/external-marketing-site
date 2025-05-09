@@ -48,21 +48,22 @@ export default function MentalHealthAwarenessPage() {
         className="bg-gradient-to-b from-[#d7e7ea] to-white"
         classNameInner="!max-w-4xl mx-auto py-8">
         <h1 className="mb-8">
-          Put Yourself First. Your Mental Health Matters. Make it a Priority with Us.
+          Put Yourself First This Mental Health Awareness Month. Get Unlimited Access to Courses
+          that will Transform Your Relationships With This 14-Day Free Trial.
         </h1>
 
         <p className="max-w-3xl mx-auto mb-8">
           <strong>
-            For Mental Health Awareness Month, we’re giving you 14 days of FREE access to the
-            All-Access Pass, your all-in-one resource of powerful tools, strategies, and support to
-            help you overcome emotional struggles and build a healthier, more secure life. Whether
-            you’re struggling with anxiety, low self-esteem, relationship challenges, can't seem to
-            find the right partner, or emotional ups and downs, we’re here to support your healing
-            with community, courses, and coaching.
+            We’re giving you 14-Days of FREE Access to the All-Access Pass, your all-in-one resource
+            with courses, webinars and a community that teach you powerful tools, strategies, and
+            support to reprogram and heal your attachment style, calm emotional chaos, and build the
+            secure life and relationships you deserve. <br /> Start your healing journey at your own
+            time in the comfort of your home, and experience transformational results in two weeks!
+            Available for a limited time for Mental Health Awareness Month Only!
           </strong>
         </p>
 
-        <ButtonCheckout href={ctaUrl} label="SIGN UP FOR YOUR FREE TRIAL" />
+        <ButtonCheckout href={ctaUrl} label="START YOUR FREE TRIAL" />
       </Section>
 
       <Section
@@ -73,10 +74,15 @@ export default function MentalHealthAwarenessPage() {
         <div className="bg-woman-looking-out-window-mobile lg:hidden" />
 
         <div className="relative text-left p-4 z-5 lg:col-span-7">
-          <h2 className="mb-4">Heal & Rebuild Yourself & Your Relationships</h2>
+          <h2 className="mb-4">
+            This Isn’t Just a Free Trial — It’s Your First Step Toward Healing Your Attachment Style
+            and Finding Lasting Love
+          </h2>
 
           <p className="tracking-33 mb-4">
-            <strong>SO YOU FINALLY LET GO &amp; LEAVE BEHIND...</strong>
+            <strong>
+              Here’s What You’ll Start to Experience With Your Free Trial Within the Next 14 Days:
+            </strong>
           </p>
 
           <List
@@ -84,11 +90,12 @@ export default function MentalHealthAwarenessPage() {
             classNameListItems="mb-4"
             icon={faCircleSmall}
             listItems={[
-              'Anxiety that won’t let you rest your mind or your relationships.',
-              'Low self-esteem that keeps you second-guessing yourself.',
-              'Depression that makes everything feel heavier and harder.',
-              'Emotions that shut you down internally and externally.',
-              'Toxic relationship patterns that play on repeat, no matter what you do.',
+              'A shift from emotional chaos to emotional clarity.',
+              'Building a secure relationship with yourself or your partner.',
+              'Reprogramming your subconscious patterns that have kept you stuck for years.',
+              'Feeling seen, safe, and fully understood—maybe for the first time.',
+              'Stop chasing love and start attracting healthy connections.',
+              'You stop with the “what’s wrong with me” voice and start building real self-worth.',
             ]}
           />
 
@@ -96,9 +103,13 @@ export default function MentalHealthAwarenessPage() {
             <strong>We see you. We hear you. And we want to help.</strong>
           </p>
 
-          <p className="mb-4">Healing can feel overwhelming, but you don't have to do it alone.</p>
+          <p className="mb-4">
+            You’ll get instant access to TWO FULL WEEKS of step-by-step courses that will guide you
+            through healing from heartbreak, building boundaries, dealing with anxiety, reconnecting
+            in your relationship, or any challenge you’re ready to conquer!
+          </p>
 
-          <ButtonCheckout href={ctaUrl} label="LET'S HEAL TOGETHER" />
+          <ButtonCheckout href={ctaUrl} label="START YOUR FREE TRIAL" />
         </div>
       </Section>
 

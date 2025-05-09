@@ -103,7 +103,7 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
       <Section className="bg-white-secondary">
         <h2>
           {style === 'sa'
-            ? 'Five Simple Steps to Stay Secure While Others Are Still Growing'
+            ? 'Five Easy Steps to Staying Securely Attached'
             : 'Five Easy Steps Towards Secure Attachment: Your Path to Lasting Love'}
         </h2>
 

@@ -127,7 +127,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
           </div>
         </div>
 
-        <PDSSocialProof version="old" />
+        <PDSSocialProof isNewVersion={false} />
       </Section>
 
       <Image
@@ -264,13 +264,12 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
   )
 }
 
-type PDSSocialProofProps = {
-  version?: 'new' | 'old'
+interface IPDSSocialProofProps {
+  isNewVersion?: boolean
 }
 
-export const PDSSocialProof = ({ version = 'new' }: PDSSocialProofProps) => {
-  const isNewVersion = version === 'new'
-
+export const PDSSocialProof = ( { isNewVersion = true } : IPDSSocialProofProps) => {
+  
   return (
     <>
       <SocialProofBar

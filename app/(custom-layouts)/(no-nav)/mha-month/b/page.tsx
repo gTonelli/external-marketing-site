@@ -43,7 +43,7 @@ export default function MentalHealthAwarenessPage() {
   const ctaUrl = EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL
 
   return (
-    <Page page_name="mha-month">
+    <Page page_name="mha-month-b">
       <Section
         className="bg-gradient-to-b from-[#d7e7ea] to-white"
         classNameInner="!max-w-4xl mx-auto py-8">

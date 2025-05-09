@@ -38,10 +38,11 @@ export default function MentalHealthAwareness() {
       <div className="relative w-full lg:h-[150px] mt-0 z-[5] 2xl:-mt-5">
         <Image
           fill
+          unoptimized
           src="/images/styled-wave-green.png"
           alt="green wave vector"
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 30vw, 15vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 

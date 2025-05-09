@@ -1,15 +1,19 @@
+// core
+import { Metadata } from 'next'
+import Image from 'next/image'
+// components
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { Metadata } from 'next'
-import '@/app/(custom-layouts)/(no-nav)/quiz/[style]/b/style.css'
 import { List } from '@/components/List'
+import { PDSResultsOfferSection } from '@/app/(custom-layouts)/(no-nav)/quiz/[style]/b/PDSResultsOfferSection'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { fa1, fa2, fa3, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import Image from 'next/image'
+// libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { PDSResultsOfferSection } from '@/app/(custom-layouts)/(no-nav)/quiz/[style]/b/PDSResultsOfferSection'
+// styles
+import '@/app/(custom-layouts)/(no-nav)/quiz/[style]/b/style.css'
 
 export const metadata: Metadata = {
   title: 'Securely Attached Style Report | PDS',
@@ -25,7 +29,7 @@ export default function QuizResultsSAB() {
         className="bg-gradient-to-b from-pink-auxiliary via-white to-white mb-6 lg:pb-4"
         classNameInner="!max-w-[792px]">
         <h1 className="text-primary !text-5xl">
-          Stay secure. Stay grounded. Stay true to yourself.
+          Stay Secure. Stay Grounded. Stay True to Yourself.
         </h1>
 
         <h2>Your Attachment Style Is: Securely Attached</h2>
@@ -64,9 +68,9 @@ export default function QuizResultsSAB() {
             classNameIcon="text-primary mr-2"
             icon={faCheckCircle}
             listItems={[
-              'Anxious (Anxious Preoccupied)',
-              'Avoidant (Dismissive Avoidant)',
-              'Disorganized (Fearful Avoidant)',
+              'Anxious Preoccupied (Anxiously Attached)',
+              'Dismissive Avoidant (Avoidant)',
+              'Fearful Avoidant (Disorganized)',
             ]}
           />
         </div>
@@ -91,7 +95,7 @@ export default function QuizResultsSAB() {
             />
           </div>
 
-          <div>
+          <div className="max-w-sm">
             <Image
               alt="A vector image of a woman sitting on a ledge with a heart above her shoulder."
               className="w-full"
@@ -106,7 +110,7 @@ export default function QuizResultsSAB() {
           <h3>As a result, securely attached individuals like you tend to:</h3>
 
           <div className="grid gap-8 text-left lg:grid-cols-2">
-            <div>
+            <div className="max-w-sm">
               <Image
                 alt="A vector image of two women sitting next to each other holding hands."
                 className="w-full"
@@ -141,6 +145,8 @@ export default function QuizResultsSAB() {
             </div>
           </div>
         </div>
+
+        <ButtonScroll className="my-4" label="LEARN MORE" target="#pds-offer" />
       </Section>
 
       <Section>
@@ -254,13 +260,15 @@ export default function QuizResultsSAB() {
             </p>
           </div>
 
-          <div>
+          <div className="rounded-2xl overflow-hidden">
             <Image
               alt="An elderly woman sitting on a couch with her arms behind her back, looking upwards and smiling."
-              className="mb-6 w-full lg: h-full"
+              className="w-full object-cover lg:h-full"
               src="/images/AttachmentQuizResults/elderly-woman-couch.png"
               width={343}
               height={211}
+              sizes="100vw"
+              quality={100}
             />
           </div>
         </div>
@@ -310,32 +318,6 @@ export default function QuizResultsSAB() {
 
             <div>
               <p>
-                <strong>A Grounded, Like-Minded Community</strong>
-              </p>
-
-              <p>
-                <strong>
-                  Real change begins when you feel supported, understood, and accepted.
-                </strong>
-              </p>
-
-              <p>
-                Even secure people benefit from connection. When you’re surrounded by others who
-                value emotional awareness and healthy communication, it becomes easier to stay in
-                alignment—especially when the outside world feels noisy or reactive.
-              </p>
-            </div>
-          </div>
-
-          <div className="default-padding flex bg-white rounded-2xl shadow-centered-card mb-4 text-left p-4 lg:p-6">
-            <FontAwesomeIcon
-              className="mr-2 mt-[2px] text-white bg-black p-1 px-[6px] rounded-sm"
-              icon={fa2}
-              size="xs"
-            />
-
-            <div>
-              <p>
                 <strong>Tools That Match Your Emotional Maturity</strong>
               </p>
 
@@ -350,6 +332,32 @@ export default function QuizResultsSAB() {
                 Whether it’s handling emotional reactivity, avoidant shutdowns, or anxious
                 over-pursuit, our tools help you respond with confidence while staying true to
                 yourself.
+              </p>
+            </div>
+          </div>
+
+          <div className="default-padding flex bg-white rounded-2xl shadow-centered-card mb-4 text-left p-4 lg:p-6">
+            <FontAwesomeIcon
+              className="mr-2 mt-[2px] text-white bg-black p-1 px-[6px] rounded-sm"
+              icon={fa2}
+              size="xs"
+            />
+
+            <div>
+              <p>
+                <strong>A Grounded, Like-Minded Community</strong>
+              </p>
+
+              <p>
+                <strong>
+                  Real change begins when you feel supported, understood, and accepted.
+                </strong>
+              </p>
+
+              <p>
+                Even secure people benefit from connection. When you’re surrounded by others who
+                value emotional awareness and healthy communication, it becomes easier to stay in
+                alignment—especially when the outside world feels noisy or reactive.
               </p>
             </div>
           </div>
@@ -391,7 +399,7 @@ export default function QuizResultsSAB() {
         </p>
       </Section>
 
-      <PDSResultsOfferSection attachmentStyleShort="sa" />
+      <PDSResultsOfferSection style="sa" />
     </Page>
   )
 }

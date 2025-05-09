@@ -31,9 +31,6 @@ export const AttachmentQuizForm = ({
   const tagManager = useGoogleTagManager()
   const router = useRouter()
   const splitTestContext = useContext(SplitTestContext)
-  if (userStyle === 'sa' && splitTestContext && splitTestContext.key === "'GM-1362") {
-    setSplitTest({ ...splitTestContext, value: false })
-  }
   const isVariant = splitTestContext && getSplitTest(splitTestContext)
 
   // ==================== Events ====================
@@ -43,14 +40,14 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (isVariant && userStyle !== 'sa') {
+        if (isVariant) {
           return `/quiz/${userStyle}/b`
         } else {
           return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
         }
 
       case 'paidMeta':
-        if (isVariant && userStyle !== 'sa') {
+        if (isVariant) {
           return `/quiz/${userStyle}/b`
         } else {
           return `/quiz/b/results/${userStyle}`

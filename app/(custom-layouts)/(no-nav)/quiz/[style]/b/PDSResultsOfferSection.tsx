@@ -20,14 +20,14 @@ import { config } from './config'
 import './style.css'
 
 interface IPDSResultsOfferProps {
-  attachmentStyleShort: TStyle
+  style: TStyle
 }
 
-export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOfferProps) => {
-  const attachmentStyleLong = getAttachmentStyleText(attachmentStyleShort)
+export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
+  const attachmentStyleLong = getAttachmentStyleText(style)
   const { base: baseConfig } = config
-  const pdsGrowthConfig = baseConfig.pdsGrowth(attachmentStyleShort)
-  const pdsTestimonial = baseConfig.testimonials(attachmentStyleShort)
+  const pdsGrowthConfig = baseConfig.pdsGrowth(style)
+  const pdsTestimonial = baseConfig.testimonials(style)
 
   return (
     <>
@@ -42,7 +42,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
 
         <div className="mb-4 lg:mb-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:items-center">
           <Image
-            src={`/images/AttachmentQuizResults/course-player-mockup-${attachmentStyleShort}.png`}
+            src={`/images/AttachmentQuizResults/course-player-mockup-${style}.png`}
             className="w-full mb-4 lg:mb-0"
             alt="2 Card images overlaid on each other with some text. The first image is of a woman sitting and smiling doing a course workbook. The second image is a mockup of the PDS course player on a lap top. The text reads: 'Easy, step-by-step program. Teaches you everything you need to know about relationships.'"
             width={300}
@@ -69,15 +69,12 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
         </div>
 
         <h2 className="lg:mb-6">
-          {attachmentStyleShort === 'sa'
+          {style === 'sa'
             ? "That Means You'll Get The Three Essential Elements You Need to Stay Secure & Keep Growing:"
             : "That Means You'll Get The Three Essential Elements You Need For Change In Your All-Access Pass. That Includes:"}
         </h2>
 
-        <PDSFeaturesSection
-          style={attachmentStyleShort}
-          attachmentStyleLong={attachmentStyleLong}
-        />
+        <PDSFeaturesSection style={style} attachmentStyleLong={attachmentStyleLong} />
 
         <Image
           src="/images/AttachmentQuizResults/course-player-mockup-2.png"
@@ -104,7 +101,11 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
       </Section>
 
       <Section className="bg-white-secondary">
-        <h2>Five Easy Steps Towards Secure Attachment: Your Path to Lasting Love</h2>
+        <h2>
+          {style === 'sa'
+            ? 'Five Simple Steps to Stay Secure While Others Are Still Growing'
+            : 'Five Easy Steps Towards Secure Attachment: Your Path to Lasting Love'}
+        </h2>
 
         <p>
           Go At Your Own Pace! Healing happens on your timeline. No one will push or rush you, and
@@ -125,7 +126,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
         />
 
         <div className="text-left mb-4 lg:grid lg:grid-cols-5 lg:gap-4">
-          {baseConfig.healingSteps(attachmentStyleShort, attachmentStyleLong).map((step, i) => (
+          {baseConfig.healingSteps(style, attachmentStyleLong).map((step, i) => (
             <div
               key={`healing_step_${i}`}
               className="bg-white rounded-lg default-padding mb-4 lg:mb-0 lg:py-4">
@@ -162,7 +163,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
 
           <h2>Your Mentor and Attachment Expert</h2>
 
-          {baseConfig.thaisBio(attachmentStyleShort).map((copy, idx) => (
+          {baseConfig.thaisBio(style).map((copy, idx) => (
             <p key={`pds_thais_bio_${idx}`}>{copy}</p>
           ))}
 
@@ -209,15 +210,15 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
           <h2>Your Next Step—Start Experiencing the Relationships You Truly Desire</h2>
 
           <p>
-            {attachmentStyleShort === 'sa'
-              ? 'You deserve a love that feels safe, fulfilling, and authentically yours without losing yourself. Begin your journey towards trust today.'
+            {style === 'sa'
+              ? 'You know your worth, and you show up with honesty, empathy, and clarity. Keep protecting it with us.'
               : 'You deserve a love that feels safe, fulfilling, and authentically yours. Begin your journey towards trust today.'}
           </p>
 
           <Image
             alt="A mockup of PDS courses on the PDs course players on 2 tablets and a laptop."
             className="mb-4 w-full max-w-[502px]"
-            src={`/images/AttachmentQuizResults/course-player-mockup-3-${attachmentStyleShort}.png`}
+            src={`/images/AttachmentQuizResults/course-player-mockup-3-${style}.png`}
             width={343}
             height={177}
           />
@@ -247,7 +248,7 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
             icon={faCircleCheck}
             listItems={[
               `Unlimited access to 70+ transformative courses${
-                attachmentStyleShort === 'sa'
+                style === 'sa'
                   ? '.'
                   : `, including your starting point, the ${attachmentStyleLong} to Securely Attached program.`
               }`,
@@ -256,7 +257,11 @@ export const PDSResultsOfferSection = ({ attachmentStyleShort }: IPDSResultsOffe
             ]}
           />
 
-          <ButtonCheckout label="FEEL SAFE IN LOVE-START HEALING TODAY" />
+          <ButtonCheckout
+            label={
+              style === 'sa' ? 'SIGN UP & KEEP GROWING' : 'FEEL SAFE IN LOVE-START HEALING TODAY'
+            }
+          />
         </div>
       </Section>
 

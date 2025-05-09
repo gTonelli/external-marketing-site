@@ -15,7 +15,16 @@ import { ThaisIntro } from './ThaisIntro'
 // libraries
 import cx from 'classnames'
 import ReactMarkdown from 'react-markdown'
-import { faCircle, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import {
+  faCalendarCheck,
+  faCircle,
+  faEarthAmericas,
+  faEnvelopeOpenText,
+  faStar,
+  faUserPlus,
+  faUsers,
+} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
 import {
   faCircleCheck,
   faClock,
@@ -118,7 +127,7 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
           </div>
         </div>
 
-        <PDSSocialProof />
+        <PDSSocialProof isNewVersion={false} />
       </Section>
 
       <Image
@@ -255,19 +264,29 @@ export const SpecialPromotionBody = ({ showFirstSection = true }: ISpecialPromot
   )
 }
 
-export const PDSSocialProof = () => {
+interface IPDSSocialProofProps {
+  isNewVersion?: boolean
+}
+
+export const PDSSocialProof = ( { isNewVersion = true } : IPDSSocialProofProps) => {
+  
   return (
     <>
       <SocialProofBar
-        cardNumbers={[70000, 50000000, 45000]}
-        cardTexts={[
-          'Course enrolments',
-          'Views on YouTube',
-          'Members in over 120 countries worldwide',
-        ]}
+        cardNumbers={isNewVersion ? [70000, 50000000, 45000] : [4700000, 50000000, 120]}
+        cardTexts={
+          isNewVersion
+            ? ['Course enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide']
+            : ['Attachment Styles Discovered', 'Youtube Views', 'Countries']
+        }
         className="text-black"
         classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
         classNameIcon="!bg-white"
+        icons={
+          isNewVersion
+            ? [faCalendarCheck, faYoutube, faUserPlus]
+            : [faEnvelopeOpenText, faUsers, faEarthAmericas]
+        }
       />
 
       {/* JOIN THOUSANDS OF OUR MEMBERS HERO SECTION */}

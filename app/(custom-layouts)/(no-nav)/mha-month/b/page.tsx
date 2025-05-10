@@ -45,7 +45,7 @@ export default function MentalHealthAwarenessPage() {
   return (
     <Page page_name="mha-month-b">
       <Section
-        className="bg-gradient-to-b from-[#d7e7ea] to-white"
+        className="bg-gradient-to-b from-primary-light to-white"
         classNameInner="!max-w-4xl mx-auto py-8">
         <h1 className="mb-8">
           Break Free From Toxic Relationship Patterns, Heal Your Attachment Style And Find Lasting

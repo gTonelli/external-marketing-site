@@ -27,7 +27,9 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
   const attachmentStyleLong = getAttachmentStyleText(style)
   const { base: baseConfig } = config
   const pdsGrowthConfig = baseConfig.pdsGrowth(style)
-  const pdsTestimonial = baseConfig.testimonials(style)
+  const pdsHealingStepsConfig = baseConfig.healingSteps(style, attachmentStyleLong)
+  const pdsTestimonialConfig = baseConfig.testimonials(style)
+  const pdsNextStepsConfig = baseConfig.nextSteps(style, attachmentStyleLong)
 
   return (
     <>
@@ -63,16 +65,12 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
             </div>
 
             <p>
-              And it’s all included in your <strong>All-Access Pass</strong> with us.
+              And it’s all included in your <strong>All-Access Pass</strong>.
             </p>
           </div>
         </div>
 
-        <h2 className="lg:mb-6">
-          {style === 'sa'
-            ? "That Means You'll Get The Three Essential Elements You Need to Stay Secure & Keep Growing:"
-            : "That Means You'll Get The Three Essential Elements You Need For Change In Your All-Access Pass. That Includes:"}
-        </h2>
+        <h2 className="lg:mb-6">{pdsGrowthConfig.featureSectionTitle}</h2>
 
         <PDSFeaturesSection style={style} attachmentStyleLong={attachmentStyleLong} />
 
@@ -101,20 +99,12 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
       </Section>
 
       <Section className="bg-white-secondary">
-        <h2>
-          {style === 'sa'
-            ? 'Five Easy Steps to Staying Securely Attached'
-            : 'Five Easy Steps Towards Secure Attachment: Your Path to Lasting Love'}
-        </h2>
+        <h2>{pdsHealingStepsConfig.title}</h2>
 
-        <p>
-          Go At Your Own Pace! Healing happens on your timeline. No one will push or rush you, and
-          there’s no deadline for ‘getting it right.’ When you feel safe to take each step, that’s
-          when real change becomes possible
-        </p>
+        <p>{pdsHealingStepsConfig.copy}</p>
 
         <p className="mb-4">
-          <strong>Here’s what healing could look like for you:</strong>
+          <strong>{pdsHealingStepsConfig.subtitle}</strong>
         </p>
 
         <Image
@@ -126,7 +116,7 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
         />
 
         <div className="text-left mb-4 lg:grid lg:grid-cols-5 lg:gap-4">
-          {baseConfig.healingSteps(style, attachmentStyleLong).map((step, i) => (
+          {pdsHealingStepsConfig.steps.map((step, i) => (
             <div
               key={`healing_step_${i}`}
               className="bg-white rounded-lg default-padding mb-4 lg:mb-0 lg:py-4">
@@ -148,9 +138,9 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
       </Section>
 
       <Section className="!px-4 lg:!px-0" classNameInner="!max-w-full">
-        <h2>{pdsTestimonial.title}</h2>
+        <h2>{pdsTestimonialConfig.title}</h2>
 
-        {pdsTestimonial.text.map((copy, idx) => (
+        {pdsTestimonialConfig.text.map((copy, idx) => (
           <p key={`pds_testimonial_${idx}`}>{copy}</p>
         ))}
 
@@ -209,11 +199,7 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
         <div>
           <h2>Your Next Step—Start Experiencing the Relationships You Truly Desire</h2>
 
-          <p>
-            {style === 'sa'
-              ? 'You know your worth, and you show up with honesty, empathy, and clarity. Keep protecting it with us.'
-              : 'You deserve a love that feels safe, fulfilling, and authentically yours. Begin your journey towards trust today.'}
-          </p>
+          <p>{pdsNextStepsConfig.copy}</p>
 
           <Image
             alt="A mockup of PDS courses on the PDs course players on 2 tablets and a laptop."
@@ -247,21 +233,13 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
             classNameIcon="text-primary mb-6"
             icon={faCircleCheck}
             listItems={[
-              `Unlimited access to 70+ transformative courses${
-                style === 'sa'
-                  ? '.'
-                  : `, including your starting point, the ${attachmentStyleLong} to Securely Attached program.`
-              }`,
+              pdsNextStepsConfig.courseAccess,
               'Weekly personalized mentorship sessions with Thais Gibson.',
               'A private, supportive community for safe emotional growth.',
             ]}
           />
 
-          <ButtonCheckout
-            label={
-              style === 'sa' ? 'SIGN UP & KEEP GROWING' : 'FEEL SAFE IN LOVE-START HEALING TODAY'
-            }
-          />
+          <ButtonCheckout label={pdsNextStepsConfig.ctaLabel} />
         </div>
       </Section>
 

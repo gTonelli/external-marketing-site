@@ -222,7 +222,7 @@ export default function QuizResultsSAB() {
 
           <div className="rounded-2xl bg-pink-auxiliary p-4">
             <p>
-              <strong>Being Secure Doesn’t Mean Relationships Are Always Simple</strong>
+              <strong>Being secure doesn’t mean relationships are always simple</strong>
             </p>
 
             <p>You’ve built a strong foundation—emotionally aware, grounded, and self-trusting.</p>
@@ -299,7 +299,7 @@ export default function QuizResultsSAB() {
       </Section>
 
       <Section className="bg-green-light" classNameInner="lg:!max-w-screen-xl">
-        <h2>Three Essentials for Staying Secure in an Insecure World</h2>
+        <h2>Three Essentials Elements for Staying Secure in an Insecure World</h2>
 
         <p>You already have a solid foundation.</p>
 

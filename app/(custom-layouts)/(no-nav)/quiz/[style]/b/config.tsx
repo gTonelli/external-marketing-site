@@ -29,6 +29,8 @@ export const config = {
                 .
               </>
             ),
+            featureSectionTitle:
+              "That Means You'll Get The Three Essential Elements You Need to Stay Secure & Keep Growing:",
           }
         : {
             title: 'This Is Where We at The Personal Development School Come In',
@@ -45,6 +47,8 @@ export const config = {
               'The Personal Development School is a dedicated space for healing—offering on-demand courses designed to influence real change, live weekly webinars, and a private community of people who truly understand what you’re working through.',
             ],
             hook: 'It’s designed so you can access everything you need to rewire old patterns and build healthier relationships, all in one place.',
+            featureSectionTitle:
+              "That Means You'll Get The Three Essential Elements You Need For Change In Your All-Access Pass. That Includes:",
           },
 
     pdsFeatures: (style: TStyle, attachmentStyleLong: string) =>
@@ -129,61 +133,72 @@ export const config = {
           ],
     healingSteps: (style: TStyle, attachmentStyleLong: string) =>
       style === 'sa'
-        ? [
-            {
-              icon: fa1,
-              text: 'Join The Personal Development School with your All-Access Pass (save 30% today!) and unlock access to 70+ courses, live coaching, and our secure community.',
-            },
-            {
-              icon: fa2,
-              text: 'Choose the tools that fit your next chapter—whether that’s managing conflict, supporting someone with an insecure style, or deepening your connection to self.',
-            },
-            {
-              icon: fa3,
-              text: 'Start integrating the tools into your daily life and relationships—with support along the way.',
-            },
-            {
-              icon: fa4,
-              text: 'Join a live webinar with Thais Gibson. Ask questions, gain insight, and reflect in a space that truly supports your growth.',
-            },
-            {
-              icon: fa5,
-              text: 'Stay secure in yourself—no matter what’s happening around you. Set clear boundaries, communicate effectively, and continue attracting aligned, emotionally available people into your life.',
-            },
-          ]
-        : [
-            {
-              icon: fa1,
-              text: 'You join The Personal Development School with your All-Access Pass (at 30% off!) Unlock access to 70+ courses, live webinars, and our private community.',
-            },
-            {
-              icon: fa2,
-              text: (
-                <>
-                  You start the <strong>{attachmentStyleLong} to Securely Attached program.</strong>{' '}
-                  It introduces the core concepts that help you understand what’s been keeping you
-                  stuck.
-                </>
-              ),
-            },
-            {
-              icon: fa3,
-              text: (
-                <>
-                  You apply new tools to your life, existing relationships, and new relationships
-                  and meet people <strong>on the same journey as you.</strong>
-                </>
-              ),
-            },
-            {
-              icon: fa4,
-              text: 'You attend your first live webinar with our founder, Thais Gibson. Get clarity, have your questions answered, and feel supported by someone who understands your experience—and has helped tens of thousands of people like you heal.',
-            },
-            {
-              icon: fa5,
-              text: 'You feel calm, clear, and confident—setting boundaries that stick, starting new relationships on the right foot, and finally attracting people who feel safe to love.',
-            },
-          ],
+        ? {
+            title: 'Five Easy Steps to Staying Securely Attached',
+            copy: 'Go At Your Own Pace! Healing happens on your timeline. No one will push or rush you, and there’s no deadline for ‘getting it right.’',
+            subtitle: "Here's what staying secure could look like for you:",
+            steps: [
+              {
+                icon: fa1,
+                text: 'Join The Personal Development School with your All-Access Pass (save 30% today!) and unlock access to 70+ courses, live coaching, and our secure community.',
+              },
+              {
+                icon: fa2,
+                text: 'Choose the tools that fit your next chapter—whether that’s managing conflict, supporting someone with an insecure style, or deepening your connection to self.',
+              },
+              {
+                icon: fa3,
+                text: 'Start integrating the tools into your daily life and relationships—with support along the way.',
+              },
+              {
+                icon: fa4,
+                text: 'Join a live webinar with Thais Gibson. Ask questions, gain insight, and reflect in a space that truly supports your growth.',
+              },
+              {
+                icon: fa5,
+                text: 'Stay secure in yourself—no matter what’s happening around you. Set clear boundaries, communicate effectively, and continue attracting aligned, emotionally available people into your life.',
+              },
+            ],
+          }
+        : {
+            title: 'Five Easy Steps Towards Secure Attachment: Your Path to Lasting Love',
+            copy: 'Go At Your Own Pace! Healing happens on your timeline. No one will push or rush you, and there’s no deadline for ‘getting it right.’ When you feel safe to take each step, that’s when real change becomes possible.',
+            subtitle: 'Here’s what healing could look like for you:',
+            steps: [
+              {
+                icon: fa1,
+                text: 'You join The Personal Development School with your All-Access Pass (at 30% off!) Unlock access to 70+ courses, live webinars, and our private community.',
+              },
+              {
+                icon: fa2,
+                text: (
+                  <>
+                    You start the{' '}
+                    <strong>{attachmentStyleLong} to Securely Attached program.</strong> It
+                    introduces the core concepts that help you understand what’s been keeping you
+                    stuck.
+                  </>
+                ),
+              },
+              {
+                icon: fa3,
+                text: (
+                  <>
+                    You apply new tools to your life, existing relationships, and new relationships
+                    and meet people <strong>on the same journey as you.</strong>
+                  </>
+                ),
+              },
+              {
+                icon: fa4,
+                text: 'You attend your first live webinar with our founder, Thais Gibson. Get clarity, have your questions answered, and feel supported by someone who understands your experience—and has helped tens of thousands of people like you heal.',
+              },
+              {
+                icon: fa5,
+                text: 'You feel calm, clear, and confident—setting boundaries that stick, starting new relationships on the right foot, and finally attracting people who feel safe to love.',
+              },
+            ],
+          },
     testimonials: (style: TStyle) =>
       style === 'sa'
         ? {
@@ -230,6 +245,18 @@ export const config = {
             </>,
             'Thais isn’t just a founder. She is an industry leader, and the first person to prove that attachment styles can be changed because she lived with an insecure attachment—and healed. That’s why she created the Personal Development School: to help others do the same.',
           ],
+    nextSteps: (style: TStyle, attachmentStyleLong: string) =>
+      style === 'sa'
+        ? {
+            copy: 'You know your worth, and you show up with honesty, empathy, and clarity. Keep protecting it with us.',
+            courseAccess: 'Unlimited access to 70+ transformative courses.',
+            ctaLabel: 'SIGN UP & KEEP GROWING',
+          }
+        : {
+            copy: 'You deserve a love that feels safe, fulfilling, and authentically yours. Begin your journey towards trust today.',
+            courseAccess: `Unlimited access to 70+ transformative courses, including your starting point, the ${attachmentStyleLong} to Securely Attached program.`,
+            ctaLabel: 'FEEL SAFE IN LOVE-START HEALING TODAY',
+          },
     faqs: [
       {
         question: 'Can I cancel anytime?',

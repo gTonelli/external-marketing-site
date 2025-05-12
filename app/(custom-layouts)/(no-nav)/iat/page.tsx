@@ -66,7 +66,7 @@ export default function IATSalePage() {
           <VideoThumbnail
             className="w-fit"
             srcUrl="https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4"
-            thumbnailUrl="pds-video-thumbnail.jpg"
+            thumbnailUrl="/AttachmentQuizResults/video-thumbnail.jpg"
             thumbnailAlt={`A video by Thais Gibson about the Integrated Attachment Theory`}
             type="iat-intro"
           />

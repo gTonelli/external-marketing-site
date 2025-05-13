@@ -96,6 +96,7 @@ export const RegistrationForm = ({
       phone,
       listIds: [2],
       insertId,
+      userInfo,
     }
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {

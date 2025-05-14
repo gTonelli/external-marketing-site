@@ -80,35 +80,34 @@ export default function MHAPage() {
 
       <Section>
         <div className="max-w-5xl text-center mx-auto">
-          <h2>Ready to break your relationship patterns?</h2>
+          <h2>Ready to break your old relationship patterns?</h2>
 
           <p>For a limited time, you’ll gain access to the exact courses you need to:</p>
 
           <List
-            className=" mt-10"
+            className="mt-10"
             classNameIcon="!text-green-check !text-xl"
             classNameListItems="my-4 lg:my-5 lg:first:!mt-0 lg:!pl-7"
             classNameText="lg:pl-3"
             icon={faSquareCheck}
             listItems={[
-              'Heal Your Attachment Style – Learn how your attachment patterns are impacting your relationship and how to change them.',
-              'Break Old Cycles – Identify and overcome the relationship patterns holding you back and learn to heal old wounds and baggage.',
-              'Deepen Emotional Connection – Learn to communicate openly and build lasting trust with your partner.',
-              'Grow Together – Experience real shifts in how you handle challenges and connect with your partner.',
+              'Heal Your Attachment Style – Understand how your past impacts your dating life and attract better connections.',
+              'Break Old Cycles – Identify and overcome the patterns that keep you stuck in unfulfilling dating circles and find lasting love.',
+              'Build Real Confidence – Let go of self-doubt, feeling unworthy, and show up as your authentic, secure self.',
+              'Find True Connection – Learn to communicate effectively and attract meaningful, lasting relationships.',
             ]}
           />
 
           <div className="text-left">
             <p>
-              All it takes is 10 minutes a day to start creating real change – and with $0 down,
-              there’s nothing stopping you from starting today.
+              All it takes is just 10 minutes a day to start creating real change – and with $0
+              down, there’s nothing stopping you from starting today.
             </p>
 
             <p className="my-6">
-              Our comprehensive two-week free trial provides you with access to our
-              relationship-focused and attachment styles courses, live webinars, and Q&A sessions
-              with
-              <strong>Thais Gibson</strong>, and community access.
+              Your two-week free trial gives you full access to our powerful courses, live webinars
+              with relationship expert <strong>Thais Gibson</strong>, and a supportive community of
+              like-minded singles.
             </p>
           </div>
           <MHAButton label="START YOUR 14-DAY FREE TRIAL NOW!" />
@@ -174,7 +173,7 @@ export default function MHAPage() {
 
       <CarouselPromotionCourses
         title="Instant Access to 65+ Life-Changing Courses To Heal Yourself & Your Relationships!"
-        copy="Our relationship-focused courses set you on the path to a fulfilled love life. Join thousands who’ve broken free from destructive patterns and embraced secure attachment. Your breakthrough starts now!"
+        copy="Our healing and attachment style courses set you on the path to a fulfilled love life. Join thousands who’ve broken free from destructive patterns and embraced secure attachment. Your breakthrough starts now!"
       />
 
       <ThaisIntro />
@@ -207,18 +206,19 @@ export const MHAHero = () => {
         </h2>
 
         <h1 className="text-primary font-bold mb-4 lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:mb-8">
-          Uncover the Hidden Secret That Will Transform & Heal Your Relationships For Good!
+          Uncover the Hidden Secret to Attracting the Love You Deserve & Want!
         </h1>
 
         <p className="!text-lg font-bold mb-4 lg:max-w-3xl lg:mx-auto">
-          Our 14-day FREE Trial to the All-Access Pass gives you complete access to the exact
-          relationship-focused and attachment styles courses you need to break painful relationship
-          patterns, heal deep-rooted emotional wounds, and rebuild trust and connection. Thousands
-          of people have taken our courses and transformed their relationships into the secure and
-          meaningful ones they’ve always wanted. It’s available to you right now – risk-free!
+          Ready to break free from the dating patterns that have held you back? With our 14-day FREE
+          trial to the All-Access Pass, you’ll get instant access to the exact courses designed to
+          help you break old habits, heal past wounds, and confidently attract and build the
+          meaningful connection you really want – all risk-free. Thousands of singles have already
+          used these proven tools to create the secure, fulfilling relationships they’ve always
+          wanted. Now, it’s your turn.
         </p>
 
-        <MHAButton label="HEAL YOUR RELATIONSHIPS TODAY" />
+        <MHAButton label="FIND THE LOVE YOU DESERVE TODAY" />
 
         <p className="max-w-xl italic mx-auto mt-4">
           *Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel
@@ -262,9 +262,7 @@ export const MHAPDSBenefits = () => {
           </p>
 
           <p className="mb-4">
-            <strong>
-              This Mental Health Awareness Month, don’t let it define your relationship.
-            </strong>
+            <strong>This Mental Health Awareness Month, don’t let it define your love life.</strong>
           </p>
 
           <p className="mb-4">
@@ -345,9 +343,7 @@ export const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
   return (
     <Section className={`${background} lg:pt-0 2xl:pb-24`}>
       <div className={background === 'white' ? 'pt-12' : ''}>
-        <h2>
-          Don't Let Your Relationship Take a Back Seat – It's Time for a Change. Ask Yourself:
-        </h2>
+        <h2>Don't Let Your Love Life Take a Back Seat – It's Time for a Change. Ask Yourself:</h2>
 
         <div className="lg:grid lg:grid-cols-4 lg:gap-6">
           <div>
@@ -366,7 +362,7 @@ export const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
             </div>
 
             <p className="w-3/4 mx-auto lg:w-auto">
-              How much longer can I allow my self-doubt and fear of rejection to hold me back?
+              How much longer can I allow self-doubt and fear of rejection to keep me single?
             </p>
           </div>
 
@@ -376,7 +372,8 @@ export const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
             </div>
 
             <p className="w-3/4 mx-auto lg:w-auto">
-              What will my relationships look like if I keep avoiding the tough conversations?
+              What will my love life look like if I keep attracting the same unfulfilling
+              connections?
             </p>
           </div>
 
@@ -386,15 +383,16 @@ export const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
             </div>
 
             <p className="w-3/4 mx-auto lg:w-auto">
-              Am I ready to break the cycle of emotional distance and finally feel truly understood?
+              Am I ready to break the cycle of loneliness and finally find a relationship where I
+              feel truly valued and understood?
             </p>
           </div>
         </div>
 
         <p className="max-w-xl font-bold mx-auto my-4">
           This is your wake-up call. Don’t let old patterns keep you stuck. This limited-time offer
-          is your chance to break free, rebuild trust, and create the secure, fulfilling
-          relationships you deserve.
+          is your chance to break free, build real confidence, and attract the secure, fulfilling
+          relationship you deserve.
         </p>
 
         <MHAButton label="CLAIM YOUR FREE 14-DAY TRIAL NOW!" />
@@ -406,20 +404,20 @@ export const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
 const STEPS_TO_PURCHASE = [
   {
     step: 'STEP ONE',
-    title: 'Sign Up for the 14-Day Free Trial',
+    title: 'Sign Up for Your 14-Day Free Trial',
     copy: 'Unlock complete access to our All-Access Pass, including on-demand courses, live webinars, expert Q&A sessions, and community access.',
     image: '/images/RoyalRumblePage/rr-offer.png',
   },
   {
     step: 'STEP TWO',
-    title: 'Start Your Tailor-Made Courses',
-    copy: 'Start either the Advanced Attachment Style, How to Repair Any Relationship, or Needs Course. Learn simple yet powerful tools to transform and heal your relationships.',
+    title: 'Start Your Healing Courses',
+    copy: 'Start either the Thriving Conscious Dating, Attachment Style Course Bundle, or Needs Course. Learn simple yet powerful tools to transform and heal so you can find the love you want!',
     image: '/images/TrialHeadspace/pds-courses-mockup.png',
   },
   {
     step: 'STEP THREE',
     title: 'Continue Building the Love Life You Deserve',
-    copy: 'Continue as a member to experience lasting change in how you show up in your relationship and feel about yourself – all for FREE for 14 days.',
+    copy: 'Continue as a member to experience lasting change in how you show up in your love life and feel about yourself – all for FREE for 14 days.',
     image: '/images/TrialHeadspace/pds-courses-mockup-2.png',
   },
 ]

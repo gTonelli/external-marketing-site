@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/iat/info', '/attachment-report/fa', '/mha-month'],
+  matcher: ['/iat/info', '/attachment-report/fa'],
 }
 
 interface IConfigWithRegex {
@@ -136,11 +136,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       regex: /^\/attachment-report\/fa/,
       config: splitTestConfigs.faReport,
-    },
-    {
-      regex: /^\/mha-month/,
-      config: splitTestConfigs.mhaMonth,
-    },
+    }
   ]
 
   if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
@@ -249,18 +245,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.25,
     forceControlOnNewUser: false,
-  },
-
-  mhaMonth: {
-    cookieKey: 'gm-1750-mha-month-split',
-    pageName: 'mha-month',
-    experimentName: 'GM-1750-MHA-Month-Split',
-    variantUrl: {
-      path: '/mha-month/b',
-    },
-    variantRatio: 0.2,
-    forceControlOnNewUser: true,
-  },
+  }
 }
 
 type TSplitTestConfigs = {

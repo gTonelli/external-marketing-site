@@ -230,7 +230,7 @@ export const PDSDefaultNavLinks = [
     text: 'Bootcamp',
   },
   {
-    link: ERoutes.IAT_SALES_PAGE,
+    link: ERoutes.IAT_COACHING_PAGE,
     text: 'Certification',
   },
   {

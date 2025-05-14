@@ -51,6 +51,7 @@ export type Pages =
   | `Attachment Style Report Old - ${string}`
   | `Attachment Style Quiz Questions`
   | `Attachment Style Results`
+  | `Attachment Style Report - FA`
   | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
@@ -82,6 +83,7 @@ export type Pages =
   | `IAT Webinar Squeeze Page`
   | `IAT Webinar Recording Page`
   | `IAT Post Registration Masterclass Page`
+  | `ICP Results Page - ${string}`
   | `Intent Project - FA`
   | `Learn - 30% OFF`
   | `Lifetime`
@@ -101,6 +103,7 @@ export type Pages =
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `mha-month-b`
   | `MHA - ${string} ${string}`
   | `Podcast Page`
   | `Podcast Episode Page - ${string}`

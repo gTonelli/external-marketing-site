@@ -83,6 +83,7 @@ export enum ERoutes {
   DREAM_LIFE_RESULTS_PAGE = '/dream-life-results',
   EXPLORE_COURSES_PAGE = '/explore-courses',
   FLASH_SALE_PAGE = '/membership-discount',
+  IAT_COACHING_PAGE = '/coaching',
   IAT_QUIZ = '/iat/quiz',
   IAT_SALES_PAGE = '/iat',
   LEARNING_LOVE_PAGE = '/learning-love',

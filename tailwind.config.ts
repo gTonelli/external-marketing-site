@@ -35,6 +35,7 @@ const config: Config = {
         'black-transparent': 'rgba(0, 0, 0, 0.6)',
 
         blue: '#85bbca',
+        'blue-2': '#465E62',
         'blue-75': 'rgba(133, 187, 202, 0.75)',
         'blue-light': '#c3d7db',
         'blue-lightest': '#e3eded',
@@ -58,6 +59,7 @@ const config: Config = {
         'green-4': '#D7EAEF',
         'green-5': '#D7EFD7',
         'green-6': '#E7EFF1',
+        'green-7': '#F5FBFC',
 
         // secondaries
         'black-light': '#2C3E42',
@@ -84,6 +86,7 @@ const config: Config = {
         'orange-secondary': '#E7A69D',
         'orange-light': '#FBEFED',
         'orange-dark': '#D35E4A',
+        'orange-auxillary': '#FCF7F5',
 
         yellow: '#F8BF53',
         'yellow-secondary': '#FFC123',
@@ -179,6 +182,7 @@ const config: Config = {
         sidepanel: '0 0px 30px 13px rgba(0, 0, 0, 0.35)',
         centered: '0 3px 14px 5px rgba(0, 0, 0, 0.2)',
         'centered-card': '0px 0px 16px 0px rgba(0, 0, 0, 0.16)',
+        'centered-card-2': 'box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24)',
         'center-light': '0 2px 12px 2px rgba(0, 0, 0, 0.1)',
       },
       fill: (theme) => ({

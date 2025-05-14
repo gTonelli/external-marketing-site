@@ -15,7 +15,7 @@ export interface ITextDefaultProps extends IDefaultProps {
   /**
    * Content of the text to display
    */
-  content?: string | number | null
+  content?: string | number | JSX.Element | null
   /**
    * Font of the text
    * @default 'font-effra'

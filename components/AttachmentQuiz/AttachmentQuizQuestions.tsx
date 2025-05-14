@@ -169,14 +169,16 @@ export const AttachmentQuizQuestions = ({
 
       if (currentIndex == 0) {
         handleInitialQuestion()
-      } else if (currentIndex === modifiedQuestions.length - 1) {
-        handleQuizEnd()
       } else {
         if (answer === 'True') {
           handleScoreTracking()
         } else {
           handleOptionAnswer()
         }
+      }
+
+      if (currentIndex === modifiedQuestions.length - 1) {
+        handleQuizEnd()
       }
 
       setCurrentIndex(currentIndex + 1)

@@ -16,15 +16,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+// utils
+import { ISplitTest } from '@/utils/interfaces'
 // styles
 import './style.css'
 
 interface IQuizVariantProps {
   page_name: Pages
   config: TAttachmentQuizVariant
+  splitTestData?: ISplitTest
 }
 
-export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) => {
+export const AttachmentQuizVariant = ({ page_name, config, splitTestData }: IQuizVariantProps) => {
   // ================= State =======================
   const [viewQuiz, setViewQuiz] = useState(false)
 
@@ -43,7 +46,7 @@ export const AttachmentQuizVariant = ({ page_name, config }: IQuizVariantProps) 
   }, [page_name, viewQuiz])
 
   return (
-    <Page className="w-full" page_name={page_name}>
+    <Page className="w-full" page_name={page_name} splitTestData={splitTestData}>
       <div className="bg-attachment-quiz-variant w-full">
         <div className="max-w-4xl flex flex-col justify-center items-center text-center mx-auto px-4 pt-16 py-2">
           <Image alt="PDS Logo" height={80} src="logo-footer.svg" width={80} />

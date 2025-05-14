@@ -49,9 +49,8 @@ export default function MHAPage() {
           </p>
 
           <p className="mb-4">
-            Our comprehensive two-week free trial provides you with access to ALL of our courses
-            (including the best starting point: <i>Attachment Style Courses</i>), live webinars and
-            Q&A sessions, and online support groups, allowing you to…
+            Our comprehensive two-week free trial provides you with access to ALL of our courses,
+            live webinars and Q&A sessions, and online support groups, allowing you to…
           </p>
 
           <p className="mb-4">
@@ -77,7 +76,7 @@ export default function MHAPage() {
         />
       </Section>
 
-      <Section className="!py-16">
+      <Section className="!py-10">
         <div className="grid grid-cols-1 gap-8 !text-left lg:grid-cols-3">
           {STEPS_TO_PURCHASE.map((item, idx) => (
             <div key={`purchase_steps_${idx}`}>
@@ -101,7 +100,7 @@ export default function MHAPage() {
         </div>
       </Section>
 
-      <Section className="text-white bg-black-secondary lg:pb-0 2xl:py-24 2xl:pb-0">
+      <Section className="text-white bg-black-secondary lg:pb-0 2xl:pt-12">
         <MHAPDSBenefits />
 
         <PDSSocialProof />
@@ -226,7 +225,7 @@ const MHAPDSBenefits = () => {
 
           <p className="mb-4">
             <strong>
-              This Mental Health Awareness Month, don’t let it define your relationship.
+              This Mental Health Awareness Month, don’t let it define your lovelife.
             </strong>
           </p>
 
@@ -288,7 +287,7 @@ const MHAPDSFeatures = () => {
             classNameListItems="my-4"
             icon={faCircleCheck}
             listItems={[
-              `**A library of powerful video courses** to manage your emotions, conquer challenges, and repair your relationships`,
+              `**A library of powerful video courses** to manage your emotions, conquer challenges, and repair your relationships.`,
               `**Weekly webinars and Q&A sessions** where you can get real-time support and ask me burning questions while connecting with others on the same journey.`,
               `**Community support** from our vibrant, caring network, with online forums and weekly support groups to help you heal, grow, and thrive in your relationships.`,
               `**The powerful secrets to lasting love** — understand your unique attachment style (secure, anxious, dismissive, or fearful avoidant) and transform how to build relationships.`,

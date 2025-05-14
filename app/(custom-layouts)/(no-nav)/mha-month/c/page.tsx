@@ -36,11 +36,11 @@ export const metadata: Metadata = {
 
 export default function MHAPage() {
   return (
-    <Page page_name="mha-month-relationship" className="w-full overflow-hidden">
+    <Page page_name="mha-month-singles" className="w-full overflow-hidden">
       <MHAHero />
 
       <Section
-        className="2xl:py-24"
+        className="2xl:pt-24"
         classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
         <div className="col-start-2 text-left">
           <p className="mb-4">
@@ -50,9 +50,8 @@ export default function MHAPage() {
           </p>
 
           <p className="mb-4">
-            Our comprehensive two-week free trial provides you with access to ALL of our courses
-            (including the best starting point: <i>Attachment Style Courses</i>), live webinars and
-            Q&A sessions, and online support groups, allowing you to…
+            Our comprehensive two-week free trial provides you with access to ALL of our courses,
+            live webinars and Q&A sessions, and online support groups, allowing you to…
           </p>
 
           <p className="mb-4">
@@ -106,7 +105,7 @@ export default function MHAPage() {
 
             <p className="my-6">
               Your two-week free trial gives you full access to our powerful courses, live webinars
-              with relationship expert <strong>Thais Gibson</strong>, and a supportive community of
+              with relationship expert <strong> Thais Gibson</strong>, and a supportive community of
               like-minded singles.
             </p>
           </div>
@@ -114,7 +113,7 @@ export default function MHAPage() {
         </div>
       </Section>
 
-      <Section className="!py-16">
+      <Section className="!py-10">
         <div className="grid grid-cols-1 gap-8 !text-left lg:grid-cols-3">
           {STEPS_TO_PURCHASE.map((item, idx) => (
             <div key={`purchase_steps_${idx}`}>
@@ -138,7 +137,7 @@ export default function MHAPage() {
         </div>
       </Section>
 
-      <Section className="text-white bg-black-secondary lg:pb-0 2xl:py-24 2xl:pb-0">
+      <Section className="text-white bg-black-secondary lg:pb-0 2xl:py-12">
         <MHAPDSBenefits />
 
         <PDSSocialProof />
@@ -323,7 +322,7 @@ const MHAPDSFeatures = () => {
             classNameListItems="my-4"
             icon={faCircleCheck}
             listItems={[
-              `**A library of powerful video courses** to manage your emotions, conquer challenges, and repair your relationships`,
+              `**A library of powerful video courses** to manage your emotions, conquer challenges, and repair your relationships.`,
               `**Weekly webinars and Q&A sessions** where you can get real-time support and ask me burning questions while connecting with others on the same journey.`,
               `**Community support** from our vibrant, caring network, with online forums and weekly support groups to help you heal, grow, and thrive in your relationships.`,
               `**The powerful secrets to lasting love** — understand your unique attachment style (secure, anxious, dismissive, or fearful avoidant) and transform how to build relationships.`,
@@ -410,7 +409,7 @@ const STEPS_TO_PURCHASE = [
   },
   {
     step: 'STEP TWO',
-    title: 'Start Your Healing Courses',
+    title: 'Start Your Healing Courses Right Away',
     copy: 'Start either the Thriving Conscious Dating, Attachment Style Course Bundle, or Needs Course. Learn simple yet powerful tools to transform and heal so you can find the love you want!',
     image: '/images/TrialHeadspace/pds-courses-mockup.png',
   },

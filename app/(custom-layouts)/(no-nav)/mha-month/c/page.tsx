@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function MHAPage() {
   return (
-    <Page page_name="mha-month-singles" className="w-full overflow-hidden">
+    <Page page_name="mha-month-relationship" className="w-full overflow-hidden">
       <MHAHero />
 
       <Section
@@ -197,7 +197,7 @@ export default function MHAPage() {
   )
 }
 
-export const MHAHero = () => {
+const MHAHero = () => {
   return (
     <>
       <Section className="relative z-10 bg-blue-lightest lg:pb-0">
@@ -238,7 +238,7 @@ export const MHAHero = () => {
   )
 }
 
-export const MHAPDSBenefits = () => {
+const MHAPDSBenefits = () => {
   return (
     <>
       <h2 className="mb-4">Rewrite Your Love Story for Good</h2>
@@ -294,7 +294,7 @@ export const MHAPDSBenefits = () => {
   )
 }
 
-export const MHAPDSFeatures = () => {
+const MHAPDSFeatures = () => {
   return (
     <Section className="bg-black-secondary text-white 2xl:py-24">
       <h2>Your New Love Life Begins with a Single Step</h2>
@@ -339,7 +339,7 @@ export const MHAPDSFeatures = () => {
   )
 }
 
-export const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
+const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
   return (
     <Section className={`${background} lg:pt-0 2xl:pb-24`}>
       <div className={background === 'white' ? 'pt-12' : ''}>

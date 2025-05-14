@@ -103,6 +103,7 @@ export type Pages =
   | `Masterclass Quiz`
   | `Order Complete`
   | `mha-month`
+  | `mha-month-b`
   | `mha-month-relationship`
   | `mha-month-singles`
   | `MHA - ${string} ${string}`

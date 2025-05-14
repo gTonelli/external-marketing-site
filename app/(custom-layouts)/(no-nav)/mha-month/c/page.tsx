@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function MHAPage() {
   return (
-    <Page page_name="mha-month-relationship" className="w-full overflow-hidden">
+    <Page page_name="mha-month-singles" className="w-full overflow-hidden">
       <MHAHero />
 
       <Section

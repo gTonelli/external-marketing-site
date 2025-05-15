@@ -4,6 +4,7 @@ import { Metadata } from 'next'
 // components
 import { Section } from '@/components/Section'
 import { Page } from '@/components/Page'
+import { faSquareCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { List } from '@/components/List'
 import { CarouselPromotionCourses } from '@/components/Carousel/variants/CarouselPromotionCourses'
@@ -23,8 +24,13 @@ import {
   faHeart,
   faSadTear,
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// config
+import { MHAConfig } from './config'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// modules
+import { Pages } from '@/modules/Mixpanel'
+import { TMHAPageConfig } from './config'
 
 export const metadata: Metadata = {
   title: 'Find Calmness & Clarity with Our 14-Day Free Trial',
@@ -34,37 +40,58 @@ export const metadata: Metadata = {
 }
 
 export default function MHAPage() {
-  return (
-    <Page page_name="mha-month" className="w-full overflow-hidden">
-      <MHAHero />
+  return <MentalHealthPage page_name="mha-month" MHAConfig={MHAConfig} />
+}
 
+interface IMHAPageProps {
+  page_name: Pages
+  MHAConfig: TMHAPageConfig
+}
+
+export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
+  return (
+    <Page page_name={page_name} className="w-full overflow-hidden">
+      {/** HERO SECTION */}
+      <Section className="relative z-10 bg-blue-lightest lg:pb-0">
+        <h2 className="!text-xl font-effra rounded-lg font-bold bg-blue-dark text-white mb-3 px-8 py-2 lg:py-4 lg:!text-3xl">
+          {MHAConfig.HERO.header}
+        </h2>
+
+        <h1 className="text-primary font-bold mb-4 lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:mb-8">
+          {MHAConfig.HERO.subheader}
+        </h1>
+
+        <p className="!text-lg font-bold mb-4 lg:max-w-3xl lg:mx-auto">{MHAConfig.HERO.copy}</p>
+
+        <MHAButton label={MHAConfig.HERO.ctaLabel} />
+
+        <p className="max-w-xl italic mx-auto mt-4">{MHAConfig.HERO.freeTrial}</p>
+      </Section>
+
+      <Image
+        alt="green wave vector"
+        className="relative w-full mt-0 z-5 2xl:-mt-5"
+        width={1700}
+        height={89}
+        src="/images/styled-wave-green.png"
+      />
+
+      {/** REVOLUTIONARY MODEL SECTION */}
       <Section
         className="2xl:py-24"
         classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
         <div className="col-start-2 text-left">
-          <p className="mb-4">
-            With our revolutionary one-of-a-kind healing model, you can unlock the hidden force of
-            your subconscious mind to heal your relationships, rebuild trust, create a soulful and
-            balanced connection, and uncover the secrets to lasting love in your life.
-          </p>
+          <p className="mb-4">{MHAConfig.REVOLUTIONARY_MODEL.copy[0]}</p>
 
-          <p className="mb-4">
-            Our comprehensive two-week free trial provides you with access to ALL of our courses,
-            live webinars and Q&A sessions, and online support groups, allowing you to…
-          </p>
+          <p className="mb-4">{MHAConfig.REVOLUTIONARY_MODEL.copy[1]}</p>
 
-          <p className="mb-4">
-            Arm yourself with the science-backed, results-proven tools and personalized strategies (
-            <i>that have been proven to work for anyone</i>) to break through the roadblocks in your
-            romantic relationships, love life, and dating journey so you experience real and
-            profound progress!
-          </p>
+          <p className="mb-4">{MHAConfig.REVOLUTIONARY_MODEL.copy[2]}</p>
         </div>
 
         <div className="lg:row-start-2 lg:col-span-2">
-          <MHAButton label="START YOUR FREE TRIAL NOW!" />
+          <MHAButton label={MHAConfig.REVOLUTIONARY_MODEL.ctaLabel} />
 
-          <p className="font-bold italic mt-3">* This offer is available for a limited time *</p>
+          <p className="font-bold italic mt-3">{MHAConfig.REVOLUTIONARY_MODEL.limitedOffer}</p>
         </div>
 
         <Image
@@ -76,9 +103,37 @@ export default function MHAPage() {
         />
       </Section>
 
+      {/**BREAK YOUR RELATIONSHIP PATTERNS SECTION */}
+      {page_name !== 'mha-month' && (
+        <Section>
+          <div className="max-w-5xl text-center mx-auto">
+            <h2>{MHAConfig.RELATIONSHIP_PATTERNS.header}</h2>
+
+            <p>{MHAConfig.RELATIONSHIP_PATTERNS.subheader}</p>
+
+            <List
+              className=" mt-10"
+              classNameIcon="!text-green-check !text-xl"
+              classNameListItems="my-4 lg:my-5 lg:first:!mt-0 lg:!pl-7"
+              classNameText="lg:pl-3"
+              icon={faSquareCheck}
+              listItems={MHAConfig.RELATIONSHIP_PATTERNS.listItems}
+            />
+
+            <div className="text-left">
+              <p>{MHAConfig.RELATIONSHIP_PATTERNS.copy[0]}</p>
+
+              <p className="my-6">{MHAConfig.RELATIONSHIP_PATTERNS.copy[1]}</p>
+            </div>
+            <MHAButton label={MHAConfig.RELATIONSHIP_PATTERNS.ctaLabel} />
+          </div>
+        </Section>
+      )}
+
+      {/** PURCHASE STEPS SECTION */}
       <Section className="!py-10">
         <div className="grid grid-cols-1 gap-8 !text-left lg:grid-cols-3">
-          {STEPS_TO_PURCHASE.map((item, idx) => (
+          {MHAConfig.STEPS_TO_PURCHASE.map((item, idx) => (
             <div key={`purchase_steps_${idx}`}>
               <div className="min-h-48 mb-4">
                 <Image
@@ -100,8 +155,39 @@ export default function MHAPage() {
         </div>
       </Section>
 
+      {/** BENEFITS SECTION */}
       <Section className="text-white bg-black-secondary lg:pb-0 2xl:pt-12">
-        <MHAPDSBenefits />
+        <div>
+          <h2 className="mb-4">{MHAConfig.BENEFITS_SECTION.header}</h2>
+
+          <p className="font-bold text-xl !tracking-widest lg:text-3xl lg:max-w-4xl lg:mx-auto mb-12">
+            {MHAConfig.BENEFITS_SECTION.subheader}
+          </p>
+
+          <div className="lg:grid lg:grid-cols-2 lg:gap-4">
+            <div className="text-left">
+              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[0]}</p>
+
+              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[1]}</p>
+
+              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[2]}</p>
+
+              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[3]}</p>
+            </div>
+
+            <div className="text-left mb-8">
+              <List
+                classNameIcon="!text-xl text-yellow"
+                classNameListItems="my-4 lg:my-5 lg:first:!mt-0 lg:!pl-7"
+                classNameText="lg:pl-3"
+                icon={faStar}
+                listItems={MHAConfig.BENEFITS_SECTION.benefits}
+              />
+            </div>
+          </div>
+
+          <MHAButton label={MHAConfig.BENEFITS_SECTION.ctaLabel} />
+        </div>
 
         <PDSSocialProof />
       </Section>
@@ -122,6 +208,7 @@ export default function MHAPage() {
         src="/images/BlackFridayPage/black-secondary-wave-desktop.jpg"
       />
 
+      {/** TESTIMONIAL SECTION */}
       <div className="w-full max-w-[100vw]">
         <CarouselTestimonial
           className="mt-6"
@@ -131,13 +218,16 @@ export default function MHAPage() {
         />
       </div>
 
+      {/** FEATURES SECTION */}
       <PDS14dftFeatureOffers />
 
+      {/** COURSES SECTION */}
       <CarouselPromotionCourses
-        title="Instant Access to 65+ Life-Changing Courses To Heal Yourself & Your Relationships!"
-        copy="Our Attachment Style Courses set you on the path to a fulfilled love life. Join thousands who’ve broken free from destructive habits, rebuilt and healed their relationships, and embraced secure attachment. Your breakthrough starts now!"
+        title={MHAConfig.COURSES_SECTION.header}
+        copy={MHAConfig.COURSES_SECTION.copy}
       />
 
+      {/** THAIS` SECTION */}
       <ThaisIntro />
 
       <Image
@@ -148,241 +238,93 @@ export default function MHAPage() {
         src="/images/BlackFridayPage/mha-purple-wave-desktop.jpg"
       />
 
-      <MHANegativePatterns />
+      {/** NEGATIVE PATTERNS SECTION */}
+      <Section className="bg-primary-light-50 lg:pt-0 2xl:pb-24">
+        <div>
+          <h2>{MHAConfig.NEGATIVE_PATTERN_SECTION.header}</h2>
 
-      <MHAPDSFeatures />
+          <div className="lg:grid lg:grid-cols-4 lg:gap-6">
+            <div>
+              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faEye} />
+              </div>
 
+              <p className="w-3/4 mx-auto lg:w-auto">{MHAConfig.NEGATIVE_PATTERN_SECTION.copy1}</p>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faHeart} />
+              </div>
+
+              <p className="w-3/4 mx-auto lg:w-auto">{MHAConfig.NEGATIVE_PATTERN_SECTION.copy2}</p>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faSadTear} />
+              </div>
+
+              <p className="w-3/4 mx-auto lg:w-auto">{MHAConfig.NEGATIVE_PATTERN_SECTION.copy3}</p>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
+                <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faClock} />
+              </div>
+
+              <p className="w-3/4 mx-auto lg:w-auto">{MHAConfig.NEGATIVE_PATTERN_SECTION.copy4}</p>
+            </div>
+          </div>
+
+          <p className="max-w-xl font-bold mx-auto my-4">
+            {MHAConfig.NEGATIVE_PATTERN_SECTION.copy5}
+          </p>
+
+          <MHAButton label={MHAConfig.NEGATIVE_PATTERN_SECTION.ctaLabel} />
+        </div>
+      </Section>
+
+      {/** PDS FEATURES SECTION */}
+      <Section className="bg-black-secondary text-white 2xl:py-24">
+        <h2>{MHAConfig.FEATURES_SECTION.header}</h2>
+
+        <p className="max-w-2xl tracking-widest text-xl mx-auto mb-4 mt-8">
+          {MHAConfig.FEATURES_SECTION.subheader}
+        </p>
+
+        <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:my-8">
+          <Image
+            alt="best value mockup"
+            className="w-full"
+            width={1980}
+            height={981}
+            src="/images/best-value-mockup.png"
+          />
+
+          <div className="text-left">
+            <p className="font-bold my-4">{MHAConfig.FEATURES_SECTION.featureHeading}</p>
+
+            <List
+              className="mb-4"
+              classNameIcon="text-success"
+              classNameListItems="my-4"
+              icon={faCircleCheck}
+              listItems={MHAConfig.FEATURES_SECTION.features}
+            />
+          </div>
+        </div>
+
+        <MHAButton label={MHAConfig.FEATURES_SECTION.ctaLabel} />
+
+        <p className="italic font-medium mt-4">{MHAConfig.FEATURES_SECTION.limitedOffer}</p>
+      </Section>
+
+      {/** TESTIMONAIL VIDEO SECTION */}
       <PDS14dftTestimonialVideo />
 
+      {/** FAQ SECTION */}
       <PDS14dftFAQ />
     </Page>
   )
 }
-
-const MHAHero = () => {
-  return (
-    <>
-      <Section className="relative z-10 bg-blue-lightest lg:pb-0">
-        <h2 className="!text-xl font-effra rounded-lg font-bold bg-blue-dark text-white mb-3 px-8 py-2 lg:py-4 lg:!text-3xl">
-          Claim Your 14-Day Free Trial! Limited Time Only!
-        </h2>
-
-        <h1 className="text-primary font-bold mb-4 lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:mb-8">
-          Uncover the Hidden Force That Will Transform Your Relationships & Reclaim Your Love Life!
-        </h1>
-
-        <p className="!text-lg font-bold mb-4 lg:max-w-3xl lg:mx-auto">
-          A FREE 14-day trial to our All-Access Pass gives you the power of our proprietary healing
-          model, Integrated Attachment Theory™. In our courses, you’ll learn to reprogram your
-          subconscious mind to break your painful patterns, heal your relationships, and fix what’s
-          been holding you back in lasting happiness and love. It’s the groundbreaking approach
-          that’s changing relationships worldwide because it works fast and for anyone! And it’s
-          yours, right here, right now!
-        </p>
-
-        <MHAButton label="HEAL YOUR RELATIONSHIPS TODAY" />
-
-        <p className="max-w-xl italic mx-auto mt-4">
-          *Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel
-          anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t
-          last!*
-        </p>
-      </Section>
-
-      <Image
-        alt="green wave vector"
-        className="relative w-full mt-0 z-5 2xl:-mt-5"
-        width={1700}
-        height={89}
-        src="/images/styled-wave-green.png"
-      />
-    </>
-  )
-}
-
-const MHAPDSBenefits = () => {
-  return (
-    <>
-      <h2 className="mb-4">Rewrite Your Love Story for Good</h2>
-
-      <p className="font-bold text-xl !tracking-widest lg:text-3xl lg:max-w-4xl lg:mx-auto mb-12">
-        TRANSFORM YOUR PATTERNS, REBUILD YOUR CONFIDENCE, AND THRIVE IN RELATIONSHIPS WITH OUR
-        ALL-ACCESS PASS!
-      </p>
-
-      <div className="lg:grid lg:grid-cols-2 lg:gap-4">
-        <div className="text-left">
-          <p className="mb-4">
-            Maybe you’ve been stuck in painful cycles—constant arguments, misunderstandings, or
-            feeling unseen and unheard.
-          </p>
-
-          <p className="mb-4">
-            Perhaps you struggle with expressing your needs, staying silent to avoid conflict, or
-            feeling overwhelmed by different goals and emotions. Or you're in a rut of hopeless and
-            mindless dates.
-          </p>
-
-          <p className="mb-4">
-            <strong>
-              This Mental Health Awareness Month, don’t let it define your lovelife.
-            </strong>
-          </p>
-
-          <p className="mb-4">
-            Activate your <strong>14-day free trial of our All-Access Pass</strong> to use our
-            scientifically proven model and expert guidance to uncover the root causes of your
-            emotional struggles – then transform them by:
-          </p>
-        </div>
-
-        <div className="text-left mb-8">
-          <List
-            classNameIcon="!text-xl text-yellow"
-            classNameListItems="my-4 lg:my-5 lg:first:!mt-0 lg:!pl-7"
-            classNameText="lg:pl-3"
-            icon={faStar}
-            listItems={[
-              'Breaking free from the suffocating patterns of feeling overwhelmed to form a relationship that honors your independence and emotional depth.',
-              'Creating a love life where you’re truly seen, heard, and understood without the crushing weight of criticism or the fear of losing yourself.',
-              'Reclaiming the deep sense of being truly wanted and valued, feeling like a priority in your relationships, and finally experiencing security and confidence.',
-              'Overcoming the fear of rejection and abandonment and silencing the voices of self-doubt to develop profound, lasting connections that leave you feeling safe and understood.',
-              "Understanding your partner on a deeper level than ever before so you're able to communicate better, develop stronger bonds, and align on future goals.",
-            ]}
-          />
-        </div>
-      </div>
-
-      <MHAButton label="START YOUR FREE TRIAL" />
-    </>
-  )
-}
-
-const MHAPDSFeatures = () => {
-  return (
-    <Section className="bg-black-secondary text-white 2xl:py-24">
-      <h2>Your New Love Life Begins with a Single Step</h2>
-
-      <p className="max-w-2xl tracking-widest text-xl mx-auto mb-4 mt-8">
-        YOUR FIRST 14 DAYS ARE ON US!
-      </p>
-
-      <div className="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center lg:my-8">
-        <Image
-          alt="best value mockup"
-          className="w-full"
-          width={1980}
-          height={981}
-          src="/images/best-value-mockup.png"
-        />
-
-        <div className="text-left">
-          <p className="font-bold my-4">
-            Join our All-Access Pass Membership to get instant access to:
-          </p>
-
-          <List
-            className="mb-4"
-            classNameIcon="text-success"
-            classNameListItems="my-4"
-            icon={faCircleCheck}
-            listItems={[
-              `**A library of powerful video courses** to manage your emotions, conquer challenges, and repair your relationships.`,
-              `**Weekly webinars and Q&A sessions** where you can get real-time support and ask me burning questions while connecting with others on the same journey.`,
-              `**Community support** from our vibrant, caring network, with online forums and weekly support groups to help you heal, grow, and thrive in your relationships.`,
-              `**The powerful secrets to lasting love** — understand your unique attachment style (secure, anxious, dismissive, or fearful avoidant) and transform how to build relationships.`,
-            ]}
-          />
-        </div>
-      </div>
-
-      <MHAButton label="GET 14 DAYS FREE!" />
-
-      <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
-    </Section>
-  )
-}
-
-const MHANegativePatterns = ({ background = 'bg-primary-light-50' }) => {
-  return (
-    <Section className={`${background} lg:pt-0 2xl:pb-24`}>
-      <div className={background === 'white' ? 'pt-12' : ''}>
-        <h2>Don’t Let Your Love Life Take a Back Seat. Ask Yourself:</h2>
-
-        <div className="lg:grid lg:grid-cols-4 lg:gap-6">
-          <div>
-            <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
-              <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faEye} />
-            </div>
-
-            <p className="w-3/4 mx-auto lg:w-auto">
-              Can I consistently let my need for independence and freedom ruin my chance at real
-              love?
-            </p>
-          </div>
-
-          <div>
-            <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
-              <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faHeart} />
-            </div>
-
-            <p className="w-3/4 mx-auto lg:w-auto">
-              What does my life look and feel like if I let my trust issues keep sabotaging my
-              relationships?
-            </p>
-          </div>
-
-          <div>
-            <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
-              <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faSadTear} />
-            </div>
-
-            <p className="w-3/4 mx-auto lg:w-auto">
-              How much longer can my low self-esteem and fear of rejection and abandonment hold me
-              back?
-            </p>
-          </div>
-
-          <div>
-            <div className="flex items-center justify-center w-20 h-20 rounded-full bg-white mx-auto my-4">
-              <FontAwesomeIcon className="text-purple-dark text-4xl" icon={faClock} />
-            </div>
-
-            <p className="w-3/4 mx-auto lg:w-auto">
-              How disappointed will I be if I don't honestly communicate what I need from my
-              partner?
-            </p>
-          </div>
-        </div>
-
-        <p className="max-w-xl font-bold mx-auto my-4">
-          This is your wake-up call. Our limited-time offer is your chance to break free from the
-          patterns that are keeping you stuck and start building the relationships you crave.
-        </p>
-
-        <MHAButton label="EMPOWER YOUR LOVE LIFE TODAY" />
-      </div>
-    </Section>
-  )
-}
-
-const STEPS_TO_PURCHASE = [
-  {
-    step: 'STEP ONE',
-    title: 'Sign Up for the 14-Day Free Trial',
-    copy: 'You will have two full weeks to explore everything The Personal Development School has to offer in our All-Access Pass, including on-demand courses, live webinars and Q&A sessions, and much more.',
-    image: '/images/RoyalRumblePage/rr-offer.png',
-  },
-  {
-    step: 'STEP TWO',
-    title: 'Take Your Attachment Style Course',
-    copy: 'Choose the course that fits your style: Dismissive, Fearful, Anxious Preoccupied, or Securely Attached. Learn simple yet powerful tools to reprogram your subconscious mind, helping you transform your attachment style, overcome personal barriers, and create the romantic relationships you’ve always wanted!',
-    image: '/images/TrialHeadspace/pds-courses-mockup.png',
-  },
-  {
-    step: 'STEP THREE',
-    title: 'Continue Your Journey to a Fulfilled Love Life',
-    copy: 'Your Attachment Style Course is your first step toward mastering secure and fulfilled relationships. With this foundation, you can continue building meaningful connections, improving your dating life, and strengthening your self-care with our other courses – all for FREE for 14 days!',
-    image: '/images/TrialHeadspace/pds-courses-mockup-2.png',
-  },
-]

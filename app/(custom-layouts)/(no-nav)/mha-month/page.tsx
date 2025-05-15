@@ -25,12 +25,11 @@ import {
   faSadTear,
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
-import { MHAConfig } from './config'
+import { MHAConfig, TMHAPageConfig } from './config'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import { Pages } from '@/modules/Mixpanel'
-import { TMHAPageConfig } from './config'
 
 export const metadata: Metadata = {
   title: 'Find Calmness & Clarity with Our 14-Day Free Trial',
@@ -81,11 +80,11 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
         className="2xl:py-24"
         classNameInner="lg:grid lg:grid-cols-2 lg:gap-12 xl:max-w-6xl xl:items-start">
         <div className="col-start-2 text-left">
-          <p className="mb-4">{MHAConfig.REVOLUTIONARY_MODEL.copy[0]}</p>
-
-          <p className="mb-4">{MHAConfig.REVOLUTIONARY_MODEL.copy[1]}</p>
-
-          <p className="mb-4">{MHAConfig.REVOLUTIONARY_MODEL.copy[2]}</p>
+          {MHAConfig.REVOLUTIONARY_MODEL.copy.map((copy, i) => (
+            <p key={`revolutionary_${i}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
         </div>
 
         <div className="lg:row-start-2 lg:col-span-2">
@@ -167,13 +166,11 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
 
           <div className="lg:grid lg:grid-cols-2 lg:gap-4">
             <div className="text-left">
-              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[0]}</p>
-
-              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[1]}</p>
-
-              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[2]}</p>
-
-              <p className="mb-4">{MHAConfig.BENEFITS_SECTION.copy[3]}</p>
+              {MHAConfig.BENEFITS_SECTION.copy.map((copy, i) => (
+                <p key={`benefits_${i}`} className="mb-4">
+                  {copy}
+                </p>
+              ))}
             </div>
 
             <div className="text-left mb-8">
@@ -237,6 +234,7 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
         width={2881}
         height={430}
         src="/images/BlackFridayPage/mha-purple-wave-desktop.jpg"
+        tabIndex={-1}
       />
 
       {/** NEGATIVE PATTERNS SECTION */}

@@ -2,7 +2,6 @@
 import { Metadata } from 'next'
 // config
 import { MHASinglesConfig } from '../../config'
-// libraries
 import { MentalHealthPage } from '../../page'
 
 export const metadata: Metadata = {

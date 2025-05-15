@@ -2,7 +2,6 @@
 import { Metadata } from 'next'
 // config
 import { MHARelationshipConfig } from '../../config'
-// libraries
 import { MentalHealthPage } from '../../page'
 
 export const metadata: Metadata = {
@@ -14,6 +13,6 @@ export const metadata: Metadata = {
 
 export default function MentalHealthRelationship() {
   const page_name = 'mha-month-relationship'
-  
+
   return <MentalHealthPage page_name={page_name} MHAConfig={MHARelationshipConfig} />
 }

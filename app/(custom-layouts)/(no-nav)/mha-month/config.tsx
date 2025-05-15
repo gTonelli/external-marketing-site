@@ -9,7 +9,7 @@
            been holding you back in lasting happiness and love. It’s the groundbreaking approach
            that’s changing relationships worldwide because it works fast and for anyone! And it’s
            yours, right here, right now!`,
-    ctaLabel: 'HEAL YOUR RELATIONSHIPS TODAY',
+    ctaLabel: 'START YOUR TRANSFORMATION NOW',
     freeTrial: `*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel
                 anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t
                 last!*`,

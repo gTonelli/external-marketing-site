@@ -104,6 +104,8 @@ export type Pages =
   | `Order Complete`
   | `mha-month`
   | `mha-month-b`
+  | `mha-month-relationship`
+  | `mha-month-singles`
   | `MHA - ${string} ${string}`
   | `Podcast Page`
   | `Podcast Episode Page - ${string}`

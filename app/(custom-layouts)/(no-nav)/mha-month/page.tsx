@@ -53,11 +53,11 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
     <Page page_name={page_name} className="w-full overflow-hidden">
       {/** HERO SECTION */}
       <Section className="relative z-10 bg-blue-lightest lg:pb-0">
-        <h2 className="!text-xl font-effra rounded-lg font-bold bg-blue-dark text-white mb-3 px-8 py-2 lg:py-4 lg:!text-3xl">
+        <p className="!text-xl font-effra rounded-lg font-bold bg-blue-dark text-white mb-3 px-8 py-2 lg:py-4 lg:!text-3xl">
           {MHAConfig.HERO.header}
-        </h2>
+        </p>
 
-        <h1 className="text-primary font-bold mb-4 lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:mb-8">
+        <h1 className="text-primary mb-4 lg:leading-10 lg:max-w-[940px] lg:mx-auto lg:mb-8">
           {MHAConfig.HERO.subheader}
         </h1>
 
@@ -125,6 +125,7 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
 
               <p className="my-6">{MHAConfig.RELATIONSHIP_PATTERNS.copy[1]}</p>
             </div>
+
             <MHAButton label={MHAConfig.RELATIONSHIP_PATTERNS.ctaLabel} />
           </div>
         </Section>
@@ -160,7 +161,7 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
         <div>
           <h2 className="mb-4">{MHAConfig.BENEFITS_SECTION.header}</h2>
 
-          <p className="font-bold text-xl !tracking-widest lg:text-3xl lg:max-w-4xl lg:mx-auto mb-12">
+          <p className="font-bold text-xl !tracking-33 lg:text-3xl lg:max-w-4xl lg:mx-auto mb-12">
             {MHAConfig.BENEFITS_SECTION.subheader}
           </p>
 
@@ -211,10 +212,10 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
       {/** TESTIMONIAL SECTION */}
       <div className="w-full max-w-[100vw]">
         <CarouselTestimonial
+          showQuotations={false}
           className="mt-6"
           classNameHeader="text-center"
           headingText="You Could Be Joining Our Members in Having Breakthroughs Like This:"
-          showQuotations={false}
         />
       </div>
 
@@ -289,7 +290,7 @@ export const MentalHealthPage = ({ page_name, MHAConfig }: IMHAPageProps) => {
       <Section className="bg-black-secondary text-white 2xl:py-24">
         <h2>{MHAConfig.FEATURES_SECTION.header}</h2>
 
-        <p className="max-w-2xl tracking-widest text-xl mx-auto mb-4 mt-8">
+        <p className="max-w-2xl tracking-33 text-xl mx-auto mb-4 mt-8">
           {MHAConfig.FEATURES_SECTION.subheader}
         </p>
 

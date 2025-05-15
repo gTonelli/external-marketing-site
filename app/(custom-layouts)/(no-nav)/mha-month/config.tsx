@@ -120,10 +120,23 @@
     subheader: 'YOUR FIRST 14 DAYS ARE ON US!',
     featureHeading: 'Join our All-Access Pass Membership to get instant access to:',
     features: [
-      `**A library of powerful video courses** to manage your emotions, conquer challenges, and repair your relationships.`,
-      `**Weekly webinars and Q&A sessions** where you can get real-time support and ask me burning questions while connecting with others on the same journey.`,
-      `**Community support** from our vibrant, caring network, with online forums and weekly support groups to help you heal, grow, and thrive in your relationships.`,
-      `**The powerful secrets to lasting love** — understand your unique attachment style (secure, anxious, dismissive, or fearful avoidant) and transform how to build relationships.`,
+      <>
+        <strong>A library of powerful video courses</strong> to manage your emotions, conquer
+        challenges, and repair your relationships.
+      </>,
+      <>
+        <strong>Weekly webinars and Q&A sessions</strong> where you can get real-time support and
+        ask me burning questions while connecting with others on the same journey.
+      </>,
+      <>
+        <strong>Community support</strong> from our vibrant, caring network, with online forums and
+        weekly support groups to help you heal, grow, and thrive in your relationships,
+      </>,
+      <>
+        <strong>The powerful secrets to lasting love</strong> — understand your unique attachment
+        style (secure, anxious, dismissive, or fearful avoidant) and transform how to build
+        relationships.
+      </>,
     ],
     ctaLabel: 'GET 14 DAYS FREE!',
     limitedOffer: '* This offer is available for a limited time *',

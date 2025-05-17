@@ -12,7 +12,7 @@ import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
 import { SplitTestContext } from '@/utils/contexts'
-import { getSplitTest } from '@/utils/functions'
+import { getSplitTest, setSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -31,6 +31,9 @@ export const AttachmentQuizForm = ({
   const tagManager = useGoogleTagManager()
   const router = useRouter()
   const splitTestContext = useContext(SplitTestContext)
+  if (splitTestContext && (userStyle === 'ap' || userStyle === 'da')) {
+    setSplitTest({ ...splitTestContext, value: false })
+  }
   const isVariant = splitTestContext && getSplitTest(splitTestContext)
 
   // ==================== Events ====================
@@ -49,6 +52,8 @@ export const AttachmentQuizForm = ({
       case 'paidMeta':
         if (isVariant) {
           return `/quiz/${userStyle}/b`
+        } else if (userStyle === 'da') {
+          return `quiz/da`
         } else {
           return `/quiz/b/results/${userStyle}`
         }

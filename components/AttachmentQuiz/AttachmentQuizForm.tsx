@@ -43,7 +43,7 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (isVariant && (userStyle === 'fa' || userStyle === 'sa')) {
+        if (isVariant) {
           return `/quiz/${userStyle}/b`
         } else {
           return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
@@ -52,6 +52,8 @@ export const AttachmentQuizForm = ({
       case 'paidMeta':
         if (isVariant) {
           return `/quiz/${userStyle}/b`
+        } else if (userStyle === 'da') {
+          return `quiz/da`
         } else {
           return `/quiz/b/results/${userStyle}`
         }

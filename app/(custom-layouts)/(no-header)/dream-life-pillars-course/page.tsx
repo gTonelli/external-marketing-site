@@ -31,8 +31,10 @@ export default function DreamLifeFreeCoursePage() {
 
   return (
     <Page page_name="Dreamlife Pillars Course Page" className="relative">
-      <section className="bg-purple-dark">
-        <div className="p-4">
+      <section className="text-center bg-purple-dark">
+        <h2 className="text-white pt-4">Limited Time Offer: $250-Valued Course &amp; FREE Trial</h2>
+
+        <div className="pb-4">
           <CountdownTimer date={new Date(`2025-05-17T23:59:59-04:00`)} theme="dark" />
         </div>
       </section>
@@ -100,7 +102,7 @@ export default function DreamLifeFreeCoursePage() {
               listItems={[
                 'Uncover how past conditioning affects your present behavior and replace these self-sabotaging cycles with secure, respectful ones.',
                 'Learn to handle conflict resolution and express your feelings clearly to talk through the hard stuff with grace and confidence.',
-                'Articulate your non-negotiables, recognize compatibility faster, and attract partners who meet your values, future, and desires.',
+                'Articulate your non-negotiables, recognize compatibility faster, and attract partners who meet your values and future desires.',
                 'Cultivate emotional self-awareness, self-trust, and a stronger inner compass—so you stop losing yourself in others.',
                 "Turn everyday moments into opportunities for bonding and being emotionally present, whether you're dating or in a relationship.",
                 'Protect your peace while staying emotionally open—so you can build relationships based on mutual respect.',
@@ -270,7 +272,7 @@ export default function DreamLifeFreeCoursePage() {
         paymentOptionsConfigKey="dreamLifePillarsCourse"
         communityBullets={[
           'Discover the Key Pillars the create strong, healthy relationships that are built on authenticity and honesty',
-          'Apply the tools from our course to experience real transformative results within 7 days!',
+          'Apply the tools from our course to experience real transformative results within 7 days',
           'Understand what you need and deserve in your relationship to experience true joy and fulfillment',
           'Use our proven framework to create deeper connections, heal wounds, and grow together with your loved one',
         ]}
@@ -312,7 +314,7 @@ const STEPS_TO_PURCHASE = [
     icon: faSquare2,
     step: 'STEP TWO',
     title: 'Dive Into the Pillars Course (Yours to Keep!)',
-    copy: 'Discover the patterns, fears, and blocks that have been holding you back in your relationship. You’ll uncover the root causes of relationship challenges and start reprogramming your mind for connection, trust, and emotional safety. This course is yours forever.',
+    copy: 'Discover the patterns, fears, and blocks that have been holding you back in your love life. You’ll uncover the root causes of your dating or relationship challenges and start reprogramming your mind for connection, trust, and emotional safety. This course is yours forever.',
     image: '/images/course-pillars-to-secure-relationships.jpg',
   },
   {

@@ -150,7 +150,7 @@ const allConfigs = {
     ctaLabel: 'UPDATE TO YOUR FREE TRIAL',
     checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_JUNE_2025_PROMO_TRIAL,
     disclaimer:
-      'Disclaimer: When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
+      '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
   },
 } satisfies Record<string, TConfig>
 

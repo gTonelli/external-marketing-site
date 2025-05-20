@@ -6,10 +6,12 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { SignupForm } from '@/components/Forms/SignupForm'
 import { List } from '@/components/List'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // styles
 import '../dream-life-pillars-course/style.css'
-import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
+import { Button } from '@/components/Button/Button'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Download Your Life-Changing Dating Freebie!',
@@ -52,7 +54,7 @@ export default function DatingFreebiePage() {
           </div>
 
           <div className="text-left lg:col-span-2">
-            <h2>Hurry! Enter Your Details to Get Your FREE Standards & Non-Negotiables Guide!</h2>
+            <h2>Enter Your Details to Get Your FREE Standards & Non-Negotiables Guide!</h2>
 
             <p>
               <strong>
@@ -88,12 +90,19 @@ export default function DatingFreebiePage() {
         </p>
 
         <h2 className="mb-4">
-          Defining Your Standards Will Protect You & Attract Authentic Relationships
+          Defining Your Standards That Will Protect You & Attract Authentic Relationships
         </h2>
       </Section>
 
       <Section classNameInner="grid gap-8 lg:grid-cols-2">
-        <div>Image</div>
+        <div>
+          <Image
+            alt="A mockup of the dating freebie with the cover shown on a mobile screen and a section about reflecting your strength shown on a tablet screen"
+            src="/images/DatingFreebie/dating-freebie-mockup-2.png"
+            width={882}
+            height={882}
+          />
+        </div>
 
         <div className="text-left">
           <h2 className="mb-4">
@@ -158,12 +167,14 @@ export default function DatingFreebiePage() {
             icon={faCheckCircle}
             listItems={[
               'Get instant access to 70+ expert-led courses and weekly live webinars.',
-              'Keep the Key Pillars for a Secure Relationship Course for LIFE—yours to use anytime!',
-              'Join a supportive community focused on healthy love, emotional growth, and lasting transformation!',
+              'Keep the Key Pillars for a Secure Relationship Course for LIFE—yours to use anytime.',
+              'Join a supportive community focused on healthy love, emotional growth, and lasting transformation.',
             ]}
           />
 
-          <ButtonScroll target="#freebie-form" label="EXPLORE MORE HERE" />
+          <Link href="/dream-life-pillars-course">
+            <Button label="EXPLORE MORE HERE" />
+          </Link>
         </div>
 
         <div className="lg:col-span-4">
@@ -198,7 +209,7 @@ export default function DatingFreebiePage() {
         />
 
         <div className="bg-white relative shadow-xl z-10 p-6 rounded-20 xs:p-10">
-          <h2 className="mb-4">Get the #1 Guide to Transform Your Dating Life</h2>
+          <h2 className="mb-4">Get the #1 Guide to Transform Your Love Life</h2>
 
           <p className="mb-4">
             The first step to better relationships? Knowing your standards. Grab the free guide now!

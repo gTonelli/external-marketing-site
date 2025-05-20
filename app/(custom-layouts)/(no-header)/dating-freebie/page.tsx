@@ -1,17 +1,17 @@
 // core
 import { Metadata } from 'next'
+import Link from 'next/link'
 import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { SignupForm } from '@/components/Forms/SignupForm'
 import { List } from '@/components/List'
+import { Button } from '@/components/Button/Button'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // styles
 import '../dream-life-pillars-course/style.css'
-import { Button } from '@/components/Button/Button'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Download Your Life-Changing Dating Freebie!',

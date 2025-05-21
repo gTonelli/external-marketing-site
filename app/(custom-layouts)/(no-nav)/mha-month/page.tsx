@@ -1,4 +1,4 @@
-// core
+﻿// core
 import { Metadata } from 'next'
 import Image from 'next/image'
 // components

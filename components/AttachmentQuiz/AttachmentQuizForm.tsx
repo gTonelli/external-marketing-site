@@ -53,7 +53,7 @@ export const AttachmentQuizForm = ({
         if (isVariant) {
           return `/quiz/${userStyle}/b`
         } else if (userStyle === 'da') {
-          return `quiz/da`
+          return '/quiz/da'
         } else {
           return `/quiz/b/results/${userStyle}`
         }

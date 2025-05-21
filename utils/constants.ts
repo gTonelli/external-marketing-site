@@ -120,6 +120,7 @@ export enum EExternalRoutes {
   THINKIFIC_CHECKOUT_14_DAY_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=2357208',
   THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=530903',
   THINKIFIC_CHECKOUT_MARCH_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=1585312',
+  THINKIFIC_CHECKOUT_JUNE_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=570395',
   THINKIFIC_CHECKOUT_QUARTERLY_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=withyouquarterly',
   THINKIFIC_CHECKOUT_QUARTERLY_149 = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=148off',
   THINKIFIC_CHECKOUT_QUARTERLY_PLAN_GREG_VOISEN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=ipg50',

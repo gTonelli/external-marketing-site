@@ -18,8 +18,12 @@ export default function VideoTeaser({ className, description }: IVideoTeaserProp
   const [videoIndex, setVideoIndex] = useState(0)
 
   return (
-    <section className={cx('w-full pt-14 lg:pt-28', className)}>
-      <div className="max-w-5xl bg-pale-pink text-center mx-auto px-4 py-16 lg:rounded-20 lg:px-36 lg:py-[68px]">
+    <section className="w-full pt-14 lg:pt-28">
+      <div
+        className={cx(
+          'max-w-5xl bg-pale-pink text-center mx-auto px-4 py-16 lg:rounded-20 lg:px-36 lg:py-[68px]',
+          className
+        )}>
         <div className="-mt-[88px] lg:-mt-24">
           <div className="flex row justify-center space-x-1 lg:space-x-9">
             {TH.VIDEO_CATEGORIES.map((category, index) => (
@@ -31,7 +35,7 @@ export default function VideoTeaser({ className, description }: IVideoTeaserProp
                     : 'bg-primary hover:bg-primary-light border-primary'
                 } border-2 transition-all text-white rounded-10 cursor-pointer px-2 py-2 lg:w-[204px] lg:py-4`}
                 onClick={() => setVideoIndex(index)}>
-                <p className="font-bold !text-[12px] lg:text-base">{category.name}</p>
+                <p className="font-bold !text-[14px] lg:text-base mb-0">{category.name}</p>
               </div>
             ))}
           </div>

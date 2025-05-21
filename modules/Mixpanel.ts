@@ -63,8 +63,10 @@ export type Pages =
   | `Corporate Quiz Results Page`
   | `Cyber Monday`
   | `Cyber Monday Variant Page`
+  | `Dating Freebie Page`
   | `Dreamlife Results Page FA`
   | `Dreamlife Free Course Page`
+  | `Dreamlife Pillars Course Page`
   | `Dreamlife Sex Course Page`
   | `Dreamlife Holiday Free Trial Page`
   | `External IAT Page`

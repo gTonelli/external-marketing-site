@@ -230,7 +230,7 @@ export default function FearfulAvoidantReportPageB() {
             <Image
               alt="A mockup of PDS courses on the PDs course players on 2 tablets and a laptop."
               className="mb-4 w-full max-w-[502px]"
-              src="/images/AttachmentQuizResults/course-player-mockup-3.png"
+              src="/images/AttachmentQuizResults/course-player-mockup-3-fa.png"
               width={343}
               height={177}
             />
@@ -316,7 +316,7 @@ export default function FearfulAvoidantReportPageB() {
         <div className="grid gap-8 mt-8 lg:grid-cols-2">
           <div>
             <Image
-              src="/images/AttachmentQuizResults/course-player-mockup.png"
+              src="/images/AttachmentQuizResults/course-player-mockup-fa.png"
               className="w-full mb-4 lg:mb-0"
               alt="2 Card images overlaid on each other with some text. The first image is of a woman sitting and smiling doing a course workbook. The second image is a mockup of the PDS course player on a lap top. The text reads: 'Easy, step-by-step program. Teaches you everything you need to know about relationships.'"
               width={300}

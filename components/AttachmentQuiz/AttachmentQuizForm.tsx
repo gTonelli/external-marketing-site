@@ -31,7 +31,7 @@ export const AttachmentQuizForm = ({
   const tagManager = useGoogleTagManager()
   const router = useRouter()
   const splitTestContext = useContext(SplitTestContext)
-  if (splitTestContext && (userStyle === 'ap' || userStyle === 'da')) {
+  if (splitTestContext && userStyle !== 'sa') {
     setSplitTest({ ...splitTestContext, value: false })
   }
   const isVariant = splitTestContext && getSplitTest(splitTestContext)

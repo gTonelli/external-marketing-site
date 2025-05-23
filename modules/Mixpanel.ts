@@ -123,6 +123,8 @@ export type Pages =
   | `VSL Royal Rumble Results - ${string}`
   | `Wellness Page`
   | `Youtube Funnel Quiz`
+  | 'IAT Live Abandoned Cart Page'
+  | 'IAT Ondemand Abandoned Cart Page'
 
 export type ExperimentVariant = 'Control' | `Variant ${number}`
 

@@ -1,13 +1,13 @@
 .bg-hero-mobile {
     position: relative;
-    background: url('/images/IAT_AbandonedCart/heroBanner.png') no-repeat top right / cover;
+    background: url('/images/IAT_AbandonedCart/heroBanner.webp') no-repeat top right / cover;
     width: 100%;
     height: 300px;
   }
   
-  .bg-watch-mobile {
+  .bg-watch-desktop {
     position: relative;
-    background: url('/images/IAT_AbandonedCart/offerBanner.png') no-repeat center / cover;
+    background: url('/images/IAT_AbandonedCart/offerBanner.webp') no-repeat center / cover;
     width: 100%;
     height: 300px;
   }
@@ -48,24 +48,17 @@
   }
   
   @media screen and (max-width: 600px) {
-    .bg-watch-mobile {
-      background: url('/images/IAT_AbandonedCart/offerBannerMobile.jpg') no-repeat center / cover;
+    .bg-watch-desktop {
+      background: url('/images/IAT_AbandonedCart/offerBannerMobile.webp') no-repeat center / cover;
       width: 100%;
       height: 600px;
       position: relative;
     }
   }
   
-  @media screen and (max-width: 767px) {
-    .swiper-slide > div {
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
-  }
-  
   @media screen and (min-width: 601px) and (max-width: 1023px) {
-    .bg-watch-mobile {
-      background: url('/images/IAT_AbandonedCart/offerBanner.png') no-repeat center / cover;
+    .bg-watch-desktop {
+      background: url('/images/IAT_AbandonedCart/offerBanner.webp') no-repeat center / cover;
       width: 100%;
       height: 400px;
       position: relative;
@@ -75,7 +68,7 @@
   @media screen and (min-width: 1024px) {
     .bg-hero {
       position: relative;
-      background: url('/images/IAT_AbandonedCart/heroBanner.png') no-repeat top right / cover;
+      background: url('/images/IAT_AbandonedCart/heroBanner.webp') no-repeat top right / cover;
     }
   
     .bg-hero::after {
@@ -100,7 +93,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('/images/IAT_AbandonedCart/offerBanner.png') no-repeat center / contain;
+      background: url('/images/IAT_AbandonedCart/offerBanner.webp') no-repeat center / contain;
       background-position: center;
       background-size: auto 100%;
       z-index: 0;

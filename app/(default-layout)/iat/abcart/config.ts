@@ -7,7 +7,7 @@ export const AB_CART_COPY = {
           'Take your career, life, and finances to the next level by finishing your sign-up for our Live IAT™ Program today, so you don’t miss our next cohort!',
       },
       hero: {
-        heading: 'Save Your Spot in Our Live IAT™ Program!',
+        heading: 'Save Your Spot in Our Certified Live IAT™ Relationship Coaching Program!',
         subheading: 'LIMITED SPOTS LEFT! BOOK YOUR FREE CALL TO SAVE YOUR SPOT (& GET A BONUS GIFT)!',
       },
     },
@@ -27,7 +27,7 @@ export const AB_CART_COPY = {
       benefits: [
         'Master cutting-edge tools that are only accessible in this revolutionary program',
         'Use these proprietary tools to help all people live happier, more fulfilled, and empowered lives',
-        'Step into a fulfilling career with limitless impact and income potential',
+        'Step into a fulfilling and rewarding career with limitless impact and income potential',
         'Stand out in a competitive market with a signature coaching method that attracts clients',
         'Gain access to a supportive worldwide community of like-minded coaches and mentors',
         'Join a growing global movement and be part of an inspiring and caring community',
@@ -48,7 +48,7 @@ export const AB_CART_COPY = {
             answer:'Absolutely! This course is specifically designed for anyone new to coaching, existing coaches and therapists who would like to learn more about attachment theory, or anyone who wants to gain emotional mastery and radically improve their relationships. If you want more information, [set up a call with our coaching specialist](https://calendly.com/info-pds/call-with-melanie-pds).',
            },
           {
-            question: 'How is the Integrated Attachment Theory™ Certification training different from other coach training schools/programs?',
+            question: 'How is the Integrated Attachment Theory™ Certification training different from other coaching schools and programs?',
             answer: `What makes our training different is that we provide a complete, comprehensive curriculum that ensures success. Not only do we provide you with the theory and practical tools of Integrated Attachment Theory™ that will help change lives, but we also help you maximize its potential by building your own business from it.`,
           },
           {

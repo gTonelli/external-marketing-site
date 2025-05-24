@@ -4,6 +4,7 @@
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
 import { IDefaultProps } from '..'
+import { gtag } from '../GoogleAdsTag'
 // libraries
 import { MD5 } from 'crypto-js'
 import { Field, Form, Formik } from 'formik'
@@ -86,6 +87,10 @@ export const RegistrationForm = ({
 
     FBQ?.trackLead({
       email,
+    })
+
+    gtag('set', 'user_data', {
+      email: email.trim(),
     })
 
     const requestBody = {

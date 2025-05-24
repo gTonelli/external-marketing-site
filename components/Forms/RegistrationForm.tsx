@@ -4,6 +4,7 @@
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
 import { IDefaultProps } from '..'
+
 // libraries
 import { MD5 } from 'crypto-js'
 import { Field, Form, Formik } from 'formik'
@@ -20,6 +21,7 @@ import { Regexes } from '@/utils/constants'
 import { isPhoneValid } from '@/utils/functions'
 // styles
 import 'react-international-phone/style.css'
+import { gtag } from '../GoogleAdsTag'
 
 interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
@@ -86,6 +88,10 @@ export const RegistrationForm = ({
 
     FBQ?.trackLead({
       email,
+    })
+
+    gtag('set', 'user_data', {
+      email: email.trim(),
     })
 
     const requestBody = {

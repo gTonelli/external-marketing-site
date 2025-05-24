@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { IDefaultWrapperProps } from '..'
 
 import '@/app/globals.css'
+import { GoogleAdsTag } from '../GoogleAdsTag'
 
 export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
   return (
@@ -37,6 +38,8 @@ export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
       </body>
 
       <GoogleTagManager gtmId="GTM-T49JFVN" />
+
+      <GoogleAdsTag />
     </html>
   )
 }

@@ -2,9 +2,9 @@ import { effra, sourceSerifPro } from '@/fonts'
 import { GoogleTagManager } from '@next/third-parties/google'
 import Script from 'next/script'
 import { IDefaultWrapperProps } from '..'
+import { GoogleAdsTag } from '../GoogleAdsTag'
 
 import '@/app/globals.css'
-import { GoogleAdsTag } from '../GoogleAdsTag'
 
 export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
   return (

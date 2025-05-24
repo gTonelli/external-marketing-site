@@ -1,5 +1,6 @@
 'use client'
 
+// core
 import { useEffect } from 'react'
 
 export const GoogleAdsTag = () => {
@@ -13,5 +14,7 @@ export const GoogleAdsTag = () => {
 }
 
 export function gtag(..._: any) {
-  window.dataLayer?.push(arguments)
+  if (!window) return console.warn('function gtag() is only for use in the browser.')
+  if (!window.dataLayer) return console.warn('dataLayer was not initialized properly')
+  window.dataLayer.push(arguments)
 }

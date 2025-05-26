@@ -1,9 +1,13 @@
+// core
+import { Metadata } from 'next'
+import Image from 'next/image'
 // components
-import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import { CountdownTimer } from '@/components/CountDownTimer'
-import { Faq } from '@/components/Faq/Faq'
 import { Page } from '@/components/Page'
+import { Faq } from '@/components/Faq/Faq'
 import { Section } from '@/components/Section'
+import { CountdownTimer } from '@/components/CountDownTimer'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import {
   faComment,
   faDove,
@@ -12,39 +16,47 @@ import {
   faHeart,
 } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Image from 'next/image'
 // config
-import { config } from './config'
-import { Metadata } from 'next'
+import { config as AB_CART_CONFIG } from './config'
+import { LifetimePricing } from '@/components/LifetimePricing'
 
-export type TParams = { params: { version: 'trial' | 'membership' } }
+type TPageVersion =
+  | 'trial'
+  | 'membership'
+  | '14-day-trial'
+  | 'quarterly-membership'
+  | 'annual-membership'
+  | 'lifetime-membership'
+
+export type TParams = {
+  params: {
+    version: TPageVersion
+  }
+}
 
 export const dynamicParams = false
 
 export function generateStaticParams() {
-  return [{ version: 'membership' }, { version: 'trial' }]
+  return [
+    { version: 'membership' },
+    { version: 'trial' },
+    { version: '14-day-trial' },
+    { version: 'quarterly-membership' },
+    { version: 'annual-membership' },
+    { version: 'lifetime-membership' },
+  ]
 }
 
 export async function generateMetadata({ params }: TParams): Promise<Metadata> {
-  switch (params.version) {
-    case 'trial':
-      return {
-        title: "Don't Forget to Take Your Free Trial!",
-        description:
-          'Are you ready to take up your free trial at The Personal Development School? Sign up and join our exclusive and welcoming community!',
-      }
-
-    case 'membership':
-      return {
-        title: 'Transform Your Life with the All-Access Pass!',
-        description:
-          'It’s your final chance to get everything you need to transform your life and relationships. Sign up for the All-Access Pass today!',
-      }
+  return {
+    title: AB_CART_CONFIG[params.version].seoTitle,
+    description: AB_CART_CONFIG[params.version].seoDescription,
+    robots: 'noindex',
   }
 }
 
 export default function AbandonedCartOffer({ params }: TParams) {
-  const { heading, subheading, checkoutLink } = config[params.version]
+  const config = AB_CART_CONFIG[params.version]
 
   return (
     <Page
@@ -77,89 +89,92 @@ export default function AbandonedCartOffer({ params }: TParams) {
 
         <div className="default-padding text-left !pb-8 relative z-15 col-span-2 col-start-1 row-start-1 lg:col-span-1 lg:col-start-1 lg:flex">
           <div className="lg:max-w-xl lg:ml-auto lg:flex lg:flex-col lg:justify-center">
-            <h1>{heading}</h1>
+            <h1>{config.heading}</h1>
 
-            <p>{subheading}</p>
+            <p>{config.subheading}</p>
 
             <CountdownTimer
               includeDays={false}
-              className="!justify-start mb-4 transparent"
+              className="!justify-start bg-transparent mb-4"
               classNameDate="!text-4xl font-ssp lg:!text-5xl"
               classNameDateSeperator="text-transparent"
               classNameLabel="lowercase"
               theme="transparent"
             />
 
-            <ButtonCheckout href={checkoutLink} label="UNLOCK YOUR DREAM LIFE" />
+            <AbandonCartCTA page={params.version} label={config.heroCtaLabel} />
           </div>
         </div>
       </Section>
 
       <Section>
-        <h2 className="mb-4">What’s the Cost of Not Taking Your Chance?</h2>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="mb-4">What’s the Cost of Not Taking Your Chance?</h2>
 
-        <p className="mb-4">
-          Every day you wait is another day you miss the chance for personal growth, true happiness,
-          and creating real and loving connections. Are you willing to risk a lifetime of these
-          missed opportunities?
-        </p>
+          <p className="mb-4">
+            Every day you wait is another day you miss the chance for personal growth, true
+            happiness, and creating real and loving connections. Are you willing to risk a lifetime
+            of these missed opportunities?
+          </p>
 
-        <p className="tracking-0.325 font-bold mb-8">NOW, TAKE A MINUTE AND IMAGINE:</p>
+          <p className="tracking-33 mb-8">
+            <strong>NOW, TAKE A MINUTE AND IMAGINE:</strong>
+          </p>
 
-        <div className="grid grid-cols-2 gap-4 mb-8 lg:grid-cols-5">
-          <div>
-            <FontAwesomeIcon className="text-primary" icon={faDove} size="3x" />
+          <div className="grid grid-cols-2 gap-4 mb-8 lg:grid-cols-5">
+            <div>
+              <FontAwesomeIcon className="text-primary mb-4" icon={faDove} size="3x" />
 
-            <p>
-              Letting go of your overwhelming patterns to create a love that honors your
-              independence.
-            </p>
+              <p>
+                Letting go of your overwhelming patterns to create a love that honors your
+                independence.
+              </p>
+            </div>
+
+            <div>
+              <FontAwesomeIcon className="text-primary mb-4" icon={faHeart} size="3x" />
+
+              <p>
+                Building authentic connections without fears and being genuinely seen, heard, and
+                valued.
+              </p>
+            </div>
+
+            <div>
+              <FontAwesomeIcon className="text-primary mb-4" icon={faGem} size="3x" />
+
+              <p>
+                Reclaiming your worth and your values and finally feeling like a priority in your
+                relationships.
+              </p>
+            </div>
+
+            <div>
+              <FontAwesomeIcon className="text-primary mb-4" icon={faFacePersevering} size="3x" />
+
+              <p>Overcoming fears of rejection and trust to form safe and exciting connections.</p>
+            </div>
+
+            <div className="col-span-2 w-1/2 mx-auto lg:col-span-1 lg:w-full">
+              <FontAwesomeIcon className="text-primary mb-4" icon={faComment} size="3x" />
+
+              <p>
+                Understanding your partner deeply, clearly communicating, and building a future
+                together.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <FontAwesomeIcon className="text-primary" icon={faHeart} size="3x" />
+          <p className="mb-4">{config.costCopy1}</p>
 
-            <p>
-              Building authentic connections without fears and being genuinely seen, heard, and
-              valued.
-            </p>
-          </div>
-
-          <div>
-            <FontAwesomeIcon className="text-primary" icon={faGem} size="3x" />
-
-            <p>
-              Reclaiming your worth and your values and finally feeling like a priority in your
-              relationships.
-            </p>
-          </div>
-
-          <div>
-            <FontAwesomeIcon className="text-primary" icon={faFacePersevering} size="3x" />
-
-            <p>Overcoming fears of rejection and trust to form safe and exciting connections.</p>
-          </div>
-
-          <div className="col-span-2 w-1/2 mx-auto lg:col-span-1 lg:w-full">
-            <FontAwesomeIcon className="text-primary" icon={faComment} size="3x" />
-
-            <p>
-              Understanding your partner deeply, clearly communicating, and building a future
-              together.
-            </p>
-          </div>
+          <p className="mb-4">{config.costCopy2}</p>
         </div>
 
-        <p className="mb-4">
-          Now, you have the opportunity to take action. Through a powerful and proprietary model
-          rooted in science and empathy, you can unlock the subconscious barriers holding you back
-          so you can embrace real, profound changes in your life and relationships – like those
-          above!
-        </p>
-
-        <p className="mb-4">
-          And you can do it all with your <strong>All-Access Pass Membership!</strong>
-        </p>
+        {params.version === 'lifetime-membership' && (
+          <div id="pricing">
+            <LifetimePricing />
+          </div>
+        )}
       </Section>
 
       <Section
@@ -181,30 +196,29 @@ export default function AbandonedCartOffer({ params }: TParams) {
           height={319}
         />
 
-        <div className="bg-white relative z-10 p-6 rounded-20 xs:p-10">
-          <h2 className="mb-4">So, What Are You Waiting For?</h2>
+        <div className="relative bg-white shadow-2xl rounded-20 z-10 p-6 xs:p-10">
+          <h2 className="mb-4">{config.hookTitle}</h2>
 
           <p className="mb-4">
-            It’s time to take control of your love life and relationships—because you deserve more
-            than just “getting by.” You deserve connection, joy, and love that lasts.
+            {`It’s time to take control of your love life and relationships—because you deserve more than just “getting by.” You deserve connection, joy, and love that lasts.${
+              params.version === 'lifetime-membership' &&
+              ' And the peace of knowing you’ll never be alone on this journey again.'
+            }`}
           </p>
 
-          <ButtonCheckout href={checkoutLink} label="RECLAIM YOUR LIFE NOW" />
+          <AbandonCartCTA page={params.version} label="RECLAIM YOUR LIFE NOW" />
         </div>
       </Section>
 
       <Section className="bg-pink-auxiliary">
         <h2 className="mb-4">Is This Revolutionary Offer For You?</h2>
 
-        <p className="mb-4">
-          Everyone wants to feel secure and have deep and loving relationships. They just don’t know
-          how to get them. But you do, thanks to your All-Access Pass Membership.
-        </p>
+        <p className="max-w-3xl mx-auto mb-8">{config.offerCopy}</p>
 
-        <div className="mb-4 xxs:gap-4 xxs:grid xxs:grid-cols-2 lg:grid-cols-3">
+        <div className="text-left mb-4 xxs:gap-4 xxs:grid xxs:grid-cols-2 lg:grid-cols-3">
           <div>
             <p className="mb-4">
-              <strong>Proprietary & PDS-Only Healing Model</strong>
+              <strong>Proprietary &amp; PDS-Only Healing Model</strong>
             </p>
 
             <p>
@@ -275,7 +289,7 @@ export default function AbandonedCartOffer({ params }: TParams) {
           </div>
         </div>
 
-        <ButtonCheckout href={checkoutLink} className="mt-4" label="START YOUR TRANSFORMATION" />
+        <AbandonCartCTA page={params.version} label="START YOUR TRANSFORMATION" />
       </Section>
 
       <Section>
@@ -283,21 +297,25 @@ export default function AbandonedCartOffer({ params }: TParams) {
           className="!max-w-4xl"
           heading="Last Minute Questions…"
           classNameHeading="pl-4"
-          faq={[
-            {
-              question:
-                'The Membership includes access to over 60 courses! Where should I start to make the most of my All-Access Pass?',
-              answer: `Log in to the members' area and download our Course Guide to discover which courses you should start with. We recommend starting with the Handbook for a Better Life & Emotionally Mastery Courses so you get the foundational basics to continue your healing journey.`,
-            },
-            {
-              question: 'Can you remind me what I get access to?',
-              answer: `Sure! You get access to over 60 courses to reprogram your attachment style, improve your relationships, and gain emotional mastery. You also get access to weekly live webinars and Q&A sessions, and all of our past recordings. Plus, you have access to our members-only forum and Facebook group, as well as online study groups and social events, so you can get additional support and connect with like-minded members.`,
-            },
-          ]}
+          faq={config.faqs}
         />
 
-        <ButtonCheckout href={checkoutLink} label="LAST CHANCE TO JOIN!" />
+        <AbandonCartCTA page={params.version} label="LAST CHANCE TO JOIN!" />
       </Section>
     </Page>
   )
+}
+
+type TAbandonCartCTAParams = {
+  page: TPageVersion
+  label: string
+}
+
+const AbandonCartCTA = ({ page, label }: TAbandonCartCTAParams) => {
+  const config = AB_CART_CONFIG[page]
+
+  if (page === 'lifetime-membership')
+    return <ButtonScroll className="w-fit" target="#pricing" label={label} />
+
+  return <ButtonCheckout href={config.checkoutLink} label={label} />
 }

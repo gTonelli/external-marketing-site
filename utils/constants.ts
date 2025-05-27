@@ -147,7 +147,7 @@ const thinkificUrl =
 const checkoutUrl =
   process.env.NEXT_PUBLIC_CHECKOUT_URL || 'https://checkout.personaldevelopmentschool.com'
 
-export const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
+const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
   production: {
     // Single-Step Checkout
     singleStepCheckout39FirstMonth:

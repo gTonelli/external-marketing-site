@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -453,11 +453,11 @@ const Button = ({ className, label }: IButtonProps) => {
     Mixpanel.track.ButtonClicked({
       button_label: label,
       page_name,
-      redirection: EExternalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE,
+      redirection: externalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE,
       seq_no: instanceNumber,
     })
 
-    window.location.assign(EExternalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE)
+    window.location.assign(externalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE)
   }
 
   return (

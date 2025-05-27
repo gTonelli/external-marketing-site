@@ -36,7 +36,7 @@ import {
 // style
 import './style.css'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Join Our 90-Day Secure Attachment Bootcamp',
@@ -794,7 +794,7 @@ const BootcampPriceCard = () => (
 
 const ButtonCheckout = ({ className, label }: IButtonDefaultProps) => {
   return (
-    <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP}>
+    <Link href={externalRoutes.checkoutAttachmentBootcamp}>
       <Button className={className} label={label} />
     </Link>
   )

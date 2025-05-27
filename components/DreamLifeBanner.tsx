@@ -6,7 +6,7 @@ import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 // config
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 interface IDreamLifeBanner {
   fourteenDayFT?: boolean
@@ -103,8 +103,8 @@ export const DreamLifeBanner = ({ fourteenDayFT, paymentOptionsConfigKey }: IDre
                 label="TRY FOR FREE"
                 href={
                   fourteenDayFT
-                    ? EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL
-                    : EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
+                    ? externalRoutes.checkout14DayTrial
+                    : externalRoutes.checkout7DayTrial
                 }
               />
             </div>

@@ -69,111 +69,233 @@ export enum EWindowWidth {
   '2xl' = 1536,
 }
 
-export enum ERoutes {
+export const routes = {
   // Defaults
-  HOME = '/',
+  home: '/',
   // ========== Internal ==========
-  ATTACHMENT_QUIZ = '/quiz',
-  MEMBERS_QUIZ = '/members-quiz',
-  BLACK_FRIDAY = '/black-friday',
-  CORPORATE_LANDING_PAGE = '/corporate-quiz',
-  CORPORATE_QUIZ_QUESTIONS = '/corporate-quiz/questions',
-  CORPORATE_QUIZ_RESULTS = '/corporate-quiz/results',
-  DREAM_LIFE_PAGE = '/dream-life',
-  DREAM_LIFE_RESULTS_PAGE = '/dream-life-results',
-  EXPLORE_COURSES_PAGE = '/explore-courses',
-  FLASH_SALE_PAGE = '/membership-discount',
-  IAT_COACHING_PAGE = '/coaching',
-  IAT_QUIZ = '/iat/quiz',
-  IAT_SALES_PAGE = '/iat',
-  LEARNING_LOVE_PAGE = '/learning-love',
-  LEARN_PAGE = '/learn',
-  LIFE_TIME_PAGE = '/lifetime',
-  MARKETING_QUIZ_B = '/quiz/b',
-  MENTAL_HEALTH_AWARENESS_PAGE = '/mha-month',
-  PODCAST = '/podcast',
-  SITE_LINKS = '/site-links',
-  TRIAL_PAGE_7_DAY = '/7-day-trial',
-  WELLNESS_PAGE = '/wellness',
+  attachmentQuiz: '/quiz',
+  membersQuiz: '/members-quiz',
+  blackFriday: '/black-friday',
+  corporateLandingPage: '/corporate-quiz',
+  corporateQuizQuestions: '/corporate-quiz/questions',
+  corporateQuizResults: '/corporate-quiz/results',
+  dreamLifePage: '/dream-life',
+  dreamLifeResultsPage: '/dream-life-results',
+  exploreCoursesPage: '/explore-courses',
+  flashSalePage: '/membership-discount',
+  iatCoachingPage: '/coaching',
+  iatQuiz: '/iat/quiz',
+  iatSalesPage: '/iat',
+  learningLovePage: '/learning-love',
+  learnPage: '/learn',
+  lifetimePage: '/lifetime',
+  quizB: '/quiz/b',
+  mentalHealthAwarenessPage: '/mha-month',
+  podcast: '/podcast',
+  siteLinks: '/site-links',
+  trialPage7Day: '/7-day-trial',
+  wellnessPage: '/wellness',
 }
 
-export enum EExternalRoutes {
-  // External
-  ABOUT = 'https://university.personaldevelopmentschool.com/pages/about',
-  ATTACHMENT_BOOTCAMP = 'https://university.personaldevelopmentschool.com/pages/attachment-bootcamp',
-  BLOG = 'https://blog.personaldevelopmentschool.com/',
-  COLLECTIONS = 'https://university.personaldevelopmentschool.com/collections',
-  FAQ = 'https://university.personaldevelopmentschool.com/pages/faq',
-  FA_VARIANT = 'https://results.personaldevelopmentschool.com/fa-b',
-  GIFT_CARDS = 'https://university.personaldevelopmentschool.com/pages/gift-cards',
-  PDS_COURSES = 'https://university.personaldevelopmentschool.com/pages/view-courses',
-  SIGN_IN = 'https://university.personaldevelopmentschool.com/users/sign_in',
+type TCheckoutRoutes = {
+  [env in 'production' | 'staging' | 'development']: {
+    [key: string]: string
+  }
+}
 
-  // Checkout
-  STRIPE_CHECKOUT_39_FIRST_MONTH = 'https://university.personaldevelopmentschool.com/pages/checkout?product_id=559833&price_id=1285773&coupon=28off1mo',
-  STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://university.personaldevelopmentschool.com/pages/checkout?price_id=1285773',
+export const checkoutRoutes: TCheckoutRoutes = {
+  production: {
+    singleStepCheckout39FirstMonth:
+      'https://university.personaldevelopmentschool.com/pages/checkout?product_id=559833&price_id=1285773&coupon=28off1mo',
+    singleStepCheckoutRegularSubscription:
+      process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/checkout?price_id=1285773',
+    // Subscriptions
+    checkoutRegularSubscription:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=1285773',
+    checkout7DayTrial: process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=590989',
+    checkout14DayTrial: process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=2357208',
+    checkoutJan2025PromoTrial:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=590989&bci=530903',
+    checkoutMarch2025PromoTrial:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=590989&bci=1585312',
+    checkoutJune2025PromoTrial:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=590989&bci=570395',
+    checkoutQuarterlyPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/559833?price_id=616936&coupon=withyouquarterly',
+    checkoutQuarterly149:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=616936&coupon=148off',
+    checkoutAnnualPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/559833?price_id=1084476&coupon=withyouannually',
+    checkoutAttachmentBootcamp:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/2996140?price_id=3853225&coupon=148off',
+    checkoutSimplifiedFa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=1285773&bci=2178659',
+    checkout1MonthFree:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=1285773&coupon=1monthoff',
+    // IAT Recorded
+    checkoutIatRecordedUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded',
+    checkoutIatRecorded3MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded',
+    checkoutIatRecorded6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
+    checkoutIatRecorded12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
+    // IAT Summer 2025
+    checkoutIatSummer2025Upfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211453&coupon=iatbundleupfrontlivesummer25',
+    checkoutIatSummer20253MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211464&coupon=iatbundle3molivesummer25',
+    checkoutIatSummer20256MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211465&coupon=iatbundle6molivesummer25',
+    checkoutIatSummer202512MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211466&coupon=iatbundle12molivesummer25',
+    // IAT Recorded Webinar Summer 2025
+    checkoutIatRecordedWebinarUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3951355&coupon=iatwebinarsummer25ondemand',
+    checkoutIatRecordedWebinar3MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3951356&coupon=iatwebinarsummer253mnthondemand',
+    checkoutIatRecordedWebinar6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3951358&coupon=iatwebinarsummer256mnthondemand',
+    checkoutIatRecordedWebinar12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2463967?price_id=3951360&coupon=iatwebinarsummer2512mnthondemand',
+    // IAT Webinar Summer 2025
+    checkoutIatWebinarUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211457&coupon=iatwebinarsummer25live',
+    checkoutIatWebinar3MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211458&coupon=iatwebinarsummer253mnthlive',
+    checkoutIatWebinar6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211461&coupon=iatwebinarsummer256mnthlive',
+    checkoutIatWebinar12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4211462&coupon=iatwebinarsummer2512mnthlive',
+    //Lifetime payment
+    checkoutLifetimeUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=1053866&coupon=lifetimesale',
+    checkoutLifetime6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',
+    checkoutLifetime12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/559833?price_id=1285785&coupon=lifetimesale12mo',
+    // Age Product
+    checkoutAgeProductFa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3030005?price_id=3892146&coupon=265off',
+    checkoutAgeProductAp:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3032412?price_id=3894812&coupon=265off',
+    checkoutAgeProductDa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3032417?price_id=3894817&coupon=265off',
+    checkoutAgeProductSa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3032419?price_id=3894819&coupon=265off',
+  },
+
+  staging: {},
+
+  development: {},
+}
+
+checkoutRoutes.development = checkoutRoutes.staging
+
+type TCheckoutEnv = 'production' | 'staging' | 'development'
+
+const env = (process.env.NEXT_PUBLIC_CHECKOUT_ENV || 'production') as TCheckoutEnv
+
+export const externalRoutes = {
+  // External
+  about: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/about',
+  attachmentBootcamp: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/attachment-bootcamp',
+  blog: 'https://blog.personaldevelopmentschool.com/',
+  collections: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/collections',
+  faq: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/faq',
+  faVariant: 'https://results.personaldevelopmentschool.com/fa-b',
+  giftCards: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/gift-cards',
+  pdsCourses: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/view-courses',
+  signIn: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/users/sign_in',
+
+  singleStepCheckout39FirstMonth: checkoutRoutes[env].singleStepCheckout39FirstMonth,
+  singleStepCheckoutRegularSubscription: checkoutRoutes[env].singleStepCheckoutRegularSubscription,
   // Subscriptions
-  THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1285773',
-  THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_49_DOLLAR = 'https://university.personaldevelopmentschool.com/pages/checkout?product_id=559833&price_id=1285773&coupon=ifpodcast',
-  THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR = 'https://university.personaldevelopmentschool.com/pages/checkout?price_id=1285773&coupon=Jwdjxr23',
-  THINKIFIC_CHECKOUT_7_DAY_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989',
-  THINKIFIC_CHECKOUT_14_DAY_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=2357208',
-  THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=530903',
-  THINKIFIC_CHECKOUT_MARCH_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=1585312',
-  THINKIFIC_CHECKOUT_JUNE_2025_PROMO_TRIAL = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=590989&bci=570395',
-  THINKIFIC_CHECKOUT_QUARTERLY_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=withyouquarterly',
-  THINKIFIC_CHECKOUT_QUARTERLY_149 = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=148off',
-  THINKIFIC_CHECKOUT_QUARTERLY_PLAN_GREG_VOISEN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=616936&coupon=ipg50',
-  THINKIFIC_CHECKOUT_ANNUAL_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1084476&coupon=withyouannually',
-  THINKIFIC_CHECKOUT_ATTACHMENT_BOOTCAMP = 'https://checkout.personaldevelopmentschool.com/enroll/2996140?price_id=3853225&coupon=148off',
-  THINKIFIC_CHECKOUT_SIMPLIFIED_FA = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1285773&bci=2178659',
-  THINKIFIC_CHECKOUT_1_MONTH_FREE = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1285773&coupon=1monthoff',
+  checkoutRegularSubscription: checkoutRoutes[env].checkoutRegularSubscription,
+
+  checkout7DayTrial: checkoutRoutes[env].checkout7DayTrial,
+  checkout14DayTrial: checkoutRoutes[env].checkout14DayTrial,
+  checkoutJan2025PromoTrial: checkoutRoutes[env].checkoutJan2025PromoTrial,
+
+  checkoutMarch2025PromoTrial: checkoutRoutes[env].checkoutMarch2025PromoTrial,
+  checkoutJune2025PromoTrial: checkoutRoutes[env].checkoutJune2025PromoTrial,
+  checkoutQuarterlyPlan: checkoutRoutes[env].checkoutQuarterlyPlan,
+  checkoutQuarterly149: checkoutRoutes[env].checkoutQuarterly149,
+  checkoutAnnualPlan: checkoutRoutes[env].checkoutAnnualPlan,
+  checkoutAttachmentBootcamp: checkoutRoutes[env].checkoutAttachmentBootcamp,
+  checkoutSimplifiedFa: checkoutRoutes[env].checkoutSimplifiedFa,
+  checkout1MonthFree: checkoutRoutes[env].checkout1MonthFree,
+
   // IAT Recorded
-  THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded',
+  checkoutIatRecordedUpfront: checkoutRoutes[env].checkoutIatRecordedUpfront,
+  checkoutIatRecorded3MonthPlan: checkoutRoutes[env].checkoutIatRecorded3MonthPlan,
+  checkoutIatRecorded6MonthPlan: checkoutRoutes[env].checkoutIatRecorded6MonthPlan,
+  checkoutIatRecorded12MonthPlan: checkoutRoutes[env].checkoutIatRecorded12MonthPlan,
   // IAT Summer 2025
-  THINKIFIC_CHECKOUT_IAT_SUMMER_2025_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211453&coupon=iatbundleupfrontlivesummer25',
-  THINKIFIC_CHECKOUT_IAT_SUMMER_2025_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211464&coupon=iatbundle3molivesummer25',
-  THINKIFIC_CHECKOUT_IAT_SUMMER_2025_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211465&coupon=iatbundle6molivesummer25',
-  THINKIFIC_CHECKOUT_IAT_SUMMER_2025_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211466&coupon=iatbundle12molivesummer25',
+  checkoutIatSummer2025Upfront: checkoutRoutes[env].checkoutIatSummer2025Upfront,
+  checkoutIatSummer20253MonthPlan: checkoutRoutes[env].checkoutIatSummer20253MonthPlan,
+  checkoutIatSummer20256MonthPlan: checkoutRoutes[env].checkoutIatSummer20256MonthPlan,
+  checkoutIatSummer202512MonthPlan: checkoutRoutes[env].checkoutIatSummer202512MonthPlan,
   // IAT Recorded Webinar Summer 2025
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951355&coupon=iatwebinarsummer25ondemand',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951356&coupon=iatwebinarsummer253mnthondemand',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951358&coupon=iatwebinarsummer256mnthondemand',
-  THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/2463967?price_id=3951360&coupon=iatwebinarsummer2512mnthondemand',
+  checkoutIatRecordedWebinarUpfront: checkoutRoutes[env].checkoutIatRecordedWebinarUpfront,
+  checkoutIatRecordedWebinar3MonthPlan: checkoutRoutes[env].checkoutIatRecordedWebinar3MonthPlan,
+  checkoutIatRecordedWebinar6MonthPlan: checkoutRoutes[env].checkoutIatRecordedWebinar6MonthPlan,
+  checkoutIatRecordedWebinar12MonthPlan: checkoutRoutes[env].checkoutIatRecordedWebinar12MonthPlan,
   // IAT Webinar Summer 2025
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211457&coupon=iatwebinarsummer25live',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211458&coupon=iatwebinarsummer253mnthlive',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211461&coupon=iatwebinarsummer256mnthlive',
-  THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/3311061?price_id=4211462&coupon=iatwebinarsummer2512mnthlive',
+  checkoutIatWebinarUpfront: checkoutRoutes[env].checkoutIatWebinarUpfront,
+  checkoutIatWebinar3MonthPlan: checkoutRoutes[env].checkoutIatWebinar3MonthPlan,
+  checkoutIatWebinar6MonthPlan: checkoutRoutes[env].checkoutIatWebinar6MonthPlan,
+  checkoutIatWebinar12MonthPlan: checkoutRoutes[env].checkoutIatWebinar12MonthPlan,
+
   //Lifetime payment
-  THINKIFIC_CHECKOUT_LIFETIME_UPFRONT = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053866&coupon=lifetimesale',
-  THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1053856&coupon=lifetimesale6mo',
-  THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN = 'https://checkout.personaldevelopmentschool.com/enroll/559833?price_id=1285785&coupon=lifetimesale12mo',
+  checkoutLifetimeUpfront: checkoutRoutes[env].checkoutLifetimeUpfront,
+  checkoutLifetime6MonthPlan: checkoutRoutes[env].checkoutLifetime6MonthPlan,
+  checkoutLifetime12MonthPlan: checkoutRoutes[env].checkoutLifetime12MonthPlan,
   // Age Product
-  THINKIFIC_CHECKOUT_AGE_PRODUCT_FA = 'https://checkout.personaldevelopmentschool.com/enroll/3030005?price_id=3892146&coupon=265off',
-  THINKIFIC_CHECKOUT_AGE_PRODUCT_AP = 'https://checkout.personaldevelopmentschool.com/enroll/3032412?price_id=3894812&coupon=265off',
-  THINKIFIC_CHECKOUT_AGE_PRODUCT_DA = 'https://checkout.personaldevelopmentschool.com/enroll/3032417?price_id=3894817&coupon=265off',
-  THINKIFIC_CHECKOUT_AGE_PRODUCT_SA = 'https://checkout.personaldevelopmentschool.com/enroll/3032419?price_id=3894819&coupon=265off',
+  checkoutAgeProductFa: checkoutRoutes[env].checkoutAgeProductFa,
+  checkoutAgeProductAp: checkoutRoutes[env].checkoutAgeProductAp,
+  checkoutAgeProductDa: checkoutRoutes[env].checkoutAgeProductDa,
+  checkoutAgeProductSa: checkoutRoutes[env].checkoutAgeProductSa,
 
   // Other
-  AMAZON_LEARNING_LOVE_BOOK_PURCHASE = 'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH/ref=mp_s_a_1_1?crid=241WSK4NOH946&keywords=thais+gibson+learning+love&qid=1697043535&sprefix=thais+gibson+learning+love%2Caps%2C74&sr=8-1',
-  ANDROID_APP = 'https://play.google.com/store/apps/details?id=com.personaldevelopment2.app&pcampaignid=web_share',
-  CALENDLY_MELANIE = 'https://calendly.com/info-pds/call-with-melanie-pds',
-  CONTACT_US = 'https://university.personaldevelopmentschool.com/pages/contact-us',
-  CORPORATE = 'https://www.corporate.personaldevelopmentschool.com/',
-  DISCORD = 'https://discord.com/invite/EasJ2CvUkv',
-  FACEBOOK = 'https://www.facebook.com/groups/461389461257253/?ref=bookmarks',
-  INSTAGRAM = 'https://www.instagram.com/thepersonaldevelopmentschool',
-  IOS_APP = 'https://apps.apple.com/us/app/personal-development-school/id6459618663',
-  PODCASTS = 'https://attachment.personaldevelopmentschool.com/podcast',
-  PRESS_AND_MEDIA = 'https://university.personaldevelopmentschool.com/pages/press-and-media',
-  PRIVACY = 'https://university.personaldevelopmentschool.com/pages/privacy',
-  SUPPORT = 'info@personaldevelopmentschool.com',
-  SUPPORT_PAGE = 'https://support.personaldevelopmentschool.com/en/',
-  TERMS = 'https://university.personaldevelopmentschool.com/pages/terms',
-  TIKTOK = 'https://www.tiktok.com/@thaisgibson',
-  YOUTUBE = 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
+  AMAZON_LEARNING_LOVE_BOOK_PURCHASE:
+    'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH/ref=mp_s_a_1_1?crid=241WSK4NOH946&keywords=thais+gibson+learning+love&qid=1697043535&sprefix=thais+gibson+learning+love%2Caps%2C74&sr=8-1',
+  ANDROID_APP:
+    'https://play.google.com/store/apps/details?id=com.personaldevelopment2.app&pcampaignid=web_share',
+  CALENDLY_MELANIE: 'https://calendly.com/info-pds/call-with-melanie-pds',
+  CONTACT_US: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/contact-us',
+  CORPORATE: 'https://www.corporate.personaldevelopmentschool.com/',
+  DISCORD: 'https://discord.com/invite/EasJ2CvUkv',
+  FACEBOOK: 'https://www.facebook.com/groups/461389461257253/?ref=bookmarks',
+  INSTAGRAM: 'https://www.instagram.com/thepersonaldevelopmentschool',
+  IOS_APP: 'https://apps.apple.com/us/app/personal-development-school/id6459618663',
+  PODCASTS: 'https://attachment.personaldevelopmentschool.com/podcast',
+  PRESS_AND_MEDIA: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/press-and-media',
+  PRIVACY: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/privacy',
+  SUPPORT: 'info@personaldevelopmentschool.com',
+  SUPPORT_PAGE: 'https://support.personaldevelopmentschool.com/en/',
+  TERMS: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/terms',
+  TIKTOK: 'https://www.tiktok.com/@thaisgibson',
+  YOUTUBE: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
 }

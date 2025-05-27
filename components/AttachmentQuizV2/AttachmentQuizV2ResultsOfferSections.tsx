@@ -1,6 +1,6 @@
 // components
 import { Section } from '@/app/(custom-layouts)/(quiz-v2)/quiz/v2/config'
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 import Link from 'next/link'
 import { Button } from '../Button/Button'
 import Image from 'next/image'
@@ -44,7 +44,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
           </Animation>
 
           <Animation direction="fromRight">
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION} prefetch={false}>
+            <Link href={externalRoutes.checkoutRegularSubscription} prefetch={false}>
               <Button label="GET STARTED" />
             </Link>
           </Animation>
@@ -312,7 +312,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
               self-care at your fingertips for a more accessible and convenient experience.
             </p>
 
-            <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION} prefetch={false}>
+            <Link href={externalRoutes.checkoutRegularSubscription} prefetch={false}>
               <Button label="GET STARTED" />
             </Link>
           </div>
@@ -378,7 +378,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
             ))}
           </div>
 
-          <Link href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION} prefetch={false}>
+          <Link href={externalRoutes.checkoutRegularSubscription} prefetch={false}>
             <Button label="TRANSFORM YOUR LOVE LIFE" />
           </Link>
         </Animation>

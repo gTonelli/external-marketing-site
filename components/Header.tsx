@@ -1,13 +1,12 @@
 'use client'
 
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { externalRoutes, routes } from '@/utils/constants'
 import Image from 'next/image'
 import { IDefaultProps } from '.'
 import cx from 'classnames'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { DowntimeBanner } from './DowntimeBanner'
 
 interface IHeaderProps {
   /**
@@ -63,8 +62,8 @@ export const Header = ({
 }: IHeaderProps) => {
   const [sideMenuIsOpen, setSideMenuIsOpen] = useState(false)
   if (useMembersQuiz && navLinks == PDSDefaultNavLinks) {
-    navLinks[0].link = ERoutes.MEMBERS_QUIZ
-    if (includeSideMenu) SideMenuLinks[0].link = ERoutes.MEMBERS_QUIZ
+    navLinks[0].link = routes.membersQuiz
+    if (includeSideMenu) SideMenuLinks[0].link = routes.membersQuiz
   }
 
   return (
@@ -218,40 +217,40 @@ const NavLinks: INavLinkProps[] = []
 
 export const PDSDefaultNavLinks = [
   {
-    link: ERoutes.ATTACHMENT_QUIZ,
+    link: routes.attachmentQuiz,
     text: 'Attachment Quiz',
   },
   {
-    link: EExternalRoutes.PDS_COURSES,
+    link: externalRoutes.PDS_COURSES,
     text: 'View Courses',
   },
   {
-    link: EExternalRoutes.ATTACHMENT_BOOTCAMP,
+    link: externalRoutes.attachmentBootcamp,
     text: 'Bootcamp',
   },
   {
-    link: ERoutes.IAT_COACHING_PAGE,
+    link: routes.IAT_COACHING_PAGE,
     text: 'Certification',
   },
   {
-    link: EExternalRoutes.COLLECTIONS,
+    link: externalRoutes.COLLECTIONS,
     text: 'Memberships',
   },
   {
-    link: ERoutes.LEARNING_LOVE_PAGE,
+    link: routes.learningLovePage,
     text: 'Book',
   },
   {
-    link: ERoutes.PODCAST,
+    link: routes.podcast,
     text: 'Podcast',
   },
 
   {
-    link: EExternalRoutes.ABOUT,
+    link: externalRoutes.about,
     text: 'About',
   },
   {
-    link: EExternalRoutes.BLOG,
+    link: externalRoutes.blog,
     text: 'Blog',
   },
 ]
@@ -283,55 +282,55 @@ const SideMenuLink = ({ imgAlt, link, imgSrc, text }: ISideMenuLinkProps) => (
 const SideMenuLinks = [
   {
     imgAlt: 'The Attachment Quiz Icon, a hand prerssing a checkmark button',
-    link: ERoutes.ATTACHMENT_QUIZ,
+    link: routes.attachmentQuiz,
     imgSrc: '/icons/sidemenu-quiz.svg',
     text: 'Attachment Quiz',
   },
   {
     imgAlt: 'PDS Courses Icon, a vector image of a person on a computer',
-    link: EExternalRoutes.PDS_COURSES,
+    link: externalRoutes.PDS_COURSES,
     imgSrc: '/icons/sidemenu-courses.svg',
     text: 'View Courses',
   },
   {
     imgAlt: 'Memberships Icon: a vector image of 3 pamphlet leafs',
-    link: EExternalRoutes.COLLECTIONS,
+    link: externalRoutes.COLLECTIONS,
     imgSrc: '/icons/sidemenu-membership.svg',
     text: 'Memberships',
   },
   {
     imgAlt: 'Certifications Icon: a vector image of a sheet with a badge',
-    link: ERoutes.IAT_SALES_PAGE,
+    link: routes.iatSalesPage,
     imgSrc: '/icons/sidemenu-certification.svg',
     text: 'Certification',
   },
   {
     imgAlt: 'Book Icon: a vector image of a Book',
-    link: ERoutes.LEARNING_LOVE_PAGE,
+    link: routes.learningLovePage,
     imgSrc: '/icons/sidemenu-book.svg',
     text: 'Book',
   },
   {
     imgAlt: 'About Icon: An information icon over a vector image of a person',
-    link: EExternalRoutes.ABOUT,
+    link: externalRoutes.about,
     imgSrc: '/icons/sidemenu-about.svg',
     text: 'About',
   },
   {
     imgAlt: 'Blog Icon: a plain folder',
-    link: EExternalRoutes.BLOG,
+    link: externalRoutes.blog,
     imgSrc: '/icons/sidemenu-blog.svg',
     text: 'Blog',
   },
   {
     imgAlt: 'Help Icon: a question mark in a circle',
-    link: EExternalRoutes.SUPPORT_PAGE,
+    link: externalRoutes.SUPPORT_PAGE,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',
   },
   {
     imgAlt: 'Sign In Icon: an arrow pointing to an overlaid door.',
-    link: EExternalRoutes.SIGN_IN,
+    link: externalRoutes.SIGN_IN,
     imgSrc: '/icons/sidemenu-sign-in.svg',
     text: 'Sign In',
   },

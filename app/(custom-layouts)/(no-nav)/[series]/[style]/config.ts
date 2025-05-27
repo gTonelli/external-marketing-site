@@ -1,4 +1,4 @@
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 import { cloneDeep } from 'lodash'
 
 export const EMAIL_RESULTS = {
@@ -210,8 +210,8 @@ AGE_PRODUCT_COPY.beliefs.sa.cardText =
   'Uncover your secondary attachment style and learn how to heal it when you enroll in The Personal Development School’s Secure Attachmennt Course Bundle.'
 
 export const AGE_PRODUCT_CHECKOUT = {
-  fa: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA,
-  ap: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP,
-  da: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA,
-  sa: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA,
+  fa: externalRoutes.checkoutAgeProductFa,
+  ap: externalRoutes.checkoutAgeProductAp,
+  da: externalRoutes.checkoutAgeProductDa,
+  sa: externalRoutes.checkoutAgeProductSa,
 }

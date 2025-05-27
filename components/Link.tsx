@@ -12,7 +12,6 @@ import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
 import { PageContext } from '@/utils/contexts'
 
 export interface ILink {
@@ -89,7 +88,7 @@ export const LinkDefault = ({
 }
 
 interface ILinkIconProps extends IDefaultProps {
-  url: ERoutes | EExternalRoutes
+  url: string
   icon: IconProp
   iconSize?: SizeProp
   /**

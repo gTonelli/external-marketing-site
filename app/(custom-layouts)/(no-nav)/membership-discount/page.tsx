@@ -14,14 +14,14 @@ import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
   // ================= Events =======================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_59_DOLLAR)
+      window.location.assign(externalRoutes.checkoutRegularSubscription_59_DOLLAR)
     },
     [page_name]
   )

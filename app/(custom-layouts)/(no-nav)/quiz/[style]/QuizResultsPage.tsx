@@ -27,7 +27,7 @@ import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { TStyle } from '@/utils/types'
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export interface IQuizResultsPageProps {
   style: TStyle
@@ -115,7 +115,7 @@ export const QuizResultsPage = ({
                         </p>
 
                         <ButtonCheckout
-                          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                          href={externalRoutes.checkoutRegularSubscription}
                           className="my-8 xxs:px-16"
                           label="GET STARTED NOW!"
                         />
@@ -176,7 +176,7 @@ export const QuizResultsPage = ({
 
                     <div className="text-center mb-4 lg:mb-0">
                       <ButtonCheckout
-                        href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                        href={externalRoutes.checkoutRegularSubscription}
                         className="xxs:px-16"
                         label="UNLOCK MY DISCOUNT"
                       />
@@ -240,7 +240,7 @@ export const QuizResultsPage = ({
             </div>
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="mt-8 xxs:px-16 md:mt-10"
               label="UNLOCK MY DISCOUNT"
             />
@@ -319,7 +319,7 @@ export const QuizResultsPage = ({
               )}
 
               <ButtonCheckout
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                href={externalRoutes.checkoutRegularSubscription}
                 className="mt-4 px-16 md:mt-10"
                 label="GET STARTED"
               />
@@ -373,7 +373,7 @@ export const QuizResultsPage = ({
             )}
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="px-16"
               label="GET STARTED"
             />
@@ -600,7 +600,7 @@ export const QuizResultsPage = ({
             </ul>
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="mt-8 md:mt-10 px-16"
               label="SIGN UP NOW"
             />
@@ -694,7 +694,7 @@ export const QuizResultsPage = ({
 
                   <li className="mt-8 md:mt-10">
                     <ButtonCheckout
-                      href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                      href={externalRoutes.checkoutRegularSubscription}
                       label="ENROLL NOW"
                     />
                   </li>
@@ -754,13 +754,13 @@ export const QuizResultsPage = ({
             <CarouselTestimonialAlt />
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
             />
@@ -812,7 +812,7 @@ export const QuizResultsPage = ({
             ))}
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="mt-2"
               label="I WANT THIS"
             />
@@ -877,7 +877,7 @@ export const QuizResultsPage = ({
           </div>
 
           <ButtonCheckout
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+            href={externalRoutes.checkoutRegularSubscription}
             className="mt-6 md:mt-8"
             label="SIGN ME UP"
           />
@@ -910,7 +910,7 @@ export const QuizResultsPage = ({
           ))}
 
           <ButtonCheckout
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+            href={externalRoutes.checkoutRegularSubscription}
             className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
             label="REWRITE MY STORY"
           />
@@ -1046,7 +1046,7 @@ export const RegisterNowSection = ({
                 </ul>
 
                 <ButtonCheckout
-                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  href={externalRoutes.checkoutRegularSubscription}
                   className="mt-6 md:mt-10"
                   label="REGISTER NOW"
                 />

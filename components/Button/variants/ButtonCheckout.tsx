@@ -8,11 +8,11 @@ import { IButtonDefaultProps } from './ButtonDefault'
 import cx from 'classnames'
 import { overrideTailwindClasses as two } from 'tailwind-override'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export interface IButtonCheckoutProps extends IButtonDefaultProps {
   children?: React.ReactNode
-  href?: EExternalRoutes
+  href?: string
   theme?: 'primary' | 'secondary'
   /** onClick listener function */
   onClick?: () => void
@@ -21,7 +21,7 @@ export interface IButtonCheckoutProps extends IButtonDefaultProps {
 export const ButtonCheckout = ({
   children,
   className,
-  href = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+  href = externalRoutes.checkoutRegularSubscription,
   label = 'SIGN UP NOW',
   theme = 'primary',
   onClick,

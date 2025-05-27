@@ -6,7 +6,7 @@ import { IResultProps } from './AttachmentQuiz'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const AttachmentQuizResults = ({ ap, da, fa, sa }: IResultProps) => {
   const goToMembershipsPage = () => {
@@ -15,7 +15,7 @@ export const AttachmentQuizResults = ({ ap, da, fa, sa }: IResultProps) => {
       redirection: 'Memberships page',
     })
 
-    window.location.assign(EExternalRoutes.COLLECTIONS)
+    window.location.assign(externalRoutes.COLLECTIONS)
   }
 
   const calcPercentage = () => {

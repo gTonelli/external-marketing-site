@@ -7,7 +7,7 @@ import { TestimonialSection } from '@/components/TestimonialSection'
 import { DreamLifeBanner } from '@/components/DreamLifeBanner'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export default function DreamLifePage() {
   return (
@@ -28,7 +28,7 @@ export default function DreamLifePage() {
           <ButtonCheckout
             className="text-black bg-blue mt-8"
             label="TRY FOR FREE"
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL}
+            href={externalRoutes.checkout7DayTrial}
           />
         </div>
       </section>

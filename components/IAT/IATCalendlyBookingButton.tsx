@@ -1,21 +1,17 @@
 'use client'
 
-// core
-import { useContext } from 'react'
 // components
 import { Button } from '@/components/Button/Button'
 // modules
 import { useGamAnalytics } from '@/modules/GAM'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
-import { PageContext } from '@/utils/contexts'
+import { externalRoutes } from '@/utils/constants'
 
 export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
   const { getUserData } = useGamAnalytics()
-  const { page_name } = useContext(PageContext)
 
   const onBookNow = (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const url = new URL(EExternalRoutes.CALENDLY_MELANIE)
+    const url = new URL(externalRoutes.CALENDLY_MELANIE)
 
     const { gamLastTouchData } = getUserData()
 

@@ -6,7 +6,7 @@ import {
   TIATPriceOption,
 } from '../IATPriceCard/variants/IATWebinarPriceCard'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 const IATLiveCardDetails: TIATCardDetails = {
   title: 'Live Training',
@@ -48,22 +48,22 @@ const IATLiveCardPricing: TIATPriceOption[] = [
   {
     label: 'ONE TIME PAYMENT',
     price: '$2,999.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_UPFRONT,
+    checkout: externalRoutes.checkoutIatWebinarUpfront,
   },
   {
     label: '3 MONTH PAYMENT PLAN',
     price: '$1,039.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_3_MONTH_PLAN,
+    checkout: externalRoutes.checkoutIatWebinar3MonthPlan,
   },
   {
     label: '6 MONTH PAYMENT PLAN',
     price: '$539.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_6_MONTH_PLAN,
+    checkout: externalRoutes.checkoutIatWebinar6MonthPlan,
   },
   {
     label: '12 MONTH PAYMENT PLAN',
     price: '$289.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_WEBINAR_12_MONTH_PLAN,
+    checkout: externalRoutes.checkoutIatWebinar12MonthPlan,
   },
 ]
 
@@ -71,22 +71,22 @@ const OnDemandIATCardPricing: TIATPriceOption[] = [
   {
     label: 'ONE TIME PAYMENT',
     price: '$1,799.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_UPFRONT,
+    checkout: externalRoutes.checkoutIatRecordedWebinarUpfront,
   },
   {
     label: '3 MONTH PAYMENT PLAN',
     price: '$619.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_3_MONTH_PLAN,
+    checkout: externalRoutes.checkoutIatRecordedWebinar3MonthPlan,
   },
   {
     label: '6 MONTH PAYMENT PLAN',
     price: '$319.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_6_MONTH_PLAN,
+    checkout: externalRoutes.checkoutIatRecordedWebinar6MonthPlan,
   },
   {
     label: '12 MONTH PAYMENT PLAN',
     price: '$169.00',
-    checkout: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_WEBINAR_12_MONTH_PLAN,
+    checkout: externalRoutes.checkoutIatRecordedWebinar12MonthPlan,
   },
 ]
 

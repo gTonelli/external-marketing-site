@@ -21,7 +21,7 @@ export default function FlashSalePage() {
   // ================= Events =======================
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      window.location.assign(externalRoutes.checkoutRegularSubscription_59_DOLLAR)
+      window.location.assign(externalRoutes.singleStepCheckoutRegularSubscription59Dollar)
     },
     [page_name]
   )

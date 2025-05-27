@@ -86,7 +86,7 @@ export default function LandingPage() {
           <Button
             className="mb-9 lg:mb-20 lg:mt-9"
             label="START QUIZ"
-            onClick={() => router.push(routes.CORPORATE_QUIZ_QUESTIONS)}
+            onClick={() => router.push(routes.corporateQuizQuestions)}
           />
 
           <div className="attachment-style-image-row">
@@ -134,7 +134,7 @@ export default function LandingPage() {
         <Button
           className="lg:mt-9"
           label="START QUIZ"
-          onClick={() => router.push(routes.CORPORATE_QUIZ_QUESTIONS)}
+          onClick={() => router.push(routes.corporateQuizQuestions)}
         />
       </section>
 

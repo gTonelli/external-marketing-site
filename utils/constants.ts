@@ -109,6 +109,12 @@ export const checkoutRoutes: TCheckoutRoutes = {
       'https://university.personaldevelopmentschool.com/pages/checkout?product_id=559833&price_id=1285773&coupon=28off1mo',
     singleStepCheckoutRegularSubscription:
       process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/checkout?price_id=1285773',
+    singleStepCheckoutRegularSubscription49Dollar:
+      process.env.NEXT_PUBLIC_THINKIFIC_URL +
+      '/pages/checkout?product_id=559833&price_id=1285773&coupon=ifpodcast',
+    singleStepCheckoutRegularSubscription59Dollar:
+      process.env.NEXT_PUBLIC_THINKIFIC_URL +
+      '/pages/checkout?product_id=559833&price_id=1285773&coupon=Jwdjxr23',
     // Subscriptions
     checkoutRegularSubscription:
       process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=1285773',
@@ -123,6 +129,8 @@ export const checkoutRoutes: TCheckoutRoutes = {
     checkoutQuarterlyPlan:
       process.env.NEXT_PUBLIC_CHECKOUT_URL +
       '/enroll/559833?price_id=616936&coupon=withyouquarterly',
+    checkoutQuarterlyPlanGregVoisen:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=616936&coupon=ipg50',
     checkoutQuarterly149:
       process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=616936&coupon=148off',
     checkoutAnnualPlan:
@@ -186,7 +194,7 @@ export const checkoutRoutes: TCheckoutRoutes = {
     checkoutIatWebinar12MonthPlan:
       process.env.NEXT_PUBLIC_CHECKOUT_URL +
       '/enroll/3311061?price_id=4211462&coupon=iatwebinarsummer2512mnthlive',
-    //Lifetime payment
+    // Lifetime payment
     checkoutLifetimeUpfront:
       process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/559833?price_id=1053866&coupon=lifetimesale',
     checkoutLifetime6MonthPlan:
@@ -206,7 +214,116 @@ export const checkoutRoutes: TCheckoutRoutes = {
       process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3032419?price_id=3894819&coupon=265off',
   },
 
-  staging: {},
+  staging: {
+    singleStepCheckout39FirstMonth:
+      'https://university.personaldevelopmentschool.com/pages/checkout?product_id=1934512&price_id=2638738&coupon=28off1mo',
+    singleStepCheckoutRegularSubscription:
+      process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/checkout?price_id=2638738',
+    singleStepCheckoutRegularSubscription49Dollar:
+      process.env.NEXT_PUBLIC_THINKIFIC_URL +
+      '/pages/checkout?product_id=1934512&price_id=2638738&coupon=ifpodcast',
+    singleStepCheckoutRegularSubscription59Dollar:
+      process.env.NEXT_PUBLIC_THINKIFIC_URL +
+      '/pages/checkout?product_id=1934512&price_id=2638738&coupon=Jwdjxr23',
+    // Subscriptions
+    checkoutRegularSubscription:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2638738',
+    checkoutRegularSubscription49Dollar: process.env.NEXT_PUBLIC_CHECKOUT_URL + '',
+    checkout7DayTrial: process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2638713',
+    checkout14DayTrial: process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2663013',
+    checkoutJan2025PromoTrial:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2638713&bci=1337082',
+    checkoutMarch2025PromoTrial:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2638713&bci=3028888',
+    checkoutJune2025PromoTrial:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2638713&bci=3101991',
+    checkoutQuarterlyPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/1934512?price_id=2661437&coupon=withyouquarterly',
+    checkoutQuarterlyPlanGregVoisen:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2661437&coupon=ipg50',
+    checkoutQuarterly149:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2661437&coupon=148off',
+    checkoutAnnualPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/1934512?price_id=2963437&coupon=withyouannually',
+    checkoutAttachmentBootcamp:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3014795?price_id=3874590&coupon=148off',
+    checkoutSimplifiedFa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2638738&bci=2178659',
+    checkout1MonthFree:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2638738&coupon=1monthoff',
+    // IAT Recorded
+    checkoutIatRecordedUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3577378&coupon=iatbundleupfrontrecorded',
+    checkoutIatRecorded3MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3919119&coupon=iatbundle3morecorded',
+    checkoutIatRecorded6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3919118&coupon=iatbundle6morecorded',
+    checkoutIatRecorded12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3919117&coupon=iatbundle12morecorded',
+    // IAT Summer 2025
+    checkoutIatSummer2025Upfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3400721?price_id=4312068&coupon=iatbundleupfrontlivesummer25',
+    checkoutIatSummer20253MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3400721?price_id=4312069&coupon=iatbundle3molivesummer25',
+    checkoutIatSummer20256MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3400721?price_id=4312073&coupon=iatbundle6molivesummer25',
+    checkoutIatSummer202512MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3400721?price_id=4312074&coupon=iatbundle12molivesummer25',
+    // IAT Recorded Webinar Summer 2025
+    checkoutIatRecordedWebinarUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3577378&coupon=iatwebinarsummer25ondemand',
+    checkoutIatRecordedWebinar3MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3919119&coupon=iatwebinarsummer253mnthondemand',
+    checkoutIatRecordedWebinar6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3919118&coupon=iatwebinarsummer256mnthondemand',
+    checkoutIatRecordedWebinar12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/2751990?price_id=3919117&coupon=iatwebinarsummer2512mnthondemand',
+    // IAT Webinar Summer 2025
+    checkoutIatWebinarUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4312068&coupon=iatwebinarsummer25live',
+    checkoutIatWebinar3MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4312069&coupon=iatwebinarsummer253mnthlive',
+    checkoutIatWebinar6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4312073&coupon=iatwebinarsummer256mnthlive',
+    checkoutIatWebinar12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/3311061?price_id=4312074&coupon=iatwebinarsummer2512mnthlive',
+    // Lifetime payment
+    checkoutLifetimeUpfront:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/1934512?price_id=2663440&coupon=lifetimesale',
+    checkoutLifetime6MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/1934512?price_id=2963435&coupon=lifetimesale6mo',
+    checkoutLifetime12MonthPlan:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL +
+      '/enroll/1934512?price_id=4103315&coupon=lifetimesale12mo',
+    // Age Product
+    checkoutAgeProductFa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3045798?price_id=3910019&coupon=265off',
+    checkoutAgeProductAp:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3045793?price_id=3910014&coupon=265off',
+    checkoutAgeProductDa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3045789?price_id=3910010&coupon=265off',
+    checkoutAgeProductSa:
+      process.env.NEXT_PUBLIC_CHECKOUT_URL + '/enroll/3045787?price_id=3910008&coupon=265off',
+  },
 
   development: {},
 }
@@ -231,6 +348,10 @@ export const externalRoutes = {
 
   singleStepCheckout39FirstMonth: checkoutRoutes[env].singleStepCheckout39FirstMonth,
   singleStepCheckoutRegularSubscription: checkoutRoutes[env].singleStepCheckoutRegularSubscription,
+  singleStepCheckoutRegularSubscription49Dollar:
+    checkoutRoutes[env].singleStepCheckoutRegularSubscription49Dollar,
+  singleStepCheckoutRegularSubscription59Dollar:
+    checkoutRoutes[env].singleStepCheckoutRegularSubscription59Dollar,
   // Subscriptions
   checkoutRegularSubscription: checkoutRoutes[env].checkoutRegularSubscription,
 
@@ -241,6 +362,7 @@ export const externalRoutes = {
   checkoutMarch2025PromoTrial: checkoutRoutes[env].checkoutMarch2025PromoTrial,
   checkoutJune2025PromoTrial: checkoutRoutes[env].checkoutJune2025PromoTrial,
   checkoutQuarterlyPlan: checkoutRoutes[env].checkoutQuarterlyPlan,
+  checkoutQuarterlyPlanGregVoisen: checkoutRoutes[env].checkoutQuarterlyPlanGregVoisen,
   checkoutQuarterly149: checkoutRoutes[env].checkoutQuarterly149,
   checkoutAnnualPlan: checkoutRoutes[env].checkoutAnnualPlan,
   checkoutAttachmentBootcamp: checkoutRoutes[env].checkoutAttachmentBootcamp,
@@ -279,23 +401,23 @@ export const externalRoutes = {
   checkoutAgeProductSa: checkoutRoutes[env].checkoutAgeProductSa,
 
   // Other
-  AMAZON_LEARNING_LOVE_BOOK_PURCHASE:
+  amazonLearningLoveBookPurchase:
     'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH/ref=mp_s_a_1_1?crid=241WSK4NOH946&keywords=thais+gibson+learning+love&qid=1697043535&sprefix=thais+gibson+learning+love%2Caps%2C74&sr=8-1',
-  ANDROID_APP:
+  androidApp:
     'https://play.google.com/store/apps/details?id=com.personaldevelopment2.app&pcampaignid=web_share',
-  CALENDLY_MELANIE: 'https://calendly.com/info-pds/call-with-melanie-pds',
-  CONTACT_US: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/contact-us',
-  CORPORATE: 'https://www.corporate.personaldevelopmentschool.com/',
-  DISCORD: 'https://discord.com/invite/EasJ2CvUkv',
-  FACEBOOK: 'https://www.facebook.com/groups/461389461257253/?ref=bookmarks',
-  INSTAGRAM: 'https://www.instagram.com/thepersonaldevelopmentschool',
-  IOS_APP: 'https://apps.apple.com/us/app/personal-development-school/id6459618663',
-  PODCASTS: 'https://attachment.personaldevelopmentschool.com/podcast',
-  PRESS_AND_MEDIA: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/press-and-media',
-  PRIVACY: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/privacy',
-  SUPPORT: 'info@personaldevelopmentschool.com',
-  SUPPORT_PAGE: 'https://support.personaldevelopmentschool.com/en/',
-  TERMS: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/terms',
-  TIKTOK: 'https://www.tiktok.com/@thaisgibson',
-  YOUTUBE: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
+  calendlyMelanie: 'https://calendly.com/info-pds/call-with-melanie-pds',
+  contactUs: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/contact-us',
+  corporate: 'https://www.corporate.personaldevelopmentschool.com/',
+  discord: 'https://discord.com/invite/EasJ2CvUkv',
+  facebook: 'https://www.facebook.com/groups/461389461257253/?ref=bookmarks',
+  instagram: 'https://www.instagram.com/thepersonaldevelopmentschool',
+  iosApp: 'https://apps.apple.com/us/app/personal-development-school/id6459618663',
+  podcasts: 'https://attachment.personaldevelopmentschool.com/podcast',
+  pressAndMedia: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/press-and-media',
+  privacy: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/privacy',
+  support: 'info@personaldevelopmentschool.com',
+  supportPage: 'https://support.personaldevelopmentschool.com/en/',
+  terms: process.env.NEXT_PUBLIC_THINKIFIC_URL + '/pages/terms',
+  tikTok: 'https://www.tiktok.com/@thaisgibson',
+  youTube: 'https://www.youtube.com/@ThePersonalDevelopmentSchool',
 }

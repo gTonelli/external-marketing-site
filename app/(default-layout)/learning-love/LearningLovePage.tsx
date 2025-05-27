@@ -453,11 +453,11 @@ const Button = ({ className, label }: IButtonProps) => {
     Mixpanel.track.ButtonClicked({
       button_label: label,
       page_name,
-      redirection: externalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE,
+      redirection: externalRoutes.amazonLearningLoveBookPurchase,
       seq_no: instanceNumber,
     })
 
-    window.location.assign(externalRoutes.AMAZON_LEARNING_LOVE_BOOK_PURCHASE)
+    window.location.assign(externalRoutes.amazonLearningLoveBookPurchase)
   }
 
   return (

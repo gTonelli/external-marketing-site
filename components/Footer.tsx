@@ -44,35 +44,35 @@ export const Footer = ({
 
           {includeSocialLinks && (
             <div className="flex px-4">
-              <Link className="mx-4 mb-5" href={externalRoutes.YOUTUBE}>
+              <Link className="mx-4 mb-5" href={externalRoutes.youTube}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faYoutube}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={externalRoutes.TIKTOK}>
+              <Link className="mx-4 mb-5" href={externalRoutes.tikTok}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faTiktok}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={externalRoutes.FACEBOOK}>
+              <Link className="mx-4 mb-5" href={externalRoutes.facebook}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faFacebook}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={externalRoutes.INSTAGRAM}>
+              <Link className="mx-4 mb-5" href={externalRoutes.instagram}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faInstagram}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={externalRoutes.podcastS}>
+              <Link className="mx-4 mb-5" href={externalRoutes.podcasts}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faPodcast}
@@ -95,13 +95,13 @@ export const Footer = ({
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.PDS_COURSES}>
+                href={externalRoutes.pdsCourses}>
                 Courses
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.COLLECTIONS}>
+                href={externalRoutes.collections}>
                 Memberships
               </Link>
 
@@ -129,7 +129,7 @@ export const Footer = ({
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.SUPPORT_PAGE}>
+                href={externalRoutes.supportPage}>
                 Support
               </Link>
 
@@ -141,13 +141,13 @@ export const Footer = ({
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.podcastS}>
+                href={externalRoutes.podcasts}>
                 Podcast
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.PRESS_AND_MEDIA}>
+                href={externalRoutes.pressAndMedia}>
                 Press & Media
               </Link>
 
@@ -163,25 +163,25 @@ export const Footer = ({
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.CONTACT_US}>
+                href={externalRoutes.contactUs}>
                 Contact Us
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.PRIVACY}>
+                href={externalRoutes.privacy}>
                 Privacy Policy
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.TERMS}>
+                href={externalRoutes.terms}>
                 Terms & Conditions
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={externalRoutes.GIFT_CARDS}>
+                href={externalRoutes.giftCards}>
                 Gift Cards
               </Link>
             </div>
@@ -189,7 +189,7 @@ export const Footer = ({
             <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
               <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">Get Our App</p>
 
-              <Link className="mb-4" href={externalRoutes.IOS_APP}>
+              <Link className="mb-4" href={externalRoutes.iosApp}>
                 <Image
                   alt="Download the app on iOS"
                   src="/images/app-store-apple-icon.svg"
@@ -198,7 +198,7 @@ export const Footer = ({
                 />
               </Link>
 
-              {/* <Link className="mb-4" href={externalRoutes.ANDROID_APP}>
+              {/* <Link className="mb-4" href={externalRoutes.androidApp}>
                 <Image
                   alt="Download the app on Google Play"
                   src="/images/app-store-google-icon.svg"
@@ -220,7 +220,7 @@ export const Footer = ({
         {showDisclaimer && (
           <Link
             className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={externalRoutes.PRIVACY}>
+            href={externalRoutes.privacy}>
             Privacy Policy
           </Link>
         )}

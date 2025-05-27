@@ -221,7 +221,7 @@ export const PDSDefaultNavLinks = [
     text: 'Attachment Quiz',
   },
   {
-    link: externalRoutes.PDS_COURSES,
+    link: externalRoutes.pdsCourses,
     text: 'View Courses',
   },
   {
@@ -229,11 +229,11 @@ export const PDSDefaultNavLinks = [
     text: 'Bootcamp',
   },
   {
-    link: routes.IAT_COACHING_PAGE,
+    link: routes.iatCoachingPage,
     text: 'Certification',
   },
   {
-    link: externalRoutes.COLLECTIONS,
+    link: externalRoutes.collections,
     text: 'Memberships',
   },
   {
@@ -288,13 +288,13 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'PDS Courses Icon, a vector image of a person on a computer',
-    link: externalRoutes.PDS_COURSES,
+    link: externalRoutes.pdsCourses,
     imgSrc: '/icons/sidemenu-courses.svg',
     text: 'View Courses',
   },
   {
     imgAlt: 'Memberships Icon: a vector image of 3 pamphlet leafs',
-    link: externalRoutes.COLLECTIONS,
+    link: externalRoutes.collections,
     imgSrc: '/icons/sidemenu-membership.svg',
     text: 'Memberships',
   },
@@ -324,13 +324,13 @@ const SideMenuLinks = [
   },
   {
     imgAlt: 'Help Icon: a question mark in a circle',
-    link: externalRoutes.SUPPORT_PAGE,
+    link: externalRoutes.supportPage,
     imgSrc: '/icons/sidemenu-faq.svg',
     text: 'Help',
   },
   {
     imgAlt: 'Sign In Icon: an arrow pointing to an overlaid door.',
-    link: externalRoutes.SIGN_IN,
+    link: externalRoutes.signIn,
     imgSrc: '/icons/sidemenu-sign-in.svg',
     text: 'Sign In',
   },

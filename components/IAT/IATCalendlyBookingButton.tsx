@@ -11,7 +11,7 @@ export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
   const { getUserData } = useGamAnalytics()
 
   const onBookNow = (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const url = new URL(externalRoutes.CALENDLY_MELANIE)
+    const url = new URL(externalRoutes.calendlyMelanie)
 
     const { gamLastTouchData } = getUserData()
 

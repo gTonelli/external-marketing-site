@@ -20,7 +20,7 @@ export default function GregVoisenPodcastPage() {
     <Page page_name="Greg Voisen Podcast Guest Page">
       <IndividualPodcastGuestPage
         config={GREG_VOISEN_PRICING}
-        checkoutUrl={externalRoutes.checkoutQuarterlyPlan_GREG_VOISEN}
+        checkoutUrl={externalRoutes.checkoutQuarterlyPlanGregVoisen}
       />
     </Page>
   )

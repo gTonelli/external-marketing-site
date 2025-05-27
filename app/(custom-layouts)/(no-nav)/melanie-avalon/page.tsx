@@ -20,7 +20,7 @@ export default function MelanieAvalonPodcastPage() {
     <Page page_name="Melanie Avalon Podcast Guest Page">
       <IndividualPodcastGuestPage
         config={MELANIE_GUEST_PRICING}
-        checkoutUrl={externalRoutes.checkoutRegularSubscription_49_DOLLAR}
+        checkoutUrl={externalRoutes.singleStepCheckoutRegularSubscription49Dollar}
       />
     </Page>
   )

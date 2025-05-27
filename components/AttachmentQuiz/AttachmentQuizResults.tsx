@@ -15,7 +15,7 @@ export const AttachmentQuizResults = ({ ap, da, fa, sa }: IResultProps) => {
       redirection: 'Memberships page',
     })
 
-    window.location.assign(externalRoutes.COLLECTIONS)
+    window.location.assign(externalRoutes.collections)
   }
 
   const calcPercentage = () => {

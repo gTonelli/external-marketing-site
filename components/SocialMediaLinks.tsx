@@ -30,7 +30,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faYoutube}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={externalRoutes.YOUTUBE}
+        url={externalRoutes.youTube}
       />
 
       <Link.Icon
@@ -39,7 +39,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faTiktok}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={externalRoutes.TIKTOK}
+        url={externalRoutes.tikTok}
       />
 
       <Link.Icon
@@ -48,7 +48,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faFacebook}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={externalRoutes.FACEBOOK}
+        url={externalRoutes.facebook}
       />
 
       <Link.Icon
@@ -57,7 +57,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faInstagram}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={externalRoutes.INSTAGRAM}
+        url={externalRoutes.instagram}
       />
 
       <Link.Icon
@@ -66,7 +66,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faPodcast}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={externalRoutes.podcastS}
+        url={externalRoutes.podcasts}
       />
     </>
   )

@@ -82,7 +82,7 @@ export default function PostRegistrationMasterclassPage() {
           and the IAT™ Program, and how it will work for you.
         </p>
 
-        <Link href={externalRoutes.CALENDLY_MELANIE}>
+        <Link href={externalRoutes.calendlyMelanie}>
           <Button label="BOOK A DISCOVERY CALL" />
         </Link>
       </Section>

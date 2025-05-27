@@ -10,6 +10,7 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { List } from '@/components/List'
 // libraries
 import { faCheckCircle, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// utils
 import { externalRoutes } from '@/utils/constants'
 
 export default function SimplifiedFAResultsPage() {

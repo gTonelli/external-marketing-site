@@ -8,6 +8,7 @@ import { Section } from '@/components/Section'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
+import { LifetimePricing } from '@/components/LifetimePricing'
 import {
   faComment,
   faDove,
@@ -15,10 +16,10 @@ import {
   faGem,
   faHeart,
 } from '@awesome.me/kit-545b942488/icons/classic/light'
+// libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
 import { config as AB_CART_CONFIG } from './config'
-import { LifetimePricing } from '@/components/LifetimePricing'
 
 type TPageVersion =
   | 'trial'

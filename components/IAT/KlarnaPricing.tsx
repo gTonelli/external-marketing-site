@@ -210,7 +210,7 @@ const LivePriceCard = () => {
         {!showOverview && (
           <Link
             className="hover:no-underline lg:w-auto lg:flex-grow lg:flex"
-            href={`${externalRoutes.checkoutIatSummer2025Upfront}&klarna=true&pm=${selectedPaymentMethod}`}>
+            href={`${externalRoutes.checkoutIATSummer2025Upfront}&klarna=true&pm=${selectedPaymentMethod}`}>
             <Button
               className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
               label="CHECKOUT"
@@ -369,7 +369,7 @@ const OnDemandPriceCard = () => {
         {!showOverview && (
           <Link
             className="hover:no-underline lg:w-auto lg:flex-grow lg:flex"
-            href={`${externalRoutes.checkoutIatRecordedUpfront}&klarna=true&pm=${selectedPaymentMethod}`}>
+            href={`${externalRoutes.checkoutIATRecordedUpfront}&klarna=true&pm=${selectedPaymentMethod}`}>
             <Button
               className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
               label="CHECKOUT"

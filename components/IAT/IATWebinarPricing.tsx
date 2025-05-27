@@ -48,22 +48,22 @@ const IATLiveCardPricing: TIATPriceOption[] = [
   {
     label: 'ONE TIME PAYMENT',
     price: '$2,999.00',
-    checkout: externalRoutes.checkoutIatWebinarUpfront,
+    checkout: externalRoutes.checkoutIATWebinarUpfront,
   },
   {
     label: '3 MONTH PAYMENT PLAN',
     price: '$1,039.00',
-    checkout: externalRoutes.checkoutIatWebinar3MonthPlan,
+    checkout: externalRoutes.checkoutIATWebinar3MonthPlan,
   },
   {
     label: '6 MONTH PAYMENT PLAN',
     price: '$539.00',
-    checkout: externalRoutes.checkoutIatWebinar6MonthPlan,
+    checkout: externalRoutes.checkoutIATWebinar6MonthPlan,
   },
   {
     label: '12 MONTH PAYMENT PLAN',
     price: '$289.00',
-    checkout: externalRoutes.checkoutIatWebinar12MonthPlan,
+    checkout: externalRoutes.checkoutIATWebinar12MonthPlan,
   },
 ]
 
@@ -71,22 +71,22 @@ const OnDemandIATCardPricing: TIATPriceOption[] = [
   {
     label: 'ONE TIME PAYMENT',
     price: '$1,799.00',
-    checkout: externalRoutes.checkoutIatRecordedWebinarUpfront,
+    checkout: externalRoutes.checkoutIATRecordedWebinarUpfront,
   },
   {
     label: '3 MONTH PAYMENT PLAN',
     price: '$619.00',
-    checkout: externalRoutes.checkoutIatRecordedWebinar3MonthPlan,
+    checkout: externalRoutes.checkoutIATRecordedWebinar3MonthPlan,
   },
   {
     label: '6 MONTH PAYMENT PLAN',
     price: '$319.00',
-    checkout: externalRoutes.checkoutIatRecordedWebinar6MonthPlan,
+    checkout: externalRoutes.checkoutIATRecordedWebinar6MonthPlan,
   },
   {
     label: '12 MONTH PAYMENT PLAN',
     price: '$169.00',
-    checkout: externalRoutes.checkoutIatRecordedWebinar12MonthPlan,
+    checkout: externalRoutes.checkoutIATRecordedWebinar12MonthPlan,
   },
 ]
 

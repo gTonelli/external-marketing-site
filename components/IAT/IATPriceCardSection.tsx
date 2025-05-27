@@ -11,25 +11,25 @@ const iatRecordedPrices = [
     price: '$1,999.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: externalRoutes.checkoutIatRecordedUpfront,
+    link: externalRoutes.checkoutIATRecordedUpfront,
   },
   {
     price: '$689.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIatRecorded3MonthPlan,
+    link: externalRoutes.checkoutIATRecorded3MonthPlan,
   },
   {
     price: '$359.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIatRecorded6MonthPlan,
+    link: externalRoutes.checkoutIATRecorded6MonthPlan,
   },
   {
     price: '$189.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIatRecorded12MonthPlan,
+    link: externalRoutes.checkoutIATRecorded12MonthPlan,
   },
 ]
 
@@ -38,25 +38,25 @@ const iatLivePrices = [
     price: '$3,499.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: externalRoutes.checkoutIatSummer2025Upfront,
+    link: externalRoutes.checkoutIATSummer2025Upfront,
   },
   {
     price: '$1,209.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIatSummer20253MonthPlan,
+    link: externalRoutes.checkoutIATSummer20253MonthPlan,
   },
   {
     price: '$629.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIatSummer20256MonthPlan,
+    link: externalRoutes.checkoutIATSummer20256MonthPlan,
   },
   {
     price: '$339.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIatSummer202512MonthPlan,
+    link: externalRoutes.checkoutIATSummer202512MonthPlan,
   },
 ]
 

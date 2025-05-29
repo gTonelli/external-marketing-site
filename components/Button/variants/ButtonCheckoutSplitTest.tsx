@@ -5,14 +5,13 @@ import { useEffect, useState } from 'react'
 // components
 import { ButtonCheckout, IButtonCheckoutProps } from '@/components/Button/variants/ButtonCheckout'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
 import { getSplitTest, TSplitTestKey } from '@/utils/functions'
 import { ISplitTest } from '@/utils/interfaces'
 
 interface IButtonCheckoutSplitTest extends Omit<ISplitTest, 'key'>, IButtonCheckoutProps {
   experimentKey: TSplitTestKey
-  variantUrl: EExternalRoutes
-  controlUrl?: EExternalRoutes
+  variantUrl: string
+  controlUrl?: string
   useCookies?: boolean
 }
 

@@ -4,32 +4,32 @@ import { IATPriceCard } from '../IATPriceCard/IATPriceCard'
 // config
 import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 const iatRecordedPrices = [
   {
     price: '$1,999.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_UPFRONT,
+    link: externalRoutes.checkoutIATRecordedUpfront,
   },
   {
     price: '$689.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_3_MONTH_PLAN,
+    link: externalRoutes.checkoutIATRecorded3MonthPlan,
   },
   {
     price: '$359.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_6_MONTH_PLAN,
+    link: externalRoutes.checkoutIATRecorded6MonthPlan,
   },
   {
     price: '$189.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_RECORDED_12_MONTH_PLAN,
+    link: externalRoutes.checkoutIATRecorded12MonthPlan,
   },
 ]
 
@@ -38,25 +38,25 @@ const iatLivePrices = [
     price: '$3,499.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_UPFRONT,
+    link: externalRoutes.checkoutIATSummer2025Upfront,
   },
   {
     price: '$1,209.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_3_MONTH_PLAN,
+    link: externalRoutes.checkoutIATSummer20253MonthPlan,
   },
   {
     price: '$629.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_6_MONTH_PLAN,
+    link: externalRoutes.checkoutIATSummer20256MonthPlan,
   },
   {
     price: '$339.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_IAT_SUMMER_2025_12_MONTH_PLAN,
+    link: externalRoutes.checkoutIATSummer202512MonthPlan,
   },
 ]
 

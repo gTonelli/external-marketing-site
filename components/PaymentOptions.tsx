@@ -8,7 +8,7 @@ import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-lif
 // libraries
 import cx from 'classnames'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 interface IPaymentOptionsProps extends IDefaultProps {
   showDisclaimer?: boolean
@@ -74,7 +74,7 @@ type TConfig = {
   title: string
   copy: string | JSX.Element
   ctaLabel: string
-  checkoutUrl: EExternalRoutes
+  checkoutUrl: string
   disclaimer?: string
 }
 
@@ -84,7 +84,7 @@ const baseConfig: TConfig = {
   title: TH.HERO.offer.title,
   copy: TH.HERO.offer.copy,
   ctaLabel: 'TRY FOR FREE',
-  checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
+  checkoutUrl: externalRoutes.checkout7DayTrial,
 }
 
 const fourteendayFTConfig: TConfig = {
@@ -93,7 +93,7 @@ const fourteendayFTConfig: TConfig = {
   title: '14-Day Free Trial',
   copy: 'Unlock 60+ Courses, Personalized Tools, and Expert Guidance to Experience Breakthroughs, Overcome Relationship Challenges, and Achieve Personal Goals',
   ctaLabel: 'START YOUR 14-DAY FREE TRIAL',
-  checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL,
+  checkoutUrl: externalRoutes.checkout14DayTrial,
   disclaimer:
     '*$67.00/month after your free trial. Cancel any time before your trial ends to avoid being charged. This offer ends soon!*',
 }
@@ -115,7 +115,7 @@ const allConfigs = {
     title: 'Needs Course for Life + 7-Day Free Trial',
     copy: 'Take Our Free Trial to Our All-Access Pass Membership. Plus, Get the Discover, Embrace & Fulfill Your Personal Needs Course For FREE for LIFE to Support Your Growth!',
     ctaLabel: 'JOIN & START YOUR COURSE',
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
+    checkoutUrl: externalRoutes.checkoutJan2025PromoTrial,
     disclaimer:
       '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
   },
@@ -132,7 +132,7 @@ const allConfigs = {
       </>
     ),
     ctaLabel: 'SIGN UP FOR YOUR FREE TRIAL',
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_MARCH_2025_PROMO_TRIAL,
+    checkoutUrl: externalRoutes.checkoutMarch2025PromoTrial,
     disclaimer:
       '*When you sign up today, you’ll get a 7-day free trial to the All-Access Pass Membership. At the end of the 7-day trial, you’ll move to a $67.00/month plan. If you cancel before your trial ends, you get to keep and access the Attachment Styles & Sex Course for life.',
   },
@@ -148,7 +148,7 @@ const allConfigs = {
       </>
     ),
     ctaLabel: 'UPDATE TO YOUR FREE TRIAL',
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_JUNE_2025_PROMO_TRIAL,
+    checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
   },

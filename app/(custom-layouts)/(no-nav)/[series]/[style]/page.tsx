@@ -12,7 +12,7 @@ import { EMAIL_RESULTS as SERIES_BELIEFS_RESULTS, FA_EMAIL_RESULTS } from './con
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { TStyle } from '@/utils/types'
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export type TSeriesParam =
   | 'needs'
@@ -106,7 +106,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
             <div className="max-w-lg">
               <div className="flex justify-center mb-4 lg:hidden">
                 <ButtonCheckout
-                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  href={externalRoutes.checkoutRegularSubscription}
                   label="GET STARTED"
                 />
               </div>
@@ -159,7 +159,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
                 <div className="flex justify-center mt-4">
                   <ButtonCheckout
-                    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                    href={externalRoutes.checkoutRegularSubscription}
                     label="GET STARTED"
                   />
                 </div>
@@ -178,7 +178,7 @@ export default function AttachmentStyleNeedsBeliefsPage({
 
                 <div className="flex justify-center mt-4">
                   <ButtonCheckout
-                    href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                    href={externalRoutes.checkoutRegularSubscription}
                     label={styleParam === 'fa' ? `SIGN UP NOW` : `GET STARTED`}
                   />
                 </div>

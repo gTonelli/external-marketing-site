@@ -12,7 +12,7 @@ import {
 } from '@awesome.me/kit-545b942488/icons/classic/brands'
 import { faPodcast } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
-import { EExternalRoutes, ERoutes } from '@/utils/constants'
+import { externalRoutes, routes } from '@/utils/constants'
 
 const todaysDate = new Date()
 const year = todaysDate.getFullYear()
@@ -44,35 +44,35 @@ export const Footer = ({
 
           {includeSocialLinks && (
             <div className="flex px-4">
-              <Link className="mx-4 mb-5" href={EExternalRoutes.YOUTUBE}>
+              <Link className="mx-4 mb-5" href={externalRoutes.youTube}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faYoutube}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={EExternalRoutes.TIKTOK}>
+              <Link className="mx-4 mb-5" href={externalRoutes.tikTok}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faTiktok}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={EExternalRoutes.FACEBOOK}>
+              <Link className="mx-4 mb-5" href={externalRoutes.facebook}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faFacebook}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={EExternalRoutes.INSTAGRAM}>
+              <Link className="mx-4 mb-5" href={externalRoutes.instagram}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faInstagram}
                 />
               </Link>
 
-              <Link className="mx-4 mb-5" href={EExternalRoutes.PODCASTS}>
+              <Link className="mx-4 mb-5" href={externalRoutes.podcasts}>
                 <FontAwesomeIcon
                   className="text-2xl text-primary-light transition-colors hover:text-primary"
                   icon={faPodcast}
@@ -95,31 +95,31 @@ export const Footer = ({
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.PDS_COURSES}>
+                href={externalRoutes.pdsCourses}>
                 Courses
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.COLLECTIONS}>
+                href={externalRoutes.collections}>
                 Memberships
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.ATTACHMENT_BOOTCAMP}>
+                href={externalRoutes.attachmentBootcamp}>
                 Bootcamp
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4 lg:max-w-[200px]"
-                href={ERoutes.IAT_SALES_PAGE}>
+                href={routes.iatSalesPage}>
                 Integrated Attachment Theory<sup>TM</sup> Certification
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={ERoutes.ATTACHMENT_QUIZ}>
+                href={routes.attachmentQuiz}>
                 Attachment Quiz
               </Link>
             </div>
@@ -129,31 +129,31 @@ export const Footer = ({
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.SUPPORT_PAGE}>
+                href={externalRoutes.supportPage}>
                 Support
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.ABOUT}>
+                href={externalRoutes.about}>
                 About Us
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.PODCASTS}>
+                href={externalRoutes.podcasts}>
                 Podcast
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.PRESS_AND_MEDIA}>
+                href={externalRoutes.pressAndMedia}>
                 Press & Media
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.BLOG}>
+                href={externalRoutes.blog}>
                 Blog
               </Link>
             </div>
@@ -163,25 +163,25 @@ export const Footer = ({
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.CONTACT_US}>
+                href={externalRoutes.contactUs}>
                 Contact Us
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.PRIVACY}>
+                href={externalRoutes.privacy}>
                 Privacy Policy
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.TERMS}>
+                href={externalRoutes.terms}>
                 Terms & Conditions
               </Link>
 
               <Link
                 className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-                href={EExternalRoutes.GIFT_CARDS}>
+                href={externalRoutes.giftCards}>
                 Gift Cards
               </Link>
             </div>
@@ -189,7 +189,7 @@ export const Footer = ({
             <div className="flex flex-col mb-[30px] lg:mb-0 w-1/2 lg:w-auto items-start">
               <p className="text-xs leading-5 mb-[18px] font-bold lg:text-base">Get Our App</p>
 
-              <Link className="mb-4" href={EExternalRoutes.IOS_APP}>
+              <Link className="mb-4" href={externalRoutes.iosApp}>
                 <Image
                   alt="Download the app on iOS"
                   src="/images/app-store-apple-icon.svg"
@@ -198,7 +198,7 @@ export const Footer = ({
                 />
               </Link>
 
-              {/* <Link className="mb-4" href={EExternalRoutes.ANDROID_APP}>
+              {/* <Link className="mb-4" href={externalRoutes.androidApp}>
                 <Image
                   alt="Download the app on Google Play"
                   src="/images/app-store-google-icon.svg"
@@ -220,7 +220,7 @@ export const Footer = ({
         {showDisclaimer && (
           <Link
             className="hover:no-underline text-xs !leading-4 lg:text-base mb-4"
-            href={EExternalRoutes.PRIVACY}>
+            href={externalRoutes.privacy}>
             Privacy Policy
           </Link>
         )}

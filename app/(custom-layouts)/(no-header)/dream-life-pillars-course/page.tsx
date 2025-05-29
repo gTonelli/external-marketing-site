@@ -15,7 +15,7 @@ import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 // style
 import './style.css'
 
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 }
 
 export default function DreamLifeFreeCoursePage() {
-  const checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_JUNE_2025_PROMO_TRIAL
+  const checkoutUrl = externalRoutes.checkoutJune2025PromoTrial
 
   return (
     <Page page_name="Dreamlife Pillars Course Page" className="relative">

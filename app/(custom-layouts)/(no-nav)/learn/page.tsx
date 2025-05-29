@@ -21,7 +21,7 @@ import { faCircle, faStar, faChevronsRight } from '@awesome.me/kit-545b942488/ic
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 //utils
-import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
+import { externalRoutes, EWindowWidth } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
 
@@ -116,7 +116,7 @@ export default function SecondarySalesPage() {
 
   //============================ Events ========================================
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(externalRoutes.checkoutRegularSubscription)
   }
 
   // Dynamic title

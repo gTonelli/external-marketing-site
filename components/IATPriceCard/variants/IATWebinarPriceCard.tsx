@@ -11,8 +11,6 @@ import { faChevronLeft, faCircle } from '@awesome.me/kit-545b942488/icons/classi
 // libraries
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// utils
-import { EExternalRoutes } from '@/utils/constants'
 
 export type TIATCardDetails = {
   title: string
@@ -28,7 +26,7 @@ export type TIATCardDetails = {
 export type TIATPriceOption = {
   price: string
   label: string
-  checkout: EExternalRoutes
+  checkout: string
 }
 
 interface IIATWebinarPriceCardProps {

@@ -86,7 +86,7 @@ export default function DatingFreebiePage() {
         </p>
 
         <h2 className="mb-4">
-          Defining Your Standards &amp; Boundaries Will Protect You & Attract Authentic
+          Defining Your Standards &amp; Boundaries That Will Protect You & Build Attract Authentic
           Relationships
         </h2>
       </Section>
@@ -165,7 +165,7 @@ export default function DatingFreebiePage() {
             icon={faCheckCircle}
             listItems={[
               'Get instant access to 70+ expert-led courses and weekly live webinars.',
-              'Keep the Key Pillars for a Secure Relationship Course for FREE & for LIFE—yours to use anytime.',
+              'Keep the Key Pillars for a Secure Relationship Course for FREE and for LIFE—yours to use anytime.',
               'Join a supportive community focused on healthy love, emotional growth, and lasting transformation.',
             ]}
           />

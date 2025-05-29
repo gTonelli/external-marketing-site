@@ -32,7 +32,9 @@ export default function DreamLifeFreeCoursePage() {
   return (
     <Page page_name="Dreamlife Pillars Course Page" className="relative">
       <section className="text-center bg-purple-dark">
-        <h2 className="text-white pt-4">Limited Time Offer: $250-Valued Course &amp; FREE Trial</h2>
+        <h2 className="text-white pt-4">
+          Incredible Limited Time Offer: $250-Valued Course &amp; FREE Trial
+        </h2>
 
         <div className="pb-4">
           <CountdownTimer date={new Date(`2025-05-17T23:59:59-04:00`)} theme="dark" />
@@ -120,7 +122,7 @@ export default function DreamLifeFreeCoursePage() {
           </div>
         </div>
 
-        <div className="bg-black-secondary text-white rounded-2xl p-6 mb-4">
+        <div className="bg-pink-tertiary rounded-2xl p-6 mb-4">
           <p>
             <strong>
               Get 7 days of full access to our All-Access Pass, our all-inclusive membership!
@@ -146,7 +148,7 @@ export default function DreamLifeFreeCoursePage() {
           </p>
         </div>
 
-        <ButtonCheckout href={checkoutUrl} label="UNLOCK YOUR BEST RELATIONSHIPS" />
+        <ButtonCheckout href={checkoutUrl} label="SIGN UP FOR YOUR FREE TRIAL" />
       </Section>
 
       <Section classNameInner="bg-white-secondary rounded-2xl p-6">
@@ -174,11 +176,7 @@ export default function DreamLifeFreeCoursePage() {
           />
         </div>
 
-        <ButtonCheckout
-          className="mb-4"
-          href={checkoutUrl}
-          label="UNLOCK YOUR BEST RELATIONSHIPS"
-        />
+        <ButtonCheckout className="mb-4" href={checkoutUrl} label="SIGN UP FOR YOUR FREE TRIAL" />
 
         <p>
           <em>

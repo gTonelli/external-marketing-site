@@ -33,8 +33,8 @@ export default function DatingFreebiePage() {
           height={73}
         />
 
-        <h1 className="mt-8 mb-4">
-          Download the Free Guide to Stop Settling &amp; Start Thriving in Love
+        <h1 className="max-w-3xl mx-auto mt-8 mb-4">
+          Limited Time Offer: Download the Free Guide to Start Thriving in Love
         </h1>
       </Section>
 
@@ -54,14 +54,10 @@ export default function DatingFreebiePage() {
           </div>
 
           <div className="text-left lg:col-span-2">
-            <h2>Enter Your Details to Get Your FREE Standards & Non-Negotiables Guide!</h2>
-
-            <p>
-              <strong>
-                Get This Exclusive Guide to Uncover Your Relationship Standards & Build Your
-                Self-Worth So You Get The Love Life You Deserve!
-              </strong>
-            </p>
+            <h2>
+              Enter Your Details to Uncover Your Relationship Standards &amp; Boundaries So You Get
+              The Love Life You Deserve!
+            </h2>
 
             <SignupForm
               classNameFields="!flex-col !gap-y-4"
@@ -90,7 +86,8 @@ export default function DatingFreebiePage() {
         </p>
 
         <h2 className="mb-4">
-          Defining Your Standards That Will Protect You & Attract Authentic Relationships
+          Defining Your Standards &amp; Boundaries Will Protect You & Attract Authentic
+          Relationships
         </h2>
       </Section>
 
@@ -154,11 +151,12 @@ export default function DatingFreebiePage() {
         className="!w-full bg-pink-auxiliary p-0"
         classNameInner="grid gap-8 lg:grid-cols-12">
         <div className="text-left lg:col-span-8">
-          <h2>Ready for Real Change? This Is Your First Step.</h2>
+          <h2>Ready for Real Change? Get Your Free Key Pillars Course!</h2>
 
           <p className="tracking-33">
             <strong>
-              SIGN UP FOR A 7-DAY FREE TRIAL OF OUR ALL-ACCESS PASS TO FINALLY BECOME SECURE IN LOVE
+              SIGN UP FOR A 7-DAY FREE TRIAL OF OUR ALL-ACCESS PASS TO GET THE KEY PILLARS COURSE
+              FOR FREE AND TO FINALLY BECOME SECURE IN LOVE!
             </strong>
           </p>
 
@@ -167,13 +165,13 @@ export default function DatingFreebiePage() {
             icon={faCheckCircle}
             listItems={[
               'Get instant access to 70+ expert-led courses and weekly live webinars.',
-              'Keep the Key Pillars for a Secure Relationship Course for LIFE—yours to use anytime.',
+              'Keep the Key Pillars for a Secure Relationship Course for FREE & for LIFE—yours to use anytime.',
               'Join a supportive community focused on healthy love, emotional growth, and lasting transformation.',
             ]}
           />
 
           <Link href="/dream-life-pillars-course">
-            <Button label="EXPLORE MORE HERE" />
+            <Button label="EXPLORE MORE & SIGN UP" />
           </Link>
         </div>
 

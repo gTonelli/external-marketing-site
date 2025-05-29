@@ -137,9 +137,9 @@ const allConfigs = {
       '*When you sign up today, you’ll get a 7-day free trial to the All-Access Pass Membership. At the end of the 7-day trial, you’ll move to a $67.00/month plan. If you cancel before your trial ends, you get to keep and access the Attachment Styles & Sex Course for life.',
   },
   dreamLifePillarsCourse: {
-    offerLabel: 'Free Trial & Exclusive Bonus Offer',
+    offerLabel: 'Free Trial & Exclusive Free Course!',
     offerType: '',
-    title: 'Master the Revolutionary Tools to Start Building Relationships With Confidence',
+    title: 'Get the Key Pillars Course For Free & Start Building Relationships With Confidence',
     copy: (
       <>
         Sign up for a 7-day Free Trial to our All-Access Pass and KEEP the Key Pillars for a Secure
@@ -147,7 +147,7 @@ const allConfigs = {
         feel secure in love!
       </>
     ),
-    ctaLabel: 'UPDATE TO YOUR FREE TRIAL',
+    ctaLabel: 'SIGN UP FOR YOUR FREE TRIAL',
     checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_JUNE_2025_PROMO_TRIAL,
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',

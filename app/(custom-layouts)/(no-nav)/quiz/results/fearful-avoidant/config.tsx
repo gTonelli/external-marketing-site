@@ -115,7 +115,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           $197 for the <strong>7 Days to Transform Relationships Course</strong> alone.
         </>,
         <>
-          <em className="block">*Single course price normal price $197</em>
+          <em className="block">*Single course normal price $197</em>
 
           <em>*All-Access Pass normal price $97</em>
         </>,
@@ -156,8 +156,8 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         'At The Personal Development School, this is where everything shifts—your results are just the beginning of building love that feels safe, real, and never costs you your freedom.',
       heading: (
         <>
-          Start Your Personalized Program{' '}
-          <span className="text-primary">Fearful Avoidant to Securely Attached</span>
+          Start Your Personalized{' '}
+          <span className="text-primary">Fearful Avoidant to Securely Attached</span> Program
         </>
       ),
       subheader: '(Included with All Access Pass–Now 30% Off!)',
@@ -176,7 +176,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           It's designed to help you gently reprogram your survival strategies and start building
           secure, healthy, lasting love.
         </>,
-        'In just 7 days, you’ll start uncovering:',
+        'With this program, you’ll start uncovering:',
         <>
           <List
             classNameIcon="!text-black"
@@ -192,11 +192,12 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
       ],
       segway2: [
         'Our team at The Personal Development School developed this system to help you understand your patterns, express your needs, and feel confident setting healthy boundaries.',
-        'Inside the course, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',
+        'Inside the program, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',
       ],
     },
     course: {
-      header: 'Your 7-Day Course Was Built to Help Fearful Avoidants Feel Safe in Love — Fast',
+      header:
+        'Your Personalized Program Was Built to Help Fearful Avoidants Feel Safe in Love — Fast',
       listItems: [
         'A step-by-step roadmap that explains why you pull away, panic, or self-sabotage, and exactly how to shift those behaviors',
         'Tools to help you recognize and meet your emotional needs without guilt, fear, or overthinking',
@@ -247,7 +248,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         'Supportive member community, your safe space to connect, grow, and feel understood by others on the same healing path',
       ],
       offerCopy: [
-        'Instead of paying $197 for a single course or the regular monthly price of $97, you’ll get everything—your personalized 7-day Course and the All-Access Pass—for just $67/month.',
+        'Instead of paying $197 for a single course or the regular monthly price of $97, you’ll get everything—your personalized Fearful Avoidant to Securely Attached Program and the All-Access Pass—for just $67/month.',
       ],
     },
     testimonial: {
@@ -256,7 +257,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
     footer: {
       header:
-        'Get The Fearful Avoidant to Securely Attached program & Start Having A Healthy, Loving Relationship – Without Any Fears',
+        'Get The Fearful Avoidant to Securely Attached Program & Start Having A Healthy, Loving Relationship – Without Any Fears',
       pricing: (
         <>
           Enjoy the All-Access Pass For Just <span className="line-through">$97</span> $67/month
@@ -303,22 +304,21 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         'But when you’re attached to someone, it can feel like emotional whiplash—pulled in one moment, shut out the next. It’s a painful cycle that leaves you doubting yourself, anxious, and emotionally worn thin.',
         <>
           That’s exactly why we created the{' '}
-          <strong>Anxious Preoccupied to Securely Attached</strong> Course—to help you end the
+          <strong>Anxious Preoccupied to Securely Attached</strong> Program—to help you end the
           confusion and finally feel emotionally secure in love, without needing to chase or
           over-give to be chosen. And it’s available through your <strong>All-Access Pass</strong>.
         </>,
       ],
       segway2: [
         'Our team at The Personal Development School developed this system to help you understand your patterns, express your needs, and feel confident setting healthy boundaries.',
-        'Inside the course, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',
+        'Inside the program, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',
       ],
     },
     course: {
       header: (
         <>
           <span className="lg:block">Here’s Everything You’re Getting With Your </span>
-
-          <span className="text-primary">7 Days to Transform Relationships Course:</span>
+          <span className="text-primary">Anxious Preoccupied to Securely Attached</span> Program:
         </>
       ),
       listItems: [
@@ -336,9 +336,9 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     results: {
       header: (
         <>
-          <span className="md:block">When You Take the 7 Days to </span>
+          <span className="md:block">When You Take the Anxious Preoccupied to</span>
 
-          <span>Transform Relationships Course, You Will:</span>
+          <span>Securely Attached Program, You Will:</span>
         </>
       ),
       listItemsLeft: [
@@ -360,8 +360,8 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
       programCopy: [
         <>
           When you join today, you will receive the{' '}
-          <strong>7 Days to Transform Relationships Course</strong> and an exclusive one-time offer
-          with our <strong>All-Access Pass!</strong>
+          <strong>Anxious Preoccupied to Securely Attached Program</strong> and an exclusive
+          one-time offer with our <strong>All-Access Pass!</strong>
         </>,
         <>
           This membership gives you comprehensive and unlimited access to everything we offer at
@@ -378,10 +378,10 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
       offerCopy: [
         <>
           You unlock everything for one price of just <strong>$67/month</strong> instead of paying
-          $197 for the <strong>7 Days to Transform Relationships Course</strong> alone.
+          $197 for the <strong>Anxious Preoccupied to Securely Attached Program</strong> alone.
         </>,
         <>
-          <em className="block">*Single course price normal price $197</em>
+          <em className="block">*Single course normal price $197</em>
 
           <em>*All-Access Pass normal price $97</em>
         </>,
@@ -392,7 +392,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
     footer: {
       header:
-        'Get the Anxious Preoccupied to Securely Attached Course  & Finally Feel Safe, Loved, and Secure in Your Relationship—Without Fear of Losing It.',
+        'Get the Anxious Preoccupied to Securely Attached Program & Finally Feel Safe, Loved, and Secure in Your Relationship—Without Fear of Losing It.',
       pricing: (
         <>
           Enjoy the All-Access Pass For Just <span className="line-through">$97</span> $67/month

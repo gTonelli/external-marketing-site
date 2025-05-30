@@ -160,7 +160,7 @@ export const LifetimePricing = () => {
                   </div>
 
                   <div className="w-full text-center text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
-                    <strong>Savings worth over $3,000</strong>
+                    <strong>Savings worth over $2,000</strong>
                   </div>
                 </Card>
               </SwiperSlide>

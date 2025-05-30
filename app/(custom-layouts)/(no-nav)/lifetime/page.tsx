@@ -44,7 +44,7 @@ export default function LifeTimePage() {
         <div className="mx-auto mt-4 md:mt-8">
           <ButtonScroll
             className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-            label="UNLOCK LIFETIME ACCESS & SAVE $600"
+            label={LIFETIME.HERO_SECTION.ctaLabel}
             target="#pricing"
           />
         </div>

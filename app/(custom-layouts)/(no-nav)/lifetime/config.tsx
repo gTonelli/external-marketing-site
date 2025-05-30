@@ -1,33 +1,75 @@
+const savePrice = '$1000'
 export const LIFETIME = {
   HERO_SECTION: {
     header:
       'Unlock the Proven Programs & Proprietary Platform That Will Help You Every Step of the Way, Forever!',
     subheader: 'Exclusive Offer, Unmatched Value: Get Lifetime Access to the All-Access Pass!',
-    promo_text:
-      "Don't Miss This Limited-Time Offer. Secure Your Lifetime Access Today & Save Up to $600!",
+    promo_text: `Don't Miss This Limited-Time Offer. Secure Your Lifetime Access Today & Save Up to ${savePrice}!`,
+    ctaLabel: `UNLOCK LIFETIME ACCESS & SAVE ${savePrice}`,
   },
   SITUATION_SECTION: {
     header: 'Do Any of These Situations Sound Familiar to You?',
     bullets: [
-      'You have a deep feeling that there’s **something wrong with you.**',
-      'You experience the same **destructive patterns** with different people – attracting emotionally unavailable partners, dating narcissists, arguing a lot…',
-      'You feel **stuck in unhealthy dynamics** that seem impossible to change in your long-term relationship. ',
-      'You feel **uncomfortable communicating your needs** and desires to your partner, or don’t even know your needs.',
-      'You feel guilt, shame, and sadness about **broken family relationships.**',
-      'You stay in unhealthy relationships because of **fear of being alone.**',
-      'You **push people away** – yet yearn for closeness and love.',
+      <>
+        You have a deep feeling that there’s <strong>something wrong with you.</strong>
+      </>,
+      <>
+        You experience the same <strong>destructive patterns</strong> with different people
+        – attracting emotionally unavailable partners, dating narcissists, arguing a lot…
+      </>,
+      <>
+        You feel <strong>stuck in unhealthy dynamics</strong> that seem impossible to change in your
+        long-term relationship.
+      </>,
+      <>
+        You feel <strong>uncomfortable communicating your needs</strong> and desires to your
+        partner, or don’t even know your needs.
+      </>,
+      <>
+        You feel guilt, shame, and sadness about <strong>broken family relationships.</strong>
+      </>,
+      <>
+        You stay in unhealthy relationships because of <strong>fear of being alone.</strong>
+      </>,
+      <>
+        You <strong>push people away</strong> – yet yearn for closeness and love.
+      </>,
     ],
   },
   IMAGINE_SECTION: {
     header: 'Now, Picture This: Your Life & Relationships, Completely Transformed, For Good',
     bullets: [
-      'You feel relieved realizing **there’s nothing wrong with you** and that you’re not alone in your challenges.',
-      'You finally break free from negative patterns and situationships, **attracting your dream partner.**',
-      'You experience a newfound passion, respect, and understanding in your long-term relationship, making you feel like you’re back in **those first magical months** together.',
-      'You are clear on your needs and desires and can **fearlessly communicate** them to your partner.',
-      'You feel better than ever in your family relationship as you **set healthy boundaries,** release guilt, and perhaps get closer to family members you’ve experienced friction with.',
-      'You enjoy being on your own and refuse to ever settle again as you **know your ideal partner is out there.**',
-      'You feel safe opening up, so you can **experience meaningful, loving connections** where you are seen and understood.',
+      <>
+        You feel relieved realizing <strong>there’s nothing wrong with you</strong> and that you’re
+        not alone in your challenges.
+      </>,
+      <>
+        You finally break free from negative patterns and situationships,{' '}
+        <strong>attracting your dream partner.</strong>
+      </>,
+      <>
+        You experience a newfound passion, respect, and understanding in your long-term
+        relationship, making you feel like you’re back in{' '}
+        <strong>those first magical months</strong> together.
+      </>,
+      <>
+        You are clear on your needs and desires and can <strong>fearlessly communicate</strong> them
+        to your partner.
+      </>,
+      <>
+        You feel better than ever in your family relationship as you{' '}
+        <strong>set healthy boundaries,</strong> release guilt, and perhaps get closer to family
+        members you’ve experienced friction with.
+      </>,
+      <>
+        You enjoy being on your own and refuse to ever settle again as you{' '}
+        <strong>know your ideal partner is out there.</strong>
+      </>,
+      <>
+        You feel safe opening up, so you can{' '}
+        <strong>experience meaningful, loving connections</strong> where you are seen and
+        understood.
+      </>,
     ],
   },
   FEATURE_SECTION: {
@@ -56,12 +98,40 @@ export const LIFETIME = {
     subheader:
       'Why pay again and again? Enjoy Lifetime Access to on-demand courses, transformational tools, expert coaching, and an exclusive community designed to help you thrive—forever.',
     bullets: [
-      '**Break Through Barriers with Science-Backed Courses** - Get instant “aha” moments with 65+ bite-sized, results-driven, expert-designed courses designed to create real, lasting breakthroughs in your relationships and life. Just one tool from one self-paced course could revolutionize your love life!',
-      '**Direct Learning From An Industry Leader & Trusted Expert** - Join our live, interactive webinars and Q&As multiple times a week with industry leader Thais Gibson and her team of certified coaches. Discover new tools and overcome roadblocks together.',
-      '**Thrive Within a Global Community of 110+ Countries** - You’re never alone in this journey! Connect with like-minded people on our platform, where breakout rooms and private forums create intimate, meaningful discussions. Share challenges, celebrate wins, and embrace real support.',
-      '**Keep Learning With Instant Access to 500+ Webinars** - Did you miss a life-altering webinar or Q&A session? No problem! Dive into our extensive library of past webinars packed with insights, strategies, and breakthroughs—available anytime you need them.',
-      '**One-Time Payment, Huge Savings** - Save up to $600 and skip the hassle of monthly-payments. You’ll never have to worry about renewals, price increases, or missing out on valuable content. This exclusive discount gives you premium access at a fraction of the cost.',
-      '**Lifetime Support, Unlimited Growth—Forever** - With a Lifetime Membership to our All-Access Pass, you’ll never be alone in your journey. Gain unlimited support and access to everything we offer to help you break through and keep growing—for life.',
+      <>
+        <strong>Break Through Barriers with Science-Backed Courses</strong> - Get instant “aha”
+        moments with 70+ bite-sized, results-driven, expert-designed courses designed to create
+        real, lasting breakthroughs in your relationships and life. Just one tool from one
+        self-paced course could revolutionize your love life!
+      </>,
+      <>
+        <strong>Direct Learning From An Industry Leader & Trusted Expert</strong> - Join our live,
+        interactive webinars and Q&As multiple times a week with industry leader Thais Gibson and
+        her team of certified coaches. Discover new tools and overcome roadblocks together.
+      </>,
+      <>
+        <strong>Thrive Within a Global Community of 120+ Countries</strong> - You’re never alone in
+        this journey! Connect with like-minded people on our platform, where breakout rooms and
+        private forums create intimate, meaningful discussions. Share challenges, celebrate wins,
+        and embrace real support.
+      </>,
+      <>
+        <strong>Keep Learning With Instant Access to 500+ Webinars</strong> - Did you miss a
+        life-altering webinar or Q&A session? No problem! Dive into our extensive library of past
+        webinars packed with insights, strategies, and breakthroughs—available anytime you need
+        them.
+      </>,
+      <>
+        <strong>One-Time Payment, Huge Savings</strong> - Save up to {savePrice} and skip the hassle
+        of monthly-payments. You’ll never have to worry about renewals, price increases, or missing
+        out on valuable content. This exclusive discount gives you premium access at a fraction of
+        the cost.
+      </>,
+      <>
+        <strong>Lifetime Support, Unlimited Growth—Forever</strong> - With a Lifetime Membership to
+        our All-Access Pass, you’ll never be alone in your journey. Gain unlimited support and
+        access to everything we offer to help you break through and keep growing—for life.
+      </>,
     ],
   },
   THAIS_SECTION: {

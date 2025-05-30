@@ -16,7 +16,7 @@ import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 interface IFAResultsPageProps {
   ageVariant?: boolean
@@ -69,7 +69,7 @@ export const FAResultsPage = ({
                       </p>
 
                       <ButtonCheckout
-                        href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                        href={externalRoutes.checkoutRegularSubscription}
                         className="my-8 xxs:px-16"
                         label="GET STARTED NOW!"
                       />
@@ -155,10 +155,7 @@ export const FAResultsPage = ({
               </p>
             )}
 
-            <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-              theme="secondary"
-            />
+            <ButtonCheckout href={externalRoutes.checkoutRegularSubscription} theme="secondary" />
           </div>
         </div>
       </section>
@@ -202,7 +199,7 @@ export const FAResultsPage = ({
                 secure in yourself and your relationship.
               </p>
 
-              <ButtonCheckout href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION} />
+              <ButtonCheckout href={externalRoutes.checkoutRegularSubscription} />
             </div>
           )}
         </div>
@@ -257,7 +254,7 @@ export const FAResultsPage = ({
             )}
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="bg-gradient-to-b from-yellow-tertiary-light to-yellow-tertiary uppercase font-bold !text-black border-none"
             />
           </div>
@@ -388,7 +385,7 @@ export const FAResultsPage = ({
           </div>
 
           <ButtonCheckout
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+            href={externalRoutes.checkoutRegularSubscription}
             className="font-bold"
             theme="secondary"
           />
@@ -446,10 +443,7 @@ export const FAResultsPage = ({
           </div>
         </div>
 
-        <ButtonCheckout
-          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-          theme="secondary"
-        />
+        <ButtonCheckout href={externalRoutes.checkoutRegularSubscription} theme="secondary" />
       </section>
 
       <CarouselTestimonial
@@ -484,7 +478,7 @@ export const FAResultsPage = ({
             </div>
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="mt-8"
               theme="secondary"
             />
@@ -537,7 +531,7 @@ export const FAResultsPage = ({
                 ))}
 
                 <ButtonCheckout
-                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  href={externalRoutes.checkoutRegularSubscription}
                   className="tracking-normal underline font-bold inline !p-0 text-blue-darkest from-transparent to-transparent bg-transparent border-none text-left
                   hover:!text-blue-darkest hover:!bg-transparent hover:!shadow-none mt-4"
                   label={RESULTS[style].TESTIMONIAL.ctaText}
@@ -604,10 +598,7 @@ export const FAResultsPage = ({
 
           <p className="max-w-3xl mb-8">{RESULTS[style].PROMOTION_4.copy6}</p>
 
-          <ButtonCheckout
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
-            theme="secondary"
-          />
+          <ButtonCheckout href={externalRoutes.checkoutRegularSubscription} theme="secondary" />
         </div>
       </section>
     </>
@@ -721,7 +712,7 @@ const PromotionSection = ({ ageVariant = false, youtubeVariant = false }: IFARes
             </p>
 
             <ButtonCheckout
-              href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+              href={externalRoutes.checkoutRegularSubscription}
               className="bg-gradient-to-b !from-[#FFDE89] !to-yellow-tertiary uppercase font-bold text-black border-none"
             />
           </div>

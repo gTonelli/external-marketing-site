@@ -14,7 +14,7 @@ import { Pages } from '@/modules/Mixpanel'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Page } from '@/components/Page'
-import { ERoutes } from '@/utils/constants'
+import { routes } from '@/utils/constants'
 // styles
 import './style.css'
 
@@ -86,7 +86,7 @@ export default function LandingPage() {
           <Button
             className="mb-9 lg:mb-20 lg:mt-9"
             label="START QUIZ"
-            onClick={() => router.push(ERoutes.CORPORATE_QUIZ_QUESTIONS)}
+            onClick={() => router.push(routes.corporateQuizQuestions)}
           />
 
           <div className="attachment-style-image-row">
@@ -134,7 +134,7 @@ export default function LandingPage() {
         <Button
           className="lg:mt-9"
           label="START QUIZ"
-          onClick={() => router.push(ERoutes.CORPORATE_QUIZ_QUESTIONS)}
+          onClick={() => router.push(routes.corporateQuizQuestions)}
         />
       </section>
 

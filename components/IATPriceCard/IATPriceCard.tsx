@@ -12,13 +12,12 @@ import { Section } from '../Section'
 import { faCircleCheck, faCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
 
 type TIATPrice = {
   price: string
   priceLabel?: string
   bottomText: string
-  link: EExternalRoutes
+  link: string
 }
 
 interface IIATPriceCard {

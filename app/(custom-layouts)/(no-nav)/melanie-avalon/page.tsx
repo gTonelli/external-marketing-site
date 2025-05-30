@@ -6,7 +6,7 @@ import { IndividualPodcastGuestPage } from '../greg-voisen/IndividualPodcastGues
 // config
 import { MELANIE_GUEST_PRICING } from './config'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Get 50% Off Your Monthly All-Access Pass For Life!',
@@ -20,7 +20,7 @@ export default function MelanieAvalonPodcastPage() {
     <Page page_name="Melanie Avalon Podcast Guest Page">
       <IndividualPodcastGuestPage
         config={MELANIE_GUEST_PRICING}
-        checkoutUrl={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION_49_DOLLAR}
+        checkoutUrl={externalRoutes.singleStepCheckoutRegularSubscription49Dollar}
       />
     </Page>
   )

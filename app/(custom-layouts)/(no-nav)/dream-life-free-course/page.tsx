@@ -12,7 +12,7 @@ import { PaymentOptions } from '@/components/PaymentOptions'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Get Your Dream Life with a Free Trial & Course for Life!',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 }
 
 export default function DreamLifeFreeCoursePage() {
-  const checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL
+  const checkoutUrl = externalRoutes.checkoutJan2025PromoTrial
 
   return (
     <Page page_name="Dreamlife Free Course Page" className="relative">

@@ -115,10 +115,10 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
         <div className="grid gap-4 lg:grid-cols-2">
           <div className="flex justify-center items-center">
             <Image
-              alt="7 Day Transform Course Mockup"
+              alt="Program image in a laptop with the lessons outlined"
               width={586}
               height={426}
-              src="/images/SimplifiedFAPage/7-day-transform-laptop-mockup.jpg"
+              src={config.course.courseImageSrc}
             />
           </div>
 

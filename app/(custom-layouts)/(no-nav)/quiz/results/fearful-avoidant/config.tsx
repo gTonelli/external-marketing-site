@@ -56,6 +56,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           <span className="text-primary">7 Days to Transform Relationships Course:</span>
         </>
       ),
+      courseImageSrc: '/images/SimplifiedFAPage/7-day-transform-laptop-mockup.jpg',
       listItems: [
         'A personalized roadmap so you can understand why you act the way you do and how to change those habits.',
         'A detailed process to recognize your needs and desires so you can meet them yourself and when in a relationship.',
@@ -161,7 +162,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         </>
       ),
       subheader: '(Included with All Access Pass–Now 30% Off!)',
-      copy: 'What makes this course different? It’s designed specifically for Fearful Avoidants like you. This all-inclusive course will help you overcome relationship fear, rebuild trust, and finally feel safe being loved.',
+      copy: 'What makes this program different? It’s designed specifically for Fearful Avoidants like you. This all-inclusive program will help you overcome relationship fear, rebuild trust, and finally feel safe being loved.',
       ctaLabel: 'YES — I’M READY TO START HEALING',
     },
     outcomes: {
@@ -198,6 +199,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     course: {
       header:
         'Your Personalized Program Was Built to Help Fearful Avoidants Feel Safe in Love — Fast',
+      courseImageSrc: '/images/SimplifiedFAPage/fa-to-sa-program.svg',
       listItems: [
         'A step-by-step roadmap that explains why you pull away, panic, or self-sabotage, and exactly how to shift those behaviors',
         'Tools to help you recognize and meet your emotional needs without guilt, fear, or overthinking',
@@ -321,6 +323,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           <span className="text-primary">Anxious Preoccupied to Securely Attached</span> Program:
         </>
       ),
+      courseImageSrc: '/images/SimplifiedFAPage/ap-to-sa-program.svg',
       listItems: [
         'A personalized roadmap to understand your patterns and feel more in control of your emotions.',
         'A step-by-step process to identify and express your needs without fear of pushing someone away.',

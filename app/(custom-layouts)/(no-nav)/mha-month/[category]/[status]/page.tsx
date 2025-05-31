@@ -12,7 +12,7 @@ import { faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { MHA_SERIES_CONFIG as CONFIG } from './config'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
 
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: IMHASeriesPageParams): Promis
 export default async function MHASeriesPage({ params }: IMHASeriesPageParams) {
   const { category, status } = await params
   const config = CONFIG[category]
-  const ctaUrl = EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL
+  const ctaUrl = externalRoutes.checkout14DayTrial
 
   return (
     <Page page_name={`MHA - ${category} ${status}`}>

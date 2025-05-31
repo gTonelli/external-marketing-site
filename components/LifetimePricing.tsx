@@ -13,7 +13,7 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // utils
 import { ViewportContext } from '@/utils/contexts'
-import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
+import { externalRoutes, EWindowWidth } from '@/utils/constants'
 import { formatPrice } from '@/utils/functions'
 // styles
 import 'swiper/css'
@@ -29,7 +29,7 @@ interface IPricingPlan {
   currentPrice: number
   originalPrice: number
   isRecommended: boolean
-  url: EExternalRoutes
+  url: string
   benefits: IPricingPlanBenefit[]
 }
 
@@ -48,7 +48,7 @@ const pricingPlan: IPricingPlan[] = [
     currentPrice: 1799,
     originalPrice: 2399,
     isRecommended: true,
-    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
+    url: externalRoutes.checkoutLifetimeUpfront,
     benefits: pricingPlanbenefits,
   },
   {
@@ -56,7 +56,7 @@ const pricingPlan: IPricingPlan[] = [
     currentPrice: 339,
     originalPrice: 449,
     isRecommended: false,
-    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
+    url: externalRoutes.checkoutLifetime6MonthPlan,
     benefits: pricingPlanbenefits,
   },
   {
@@ -64,7 +64,7 @@ const pricingPlan: IPricingPlan[] = [
     currentPrice: 179,
     originalPrice: 239,
     isRecommended: false,
-    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,
+    url: externalRoutes.checkoutLifetime12MonthPlan,
     benefits: pricingPlanbenefits,
   },
 ]
@@ -209,7 +209,7 @@ export const LifetimePricing = () => {
               <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT}
+                href={externalRoutes.checkoutLifetimeUpfront}
               />
             </div>
             {/* 6 month payment */}
@@ -239,7 +239,7 @@ export const LifetimePricing = () => {
               <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN}
+                href={externalRoutes.checkoutLifetime6MonthPlan}
               />
             </div>
             {/* 12 month payment */}
@@ -268,7 +268,7 @@ export const LifetimePricing = () => {
               <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN}
+                href={externalRoutes.checkoutLifetime12MonthPlan}
               />
             </div>
 

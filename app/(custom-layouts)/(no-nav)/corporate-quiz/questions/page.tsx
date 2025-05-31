@@ -14,7 +14,7 @@ import { orderBy } from 'lodash'
 import { Pages } from '@/modules/Mixpanel'
 // utils
 import { QUESTIONS, RESULTS } from '../config'
-import { ERoutes } from '@/utils/constants'
+import { routes } from '@/utils/constants'
 import { Page } from '@/components/Page'
 // styles
 import '../style.css'
@@ -80,7 +80,7 @@ export default function CorporateQuizQuestionsPage() {
         const result = calculateResult()
 
         router.push(
-          `${ERoutes.CORPORATE_QUIZ_RESULTS}/${result}/${apPercentage}/${daPercentage}/${faPercentage}/${saPercentage}`
+          `${routes.corporateQuizResults}/${result}/${apPercentage}/${daPercentage}/${faPercentage}/${saPercentage}`
         )
       }
       // Any other question - save the score based on association and move to the next one

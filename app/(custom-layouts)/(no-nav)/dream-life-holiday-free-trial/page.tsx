@@ -21,7 +21,7 @@ import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { ThaisIntro } from '@/components/ThaisIntro'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Sign up for a 7-Day Free Trial this Holiday Season!',
@@ -49,7 +49,7 @@ const benefits = [
 ]
 
 export default function DreamLifeHolidayFTPage() {
-  const checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL
+  const checkoutUrl = externalRoutes.checkout7DayTrial
 
   return (
     <Page page_name="Dreamlife Holiday Free Trial Page" className="relative w-full">

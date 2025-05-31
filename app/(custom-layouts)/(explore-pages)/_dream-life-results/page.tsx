@@ -17,7 +17,7 @@ import { faCheck, faLongArrowAltRight } from '@awesome.me/kit-545b942488/icons/c
 import { faCheckCircle, faFaceSadSweat } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { Page } from '@/components/Page'
 // modules
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 
 type ArticleKey = keyof typeof TH.ARTICLES
@@ -37,7 +37,7 @@ export default function DreamLifePage() {
   }
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(externalRoutes.checkoutRegularSubscription)
   }
 
   return (

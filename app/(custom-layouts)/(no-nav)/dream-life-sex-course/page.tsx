@@ -13,7 +13,7 @@ import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Have the Best Sex Life Ever – Thanks to This Course!',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 }
 
 export default function DreamLifeSexCoursePage() {
-  const checkoutUrl = EExternalRoutes.THINKIFIC_CHECKOUT_MARCH_2025_PROMO_TRIAL
+  const checkoutUrl = externalRoutes.checkoutMarch2025PromoTrial
 
   return (
     <Page page_name="Dreamlife Sex Course Page" className="relative">

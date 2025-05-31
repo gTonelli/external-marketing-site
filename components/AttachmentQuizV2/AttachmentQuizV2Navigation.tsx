@@ -7,7 +7,7 @@ import Link from 'next/link'
 import cx from 'classnames'
 import { Button } from '../Button/Button'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 interface IAttachmentQuizV2NavigationProps extends IDefaultProps {
   includeContinueButton?: boolean
@@ -37,7 +37,7 @@ export const AttachmentQuizV2Navigation = ({
       {includeContinueButton && (
         <Link
           className="text-right"
-          href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+          href={externalRoutes.checkoutRegularSubscription}
           prefetch={false}>
           <Button label="CONTINUE" />
         </Link>

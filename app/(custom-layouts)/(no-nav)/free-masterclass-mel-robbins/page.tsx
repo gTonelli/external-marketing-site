@@ -8,7 +8,7 @@ import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // libraries
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Can You Miss Out On This Free Life-Changing Masterclass?',
@@ -41,7 +41,7 @@ export default function freeMasterclassMelRobbinsPage() {
 
             <div className="flex justify-center mb-4 lg:hidden">
               <ButtonCheckout
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                href={externalRoutes.checkoutRegularSubscription}
                 label="GET STARTED"
               />
             </div>
@@ -92,7 +92,7 @@ export default function freeMasterclassMelRobbinsPage() {
 
               <div className="flex justify-center mt-4">
                 <ButtonCheckout
-                  href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                  href={externalRoutes.checkoutRegularSubscription}
                   label="GET STARTED"
                 />
               </div>

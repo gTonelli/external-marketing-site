@@ -1,5 +1,5 @@
 import { Link } from '@/components/Link'
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const REPORT_COPY = {
   fa: {
@@ -625,7 +625,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Fearful Avoidant Course Bundle"
-            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA}
+            url={externalRoutes.checkoutAgeProductFa}
             prefetch={false}
             target="_blank"
           />
@@ -640,7 +640,7 @@ export const AGE_REPORT_COPY = {
         weeks.
       </>
     ),
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_FA,
+    checkoutUrl: externalRoutes.checkoutAgeProductFa,
   },
   ap: {
     copy: (
@@ -649,7 +649,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Anxious Preoccupied Course Bundle"
-            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP}
+            url={externalRoutes.checkoutAgeProductAp}
             prefetch={false}
             target="_blank"
           />
@@ -664,7 +664,7 @@ export const AGE_REPORT_COPY = {
         weeks.
       </>
     ),
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_AP,
+    checkoutUrl: externalRoutes.checkoutAgeProductAp,
   },
   da: {
     copy: (
@@ -673,7 +673,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Dismissive Avoidant Course Bundle"
-            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA}
+            url={externalRoutes.checkoutAgeProductDa}
             prefetch={false}
             target="_blank"
           />
@@ -687,7 +687,7 @@ export const AGE_REPORT_COPY = {
         most specific, and most affordable way to restart your love life in a matter of weeks.
       </>
     ),
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_DA,
+    checkoutUrl: externalRoutes.checkoutAgeProductDa,
   },
   sa: {
     copy: (
@@ -696,7 +696,7 @@ export const AGE_REPORT_COPY = {
         <u>
           <Link
             label="The Secure Attachment Course Bundle"
-            url={EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA}
+            url={externalRoutes.checkoutAgeProductSa}
             prefetch={false}
             target="_blank"
           />
@@ -711,6 +711,6 @@ export const AGE_REPORT_COPY = {
         potential in a matter of weeks.
       </>
     ),
-    checkoutUrl: EExternalRoutes.THINKIFIC_CHECKOUT_AGE_PRODUCT_SA,
+    checkoutUrl: externalRoutes.checkoutAgeProductSa,
   },
 }

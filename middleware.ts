@@ -120,7 +120,7 @@ export const config = {
   matcher: [
     '/iat/info',
     '/attachment-report/fa',
-    '/quiz/results/fearful-avoidnat',
+    '/quiz/results/fearful-avoidant',
     '/quiz/b/results/fa',
     '/quiz/ap',
     '/quiz/b/results/ap',

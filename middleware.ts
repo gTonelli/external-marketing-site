@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/iat/info', '/attachment-report/fa'],
+  matcher: ['/iat/info'],
 }
 
 interface IConfigWithRegex {
@@ -132,12 +132,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const searchParams = request.nextUrl.searchParams
   const utmSource = searchParams.get('utm_source')
 
-  const configs: Array<IConfigWithRegex> = [
-    {
-      regex: /^\/attachment-report\/fa/,
-      config: splitTestConfigs.faReport,
-    }
-  ]
+  const configs: Array<IConfigWithRegex> = []
 
   if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
     return splitTestConfigs.iatEbookTest
@@ -225,17 +220,6 @@ const sendEventUnsafe = async (
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  faReport: {
-    cookieKey: 'GM-1480',
-    pageName: 'Attachment Style Results - FA',
-    experimentName: 'GM-1480-FA-Report',
-    variantUrl: {
-      path: '/attachment-report/fa/b',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
-
   iatEbookTest: {
     cookieKey: 'ip-1248-iat-ebook-banner',
     pageName: 'IAT Info Page',
@@ -245,7 +229,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.25,
     forceControlOnNewUser: false,
-  }
+  },
 }
 
 type TSplitTestConfigs = {

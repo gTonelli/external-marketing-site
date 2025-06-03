@@ -173,8 +173,7 @@ export const config = {
     seoDescription:
       'Start your healing journey with a flexible Quarterly Membership. Access 70+ courses, live webinars & a supportive community—renewed every 3 months!',
     heading: 'Start Your Quarterly Membership to the All-Access Pass Now',
-    subheading:
-      'Your Path to Transformation Awaits – Activate Your All-Access Pass Membership Before Time Runs Out! Lock In Support & Savings One Season at a Time – Before The Clock Runs Out!',
+    subheading: 'Lock In Support & Savings One Season at a Time – Before The Clock Runs Out!',
     heroCtaLabel: 'BEGIN YOUR NEW CHAPTER',
     costCopy1:
       'Now, you have the opportunity to take action. Through a powerful and proprietary model rooted in science and empathy, you can unlock the subconscious barriers holding you back so you can embrace real, profound changes in your life and relationships!',

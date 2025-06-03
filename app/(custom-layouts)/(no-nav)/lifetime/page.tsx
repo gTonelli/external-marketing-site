@@ -281,6 +281,7 @@ export default function LifeTimePage() {
         <h4 className="font-effra font-medium tracking-33 mb-9 lg:mb-10">GET A SNEAK PEEK</h4>
 
         <VideoThumbnail
+          className="max-w-xl mx-auto"
           thumbnailUrl="course-emotional-mastery.jpg"
           thumbnailAlt="emotional mastery thumbanil"
           srcUrl="https://storage.googleapis.com/pds_videos/Emotional_mastery_trailer.mp4"

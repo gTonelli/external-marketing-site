@@ -1,4 +1,7 @@
-const savePrice = '$1000'
+const onSale = true
+
+const savePrice = onSale ? '$1000' : '$600'
+
 export const LIFETIME = {
   HERO_SECTION: {
     header:

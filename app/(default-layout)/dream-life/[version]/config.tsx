@@ -1,5 +1,5 @@
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const config = {
   membership: {
@@ -47,7 +47,7 @@ export const config = {
           'Yes, members who subscribe to our All-Access Pass can receive a discounted rate on a quarterly or an annual membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+    checkoutLink: externalRoutes.checkoutRegularSubscription,
   },
 
   trial: {
@@ -106,7 +106,7 @@ export const config = {
           'Yes, members who subscribe to our All-Access Pass can receive a discounted rate on a quarterly or an annual membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
+    checkoutLink: externalRoutes.checkout7DayTrial,
   },
 
   '14-day-trial': {
@@ -165,7 +165,7 @@ export const config = {
           'Yes, members who subscribe to our All-Access Pass can receive a discounted rate on a quarterly or annual membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details, or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL,
+    checkoutLink: externalRoutes.checkout14DayTrial,
   },
 
   'quarterly-membership': {
@@ -216,7 +216,7 @@ export const config = {
           'Yes, members who subscribe to our All-Access Pass can receive a discounted rate on an annual membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details, or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
+    checkoutLink: externalRoutes.checkoutQuarterlyPlan,
   },
 
   'annual-membership': {
@@ -267,7 +267,7 @@ export const config = {
           'You can sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details, or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_ANNUAL_PLAN,
+    checkoutLink: externalRoutes.checkoutAnnualPlan,
   },
 
   'lifetime-membership': {
@@ -319,6 +319,6 @@ export const config = {
           'All our online courses are self-paced courses you can work through on your own time, whenever works best for you. Binge our video modules in one go or spend as little as 15 minutes a day working through them.',
       },
     ],
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
+    checkoutLink: externalRoutes.checkoutLifetimeUpfront,
   },
 }

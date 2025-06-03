@@ -50,13 +50,16 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: TParams): Promise<Metadata> {
   return {
+    // @ts-ignore
     title: AB_CART_CONFIG[params.version].seoTitle,
+    // @ts-ignore
     description: AB_CART_CONFIG[params.version].seoDescription,
     robots: 'noindex',
   }
 }
 
 export default function AbandonedCartOffer({ params }: TParams) {
+  // @ts-ignore
   const config = AB_CART_CONFIG[params.version]
 
   return (
@@ -314,6 +317,7 @@ type TAbandonCartCTAParams = {
 }
 
 const AbandonCartCTA = ({ page, label }: TAbandonCartCTAParams) => {
+  // @ts-ignore
   const config = AB_CART_CONFIG[page]
 
   if (page === 'lifetime-membership')

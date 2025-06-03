@@ -2,12 +2,10 @@
 
 // core
 import { useState } from 'react'
-// components
-import { IDefaultProps } from '.'
 // libraries
 import cx from 'classnames'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 import Link from 'next/link'
 import { Button } from './Button/Button'
 
@@ -60,7 +58,7 @@ const defaultData = [
     initialPrice: 97,
     finalPrice: '67.00',
     billingFrequency: 'monthly',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+    link: externalRoutes.checkoutRegularSubscription,
   },
   {
     pillText: 'QUARTERLY',
@@ -68,7 +66,7 @@ const defaultData = [
     initialPrice: 297,
     finalPrice: '169.00',
     billingFrequency: 'quarterly',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
+    link: externalRoutes.checkoutQuarterlyPlan,
   },
   {
     pillText: 'ANNUALLY',
@@ -76,6 +74,6 @@ const defaultData = [
     initialPrice: 1164,
     finalPrice: '549.00',
     billingFrequency: 'yearly',
-    link: EExternalRoutes.THINKIFIC_CHECKOUT_ANNUAL_PLAN,
+    link: externalRoutes.checkoutAnnualPlan,
   },
 ]

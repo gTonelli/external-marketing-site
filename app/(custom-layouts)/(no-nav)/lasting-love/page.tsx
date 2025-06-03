@@ -23,7 +23,7 @@ import {
 } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 // styles
 import './styles.css'
 
@@ -444,7 +444,7 @@ export default function LastingLovePage() {
       <CarouselCourses
         classNameArrow="!bg-green-light"
         classNameSubheading="mb-0"
-        checkoutLink={EExternalRoutes.STRIPE_CHECKOUT_39_FIRST_MONTH}
+        checkoutLink={externalRoutes.singleStepCheckout39FirstMonth}
       />
 
       {/* THAIS SECTION */}
@@ -672,7 +672,7 @@ export default function LastingLovePage() {
 }
 
 const CheckoutLink = ({ label = 'Start My All-Access Pass' }: { label?: string }) => (
-  <Link href={EExternalRoutes.STRIPE_CHECKOUT_39_FIRST_MONTH}>
+  <Link href={externalRoutes.singleStepCheckout39FirstMonth}>
     <Button className="text-xl" label={label} />
   </Link>
 )

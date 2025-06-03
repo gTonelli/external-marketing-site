@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Button } from './Button/Button'
 // modules
 import { SocialMediaLinks } from '@/components/SocialMediaLinks'
-import { ERoutes } from '@/utils/constants'
+import { routes } from '@/utils/constants'
 import Link from 'next/link'
 import { Page } from './Page'
 
@@ -34,7 +34,7 @@ export const NotFound = () => {
               for further assistance.
             </p>
 
-            <Link href={ERoutes.HOME}>
+            <Link href={routes.home}>
               <Button className="w-fit mt-8" label="BACK TO HOMEPAGE" />
             </Link>
 

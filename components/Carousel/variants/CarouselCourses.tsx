@@ -15,10 +15,8 @@ import { SECONDARY_SALES_PAGE as SSP } from '@/app/(custom-layouts)/(no-nav)/lea
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
-// modules
-import Mixpanel from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes, ERoutes, EWindowWidth } from '@/utils/constants'
+import { externalRoutes, EWindowWidth } from '@/utils/constants'
 // styles
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -35,7 +33,7 @@ interface ICarouselCoursesProps extends IDefaultProps {
    * Checkout Link
    * @default THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION
    */
-  checkoutLink?: ERoutes | EExternalRoutes
+  checkoutLink?: string
   /** Classname for the styled arrow*/
   classNameArrow?: string
   /** Classnames for the subheading */
@@ -60,7 +58,7 @@ interface ICarouselCoursesProps extends IDefaultProps {
 }
 
 export const CarouselCourses = ({
-  checkoutLink = EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+  checkoutLink = externalRoutes.checkoutRegularSubscription,
   className,
   classNameArrow,
   classNameSubheading,

@@ -16,7 +16,7 @@ import {
 import { faPodcast } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // util
 import { ViewportContext } from '@/utils/contexts'
-import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
+import { externalRoutes, EWindowWidth } from '@/utils/constants'
 
 export const SocialMediaLinks = ({ className }: IDefaultProps) => {
   // ==================== Context ====================
@@ -30,7 +30,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faYoutube}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={EExternalRoutes.YOUTUBE}
+        url={externalRoutes.youTube}
       />
 
       <Link.Icon
@@ -39,7 +39,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faTiktok}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={EExternalRoutes.TIKTOK}
+        url={externalRoutes.tikTok}
       />
 
       <Link.Icon
@@ -48,7 +48,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faFacebook}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={EExternalRoutes.FACEBOOK}
+        url={externalRoutes.facebook}
       />
 
       <Link.Icon
@@ -57,7 +57,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faInstagram}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={EExternalRoutes.INSTAGRAM}
+        url={externalRoutes.instagram}
       />
 
       <Link.Icon
@@ -66,7 +66,7 @@ export const SocialMediaLinks = ({ className }: IDefaultProps) => {
         icon={faPodcast}
         iconSize={windowWidth <= EWindowWidth.md ? '2x' : 'lg'}
         target="_blank"
-        url={EExternalRoutes.PODCASTS}
+        url={externalRoutes.podcasts}
       />
     </>
   )

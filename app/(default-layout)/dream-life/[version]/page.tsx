@@ -202,8 +202,9 @@ export default function AbandonedCartOffer({ params }: TParams) {
 
           <p className="mb-4">
             {`It’s time to take control of your love life and relationships—because you deserve more than just “getting by.” You deserve connection, joy, and love that lasts.${
-              params.version === 'lifetime-membership' &&
-              ' And the peace of knowing you’ll never be alone on this journey again.'
+              params.version === 'lifetime-membership'
+                ? ' And the peace of knowing you’ll never be alone on this journey again.'
+                : ''
             }`}
           </p>
 

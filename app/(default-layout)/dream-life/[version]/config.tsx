@@ -44,7 +44,7 @@ export const config = {
       {
         question: 'Are there any discounts for quarterly or yearly memberships?',
         answer:
-          'Yes, members who subscribe to our All-Access Pass - Quarterly or All-Access Pass - Annually subscriptions receive a discounted rate on their membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details or contact our team at info@personaldevelopmentschool.com to change your membership.',
+          'Yes, members who subscribe to our All-Access Pass can receive a discounted rate on a quarterly or an annual membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
@@ -103,12 +103,7 @@ export const config = {
       {
         question: 'Are there any discounts for quarterly or yearly memberships?',
         answer:
-          'Yes, members who subscribe to our All-Access Pass - Quarterly or All-Access Pass - Annually subscriptions receive a discounted rate on their membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details or contact our team at info@personaldevelopmentschool.com to change your membership.',
-      },
-      {
-        question: 'How do I reactivate my Membership?',
-        answer:
-          'Within 3 months of pausing your membership, you can choose to reactivate your membership at any time. All your progress will be retained, and you can pick up where you left off. Upon reactivation, your membership will auto-renew at your original subscription price, and the card on file will be charged. Please let us know if you would like to reactivate your membership, as there is no option to reactivate your membership yourself. Email our customer service team directly at info@personaldevelopmentschool.com so we can help you reactivate your membership and make sure all your progress is retained.',
+          'Yes, members who subscribe to our All-Access Pass can receive a discounted rate on a quarterly or an annual membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
     checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
@@ -177,9 +172,9 @@ export const config = {
     seoTitle: 'Unlock Your Quarterly Membership to the All-Access Pass',
     seoDescription:
       'Start your healing journey with a flexible Quarterly Membership. Access 70+ courses, live webinars & a supportive community—renewed every 3 months!',
-    heading: 'Create Your Dream Life With The All-Access Pass',
+    heading: 'Start Your Quarterly Membership to the All-Access Pass Now',
     subheading:
-      'Your Path to Transformation Awaits – Activate Your All-Access Pass Membership Before Time Runs Out! ',
+      'Your Path to Transformation Awaits – Activate Your All-Access Pass Membership Before Time Runs Out! Lock In Support & Savings One Season at a Time – Before The Clock Runs Out!',
     heroCtaLabel: 'BEGIN YOUR NEW CHAPTER',
     costCopy1:
       'Now, you have the opportunity to take action. Through a powerful and proprietary model rooted in science and empathy, you can unlock the subconscious barriers holding you back so you can embrace real, profound changes in your life and relationships!',
@@ -190,7 +185,7 @@ export const config = {
         months so you can keep moving forward in life.
       </>
     ),
-    hookTitle: 'What’s Stopping You from Saying Yes This Season?',
+    hookTitle: 'Ready to Say Yes This Season?',
     offerCopy: (
       <>
         Everyone wants to feel secure and have deep and loving relationships. They just don’t know
@@ -222,16 +217,16 @@ export const config = {
           'Yes, members who subscribe to our All-Access Pass can receive a discounted rate on an annual membership. You can also sign up for a Lifetime Membership that gives you access to everything FOREVER. Please check out our Membership Page for more details, or contact our team at info@personaldevelopmentschool.com to change your membership.',
       },
     ],
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_PLAN,
   },
 
   'annual-membership': {
     seoTitle: 'Unlock Your Annual Membership to the All-Access Pass',
     seoDescription:
       'Get a full year of support from The Personal Development School. Get unlimited access to powerful courses, coaching webinars, and community—all for 12 months.',
-    heading: 'Create Your Dream Life With The All-Access Pass',
+    heading: 'Start a Year of Growth & Healing With An Annual Membership',
     subheading:
-      'Your Path to Transformation Awaits – Activate Your All-Access Pass Membership Before Time Runs Out!',
+      'Lock In 12 Months of Unlimited Access to Courses, Webinars, & Community Before Time Runs Out!',
     heroCtaLabel: 'BEGIN A NEW YEAR ',
     costCopy1:
       'Now, you have the opportunity to take action. Through a powerful and proprietary model rooted in science and empathy, you can unlock the subconscious barriers holding you back so you can embrace real, profound changes in your life and relationships!',
@@ -242,7 +237,7 @@ export const config = {
         community, so you have everything you need all year long.
       </>
     ),
-    hookTitle: 'What’s Stopping You from Having a Year That Changes Everything?',
+    hookTitle: 'Ready to Say Yes This Year?',
     offerCopy: (
       <>
         Everyone wants to feel secure and have deep and loving relationships. They just don’t know
@@ -280,9 +275,8 @@ export const config = {
     seoTitle: 'Unlock Lifetime Membership to the All-Access Pass',
     seoDescription:
       'Get lifetime access to 70+ transformational courses, live webinars, and expert guidance at The Personal Development School with our All-Access Pass!',
-    heading: 'Create Your Dream Life With The All-Access Pass',
-    subheading:
-      'Your Path to Transformation Awaits – Activate Your All-Access Pass Membership Before Time Runs Out!',
+    heading: 'Become a Lifetime Member & Get Unlimited Access Forever',
+    subheading: 'Your Growth & Support Will Never End – Get Lifetime Access Before Time Runs Out!',
     heroCtaLabel: 'DISCOVER YOUR NEW LIFE—FOR LIFE',
     costCopy1:
       'Now, you have the opportunity to take action. Through a powerful and proprietary model rooted in science and empathy, you can unlock the subconscious barriers holding you back so you can embrace real, profound changes in your life and relationships - forever!',
@@ -293,7 +287,7 @@ export const config = {
         whatever challenge you want to conquer next!
       </>
     ),
-    hookTitle: 'What’s Stopping You From Securing Your Future?',
+    hookTitle: 'Ready to Secure Your Future?',
     offerCopy: (
       <>
         Everyone wants to feel secure and have deep and loving relationships. They just don’t know

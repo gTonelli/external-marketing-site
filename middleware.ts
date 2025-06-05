@@ -244,7 +244,6 @@ const sendEventUnsafe = async (
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  faReport: {
   faIcp: {
     cookieKey: 'gm-1774-fa',
     pageName: 'VSL Royal Rumble Results - fa',

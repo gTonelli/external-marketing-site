@@ -29,8 +29,8 @@ export const IAT_COPY = {
       'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
       <>
         <strong>
-          *Spots for the Live Training version of the program running from May 21, 2025 - August 6,
-          2025 are limited.
+          *Sign up for the Live Training, starting July 24, 2025 to October 9, 2025. Spots are
+          limited.
         </strong>
       </>,
     ],
@@ -101,25 +101,25 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on May 21st, 6 PM ET`,
+          `Attend 1-hour review session on July 24th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on May 28th, 6 PM ET`,
+          `Attend 1-hour review session on July 31st, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on June 4th, 6 PM ET`,
+          `Attend 1-hour review session on August 7th, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on June 11th, 6 PM ET`,
+          `Attend 1-hour review session on August 14th, 6 PM ET`,
         ],
       },
 
@@ -127,7 +127,7 @@ export const IAT_COPY = {
         heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
         copy: [
-          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from June 18th - August 6th every Wednesday at 6 PM ET for 8 weeks.',
+          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from August 21st - October 9th every Wednesday at 6 PM ET for 8 weeks.',
           "Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.",
           'Each meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.',
         ],

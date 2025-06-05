@@ -106,7 +106,7 @@ export const FaqDefault = ({
 
       {faq.map((data, index) => (
         <FAQ
-          key={`${index}`}
+          key={`faq_${index}`}
           answer={data.answer}
           classNameExpandable={classNameExpandable}
           classNameIcon={classNameIcon}

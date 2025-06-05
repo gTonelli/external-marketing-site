@@ -189,6 +189,27 @@ export default function IATSalePage() {
       <IATProgramItinerary />
 
       <Section classNameInner="grid gap-8 lg:grid-cols-2">
+        <div>
+          <Image
+            alt="IAT Certificate Framed on a Wall"
+            className="w-full lg:w-[473px] lg:h-[400px]"
+            src="/images/IATPage/iat-certfication.png"
+            width={351}
+            height={297}
+            quality={100}
+          />
+        </div>
+
+        <div className="text-left">
+          <h2>{CONFIG.certificationTimeline.title}</h2>
+
+          <p className="mb-8">{CONFIG.certificationTimeline.copy}</p>
+
+          <ButtonScroll target="#click-purchase-target" label="GET STARTED NOW" />
+        </div>
+      </Section>
+
+      <Section classNameInner="grid gap-8 lg:grid-cols-2">
         <div className="text-left">
           <h2>{CONFIG.thais.title}</h2>
 
@@ -209,7 +230,7 @@ export default function IATSalePage() {
       </Section>
 
       <Section className="bg-pink-auxiliary" classNameInner="py-9 lg:pt-1 lg:pb-4">
-        <h3>{CONFIG.impact.title}</h3>
+        <h2>{CONFIG.impact.title}</h2>
 
         <div className="grid gap-8 text-left lg:grid-cols-2">
           <div>

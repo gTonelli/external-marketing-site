@@ -18,9 +18,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { faCheckCircle, faFaceSadSweat } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { Pages } from '@/modules/Mixpanel'
 //utils
-import { EWindowWidth, ERoutes, EExternalRoutes } from '@/utils/constants'
+import { EWindowWidth, routes, externalRoutes } from '@/utils/constants'
 import { ViewportContext } from '@/utils/contexts'
 
 import 'swiper/css'
@@ -34,8 +34,8 @@ export default function WellnessPage() {
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>, gotoCheckout: boolean) => {
     gotoCheckout
-      ? window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
-      : router.push(ERoutes.EXPLORE_COURSES_PAGE)
+      ? window.location.assign(externalRoutes.checkoutRegularSubscription)
+      : router.push(routes.exploreCoursesPage)
   }
 
   return (

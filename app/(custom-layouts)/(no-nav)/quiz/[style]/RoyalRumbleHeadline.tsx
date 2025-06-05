@@ -9,7 +9,7 @@ import { RegisterNowSection } from './QuizResultsPage'
 import { faChevronDoubleRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { TStyle } from '@/utils/types'
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 type Props = {
   style: Extract<TStyle, 'da' | 'sa'>
@@ -65,7 +65,7 @@ export const RoyalRumbleHeadline = ({
                     </p>
 
                     <ButtonCheckout
-                      href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+                      href={externalRoutes.checkoutRegularSubscription}
                       className="my-8 xxs:px-16"
                       label="GET STARTED NOW!"
                     />
@@ -141,7 +141,7 @@ export const RoyalRumbleHeadline = ({
 
         <div className="flex justify-center">
           <ButtonCheckout
-            href={EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION}
+            href={externalRoutes.checkoutRegularSubscription}
             className="mt-8 xxs:px-16 md:mt-10"
             label="UNLOCK MY DISCOUNT"
           />

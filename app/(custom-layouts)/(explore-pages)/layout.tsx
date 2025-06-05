@@ -1,7 +1,7 @@
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import type { Metadata } from 'next'
-import { ERoutes } from '@/utils/constants'
+import { routes } from '@/utils/constants'
 
 export const metadata: Metadata = {
   title: 'Explore PDS Courses',
@@ -16,7 +16,7 @@ export default function ExploreCoursesLayout({ children }: { children: React.Rea
         clickableLogo={false}
         navLinks={[
           {
-            link: ERoutes.EXPLORE_COURSES_PAGE,
+            link: routes.exploreCoursesPage,
             text: 'View Courses',
             className: '!mr-auto !ml-0',
           },
@@ -25,7 +25,7 @@ export default function ExploreCoursesLayout({ children }: { children: React.Rea
 
       {children}
 
-      <Footer/>
+      <Footer />
     </>
   )
 }

@@ -16,7 +16,7 @@ import { faArrowLeft } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 import { EWindowWidth } from '@/utils/constants'
 import { useWindowWidth } from '@/utils/hooks'
 
@@ -56,7 +56,7 @@ export default function ExploreCoursesPage() {
   }, [])
 
   const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+    window.location.assign(externalRoutes.checkoutRegularSubscription)
   }
 
   return (

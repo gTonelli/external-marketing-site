@@ -13,7 +13,7 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // utils
 import { ViewportContext } from '@/utils/contexts'
-import { EExternalRoutes, EWindowWidth } from '@/utils/constants'
+import { externalRoutes, EWindowWidth } from '@/utils/constants'
 import { formatPrice } from '@/utils/functions'
 // styles
 import 'swiper/css'
@@ -29,14 +29,16 @@ interface IPricingPlan {
   currentPrice: number
   originalPrice: number
   isRecommended: boolean
-  url: EExternalRoutes
+  url: string
   benefits: IPricingPlanBenefit[]
 }
+
+const onSale = true
 
 const pricingPlanbenefits: IPricingPlanBenefit[] = [
   { text: 'Daily Live Webinars and Q&As with Thais', price: '$1,200' },
   { text: 'Daily Support Groups with Trained Coaches', price: '$300' },
-  { text: 'Unlimited Access to 65+ Courses & Programs', price: '$185' },
+  { text: 'Unlimited Access to 70+ Courses & Programs', price: '$185' },
   { text: 'Interactive Workbooks and Exercises', price: '$1,550' },
   { text: 'Private Online Community Access', price: '$500' },
   { text: 'Mobile App', price: '$50' },
@@ -45,26 +47,26 @@ const pricingPlanbenefits: IPricingPlanBenefit[] = [
 const pricingPlan: IPricingPlan[] = [
   {
     title: 'ONE TIME PAYMENT',
-    currentPrice: 1799,
+    currentPrice: onSale ? 1399 : 1799,
     originalPrice: 2399,
     isRecommended: true,
-    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT,
+    url: externalRoutes.checkoutLifetimeUpfront,
     benefits: pricingPlanbenefits,
   },
   {
     title: '6 MONTH PAYMENT PLAN',
-    currentPrice: 339,
+    currentPrice: onSale ? 269 : 339,
     originalPrice: 449,
     isRecommended: false,
-    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN,
+    url: externalRoutes.checkoutLifetime6MonthPlan,
     benefits: pricingPlanbenefits,
   },
   {
     title: '12 MONTH PAYMENT PLAN',
-    currentPrice: 179,
+    currentPrice: onSale ? 149 : 179,
     originalPrice: 239,
     isRecommended: false,
-    url: EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN,
+    url: externalRoutes.checkoutLifetime12MonthPlan,
     benefits: pricingPlanbenefits,
   },
 ]
@@ -103,11 +105,11 @@ export const LifetimePricing = () => {
                     isRecommended && 'border-2 border-primary bg-primary-light/20'
                   )}>
                   {/* badge for sale */}
-                  {/* {isRecommended && (
-                    <div className="absolute top-4 left-36 py-1 px-12 rotate-45 bg-green-check text-center text-white text-sm font-bold w-full">
+                  {onSale && isRecommended && (
+                    <div className="absolute top-4 left-28 w-full text-sm font-bold text-white text-center bg-green-check rotate-45 py-1 px-12 xxs:top-4 xxs:left-36">
                       SAVE 50%
                     </div>
-                  )} */}
+                  )}
                   <p className="text-md font-bold tracking-widest px-2 mb-2">{plan.title}</p>
 
                   <div className="mb-2">
@@ -160,7 +162,7 @@ export const LifetimePricing = () => {
                   </div>
 
                   <div className="w-full text-center text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
-                    <strong>Savings worth over $3,000</strong>
+                    <strong>Savings worth over {onSale ? '$3000' : '$2,000'}</strong>
                   </div>
                 </Card>
               </SwiperSlide>
@@ -179,7 +181,7 @@ export const LifetimePricing = () => {
                 <h2>All-Access Pass</h2>
 
                 <div className="w-fit text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
-                  <strong>Savings worth over $2,000</strong>
+                  <strong>Savings worth over {onSale ? '$3000' : '$2,000'}</strong>
                 </div>
               </div>
             </div>
@@ -209,7 +211,7 @@ export const LifetimePricing = () => {
               <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_UPFRONT}
+                href={externalRoutes.checkoutLifetimeUpfront}
               />
             </div>
             {/* 6 month payment */}
@@ -239,7 +241,7 @@ export const LifetimePricing = () => {
               <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_6_MONTH_PLAN}
+                href={externalRoutes.checkoutLifetime6MonthPlan}
               />
             </div>
             {/* 12 month payment */}
@@ -268,12 +270,12 @@ export const LifetimePricing = () => {
               <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SELECT"
-                href={EExternalRoutes.THINKIFIC_CHECKOUT_LIFETIME_12_MONTH_PLAN}
+                href={externalRoutes.checkoutLifetime12MonthPlan}
               />
             </div>
 
             {/* highlight */}
-            <div className="absolute w-full h-[120%] -top-12 left-0 col-start-4 col-end-5 row-start-1 row-end-8 rounded-xl border-2 border-primary bg-primary/10 overflow-hidden z-5 "></div>
+            <div className="absolute w-full h-[120%] -top-12 left-0 col-start-4 col-end-5 row-start-1 row-end-8 rounded-xl border-2 border-primary bg-primary/10 overflow-hidden z-5" />
 
             <div className="col-span-2 row-start-2 place-self-start pl-4">
               <p className="text-black !font-sspb font-medium py-3">
@@ -321,7 +323,7 @@ export const LifetimePricing = () => {
 
             <div className="col-span-2 row-start-4 place-self-start pl-4">
               <p className="text-black text-left !font-sspb font-medium py-3">
-                Unlimited Access to 65+ Courses & Programs
+                Unlimited Access to 70+ Courses & Programs
               </p>
             </div>
 

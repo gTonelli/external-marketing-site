@@ -1,11 +1,12 @@
 // core
+import Link from 'next/link'
 import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { List } from '@/components/List'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
+import { Button } from '@/components/Button/Button'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { FearfulAvoidantInAdulthood } from './FearfulAvoidantInAdulthood'
 import {
@@ -52,9 +53,9 @@ export default function FearfulAvoidantReportPageB() {
               <h2>What Is a Fearful Avoidant Attachment Style?</h2>
 
               <p>
-                Your attachment style is the subconscious framework you use to connect. For Fearful
+                Your attachment style is the subconscious framework you use to connect. For Fearful
                 Avoidants, this framework is often shaped by inconsistent caregiving, early
-                emotional pain, or instability. 
+                emotional pain, or instability.
               </p>
 
               <p>
@@ -63,14 +64,16 @@ export default function FearfulAvoidantReportPageB() {
             </div>
 
             <VideoThumbnail
-              srcUrl="https://storage.googleapis.com/pds_videos/FA_VSL_FUNNEL_B.mp4"
+              srcUrl="https://storage.googleapis.com/pds_videos/FA_VSL_FUNNEL.mp4"
               thumbnailAlt={`Fearful Avoidant video fa thumbnail`}
               thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
               type="default"
             />
           </div>
 
-          <ButtonScroll target="#pricing" label="START HEALING RIGHT HERE" />
+          <Link href="/limited-offer/fa">
+            <Button label="LEARN ABOUT YOUR TRANSFORMATIONAL JOURNEY" />
+          </Link>
         </div>
       </Section>
 
@@ -212,70 +215,75 @@ export default function FearfulAvoidantReportPageB() {
         </p>
       </Section>
 
-      <Section>
-        <h2>Imagine Having Relationships That Feel Safe, Loving, and Free</h2>
+      <Section classNameInner="lg:!max-w-screen-xl lg:grid lg:grid-cols-[321px_642px] lg:gap-6 lg:items-center xl:items-start xl:grid-cols-[384px_792px]">
+        <Image
+          className="w-full rounded-20 mb-6 lg:mb-0"
+          src="/images/FAReportVariant/woman-holding-coffee.png"
+          alt="A woman smiling with her eyes closed, holding a cup of coffee."
+          width={384}
+          height={496}
+        />
 
-        <div className="grid gap-8 text-left lg:grid-cols-2">
-          <div>
-            <p>
-              <strong>This is the life you can create—and we’re here to help you get there.</strong>
-            </p>
+        <div className="text-left">
+          <h2>Your Healing Journey Starts with the Right Tools </h2>
 
-            <p>
-              The Personal Development School is a dedicated space for healing—offering on-demand
-              courses designed to influence real change, live weekly webinars, and a private
-              community of people who truly understand what you’re working through.
-            </p>
+          <p>
+            Fearful Avoidant patterns are learned — they are not permanent. Research shows that you
+            can rewire your attachment style in as little as thirty days.
+          </p>
 
-            <Image
-              alt="A mockup of PDS courses on the PDs course players on 2 tablets and a laptop."
-              className="mb-4 w-full max-w-[502px]"
-              src="/images/AttachmentQuizResults/course-player-mockup-3-fa.png"
-              width={343}
-              height={177}
-            />
-          </div>
+          <p>
+            <strong>Key Steps for Healing:</strong>
+          </p>
 
-          <div
-            id="pricing"
-            className="default-padding rounded-2xl shadow-centered-card relative overflow-hidden lg:py-10 lg:px-10">
-            <p className="w-full text-center text-white absolute top-8 -right-[calc(50%-39px)] rotate-45 bg-[#30A114]">
-              SAVE 30%
-            </p>
+          <ul>
+            {config.healingSteps.map(({ text, icon }, i) => (
+              <li className="flex" key={`healing_step_${i}`}>
+                <FontAwesomeIcon icon={icon} className="text-primary pt-1" />
+                <p className="mb-0 pl-4">{text}</p>
+              </li>
+            ))}
+          </ul>
 
-            <p className="font-ssp w-3/4 lg:w-full lg:text-2xl">
-              <strong>
-                For just $67/month, your All-Access Pass gives you the complete roadmap to change:
-              </strong>
-            </p>
+          <p>
+            <em>
+              These skills allow you to feel calm, confident, and secure—in both relationships and
+              yourself.
+            </em>
+          </p>
 
-            <List
-              classNameIcon="text-primary mb-4"
-              icon={faCircleCheck}
-              listItems={[
-                <>
-                  <strong>Courses:</strong> On-demand courses give you the tools to heal at the root
-                </>,
-                <>
-                  <strong>Community:</strong> A safe place to grow with like-minded people
-                </>,
-                <>
-                  <strong>Webinars:</strong> Live support from experts to help you stay consistent
-                </>,
-              ]}
-            />
+          <p>
+            Click below to begin your healing journey with The Personal Development School. We offer
+            proprietary, evidence-based tools—engineered for maximum impact in minimal time and
+            flexible enough to learn at your own pace. Strengthen relationships, stay deeply
+            connected, and maintain your independence through our coursework, webinars, and
+            community. Get the All-Access Pass for just $67/month!
+          </p>
 
-            <div className="flex bg-white-secondary p-2 mb-4">
-              <FontAwesomeIcon className="text-primary mr-2" icon={faStars} />
+          <Link href="/limited-offer/fa">
+            <Button label="TAKE THE NEXT STEP IN YOUR JOUNREY" />
+          </Link>
+        </div>
+      </Section>
 
-              <p className="text-primary mb-0">
-                Ready to start building the love and trust you deserve? Sign up for the All-Access
-                Pass now for 30% off for life!
-              </p>
+      <Section className="text-white bg-black" classNameInner="lg:!max-w-screen-xl">
+        <h2>What Makes Our Approach Different?</h2>
+
+        <p className="mb-10">
+          We’ve helped over 30,000 students heal their attachment styles, with a 99.7% satisfaction
+          rate. Our approach is:
+        </p>
+
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 xl:gap-6">
+          {config.pdsApproach.map(({ icon, title, body }, i) => (
+            <div className="text-left" key={`approach_item_${i}`}>
+              <FontAwesomeIcon className="text-white mb-2" icon={icon} size="3x" />
+
+              <h4 className="mb-2">{title}</h4>
+
+              <p>{body}</p>
             </div>
-
-            <ButtonCheckout label="SIGN UP NOW!" />
-          </div>
+          ))}
         </div>
       </Section>
 
@@ -304,180 +312,10 @@ export default function FearfulAvoidantReportPageB() {
             </div>
           ))}
         </div>
-      </Section>
 
-      <Section>
-        <h2>Grow with The Personal Development School</h2>
-
-        <p>
-          <strong>We’ve helped thousands of people just like you. Now, it’s your turn.</strong>
-        </p>
-
-        <div className="grid gap-8 mt-8 lg:grid-cols-2">
-          <div>
-            <Image
-              src="/images/AttachmentQuizResults/course-player-mockup-fa.png"
-              className="w-full mb-4 lg:mb-0"
-              alt="2 Card images overlaid on each other with some text. The first image is of a woman sitting and smiling doing a course workbook. The second image is a mockup of the PDS course player on a lap top. The text reads: 'Easy, step-by-step program. Teaches you everything you need to know about relationships.'"
-              width={300}
-              height={215}
-              quality={100}
-              sizes="100vw"
-            />
-          </div>
-
-          <div className="text-left">
-            <p>Real healing require safety, the right tools, and consistent support.</p>
-
-            <p>
-              But most people don’t know where to find those things. They’re not taught in school.
-              They’re not easy to Google. And even when you want to heal, it’s hard to know where to
-              start.
-            </p>
-
-            <p>That’s why we created The Personal Development School.</p>
-
-            <div className="flex bg-white-secondary p-2 mb-4">
-              <FontAwesomeIcon className="text-primary mr-2" icon={faStars} />
-
-              <p className="text-primary mb-0">
-                And you can access everything we offer to start building the love and trust you
-                deserve with our All-Access Pass! Now available for just $67/month — a 30% discount
-                for life!
-              </p>
-            </div>
-
-            <ButtonCheckout label="JOIN US NOW!" />
-          </div>
-        </div>
-      </Section>
-
-      <Section>
-        <h2>Why Choose Us</h2>
-
-        <p className="max-w-3xl mx-auto">
-          When you join The Personal Development School through our All-Access Pass, you get access
-          to proven, science-backed tools and programs designed to help you become your best self.
-        </p>
-
-        <p>
-          <strong>Inside, you’ll find:</strong>
-        </p>
-
-        <div className="grid gap-8 text-left my-8 lg:grid-cols-3">
-          <div className="flex bg-pink-auxiliary rounded-xl p-4">
-            <div className="mr-2">
-              <FontAwesomeIcon
-                className="text-white bg-primary rounded py-1 px-2 mt-1"
-                icon={fa1}
-                size="lg"
-              />
-            </div>
-
-            <div>
-              <h3>Courses: Your Tools to Change</h3>
-
-              <p>
-                You’ll get immediate access to 70+ on-demand courses, all built using our
-                proprietary, evidence-based method. These courses are designed to help you gently
-                rewire subconscious patterns, shift your attachment style, and regulate your
-                emotions in real time.
-              </p>
-
-              <p>
-                It’s not just theory—it’s neuroscience-backed support that creates real, lasting
-                change.
-              </p>
-
-              <p>
-                <em>Start with our Fearful Avoidant to Securely Attached program.</em>
-              </p>
-            </div>
-          </div>
-
-          <div className="flex bg-orange-auxillary rounded-xl p-4">
-            <div className="mr-2">
-              <FontAwesomeIcon
-                className="text-white bg-primary rounded py-1 px-2 mt-1"
-                icon={fa2}
-                size="lg"
-              />
-            </div>
-
-            <div>
-              <h3>Community: Your Safe, Judgment-Free Space</h3>
-
-              <p>
-                Inside our private, supportive community, you’ll find people who understand exactly
-                what you're working through. It’s a place where it’s safe to be vulnerable and where
-                real connections can start to grow.
-              </p>
-
-              <p>
-                Here, <strong>you won’t be alone or misunderstood</strong>. Our members have walked
-                a path similar to yours. Because everyone in our community ‘gets it,’ you’ll find
-                the courage to open up and explore new ways of relating without losing yourself in
-                the process.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex bg-green-7 rounded-xl p-4">
-            <div className="mr-2">
-              <FontAwesomeIcon
-                className="text-white bg-primary rounded py-1 px-2 mt-1"
-                icon={fa3}
-                size="lg"
-              />
-            </div>
-
-            <div>
-              <h3>Live Webinars: Practice With Support</h3>
-
-              <p>
-                Join weekly live sessions with our founder, Thais Gibson, attachment expert, and
-                PhD, for direct coaching, the opportunity to ask questions, get clarity, and
-                integrate your learning into daily life.
-              </p>
-
-              <p>
-                This is where new habits start to take root—through real-time support and gentle
-                accountability.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      <Section>
-        <h2>How Much Longer Can You Let Fear Dictate Your Relationships?</h2>
-
-        <p>
-          Start changing your attachment style today—with the tools, support, and safety you need to
-          build real, lasting connection.
-        </p>
-
-        <ButtonCheckout className="mb-4" label="SIGN UP NOW!" />
-
-        <div className="w-fit flex items-center bg-[#D9E0FE] py-2 px-4 mb-4 mx-auto">
-          <FontAwesomeIcon className="text-blue-darkest mr-2" icon={faInfoCircle} />
-
-          <p className="text-blue-darkest mb-0">
-            Join the All-Access Pass TODAY And Save 30% On Your Membership
-          </p>
-        </div>
-
-        <div>
-          <Image
-            src="/images/AttachmentQuizResults/course-player-mockup-2.png"
-            className="w-full max-w-[816px] mx-auto mb-4"
-            alt="An image of the Pds course player on several devices: a 3 differnt size tablets, a phone, and a mac"
-            width={343}
-            height={113}
-            quality={100}
-            sizes="100vw"
-          />
-        </div>
+        <Link href="/limited-offer/fa">
+          <Button label="START YOUR JOURNEY TODAY" />
+        </Link>
       </Section>
     </Page>
   )

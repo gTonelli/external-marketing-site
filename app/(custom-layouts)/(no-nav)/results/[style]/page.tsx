@@ -18,7 +18,7 @@ import { RESULTS_COPY } from './config'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 // styles
 import './styles.css'
 
@@ -344,7 +344,7 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
 const ButtonCheckout = ({ ...props }: IButtonCheckoutProps) => {
   return (
     <ButtonCheckoutSplitTest
-      variantUrl={EExternalRoutes.STRIPE_CHECKOUT_REGULAR_SUBSCRIPTION}
+      variantUrl={externalRoutes.singleStepCheckoutRegularSubscription}
       experimentKey="PROD-3779"
       experimentName="PROD-3779-Single-Step-Checkout"
       useCookies={false}

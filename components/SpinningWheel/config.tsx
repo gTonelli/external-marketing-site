@@ -1,5 +1,7 @@
-import { EExternalRoutes } from '@/utils/constants'
+// libraries
 import { WheelData } from 'react-custom-roulette/dist/components/Wheel/types'
+// utils
+import { externalRoutes } from '@/utils/constants'
 
 export type TSpinWheelVariant = 'email' | 'osm'
 
@@ -23,7 +25,7 @@ const commonPrizes = [
     features,
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_7_DAY_TRIAL,
+    checkoutLink: externalRoutes.checkout7DayTrial,
     userTag: 'mkt-spin-wheel-7dft',
   },
   {
@@ -39,7 +41,7 @@ const commonPrizes = [
     features,
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_14_DAY_TRIAL,
+    checkoutLink: externalRoutes.checkout14DayTrial,
     userTag: 'mkt-spin-wheel-14dft',
   },
   {
@@ -54,7 +56,7 @@ const commonPrizes = [
     features,
     disclaimer:
       'At the end of the first month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
-    checkoutLink: EExternalRoutes.STRIPE_CHECKOUT_39_FIRST_MONTH,
+    checkoutLink: externalRoutes.singleStepCheckout39FirstMonth,
     userTag: 'mkt-spin-wheel-39fmo',
   },
   {
@@ -74,7 +76,7 @@ const commonPrizes = [
     ],
     disclaimer:
       'At the end of the trial, you’ll automatically become a member of the $67.00/month plan. You’ll still keep the Needs Course for life even if you don’t stay on.',
-    checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_JAN_2025_PROMO_TRIAL,
+    checkoutLink: externalRoutes.checkoutJan2025PromoTrial,
     userTag: 'mkt-spin-wheel-ft-fc',
   },
 ]
@@ -94,7 +96,7 @@ export const prizes = {
         'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE. You’ll get:',
       features,
       disclaimer: 'You can cancel at any time with no commitment.',
-      checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_QUARTERLY_149,
+      checkoutLink: externalRoutes.checkoutQuarterly149,
       userTag: 'mkt-spin-wheel-50off-quarterly',
     },
   ],
@@ -113,7 +115,7 @@ export const prizes = {
       features,
       disclaimer:
         'At the end of the month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
-      checkoutLink: EExternalRoutes.THINKIFIC_CHECKOUT_1_MONTH_FREE,
+      checkoutLink: externalRoutes.checkout1MonthFree,
       userTag: 'mkt-spin-wheel-1mo-free',
     },
   ],

@@ -14,7 +14,7 @@ import { IATCoachCareerBenefits } from '@/components/IAT/IATCoachCareerBenefits'
 // config
 import { IATTestimonials } from './config'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
 
@@ -82,7 +82,7 @@ export default function PostRegistrationMasterclassPage() {
           and the IAT™ Program, and how it will work for you.
         </p>
 
-        <Link href={EExternalRoutes.CALENDLY_MELANIE}>
+        <Link href={externalRoutes.calendlyMelanie}>
           <Button label="BOOK A DISCOVERY CALL" />
         </Link>
       </Section>

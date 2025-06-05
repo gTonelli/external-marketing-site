@@ -141,10 +141,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   const configs: Array<IConfigWithRegex> = [
     {
-      regex: /^\/attachment-report\/fa/,
-      config: splitTestConfigs.faReport,
-    },
-    {
       regex: /^\/quiz\/results\/fearful-avoidant/,
       config: splitTestConfigs.faIcp,
     },
@@ -249,15 +245,6 @@ const sendEventUnsafe = async (
 
 export const splitTestConfigs: TSplitTestConfigs = {
   faReport: {
-    cookieKey: 'GM-1480',
-    pageName: 'Attachment Style Results - FA',
-    experimentName: 'GM-1480-FA-Report',
-    variantUrl: {
-      path: '/attachment-report/fa/b',
-    },
-    variantRatio: 0.5,
-    forceControlOnNewUser: true,
-  },
   faIcp: {
     cookieKey: 'gm-1774-fa',
     pageName: 'VSL Royal Rumble Results - fa',

@@ -21,7 +21,7 @@ import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
 import { TRIAL_PAGE } from '@/app/(custom-layouts)/(no-nav)/7-day-trial/config'
@@ -48,7 +48,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
   const onGoToCheckout = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, seq_no: number) => {
-      window.location.assign(EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION)
+      window.location.assign(externalRoutes.checkoutRegularSubscription)
     },
     [page_name]
   )

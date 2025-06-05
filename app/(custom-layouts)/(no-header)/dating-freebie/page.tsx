@@ -33,8 +33,8 @@ export default function DatingFreebiePage() {
           height={73}
         />
 
-        <h1 className="max-w-3xl mx-auto mt-8 mb-4">
-          Limited Time Offer: Download the Free Guide to Start Thriving in Love
+        <h1 className="max-w-4xl mx-auto mt-8 mb-4">
+          Limited Time Offer: Download this Exclusive Free Guide to Start Thriving in Love
         </h1>
       </Section>
 
@@ -54,15 +54,15 @@ export default function DatingFreebiePage() {
           </div>
 
           <div className="text-left lg:col-span-2">
-            <h2>
-              Enter Your Details to Uncover Your Relationship Standards &amp; Boundaries So You Get
-              The Love Life You Deserve!
+            <h2 className="mb-8">
+              Enter Your Details Below and Start Understanding Your Relationship Standards &amp;
+              Boundaries So You Get The Love Life You Deserve!
             </h2>
 
             <SignupForm
               classNameFields="!flex-col !gap-y-4"
               submitButtonLabel="GET YOUR FREE GUIDE!"
-              successMessage="Thank you for the submission. You will receive an email within 1-3 business days."
+              successMessage="Thank you for your submission. Your personalised guide is on its way to you, and will be in your inbox shortly!"
               userTags={['dating-freebie']}
               listIds={[40]}
             />

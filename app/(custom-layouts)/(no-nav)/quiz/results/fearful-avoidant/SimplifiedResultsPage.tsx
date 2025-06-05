@@ -41,7 +41,7 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
 
       <Section className="!py-0">
         <div className="w-full">
-          <div className="flex flex-col md:flex-row justify-center items-center">
+          <div className="flex flex-col lg:flex-row justify-center items-center">
             <div>
               <VideoThumbnail
                 srcUrl={config.heroVideo.videoSrc}
@@ -51,7 +51,7 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
               />
             </div>
 
-            <div className="!mx-0 mb-4 md:text-left md:!m-4 md:w-1/2">
+            <div className="!mx-0 mb-4 lg:text-left md:!m-4 md:w-1/2">
               <p className="mb-2">
                 <strong>{config.heroVideo.label}</strong>
               </p>

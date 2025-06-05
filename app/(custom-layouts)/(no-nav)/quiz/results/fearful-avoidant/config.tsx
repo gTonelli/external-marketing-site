@@ -2,11 +2,11 @@
 import { List } from '@/components/List'
 import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
-import { EExternalRoutes } from '@/utils/constants'
+import { externalRoutes } from '@/utils/constants'
 
 export const SIMPLIFIED_RESULTS_CONFIG = {
   fa: {
-    ctaURL: EExternalRoutes.THINKIFIC_CHECKOUT_SIMPLIFIED_FA,
+    ctaURL: externalRoutes.checkoutSimplifiedFa,
     hero: {
       header: "You're a Fearful Avoidant!",
       copy: 'Your report is on its way! Check your inbox.',
@@ -140,7 +140,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
   },
   faVariant: {
-    ctaURL: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+    ctaURL: externalRoutes.checkoutRegularSubscription,
     hero: {
       header: "You're a Fearful Avoidant!",
       copy: 'Your report is on its way! Check your inbox.',
@@ -271,7 +271,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
   },
   ap: {
-    ctaURL: EExternalRoutes.THINKIFIC_CHECKOUT_REGULAR_SUBSCRIPTION,
+    ctaURL: externalRoutes.checkoutRegularSubscription,
     hero: {
       header: "You're an Anxious Preoccupied!",
       copy: 'Your report is on its way! Check your inbox.',

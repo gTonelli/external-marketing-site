@@ -119,7 +119,6 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 export const config = {
   matcher: [
     '/iat/info',
-    '/attachment-report/fa',
     '/quiz/results/fearful-avoidant',
     '/quiz/b/results/fa',
     '/quiz/ap',

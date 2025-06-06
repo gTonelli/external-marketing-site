@@ -32,7 +32,7 @@ export default function DreamLifeFreeCoursePage() {
   return (
     <Page page_name="Dreamlife Pillars Course Page" className="relative">
       <section className="text-center bg-purple-dark px-2">
-        <h2 className="text-white pt-4">
+        <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
           LIMITED TIME: Claim Your FREE Create Secure Relationships Course ($250 Value) for Life +
           Your 7 Day Free PDS Membership
         </h2>

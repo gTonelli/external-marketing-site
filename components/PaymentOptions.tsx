@@ -33,7 +33,7 @@ export const PaymentOptions = ({
             className
           )}>
           <p
-            className={`absolute -top-5 font-bold ${
+            className={`absolute -top-7 font-bold max-w-[calc(100%-3rem)] xxs:-top-5 ${
               placement === 'top' ? 'bg-black text-white' : 'bg-white text-black'
             } rounded-10 py-2 px-4`}>
             {config.offerLabel}

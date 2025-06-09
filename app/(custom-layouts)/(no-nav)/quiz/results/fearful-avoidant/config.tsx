@@ -16,7 +16,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
     heroVideo: {
       videoSrc: 'https://storage.googleapis.com/pds_videos/FA_VSL_Funnel.mp4',
-      videoThumbnailAlt: 'Fearful Avoidant video fa thumbnail',
+      videoThumbnailAlt: 'Fearful Avoidant video thumbnail',
       label: 'Special One-Time Invitation',
       segway: '',
       heading: (
@@ -142,16 +142,16 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
   faVariant: {
     ctaURL: externalRoutes.checkoutRegularSubscription,
     hero: {
-      header: "You're a Fearful Avoidant!",
+      header: 'Your Attachment Style is Fearful Avoidant.',
       copy: 'Your report is on its way! Check your inbox.',
       segway:
-        'You’re someone who’s finally ready to feel safe, seen, and securely connected. And we at The Personal Development School are here to walk that journey with you.',
+        'Are you ready to start building relationships where you finally feel safe, seen, and securely connected? At the Personal Development School we have a tailored program that gives you the right tools you need to start building the loving relationships you crave. Keep reading to learn more.',
       subheader:
         "You're 1 Step Away To Having Healthy, Loving Relationships – Without Being Fearful!",
     },
     heroVideo: {
       videoSrc: 'https://storage.googleapis.com/pds_videos/FA_VSL_Funnel.mp4',
-      videoThumbnailAlt: 'Fearful Avoidant video fa thumbnail',
+      videoThumbnailAlt: 'Fearful Avoidant video thumbnail',
       label: 'Special One-Time Invitation for Fearful Avoidants',
       segway:
         'At The Personal Development School, this is where everything shifts—your results are just the beginning of building love that feels safe, real, and never costs you your freedom.',
@@ -273,16 +273,16 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
   ap: {
     ctaURL: externalRoutes.checkoutRegularSubscription,
     hero: {
-      header: "You're an Anxious Preoccupied!",
+      header: 'Your Attachment Style is Anxious Preoccupied.',
       copy: 'Your report is on its way! Check your inbox.',
       segway:
-        'At The Personal Development School, this is where your transformation begins—your results are just the start of a journey toward secure, lasting love.',
+        'Are you ready to start building relationships where you finally feel safe, wanted, and loved? At the Personal Development School we have a tailored program that gives you the right tools you need to start building lasting, loving relationships you crave. Keep reading to learn more.',
       subheader:
-        'You’re Just One Step Away from Feeling Loved, Secure, and Chosen – Without Overthinking Everything',
+        'You’re Just One Step Away from Feeling Loved, Secure, and Chosen – Without Overthinking Everything!',
     },
     heroVideo: {
-      videoSrc: 'https://storage.googleapis.com/pds_videos/FA_VSL_Funnel.mp4',
-      videoThumbnailAlt: 'Fearful Avoidant video fa thumbnail',
+      videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
+      videoThumbnailAlt: 'Anxious Preoccupied video thumbnail',
       label: 'Special One-Time Invitation',
       segway: '',
       heading: (

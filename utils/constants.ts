@@ -276,7 +276,7 @@ export const externalRoutes = {
     'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH/ref=mp_s_a_1_1?crid=241WSK4NOH946&keywords=thais+gibson+learning+love&qid=1697043535&sprefix=thais+gibson+learning+love%2Caps%2C74&sr=8-1',
   androidApp:
     'https://play.google.com/store/apps/details?id=com.personaldevelopment2.app&pcampaignid=web_share',
-  calendlyMelanie: 'https://calendly.com/info-pds/call-with-melanie-pds',
+  calendlyMelanie: 'https://link.higherlevel.app/widget/booking/UL9L2ws0nW53SkgvNXyf',
   contactUs: `${thinkificUrl}/pages/contact-us`,
   corporate: 'https://www.corporate.personaldevelopmentschool.com/',
   discord: 'https://discord.com/invite/EasJ2CvUkv',

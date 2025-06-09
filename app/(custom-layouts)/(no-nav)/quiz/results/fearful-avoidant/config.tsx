@@ -145,7 +145,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
       header: 'Your Attachment Style is Fearful Avoidant.',
       copy: 'Your report is on its way! Check your inbox.',
       segway:
-        'Are you ready to start building relationships where you finally feel safe, seen, and securely connected? At the Personal Development School we have a tailored program that gives you the right tools you need to start building the loving relationships you crave. Keep reading to learn more.',
+        'Are you ready to start building relationships where you finally feel safe, seen, and securely connected? At the Personal Development School we have a tailored program that gives you the right tools you need to start building the loving relationships you crave. Watch the video to learn more.',
       subheader:
         "You're 1 Step Away To Having Healthy, Loving Relationships – Without Being Fearful!",
     },
@@ -276,7 +276,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
       header: 'Your Attachment Style is Anxious Preoccupied.',
       copy: 'Your report is on its way! Check your inbox.',
       segway:
-        'Are you ready to start building relationships where you finally feel safe, wanted, and loved? At the Personal Development School we have a tailored program that gives you the right tools you need to start building lasting, loving relationships you crave. Keep reading to learn more.',
+        'Are you ready to start building relationships where you finally feel safe, wanted, and loved? At the Personal Development School we have a tailored program that gives you the right tools you need to start building lasting, loving relationships you crave. Watch the video to learn more.',
       subheader:
         'You’re Just One Step Away from Feeling Loved, Secure, and Chosen – Without Overthinking Everything!',
     },

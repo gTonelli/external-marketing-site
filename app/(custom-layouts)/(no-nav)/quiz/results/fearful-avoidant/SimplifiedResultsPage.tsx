@@ -64,7 +64,7 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
               />
             </div>
 
-            <div className="!mx-0 mb-4 lg:text-left md:!m-4 md:w-1/2">
+            <div className="!mx-0 mb-4 lg:text-left md:!m-4 lg:w-1/2">
               <p className="mb-2">
                 <strong>{config.heroVideo.label}</strong>
               </p>

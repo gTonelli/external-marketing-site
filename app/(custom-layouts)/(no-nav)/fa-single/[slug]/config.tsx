@@ -1,4 +1,92 @@
 export const FA_SINGLE_CONFIG = {
+  common: {
+    checkoutUrl: '/limited-offer/fa',
+    program: {
+      header: 'It’s Time To Own Your Confidence, Overcome Trauma, and Find Relationship Harmony',
+      subheader: 'THIS IS THE PROGRAM & TOOLS WILL TRANSFORM EVERYTHING!',
+      copy: [
+        <>
+          Our <strong>Fearful Avoidant to Securely Attached Program</strong> gives you the
+          personalized roadmap and revolutionary, practical tools (only available at our school) to
+          break unhealthy patterns, build deeper connections, and thrive in emotionally strong
+          relationships while maintaining your independence and freedom!
+        </>,
+        <>
+          It’s part of our BONUS offer: a <strong>30% discount on our All-Access Pass</strong>; our
+          comprehensive membership that gives you everything we offer at our school, including
+          courses, live webinars and Q&A sessions, study groups, and access to our online community.
+        </>,
+      ],
+      ctaLabel: 'TAKE CHARGE OF YOUR GROWTH',
+    },
+    benefits: {
+      header:
+        'Get Ready for a Major Shift—Here’s What Our Fearful Avoidant Program Will Do for You',
+      subheader: 'EXPECT DEEP HEALING FROM PAST TRAUMA, RAPID RESULTS, & PERSONAL GROWTH',
+      listItems: [
+        <>
+          <strong>Get What You Need</strong> – Whether you crave more freedom or deeper connection,
+          it’s time to know exactly what fuels your happiness in relationships and yourself.
+        </>,
+        <>
+          <strong>Crush Your Insecurities</strong> – Say goodbye to self-doubt and fear. Learn
+          powerful tools to overcome the self-doubt and fear that's holding you back so you can feel
+          rock-solid and secure in your love life.
+        </>,
+        <>
+          <strong>Raise Your Standards</strong> – Stop settling for less than you deserve. Get
+          crystal clear on what you want in a relationship and stand firm in your expectations.
+        </>,
+        <>
+          <strong>Set Boundaries Like a Boss</strong> – Tired of feeling taken advantage of?
+          Discover how to prioritize yourself and create healthy, fulfilling relationships on your
+          terms.
+        </>,
+        <>
+          <strong>Talk So They Listen</strong> – Master the art of communication with different
+          personalities to eliminate misunderstandings and build aligned relationships.
+        </>,
+        <>
+          <strong>Read People Fast</strong> – Quickly identify others' attachment styles, understand
+          their needs and boundaries, and navigate relationships with confidence and ease.
+        </>,
+      ],
+    },
+    hook: {
+      header: 'Are You Ready to Truly Unlock Your Best Self & Your Best Relationships?',
+      copy: (
+        <>
+          Our step-by-step <strong>Fearful Avoidant to Securely Attached Program</strong> will give
+          you the breakthroughs you need to transform your approach to love. Expect to experience
+          more success and confidence in your dating life and relationships.
+        </>
+      ),
+      ctaLabel: 'SSAY YES TO THE NEW YOU*',
+      disclaimer:
+        '*When you sign up for the course, you’ll become an All-Access Pass Member for $67 per month, instead of $97 – a 30% discount for LIFE! And because I know this program will change your life, I’ll give you a 100% refund if you don’t see a transformation within 7 days – no questions asked!',
+    },
+    askYourself: {
+      header: 'The Sooner You Start, The Sooner You’ll Experience Results',
+      subheader: 'ASK YOURSELF:',
+      listItems: [
+        'What if the missing piece in your life has been right in front of you all along?',
+        'How much of your energy did those painful relationship cycles take from you – and ruin your chance of a happier, transparent one?',
+        "Isn't it draining to keep riding the endless highs and lows of relationships, never knowing what's next?",
+        "Do you ever feel like you're carrying the weight of the world alone – wondering if you'll ever truly be able to trust someone again?",
+      ],
+      copy: [
+        "Imagine what your life could look like if, in another 1, 3, or even 5 years, you're still stuck in the same exhausting patterns.",
+        <>
+          <strong>
+            But what if, by taking action today, you could step into a completely different reality
+            where you're your best self with the transparent, honest, and exciting relationships you
+            want?
+          </strong>
+        </>,
+      ],
+      ctaLabel: 'TRANSFORM YOUR LIFE NOW',
+    },
+  },
   behaviors: {
     seoTitle: 'Fearful Avoidant Singles | Discover Your Behaviors',
     seoDescription:

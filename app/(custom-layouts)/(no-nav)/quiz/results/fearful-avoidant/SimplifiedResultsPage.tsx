@@ -3,14 +3,13 @@ import Image from 'next/image'
 import { cookies } from 'next/headers'
 // components
 import { Section } from '@/components/Section'
+import { List } from '@/components/List'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { List } from '@/components/List'
+import { faCheckCircle, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { SIMPLIFIED_RESULTS_CONFIG as CONFIG } from './config'
-// libraries
-import { faCheckCircle, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface ISimplifiedResultsPageProps {
   configKey: 'fa' | 'faVariant' | 'ap'
@@ -24,19 +23,33 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
   return (
     <>
       <Section classNameInner="max-w-4xl mx-auto">
-        <h1 className="text-primary mb-4">
-          {userFirstName && configKey !== 'fa' ? `${userFirstName}!` : ''}
-          {config.hero.header}
-        </h1>
+        {configKey !== 'fa' ? (
+          <>
+            <h1 className="mb-4">
+              {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'}{' '}
+              {config.hero.subheader}
+            </h1>
 
-        <p className="mb-4">{config.hero.copy}</p>
+            <h2 className="text-primary">{config.hero.header}</h2>
 
-        {config.hero.segway && <p className="max-w-3xl mx-auto mb-8">{config.hero.segway}</p>}
+            <p className="mb-4">
+              <strong>{config.hero.copy}</strong>
+            </p>
 
-        <h2>
-          {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'}{' '}
-          {config.hero.subheader}
-        </h2>
+            {config.hero.segway && <p className="max-w-3xl mx-auto mb-8">{config.hero.segway}</p>}
+          </>
+        ) : (
+          <>
+            <h1 className="text-primary mb-4">{config.hero.header}</h1>
+
+            <p className="mb-4">{config.hero.copy}</p>
+
+            <h2>
+              {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'}{' '}
+              {config.hero.subheader}
+            </h2>
+          </>
+        )}
       </Section>
 
       <Section className="!py-0">

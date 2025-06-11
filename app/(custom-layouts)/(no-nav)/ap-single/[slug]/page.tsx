@@ -4,17 +4,17 @@ import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { SinglesPage } from '@/components/SinglesPage'
 // config
-import { FA_SINGLE_SEO as CONFIG } from './config'
+import { AP_SINGLE_SEO as CONFIG } from './config'
 
 export const dynamicParams = false
 
 type TParams =
-  | 'behaviors'
-  | 'dating-tips'
-  | 'heal-triggers'
-  | 'situationship'
-  | 'dating-apps'
-  | 'needs'
+  | 'heal-abandonment'
+  | 'overcoming-loneliness'
+  | 'texting'
+  | 'regulate-emotions'
+  | 'limerence'
+  | 'becoming-secure'
 
 interface IFASinglePageParams {
   params: Promise<{
@@ -24,12 +24,12 @@ interface IFASinglePageParams {
 
 export function generateStaticParams() {
   return [
-    { slug: 'behaviors' },
-    { slug: 'dating-tips' },
-    { slug: 'heal-triggers' },
-    { slug: 'situationship' },
-    { slug: 'dating-apps' },
-    { slug: 'needs' },
+    { slug: 'heal-abandonment' },
+    { slug: 'overcoming-loneliness' },
+    { slug: 'texting' },
+    { slug: 'regulate-emotions' },
+    { slug: 'limerence' },
+    { slug: 'becoming-secure' },
   ]
 }
 
@@ -43,12 +43,12 @@ export async function generateMetadata({ params }: IFASinglePageParams): Promise
   }
 }
 
-export default async function FASinglePage({ params }: IFASinglePageParams) {
+export default async function APSinglePage({ params }: IFASinglePageParams) {
   const { slug } = await params
 
   return (
-    <Page page_name={`FA Single - ${slug}`}>
-      <SinglesPage style="fa" slug={slug} />
+    <Page page_name={`AP Single - ${slug}`}>
+      <SinglesPage style="ap" slug={slug} />
     </Page>
   )
 }

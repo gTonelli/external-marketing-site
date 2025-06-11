@@ -6,18 +6,44 @@ import { List } from '@/components/List'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { Button } from '@/components/Button/Button'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// utils
+import { TStyle } from '@/utils/types'
+// styles
+import '../app/(custom-layouts)/(no-nav)/fa-single/[slug]/style.css'
 
+interface IHero {
+  header: string
+  subheader: string
+  videoId: string
+}
 interface ISinglesPageProps {
-  config: any
+  style: TStyle
   slug: string
 }
 
-export const SinglesPage = ({ config, slug }: ISinglesPageProps) => {
-  const hero = config[slug]
+async function getConfig(style: TStyle) {
+  switch (style) {
+    case 'fa':
+      return (await import('../app/(custom-layouts)/(no-nav)/fa-single/[slug]/config'))
+        .FA_SINGLE_CONFIG
+    case 'ap':
+      return (await import('../app/(custom-layouts)/(no-nav)/ap-single/[slug]/config'))
+        .AP_SINGLE_CONFIG
+    default:
+      throw new Error(`Invalid prop!`)
+  }
+}
+
+export const SinglesPage = async ({ style, slug }: ISinglesPageProps) => {
+  const config = await getConfig(style)
+  const hero: IHero = config.versions[slug as keyof typeof config.versions]
+
   return (
     <>
-      <Section classNameInner="!max-w-4xl mx-auto">
-        <h1 className="mb-8">{hero.header}</h1>
+      <Section
+        className="bg-gradient-to-b from-blue-lightest to-white"
+        classNameInner="!max-w-4xl mx-auto">
+        <h1 className="text-primary mb-8">{hero.header}</h1>
 
         <p className="mb-8">{hero.subheader}</p>
 
@@ -33,29 +59,20 @@ export const SinglesPage = ({ config, slug }: ISinglesPageProps) => {
       </Section>
 
       <Section classNameInner="!max-w-4xl mx-auto">
-        <h2 className="mb-8">
-          It’s Time To Own Your Confidence, Overcome Trauma, and Find Relationship Harmony
-        </h2>
+        <h2 className="mb-8">{config.common.program.header}</h2>
 
         <p className="tracking-33 mb-8">
-          <strong>THIS IS THE PROGRAM &amp; TOOLS WILL TRANSFORM EVERYTHING!</strong>
+          <strong>{config.common.program.subheader}</strong>
         </p>
 
-        <p className="mb-8">
-          Our <strong>Fearful Avoidant to Securely Attached Program</strong> gives you the
-          personalized roadmap and revolutionary, practical tools (only available at our school) to
-          break unhealthy patterns, build deeper connections, and thrive in emotionally strong
-          relationships while maintaining your independence and freedom!
-        </p>
-
-        <p className="mb-8">
-          It’s part of our BONUS offer: a <strong>30% discount on our All-Access Pass</strong>; our
-          comprehensive membership that gives you everything we offer at our school, including
-          courses, live webinars and Q&A sessions, study groups, and access to our online community.
-        </p>
+        {config.common.program.copy.map((item: JSX.Element, idx: number) => (
+          <p key={`program_copy-${idx}`} className="mb-8">
+            {item}
+          </p>
+        ))}
 
         <Link href={config.common.checkoutUrl}>
-          <Button label="TAKE CHARGE OF YOUR GROWTH" />
+          <Button label={config.common.program.ctaLabel} />
         </Link>
       </Section>
 
@@ -67,55 +84,33 @@ export const SinglesPage = ({ config, slug }: ISinglesPageProps) => {
         <div className="bg-woman-using-laptop-mobile lg:hidden" />
 
         <div className="relative text-left p-4 z-5 lg:col-span-6">
-          <h2 className="mb-4">
-            Get Ready for a Major Shift—Here’s What Our Fearful Avoidant Program Will Do for You
-          </h2>
+          <h2 className="mb-4">{config.common.benefits.header}</h2>
 
           <p className="tracking-33 mb-8">
-            <strong>
-              EXPECT DEEP HEALING FROM PAST TRAUMA, RAPID RESULTS, &amp; PERSONAL GROWTH
-            </strong>
+            <strong>{config.common.benefits.subheader}</strong>
           </p>
 
           <List
             classNameIcon="!text-primary mt-1"
             classNameListItems="mb-4"
             icon={faCheckCircle}
-            listItems={[
-              '**Get What You Need** – Whether you crave more freedom or deeper connection, it’s time to know exactly what fuels your happiness in relationships and yourself.',
-              "**Crush Your Insecurities** – Say goodbye to self-doubt and fear. Learn powerful tools to overcome the self-doubt and fear that's holding you back so you can feel rock-solid and secure in your love life.",
-              '**Raise Your Standards** – Stop settling for less than you deserve. Get crystal clear on what you want in a relationship and stand firm in your expectations.',
-              '**Set Boundaries Like a Boss** – Tired of feeling taken advantage of? Discover how to prioritize yourself and create healthy, fulfilling relationships on your terms.',
-              '**Talk So They Listen** – Master the art of communication with different personalities to eliminate misunderstandings and build aligned relationships.',
-              "**Read People Fast** – Quickly identify others' attachment styles, understand their needs and boundaries, and navigate relationships with confidence and ease.",
-            ]}
+            listItems={config.common.benefits.listItems}
           />
         </div>
       </Section>
 
       <Section className="bg-black-secondary" classNameInner="text-white !max-w-4xl mx-auto">
-        <h2 className="mb-8">
-          Are You Ready to Truly Unlock Your Best Self & Your Best Relationships?
-        </h2>
+        <h2 className="mb-8">{config.common.hook.header}</h2>
 
-        <p className="mb-8">
-          Our step-by-step Fearful Avoidant to Securely Attached Program will give you the
-          breakthroughs you need to transform your approach to love. Expect to experience more
-          success and confidence in your dating life and relationships.
-        </p>
+        <p className="mb-8">{config.common.hook.copy}</p>
 
         <Link href={config.common.checkoutUrl}>
-          <Button label="SAY YES TO THE NEW YOU*" />
+          <Button label={config.common.hook.ctaLabel} />
         </Link>
 
         <p className="text-sm mt-8">
           <strong>
-            <em>
-              *When you sign up for the course, you’ll become an All-Access Pass Member for $67 per
-              month, instead of $97 – a 30% discount for LIFE! And because I know this program will
-              change your life, I’ll give you a 100% refund if you don’t see a transformation within
-              7 days – no questions asked!
-            </em>
+            <em>{config.common.hook.disclaimer}</em>
           </strong>
         </p>
       </Section>
@@ -128,37 +123,27 @@ export const SinglesPage = ({ config, slug }: ISinglesPageProps) => {
         <div className="bg-couple-using-laptop-mobile lg:hidden" />
 
         <div className="relative text-left p-4 z-5 lg:col-start-7 lg:col-span-6">
-          <h2 className="mb-4">The Sooner You Start, The Sooner You’ll Experience Results</h2>
+          <h2 className="mb-4">{config.common.askYourself.header}</h2>
 
-          <p className="mb-4">Ask yourself:</p>
+          <p className="tracking-33 mb-4">
+            <strong>{config.common.askYourself.subheader}</strong>
+          </p>
 
           <List
             classNameIcon="!text-primary mt-1"
             classNameListItems="mb-4"
             icon={faCheckCircle}
-            listItems={[
-              '**What if the missing piece in your life has been right in front of you all along?**',
-              '**How much of your energy did those painful relationship cycles take from you – and ruin your chance of a happier, transparent one?**',
-              "**Isn't it draining to keep riding the endless highs and lows of relationships, never knowing what's next?**",
-              "**Do you ever feel like you're carrying the weight of the world alone – wondering if you'll ever truly be able to trust someone again?**",
-            ]}
+            listItems={config.common.askYourself.listItems}
           />
 
-          <p className="mb-8">
-            Imagine what your life could look like if, in another 1, 3, or even 5 years, you're
-            still stuck in the same exhausting patterns.
-          </p>
-
-          <p className="mb-8">
-            <strong>
-              But what if, by taking action today, you could step into a completely different
-              reality where you're your best self with the transparent, honest, and exciting
-              relationships you want?
-            </strong>
-          </p>
+          {config.common.askYourself.copy.map((item: string | JSX.Element, idx: number) => (
+            <p key={`askyourself_copy-${idx}`} className="mb-8">
+              {item}
+            </p>
+          ))}
 
           <Link href={config.common.checkoutUrl}>
-            <Button label="TRANSFORM YOUR LIFE NOW!" />
+            <Button label={config.common.askYourself.ctaLabel} />
           </Link>
         </div>
       </Section>

@@ -29,6 +29,9 @@ async function getConfig(style: TStyle) {
     case 'ap':
       return (await import('../app/(custom-layouts)/(no-nav)/ap-single/[slug]/config'))
         .AP_SINGLE_CONFIG
+    case 'da':
+      return (await import('../app/(custom-layouts)/(no-nav)/da-single/[slug]/config'))
+        .DA_SINGLE_CONFIG
     default:
       throw new Error(`Invalid prop!`)
   }

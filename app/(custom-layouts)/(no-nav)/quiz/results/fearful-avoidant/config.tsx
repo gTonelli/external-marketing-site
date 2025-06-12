@@ -1,6 +1,3 @@
-// components
-import { List } from '@/components/List'
-import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
@@ -46,6 +43,8 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           profound and transformational change you desire in yourself and your relationships.
         </>,
       ],
+      listItems: undefined,
+      copy2: undefined,
       segway2: [],
     },
     course: {
@@ -178,19 +177,14 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           secure, healthy, lasting love.
         </>,
         'With this program, you’ll start uncovering:',
-        <>
-          <List
-            classNameIcon="!text-black"
-            icon={faCircleSmall}
-            listItems={[
-              'What triggers your panic, withdrawal, or shutdown patterns',
-              'How to feel your emotions safely — without losing control',
-              'How to create closeness without feeling trapped',
-            ]}
-          />
-        </>,
-        'Plus, you’ll do it in a community built just for you, guided by an expert in attachment theory who understands your exact experience.',
       ],
+      listItems: [
+        'What triggers your panic, withdrawal, or shutdown patterns',
+        'How to feel your emotions safely — without losing control',
+        'How to create closeness without feeling trapped',
+      ],
+      copy2:
+        'Plus, you’ll do it in a community built just for you, guided by an expert in attachment theory who understands your exact experience.',
       segway2: [
         'Our team at The Personal Development School developed this system to help you understand your patterns, express your needs, and feel confident setting healthy boundaries.',
         'Inside the program, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',
@@ -311,6 +305,8 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           over-give to be chosen. And it’s available through your <strong>All-Access Pass</strong>.
         </>,
       ],
+      listItems: undefined,
+      copy2: undefined,
       segway2: [
         'Our team at The Personal Development School developed this system to help you understand your patterns, express your needs, and feel confident setting healthy boundaries.',
         'Inside the program, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',

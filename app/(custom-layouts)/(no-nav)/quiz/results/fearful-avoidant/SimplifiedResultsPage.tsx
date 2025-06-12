@@ -99,6 +99,17 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
                 {item}
               </p>
             ))}
+
+            {config.outcomes.listItems && (
+              <List
+                className="mb-4"
+                classNameIcon="!text-black"
+                icon={faCircleSmall}
+                listItems={config.outcomes.listItems}
+              />
+            )}
+
+            {config.outcomes.copy2 && <p>{config.outcomes.copy2}</p>}
           </div>
 
           <div className="flex items-center justify-center">

@@ -2,8 +2,7 @@ export const AP_SINGLE_CONFIG = {
   common: {
     checkoutUrl: '/limited-offer/ap',
     program: {
-      header:
-        'Get The Love You Deserve In a Relationship Where You’re Secure & Loved. Only With This Life-Changing Program',
+      header: 'Get The Relationship Where You Feel Secure & Loved With This Life-Changing Program',
       subheader: '',
       copy: [
         <>
@@ -22,7 +21,7 @@ export const AP_SINGLE_CONFIG = {
       ctaLabel: 'GET THE PROGRAM NOW',
     },
     benefits: {
-      header: 'Here’s How This Program Will Help You Elevate Your Relationships',
+      header: 'Here’s How This Program Will Help You Elevate Your Love Life',
       subheader: 'LET GO OF ANXIETY, BUILD STRONGER CONNECTIONS, AND FEEL TRULY SEEN AND LOVED',
       listItems: [
         <>
@@ -31,9 +30,9 @@ export const AP_SINGLE_CONFIG = {
           are.
         </>,
         <>
-          <strong>Break Free From the Anxiety Spiral</strong> – Say goodbye to overthinking and the
-          constant search for reassurance. Discover simple, proven strategies to quiet your mind and
-          reclaim your emotional peace, and remove emotional rollercoasters.
+          <strong>Break Free From the Anxiety Spiral</strong> – Say goodbye to overthinking and
+          craving reassurance. Discover simple, proven strategies to quiet your mind and reclaim
+          your emotional peace, and remove emotional rollercoasters.
         </>,
         <>
           <strong>Release Old Emotional Baggage</strong> – Let go of the old relationship patterns

@@ -152,6 +152,20 @@ const allConfigs = {
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
   },
+  dreamLifeSomatic: {
+    offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
+    offerType: '',
+    title: 'Unlock the Powerful Tools to Start Healing Your Body & Mind',
+    copy: (
+      <>
+        Get the <strong>Release Emotions with Somatic Processing</strong> course (for only $19) and
+        learn to calm your body and mind, so you can start healing and becoming your true self.
+      </>
+    ),
+    checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
+    ctaLabel: 'GET THE COURSE NOW',
+    disclaimer: '',
+  },
 } satisfies Record<string, TConfig>
 
 export type TPaymentOptionsConfigKey = keyof typeof allConfigs

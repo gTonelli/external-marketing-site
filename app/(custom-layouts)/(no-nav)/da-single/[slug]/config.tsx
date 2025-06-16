@@ -2,8 +2,9 @@ export const DA_SINGLE_CONFIG = {
   common: {
     checkoutUrl: '/limited-offer/da',
     program: {
-      header: 'Build Trust Without Losing Yourself: Finally Understand Relationships On Your Terms',
-      subheader: 'THIS IS THE COURSE TO HELP YOU CONNECT, COMMUNICATE, & STAY INDEPENDENT!',
+      header:
+        'This Program is For You To Connect, Communicate, & Build Trust In Relationships Without Losing Yourself.',
+      subheader: '',
       copy: [
         <>
           The <strong>Dismissive Avoidant to Securely Attacahed Program</strong> gives you the
@@ -17,10 +18,10 @@ export const DA_SINGLE_CONFIG = {
           courses, live webinars and Q&A sessions, study groups, and access to our online community.
         </>,
       ],
-      ctaLabel: 'TAKE CHARGE OF YOUR FUTURE',
+      ctaLabel: 'GET THE PROGRAM NOW!',
     },
     benefits: {
-      header: 'Expect a Major Shift—Here’s What Our Dismissive Avoidant Course Will Do for You',
+      header: 'Expect a Major Shift—Here’s What Our Dismissive Avoidant Program Will Do for You',
       subheader: 'GET OUT OF AUTO-PILOT, BUILD REAL CONNECTION, & REMAIN TRUE TO YOURSELF',
       listItems: [
         <>
@@ -28,17 +29,16 @@ export const DA_SINGLE_CONFIG = {
           ways that build trust without leaving you feeling exposed or emotionally drained.
         </>,
         <>
-          <strong>Feel Comfortable, Not Overwhelmed in Relationships</strong> – Discover that being
-          close to someone means you can still have full autonomy and space when needed.
+          <strong>Feel Comfortable in Relationships</strong> – Discover that being close to someone
+          means you can still have full autonomy and space when needed.
         </>,
         <>
-          <strong>Handle Conflict Without Shutting Down</strong> – Avoid conflict avoidance. Develop
-          simple strategies to respond logically and calmly, even in emotionally charged situations.
+          <strong>Handle Conflict Without Shutting Down</strong> – Develop simple strategies to
+          respond logically and calmly, even in emotionally charged situations.
         </>,
         <>
-          <strong>Expect Independence Without Guilt</strong> – Set strong, respectful boundaries
-          that make space for you. Confidently communicate your limits—without conflict, confusion,
-          or guilt.
+          <strong>Expect Independence Without Guilt</strong> – SSet and confidently communicate your
+          strong, respectful boundaries and personal space, without conflict, confusion, or guilt.
         </>,
         <>
           <strong>Communicate on Your Terms</strong> – Stop wasting energy on misunderstandings or
@@ -59,9 +59,9 @@ export const DA_SINGLE_CONFIG = {
           Expect to experience more success and confidence in your dating life and relationships.
         </>
       ),
-      ctaLabel: 'SAY YES TO THE NEW YOU*',
+      ctaLabel: 'GET THE PROGRAM NOW!*',
       disclaimer:
-        '*When you sign up for the course, you’ll become an All-Access Pass Member for $67 per month – a 30% discount! And because I know this course will change your life, I’ll give you a 100% refund if you don’t see a transformation within 7 days – no questions asked!',
+        '*When you sign up for the program, you’ll become an All-Access Pass Member for $67 per month – a 30% discount! And because I know this program will change your life, I’ll give you a 100% refund if you don’t see a transformation within 7 days – no questions asked!',
     },
     askYourself: {
       header: 'The Sooner You Start, The Sooner You’ll Embrace Peace & Progress',
@@ -81,7 +81,7 @@ export const DA_SINGLE_CONFIG = {
           </strong>
         </>,
       ],
-      ctaLabel: 'TAKE CONTROL OF YOUR LIFE NOW',
+      ctaLabel: 'START YOUR TRANSFORMATION',
     },
   },
   versions: {
@@ -118,7 +118,7 @@ export const DA_SINGLE_CONFIG = {
       header:
         'Here’s Why You’re Always Searching for the “Perfect” Relationship – But Never Find It!',
       subheader:
-        'The "perfect fit" is a trap for your attachment style. Watch this video to understand why you’re on this quest and what you’re really searching for.',
+        'The "perfect fit" is a trap for your Dismissive Avoidant attachment style. Watch this video to understand why you’re on this quest and what you’re really searching for.',
       videoId: 'ikKuIkN8NZM',
     },
     healing: {

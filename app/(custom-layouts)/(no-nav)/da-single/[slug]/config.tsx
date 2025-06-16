@@ -21,7 +21,7 @@ export const DA_SINGLE_CONFIG = {
       ctaLabel: 'GET THE PROGRAM NOW!',
     },
     benefits: {
-      header: 'Expect a Major Shift—Here’s What Our Dismissive Avoidant Program Will Do for You',
+      header: 'Here’s What Our Dismissive Avoidant Program Will Do for You',
       subheader: 'GET OUT OF AUTO-PILOT, BUILD REAL CONNECTION, & REMAIN TRUE TO YOURSELF',
       listItems: [
         <>
@@ -37,7 +37,7 @@ export const DA_SINGLE_CONFIG = {
           respond logically and calmly, even in emotionally charged situations.
         </>,
         <>
-          <strong>Expect Independence Without Guilt</strong> – SSet and confidently communicate your
+          <strong>Expect Independence Without Guilt</strong> – Set and confidently communicate your
           strong, respectful boundaries and personal space, without conflict, confusion, or guilt.
         </>,
         <>

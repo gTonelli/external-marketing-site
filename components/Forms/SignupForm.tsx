@@ -10,6 +10,7 @@ import { useContext, useState } from 'react'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
+import { gtag } from '../GoogleAdsTag'
 // libraries
 import * as yup from 'yup'
 import cx from 'classnames'
@@ -20,10 +21,8 @@ import { MD5 } from 'crypto-js'
 import { isPhoneValid } from '@/utils/functions'
 import { PageContext } from '@/utils/contexts'
 // modules
-import { useFunnelytics } from '@/modules/Funnelytics'
 import Mixpanel from '@/modules/Mixpanel'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
-import { useGoogleTagManager } from '@/modules/GTM'
 import { useGamAnalytics } from '@/modules/GAM'
 // styles
 import 'react-international-phone/style.css'
@@ -73,8 +72,6 @@ export const SignupForm = ({
   const [errorMessage, setErrorMessage] = useState('')
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
-  const funnelytics = useFunnelytics()
-  const tagManager = useGoogleTagManager()
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
@@ -87,23 +84,11 @@ export const SignupForm = ({
     })
 
     if (formSource === 'IAT Ebook') {
-      tagManager?.track({
+      gtag({
         event: 'iat_form_tracking',
         eventCategory: 'IAT Ebook Form',
         eventAction: 'Form',
         eventLabel: 'Submit',
-      })
-
-      funnelytics?.track('Form Tracking', {
-        pageName: 'IAT Ebook',
-      })
-    } else if (formSource === 'IAT Webinar') {
-      funnelytics?.track('Form Tracking', {
-        pageName: 'IAT Webinar',
-      })
-    } else {
-      funnelytics?.track('Form Tracking', {
-        pageName: page_name,
       })
     }
 

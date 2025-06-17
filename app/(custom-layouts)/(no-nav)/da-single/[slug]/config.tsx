@@ -37,8 +37,8 @@ export const DA_SINGLE_CONFIG = {
           respond logically and calmly, even in emotionally charged situations.
         </>,
         <>
-          <strong>Expect Independence Without Guilt</strong> – Set and confidently communicate your
-          strong, respectful boundaries and personal space, without conflict, confusion, or guilt.
+          <strong>Expect Independence Without Guilt</strong> – Confidently communicate your strong,
+          respectful boundaries and personal space, without conflict, confusion, or guilt.
         </>,
         <>
           <strong>Communicate on Your Terms</strong> – Stop wasting energy on misunderstandings or

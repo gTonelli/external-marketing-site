@@ -31,9 +31,10 @@ export default function DreamLifeFreeCoursePage() {
 
   return (
     <Page page_name="Dreamlife Pillars Course Page" className="relative">
-      <section className="text-center bg-purple-dark">
-        <h2 className="text-white pt-4">
-          Incredible Limited Time Offer: $250-Valued Course &amp; FREE Trial
+      <section className="text-center bg-purple-dark px-2">
+        <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
+          LIMITED TIME: Claim Your FREE Create Secure Relationships Course ($250 Value) for Life +
+          Your 7 Day Free PDS Membership
         </h2>
 
         <div className="pb-4">
@@ -43,7 +44,7 @@ export default function DreamLifeFreeCoursePage() {
 
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          Create Healthy & Loving Relationships Without the Guesswork
+          Get the Only Tools You Need to Build The Best Relationships of Your Life
         </h1>
 
         <div className="relative mt-8 lg:mt-12">

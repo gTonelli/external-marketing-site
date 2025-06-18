@@ -12,6 +12,11 @@ import { JULY_PROMO_SOMATIC_CONFIG as CONFIG } from './config'
 import { externalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLightbulbGear } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { List } from '@/components/List'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export const metadata: Metadata = {
   title: 'Self-Soothe Your Attachment Style with This Course!',
@@ -76,7 +81,61 @@ export default function JulyPromoSomaticCoursePage() {
       />
 
       <Section>
-        <p className="tracking-33"></p>
+        <p className="tracking-33">
+          <strong>{CONFIG.course.label}</strong>
+        </p>
+
+        <h2>{CONFIG.course.header}</h2>
+
+        <div className="grid gap-8 text-left md:grid-cols-2">
+          <div></div>
+
+          <div>
+            {CONFIG.course.copy.map((item, idx) => (
+              <p key={`course_copy_${idx}`}>{item}</p>
+            ))}
+          </div>
+        </div>
+
+        <ButtonCheckout href={checkoutUrl} label={CONFIG.course.ctaLabel} />
+
+        <div className="max-w-3xl bg-pink-tertiary rounded-lg mx-auto mt-4 p-4">
+          <p className="mb-0">
+            <span>
+              <FontAwesomeIcon className="text-primary mr-2" icon={faLightbulbGear} />
+            </span>{' '}
+            {CONFIG.course.highlight}
+          </p>
+        </div>
+      </Section>
+
+      <Section className="bg-white-secondary" classNameInner="!text-left md:px-24">
+        <h2>{CONFIG.howTo.header}</h2>
+
+        {CONFIG.howTo.copy1.map((item, idx) => (
+          <p key={`howto_copy1_${idx}`}>{item}</p>
+        ))}
+
+        <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.howTo.listItems} />
+
+        {CONFIG.howTo.copy2.map((item, idx) => (
+          <p key={`howto_copy2_${idx}`}>{item}</p>
+        ))}
+
+        <ButtonCheckout href={checkoutUrl} label={CONFIG.howTo.ctaLabel} />
+
+        <div className="bg-white rounded-lg mt-4 p-4">
+          <p className="mb-0">
+            <span>
+              <FontAwesomeIcon className="text-primary mr-2" icon={faLightbulbGear} />
+            </span>{' '}
+            {CONFIG.howTo.highlight}
+          </p>
+        </div>
+      </Section>
+
+      <Section>
+        <h2></h2>
       </Section>
     </Page>
   )

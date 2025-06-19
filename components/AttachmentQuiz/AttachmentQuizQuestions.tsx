@@ -18,8 +18,8 @@ import cx from 'classnames'
 import { orderBy } from 'lodash'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { useGoogleTagManager } from '@/modules/GTM'
 import { isMobile } from 'react-device-detect'
+import { gtag } from '../GoogleAdsTag'
 // utils
 import { TStyle } from '@/utils/types'
 
@@ -55,9 +55,6 @@ export const AttachmentQuizQuestions = ({
     relationshipSatisfaction: '',
     relationshipStatus: '',
   })
-
-  // ======================== Hooks ====================
-  const tagManager = useGoogleTagManager()
 
   const trackProgressMobile = useCallback(() => {
     const progress = (currentIndex / modifiedQuestions.length) * 100
@@ -158,7 +155,7 @@ export const AttachmentQuizQuestions = ({
           progress: '100%',
         })
 
-        tagManager?.track({
+        gtag({
           event: 'quiz_tracking',
           eventCategory: 'Quiz',
           eventAction: 'Finished',
@@ -191,7 +188,6 @@ export const AttachmentQuizQuestions = ({
       currentIndex,
       quizName,
       quiz_traffic_source,
-      tagManager,
       modifiedQuestions,
     ]
   )

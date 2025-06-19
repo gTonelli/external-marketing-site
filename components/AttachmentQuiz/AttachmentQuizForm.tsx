@@ -6,13 +6,11 @@ import { useContext } from 'react'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
-// modules
-import { useFunnelytics } from '@/modules/Funnelytics'
-import { useGoogleTagManager } from '@/modules/GTM'
 // utils
 import { TStyle } from '@/utils/types'
 import { SplitTestContext } from '@/utils/contexts'
-import { getSplitTest, setSplitTest } from '@/utils/functions'
+import { getAttachmentStyleText, getSplitTest, setSplitTest } from '@/utils/functions'
+import { gtag } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -27,8 +25,6 @@ export const AttachmentQuizForm = ({
   userInfo,
   userStyle,
 }: IAttachmentQuizFormProps) => {
-  const funnelytics = useFunnelytics()
-  const tagManager = useGoogleTagManager()
   const router = useRouter()
   const splitTestContext = useContext(SplitTestContext)
   if (splitTestContext && userStyle !== 'sa') {
@@ -67,15 +63,16 @@ export const AttachmentQuizForm = ({
   }
 
   const onAfterSubmit = () => {
-    tagManager?.track({
+    gtag({
       event: 'form_tracking',
       eventCategory: 'Attachment Quiz',
       eventAction: 'Form',
       eventLabel: 'Submit',
     })
 
-    funnelytics?.track('Form Tracking', {
-      pageName: `Attachment-Quiz-${quiz_traffic_source}`,
+    gtag('event', 'conversion', {
+      send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
+      'Attachment Style': getAttachmentStyleText(userStyle),
     })
 
     const route = determineRoute()

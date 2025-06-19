@@ -14,7 +14,7 @@ export default function AttachmentQuizVariantPage() {
         experimentName: 'GM-1362-ICP-Results',
         key: 'GM-1362',
         useCookies: false,
-        variantRatio: 0.25,
+        variantRatio: 0.5,
       }}
     />
   )

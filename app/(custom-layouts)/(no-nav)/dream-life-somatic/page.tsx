@@ -6,17 +6,19 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { PaymentOptions } from '@/components/PaymentOptions'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
+import { List } from '@/components/List'
+import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { faLightbulbGear } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // config
 import { JULY_PROMO_SOMATIC_CONFIG as CONFIG } from './config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { externalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
-import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLightbulbGear } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { List } from '@/components/List'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export const metadata: Metadata = {
   title: 'Self-Soothe Your Attachment Style with This Course!',
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
 }
 
 export default function JulyPromoSomaticCoursePage() {
-  const checkoutUrl = externalRoutes.checkoutMarch2025PromoTrial
+  const checkoutUrl = externalRoutes.checkoutJuly2025PromoTrial
 
   return (
     <Page page_name="July Promo Somatic" className="relative">
@@ -87,8 +89,15 @@ export default function JulyPromoSomaticCoursePage() {
 
         <h2>{CONFIG.course.header}</h2>
 
-        <div className="grid gap-8 text-left md:grid-cols-2">
-          <div></div>
+        <div className="grid gap-4 text-left mb-8 md:grid-cols-2">
+          <div className="flex -mt-2 md:justify-end">
+            <Image
+              alt="Release Emotions with Somatic Processing course thumbnail"
+              src={'/images/course-somatic-processing.jpg'}
+              width={502}
+              height={324}
+            />
+          </div>
 
           <div>
             {CONFIG.course.copy.map((item, idx) => (
@@ -99,7 +108,7 @@ export default function JulyPromoSomaticCoursePage() {
 
         <ButtonCheckout href={checkoutUrl} label={CONFIG.course.ctaLabel} />
 
-        <div className="max-w-3xl bg-pink-tertiary rounded-lg mx-auto mt-4 p-4">
+        <div className="max-w-3xl bg-pink-auxiliary text-left rounded-lg mx-auto mt-4 p-4">
           <p className="mb-0">
             <span>
               <FontAwesomeIcon className="text-primary mr-2" icon={faLightbulbGear} />
@@ -124,7 +133,7 @@ export default function JulyPromoSomaticCoursePage() {
 
         <ButtonCheckout href={checkoutUrl} label={CONFIG.howTo.ctaLabel} />
 
-        <div className="bg-white rounded-lg mt-4 p-4">
+        <div className="bg-white text-left rounded-lg mt-4 p-4">
           <p className="mb-0">
             <span>
               <FontAwesomeIcon className="text-primary mr-2" icon={faLightbulbGear} />
@@ -134,8 +143,114 @@ export default function JulyPromoSomaticCoursePage() {
         </div>
       </Section>
 
+      <Section classNameInner="!max-w-5xl mx-auto">
+        <h2>{CONFIG.features.header}</h2>
+
+        <p>{CONFIG.features.subheader}</p>
+
+        <div className="grid gap-8 text-left md:grid-cols-2">
+          <div>
+            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listLeft} />
+          </div>
+
+          <div>
+            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listRight} />
+          </div>
+        </div>
+
+        <ButtonCheckout href={checkoutUrl} label={CONFIG.features.ctaLabel} />
+
+        <div className="bg-pink-auxiliary text-left rounded-lg mt-4 p-4">
+          <p className="mb-0">
+            <span>
+              <FontAwesomeIcon className="text-primary mr-2" icon={faLightbulbGear} />
+            </span>{' '}
+            {CONFIG.features.highlight}
+          </p>
+        </div>
+      </Section>
+
+      <Section className="bg-blue-lightest" classNameInner="!max-w-6xl mx-auto">
+        <h2>{CONFIG.discover.header}</h2>
+
+        <p>{CONFIG.discover.subheader}</p>
+
+        <div className="grid gap-8 text-left md:grid-cols-2">
+          <div>
+            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listLeft} />
+          </div>
+
+          <div>
+            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listRight} />
+          </div>
+        </div>
+      </Section>
+
+      <Section classNameInner="grid gap-8 md:grid-cols-2">
+        <div className="text-left">
+          <h2>{CONFIG.offer.header}</h2>
+
+          <Image
+            alt="Release Emotions with Somatic Processing course playing in a tablet"
+            src={'/images/FlashSalePage/somatic-processing-tablet-mockup.png'}
+            width={400}
+            height={300}
+          />
+        </div>
+
+        <div className="text-left">
+          {CONFIG.offer.copy1.map((item, idx) => (
+            <p key={`offer_copy1_${idx}`}>{item}</p>
+          ))}
+
+          <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.offer.listItems} />
+
+          {CONFIG.offer.copy2.map((item, idx) => (
+            <p key={`offer_copy2_${idx}`}>{item}</p>
+          ))}
+        </div>
+      </Section>
+
       <Section>
-        <h2></h2>
+        <div className="max-w-3xl bg-pink-auxiliary mx-auto p-6">
+          <div className="flex justify-center mb-8">
+            {[1, 2, 3, 4, 5, 6].map((item, idx) => (
+              <Image
+                key={`headshot_${idx}`}
+                className="!w-20 !h-20 bg-gray-500 border border-white rounded-full -m-2"
+                alt="Headshot of a student"
+                src={`/images/FlashSalePage/testimonial-headshot-${item}.jpg`}
+                width={64}
+                height={64}
+              />
+            ))}
+          </div>
+
+          <h2>
+            <span className="text-primary">Over 40,000</span> student enrollments from more than 120
+            countries worldwide
+          </h2>
+        </div>
+      </Section>
+
+      <Section classNameInner="!max-w-full !w-full">
+        <h2>{CONFIG.testimonial.header}</h2>
+
+        <p>{CONFIG.testimonial.subheader}</p>
+
+        <CarouselTestimonialThinkific initialSlide={1} />
+      </Section>
+
+      <Section
+        className="!max-w-full bg-[url('/images/pds-bg-vector.svg')] bg-right-bottom bg-no-repeat !bg-cover mx-auto !p-0"
+        classNameInner="px-4 py-24 lg:py-36">
+        <h2>{CONFIG.footer.header}</h2>
+
+        <h2 className="text-primary">{CONFIG.footer.subheader}</h2>
+
+        <p>{CONFIG.footer.label}</p>
+
+        <ButtonCheckout href={checkoutUrl} label={CONFIG.footer.ctaLabel} />
       </Section>
     </Page>
   )

@@ -162,7 +162,7 @@ const allConfigs = {
         learn to calm your body and mind, so you can start healing and becoming your true self.
       </>
     ),
-    checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
+    checkoutUrl: externalRoutes.checkoutJuly2025PromoTrial,
     ctaLabel: 'GET THE COURSE NOW',
     disclaimer: '',
   },

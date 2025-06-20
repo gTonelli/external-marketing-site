@@ -7,11 +7,11 @@ import { useGamAnalytics } from '@/modules/GAM'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
-export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
+export const IATHigherLevelBookingButton = ({ label = 'BOOK NOW' }) => {
   const { getUserData } = useGamAnalytics()
 
   const onBookNow = (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const url = new URL(externalRoutes.calendlyMelanie)
+    const url = new URL(externalRoutes.higherLevelMelanie)
 
     const { gamLastTouchData } = getUserData()
 

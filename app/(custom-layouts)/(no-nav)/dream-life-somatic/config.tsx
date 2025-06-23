@@ -9,11 +9,11 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
     header: 'Change Your Life For Just $19 (& Get Over 90% in Savings!)',
     copy: [
       <>
-        The <strong>Release Emotions with Somatic Processing</strong> course helps you regulate your
-        nervous system, release stored emotional pain, and feel grounded, clear, and emotionally
-        free.{' '}
+        The <strong>Release Emotions with Somatic Processing</strong> course helps you reconnect
+        with yourself, unpack, process, and release your emotions, regulate your nervous system, and
+        feel grounded and emotionally free.
       </>,
-      'This course has helped thousands reclaim peace and confidence from the inside out, restoring their self-trust and helping them thrive in their relationships. Now it’s your turn.',
+      'This course has helped thousands of people reclaim their peace and confidence, connect with themselves on a deeper level, and thrive in their relationships. Now, it’s your turn.',
       <>
         For a limited time, you can access the full course for just <strong>$19</strong> — that’s
         over <strong>$231</strong> in savings compared to the regular price. For this small
@@ -31,8 +31,9 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       'This course isn’t about forcing change. It’s about unlocking it.',
       'You don’t have to push through, numb out, or overanalyze anymore.',
       <>
-        The <em>Release Emotions with Somatic Processing</em> course helps you gently retrain your
-        nervous system and release the emotional tension you didn’t even realize you were carrying.
+        The <strong>Release Emotions with Somatic Processing</strong> course helps you gently
+        retrain your nervous system and release the emotional tension you didn’t even realize you
+        were carrying.
       </>,
       "This course is designed to meet you where you are, especially if you've tried mindset work, journaling, or even therapy and still feel stuck in the same patterns.",
       <>
@@ -40,6 +41,8 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       </>,
     ],
     listItems: [
+      'Self-soothe your attachment style',
+      'Heal and reconnect with yourself deeply',
       'Regulate your nervous system in real time',
       'Release stored emotions that are keeping you anxious or shut down',
       'Shift out of emotional spirals before they take over',
@@ -49,12 +52,17 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       'No reliving your trauma. No overexertion. Just a clear, supportive path to healing that starts where it matters most — within.',
     ],
     ctaLabel: 'GET THE COURSE FOR ONLY $19!',
-    highlight:
-      "The moment you enroll, you’ll get instant access to the full Release Emotions with Somatic Processing course. Here's what you'll find inside:",
+    highlight: (
+      <>
+        The moment you enroll, you’ll get instant access to the full{' '}
+        <strong>Release Emotions with Somatic Processing</strong> course. Here's what you'll find
+        inside:
+      </>
+    ),
   },
   features: {
     header:
-      'Your Somatic Healing Course Was Built to Help You Feel Safe, Regulated, and Free — Fast',
+      'Your Somatic Processing Course Was Built to Help You Feel Safe, Regulated, and Free — Fast',
     subheader: (
       <>
         <strong>
@@ -68,8 +76,8 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       'Techniques to regulate your nervous system without needing to journal, explain, or push through',
     ],
     listRight: [
-      'A body-based approach to emotional mastery that works even if mindset tools haven’t',
-      'Exercises you can use daily to feel grounded, present, and emotionally steady',
+      'A body-based approach to emotional mastery, so you can reconnect with yourself in the moment',
+      'Daily routines that you can use to feel grounded, present, and emotionally steady',
       'How to build real self-trust by tuning into the signals your body has been sending you all along',
     ],
     ctaLabel: 'SIGN UP FOR THE COURSE!',
@@ -78,11 +86,6 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
   },
   discover: {
     header: 'What Life Looks Like After You Start Healing With Somatic Tools',
-    subheader: (
-      <>
-        <strong>You’ll finally feel safe in your body, even when emotions run high</strong>
-      </>
-    ),
     listLeft: [
       'You’ll stay present in conflict instead of spiraling, shutting down, or overreacting',
       'You’ll trust yourself to handle triggers without fear or overwhelm',
@@ -98,7 +101,7 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
   },
   offer: {
     header:
-      'When You Join Today, You’ll Get Lifetime Access to the Full Release Emotions with Somatic Processing Course  For Just $19 — Saving You $231!',
+      'When You Join Today, You’ll Get Lifetime Access to the Release Emotions with Somatic Processing Course For Just $19 — Saving You $231!',
     copy1: [
       'This course is one of our most effective and accessible tools for nervous system regulation and emotional healing. And for a limited time, it’s yours for life.',
       <>
@@ -106,10 +109,10 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       </>,
     ],
     listItems: [
-      'Instant, lifetime access to Release Emotions with Somatic Processing, our expert-designed course to help you regulate your nervous system and process stored emotional pain',
+      'Instant, lifetime access to our expert-designed course, Release Emotions with Somatic Processing, and all the powerful tools and resources that come with it',
       'A step-by-step healing path you can follow at your own pace — no pressure, no overwhelm',
       'Guided somatic techniques that work fast, even if you’re highly triggered, spiralling in painful feelings, or emotionally shutting down',
-      'Real-world tools you can use daily to feel calm, grounded, and emotionally in control',
+      'Real-world tools, grounded in research and used by thousands to feel better and more in control every day',
       'A science-backed approach that supports healing for all attachment styles, especially if traditional methods haven’t worked for you',
     ],
     copy2: [
@@ -126,9 +129,8 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       'The Personal Development School has helped thousands of people make inspiring life transformations.',
   },
   footer: {
-    header:
-      'Get Release Emotions with Somatic Processing Course & Start Feeling Calm and in Control',
-    subheader: 'Enjoy Lifetime Access for Just $19',
+    header: 'Claim This Limited Time Offer: Get the $250 Somatic Processing Course for Just $19',
+    subheader: 'Start Healing & Reconnecting With Yourself Today',
     label: '100% Risk-Free – Get Your Money Back Within 7 Days If It’s Not For You!',
     ctaLabel: 'LAST CHANCE TO GET THIS COURSE!',
   },

@@ -173,15 +173,13 @@ export default function JulyPromoSomaticCoursePage() {
       <Section className="bg-blue-lightest" classNameInner="!max-w-6xl mx-auto">
         <h2>{CONFIG.discover.header}</h2>
 
-        <p>{CONFIG.discover.subheader}</p>
-
         <div className="grid gap-8 text-left md:grid-cols-2">
           <div>
-            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listLeft} />
+            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.discover.listLeft} />
           </div>
 
           <div>
-            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listRight} />
+            <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.discover.listRight} />
           </div>
         </div>
       </Section>

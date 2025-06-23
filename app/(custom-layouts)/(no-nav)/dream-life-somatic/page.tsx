@@ -242,7 +242,9 @@ export default function JulyPromoSomaticCoursePage() {
       <Section
         className="!max-w-full bg-[url('/images/pds-bg-vector.svg')] bg-right-bottom bg-no-repeat !bg-cover mx-auto !p-0"
         classNameInner="px-4 py-24 lg:py-36">
-        <h2>{CONFIG.footer.header}</h2>
+        <h2>{CONFIG.footer.header[0]}</h2>
+
+        <h2>{CONFIG.footer.header[1]}</h2>
 
         <h2 className="text-primary">{CONFIG.footer.subheader}</h2>
 

@@ -87,16 +87,16 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
   discover: {
     header: 'What Life Looks Like After You Start Healing With Somatic Tools',
     listLeft: [
-      'You’ll stay present in conflict instead of spiraling, shutting down, or overreacting',
+      'You’ll stay present in conflict instead of spiraling or shutting down',
       'You’ll trust yourself to handle triggers without fear or overwhelm',
       'You’ll stop carrying emotional tension and start feeling calm, clear, and steady',
       'You’ll respond with confidence instead of falling into old patterns',
     ],
     listRight: [
       'You’ll feel supported in relationships without losing your independence',
-      'You’ll release deep emotional wounds from past heartbreak or childhood trauma',
+      'You’ll release deep emotional wounds from past relationships or trauma',
       'You’ll reconnect with your body, your emotions, and real and safe love',
-      "You'll bring emotional clarity to stressful situations knowing you can handle them",
+      "YYou'll bring emotional clarity and confidence to stressful situations",
     ],
   },
   offer: {
@@ -129,7 +129,10 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       'The Personal Development School has helped thousands of people make inspiring life transformations.',
   },
   footer: {
-    header: 'Claim This Limited Time Offer: Get the $250 Somatic Processing Course for Just $19',
+    header: [
+      'Claim This Limited Time Offer:',
+      'Get the $250 Somatic Processing Course for Just $19',
+    ],
     subheader: 'Start Healing & Reconnecting With Yourself Today',
     label: '100% Risk-Free – Get Your Money Back Within 7 Days If It’s Not For You!',
     ctaLabel: 'LAST CHANCE TO GET THIS COURSE!',

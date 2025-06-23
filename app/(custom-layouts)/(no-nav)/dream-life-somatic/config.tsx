@@ -54,7 +54,7 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
     ctaLabel: 'GET THE COURSE FOR ONLY $19!',
     highlight: (
       <>
-        The moment you enroll, you’ll get instant access to the full{' '}
+        The moment you enroll, you’ll get instant access to the{' '}
         <strong>Release Emotions with Somatic Processing</strong> course. Here's what you'll find
         inside:
       </>

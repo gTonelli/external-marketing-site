@@ -31,7 +31,9 @@
 @media screen and (min-width: 1024px) {
   .bg-coach {
     position: relative;
-    background: url('/images/IATWebinar/girl-wearing-glasses.webp') no-repeat top left / cover;
+    background: url('/images/IATWebinar/girl-wearing-glasses.webp') no-repeat;
+    background-size: cover;
+    background-position-x: 60%;
   }
 
   .bg-coach::after {

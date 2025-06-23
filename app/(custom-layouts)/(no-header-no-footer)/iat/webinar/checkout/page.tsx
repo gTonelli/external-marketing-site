@@ -95,9 +95,9 @@ export default function IATWebinarSqueezePage() {
       <Section
         className="relative bg-watch w-full min-h-52 z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
         classNameInner="relative !max-w-full !m-0 lg:!max-w-5xl lg:!mx-auto lg:grid lg:grid-cols-12">
-        <div className="bg-gradient lg:hidden" />
+        <div className="bg-gradient md:hidden" />
 
-        <div className="bg-watch-mobile lg:hidden" />
+        <div className="bg-watch-mobile md:hidden" />
 
         <div className="relative text-black text-left p-4 z-20 lg:col-span-7">
           <h2 className="mb-8">Ready to Become a Certified & 6-Figure Relationship Coach?</h2>

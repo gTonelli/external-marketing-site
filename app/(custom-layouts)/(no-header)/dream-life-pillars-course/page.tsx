@@ -149,7 +149,7 @@ export default function DreamLifeFreeCoursePage() {
           </p>
         </div>
 
-        <ButtonCheckout href={checkoutUrl} label="SIGN UP FOR YOUR FREE TRIAL" />
+        <ButtonCheckout href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
       </Section>
 
       <Section classNameInner="bg-white-secondary rounded-2xl p-6">
@@ -177,7 +177,7 @@ export default function DreamLifeFreeCoursePage() {
           />
         </div>
 
-        <ButtonCheckout className="mb-4" href={checkoutUrl} label="SIGN UP FOR YOUR FREE TRIAL" />
+        <ButtonCheckout className="mb-4" href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
 
         <p>
           <em>

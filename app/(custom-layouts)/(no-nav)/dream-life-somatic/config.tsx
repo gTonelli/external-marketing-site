@@ -2,11 +2,11 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
   hero: {
     timerHeader:
       'FLASH SALE: Get the “Release Emotions with Somatic Processing” Course for Just $19 (Down from $250) — Ends July 11!',
-    header: 'Self-Soothe Your Emotions. Calm Your Body. Clear Your Mind.',
+    header: 'Self-Soothe Your Emotions. Calm Your Mind. Reconnect with Yourself.',
   },
   course: {
     label: 'HURRY UP! THIS OFFER EXPIRES JULY 11',
-    header: 'Change Your Life For Just $19 (& Save $231!)',
+    header: 'Change Your Life For Just $19 (& Get Over 90% in Savings!)',
     copy: [
       <>
         The <strong>Release Emotions with Somatic Processing</strong> course helps you regulate your

@@ -155,11 +155,12 @@ const allConfigs = {
   dreamLifeSomatic: {
     offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
     offerType: '',
-    title: 'Unlock the Powerful Tools to Start Healing Your Body & Mind',
+    title: 'Unlock the Powerful Tools to Start Healing & Reconnecting With Yourself',
     copy: (
       <>
-        Get the <strong>Release Emotions with Somatic Processing</strong> course (for only $19) and
-        learn to calm your body and mind, so you can start healing and becoming your true self.
+        For only $19, you can get the <strong>Release Emotions with Somatic Processing</strong>{' '}
+        course and learn to calm your body and mind, unpack and self-soothe your emotions, and start
+        healing and reconnecting with yourself and others.
       </>
     ),
     checkoutUrl: externalRoutes.checkoutJuly2025PromoTrial,

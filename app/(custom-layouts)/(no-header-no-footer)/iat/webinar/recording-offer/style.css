@@ -20,7 +20,8 @@
 @media screen and (min-width: 1024px) {
   .bg-thais {
     position: relative;
-    background: url('/images/IATWebinar/thais-standing-portrait-bg.webp') no-repeat center 10% /
-      cover;
+    background: url('/images/IATWebinar/thais-standing-portrait-bg.webp') no-repeat;
+    background-size: cover;
+    background-position-x: 36%;
   }
 }

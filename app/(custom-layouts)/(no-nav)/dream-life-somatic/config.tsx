@@ -101,11 +101,11 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
   },
   offer: {
     header:
-      'When You Join Today, You’ll Get Lifetime Access to the Release Emotions with Somatic Processing Course For Just $19 — Saving You $231!',
+      'When You Purchase Today, You’ll Get Lifetime Access to the Release Emotions with Somatic Processing Course For Just $19 — Saving You $231!',
     copy1: [
-      'This course is one of our most effective and accessible tools for nervous system regulation and emotional healing. And for a limited time, it’s yours for life.',
+      'This course has our most effective and accessible tools for nervous system regulation and emotional healing. And for a limited time, it’s yours for life.',
       <>
-        <strong>Here’s everything you get when you join today:</strong>
+        <strong>Here’s everything you get when you buy today:</strong>
       </>,
     ],
     listItems: [
@@ -121,8 +121,8 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
     ],
     copy2: [
       <>
-        Instead of paying $250 — the regular price for this course — you’ll get the full program for
-        a one-time payment of just <span className="bg-green-check text-white mx-1 px-1">$19</span>
+        Instead of paying $250 — the regular price for this course — you’ll get the program for a
+        one-time payment of just <span className="bg-green-check text-white mx-1 px-1">$19</span>
       </>,
       'No subscriptions. No recurring fees. Just one powerful course that helps you feel better, faster, and keep that progress for life.',
     ],

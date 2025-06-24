@@ -96,7 +96,7 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       'You’ll feel supported in relationships without losing your independence',
       'You’ll release deep emotional wounds from past relationships or trauma',
       'You’ll reconnect with your body, your emotions, and real and safe love',
-      "YYou'll bring emotional clarity and confidence to stressful situations",
+      "You'll bring emotional clarity and confidence to stressful situations",
     ],
   },
   offer: {
@@ -109,7 +109,11 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       </>,
     ],
     listItems: [
-      'Instant, lifetime access to our expert-designed course, Release Emotions with Somatic Processing, and all the powerful tools and resources that come with it',
+      <>
+        Instant, lifetime access to our expert-designed course,{' '}
+        <strong>Release Emotions with Somatic Processing</strong>, and all the powerful tools and
+        resources that come with it
+      </>,
       'A step-by-step healing path you can follow at your own pace — no pressure, no overwhelm',
       'Guided somatic techniques that work fast, even if you’re highly triggered, spiralling in painful feelings, or emotionally shutting down',
       'Real-world tools, grounded in research and used by thousands to feel better and more in control every day',

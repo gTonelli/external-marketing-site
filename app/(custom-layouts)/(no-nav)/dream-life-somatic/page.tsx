@@ -89,8 +89,8 @@ export default function JulyPromoSomaticCoursePage() {
 
         <h2>{CONFIG.course.header}</h2>
 
-        <div className="grid gap-4 text-left mb-8 md:grid-cols-2">
-          <div className="flex -mt-2 md:justify-end">
+        <div className="grid gap-4 text-left mb-8 lg:grid-cols-2">
+          <div className="flex -mt-2 lg:justify-end">
             <Image
               alt="Release Emotions with Somatic Processing course thumbnail"
               src={'/images/course-somatic-processing.jpg'}
@@ -118,7 +118,7 @@ export default function JulyPromoSomaticCoursePage() {
         </div>
       </Section>
 
-      <Section className="bg-white-secondary" classNameInner="!text-left md:px-24">
+      <Section className="bg-white-secondary" classNameInner="!text-left lg:px-24">
         <h2>{CONFIG.howTo.header}</h2>
 
         {CONFIG.howTo.copy1.map((item, idx) => (
@@ -148,12 +148,12 @@ export default function JulyPromoSomaticCoursePage() {
 
         <p>{CONFIG.features.subheader}</p>
 
-        <div className="grid gap-8 text-left md:grid-cols-2">
+        <div className="grid gap-4 text-left lg:grid-cols-2">
           <div>
             <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listLeft} />
           </div>
 
-          <div>
+          <div className="-mt-4 lg:mt-0">
             <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.features.listRight} />
           </div>
         </div>
@@ -173,18 +173,18 @@ export default function JulyPromoSomaticCoursePage() {
       <Section className="bg-blue-lightest" classNameInner="!max-w-6xl mx-auto">
         <h2>{CONFIG.discover.header}</h2>
 
-        <div className="grid gap-8 text-left md:grid-cols-2">
+        <div className="grid gap-4 text-left lg:grid-cols-2">
           <div>
             <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.discover.listLeft} />
           </div>
 
-          <div>
+          <div className="-mt-4 lg:mt-0">
             <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.discover.listRight} />
           </div>
         </div>
       </Section>
 
-      <Section classNameInner="grid gap-8 md:grid-cols-2">
+      <Section classNameInner="grid gap-8 lg:grid-cols-2">
         <div className="text-left">
           <h2>{CONFIG.offer.header}</h2>
 
@@ -201,7 +201,12 @@ export default function JulyPromoSomaticCoursePage() {
             <p key={`offer_copy1_${idx}`}>{item}</p>
           ))}
 
-          <List classNameIcon="mr-2" icon={faCheckCircle} listItems={CONFIG.offer.listItems} />
+          <List
+            classNameIcon="mr-2"
+            classNameListItems="first:mb-4"
+            icon={faCheckCircle}
+            listItems={CONFIG.offer.listItems}
+          />
 
           {CONFIG.offer.copy2.map((item, idx) => (
             <p key={`offer_copy2_${idx}`}>{item}</p>

@@ -119,6 +119,8 @@ export default function DreamLifeFreeCoursePage() {
               src="/images/TrialHeadspace/secure-pillars-mockup.png"
               width={588}
               height={470}
+              quality={100}
+              sizes="100vw"
             />
           </div>
         </div>

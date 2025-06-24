@@ -147,7 +147,7 @@ const allConfigs = {
         feel secure in love!
       </>
     ),
-    ctaLabel: 'SIGN UP FOR YOUR FREE TRIAL',
+    ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
     checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',

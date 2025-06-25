@@ -37,7 +37,7 @@ export default function DreamLifeUpsellPage() {
       </section>
 
       <Section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22">
-        <h1 className="max-w-xl leading-[50px] mx-auto mb-4">{CONFIG.hero.header}</h1>
+        <h1 className="max-w-2xl leading-[50px] mx-auto mb-4">{CONFIG.hero.header}</h1>
 
         <div className="relative mt-8 lg:mt-12">
           <PaymentOptions className="!max-w-xl mx-auto lg:flex-col" configKey="dreamLifeUpsell" />

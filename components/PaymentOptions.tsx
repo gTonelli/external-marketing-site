@@ -155,17 +155,14 @@ const allConfigs = {
   dreamLifeUpsell: {
     offerLabel: 'Take Step 2 RISK-FREE',
     offerType: '',
-    title:
-      'Get the Emotional Mastery Course FOR FREE for 7 Days with a Free Trial to the All-Access Pass',
+    title: 'Get the Emotional Mastery Course FOR FREE for 7 Days with a Free All-Access Pass Trial',
     copy: (
       <>
-        You’ve taken the first step—now deepen your transformation with our pillar{' '}
-        <strong>Emotional Mastery & Belief Reprogramming</strong> Course. Inside, you’ll learn to
-        regulate emotions using guided tools, replace limiting beliefs with secure, self-affirming
-        narratives, turn conflict into connection, and feel steady, safe, and empowered in every
-        relationship—starting with yourself. For the next 7 days, access this entire course FREE
-        inside your trial, PLUS everything else we offer inside the school, including attachment
-        style-specific programs. All for free!
+        You’ve taken the first step; now deepen your transformation with our{' '}
+        <strong>Emotional Mastery & Belief Reprogramming</strong> course. Rewire your emotional
+        responses, replace limiting beliefs, and create resilience and security in every
+        relationship, including yourself. Take this entire course — and get everything else we offer
+        inside the school, including attachment style-specific programs — all for FREE for 7 days.
       </>
     ),
     ctaLabel: 'START YOUR TRIAL NOW + ACCESS STEP 2',

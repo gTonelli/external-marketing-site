@@ -15,30 +15,33 @@ export const UPSELL_PAGE_CONFIG = {
     {
       image: `dreamlife-icon-2.png`,
       header: `Break Free From Old Emotional Triggers`,
-      copy: `Reshape the beliefs and reactions that once held you back, replacing limiting narratives with empowering truths so you can calmly and clearly face stress and conflict.`,
+      copy: `Reshape the beliefs and reactions holding you back and replace limiting narratives with empowering truths so you can calmly handle conflict and emotional triggers.`,
     },
     {
       image: `dreamlife-icon-3.png`,
-      header: `Rebuild Self-Worth & Self-Belief`,
+      header: `Rebuild Your Self-Worth & Self-Belief`,
       copy: `Strengthen deep emotional resilience, release self‑doubt, and reconnect with the calm, confident version of you so you can feel secure no matter what life throws your way.`,
     },
   ],
   features: {
     header:
-      'Transform Your Life & Relationships With Everything Your 7-Day Free Trial to the All-Access Pass:',
+      'Transform Your Life & Relationships With Your 7-Day Free Trial to the All-Access Pass:',
     listItems: [
       <>
-        <strong>Step 2 in Your Healing Journey: Emotional Mastery & Belief Reprogramming</strong> –
-        Regulate emotions in minutes, dissolve self-sabotage, and turn conflict into connection.
+        <strong>
+          Step 2 in Your Healing Journey: The Emotional Mastery & Belief Reprogramming course
+        </strong>{' '}
+        – Regulate emotions, dissolve self-sabotage, turn conflict into connection, and embrace
+        self-affirming narratives.
       </>,
       <>
-        <strong>Even More Self-Paced Courses</strong> – Get tools to improve boundaries, discover
+        <strong>Access More Self-Paced Courses</strong> – Get tools to improve boundaries, discover
         and meet your needs, heal attachment styles, improve communication skills, and more. All
         available on-demand.
       </>,
       <>
-        <strong>Live Weekly Webinars & Q&As</strong> – Get personalized guidance from me, The
-        Personal Development School founder, Thais Gibson, PhD., to fast-track your growth.
+        <strong>Live Weekly Webinars & Q&As</strong> – Fast track your growth and get personalized
+        guidance from me, Thais Gibson, Ph.D., founder of The Personal Development School.
       </>,
       <>
         <strong>Supportive Community</strong> – Stay motivated with accountability partners who
@@ -47,9 +50,10 @@ export const UPSELL_PAGE_CONFIG = {
     ],
     copy: (
       <>
-        <strong>AND MORE…</strong> Every one of these essential healing tools is part of your{' '}
-        <strong>risk-free 7-Day Free Trial to the All-Access Pass</strong>. Enjoy full access for
-        $0, and keep the insights you gain—even if you decide not to stay.
+        <strong>PLUS MUCH MORE…</strong> Every one of these essential healing opportunities{' '}
+        <strong>is part of your risk-free 7-Day Free Trial to the All-Access Pass</strong>. Enjoy
+        full access for $0, and keep the insights you gain—even if you decide not to continue with
+        us.
       </>
     ),
     ctaLabel: 'START YOUR FREE TRIAL',

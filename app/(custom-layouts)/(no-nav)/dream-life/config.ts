@@ -53,27 +53,27 @@ export const TRIAL_HEADSPACE = {
   ARTICLES: {
     article1: {
       name: `The Impact of Attachment Styles on Your Love Life`,
-      url: 'https://blog.personaldevelopmentschool.com/10/the-impact-of-attachment-styles-on-your-love-life',
+      url: 'https://blog.personaldevelopmentschool.com/post/the-impact-of-attachment-styles-on-your-love-life',
     },
     article2: {
       name: `How to Repair Any Relationship`,
-      url: 'https://blog.personaldevelopmentschool.com/11/how-to-repair-any-relationship',
+      url: 'https://blog.personaldevelopmentschool.com/post/rebuilding-bridges-how-to-repair-any-relationship',
     },
     article3: {
       name: `Understanding Attachment Styles for Beginners`,
-      url: 'https://blog.personaldevelopmentschool.com/21/understanding-attachment-styles-for-beginners',
+      url: 'https://blog.personaldevelopmentschool.com/post/what-is-an-attachment-style',
     },
     article4: {
       name: `How to Heal After a Breakup`,
-      url: 'https://blog.personaldevelopmentschool.com/23/how-to-heal-from-a-breakup',
+      url: 'https://blog.personaldevelopmentschool.com/post/how-to-heal-after-a-breakup',
     },
     article5: {
       name: `How to End Codependency`,
-      url: 'https://blog.personaldevelopmentschool.com/14/how-to-end-codependency',
+      url: 'https://blog.personaldevelopmentschool.com/post/how-to-end-codependency',
     },
     article6: {
       name: `5 Steps to Cultivating Secure Attachment`,
-      url: 'https://blog.personaldevelopmentschool.com/20/5-steps-to-cultivating-secure-attachment',
+      url: 'https://blog.personaldevelopmentschool.com/post/5-steps-to-cultivating-secure-attachment',
     },
   },
   COMMUNITY: {

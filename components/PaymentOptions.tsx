@@ -58,7 +58,7 @@ export const PaymentOptions = ({
       {showDisclaimer && config.disclaimer && (
         <p
           className={cx(
-            'max-w-xl mx-auto',
+            'max-w-xl mx-auto mb-4',
             placement === 'top' ? 'text-gray-800' : 'text-gray-200'
           )}>
           <i>{config.disclaimer}</i>
@@ -151,6 +151,27 @@ const allConfigs = {
     checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
+  },
+  dreamLifeUpsell: {
+    offerLabel: 'Take Step 2 RISK-FREE',
+    offerType: '',
+    title:
+      'Get the Emotional Mastery Course FOR FREE for 7 Days with a Free Trial to the All-Access Pass',
+    copy: (
+      <>
+        You’ve taken the first step—now deepen your transformation with our pillar{' '}
+        <strong>Emotional Mastery & Belief Reprogramming</strong> Course. Inside, you’ll learn to
+        regulate emotions using guided tools, replace limiting beliefs with secure, self-affirming
+        narratives, turn conflict into connection, and feel steady, safe, and empowered in every
+        relationship—starting with yourself. For the next 7 days, access this entire course FREE
+        inside your trial, PLUS everything else we offer inside the school, including attachment
+        style-specific programs. All for free!
+      </>
+    ),
+    ctaLabel: 'START YOUR TRIAL NOW + ACCESS STEP 2',
+    checkoutUrl: externalRoutes.checkout7DayTrial,
+    disclaimer:
+      '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan.',
   },
 } satisfies Record<string, TConfig>
 

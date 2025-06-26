@@ -9,7 +9,7 @@ export const UPSELL_PAGE_CONFIG = {
   benefits: [
     {
       image: `dreamlife-icon-1.png`,
-      header: `Create Secure, Lasting Love`,
+      header: `Create the Secure, Lasting Love You Deserve`,
       copy: `Understand your unique attachment style, transform deep‑seated patterns, and step into relationships where you wake up feeling cherished, deeply understood, and effortlessly secure.`,
     },
     {

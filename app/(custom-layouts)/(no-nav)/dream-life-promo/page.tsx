@@ -76,7 +76,7 @@ export default function DreamLifeUpsellPage() {
 
       <Section classNameInner="!max-w-5xl mx-auto">
         <div className="grid grid-cols-12 gap-4">
-          {CONFIG.benefits.map((benefit, index) => (
+          {CONFIG.benefits.map((benefit) => (
             <>
               <div className="col-span-12 sm:col-span-3 mx-auto">
                 <Image
@@ -89,7 +89,7 @@ export default function DreamLifeUpsellPage() {
               </div>
 
               <div className="flex col-span-12 flex-col justify-center sm:text-left sm:col-span-9 md:gap-4 md:flex-row md:items-center">
-                <h3 className="md:flex-1">{benefit.header}</h3>
+                <h3 className="md:flex-1 md:pr-4">{benefit.header}</h3>
 
                 <p className="md:flex-1">{benefit.copy}</p>
               </div>

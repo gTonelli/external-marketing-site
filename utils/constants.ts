@@ -162,7 +162,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutJan2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=530903`,
     checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=1585312`,
     checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=570395`,
-    checkoutJuly2025PromoTrial: `${checkoutUrl}/enroll/1703605`,
+    checkoutJuly2025PromoTrial: `${checkoutUrl}enroll/1703605?price_id=2241811&coupon=for19`,
     checkoutQuarterlyPlan: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=ipg50`,
     checkoutQuarterly149: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=148off`,

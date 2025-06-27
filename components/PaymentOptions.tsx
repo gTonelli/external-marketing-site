@@ -164,7 +164,7 @@ const allConfigs = {
       </>
     ),
     checkoutUrl: externalRoutes.checkoutJuly2025PromoTrial,
-    ctaLabel: 'GET THE COURSE NOW',
+    ctaLabel: 'GET THE COURSE NOW!',
     disclaimer: '',
   },
 } satisfies Record<string, TConfig>

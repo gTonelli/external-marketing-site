@@ -15,11 +15,11 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       </>,
       'This course has helped thousands of people reclaim their peace and confidence, connect with themselves on a deeper level, and thrive in their relationships. Now, it’s your turn.',
       <>
-        For a limited time, you can access the full course for just <strong>$19</strong> — that’s
-        over <strong>$231</strong> in savings compared to the regular price. For this small
-        investment, you'll experience immense transformation: deep shifts in lifelong patterns,
-        emotional clarity, and the freedom to fully be yourself. Don’t miss this opportunity to make
-        a lasting change — starting today.
+        For a limited time, you can access the course for just <strong>$19</strong> — that’s over{' '}
+        <strong>$231</strong> in savings compared to the regular price. For this small investment,
+        you'll experience immense transformation: deep shifts in lifelong patterns, emotional
+        clarity, and the freedom to fully be yourself. Don’t miss this opportunity to make a lasting
+        change — starting today.
       </>,
     ],
     ctaLabel: 'GET THE COURSE NOW!',
@@ -56,7 +56,7 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       <>
         The moment you enroll, you’ll get instant access to the{' '}
         <strong>Release Emotions with Somatic Processing</strong> course. Here's what you'll find
-        inside:
+        inside.
       </>
     ),
   },
@@ -71,7 +71,7 @@ export const JULY_PROMO_SOMATIC_CONFIG = {
       </>
     ),
     listLeft: [
-      'Exactly why emotional triggers hijack your system, and how to calm them within minutes',
+      'Learn exactly why emotional triggers hijack your system, and how to calm them within minutes',
       'Guided somatic practices that help your body process stress, tension, and stuck emotions',
       'Techniques to regulate your nervous system without needing to journal, explain, or push through',
     ],

@@ -22,7 +22,7 @@ export const PaymentOptions = ({
   placement = 'top',
   configKey,
 }: IPaymentOptionsProps) => {
-  const config = allConfigs[configKey]
+  const config: TConfig = allConfigs[configKey]
 
   return (
     <div className="flex flex-col items-center space-y-4 lg:justify-between">
@@ -104,14 +104,12 @@ const allConfigs = {
   cyberMonday14day: { ...fourteendayFTConfig, offerLabel: 'CYBER MONDAY OFFER' },
   dreamLifeHoliday: {
     ...baseConfig,
-    offerType: '',
     ctaLabel: 'SIGN UP & TRANSFORM',
     disclaimer:
       '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
   },
   dreamLifeFreeCourse: {
     offerLabel: 'Free Trial & Exclusive Bonus Offer',
-    offerType: '',
     title: 'Get the Personal Needs Course Free Forever & Start Thriving in Love and Life',
     copy: (
       <>
@@ -129,7 +127,6 @@ const allConfigs = {
   },
   dreamLifeSexCourse: {
     offerLabel: 'Free Course For Life + Free Trial',
-    offerType: '',
     title: 'Get Your Attachment Styles & Sex Course ($250 Value) - For Free!',
     copy: (
       <>
@@ -148,7 +145,6 @@ const allConfigs = {
   },
   dreamLifePillarsCourse: {
     offerLabel: 'Free Trial & Exclusive Free Course!',
-    offerType: '',
     title: 'Get the Key Pillars Course For Free & Start Building Relationships With Confidence',
     copy: (
       <>
@@ -162,6 +158,6 @@ const allConfigs = {
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
   },
-} satisfies Record<string, TConfig>
+} satisfies Record<string, Partial<TConfig>>
 
 export type TPaymentOptionsConfigKey = keyof typeof allConfigs

@@ -43,8 +43,9 @@ export default function DreamLifeFreeCoursePage() {
       </section>
 
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
-        <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          Lasting Love Begins Now. Learn What You Need to Attract a Secure, Fulfilling Relationship
+        <h1 className="max-w-2xl leading-[50px] mx-auto mb-4">
+          Lasting Love Begins Now. Learn What You Need to Attract & Build a Secure, Fulfilling
+          Relationship
         </h1>
 
         <div className="relative mt-8 lg:mt-12">
@@ -124,9 +125,9 @@ export default function DreamLifeFreeCoursePage() {
 
         <div className="bg-pink-tertiary rounded-2xl p-6 mb-4">
           <p>
-            Activate your free trial today and explore 70+ science‑backed courses, daily live Q&As
-            with me (Thais Gibson), and a private global community—all designed to help you become
-            securely attached and see tangible results in as little as one week.
+            Activate your 7-Day Free Trial today and explore 70+ science‑backed courses, daily live
+            Q&As with me (Thais Gibson), and a private global community—all designed to help you
+            become securely attached and see tangible results in as little as one week.
           </p>
 
           <p>
@@ -137,9 +138,9 @@ export default function DreamLifeFreeCoursePage() {
           </p>
 
           <p>
-            Even if you cancel before the trial ends, this $250 course is yours forever. We do this
-            because results speak louder than promises, and we know you’ll feel the shift and want
-            to keep going.
+            Even if you cancel before the trial ends, this <strong>$250</strong> course is yours
+            forever. We do this because results speak louder than promises, and we know you’ll feel
+            the shift and want to keep going.
           </p>
         </div>
 
@@ -171,7 +172,7 @@ export default function DreamLifeFreeCoursePage() {
           />
         </div>
 
-        <ButtonCheckout className="mb-4" href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
+        <ButtonCheckout className="mb-4" href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW*" />
 
         <p>
           <em>
@@ -260,13 +261,13 @@ export default function DreamLifeFreeCoursePage() {
 
       <CommunityTeaser
         sectionHeading="Experience Belonging to an Unstoppable Powerhouse Community That Ignites Your Life!"
-        teaserHeading="Start Your 7-Day All-Access Pass & Keep the Discover, Embrace & Fulfill Your Personal Needs Course for LIFE!"
+        teaserHeading="Start Your 7-Day All-Access Pass Trial & Keep the Discover, Embrace & Fulfill Your Personal Needs Course for LIFE!"
         classNamePaymentOptions="!max-w-xl mx-auto lg:flex-col"
         paymentOptionsConfigKey="dreamLifeFreeCourse"
         communityBullets={[
           'Discover your core needs to create authentic self-worth and secure, healthy relationships.',
-          'Apply the course tools to meet those needs and experience real, transformative change within seven days.',
-          'Understand exactly what you need and deserve so you can enjoy daily joy, fulfillment, and inner peace.',
+          'Apply the course tools to meet those needs and experience real, transformative change within 7 days.',
+          'Understand exactly what you need and deserve so you can embrace daily joy, fulfillment, and inner peace.',
           'Use our proven framework to set healthy boundaries, deepen connections, and grow alongside the people you love.',
         ]}
       />
@@ -300,14 +301,14 @@ const STEPS_TO_PURCHASE = [
     icon: faSquare1,
     step: 'STEP ONE',
     title: 'Sign Up for Your Free Trial Right Here & Now',
-    copy: 'Activate your 7-day free trial and instantly unlock everything inside the All-Access Pass. You’ll get immediate access to over 70 expert-led courses, live webinars, and a supportive community that truly gets you. No strings attached — just real tools that work.',
+    copy: 'Activate your 7-Day Free Trial and instantly unlock everything inside the All-Access Pass. You’ll get immediate access to over 70 expert-led courses, live webinars, and a supportive community that truly gets you. No strings attached — just real tools that work.',
     image: '/images/RoyalRumblePage/rr-offer.png',
   },
   {
     icon: faSquare2,
     step: 'STEP TWO',
     title: 'Dive Into the Needs Course (Yours to Keep!)',
-    copy: 'Decode your personal subconscious needs, learn to communicate without misunderstanding, and install micro‑habits that refill your emotional tank automatically. Within one week, you’ll resolve conflicts in minutes, less procrastination, and become more connected in your relationships.',
+    copy: 'Decode your personal subconscious needs, learn to communicate without misunderstanding, and install micro‑habits that refill your emotional tank automatically. Within one week, you’ll resolve conflicts in minutes and become more connected in your relationships.',
     image: '/images/course-personal-needs-alt.jpg',
   },
   {

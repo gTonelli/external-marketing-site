@@ -51,7 +51,7 @@ export default function DreamLifeSexCoursePage() {
           <PaymentOptions
             showDisclaimer={false}
             className="!max-w-xl mx-auto lg:flex-col"
-            configKey="dreamLifeFreeCourse"
+            configKey="dreamLifeSexCourse"
           />
         </div>
 
@@ -300,14 +300,14 @@ const STEPS_TO_PURCHASE = [
     icon: faSquare1,
     step: 'STEP ONE',
     title: 'Sign Up for Your Free Trial Right Here & Now',
-    copy: 'Activate your 7-day free trial and instantly unlock everything inside the All-Access Pass. You’ll get immediate access to over 70 expert-led courses, live webinars, and a supportive community that truly gets you. No strings attached — just real tools that work.',
+    copy: 'Activate your 7-Day Free Trial and instantly unlock everything inside the All-Access Pass. You’ll get immediate access to over 70 expert-led courses, live webinars, and a supportive community that truly gets you. No strings attached — just real tools that work.',
     image: '/images/RoyalRumblePage/rr-offer.png',
   },
   {
     icon: faSquare2,
     step: 'STEP TWO',
-    title: 'Start the Attachment Styles & Sex Course (Yours to Keep!)',
-    copy: 'Discover how your attachment style impacts intimacy, attraction, and emotional connection. You’ll uncover the unconscious beliefs and patterns that create distance or dissatisfaction in your love life—and start reprogramming your mind for safety, vulnerability, and passion. This course is yours to keep forever!',
+    title: 'Start & Keep the Attachment Styles & Sex Course',
+    copy: 'You’ll uncover the unconscious beliefs and patterns that create distance or dissatisfaction in your love life—and start reprogramming your mind for safety, vulnerability, and passion. This course is yours to keep forever!',
     image: '/images/course-attachment-styles-and-sex.jpg',
   },
   {

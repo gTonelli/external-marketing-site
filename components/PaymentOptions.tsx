@@ -22,7 +22,7 @@ export const PaymentOptions = ({
   placement = 'top',
   configKey,
 }: IPaymentOptionsProps) => {
-  const config = allConfigs[configKey]
+  const config: TConfig = allConfigs[configKey]
 
   return (
     <div className="flex flex-col items-center space-y-4 lg:justify-between">
@@ -104,14 +104,12 @@ const allConfigs = {
   cyberMonday14day: { ...fourteendayFTConfig, offerLabel: 'CYBER MONDAY OFFER' },
   dreamLifeHoliday: {
     ...baseConfig,
-    offerType: '',
     ctaLabel: 'SIGN UP & TRANSFORM',
     disclaimer:
       '*Start your free trial today! Plans start at $67.00/month after your trial ends. Cancel anytime before your trial ends to avoid charges. Don’t wait; this limited-time offer won’t last!*',
   },
   dreamLifeFreeCourse: {
     offerLabel: 'Free Trial & Exclusive Bonus Offer',
-    offerType: '',
     title: 'Needs Course for Life + 7-Day Free Trial',
     copy: 'Take Our Free Trial to Our All-Access Pass Membership. Plus, Get the Discover, Embrace & Fulfill Your Personal Needs Course For FREE for LIFE to Support Your Growth!',
     ctaLabel: 'JOIN & START YOUR COURSE',
@@ -121,7 +119,6 @@ const allConfigs = {
   },
   dreamLifeSexCourse: {
     offerLabel: 'Free Course For Life + Free Trial',
-    offerType: '',
     title: 'Get Your Attachment Styles & Sex Course ($250 Value) - For Free!',
     copy: (
       <>
@@ -138,7 +135,6 @@ const allConfigs = {
   },
   dreamLifePillarsCourse: {
     offerLabel: 'Free Trial & Exclusive Free Course!',
-    offerType: '',
     title: 'Get the Key Pillars Course For Free & Start Building Relationships With Confidence',
     copy: (
       <>
@@ -154,7 +150,6 @@ const allConfigs = {
   },
   dreamLifeSomatic: {
     offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
-    offerType: '',
     title: 'Unlock the Powerful Tools to Start Healing & Reconnecting With Yourself',
     copy: (
       <>
@@ -165,11 +160,9 @@ const allConfigs = {
     ),
     checkoutUrl: externalRoutes.checkoutJuly2025PromoTrial,
     ctaLabel: 'GET THE COURSE NOW!',
-    disclaimer: '',
   },
   dreamLifeUpsell: {
     offerLabel: 'Take Step 2 RISK-FREE',
-    offerType: '',
     title: 'Get the Emotional Mastery Course FOR FREE for 7 Days with an All-Access Pass Trial',
     copy: (
       <>
@@ -186,6 +179,6 @@ const allConfigs = {
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan.',
   },
-} satisfies Record<string, TConfig>
+} satisfies Record<string, Partial<TConfig>>
 
 export type TPaymentOptionsConfigKey = keyof typeof allConfigs

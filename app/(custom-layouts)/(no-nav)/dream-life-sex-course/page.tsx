@@ -126,21 +126,22 @@ export default function DreamLifeSexCoursePage() {
 
         <div className="bg-pink-tertiary rounded-2xl p-6 mb-4">
           <p>
-            Get 7 days of full access to our All-Access Pass, our all-inclusive membership! Explore
-            70+ life-changing courses, live webinars with me (Thais Gibson), and a private support
-            community embedded with our science-backed, results-driven proprietary method designed
-            to help you become securely attached and see results in just 1 week.
+            Get 7 days of full access to our <strong>All-Access Pass</strong>, our all-inclusive
+            membership! Explore 70+ life-changing courses, live webinars with me (Thais Gibson), and
+            a private support community embedded with our science-backed, results-driven proprietary
+            method designed to help you become securely attached and see results in just 1 week.
           </p>
 
           <p>
             Even if you cancel before the trial ends, you’ll keep our{' '}
-            <strong>Attachment Styles & Sex</strong> course (A FREE GIFT WORTH $250) for life.
+            <strong>Attachment Styles & Sex</strong> course (A FREE GIFT WORTH $250) for{' '}
+            <strong>life</strong>.
           </p>
 
           <p>
-            Why are we giving all this away at no cost? Because we know you’ll love what The
-            Personal Development School has to offer, and we’re willing to let you try it to believe
-            it, at no risk or cost to you.
+            Why are we giving all this away at no cost? Because we know you’ll love what{' '}
+            <strong>The Personal Development School</strong> has to offer, and we’re willing to let
+            you try it to believe it, at no risk or cost to you.
           </p>
         </div>
 
@@ -307,7 +308,7 @@ const STEPS_TO_PURCHASE = [
     icon: faSquare2,
     step: 'STEP TWO',
     title: 'Start & Keep the Attachment Styles & Sex Course',
-    copy: 'You’ll uncover the unconscious beliefs and patterns that create distance or dissatisfaction in your love life—and start reprogramming your mind for safety, vulnerability, and passion. This course is yours to keep forever!',
+    copy: 'Discover how your attachment style impacts intimacy, attraction, and emotional connection. You’ll uncover the unconscious beliefs and patterns that create distance or dissatisfaction in your love life—and start reprogramming your mind for safety, vulnerability, and passion.',
     image: '/images/course-attachment-styles-and-sex.jpg',
   },
   {

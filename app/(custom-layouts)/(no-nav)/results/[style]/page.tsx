@@ -10,15 +10,13 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
 import Image from 'next/image'
 import { TextParagraph } from '@/components/Text/variants/TextParagraph'
-import { IButtonCheckoutProps } from '@/components/Button/variants/ButtonCheckout'
-import { ButtonCheckoutSplitTest } from '@/components/Button/variants/ButtonCheckoutSplitTest'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // config
 import { RESULTS_COPY } from './config'
 // libraries
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
-import { externalRoutes } from '@/utils/constants'
 // styles
 import './styles.css'
 
@@ -338,17 +336,5 @@ export default function ResultsPage({ params }: { params: { style: TStyle } }) {
         </p>
       </Section>
     </Page>
-  )
-}
-
-const ButtonCheckout = ({ ...props }: IButtonCheckoutProps) => {
-  return (
-    <ButtonCheckoutSplitTest
-      variantUrl={externalRoutes.singleStepCheckoutRegularSubscription}
-      experimentKey="PROD-3779"
-      experimentName="PROD-3779-Single-Step-Checkout"
-      useCookies={false}
-      {...props}
-    />
   )
 }

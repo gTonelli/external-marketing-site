@@ -17,7 +17,6 @@ import { RESULTS_COPY } from './config'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
 import { TStyle } from '@/utils/types'
-import { externalRoutes } from '@/utils/constants'
 // styles
 import './styles.css'
 

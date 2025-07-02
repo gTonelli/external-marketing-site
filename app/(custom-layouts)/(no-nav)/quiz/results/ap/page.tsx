@@ -7,16 +7,16 @@ import { SimplifiedResultsPage } from '../fearful-avoidant/SimplifiedResultsPage
 import { Pages } from '@/modules/Mixpanel'
 
 export const metadata: Metadata = {
-  title: 'Your Attachment Style Results | Fearful Avoidant',
+  title: 'Your Attachment Style Results | Anxious Preoccupied',
 }
 
 export default function RoyalRumbleResultsPage() {
-  const style = 'fa'
+  const style = 'ap'
   const page_name = `VSL Royal Rumble Results - ${style}` as Pages
 
   return (
     <Page className="w-full text-center" page_name={page_name}>
-      <SimplifiedResultsPage configKey="faVariant" />
+      <SimplifiedResultsPage configKey="ap" />
     </Page>
   )
 }

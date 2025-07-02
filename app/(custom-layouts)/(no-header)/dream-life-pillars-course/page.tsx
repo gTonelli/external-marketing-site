@@ -31,8 +31,11 @@ export default function DreamLifeFreeCoursePage() {
 
   return (
     <Page page_name="Dreamlife Pillars Course Page" className="relative">
-      <section className="text-center bg-purple-dark">
-        <h2 className="text-white pt-4">Limited Time Offer: $250-Valued Course &amp; FREE Trial</h2>
+      <section className="text-center bg-purple-dark px-2">
+        <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
+          LIMITED TIME: Claim Your FREE Create Secure Relationships Course ($250 Value) for Life +
+          Your 7 Day Free PDS Membership
+        </h2>
 
         <div className="pb-4">
           <CountdownTimer date={new Date(`2025-05-17T23:59:59-04:00`)} theme="dark" />
@@ -41,7 +44,7 @@ export default function DreamLifeFreeCoursePage() {
 
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          Create Healthy & Loving Relationships Without the Guesswork
+          Get the Only Tools You Need to Build The Best Relationships of Your Life
         </h1>
 
         <div className="relative mt-8 lg:mt-12">
@@ -116,11 +119,13 @@ export default function DreamLifeFreeCoursePage() {
               src="/images/TrialHeadspace/secure-pillars-mockup.png"
               width={588}
               height={470}
+              quality={100}
+              sizes="100vw"
             />
           </div>
         </div>
 
-        <div className="bg-black-secondary text-white rounded-2xl p-6 mb-4">
+        <div className="bg-pink-tertiary rounded-2xl p-6 mb-4">
           <p>
             <strong>
               Get 7 days of full access to our All-Access Pass, our all-inclusive membership!
@@ -146,7 +151,7 @@ export default function DreamLifeFreeCoursePage() {
           </p>
         </div>
 
-        <ButtonCheckout href={checkoutUrl} label="UNLOCK YOUR BEST RELATIONSHIPS" />
+        <ButtonCheckout href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
       </Section>
 
       <Section classNameInner="bg-white-secondary rounded-2xl p-6">
@@ -174,11 +179,7 @@ export default function DreamLifeFreeCoursePage() {
           />
         </div>
 
-        <ButtonCheckout
-          className="mb-4"
-          href={checkoutUrl}
-          label="UNLOCK YOUR BEST RELATIONSHIPS"
-        />
+        <ButtonCheckout className="mb-4" href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
 
         <p>
           <em>

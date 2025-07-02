@@ -41,8 +41,7 @@ export type Pages =
   | `7 Day Trial + 50% off first month`
   | `7 Days Trial Page Funnel - FA`
   | `7-Day Trial Page (Variant)`
-  | `Abandoned Card Offer - membership`
-  | `Abandoned Card Offer - trial`
+  | `Abandoned Card Offer - ${string}`
   | `Age Funnel - ${string}`
   | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
@@ -69,6 +68,7 @@ export type Pages =
   | `Dreamlife Pillars Course Page`
   | `Dreamlife Sex Course Page`
   | `Dreamlife Holiday Free Trial Page`
+  | `Dreamlife Upsell Page`
   | `External IAT Page`
   | `External IAT Page (Klarna)`
   | `External IAT Ebook Page`
@@ -87,6 +87,7 @@ export type Pages =
   | `IAT Post Registration Masterclass Page`
   | `ICP Results Page - ${string}`
   | `Intent Project - FA`
+  | `July Promo Somatic`
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`

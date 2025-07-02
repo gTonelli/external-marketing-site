@@ -6,15 +6,18 @@ export const IAT_CONFIG = {
       'Do you want to feel fulfilled when helping people live happier, more fulfilled, and empowered lives? Are you a coach who wants groundbreaking new tools to help your clients and upgrade your career? Do you want to be the “boss” and build and run a coaching practice so you can earn a consistent and higher income?',
     copy2: (
       <>
-        You can do it all with the <strong>Integrated Attachment Theory™ Program</strong>. This
-        12-week Certification program is Accredited with the Association for Coaching and will teach
-        you how to become a relationship coach — specializing in attachment theory — with the exact
-        tools and steps you need to become an industry leader, build a thriving practice, and be a
-        transformative figure in lives and relationships.
+        You can do it all with the{' '}
+        <strong>
+          Integrated Attachment Theory™ Program. This 12-week Certification program is Accredited
+          with the Association for Coaching
+        </strong>{' '}
+        and will teach you how to become a relationship coach — specializing in attachment theory —
+        with the exact tools and steps you need to become an industry leader, build a thriving
+        practice, and be a transformative figure in lives and relationships.
       </>
     ),
     copy3:
-      '*Sign up for the Live Training, starting May 21, 2025 to August 6, 2025. Spots are limited.',
+      '*Sign up for the Live Training, starting July 24, 2025 to October 9, 2025. Spots are limited.',
   },
   intro: {
     title: 'What is Integrated Attachment Theory™ (IAT™)?',
@@ -59,6 +62,10 @@ export const IAT_CONFIG = {
       'You want to upgrade your current career or become the “boss” to build and run a coaching practice so you can earn consistent and higher income.',
     ],
     copy: 'The Integrated Attachment Theory™ Program is designed to give you an in-depth education in attachment theory, communication, core wounds, conflict resolution, and, crucially, business-building skills and solutions.',
+  },
+  certificationTimeline: {
+    title: 'How Will You Be Certified?',
+    copy: 'To get certified, you must take the test online within 3 months following your 12 weeks of training. You can choose a time that’s right for you. To pass the test, you must obtain a score of at least 60% (you can take the test up to three times). The test is multiple choice, and you’ll be scored immediately.',
   },
   thais: {
     title: 'Thais Gibson: Attachment Theory Leader & Expert',

@@ -10,7 +10,7 @@ import { RegistrationForm } from '../Forms/RegistrationForm'
 import { TStyle } from '@/utils/types'
 import { SplitTestContext } from '@/utils/contexts'
 import { getAttachmentStyleText, getSplitTest, setSplitTest } from '@/utils/functions'
-import { gtag } from '../GoogleAdsTag'
+import { gtag, TConversionProps } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -70,10 +70,11 @@ export const AttachmentQuizForm = ({
       eventLabel: 'Submit',
     })
 
-    gtag('event', 'conversion', {
-      send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
-      'Attachment Style': getAttachmentStyleText(userStyle),
-    })
+    const conversionProps: TConversionProps = { send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC' }
+
+    conversionProps[`attachment_style_${userStyle}`] = 'true'
+
+    gtag('event', 'conversion', conversionProps)
 
     const route = determineRoute()
     router.push(route)

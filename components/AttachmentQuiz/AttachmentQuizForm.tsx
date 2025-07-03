@@ -72,7 +72,7 @@ export const AttachmentQuizForm = ({
 
     gtag('event', 'conversion', {
       send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
-      'Attachment Style': getAttachmentStyleText(userStyle),
+      attachment_style: getAttachmentStyleText(userStyle),
     })
 
     const route = determineRoute()

@@ -25,10 +25,3 @@ export function gtag(..._: any) {
     window.dataLayer.push(arguments)
   }
 }
-
-type TConversionPropsStyleKey = `attachment_style_${string}`
-
-export type TConversionProps = {
-  send_to: string
-  [key: TConversionPropsStyleKey]: 'true'
-}

@@ -2,18 +2,22 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
 // components
-import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { List } from '@/components/List'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { PaymentOptions } from '@/components/PaymentOptions'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { CountdownTimer } from '@/components/CountDownTimer'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
+import { faSquare1, faSquare2, faSquare3 } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { externalRoutes } from '@/utils/constants'
+// style
+import '../dream-life-free-course/style.css'
 
 export const metadata: Metadata = {
   title: 'Have the Best Sex Life Ever – Thanks to This Course!',
@@ -26,165 +30,173 @@ export default function DreamLifeSexCoursePage() {
   const checkoutUrl = externalRoutes.checkoutMarch2025PromoTrial
 
   return (
-    <Page page_name="Dreamlife Sex Course Page" className="relative">
-      <section className="w-full text-center bg-grey-7 pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
-        <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          Incredible Limited Time Offer - What if Sex and Relationships Could Feel Easier, and More
-          Comfortable?
-        </h1>
+    <Page page_name="Dreamlife Pillars Course Page" className="relative">
+      <section className="text-center bg-purple-dark px-2">
+        <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
+          LIMITED TIME: Claim your FREE Attachment Styles & Sex Course ($250 Value) For LIFE With
+          Your 7-Day Free Trial to All-Access Pass
+        </h2>
 
-        <div className="relative mt-8 lg:mt-12">
-          <PaymentOptions className="lg:flex-col" configKey="dreamLifeSexCourse" />
+        <div className="pb-4">
+          <CountdownTimer date={new Date(`2025-05-17T23:59:59-04:00`)} theme="dark" />
         </div>
       </section>
 
+      <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
+        <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
+          What If Intimacy and Relationships Could Feel Easier and More Comfortable?
+        </h1>
+
+        <div className="relative mt-8 lg:mt-12">
+          <PaymentOptions
+            showDisclaimer={false}
+            className="!max-w-xl mx-auto lg:flex-col"
+            configKey="dreamLifeSexCourse"
+          />
+        </div>
+
+        <Image
+          className="w-full mx-auto sm:w-3/4 md:w-1/2 lg:hidden"
+          src="/images/TrialHeadspace/hero-left-mockup.png"
+          alt="hero-mockup-left"
+          width={729}
+          height={796}
+          quality={100}
+          sizes="100vw"
+        />
+      </section>
+
       <Image
-        className="hidden absolute w-1/2 top-36 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
+        className="hidden absolute w-1/2 top-60 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
         src="/images/TrialHeadspace/hero-left-mockup.png"
         alt="hero-mockup-left"
         width={729}
         height={796}
+        quality={100}
+        sizes="100vw"
       />
 
       <Image
-        className="hidden absolute w-1/2 top-36 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
+        className="hidden absolute w-1/2 top-60 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
         src="/images/TrialHeadspace/hero-right-mockup.png"
         alt="hero-mockup-right"
         width={656}
         height={708}
-      />
-
-      <Image
-        className="w-full"
-        src="/images/TrialHeadspace/hero-bg.png"
-        alt="hero-mockup"
-        width={1120}
-        height={88}
+        quality={100}
+        sizes="100vw"
       />
 
       <Section>
-        <h2 className="mb-8">Discover More Ease, Confidence, and Joy in Your Sex Life</h2>
+        <h2>Heal Intimacy Blocks and Reignite Desire In Your Relationship</h2>
 
-        <div className="grid grid-cols-1 gap-8 mb-4 lg:grid-cols-2">
-          <div className="text-left">
-            <p className="text-xl mb-4">
-              <strong>
-                If you've ever felt confused or unsure of what sex means to you, our Attachment
-                Styles & Sex Course will empower you to:
-              </strong>
+        <div className="grid gap-8 text-left my-8 lg:grid-cols-2">
+          <div>
+            <p>
+              The <strong>Attachment Styles & Sex</strong> course helps you uncover how your
+              attachment style influences sexual connection, so you can break free from intimacy
+              struggles and create emotionally and physically fulfilling relationships. You’ll learn
+              to:
             </p>
 
             <List
-              icon={faCircle}
-              iconSize="2xs"
-              classNameIcon="mt-1"
-              classNameListItems="mb-2"
+              classNameIcon="text-primary"
+              icon={faCheckCircle}
               listItems={[
-                'Navigate post-sex dynamics with ease, confidence, and comfort to make sex more meaningful',
-                'Clarify boundaries and expectations by removing pressure and stigma around intimacy and relationships',
-                'Take sex beyond the physical by unlocking deeper intimacy and connection with your current or future partner',
-                'Overcome vulnerability and fear while embracing intimacy without hesitation or awkwardness',
-                'Enhance your relationships by exploring your and your partner’s sex life so together you can become more connected',
+                'Understand why sexual and intimate desires fade and how to reignite them without pressure, guilt, or resentment.',
+                'Identify how your attachment style shows up in the bedroom and how it may be sabotaging emotional or physical closeness.',
+                'Heal anxious, avoidant, or fearful patterns so you can feel safe being seen, touched, and deeply connected.',
+                'Speak up about your intimate needs, preferences, and boundaries with clarity and confidence.',
+                'Transform intimacy into a source of joy, trust, and mutual fulfillment, instead of stress or confusion.',
+                'Build a lasting connection with a partner who values closeness, respects your limits, and helps you feel secure in love and sex.',
               ]}
             />
           </div>
 
           <div>
             <Image
-              className="rounded-xl"
-              alt="Attachment Styles & Sex Course Thumbnail"
-              src="/images/course-attachment-styles-and-sex.jpg"
-              width={640}
-              height={360}
+              alt="A desktop screen showcasing the Key Pillars to Secure Course"
+              src="/images/TrialHeadspace/sex-course-mockup.png"
+              width={588}
+              height={470}
+              quality={100}
+              sizes="100vw"
             />
           </div>
         </div>
 
-        <p className="mb-4 font-bold">
-          With this exclusive offer, you get a 7-day FREE trial to our All-Access Pass, our
-          all-inclusive membership that gives you access to our science-backed, results-driven
-          proprietary method that will help you become secure and see real results in as little as 1
-          week. We have tailored programs, courses and a suite of tools to assist you in changing
-          unhealthy patterns, and start building the best relationships of your life, with others,
-          and yourself!
-        </p>
+        <div className="bg-pink-tertiary rounded-2xl p-6 mb-4">
+          <p>
+            Get 7 days of full access to our <strong>All-Access Pass</strong>, our all-inclusive
+            membership! Explore 70+ life-changing courses, live webinars with me (Thais Gibson), and
+            a private support community embedded with our science-backed, results-driven proprietary
+            method designed to help you become securely attached and see results in just 1 week.
+          </p>
 
-        <p className="mb-4 font-bold">
-          What’s even better? If you choose to cancel before your trial ends, you still get to keep
-          the Attachment Styles and Sex Course for life. That way you can refer back to it on the
-          go, whenever you need it. That’s a total value of $250 for FREE!
-        </p>
+          <p>
+            Even if you cancel before the trial ends, you’ll keep our{' '}
+            <strong>Attachment Styles & Sex</strong> course (A FREE GIFT WORTH $250) for{' '}
+            <strong>life</strong>.
+          </p>
 
-        <p className="mb-4 font-bold">
-          Why are we giving all this away at no cost? We’re so confident that you’ll love all that
-          The Personal Development School has to offer, that we’re willing to let you try it to
-          believe it, at no risk or cost to you.
-        </p>
+          <p>
+            Why are we giving all this away at no cost? Because we know you’ll love what{' '}
+            <strong>The Personal Development School</strong> has to offer, and we’re willing to let
+            you try it to believe it, at no risk or cost to you.
+          </p>
+        </div>
 
-        <ButtonCheckout className="mt-8" href={checkoutUrl} label="UNLOCK YOUR BEST LOVE LIFE" />
+        <ButtonCheckout href={checkoutUrl} label="GET YOUR FREE COURSE & TRIAL" />
       </Section>
 
-      <Section className="max-w-3xl mx-auto">
-        <h2 className="mb-8">
-          What If This One Course Could Change the Way You Approach Intimacy, Sex & Relationships?
-        </h2>
+      <Section classNameInner="bg-white-secondary rounded-2xl p-6">
+        <h2>Learn Exactly How to Create Lasting Emotional and Physical Closeness</h2>
 
-        <div className="grid grid-cols-1 gap-4 text-left mb-8 lg:grid-cols-2">
+        <div className="grid gap-4 text-left my-4 lg:grid-cols-2">
           <List
+            classNameIcon="text-primary"
             icon={faCheckCircle}
-            classNameIcon="!text-green"
-            classNameListItems="mb-4"
             listItems={[
-              'Unlock the key role sex plays in strengthening your relationship',
+              'Strengthen your relationship by making sex feel safe, connected, and meaningful',
+              'Explore how different attachment styles impact your sex life',
               'Identify why intimacy may diminish and how to reignite the passion',
-              'Learn how to set healthy and realistic expectations for yourself and others',
             ]}
           />
 
           <List
+            classNameIcon="text-primary"
             icon={faCheckCircle}
-            classNameIcon="!text-green"
-            classNameListItems="mb-4"
             listItems={[
-              'Explore how different attachment styles impact your sex life',
-              'Break the emotional push-pull dynamic cycle of sex in dating and relationships',
+              'Learn how to set healthy and realistic expectations for yourself and others',
+              'End the push-pull dynamic and stop repeating cycles that leave you disconnected',
               'Feel emotionally secure and safe in your connections and relationships',
             ]}
           />
         </div>
 
-        <ButtonCheckout href={checkoutUrl} label="SIGN UP FOR FREE!*" className="mb-8" />
+        <ButtonCheckout className="mb-4" href={checkoutUrl} label="GET YOUR FREE COURSE & TRIAL*" />
 
-        <p className="max-w-2xl mx-auto">
+        <p>
           <em>
-            *When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the
-            trial, you’ll automatically become a member of the $67.00/month plan. If you cancel
-            before your trial ends, you still get to keep and access the Attachment Styles & Sex
-            Course for life.
+            *When you join now, you’ll enter a 7‑day Free Trial of our All‑Access Pass. After the
+            trial, you’ll automatically continue on the $67/month plan. But whether you stay on or
+            not, the $250 Attachment Styles & Sex course is yours for life.
           </em>
         </p>
       </Section>
 
       <Section className="bg-black text-white !py-16">
-        <h2 className="mb-8">
-          BONUS FREE TRIAL: Gain Exclusive Access to The Results-Driven Proprietary Method Found
-          Only At The Personal Development School!
-        </h2>
+        <h2>Use the Revolutionary Tools Only Available In Our School!</h2>
 
-        <p className="mb-8">
-          <strong>
-            We're the only platform that utilizes the groundbreaking Integrated Attachment Theory™
-            to help you understand what you want in your sex life and relationships and how to get
-            it faster than ever before by unlocking and rewiring your subconscious patterns.
-          </strong>
+        <p>
+          Learn and use the Integrated Attachment Theory™ to create and build healthy relationships.
         </p>
 
-        <div className="grid grid-cols-1 gap-8 !text-left lg:grid-cols-3">
+        <div className="grid gap-8 text-left my-8 lg:grid-cols-3">
           {STEPS_TO_PURCHASE.map((item, idx) => (
             <div key={`puchase_steps_${idx}`}>
               <div className="min-h-48 mb-4">
                 <Image
-                  className="rounded-xl"
+                  className="w-full rounded-xl lg:max-h-48"
                   alt="PDS Journey Step"
                   src={item.image}
                   width={360}
@@ -192,20 +204,29 @@ export default function DreamLifeSexCoursePage() {
                 />
               </div>
 
-              <p className="font-bold tracking-33 mb-4">{item.step}</p>
+              <div className=" bg-white text-black rounded-2xl p-4">
+                <p className="font-bold tracking-33 text-primary mb-4">
+                  <span className="mt-1 mr-2">
+                    <FontAwesomeIcon className="text-xl" icon={item.icon} />
+                  </span>
+                  {item.step}
+                </p>
 
-              <h3 className="mb-4">{item.title}</h3>
+                <h3 className="mb-4">{item.title}</h3>
 
-              <p>{item.copy}</p>
+                <p>{item.copy}</p>
+              </div>
             </div>
           ))}
         </div>
+
+        <ButtonCheckout href={checkoutUrl} label="SIGN UP NOW" />
       </Section>
 
       <Section>
-        <h2 className="mb-8">Use Your Free Trial to Enter a World of Possibilities</h2>
+        <h2 className="mb-8">Use Your Free Trial to Continue Growing Your Relationships!</h2>
 
-        <div className="grid grid-cols-1 gap-4 mb-8 lg:grid-cols-3">
+        <div className="grid gap-4 mb-8 lg:grid-cols-3">
           {PDS_FEATURES.map((feature, idx) => (
             <div key={`feature_${idx}`}>
               <div className="flex justify-center mb-4">
@@ -222,35 +243,32 @@ export default function DreamLifeSexCoursePage() {
 
       <Section>
         <div className="max-w-3xl mx-auto">
-          <h2 className="mb-8">
-            Mastered Sex & Intimacy? Why Stop Now? Unlock Your Full Potential
-          </h2>
+          <h2>Don't Stop Your Personal Growth</h2>
 
-          <p className="mb-8">
-            After completing the <strong>Attachment Styles & Sex Course</strong>, explore new
-            insights and tools to enhance your self-awareness, emotional connection, and
-            relationships with our most popular courses.
+          <p>
+            Unlock our most popular courses to gain powerful tools for emotional insight,
+            self-awareness, and lasting relationship growth.
           </p>
 
-          <ButtonCheckout href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" className="mb-8" />
+          <ButtonCheckout href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" />
         </div>
 
-        <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can continue your personal and relationship growth." />
-      </Section>
-
-      <Section className="max-w-full p-4 my-8 lg:!p-0" classNameInner="!max-w-full !m-0 !p-0">
-        <CarouselTestimonialThinkific initialSlide={1} />
+        <VideoTeaser
+          className="bg-white-secondary"
+          description="Progression is the key to success! With the All-Access Pass, you can continue your personal and relationship growth."
+        />
       </Section>
 
       <CommunityTeaser
-        paymentOptionsConfigKey="dreamLifeSexCourse"
         sectionHeading="Experience Belonging to an Unstoppable Powerhouse Community That Ignites Your Life!"
-        teaserHeading="Free Trial = Attachment Styles & Sex Course for LIFE"
+        teaserHeading="Free Trial + Attachment Styles & Sex Course FREE for LIFE!"
+        classNamePaymentOptions="!max-w-xl mx-auto lg:flex-col"
+        paymentOptionsConfigKey="dreamLifeSexCourse"
         communityBullets={[
-          'Sign up for the 7-day Free Trial to get Lifetime access to the Attachment Styles & Sex Course',
-          'Use our proven framework to create deeper and more intense intimacy and connection',
-          'Try our All-Access Pass Membership for free to access everything we offer',
-          'Stay on as a member after your trial ends to continue your personal growth journey',
+          'Understand how your attachment style shapes comfort, desire, and vulnerability, so intimacy feels safe and mutually fulfilling.',
+          'Apply science-based strategies and notice a deeper bond within one week, using practical exercises you can revisit anytime.',
+          'Clarify the emotional and physical experiences that matter most to you, turning intimacy into a reliable source of joy and confidence.',
+          'Follow our evidence-based framework to communicate needs, set healthy boundaries, and sustain passion as your relationship grows.',
         ]}
       />
     </Page>
@@ -260,9 +278,9 @@ export default function DreamLifeSexCoursePage() {
 const PDS_FEATURES = [
   {
     icon: '/images/TrialHeadspace/watching-on-laptop.svg',
-    title: '65+ Self-Paced Courses',
+    title: '70+ Self-Paced Courses',
     subtitle:
-      'Transform your life or relationships by becoming securely attached. Explore and choose from our 65+ courses on attachment styles, relationships, and more.',
+      'Transform your life or relationships by becoming securely attached. Explore and choose from our 70+ courses on attachment styles, relationships, and more.',
   },
   {
     icon: '/images/TrialHeadspace/couple-holding-heart-message.svg',
@@ -280,21 +298,24 @@ const PDS_FEATURES = [
 
 const STEPS_TO_PURCHASE = [
   {
+    icon: faSquare1,
     step: 'STEP ONE',
-    title: 'Sign Up for the Free Trial Today',
-    copy: "Take the free trial to keep and reuse the Attachment Styles & Sex Course for life – even if you don't stay on as a member!",
+    title: 'Sign Up for Your Free Trial Right Here & Now',
+    copy: 'Activate your 7-Day Free Trial and instantly unlock everything inside the All-Access Pass. You’ll get immediate access to over 70 expert-led courses, live webinars, and a supportive community that truly gets you. No strings attached — just real tools that work.',
     image: '/images/RoyalRumblePage/rr-offer.png',
   },
   {
+    icon: faSquare2,
     step: 'STEP TWO',
-    title: 'Become Confident, Connected, & Satisfied',
-    copy: 'Use the powerful and simple IAT™ tools from the Attachment Styles & Sex Course to navigate intimacy with confidence, overcome barriers, and deepen connections.',
+    title: 'Start & Keep the Attachment Styles & Sex Course',
+    copy: 'Discover how your attachment style impacts intimacy, attraction, and emotional connection. You’ll uncover the unconscious beliefs and patterns that create distance or dissatisfaction in your love life—and start reprogramming your mind for safety, vulnerability, and passion.',
     image: '/images/course-attachment-styles-and-sex.jpg',
   },
   {
+    icon: faSquare3,
     step: 'STEP THREE',
-    title: 'Explore Our All-Access Pass',
-    copy: 'Use our All-Access Pass Membership for FREE for 7 days to choose from 65+ courses, attend live webinars with me, Thais Gibson, and join our inspiring community. Start your journey towards healing your insecure attachment, leaving your unhealthy patterns behind, and building deep, meaningful relationships.',
+    title: 'Keep Growing with the All-Access Pass',
+    copy: 'Stay on your healing journey with full access to everything inside the All-Access Pass: courses on boundaries, self-esteem, attachment styles, emotional mastery, and more, plus live webinars and community access. This is how lasting continues to foster.',
     image: '/images/TrialHeadspace/pds-courses-mockup.png',
   },
 ]

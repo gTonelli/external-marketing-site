@@ -138,7 +138,7 @@ export default function DreamLifeFreeCoursePage() {
           </p>
 
           <p>
-            Even if you cancel before the trial ends, this <strong>$250</strong> course is yours
+            Even if you cancel before the trial ends, this <strong>$250 course</strong> is yours
             forever. We do this because results speak louder than promises, and we know you’ll feel
             the shift and want to keep going.
           </p>

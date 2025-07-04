@@ -58,7 +58,7 @@ export const PaymentOptions = ({
       {showDisclaimer && config.disclaimer && (
         <p
           className={cx(
-            'max-w-xl mx-auto',
+            'max-w-xl mx-auto mb-4',
             placement === 'top' ? 'text-gray-800' : 'text-gray-200'
           )}>
           <i>{config.disclaimer}</i>
@@ -157,6 +157,37 @@ const allConfigs = {
     checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
+  },
+  dreamLifeSomatic: {
+    offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
+    title: 'Unlock the Powerful Tools to Start Healing & Reconnecting With Yourself',
+    copy: (
+      <>
+        For only $19, you can get the <strong>Release Emotions with Somatic Processing</strong>{' '}
+        course and learn to calm your body and mind, unpack and self-soothe your emotions, and start
+        healing and reconnecting with yourself and others.
+      </>
+    ),
+    checkoutUrl: externalRoutes.checkoutJuly2025PromoTrial,
+    ctaLabel: 'GET THE COURSE NOW!',
+  },
+  dreamLifeUpsell: {
+    offerLabel: 'Take Step 2 RISK-FREE',
+    title: 'Get the Emotional Mastery Course FOR FREE for 7 Days with an All-Access Pass Trial',
+    copy: (
+      <>
+        You’ve taken the first step; now deepen your transformation with our{' '}
+        <strong>Emotional Mastery & Belief Reprogramming</strong> course. Rewire your emotional
+        responses, replace limiting beliefs, and create resilience and security in every
+        relationship, including with yourself. Take this entire course — and get everything else we
+        offer inside the school, including attachment style-specific programs — all for FREE for 7
+        days.
+      </>
+    ),
+    ctaLabel: 'START YOUR TRIAL NOW + ACCESS STEP 2',
+    checkoutUrl: externalRoutes.checkout7DayTrial,
+    disclaimer:
+      '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan.',
   },
 } satisfies Record<string, Partial<TConfig>>
 

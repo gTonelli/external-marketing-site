@@ -30,7 +30,7 @@ export default function DreamLifeSexCoursePage() {
   const checkoutUrl = externalRoutes.checkoutMarch2025PromoTrial
 
   return (
-    <Page page_name="Dreamlife Pillars Course Page" className="relative">
+    <Page page_name="Dreamlife Sex Course Page" className="relative">
       <section className="text-center bg-purple-dark px-2">
         <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
           LIMITED TIME: Claim your FREE Attachment Styles & Sex Course ($250 Value) For LIFE With

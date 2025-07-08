@@ -30,7 +30,7 @@ export default function DreamLifeFreeCoursePage() {
   const checkoutUrl = externalRoutes.checkoutJan2025PromoTrial
 
   return (
-    <Page page_name="Dreamlife Pillars Course Page" className="relative">
+    <Page page_name="Dreamlife Free Course Page" className="relative">
       <section className="text-center bg-purple-dark px-2">
         <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
           LIMITED TIME OFFER: Get The Discover, Fulfill, and Embrace Your Personal Needs Course

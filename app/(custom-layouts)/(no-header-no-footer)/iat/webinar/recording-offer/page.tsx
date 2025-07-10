@@ -59,7 +59,7 @@ export default function IATMasterclassRecordingPage() {
         <h2 className="mb-4">Are You Ready to Transform Lives & Secure Your Financial Future?</h2>
 
         <p className="mb-16">
-          Sign up for the Live IAT™ Program starting on <strong>Thursday, July 24th, 2025</strong>,
+          Sign up for the Live IAT™ Program starting on <strong>Friday, July 18th, 2025</strong>,
           and get your exclusive Masterclass discount!
         </p>
 
@@ -70,7 +70,7 @@ export default function IATMasterclassRecordingPage() {
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2025-06-27T23:59:59-04:00'), 1)}
+          date={getOfferEndDate(new Date('2025-07-18T23:59:59-04:00'), 1)}
         />
       </Section>
 
@@ -140,7 +140,7 @@ export default function IATMasterclassRecordingPage() {
             </>,
             'This revolutionary program is designed to equip you with the practical tools and knowledge from our proprietary healing model and the business solutions to turn your passion for helping people into a fulfilling and financially rewarding career.',
             <>
-              Enrolment for our next cohort starting <strong>Thursday, July 24th, 2025</strong>, is
+              Enrolment for our next cohort starting <strong>Friday, July 18th, 2025</strong>, is
               closing soon!
             </>,
             'This is your final chance to be part of a groundbreaking movement that is changing the way people experience personal growth and transformation.',

@@ -68,7 +68,7 @@ export default function IATWebinarSqueezePage() {
             <span className="text-primary">Transform Lives</span> & Secure Your Financial Future
           </h1>
 
-          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on July 18th, 2025</p>
+          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on July 24th, 2025</p>
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 

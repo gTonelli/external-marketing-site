@@ -6,16 +6,5 @@ import { ATTACHMENT_QUIZ_VARIANT } from '../config'
 
 export default function AttachmentQuizVariantPage() {
   const page_name = 'Main Funnel Quiz Variant'
-  return (
-    <AttachmentQuizVariant
-      page_name={page_name}
-      config={ATTACHMENT_QUIZ_VARIANT}
-      splitTestData={{
-        experimentName: 'GM-1362-ICP-Results',
-        key: 'GM-1362',
-        useCookies: false,
-        variantRatio: 0.5,
-      }}
-    />
-  )
+  return <AttachmentQuizVariant page_name={page_name} config={ATTACHMENT_QUIZ_VARIANT} />
 }

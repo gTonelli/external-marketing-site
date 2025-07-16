@@ -43,6 +43,7 @@ export type Pages =
   | `7-Day Trial Page (Variant)`
   | `Abandoned Card Offer - ${string}`
   | `Age Funnel - ${string}`
+  | `AP Single - ${string}`
   | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
@@ -62,6 +63,7 @@ export type Pages =
   | `Corporate Quiz Results Page`
   | `Cyber Monday`
   | `Cyber Monday Variant Page`
+  | `DA Single - ${string}`
   | `Dating Freebie Page`
   | `Dreamlife Results Page FA`
   | `Dreamlife Free Course Page`
@@ -75,6 +77,7 @@ export type Pages =
   | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `FA Single - ${string}`
+  | `FA Relationship - ${string}`
   | `Find My Courses`
   | `Free Masterclass Mel Robbins`
   | `Greg Voisen Podcast Guest Page`

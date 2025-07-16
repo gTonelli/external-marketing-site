@@ -2,14 +2,12 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useContext } from 'react'
 // components
 import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
 // utils
 import { TStyle } from '@/utils/types'
-import { SplitTestContext } from '@/utils/contexts'
-import { getAttachmentStyleText, getSplitTest, setSplitTest } from '@/utils/functions'
+import { getAttachmentStyleText } from '@/utils/functions'
 import { gtag } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
@@ -26,11 +24,6 @@ export const AttachmentQuizForm = ({
   userStyle,
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
-  const splitTestContext = useContext(SplitTestContext)
-  if (splitTestContext && userStyle !== 'sa') {
-    setSplitTest({ ...splitTestContext, value: false })
-  }
-  const isVariant = splitTestContext && getSplitTest(splitTestContext)
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -39,16 +32,10 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (isVariant) {
-          return `/quiz/${userStyle}/b`
-        } else {
-          return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
-        }
+        return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
 
       case 'paidMeta':
-        if (isVariant) {
-          return `/quiz/${userStyle}/b`
-        } else if (userStyle === 'da') {
+        if (userStyle === 'da') {
           return '/quiz/da'
         } else {
           return `/quiz/b/results/${userStyle}`
@@ -81,8 +68,14 @@ export const AttachmentQuizForm = ({
 
   const baseTag = `attachment-quiz-${userStyle}`
 
-  const additionalTag =
-    userInfo?.relationshipStatus === 'No' && userStyle === 'fa' ? 'single-fa' : ''
+  let additionalTag = ''
+
+  if (userInfo?.relationshipStatus === 'No' && userStyle !== 'sa') {
+    additionalTag = `single-${userStyle}`
+  } else if (userInfo?.relationshipStatus === 'Yes') {
+    additionalTag = `relationship-${userStyle}`
+  }
+
   const tagArray = additionalTag ? `${baseTag}, ${additionalTag}` : baseTag
 
   return (

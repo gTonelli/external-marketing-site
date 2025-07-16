@@ -78,7 +78,7 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
 
       <Section classNameInner="flex flex-col gap-8 items-center">
         <Image
-          src={'/images/FARelationship/telescope-vector.png'}
+          src={'/images/FARelationship/telescope-vector.svg'}
           alt="an illustration of a man looking into a telescope"
           width={375}
           height={300}

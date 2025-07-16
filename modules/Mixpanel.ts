@@ -77,6 +77,7 @@ export type Pages =
   | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `FA Single - ${string}`
+  | `FA Relationship - ${string}`
   | `Find My Courses`
   | `Free Masterclass Mel Robbins`
   | `Greg Voisen Podcast Guest Page`

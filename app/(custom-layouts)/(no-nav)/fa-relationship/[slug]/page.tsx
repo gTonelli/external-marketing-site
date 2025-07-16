@@ -9,13 +9,13 @@ import { List } from '@/components/List'
 import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { Button } from '@/components/Button/Button'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faLightbulbGear } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // library
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
 import { FA_RELATIONSHIP_CONFIG as CONFIG } from './config'
 // styles
 import './style.css'
-import { faLightbulbGear } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export const dynamicParams = false
 
@@ -84,7 +84,7 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
           height={300}
         />
 
-        <h2 className="text-primary">
+        <h2 className="max-w-3xl text-primary mx-auto">
           Now That You Know Your Next Step, Here's What You Can Expect When You Start This Journey
         </h2>
       </Section>
@@ -108,11 +108,11 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
             listItems={[
               <>
                 <strong>Discover What You Really Need:</strong> Understand your triggers, needs, and
-                emotional patterns to build security in your relationships.
+                emotional patterns to build security in your relationship.
               </>,
               <>
                 <strong>Calm the Inner Chaos:</strong> Learn how to soothe fear, insecurity, and
-                self-doubt that hijack your connection
+                self-doubt that hijack your connection.
               </>,
               <>
                 <strong>Break the Push-Pull Cycle:</strong> Stop shutting down to protect yourself
@@ -124,7 +124,7 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
               </>,
               <>
                 <strong>Balance Boundaries and Intimacy:</strong> Learn how to stay connected while
-                protecting your space or abandoning yourself to keep the peace.
+                protecting your space.
               </>,
               <>
                 <strong>Communicate Without Fear:</strong> Express yourself clearly, even during
@@ -154,7 +154,7 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
         <p className="mb-8">
           Sign up for our comprehensive membership, the All-Access Pass, to unlock the Fearful
           Avoidant to Securely Attached Program, the step-by-step roadmap that will enable you to
-          build the secure relationships you desire.
+          build the secure relationship you desire.
         </p>
 
         <Link href={ctaUrl}>
@@ -179,7 +179,7 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
             listItems={[
               'How long have you been stuck in this push-pull cycle hoping things will change?',
               'How much has this emotional rollercoaster cost you in your relationship?',
-              'What would it feel like to trust your partner and yourself, finally?',
+              'What would it feel like to finally trust your partner and yourself?',
             ]}
           />
 
@@ -190,7 +190,7 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
 
             <p>
               <strong>
-                What if this is the turning point? What if this program gives you the clarity you
+                What if this is the turning point? What if this Program gives you the clarity you
                 deserve to build security and trust in your relationship now and forever?
               </strong>
             </p>
@@ -202,8 +202,8 @@ export default async function FARelationshipPage({ params }: IFARelationshipPage
 
           <p className="mt-4">
             <em>
-              *When you sign up for the program, you’ll become an All-Access Pass Member for $67 per
-              month, instead of $97 – a 30% discount for LIFE! And because I know this program will
+              *When you sign up for the Program, you’ll become an All-Access Pass Member for $67 per
+              month, instead of $97 – a 30% discount for LIFE! And because I know this Program will
               change your life, I’ll give you a 100% refund if you don’t see a transformation within
               7 days – no questions asked!
             </em>

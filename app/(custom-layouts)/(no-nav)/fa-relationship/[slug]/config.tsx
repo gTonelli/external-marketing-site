@@ -6,8 +6,8 @@ export const FA_RELATIONSHIP_CONFIG = {
     hero: {
       header: "Here's Why You Constantly Repeat Your Push-Pull Cycle",
       subheader:
-        'Your Fearful, Avoidant attachment style is creating a push-pull cycle that will keep hijacking your relationships, leaving you scared to get close to your partner. Watch this video to learn where this pattern comes from and how to break it.',
-      videoId: 'gWL65dGP9N0',
+        'Your Fearful Avoidant attachment style is creating a push-pull cycle that will keep hijacking your relationship, leaving you scared to get close to your partner. Watch this video to learn where this pattern comes from and how to break it.',
+      videoId: 'V4VUbsXI2os',
     },
     nextSteps: {
       header:
@@ -37,7 +37,7 @@ export const FA_RELATIONSHIP_CONFIG = {
       header: 'When You Feel Unsafe, Everything in Your Relationship Feels Like a Threat',
       subheader:
         'Your fears of being hurt can trigger intense emotional reactions, like panic, withdrawal, and shame, that feel impossible to control. Watch the video to uncover what’s driving your reactivity and how to take back control.',
-      videoId: 'yzlNGe7Yorw',
+      videoId: 'TegVdJON6OA',
     },
     nextSteps: {
       header:
@@ -45,8 +45,9 @@ export const FA_RELATIONSHIP_CONFIG = {
       copy: [
         <>
           We created the <strong>Fearful Avoidant to Securely Attached Program</strong> for you;
-          Fearful Avoidants in relationships who want to stop these push-and-pull patterns. With
-          this Program, you can become safe and feel secure in your relationship.
+          Fearful Avoidants in relationships who want to stop letting these intense emotions take
+          over their relationships. With this Program, you can become safe and feel secure in your
+          relationship.
         </>,
         <>
           This Program is included with a <strong>30% discount on our All-Access Pass</strong>, our
@@ -67,7 +68,7 @@ export const FA_RELATIONSHIP_CONFIG = {
       header: 'You’ve Been Abandoning Yourself to Keep the Relationship Alive',
       subheader:
         'Giving up, accommodating, or holding back your emotions is not connection; it’s fear. This video shows you how to reconnect with yourself and feel safe again.',
-      videoId: 'c2yvVFeXXcM',
+      videoId: 'aSUIocHnZwc',
     },
     nextSteps: {
       header:
@@ -75,8 +76,9 @@ export const FA_RELATIONSHIP_CONFIG = {
       copy: [
         <>
           We created the <strong>Fearful Avoidant to Securely Attached Program</strong> for you;
-          Fearful Avoidants in relationships who want to stop these push-and-pull patterns. With
-          this Program, you can become safe and feel secure in your relationship.
+          Fearful Avoidants in relationships who want to feel connected with their partners without
+          abandoning themselves. With this Program, you can become safe and feel secure in your
+          relationship.
         </>,
         <>
           This Program is included with a <strong>30% discount on our All-Access Pass</strong>, our

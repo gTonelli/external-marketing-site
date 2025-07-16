@@ -4,25 +4,17 @@ import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { SinglesPage } from '@/components/SinglesPage'
 // config
-import { AP_SINGLE_SEO as CONFIG } from './config'
+import { AP_SINGLE_SEO as CONFIG, TAPSinglePageSlugs } from './config'
 
 export const dynamicParams = false
 
-type TParams =
-  | 'heal-abandonment'
-  | 'overcoming-loneliness'
-  | 'texting'
-  | 'regulate-emotions'
-  | 'limerence'
-  | 'becoming-secure'
-
-interface IFASinglePageParams {
+interface IAPSinglePageParams {
   params: Promise<{
-    slug: TParams
+    slug: TAPSinglePageSlugs
   }>
 }
 
-export function generateStaticParams() {
+export function generateStaticParams(): { slug: TAPSinglePageSlugs }[] {
   return [
     { slug: 'heal-abandonment' },
     { slug: 'overcoming-loneliness' },
@@ -33,7 +25,7 @@ export function generateStaticParams() {
   ]
 }
 
-export async function generateMetadata({ params }: IFASinglePageParams): Promise<Metadata> {
+export async function generateMetadata({ params }: IAPSinglePageParams): Promise<Metadata> {
   const { slug } = await params
 
   return {
@@ -43,7 +35,7 @@ export async function generateMetadata({ params }: IFASinglePageParams): Promise
   }
 }
 
-export default async function APSinglePage({ params }: IFASinglePageParams) {
+export default async function APSinglePage({ params }: IAPSinglePageParams) {
   const { slug } = await params
 
   return (

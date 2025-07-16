@@ -4,25 +4,17 @@ import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { SinglesPage } from '@/components/SinglesPage'
 // config
-import { DA_SINGLE_SEO as CONFIG } from './config'
+import { DA_SINGLE_SEO as CONFIG, TDASinglePageSlugs } from './config'
 
 export const dynamicParams = false
 
-type TParams =
-  | 'hard-truths'
-  | 'dating-triggers'
-  | 'sabotaging-intimacy'
-  | 'fighting-stages'
-  | 'perfect-fit'
-  | 'healing'
-
-interface IFASinglePageParams {
+interface IDASinglePageParams {
   params: Promise<{
-    slug: TParams
+    slug: TDASinglePageSlugs
   }>
 }
 
-export function generateStaticParams() {
+export function generateStaticParams(): { slug: TDASinglePageSlugs }[] {
   return [
     { slug: 'hard-truths' },
     { slug: 'dating-triggers' },
@@ -33,7 +25,7 @@ export function generateStaticParams() {
   ]
 }
 
-export async function generateMetadata({ params }: IFASinglePageParams): Promise<Metadata> {
+export async function generateMetadata({ params }: IDASinglePageParams): Promise<Metadata> {
   const { slug } = await params
 
   return {
@@ -43,7 +35,7 @@ export async function generateMetadata({ params }: IFASinglePageParams): Promise
   }
 }
 
-export default async function DASinglePage({ params }: IFASinglePageParams) {
+export default async function DASinglePage({ params }: IDASinglePageParams) {
   const { slug } = await params
 
   return (

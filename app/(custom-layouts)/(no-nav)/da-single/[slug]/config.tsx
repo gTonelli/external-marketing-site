@@ -161,3 +161,4 @@ export const DA_SINGLE_SEO = {
       "Healing isn’t always easy, but it’s a good sign. Watch this video to learn the uncomfortable signs you're actually healing.",
   },
 }
+export type TDASinglePageSlugs = keyof (typeof DA_SINGLE_CONFIG)['versions']

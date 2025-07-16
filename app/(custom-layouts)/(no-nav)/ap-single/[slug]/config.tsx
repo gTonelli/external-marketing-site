@@ -162,3 +162,5 @@ export const AP_SINGLE_SEO = {
       'You’re healing even when it doesn’t feel like it. This video explains the key signs your anxious attachment style is actually healing and becoming secure.',
   },
 }
+
+export type TAPSinglePageSlugs = keyof (typeof AP_SINGLE_CONFIG)['versions']

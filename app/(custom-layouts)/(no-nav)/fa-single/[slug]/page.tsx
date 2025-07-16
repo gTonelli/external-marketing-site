@@ -4,21 +4,13 @@ import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { SinglesPage } from '@/components/SinglesPage'
 // config
-import { FA_SINGLE_SEO as CONFIG } from './config'
+import { FA_SINGLE_SEO as CONFIG, TFASinglePageSlugs } from './config'
 
 export const dynamicParams = false
 
-type TParams =
-  | 'behaviors'
-  | 'dating-tips'
-  | 'heal-triggers'
-  | 'situationship'
-  | 'dating-apps'
-  | 'needs'
-
 interface IFASinglePageParams {
   params: Promise<{
-    slug: TParams
+    slug: TFASinglePageSlugs
   }>
 }
 

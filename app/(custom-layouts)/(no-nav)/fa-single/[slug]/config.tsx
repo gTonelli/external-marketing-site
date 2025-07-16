@@ -161,3 +161,4 @@ export const FA_SINGLE_SEO = {
       'Discover what you need the most out of a relationship (and how to communicate them!). Sign up for our Fearful avoidant course now!',
   },
 }
+export type TFASinglePageSlugs = keyof (typeof FA_SINGLE_CONFIG)['versions']

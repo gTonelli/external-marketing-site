@@ -5,136 +5,169 @@ import { externalRoutes } from '@/utils/constants'
 
 export type TSpinWheelVariant = 'email' | 'osm'
 
-const features = [
-  'Live Webinars & Q&As with Thais Gibson',
-  'All Attachment Style Courses + All Courses Inside the School',
-  'Access to Our Supportive Community & Study Groups',
-]
-
-const commonPrizes = [
+export const prizes = [
   {
-    option: '7-day free trial',
+    option: 'Free 7-Day Trial',
     title: (
       <>
-        Congratulations – You’ve Won a{' '}
-        <span className="text-primary">7-day Free Trial to the Access Pass!</span>
+        Congratulations! You’ve Won a{' '}
+        <span className="text-primary">7-day Free Trial to the Access Pass.</span>
       </>
     ),
-    subheader:
-      'Get unlimited access to our school’s entire collection — for free for 7 days! That includes:',
-    features,
+    subheader: 'Your Secure Love Journey Starts Now!',
+    copy: 'Enjoy full, unlimited access to our on-demand courses, private, supportive community, and live webinars with Thais (normally $97/month) for the next 7 days, completely FREE. Your transformation begins now!',
+    imgSrc: '/images/SpinTheWheel/free-trial-congratulations.png',
+    imgAlt: 'Congratulations image with gifts and balloons and free trial mockup',
     disclaimer:
-      'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
+      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.checkout7DayTrial,
     userTag: 'mkt-spin-wheel-7dft',
+    probability: 12,
   },
   {
-    option: '14-day free trial',
+    option: 'Free 14-day Trial',
     title: (
       <>
-        Congratulations – You’ve Won a{' '}
-        <span className="text-primary">14-day Free Trial to the Access Pass!</span>
+        Congratulations! You’ve Won a{' '}
+        <span className="text-primary">14-day Free Trial to the Access Pass.</span>
       </>
     ),
-    subheader:
-      'Get unlimited access to our school’s entire collection — for free for 14 days! That includes:',
-    features,
+    subheader: 'Twice the Time, Double the Breakthrough!',
+    copy: 'Unlock unlimited access (normally $97/month) to our on-demand courses, private, supportive community, and live webinars with Thais for 14 days, completely FREE. Real relationship breakthroughs start here.',
+    imgSrc: '/images/SpinTheWheel/free-trial-congratulations.png',
+    imgAlt: 'Congratulations image with gifts and balloons and free trial mockup',
     disclaimer:
-      'At the end of the trial, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
+      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.checkout14DayTrial,
     userTag: 'mkt-spin-wheel-14dft',
+    probability: 20,
   },
   {
-    option: '60% off first month',
+    option: '60% Off First Month',
     title: (
       <>
-        Congratulations – You’ve Won <span className="text-primary">60% Off Your First Month!</span>
+        Congratulations! You’ve Won <span className="text-primary">60% OFF Your First Month.</span>
       </>
     ),
-    subheader:
-      'Start your healing journey for less! You’ve unlocked this epic discount on the Access Pass—for only $39 for your first month—instead of the usual $97!  You’ll get:',
-    features,
+    subheader: 'Huge Savings, Instant Transformation!',
+    copy: "You've unlocked full access (normally $97/month) for just $39 your first month! Instant support, expert guidance, and powerful breakthroughs await.",
+    imgSrc: '/images/congratulations.png',
+    imgAlt: 'Congratulations image with gifts and balloons',
     disclaimer:
-      'At the end of the first month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
+      "After your discounted month ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.singleStepCheckout39FirstMonth,
     userTag: 'mkt-spin-wheel-39fmo',
+    probability: 1,
   },
   {
-    option: 'Free trial + free course',
+    option: '7-Day Trial + Free Course',
     title: (
       <>
-        Congratulations – You’ve Won a{' '}
-        <span className="text-primary">Free Trial & Free Course!</span>
+        Congratulations! You’ve Won a{' '}
+        <span className="text-primary">FREE Needs Course + 7-Day Free Trial.</span>
       </>
     ),
-    subheader:
-      'You’ve won a 7-day Free Trial to the Access Pass and can keep the Needs Course for LIFE! You’ll enjoy:',
-    features: [
-      'Live Webinars & Q&As with Thais + Community Access',
-      'All Attachment Style Courses + All Courses Inside the School',
-      'Keep the Needs Course for Life',
-    ],
+    subheader: 'Start Your Journey to Deep Emotional Fulfillment!',
+    copy: (
+      <>
+        Get unlimited access (normally $97/month) to every resource for 7 days, plus keep your{' '}
+        <strong>Discover, Embrace, and Fulfill Your Personal Needs</strong> course forever
+        absolutely FREE!
+      </>
+    ),
+    imgSrc: '/images/SpinTheWheel/needs-course-congratulations.png',
+    imgAlt:
+      'Congratulations image with gifts and balloons and Discover, Embrace, and Fulfull Personal Needs course mockup',
     disclaimer:
-      'At the end of the trial, you’ll automatically become a member of the $67.00/month plan. You’ll still keep the Needs Course for life even if you don’t stay on.',
+      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off). Your Needs Course is yours forever, even if you cancel.",
     checkoutLink: externalRoutes.checkoutJan2025PromoTrial,
-    userTag: 'mkt-spin-wheel-ft-fc',
+    userTag: 'mkt-spin-wheel-ft-needs',
+    probability: 35,
+  },
+  {
+    option: 'Free Month Membership',
+    title: (
+      <>
+        Congratulations! You’ve Won a{' '}
+        <span className="text-primary">Free Month of the All-Access Pass.</span>
+      </>
+    ),
+    subheader: 'Your Healing Journey Just Got Easier!',
+    copy: 'Enjoy a full month of unlimited access (normally $97/month) to our entire library of courses and tools absolutely FREE. Real transformation, zero cost.',
+    imgSrc: '/images/congratulations.png',
+    imgAlt: 'Congratulations image with gifts and balloons',
+    disclaimer:
+      "After your free month ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
+    checkoutLink: externalRoutes.checkout1MonthFree,
+    userTag: 'mkt-spin-wheel-1mo-free',
+    probability: 1,
+  },
+  {
+    option: '$19 Course',
+    title: (
+      <>
+        Congratulations! You’ve Unlocked the{' '}
+        <span className="text-primary">Somatic Healing Course for Just $19.</span>
+      </>
+    ),
+    subheader: 'Experience Lasting Emotional Relief!',
+    copy: (
+      <>
+        Learn daily rituals for self-soothing and nervous system healing. Get the{' '}
+        <strong>Release Emotions with Somatic Processing</strong> course for just $19 instead of
+        $250! That’s over 90% off. Limited-time offer—start your transformation today!
+      </>
+    ),
+    imgSrc: '/images/SpinTheWheel/somatic-course-congratulations.png',
+    imgAlt: 'Congratulations image with gifts and balloons and Somatic Healing course mockup',
+    disclaimer: '',
+    checkoutLink: externalRoutes.checkoutJuly2025PromoTrial,
+    userTag: 'mkt-spin-wheel-somatic',
+    probability: 1,
+  },
+  {
+    option: '7-Day Trial + Free Course',
+    title: (
+      <>
+        Congratulations! You’ve Won a{' '}
+        <span className="text-primary">FREE Relationship Course + 7-Day Free Trial.</span>
+      </>
+    ),
+    subheader: 'Start Your Path to Healthy, Secure Love Today!',
+    copy: (
+      <>
+        Enjoy unlimited access (normally $97/month) to ALL courses, our community, and live webinars
+        with Thais for a full 7 days, plus keep the{' '}
+        <strong>Key Pillars to a Secure Relationship</strong>
+        breakthrough course forever for FREE!
+      </>
+    ),
+    imgSrc: '/images/SpinTheWheel/relationships-course-congratulations.png',
+    imgAlt:
+      'Congratulations image with gifts and balloons and Key Pillars to a Secure Relationship course mockup',
+    disclaimer:
+      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off). This Relationship Course remains yours for life, even if you cancel.",
+    checkoutLink: externalRoutes.checkoutJune2025PromoTrial,
+    userTag: 'mkt-spin-wheel-ft-relationships',
+    probability: 30,
   },
 ]
 
-export const prizes = {
-  email: [
-    ...commonPrizes,
-    {
-      option: '50% off quarterly',
-      title: (
-        <>
-          Congratulations – You’ve Won{' '}
-          <span className="text-primary">50% Off a Quarterly Membership for Life!</span>
-        </>
-      ),
-      subheader:
-        'You’ve won a permanent discount, so you can keep growing! $149 for 3 months – a 50% discount off the regular price for LIFE. You’ll get:',
-      features,
-      disclaimer: 'You can cancel at any time with no commitment.',
-      checkoutLink: externalRoutes.checkoutQuarterly149,
-      userTag: 'mkt-spin-wheel-50off-quarterly',
-    },
-  ],
-  osm: [
-    ...commonPrizes,
-    {
-      option: 'Free month membership',
-      title: (
-        <>
-          Congratulations – You’ve Won a{' '}
-          <span className="text-primary">Free 1-Month Membership!</span>
-        </>
-      ),
-      subheader:
-        'Enjoy everything the All-Access Pass has to offer for FREE for 1-month! For 30 days, you’ll get:',
-      features,
-      disclaimer:
-        'At the end of the month, you’ll automatically become a member of the $67.00/month plan, which is 30% off the regular price.',
-      checkoutLink: externalRoutes.checkout1MonthFree,
-      userTag: 'mkt-spin-wheel-1mo-free',
-    },
-  ],
-}
-
 const spinWheelEmailPrizes: WheelData[] = [
-  { option: prizes['email'][0].option, style: { backgroundColor: '#EDDBCD' } },
-  { option: prizes['email'][1].option, style: { backgroundColor: '#D1CDED' } },
-  { option: prizes['email'][2].option, style: { backgroundColor: '#E9CDED' } },
-  { option: prizes['email'][3].option, style: { backgroundColor: '#CDEDD1' } },
-  { option: prizes['email'][4].option, style: { backgroundColor: '#EDECCD' } },
+  { option: prizes[0].option, style: { backgroundColor: '#EDDBCD' } },
+  { option: prizes[1].option, style: { backgroundColor: '#D1CDED' } },
+  { option: prizes[2].option, style: { backgroundColor: '#E9CDED' } },
+  { option: prizes[3].option, style: { backgroundColor: '#CDEDD1' } },
+  { option: prizes[4].option, style: { backgroundColor: '#D7E7EA' } },
+  { option: prizes[5].option, style: { backgroundColor: '#EDCDCE' } },
+  { option: prizes[6].option, style: { backgroundColor: '#CDDCED' } },
 ]
 
-const spinWheelOSMPrizes: WheelData[] = spinWheelEmailPrizes.slice(0, 4)
-spinWheelOSMPrizes.push({ option: prizes['osm'][4].option, style: { backgroundColor: '#EDECCD' } })
+const spinWheelOSMPrizes: WheelData[] = spinWheelEmailPrizes
 
-const spinWheelEmailPrizeProbabilities = [35, 35, 5, 20, 5]
+const spinWheelEmailPrizeProbabilities = prizes.map((prize) => prize.probability)
 
-const spinWheelOSMPrizeProbabilities = [30, 30, 4, 35, 1]
+const spinWheelOSMPrizeProbabilities = spinWheelEmailPrizeProbabilities
 
 /** cummulative probabilities array of email prizes */
 const spinWheelEmailPrizeDistribution = spinWheelEmailPrizeProbabilities.reduce<number[]>(

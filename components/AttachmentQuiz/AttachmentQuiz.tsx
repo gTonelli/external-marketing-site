@@ -12,6 +12,7 @@ import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import { getSplitTest } from '@/utils/functions'
 
 export interface IUserInfo {
   relationshipStatus?: string
@@ -33,7 +34,11 @@ export interface IResultProps extends IDefaultProps {
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean
   quiz_traffic_source: TQuizTrafficSources
-  quizName?: 'Attachment Style Quiz' | 'Main Funnel Quiz' | 'Main Funnel Quiz Variant' | 'Youtube Funnel Quiz'
+  quizName?:
+    | 'Attachment Style Quiz'
+    | 'Main Funnel Quiz'
+    | 'Main Funnel Quiz Variant'
+    | 'Youtube Funnel Quiz'
   showStartButton?: boolean
 }
 
@@ -45,18 +50,31 @@ export const AttachmentQuiz = ({
   showStartButton = true,
 }: IAttachmentQuizProps) => {
   const [viewQuiz, setViewQuiz] = useState(!showStartButton)
+  const [quizVariant, setQuizVariant] = useState(false)
 
   const onStartQuiz = useCallback(() => {
+    if (quiz_traffic_source === 'paidGoogle') {
+      setQuizVariant(
+        getSplitTest({
+          key: 'gm-1860-quiz-questions',
+          experimentName: 'GM-1860-Quiz-Questions-Test',
+          useCookies: false,
+        })
+      )
+    }
+
     Mixpanel.track.QuizStarted({
       quiz_name: quizName,
       quiz_traffic_source,
     })
+
     setViewQuiz(true)
   }, [quizName])
 
   if (viewQuiz) {
     return (
       <AttachmentQuizQuestions
+        isQuizVariant={quizVariant}
         className={className}
         quiz_traffic_source={quiz_traffic_source}
         quizName={quizName}

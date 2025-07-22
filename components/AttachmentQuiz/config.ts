@@ -371,4 +371,22 @@ export const QUIZ_DETAILED_QUESTIONS = [
     associationType: 'userInfo',
     options: ['Prefer not to say', 'Single', 'Recently ended a relationship', 'Still looking'],
   },
+  {
+    question: 'How familiar are you with attachment theory?',
+    association: 'attachment',
+    associationType: 'userInfo',
+    options: ['Not at all', 'A little', 'Somewhat familiar', 'Very familiar'],
+  },
+  {
+    question: 'What are you hoping to acheive today?',
+    association: 'intent',
+    associationType: 'userInfo',
+    options: [
+      'Figure out how to get my ex back',
+      'Learn more about myself and heal (self-esteem, anxiety, depression, etc.)',
+      'Improve my current relationship',
+      "Understand the person I'm dating",
+      'Finding a compatible partner',
+    ],
+  },
 ]

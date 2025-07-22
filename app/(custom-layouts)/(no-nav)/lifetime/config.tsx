@@ -1,4 +1,4 @@
-const onSale = true
+const onSale = false
 
 const savePrice = onSale ? '$1000' : '$600'
 

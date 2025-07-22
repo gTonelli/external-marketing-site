@@ -22,6 +22,7 @@ export interface IUserInfo {
   gender?: string
   relationshipIntend?: string
   relationshipSatisfaction?: string
+  intent?: string
 }
 
 export interface IResultProps extends IDefaultProps {

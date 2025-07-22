@@ -55,6 +55,7 @@ export const AttachmentQuizQuestions = ({
     relationshipIntend: '',
     relationshipSatisfaction: '',
     relationshipStatus: '',
+    intent: '',
   })
 
   const trackProgressMobile = useCallback(() => {

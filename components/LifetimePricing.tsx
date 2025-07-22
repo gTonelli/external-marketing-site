@@ -33,7 +33,7 @@ interface IPricingPlan {
   benefits: IPricingPlanBenefit[]
 }
 
-const onSale = true
+const onSale = false
 
 const pricingPlanbenefits: IPricingPlanBenefit[] = [
   { text: 'Daily Live Webinars and Q&As with Thais', price: '$1,200' },

@@ -25,7 +25,7 @@ export const prizes = [
     probability: 12,
   },
   {
-    option: 'Free 14-day Trial',
+    option: 'Free 14-Day Trial',
     title: (
       <>
         Congratulations! You’ve Won a{' '}
@@ -54,7 +54,7 @@ export const prizes = [
     imgSrc: '/images/congratulations.png',
     imgAlt: 'Congratulations image with gifts and balloons',
     disclaimer:
-      "After your discounted month ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
+      "After your free month ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.singleStepCheckout39FirstMonth,
     userTag: 'mkt-spin-wheel-39fmo',
     probability: 1,
@@ -71,7 +71,7 @@ export const prizes = [
     copy: (
       <>
         Get unlimited access (normally $97/month) to ALL courses, our community, and live webinars
-        with and live webinars with me, Thais Gibson, for 7 days, plus keep your{' '}
+        with me, Thais Gibson, for 7 days, plus keep your{' '}
         <strong>Discover, Embrace, and Fulfill Your Personal Needs</strong> course forever
         absolutely FREE!
       </>
@@ -104,7 +104,7 @@ export const prizes = [
     probability: 1,
   },
   {
-    option: '$19 Course',
+    option: '$19 Somatic Course',
     title: (
       <>
         Congratulations! You’ve Unlocked the{' '}
@@ -138,7 +138,7 @@ export const prizes = [
     copy: (
       <>
         Enjoy unlimited access (normally $97/month) to ALL courses, our community, and live webinars
-        with and live webinars with me, Thais Gibson, for a full 7 days, plus keep the{' '}
+        with me, Thais Gibson, for a full 7 days, plus keep the{' '}
         <strong>Key Pillars to a Secure Relationship</strong> course forever for FREE!
       </>
     ),

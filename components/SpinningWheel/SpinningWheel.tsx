@@ -229,7 +229,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
 
               <SignupForm
                 classNameFields="!flex-col !gap-y-4"
-                submitButtonLabel="SPIN THE WHEEL"
+                submitButtonLabel="SPIN THE WHEEL!"
                 successMessage="Spinning..."
                 userTags={[prizes[prizeNumber].userTag]}
                 listIds={[40]}

@@ -214,7 +214,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
 
               <Button
                 disabled={submitting}
-                label="SPIN THE WHEEL"
+                label="SPIN THE WHEEL!"
                 mpProps={{ wheelPrize: prizes[prizeNumber].option }}
                 onClick={handleSpinClick}
               />
@@ -239,10 +239,12 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
             </>
           )}
 
-          <p className="text-gray-500 text-sm mt-2">
-            By redeeming this offer, you agree to receive promotions and content from the Personal
-            Development School.
-          </p>
+          {pageVariant === 'osm' && (
+            <p className="text-gray-500 text-sm mt-2">
+              By redeeming this offer, you agree to receive promotions and content from the Personal
+              Development School.
+            </p>
+          )}
         </div>
       )}
     </div>

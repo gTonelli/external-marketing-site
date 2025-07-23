@@ -75,8 +75,10 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
           <Image
             src="/images/SpinTheWheel/thais-writing-no-bg.png"
             alt="An image of Thais Gibson writing in a book"
-            width={282}
-            height={282}
+            width={300}
+            height={300}
+            sizes="100vw"
+            quality={100}
           />
         </div>
 
@@ -120,6 +122,8 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
           src="/images/limited-offer-vector.png"
           width={150}
           height={90}
+          sizes="100vw"
+          quality={100}
         />
 
         <h2 className="mb-4">
@@ -159,8 +163,10 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
             priority
             alt="Courses mockup"
             src={`/images/SpinTheWheel/pds-courses-phone-mockup.png`}
-            width={601}
-            height={634}
+            width={588}
+            height={588}
+            sizes="100vw"
+            quality={100}
           />
         </div>
       </Section>
@@ -326,7 +332,7 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
             transform your relationships.
           </p>
 
-          <ButtonScroll target="#spin-wheel" label="SPIN & WIN" />
+          <ButtonScroll target="#spin-wheel" label="SPIN & WIN!" />
         </div>
       </Section>
     </>

@@ -11,15 +11,15 @@ export const prizes = [
     title: (
       <>
         Congratulations! You’ve Won a{' '}
-        <span className="text-primary">7-day Free Trial to the Access Pass.</span>
+        <span className="text-primary">7-Day Free Trial to the Access Pass.</span>
       </>
     ),
     subheader: 'Your Secure Love Journey Starts Now!',
-    copy: 'Enjoy full, unlimited access to our on-demand courses, private, supportive community, and live webinars with Thais (normally $97/month) for the next 7 days, completely FREE. Your transformation begins now!',
+    copy: 'Enjoy complete, unlimited access to our on-demand courses, private, supportive community, and live webinars with me, Thais Gibson, (normally $97/month) completely FREE for the next 7 days! Your transformation begins now!',
     imgSrc: '/images/SpinTheWheel/free-trial-congratulations.png',
     imgAlt: 'Congratulations image with gifts and balloons and free trial mockup',
     disclaimer:
-      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
+      "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.checkout7DayTrial,
     userTag: 'mkt-spin-wheel-7dft',
     probability: 12,
@@ -29,15 +29,15 @@ export const prizes = [
     title: (
       <>
         Congratulations! You’ve Won a{' '}
-        <span className="text-primary">14-day Free Trial to the Access Pass.</span>
+        <span className="text-primary">14-Day Free Trial to the Access Pass.</span>
       </>
     ),
     subheader: 'Twice the Time, Double the Breakthrough!',
-    copy: 'Unlock unlimited access (normally $97/month) to our on-demand courses, private, supportive community, and live webinars with Thais for 14 days, completely FREE. Real relationship breakthroughs start here.',
+    copy: 'Unlock unlimited access (normally $97/month) to our on-demand courses, private, supportive community, and live webinars with me, Thais Gibson, for 14 days, completely FREE. Real relationship breakthroughs start here.',
     imgSrc: '/images/SpinTheWheel/free-trial-congratulations.png',
     imgAlt: 'Congratulations image with gifts and balloons and free trial mockup',
     disclaimer:
-      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
+      "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.checkout14DayTrial,
     userTag: 'mkt-spin-wheel-14dft',
     probability: 20,
@@ -50,7 +50,7 @@ export const prizes = [
       </>
     ),
     subheader: 'Huge Savings, Instant Transformation!',
-    copy: "You've unlocked full access (normally $97/month) for just $39 your first month! Instant support, expert guidance, and powerful breakthroughs await.",
+    copy: "You've unlocked full access to the All-Access Pass (normally $97/month) for just $39 for your first month! Instant support, expert guidance, and powerful breakthroughs await.",
     imgSrc: '/images/congratulations.png',
     imgAlt: 'Congratulations image with gifts and balloons',
     disclaimer:
@@ -70,7 +70,8 @@ export const prizes = [
     subheader: 'Start Your Journey to Deep Emotional Fulfillment!',
     copy: (
       <>
-        Get unlimited access (normally $97/month) to every resource for 7 days, plus keep your{' '}
+        Get unlimited access (normally $97/month) to ALL courses, our community, and live webinars
+        with and live webinars with me, Thais Gibson, for 7 days, plus keep your{' '}
         <strong>Discover, Embrace, and Fulfill Your Personal Needs</strong> course forever
         absolutely FREE!
       </>
@@ -79,7 +80,7 @@ export const prizes = [
     imgAlt:
       'Congratulations image with gifts and balloons and Discover, Embrace, and Fulfull Personal Needs course mockup',
     disclaimer:
-      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off). Your Needs Course is yours forever, even if you cancel.",
+      "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price). You get to keep the Discover, Embrace, and Fulfill Your Personal Needs course for life, even if you don’t continue.",
     checkoutLink: externalRoutes.checkoutJan2025PromoTrial,
     userTag: 'mkt-spin-wheel-ft-needs',
     probability: 35,
@@ -93,11 +94,11 @@ export const prizes = [
       </>
     ),
     subheader: 'Your Healing Journey Just Got Easier!',
-    copy: 'Enjoy a full month of unlimited access (normally $97/month) to our entire library of courses and tools absolutely FREE. Real transformation, zero cost.',
+    copy: 'Enjoy a full month of unlimited access (normally $97/month) to our entire library of courses and tools, supportive community, and live webinars with me, Thais Gibson, absolutely FREE. Real transformation, zero cost.',
     imgSrc: '/images/congratulations.png',
     imgAlt: 'Congratulations image with gifts and balloons',
     disclaimer:
-      "After your free month ends, you'll automatically continue at the discounted rate of $67/month (30% off the regular price).",
+      "After your free month ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.checkout1MonthFree,
     userTag: 'mkt-spin-wheel-1mo-free',
     probability: 1,
@@ -137,16 +138,15 @@ export const prizes = [
     copy: (
       <>
         Enjoy unlimited access (normally $97/month) to ALL courses, our community, and live webinars
-        with Thais for a full 7 days, plus keep the{' '}
-        <strong>Key Pillars to a Secure Relationship</strong>
-        breakthrough course forever for FREE!
+        with and live webinars with me, Thais Gibson, for a full 7 days, plus keep the{' '}
+        <strong>Key Pillars to a Secure Relationship</strong> course forever for FREE!
       </>
     ),
     imgSrc: '/images/SpinTheWheel/relationships-course-congratulations.png',
     imgAlt:
       'Congratulations image with gifts and balloons and Key Pillars to a Secure Relationship course mockup',
     disclaimer:
-      "After your trial ends, you'll automatically continue at the discounted rate of $67/month (30% off). This Relationship Course remains yours for life, even if you cancel.",
+      "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price). You get to keep the Key Pillars for a Secure Relationship Course for life, even if you don’t continue.",
     checkoutLink: externalRoutes.checkoutJune2025PromoTrial,
     userTag: 'mkt-spin-wheel-ft-relationships',
     probability: 30,

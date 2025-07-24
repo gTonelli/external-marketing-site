@@ -160,7 +160,7 @@ export const SignupForm = ({
           </div>
 
           {showPhoneField && (
-            <>
+            <div className="w-full max-w-2xl">
               <PhoneInput
                 disableDialCodePrefill
                 value={values.phone}
@@ -179,7 +179,7 @@ export const SignupForm = ({
               {touched.phone && errors.phone && (
                 <div className="text-danger mb-2">{errors.phone}</div>
               )}
-            </>
+            </div>
           )}
 
           <Button.Submit

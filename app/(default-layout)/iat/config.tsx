@@ -126,9 +126,25 @@ export const IAT_COPY = {
       intensive_week: {
         heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
-        copy: [
+        copy1: [
           'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from August 21st - October 9th every Wednesday at 6 PM ET for 8 weeks.',
-          "Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.",
+          'Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais.',
+          <>
+            <strong>These sessions with Thais include:</strong>
+          </>,
+        ],
+
+        list: [
+          'Live teaching and practice with the tools',
+          'Personal Q&A/Q&A about coaching',
+          'Weekly feedback and review of the coaching materials',
+          'Live examples of Thais using coaching tools',
+          'Critiqued examples of coaching with students',
+        ],
+
+        copy2: [
+          '*Also included in this program is the option to stay for an additional two hours in a supervised setting with our coaches for personal feedback. ',
+          'This is a rare opportunity to be taught by Thais and we are only able to offer limited seats for this training.',
           'Each meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.',
         ],
 

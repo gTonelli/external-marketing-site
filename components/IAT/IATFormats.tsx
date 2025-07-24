@@ -79,7 +79,21 @@ export const IATFormats = () => {
             listItems={IAT.training.live_training.intensive_week.heading}
           />
 
-          {IAT.training.live_training.intensive_week.copy.map((copy, i) => (
+          {IAT.training.live_training.intensive_week.copy1.map((copy, i) => (
+            <p key={`live_training_intensive_week_copy_${i}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <ul className="!pl-4 !list-disc mb-4">
+            {IAT.training.live_training.intensive_week.list.map((item, i) => (
+              <li key={`live_training_intensive_week_list_${i}`} className="mb-2">
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          {IAT.training.live_training.intensive_week.copy2.map((copy, i) => (
             <p key={`live_training_intensive_week_copy_${i}`} className="mb-4">
               {copy}
             </p>

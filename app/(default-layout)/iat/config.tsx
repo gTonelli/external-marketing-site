@@ -130,7 +130,7 @@ export const IAT_COPY = {
           'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from August 21st - October 9th every Wednesday at 6 PM ET for 8 weeks.',
           'Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais.',
           <>
-            <strong>These sessions with Thais include:</strong>
+            <strong>These group sessions with Thais include:</strong>
           </>,
         ],
 
@@ -143,8 +143,10 @@ export const IAT_COPY = {
         ],
 
         copy2: [
-          '*Also included in this program is the option to stay for an additional two hours in a supervised setting with our coaches for personal feedback. ',
-          'This is a rare opportunity to be taught by Thais and we are only able to offer limited seats for this training.',
+          <>
+            *Also included in this program is the option to stay for an additional two hours in a
+            supervised setting with <strong>our coaches</strong> for personal feedback.
+          </>,
           'Each meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.',
         ],
 
@@ -316,7 +318,7 @@ export const IAT_COPY = {
     live_mode: [
       `Integrated Attachment Theory™ Certification.`,
 
-      `Weekly live practice sessions with supervised feedback from Thais.`,
+      `Weekly live group practice sessions with supervised feedback from Thais.`,
 
       `Weekly live Q&A time to gain extra support and get your questions answered.`,
 
@@ -436,7 +438,7 @@ export const IAT_COPY = {
         `The exact steps needed to become securely attached in the shortest period of time`,
         `How to set up and run every client session (includes boundaries and practitioner ethics)`,
         `The overview of what creates insecure attachment styles and exactly how to transform these key areas (core wounds, needs, boundaries and more!)`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: `Plus you’ll learn the basics of Integrated Attachment Theory™, including an overview of core wounds, needs, emotional patterns, behaviors, communication patterns & boundaries of each attachment style.`,

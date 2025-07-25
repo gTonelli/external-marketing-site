@@ -373,7 +373,7 @@ export const QUIZ_DETAILED_QUESTIONS = [
   },
   {
     question: 'How familiar are you with attachment theory?',
-    association: 'attachment',
+    association: 'attachmentFamiliarity',
     associationType: 'userInfo',
     options: ['Not at all', 'A little', 'Somewhat familiar', 'Very familiar'],
   },

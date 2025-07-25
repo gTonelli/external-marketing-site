@@ -50,6 +50,7 @@ export const AttachmentQuizQuestions = ({
   const [userInfo, setUserInfo] = useState<IUserInfo>({
     age: '',
     attachment: '',
+    attachmentFamiliarity: '',
     gender: '',
     relationship: '',
     relationshipIntend: '',
@@ -195,6 +196,7 @@ export const AttachmentQuizQuestions = ({
       saPoints,
       currentIndex,
       quizName,
+      isQuizVariant,
       quiz_traffic_source,
       modifiedQuestions,
     ]

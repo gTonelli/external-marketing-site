@@ -18,6 +18,7 @@ export interface IUserInfo {
   relationshipStatus?: string
   relationship?: string
   attachment?: string
+  attachmentFamiliarity?: string
   age?: string
   gender?: string
   relationshipIntend?: string

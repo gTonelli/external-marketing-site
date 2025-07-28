@@ -38,6 +38,7 @@ export const AttachmentQuizQuestions = ({
   newQuiz,
   quizName,
   quiz_traffic_source,
+  isQuizVariant,
 }: IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -49,11 +50,13 @@ export const AttachmentQuizQuestions = ({
   const [userInfo, setUserInfo] = useState<IUserInfo>({
     age: '',
     attachment: '',
+    attachmentFamiliarity: '',
     gender: '',
     relationship: '',
     relationshipIntend: '',
     relationshipSatisfaction: '',
     relationshipStatus: '',
+    intent: '',
   })
 
   const trackProgressMobile = useCallback(() => {
@@ -164,8 +167,14 @@ export const AttachmentQuizQuestions = ({
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }
 
+      const updateVariantQuestions = () => {
+        modifiedQuestions.splice(modifiedQuestions.length - 3, 1, detailedQuestions[6])
+        modifiedQuestions.splice(modifiedQuestions.length - 2, 0, detailedQuestions[7])
+      }
+
       if (currentIndex == 0) {
         handleInitialQuestion()
+        if (isQuizVariant) updateVariantQuestions()
       } else {
         if (answer === 'True') {
           handleScoreTracking()
@@ -187,6 +196,7 @@ export const AttachmentQuizQuestions = ({
       saPoints,
       currentIndex,
       quizName,
+      isQuizVariant,
       quiz_traffic_source,
       modifiedQuestions,
     ]

@@ -71,7 +71,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       setShowPrizePopup(true)
       setWheelHasSpun(true)
     } else {
-      const newPrizeNumber = Math.floor((crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 100)
+      const newPrizeNumber = (crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 100
       for (let i = 0; i < spinWheelDistribution.length; i++) {
         if (newPrizeNumber <= spinWheelDistribution[i]) {
           setPrizeNumber(i)

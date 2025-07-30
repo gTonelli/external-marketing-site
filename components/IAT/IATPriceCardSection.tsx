@@ -38,25 +38,25 @@ const iatLivePrices = [
     price: '$3,499.00',
     priceLabel: '',
     bottomText: 'ONE TIME PAYMENT',
-    link: externalRoutes.checkoutIATSummer2025Upfront,
+    link: externalRoutes.checkoutIATLiveUpfront,
   },
   {
     price: '$1,209.00',
     priceLabel: '/ month',
     bottomText: '3 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIATSummer20253MonthPlan,
+    link: externalRoutes.checkoutIATLive3MonthPlan,
   },
   {
     price: '$629.00',
     priceLabel: '/ month',
     bottomText: '6 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIATSummer20256MonthPlan,
+    link: externalRoutes.checkoutIATLive6MonthPlan,
   },
   {
     price: '$339.00',
     priceLabel: '/ month',
     bottomText: '12 MONTH PAYMENT PLAN',
-    link: externalRoutes.checkoutIATSummer202512MonthPlan,
+    link: externalRoutes.checkoutIATLive12MonthPlan,
   },
 ]
 

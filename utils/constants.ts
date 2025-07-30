@@ -122,10 +122,10 @@ type TCheckoutRoutes = {
   checkoutIATRecorded3MonthPlan: string
   checkoutIATRecorded6MonthPlan: string
   checkoutIATRecorded12MonthPlan: string
-  checkoutIATSummer2025Upfront: string
-  checkoutIATSummer20253MonthPlan: string
-  checkoutIATSummer20256MonthPlan: string
-  checkoutIATSummer202512MonthPlan: string
+  checkoutIATLiveUpfront: string
+  checkoutIATLive3MonthPlan: string
+  checkoutIATLive6MonthPlan: string
+  checkoutIATLive12MonthPlan: string
   checkoutIATRecordedWebinarUpfront: string
   checkoutIATRecordedWebinar3MonthPlan: string
   checkoutIATRecordedWebinar6MonthPlan: string
@@ -175,11 +175,11 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded`,
     checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded`,
     checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded`,
-    // IAT Summer 2025
-    checkoutIATSummer2025Upfront: `${checkoutUrl}/enroll/3382132?price_id=4291426&coupon=iatbundleupfrontlivesummer225`,
-    checkoutIATSummer20253MonthPlan: `${checkoutUrl}/enroll/3382132?price_id=4291466&coupon=iatbundle3molivesummer225`,
-    checkoutIATSummer20256MonthPlan: `${checkoutUrl}/enroll/3382132?price_id=4291467&coupon=iatbundle6molivesummer225`,
-    checkoutIATSummer202512MonthPlan: `${checkoutUrl}/enroll/3382132?price_id=4291468&coupon=iatbundle12molivesummer225`,
+    // IAT Fall 2025
+    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3452461?price_id=4370303&coupon=iatbundleupfrontlivefall25`,
+    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370311&coupon=iatbundle3molivefall25`,
+    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370313&coupon=iatbundle6molivefall25`,
+    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370314&coupon=iatbundle12molivefall25`,
     // IAT Recorded With Webinar Discount
     checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2463967?price_id=3951355&coupon=iatwebinarsummer225ondemand`,
     checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951356&coupon=iatwebinarsummer2253mnthondemand`,
@@ -228,10 +228,10 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919118&coupon=iatbundle6morecorded`,
     checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919117&coupon=iatbundle12morecorded`,
     // IAT Summer 2025
-    checkoutIATSummer2025Upfront: `${checkoutUrl}/enroll/3400721?price_id=4312068&coupon=iatbundleupfrontlivesummer25`,
-    checkoutIATSummer20253MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312069&coupon=iatbundle3molivesummer25`,
-    checkoutIATSummer20256MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312073&coupon=iatbundle6molivesummer25`,
-    checkoutIATSummer202512MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312074&coupon=iatbundle12molivesummer25`,
+    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3400721?price_id=4312068&coupon=iatbundleupfrontlivesummer25`,
+    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312069&coupon=iatbundle3molivesummer25`,
+    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312073&coupon=iatbundle6molivesummer25`,
+    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312074&coupon=iatbundle12molivesummer25`,
     // IAT Recorded With Webinar Discount
     checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2751990?price_id=4344753&coupon=iatwebinarsummer225ondemand`,
     checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=4344755&coupon=iatwebinarsummer2253mnthondemand`,

@@ -29,7 +29,7 @@ export const IAT_COPY = {
       'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
       <>
         <strong>
-          *Sign up for the Live Training, starting July 24, 2025 to October 9, 2025. Spots are
+          *Sign up for the Live Training, starting September 17, 2025 to December 3, 2025. Spots are
           limited.
         </strong>
       </>,
@@ -101,25 +101,25 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on July 24th, 6 PM ET`,
+          `Attend 1-hour review session on September 17th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on July 31st, 6 PM ET`,
+          `Attend 1-hour review session on September 24th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on August 7th, 6 PM ET`,
+          `Attend 1-hour review session on October 1st, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on August 14th, 6 PM ET`,
+          `Attend 1-hour review session on October 8th, 6 PM ET`,
         ],
       },
 
@@ -127,7 +127,7 @@ export const IAT_COPY = {
         heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
         copy1: [
-          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from August 21st - October 9th every Wednesday at 6 PM ET for 8 weeks.',
+          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from October 15th - December 3rd every Wednesday at 6 PM ET for 8 weeks.',
           'Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais.',
           <>
             <strong>These group sessions with Thais include:</strong>

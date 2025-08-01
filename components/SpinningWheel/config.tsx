@@ -8,6 +8,7 @@ export type TSpinWheelVariant = 'email' | 'osm'
 export const prizes = [
   {
     option: 'Free 7-Day Trial',
+    mixpanelIdentifier: '7DFT',
     title: (
       <>
         Congratulations! You’ve Won a{' '}
@@ -26,6 +27,7 @@ export const prizes = [
   },
   {
     option: 'Free 14-Day Trial',
+    mixpanelIdentifier: '14DFT',
     title: (
       <>
         Congratulations! You’ve Won a{' '}
@@ -44,6 +46,7 @@ export const prizes = [
   },
   {
     option: '60% Off First Month',
+    mixpanelIdentifier: '60% off 1mo',
     title: (
       <>
         Congratulations! You’ve Won <span className="text-primary">60% OFF Your First Month.</span>
@@ -61,6 +64,7 @@ export const prizes = [
   },
   {
     option: '7-Day Trial + Free Course',
+    mixpanelIdentifier: '7DFT+Needs',
     title: (
       <>
         Congratulations! You’ve Won a{' '}
@@ -87,6 +91,7 @@ export const prizes = [
   },
   {
     option: 'Free Month Membership',
+    mixpanelIdentifier: 'Free Month',
     title: (
       <>
         Congratulations! You’ve Won a{' '}
@@ -105,6 +110,7 @@ export const prizes = [
   },
   {
     option: '$19 Somatic Course',
+    mixpanelIdentifier: '$19 Somatic',
     title: (
       <>
         Congratulations! You’ve Unlocked the{' '}
@@ -128,6 +134,7 @@ export const prizes = [
   },
   {
     option: '7-Day Trial + Free Course',
+    mixpanelIdentifier: '7DFT+Relationship',
     title: (
       <>
         Congratulations! You’ve Won a{' '}

@@ -6,7 +6,7 @@ import { Section } from '@/components/Section'
 import { SpinningWheel } from '@/components/SpinningWheel/SpinningWheel'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { CountdownTimer } from '@/components/CountDownTimer'
+import { SpinWheelTimer } from './SpinWheelTimer'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -62,16 +62,16 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
             <strong>THIS OFFER ENDS SOON! SPIN NOW BEFORE IT'S GONE!</strong>
           </p>
 
-          <CountdownTimer theme="light" />
+          <SpinWheelTimer />
         </div>
       </Section>
 
-      <Section classNameInner="relative min-h-96 pt-[850px] xs:pt-[900px] lg:pt-96">
+      <Section>
         <SpinningWheel pageVariant={pageVariant} firstName={firstName} email={email} />
       </Section>
 
-      <Section classNameInner="!max-w-3xl flex flex-col mx-auto lg:flex-row">
-        <div className="min-w-72 lg:mr-4 lg:mt-6">
+      <Section classNameInner="!max-w-4xl flex flex-col gap-4 mx-auto md:flex-row">
+        <div className="min-w-72">
           <Image
             src="/images/SpinTheWheel/thais-writing-no-bg.png"
             alt="An image of Thais Gibson writing in a book"
@@ -115,7 +115,7 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
 
       <Section
         className="bg-white-secondary"
-        classNameInner="!max-w-3xl flex flex-col items-center mx-auto">
+        classNameInner="!max-w-4xl flex flex-col items-center mx-auto">
         <Image
           className="mb-4"
           alt="Limited Offer Illustration"
@@ -309,18 +309,22 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
         classNameInner="max-w-none pb-10 pt-72 grid-cols-2 gap-4 md:pt-10 md:grid md:max-w-screen-lg">
         <Image
           alt="A man and a woman dancing in their home"
-          className="absolute h-full aspect-[3/2] w-auto object-cover top-0 left-0 z-5 md:hidden"
+          className="absolute h-full aspect-[3/2] w-auto object-cover [object-position:80%_100%] top-0 left-0 z-5 md:hidden"
           src="/images/SpinTheWheel/couple-dancing.webp"
           width={375}
           height={250}
+          sizes="100vw"
+          quality={100}
         />
 
         <Image
           alt="A man and a woman dancing in their home"
-          className="absolute h-full aspect-[3.21/1] w-auto object-cover top-0 left-0 z-5 hidden md:block 2xl:w-full 2xl:h-auto"
+          className="absolute h-full aspect-[3.21/1] w-auto object-cover [object-position:80%_100%] top-0 left-0 z-5 hidden md:block 2xl:w-full 2xl:h-auto"
           src="/images/SpinTheWheel/couple-dancing-desktop.webp"
           width={1024}
           height={319}
+          sizes="100vw"
+          quality={100}
         />
 
         <div className="bg-white relative shadow-xl z-10 p-6 rounded-20 xs:p-10">

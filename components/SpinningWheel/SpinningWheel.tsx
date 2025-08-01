@@ -1,12 +1,10 @@
 'use client'
 // core
 import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 // components
 import { Loader } from '../Loader'
-import { List } from '../List'
 import { SignupForm } from '../Forms/SignupForm'
 import { Button } from '../Button/Button'
 import { Dialog } from '../Dialog/Dialog'
@@ -40,8 +38,6 @@ const Wheel = dynamic(() => import('react-custom-roulette').then((mod) => mod.Wh
 })
 
 export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps) => {
-  // TEARDOWN
-  const searchParams = useSearchParams()
   const spinWheelPrizes = getSpinWheelPrizes(pageVariant)
   const spinWheelDistribution = getSpinWheelPrizeDistribution(pageVariant)
   const storageVar = 'gm-1834-spin-wheel'
@@ -55,14 +51,6 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   const [wheelHasSpun, setWheelHasSpun] = useState(false)
   const [showPrizePopup, setShowPrizePopup] = useState(false)
   const [submitting, setSubmitting] = useState(false)
-
-  // TEARDOWN
-  useEffect(() => {
-    if (searchParams.has('prize')) {
-      let prizeKey = Number(searchParams.get('prize'))
-      if (prizeKey >= 0 && prizeKey <= 6) Storage.set(`${storageVar}-${pageVariant}`, prizeKey)
-    }
-  }, [searchParams, pageVariant])
 
   useEffect(() => {
     const wheelResult = Storage.get(`${storageVar}-${pageVariant}`)
@@ -89,19 +77,16 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   const handleSpinClick = () => {
     setSubmitting(true)
     if (wheelHasSpun) return
-
     if (pageVariant === 'email' && firstName && email) {
       const insertId = MD5(Date.now() + JSON.stringify({ email })).toString()
 
       const requestBody = {
-        tags: [prizes[prizeNumber].userTag],
+        userTags: [prizes[prizeNumber].userTag],
         firstName,
         email,
-        listIds: [40],
-        insertId,
       }
-
-      fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+      // http://localhost:3000/spin-to-win?firstName=Pratik&email=pratikraj@personaldevelopmentschool.com
+      fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/activecampaign-user-tag', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,7 +95,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       })
         .then((res) => res.json())
         .then((res) => {
-          if (!res.success) throw res?.message || 'An unexpected error occured'
+          if (res.status !== 200) throw res?.message || 'An unexpected error occured'
           else {
             Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
             Storage.set(`${storageVar}-${pageVariant}`, prizeNumber)
@@ -133,7 +118,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   return (
     <div
       id="spin-wheel"
-      className="absolute w-full grid gap-4 bg-white shadow-xl rounded-lg overflow-hidden -top-16 left-0 p-4 z-10 md:-top-20 lg:-top-32 lg:grid-cols-2 lg:p-6">
+      className="w-full grid gap-4 bg-white shadow-xl rounded-lg overflow-hidden -mt-20 p-4 lg:grid-cols-2 lg:p-6 lg:-mt-28">
       <div role="button" onClick={onWheelClick}>
         <Wheel
           textDistance={54}
@@ -215,7 +200,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
               <Button
                 disabled={submitting}
                 label="SPIN THE WHEEL!"
-                mpProps={{ wheelPrize: prizes[prizeNumber].option }}
+                mpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier }}
                 onClick={handleSpinClick}
               />
             </>
@@ -233,7 +218,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
                 successMessage="Spinning..."
                 userTags={[prizes[prizeNumber].userTag]}
                 listIds={[40]}
-                submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].option }}
+                submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier }}
                 onSuccess={handleSpinClick}
               />
             </>
@@ -286,7 +271,7 @@ const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) 
       <ButtonCheckout
         label="CLAIM YOUR PRIZE!"
         href={prizes[prizeNumber].checkoutLink}
-        mpProps={{ wheelPrize: prizes[prizeNumber].option, ctaLocation }}
+        mpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier, ctaLocation }}
       />
     </div>
   )

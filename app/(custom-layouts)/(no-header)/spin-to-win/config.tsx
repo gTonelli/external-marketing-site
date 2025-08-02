@@ -41,13 +41,13 @@ export const SPIN_THE_WHEEL_CONFIG = {
     },
     {
       title: 'Crush Procrastination & Self-Doubt',
-      copy: 'Say goodbye to fear of failure and perfectionism—take action by overcoming fears and self-doubt to achieve your goals.',
+      copy: 'Say goodbye to fear of failure and perfectionism—take action by overcoming self-doubt to achieve your goals.',
       bgColor: 'bg-[#FFF6F2]',
       image: 'pds-perks-couple-4.png',
     },
     {
       title: 'Break Toxic Cycles',
-      copy: 'Stop attracting unhealthy relationships and finally experience deep, meaningful love and connections with the right people.',
+      copy: 'Stop attracting unhealthy relationships and finally experience deep, meaningful love with the right people.',
       bgColor: 'bg-[#FFFDF2]',
       image: 'pds-perks-couple-5.png',
     },
@@ -61,7 +61,7 @@ export const SPIN_THE_WHEEL_CONFIG = {
   CHOOSE_PDS: [
     {
       title: 'The Science Backed and Personal Development School Exclusive Model',
-      copy: 'You don’t need another surface-level strategy or “quick fix” that fades after a week. The answers lie deep in your subconscious mind—and that’s exactly where we do the work. Our proprietary healing model makes transformation effortless—and results guaranteed.',
+      copy: 'You don’t need another surface-level strategy or “quick fix” that fades after a week. The answers lie deep in your subconscious mind—and that’s exactly where we do the work. Our proprietary healing model makes transformation effortless and results guaranteed.',
       icon: faGraduationCap,
     },
     {
@@ -86,7 +86,7 @@ export const SPIN_THE_WHEEL_CONFIG = {
     },
     {
       title: 'The Only Membership of Its Kind—Because You Deserve Real Change',
-      copy: 'Most programs give you generic advice—we give you a proven path to real transformation. No guesswork, no fluff—just an integrated approach to healing and secure relationships. You won’t find this level of depth, guidance, and real-world application anywhere else.',
+      copy: 'Most programs give you generic advice—we give you a proven path to real transformation. No guesswork, no fluff—just an integrated approach to healing and creating secure relationships. You won’t find this level of depth, guidance, and real-world application anywhere else.',
       icon: faHeart,
     },
   ],

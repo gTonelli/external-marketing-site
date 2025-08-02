@@ -6,6 +6,7 @@ import { Section } from '@/components/Section'
 import { SpinningWheel } from '@/components/SpinningWheel/SpinningWheel'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { SpinWheelTimer } from './SpinWheelTimer'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -33,7 +34,7 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
     <>
       <Section
         className="bg-gradient-to-b from-blue-lightest-50 to-primary-light"
-        classNameInner="flex flex-col items-center">
+        classNameInner="!max-w-4xl flex flex-col items-center mx-auto">
         <Image
           alt="PDS logo"
           src="/images/pds-logo-stacked-right-primary.png"
@@ -41,32 +42,92 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
           height={73}
         />
 
-        <h1 className="mt-8 mb-4">Spin &amp; Win. No Risks. Only Rewards.</h1>
+        <h1 className="mt-8 mb-4">Spin and Claim Your Guaranteed Prize. No Risks! </h1>
 
-        <p className="mb-16">
-          {pageVariant === 'email' && firstName && email
-            ? 'Spin Now to Win a Guaranteed Offer on the All-Access Pass Which Gives You All the Tools You Need to Build Thriving Relationships and Find Lasting Love.'
-            : 'Enter Your Details Below and Hit SPIN NOW to Win a Guaranteed Offer on the All-Access Pass.'}
+        <p className="mb-4">
+          <strong>
+            Unlock the tools to build a thriving relationship! Spin and win a GUARANTEED offer on
+            our bestsellers in seconds!
+          </strong>
         </p>
+
+        <p className="mb-8">
+          Spin to Win is back! It’s bigger, better, and personally curated by me, Thais Gibson!
+          Every spin wins, guaranteed, unlocking handpicked tools designed specifically for
+          attachment style healing, emotional fulfillment, and secure, lasting love.
+        </p>
+
+        <div className="mb-16">
+          <p>
+            <strong>THIS OFFER ENDS SOON! SPIN NOW BEFORE IT'S GONE!</strong>
+          </p>
+
+          <SpinWheelTimer />
+        </div>
       </Section>
 
-      <Section classNameInner="relative min-h-96 pt-[850px] xs:pt-[900px] lg:pt-96">
+      <Section>
         <SpinningWheel pageVariant={pageVariant} firstName={firstName} email={email} />
+      </Section>
+
+      <Section classNameInner="!max-w-4xl flex flex-col gap-4 mx-auto md:flex-row">
+        <div className="min-w-72">
+          <Image
+            src="/images/SpinTheWheel/thais-writing-no-bg.png"
+            alt="An image of Thais Gibson writing in a book"
+            width={300}
+            height={300}
+            sizes="100vw"
+            quality={100}
+          />
+        </div>
+
+        <div className="text-left">
+          <h2 className="mb-4">Win Prizes from Thais Herself!</h2>
+
+          {[
+            <>
+              <em>
+                I handpicked every prize on this wheel because, time and again, I've seen these
+                tools genuinely help people create real, lasting changes in their lives. After
+                guiding over 40,000 students toward calmer nervous systems, happier relationships,
+                and secure, fulfilling love, I chose resources I deeply trust and believe in.
+              </em>
+            </>,
+            <>
+              <em>Whatever prize you land on today, I’m confident you’ll see meaningful growth.</em>
+            </>,
+            <>
+              <strong>Warmly,</strong>
+            </>,
+            <>
+              <strong>
+                <em>Thais Gibson</em>
+              </strong>
+            </>,
+          ].map((copy, idx) => (
+            <p key={`thais_letter_copy_${idx}`} className="mt-4 last:!mt-0">
+              {copy}
+            </p>
+          ))}
+        </div>
       </Section>
 
       <Section
         className="bg-white-secondary"
-        classNameInner="max-w-3xl flex flex-col items-center mx-auto">
+        classNameInner="!max-w-4xl flex flex-col items-center mx-auto">
         <Image
           className="mb-4"
           alt="Limited Offer Illustration"
           src="/images/limited-offer-vector.png"
           width={150}
           height={90}
+          sizes="100vw"
+          quality={100}
         />
+
         <h2 className="mb-4">
-          You Get a Chance at Winning An Exclusive Offer From The Most Successful Promotions We’ve
-          Ever Run
+          This Is Your Chance to Win My Top Tools to Heal Your Attachment Style
         </h2>
 
         <p>
@@ -102,8 +163,10 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
             priority
             alt="Courses mockup"
             src={`/images/SpinTheWheel/pds-courses-phone-mockup.png`}
-            width={601}
-            height={634}
+            width={588}
+            height={588}
+            sizes="100vw"
+            quality={100}
           />
         </div>
       </Section>
@@ -148,7 +211,7 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
           </div>
         </div>
 
-        <ButtonScroll target="#spin-wheel" label="DON'T MISS YOUR SPIN!" />
+        <ButtonScroll target="#spin-wheel" label="SPIN & WIN NOW!" />
       </Section>
 
       <Section>
@@ -245,30 +308,35 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
         className="overflow-hidden relative"
         classNameInner="max-w-none pb-10 pt-72 grid-cols-2 gap-4 md:pt-10 md:grid md:max-w-screen-lg">
         <Image
-          alt="A man and woman smiling and sharing a computer on the couch. They are sitting next to a dog and working together on their PC."
-          className="absolute h-full aspect-[3/2] w-auto object-cover top-0 left-0 z-5 md:hidden"
-          src="/images/SpinTheWheel/offer-bg.png"
+          alt="A man and a woman dancing in their home"
+          className="absolute h-full aspect-[3/2] w-auto object-cover [object-position:80%_100%] top-0 left-0 z-5 md:hidden"
+          src="/images/SpinTheWheel/couple-dancing.webp"
           width={375}
           height={250}
+          sizes="100vw"
+          quality={100}
         />
 
         <Image
-          alt="A man and woman smiling and sharing a computer on the couch. They are sitting next to a dog and working together on their PC."
-          className="absolute h-full aspect-[3.21/1] w-auto object-cover top-0 left-0 z-5 hidden md:block 2xl:w-full 2xl:h-auto"
-          src="/images/SpinTheWheel/offer-bg-desktop.png"
+          alt="A man and a woman dancing in their home"
+          className="absolute h-full aspect-[3.21/1] w-auto object-cover [object-position:80%_100%] top-0 left-0 z-5 hidden md:block 2xl:w-full 2xl:h-auto"
+          src="/images/SpinTheWheel/couple-dancing-desktop.webp"
           width={1024}
           height={319}
+          sizes="100vw"
+          quality={100}
         />
 
         <div className="bg-white relative shadow-xl z-10 p-6 rounded-20 xs:p-10">
-          <h2 className="mb-4">One Spin. Guaranteed Win. Unlimited Possibilities.</h2>
+          <h2 className="mb-4">Spin and Claim Your Guaranteed Prize. No Risks!</h2>
 
           <p className="mb-4">
-            You get one spin, and you’re guaranteed to unlock something that can help you transform
-            your relationships, confidence, and self-growth!
+            This is your chance to win my bestselling tools to build a thriving relationship{' '}
+            <strong>totally risk-free</strong>! Spin and win a GUARANTEED offer that can help
+            transform your relationships.
           </p>
 
-          <ButtonScroll target="#spin-wheel" label="SPIN & WIN" />
+          <ButtonScroll target="#spin-wheel" label="SPIN & WIN!" />
         </div>
       </Section>
     </>

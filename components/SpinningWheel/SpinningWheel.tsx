@@ -5,14 +5,12 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 // components
 import { Loader } from '../Loader'
-import { List } from '../List'
 import { SignupForm } from '../Forms/SignupForm'
 import { Button } from '../Button/Button'
 import { Dialog } from '../Dialog/Dialog'
 import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 import { Toast } from '../Toast'
 import { faCircleExclamation, faClose } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import {
   TSpinWheelVariant,
@@ -42,6 +40,7 @@ const Wheel = dynamic(() => import('react-custom-roulette').then((mod) => mod.Wh
 export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps) => {
   const spinWheelPrizes = getSpinWheelPrizes(pageVariant)
   const spinWheelDistribution = getSpinWheelPrizeDistribution(pageVariant)
+  const storageVar = 'gm-1834-spin-wheel'
 
   // ========= STATE =========
   const [loading, setLoading] = useState(true)
@@ -54,13 +53,13 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
-    const wheelResult = Storage.get(`gm-1549-spin-wheel-${pageVariant}`)
+    const wheelResult = Storage.get(`${storageVar}-${pageVariant}`)
     if (wheelResult !== null) {
       setPrizeNumber(wheelResult)
       setShowPrizePopup(true)
       setWheelHasSpun(true)
     } else {
-      const newPrizeNumber = Math.floor((crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 100)
+      const newPrizeNumber = (crypto.getRandomValues(new Uint8Array(1))[0] / 255) * 100
       for (let i = 0; i < spinWheelDistribution.length; i++) {
         if (newPrizeNumber <= spinWheelDistribution[i]) {
           setPrizeNumber(i)
@@ -78,19 +77,16 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   const handleSpinClick = () => {
     setSubmitting(true)
     if (wheelHasSpun) return
-
     if (pageVariant === 'email' && firstName && email) {
       const insertId = MD5(Date.now() + JSON.stringify({ email })).toString()
 
       const requestBody = {
-        tags: [prizes[pageVariant][prizeNumber].userTag],
+        userTags: [prizes[prizeNumber].userTag],
         firstName,
         email,
-        listIds: [40],
-        insertId,
       }
-
-      fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
+      // http://localhost:3000/spin-to-win?firstName=Pratik&email=pratikraj@personaldevelopmentschool.com
+      fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/activecampaign-user-tag', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -99,10 +95,10 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
       })
         .then((res) => res.json())
         .then((res) => {
-          if (!res.success) throw res?.message || 'An unexpected error occured'
+          if (res.status !== 200) throw res?.message || 'An unexpected error occured'
           else {
             Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
-            Storage.set(`gm-1549-spin-wheel-${pageVariant}`, prizeNumber)
+            Storage.set(`${storageVar}-${pageVariant}`, prizeNumber)
             setMustSpin(true)
           }
         })
@@ -112,7 +108,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           console.error(error)
         })
     } else {
-      Storage.set(`gm-1549-spin-wheel-${pageVariant}`, prizeNumber)
+      Storage.set(`${storageVar}-${pageVariant}`, prizeNumber)
       setMustSpin(true)
     }
   }
@@ -122,14 +118,14 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   return (
     <div
       id="spin-wheel"
-      className="absolute w-full grid grid-cols-1 gap-8 bg-white shadow-xl rounded-lg overflow-hidden -top-16 left-0 p-4 z-10 md:-top-20 lg:-top-32 lg:grid-cols-2 lg:p-6">
+      className="w-full grid gap-4 bg-white shadow-xl rounded-lg overflow-hidden -mt-20 p-4 lg:grid-cols-2 lg:p-6 lg:-mt-28">
       <div role="button" onClick={onWheelClick}>
         <Wheel
-          textDistance={52}
-          fontSize={17}
+          textDistance={54}
+          fontSize={15}
           spinDuration={0.5}
           radiusLineColor="white"
-          radiusLineWidth={3}
+          radiusLineWidth={2}
           innerBorderColor="none"
           outerBorderWidth={0}
           innerBorderWidth={0}
@@ -172,72 +168,68 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
             <div className="grid grid-cols-1 gap-4 py-4 lg:py-10 lg:grid-cols-2">
               <div className="flex justify-center">
                 <Image
-                  className="w-60 md:w-96 lg:w-full"
-                  alt="Congratulations image with gifts and balloons"
-                  src="/images/congratulations.png"
-                  width={370}
+                  className="w-60 md:w-96 lg:w-fit"
+                  alt={prizes[prizeNumber].imgAlt}
+                  src={prizes[prizeNumber].imgSrc}
+                  width={350}
                   height={350}
+                  sizes="100vw"
+                  quality={100}
                 />
               </div>
 
-              <SpinWheelSuccess
-                pageVariant={pageVariant}
-                prizeNumber={prizeNumber}
-                ctaLocation="popup"
-              />
+              <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="popup" />
             </div>
           </div>
         </Dialog>
       </div>
 
       {wheelHasSpun ? (
-        <SpinWheelSuccess pageVariant={pageVariant} prizeNumber={prizeNumber} ctaLocation="card" />
-      ) : pageVariant === 'email' && firstName && email ? (
-        <div className="flex flex-col justify-center items-center">
-          <h2 className="mb-4">
-            Feeling Lucky? Spin Now for Your Chance to Win Your Exclusive Offer on the All-Access
-            Pass!
-          </h2>
-
-          <p className="mb-4">
-            <strong>
-              Hurry! We’ve Never Offered an Opportunity Like This Before! This Offer is Only Valid
-              for a Very Limited Time!
-            </strong>
-          </p>
-
-          <Button
-            disabled={submitting}
-            label="SPIN NOW!"
-            mpProps={{ wheelPrize: prizes[pageVariant][prizeNumber].option }}
-            onClick={handleSpinClick}
-          />
-        </div>
+        <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="card" />
       ) : (
-        <div className="text-left">
-          <h2 className="mb-4">Spin Now for Your Chance to Win the All-Access Pass!</h2>
+        <div className="flex flex-col text-left justify-center items-start">
+          <h2>Spin to Win! Guaranteed Handpicked Prizes!</h2>
 
-          <p className="mb-8">
-            <strong>
-              Hurry! We've Never Offered an Opportunity Like This Before. Spin and Unlock Expert
-              Guidance, Deep Healing, and a Secure Love Life. Valid Only for a Very LIMITED Time.
-            </strong>
-          </p>
+          {pageVariant === 'email' && firstName && email ? (
+            <>
+              <p className="mb-4">
+                Hurry, don’t miss your chance to find lasting love! Tap &quot;SPIN THE WHEEL&quot;
+                to <strong>INSTANTLY</strong> claim your <strong>guaranteed prize</strong>!
+              </p>
 
-          <SignupForm
-            classNameFields="!flex-col !gap-y-4"
-            submitButtonLabel="SPIN NOW!"
-            successMessage="Spinning..."
-            userTags={[prizes[pageVariant][prizeNumber].userTag]}
-            listIds={[40]}
-            submitButtonMpProps={{ wheelPrize: prizes[pageVariant][prizeNumber].option }}
-            onSuccess={handleSpinClick}
-          />
+              <Button
+                disabled={submitting}
+                label="SPIN THE WHEEL!"
+                mpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier }}
+                onClick={handleSpinClick}
+              />
+            </>
+          ) : (
+            <>
+              <p className="mb-4">
+                Hurry, don’t miss your chance to find lasting love! Enter your first name & email,
+                then tap &quot;SPIN THE WHEEL&quot; to <strong>INSTANTLY</strong> claim your{' '}
+                <strong>guaranteed prize</strong>!
+              </p>
 
-          <p className="text-gray-500 text-sm mt-2">
-            By redeeming this offer, you agree to receive promotions and content from the Personal
-            Development School.
-          </p>
+              <SignupForm
+                classNameFields="!flex-col !gap-y-4"
+                submitButtonLabel="SPIN THE WHEEL!"
+                successMessage="Spinning..."
+                userTags={[prizes[prizeNumber].userTag]}
+                listIds={[40]}
+                submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier }}
+                onSuccess={handleSpinClick}
+              />
+            </>
+          )}
+
+          {pageVariant === 'osm' && (
+            <p className="text-gray-500 text-sm mt-2">
+              By redeeming this offer, you agree to receive promotions and content from the Personal
+              Development School.
+            </p>
+          )}
         </div>
       )}
     </div>
@@ -245,44 +237,41 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
 }
 
 interface ISpinWheelSuccessProps {
-  pageVariant: TSpinWheelVariant
   prizeNumber: number
   ctaLocation: 'popup' | 'card'
 }
 
-const SpinWheelSuccess = ({ pageVariant, prizeNumber, ctaLocation }: ISpinWheelSuccessProps) => {
+const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) => {
   return (
     <div className="text-left">
-      <h2 className="text-3xl mb-4">{prizes[pageVariant][prizeNumber].title}</h2>
+      <h2 className="text-3xl mb-4">{prizes[prizeNumber].title}</h2>
 
       <p className="mb-4">
-        <strong>{prizes[pageVariant][prizeNumber].subheader}</strong>
+        <strong>{prizes[prizeNumber].subheader}</strong>
       </p>
 
-      <List
-        className="mb-4"
-        icon={faCircleSmall}
-        listItems={prizes[pageVariant][prizeNumber].features}
-      />
+      <p className="mb-4">{prizes[prizeNumber].copy}</p>
 
-      <div className="flex bg-[#ECEFFF] rounded-lg p-2 mb-8">
-        <div className="w-6">
-          <FontAwesomeIcon icon={faCircleExclamation} className="text-blue-darkest mr-2" />
-        </div>
+      {prizes[prizeNumber].disclaimer && (
+        <div className="flex bg-[#ECEFFF] rounded-lg p-2 mb-8">
+          <div className="w-6">
+            <FontAwesomeIcon icon={faCircleExclamation} className="text-blue-darkest mr-2" />
+          </div>
 
-        <div>
-          <p>
-            <em>
-              <strong>Disclaimer: </strong> {prizes[pageVariant][prizeNumber].disclaimer}
-            </em>
-          </p>
+          <div>
+            <p>
+              <em>
+                <strong>Disclaimer: </strong> {prizes[prizeNumber].disclaimer}
+              </em>
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
       <ButtonCheckout
         label="CLAIM YOUR PRIZE!"
-        href={prizes[pageVariant][prizeNumber].checkoutLink}
-        mpProps={{ wheelPrize: prizes[pageVariant][prizeNumber].option, ctaLocation }}
+        href={prizes[prizeNumber].checkoutLink}
+        mpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier, ctaLocation }}
       />
     </div>
   )

@@ -23,7 +23,9 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         </>
       ),
       subheader: '(Included free with our All Access Pass)',
-      copy: 'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without compromising your freedom, independence, and boundaries.',
+      copy: [
+        'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without compromising your freedom, independence, and boundaries.',
+      ],
       ctaLabel: 'YES! I WANT A HEALTHY RELATIONSHIP',
     },
     outcomes: {
@@ -161,7 +163,9 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         </>
       ),
       subheader: '(Included with All Access Pass–Now 30% Off!)',
-      copy: 'What makes this program different? It’s designed specifically for Fearful Avoidants like you. This all-inclusive program will help you overcome relationship fear, rebuild trust, and finally feel safe being loved.',
+      copy: [
+        'What makes this program different? It’s designed specifically for Fearful Avoidants like you. This all-inclusive program will help you overcome relationship fear, rebuild trust, and finally feel safe being loved.',
+      ],
       ctaLabel: 'YES — I’M READY TO START HEALING',
     },
     outcomes: {
@@ -286,7 +290,9 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         </>
       ),
       subheader: '(Included with All Access Pass–Now 30% Off!)',
-      copy: 'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without the fear of rejection, abandonment, or being “too much.”',
+      copy: [
+        'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without the fear of rejection, abandonment, or being “too much.”',
+      ],
       ctaLabel: 'YES! I WANT A LOVE THAT LASTS!',
     },
     outcomes: {
@@ -403,3 +409,44 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
   },
 }
+
+export type TSimplifiedPageConfig = typeof SIMPLIFIED_RESULTS_CONFIG.ap
+
+export const FA_CLARITY_CONFIG: TSimplifiedPageConfig = SIMPLIFIED_RESULTS_CONFIG.fa
+
+FA_CLARITY_CONFIG.hero.copy = 'Your personalized report is on its way! Check your inbox.'
+FA_CLARITY_CONFIG.hero.subheader =
+  "You're One Step Away To Having Healthy, Loving Relationships – Without Being Fearful!"
+FA_CLARITY_CONFIG.heroVideo.subheader =
+  'Included with your All-Access Membership! Now Just $67/month.'
+FA_CLARITY_CONFIG.heroVideo.copy.push(
+  'Instead of paying $250 for each single course, your membership gives you access to this personalized healing program, plus our full library of on-demand transformative courses, weekly live support from Thais in our exclusive, members-only webinars, and a private, supportive community of healers, like-minded people, and personal growth enthusiasts inside our membership platform.'
+)
+FA_CLARITY_CONFIG.outcomes.header =
+  'Are You Ready To Start Having The Best Relationships Of Your Life?'
+FA_CLARITY_CONFIG.bonus.programCopy[0] = (
+  <>
+    When you join today, you will receive the{' '}
+    <strong>7 Days to Transform Relationships Course</strong> and an exclusive one-time offer with
+    our <strong>All-Access Pass membership!</strong>
+  </>
+)
+FA_CLARITY_CONFIG.bonus.offerCopy = [
+  <>
+    You unlock everything for one price of just <strong>$67/month</strong> instead of paying $250
+    for the <strong>7 Days to Transform Relationships Course</strong> alone.
+  </>,
+  <>
+    <em className="block">*Single course normal price $250</em>
+
+    <em>*All-Access Pass normal price $97</em>
+  </>,
+]
+FA_CLARITY_CONFIG.footer.header =
+  'Get The 7 Days to Transform Relationships Course with Your Membership & Start Having A Healthy, Loving Relationship – Without Any Fears'
+FA_CLARITY_CONFIG.footer.pricing = (
+  <>
+    Enjoy the All-Access Pass Membership For Just <span className="line-through">$97</span>{' '}
+    $67/month
+  </>
+)

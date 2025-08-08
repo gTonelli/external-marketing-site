@@ -9,21 +9,21 @@ import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { faCheckCircle, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
-import { SIMPLIFIED_RESULTS_CONFIG as CONFIG } from './config'
+import { TSimplifiedPageConfig } from './config'
 
 interface ISimplifiedResultsPageProps {
-  configKey: 'fa' | 'faVariant' | 'ap'
+  configKey: 'fa' | 'ap' | 'faVariant' | 'faClarity'
+  config: TSimplifiedPageConfig
 }
 
-export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps) => {
-  const config = CONFIG[configKey]
+export const SimplifiedResultsPage = ({ configKey, config }: ISimplifiedResultsPageProps) => {
   const userFirstName = cookies().get('firstName')?.value
   const checkoutUrl = config.ctaURL
 
   return (
     <>
-      <Section classNameInner="max-w-4xl mx-auto">
-        {configKey !== 'fa' ? (
+      <Section classNameInner="!max-w-4xl mx-auto">
+        {configKey === 'ap' || configKey === 'faVariant' ? (
           <>
             <h1 className="mb-4">
               {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'}{' '}
@@ -71,13 +71,17 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
 
               <h2 className="mb-2 text-3xl">{config.heroVideo.heading}</h2>
 
-              <p className="mb-2">{config.heroVideo.subheader}</p>
+              <p className="mb-2">
+                <strong>{config.heroVideo.subheader}</strong>
+              </p>
 
               {config.heroVideo.segway && <p className="mb-4">{config.heroVideo.segway}</p>}
 
-              <p className="mb-4">
-                <strong>{config.heroVideo.copy}</strong>
-              </p>
+              {config.heroVideo.copy.map((copy, idx) => (
+                <p key={`heroVideo_copy_${idx}`} className="mb-4">
+                  {copy}
+                </p>
+              ))}
 
               <ButtonCheckout href={checkoutUrl} label={config.heroVideo.ctaLabel} />
             </div>
@@ -155,6 +159,12 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
               classNameListItems="mb-4"
               listItems={config.course.listItems}
             />
+
+            {configKey === 'faClarity' && (
+              <p className="mb-4">
+                <strong>And it is only available through the All-Access Pass Membership!</strong>
+              </p>
+            )}
 
             <ButtonCheckout href={checkoutUrl} label={config.course.ctaLabel} />
           </div>

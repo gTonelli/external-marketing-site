@@ -172,11 +172,7 @@ const spinWheelEmailPrizes: WheelData[] = [
 
 const spinWheelOSMPrizes: WheelData[] = spinWheelEmailPrizes
 
-// PROD
-// const spinWheelEmailPrizeProbabilities = prizes.map((prize) => prize.probability)
-
-// TEARDOWN
-const spinWheelEmailPrizeProbabilities = [14, 14, 14, 14, 14, 14, 16]
+const spinWheelEmailPrizeProbabilities = prizes.map((prize) => prize.probability)
 
 const spinWheelOSMPrizeProbabilities = spinWheelEmailPrizeProbabilities
 

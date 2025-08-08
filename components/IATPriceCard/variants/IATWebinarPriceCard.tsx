@@ -70,7 +70,9 @@ export const IATWebinarPriceCard = ({
         <div className="text-center border-t border-b border-black py-4">
           {cardDetails.originalPrice.map((entry, idx) => (
             <p key={idx} className="mb-2">
-              <span className="line-through mr-2">{entry.price}</span>
+              <span className="line-through text-danger mr-2">
+                <strong>{entry.price}</strong>
+              </span>
 
               {entry.label && <span>{entry.label}</span>}
             </p>
@@ -79,7 +81,11 @@ export const IATWebinarPriceCard = ({
           <div className="flex justify-center items-center flex-wrap">
             <h3 className="text-green-check mr-2">{cardDetails.currentPrice}</h3>
 
-            {cardDetails.currentPriceLabel && <p>{cardDetails.currentPriceLabel}</p>}
+            {cardDetails.currentPriceLabel && (
+              <p className="text-lg">
+                <strong>{cardDetails.currentPriceLabel}</strong>
+              </p>
+            )}
           </div>
 
           {cardDetails.discount && <p className="font-bold tracking-33">{cardDetails.discount}</p>}
@@ -161,7 +167,9 @@ export const IATWebinarPriceCard = ({
 
       {cardDetails.originalPrice.map((entry, idx) => (
         <p key={idx} className="mb-2">
-          <span className="line-through mr-2">{entry.price}</span>
+          <span className="line-through text-danger mr-2">
+            <strong>{entry.price}</strong>
+          </span>
 
           {entry.label && <span> {entry.label} </span>}
         </p>
@@ -170,7 +178,11 @@ export const IATWebinarPriceCard = ({
       <div className="flex items-center flex-wrap mb-4">
         <h3 className="text-green-check mr-2">{cardDetails.currentPrice}</h3>
 
-        {cardDetails.currentPriceLabel && <p>{cardDetails.currentPriceLabel}</p>}
+        {cardDetails.currentPriceLabel && (
+          <p className="text-lg">
+            <strong>{cardDetails.currentPriceLabel}</strong>
+          </p>
+        )}
       </div>
 
       {cardDetails.discount && <p className="font-bold tracking-33 mb-4">{cardDetails.discount}</p>}

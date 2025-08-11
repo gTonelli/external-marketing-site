@@ -1,3 +1,5 @@
+// libraries
+import _ from 'lodash'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
@@ -41,7 +43,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           and fostering a loving, trusted, and exciting relationship with transparency and openness.
         </>,
         <>
-          Take it as part of our <strong>All-Access Pass</strong> Membership to experience the
+          Take it as part of our <strong>All-Access Pass Membership</strong> to experience the
           profound and transformational change you desire in yourself and your relationships.
         </>,
       ],
@@ -412,7 +414,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
 
 export type TSimplifiedPageConfig = typeof SIMPLIFIED_RESULTS_CONFIG.ap
 
-export const FA_CLARITY_CONFIG: TSimplifiedPageConfig = SIMPLIFIED_RESULTS_CONFIG.fa
+export const FA_CLARITY_CONFIG: TSimplifiedPageConfig = _.cloneDeep(SIMPLIFIED_RESULTS_CONFIG.fa)
 
 FA_CLARITY_CONFIG.hero.copy = 'Your personalized report is on its way! Check your inbox.'
 FA_CLARITY_CONFIG.hero.subheader =
@@ -428,7 +430,7 @@ FA_CLARITY_CONFIG.bonus.programCopy[0] = (
   <>
     When you join today, you will receive the{' '}
     <strong>7 Days to Transform Relationships Course</strong> and an exclusive one-time offer with
-    our <strong>All-Access Pass membership!</strong>
+    our <strong>All-Access Pass Membership!</strong>
   </>
 )
 FA_CLARITY_CONFIG.bonus.offerCopy = [

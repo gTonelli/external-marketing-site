@@ -236,6 +236,8 @@ export const SimplifiedResultsPage = ({ configKey, config }: ISimplifiedResultsP
               width={581}
               height={307}
               src="/images/SimplifiedFAPage/special-bonus-mockup.jpg"
+              quality={100}
+              sizes="100vw"
             />
           </div>
         </div>

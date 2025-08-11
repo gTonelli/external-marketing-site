@@ -117,7 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/iat/info'],
+  matcher: ['/iat/info', '/quiz/results/fearful-avoidant'],
 }
 
 interface IConfigWithRegex {
@@ -132,7 +132,12 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const searchParams = request.nextUrl.searchParams
   const utmSource = searchParams.get('utm_source')
 
-  const configs: Array<IConfigWithRegex> = []
+  const configs: Array<IConfigWithRegex> = [
+    {
+      config: splitTestConfigs.faClarityTest,
+      regex: /quiz\/results\/fearful-avoidant/,
+    },
+  ]
 
   if (/^\/iat\/info/.test(path) && utmSource === 'paid-youtube') {
     return splitTestConfigs.iatEbookTest
@@ -229,6 +234,16 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.25,
     forceControlOnNewUser: false,
+  },
+  faClarityTest: {
+    cookieKey: 'gm-1864-fa-clarity-split',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1864-FA-Clarity-Test',
+    variantUrl: {
+      path: '/quiz/results/fa',
+    },
+    variantRatio: 0.2,
+    forceControlOnNewUser: true,
   },
 }
 

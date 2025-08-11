@@ -5,6 +5,7 @@ import { Page } from '@/components/Page'
 import { SimplifiedResultsPage } from '../fearful-avoidant/SimplifiedResultsPage'
 // modules
 import { Pages } from '@/modules/Mixpanel'
+import { SIMPLIFIED_RESULTS_CONFIG } from '../fearful-avoidant/config'
 
 export const metadata: Metadata = {
   title: 'Your Attachment Style Results | Anxious Preoccupied',
@@ -16,7 +17,7 @@ export default function RoyalRumbleResultsPage() {
 
   return (
     <Page className="w-full text-center" page_name={page_name}>
-      <SimplifiedResultsPage configKey="ap" />
+      <SimplifiedResultsPage configKey="ap" config={SIMPLIFIED_RESULTS_CONFIG.ap} />
     </Page>
   )
 }

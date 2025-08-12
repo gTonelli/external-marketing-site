@@ -48,7 +48,7 @@ export default function IATMasterclassRecordingPage() {
           <VideoYoutube
             playInline
             classNameThumbnail="w-full"
-            videoId="s5-Gi-qaL_o"
+            videoId="IOzm-schSOM"
             thumbnail="/images/IATWebinar/iat-webinar-thumbnail.jpg"
             thumbnailAlt="Thais Gibson Masterclass Video Thumbnail"
           />

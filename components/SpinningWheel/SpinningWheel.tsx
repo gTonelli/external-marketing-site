@@ -85,7 +85,6 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         firstName,
         email,
       }
-      // http://localhost:3000/spin-to-win?firstName=Pratik&email=pratikraj@personaldevelopmentschool.com
       fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/activecampaign-user-tag', {
         method: 'POST',
         headers: {
@@ -103,9 +102,9 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           }
         })
         .catch((error) => {
-          setToastMessage(error)
+          setToastMessage(error.message)
           setShowToast(true)
-          console.error(error)
+          console.error(error.message)
         })
     } else {
       Storage.set(`${storageVar}-${pageVariant}`, prizeNumber)
@@ -159,13 +158,13 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
             <div className="w-full flex justify-end mb-8">
               <FontAwesomeIcon
                 icon={faClose}
-                size="2x"
+                size="1x"
                 role="button"
                 onClick={() => setShowPrizePopup(false)}
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-4 py-4 lg:py-10 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4  lg:grid-cols-2">
               <div className="flex justify-center">
                 <Image
                   className="w-60 md:w-96 lg:w-fit"

@@ -102,9 +102,9 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           }
         })
         .catch((error) => {
-          setToastMessage(error.message)
+          setToastMessage(error)
           setShowToast(true)
-          console.error(error.message)
+          console.error(error)
         })
     } else {
       Storage.set(`${storageVar}-${pageVariant}`, prizeNumber)

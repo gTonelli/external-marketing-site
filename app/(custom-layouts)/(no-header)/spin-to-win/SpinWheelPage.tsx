@@ -51,18 +51,10 @@ export default function SpinWheelPage({ pageVariant, email, firstName }: ISpinWh
           </strong>
         </p>
 
-        <p className="mb-8">
-          Spin to Win is back! It’s bigger, better, and personally curated by me, Thais Gibson!
-          Every spin wins, guaranteed, unlocking handpicked tools designed specifically for
-          attachment style healing, emotional fulfillment, and secure, lasting love.
-        </p>
-
         <div className="mb-16">
           <p>
             <strong>THIS OFFER ENDS SOON! SPIN NOW BEFORE IT'S GONE!</strong>
           </p>
-
-          <SpinWheelTimer />
         </div>
       </Section>
 

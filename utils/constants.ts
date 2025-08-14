@@ -145,8 +145,6 @@ type TCheckoutRoutes = {
 
 const thinkificUrl =
   process.env.NEXT_PUBLIC_THINKIFIC_URL || 'https://university.personaldevelopmentschool.com'
-const checkoutUrl =
-  process.env.NEXT_PUBLIC_CHECKOUT_URL || 'https://checkout.personaldevelopmentschool.com'
 
 const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
   production: {
@@ -156,49 +154,49 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     singleStepCheckoutRegularSubscription49Dollar: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=ifpodcast`,
     singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=Jwdjxr23`,
     // All-Access Pass Subscription
-    checkoutRegularSubscription: `${checkoutUrl}/enroll/559833?price_id=1285773`,
-    checkout7DayTrial: `${checkoutUrl}/enroll/559833?price_id=590989`,
-    checkout14DayTrial: `${checkoutUrl}/enroll/559833?price_id=2357208`,
-    checkoutJan2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=530903`,
-    checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=1585312`,
-    checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=570395`,
-    checkoutJuly2025PromoTrial: `${checkoutUrl}/enroll/1703605?price_id=2241811&coupon=dreamlifediscount`,
-    checkoutQuarterlyPlan: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=withyouquarterly`,
-    checkoutQuarterlyPlanGregVoisen: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=ipg50`,
-    checkoutQuarterly149: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=148off`,
-    checkoutAnnualPlan: `${checkoutUrl}/enroll/559833?price_id=1084476&coupon=withyouannually`,
-    checkoutAttachmentBootcamp: `${checkoutUrl}/enroll/2996140?price_id=3853225&coupon=148off`,
-    checkoutSimplifiedFa: `${checkoutUrl}/enroll/559833?price_id=1285773&bci=2178659`,
-    checkout1MonthFree: `${checkoutUrl}/enroll/559833?price_id=1285773&coupon=1monthoff`,
+    checkoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=1285773`,
+    checkout7DayTrial: `${thinkificUrl}/pages/checkout?price_id=590989`,
+    checkout14DayTrial: `${thinkificUrl}/pages/checkout?price_id=2357208`,
+    checkoutJan2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=590989&bci=530903`,
+    checkoutMarch2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=590989&bci=1585312`,
+    checkoutJune2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=590989&bci=570395`,
+    checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2241811&coupon=dreamlifediscount`,
+    checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=withyouquarterly`,
+    checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=ipg50`,
+    checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=148off`,
+    checkoutAnnualPlan: `${thinkificUrl}/pages/checkout?price_id=1084476&coupon=withyouannually`,
+    checkoutAttachmentBootcamp: `${thinkificUrl}/pages/checkout?price_id=3853225&coupon=148off`,
+    checkoutSimplifiedFa: `${thinkificUrl}/pages/checkout?price_id=1285773&bci=2178659`,
+    checkout1MonthFree: `${thinkificUrl}/pages/checkout?price_id=1285773&coupon=1monthoff`,
     // IAT Recorded
-    checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded`,
-    checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded`,
-    checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded`,
-    checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded`,
+    checkoutIATRecordedUpfront: `${thinkificUrl}/pages/checkout?price_id=3258840&coupon=iatbundleupfrontrecorded`,
+    checkoutIATRecorded3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258844&coupon=iatbundle3morecorded`,
+    checkoutIATRecorded6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258846&coupon=iatbundle6morecorded`,
+    checkoutIATRecorded12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258849&coupon=iatbundle12morecorded`,
     // IAT Fall 2025
-    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3452461?price_id=4370303&coupon=iatbundleupfrontlivefall25`,
-    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370311&coupon=iatbundle3molivefall25`,
-    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370313&coupon=iatbundle6molivefall25`,
-    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370314&coupon=iatbundle12molivefall25`,
+    checkoutIATLiveUpfront: `${thinkificUrl}/pages/checkout?price_id=4370303&coupon=iatbundleupfrontlivefall25`,
+    checkoutIATLive3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370311&coupon=iatbundle3molivefall25`,
+    checkoutIATLive6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370313&coupon=iatbundle6molivefall25`,
+    checkoutIATLive12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370314&coupon=iatbundle12molivefall25`,
     // IAT Recorded With Webinar Discount
-    checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2463967?price_id=3951355&coupon=iatwebinarfall25ondemand`,
-    checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951356&coupon=iatwebinarfall253mnthondemand`,
-    checkoutIATRecordedWebinar6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951358&coupon=iatwebinarfall256mnthondemand`,
-    checkoutIATRecordedWebinar12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951360&coupon=iatwebinarfall2512mnthondemand`,
+    checkoutIATRecordedWebinarUpfront: `${thinkificUrl}/pages/checkout?price_id=3951355&coupon=iatwebinarfall25ondemand`,
+    checkoutIATRecordedWebinar3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3951356&coupon=iatwebinarfall253mnthondemand`,
+    checkoutIATRecordedWebinar6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3951358&coupon=iatwebinarfall256mnthondemand`,
+    checkoutIATRecordedWebinar12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3951360&coupon=iatwebinarfall2512mnthondemand`,
     // IAT Fall 2025 With Webinar Discount
-    checkoutIATWebinarUpfront: `${checkoutUrl}/enroll/3452461?price_id=4370315&coupon=iatwebinarfall25live`,
-    checkoutIATWebinar3MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370316&coupon=iatwebinarfall253mnthlive`,
-    checkoutIATWebinar6MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370317&coupon=iatwebinarfall256mnthlive`,
-    checkoutIATWebinar12MonthPlan: `${checkoutUrl}/enroll/3452461?price_id=4370319&coupon=iatwebinarfall2512mnthlive`,
+    checkoutIATWebinarUpfront: `${thinkificUrl}/pages/checkout?price_id=4370315&coupon=iatwebinarfall25live`,
+    checkoutIATWebinar3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370316&coupon=iatwebinarfall253mnthlive`,
+    checkoutIATWebinar6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370317&coupon=iatwebinarfall256mnthlive`,
+    checkoutIATWebinar12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370319&coupon=iatwebinarfall2512mnthlive`,
     // Lifetime All-Access Pass
-    checkoutLifetimeUpfront: `${checkoutUrl}/enroll/559833?price_id=1053866&coupon=lifetimesale`,
-    checkoutLifetime6MonthPlan: `${checkoutUrl}/enroll/559833?price_id=1053856&coupon=lifetimesale6mo`,
-    checkoutLifetime12MonthPlan: `${checkoutUrl}/enroll/559833?price_id=1285785&coupon=lifetimesale12mo`,
+    checkoutLifetimeUpfront: `${thinkificUrl}/pages/checkout?price_id=1053866&coupon=lifetimesale`,
+    checkoutLifetime6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=1053856&coupon=lifetimesale6mo`,
+    checkoutLifetime12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=1285785&coupon=lifetimesale12mo`,
     // Age Product
-    checkoutAgeProductFa: `${checkoutUrl}/enroll/3030005?price_id=3892146&coupon=265off`,
-    checkoutAgeProductAp: `${checkoutUrl}/enroll/3032412?price_id=3894812&coupon=265off`,
-    checkoutAgeProductDa: `${checkoutUrl}/enroll/3032417?price_id=3894817&coupon=265off`,
-    checkoutAgeProductSa: `${checkoutUrl}/enroll/3032419?price_id=3894819&coupon=265off`,
+    checkoutAgeProductFa: `${thinkificUrl}/pages/checkout?price_id=3892146&coupon=265off`,
+    checkoutAgeProductAp: `${thinkificUrl}/pages/checkout?price_id=3894812&coupon=265off`,
+    checkoutAgeProductDa: `${thinkificUrl}/pages/checkout?price_id=3894817&coupon=265off`,
+    checkoutAgeProductSa: `${thinkificUrl}/pages/checkout?price_id=3894819&coupon=265off`,
   },
 
   staging: {
@@ -208,58 +206,54 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     singleStepCheckoutRegularSubscription49Dollar: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=ifpodcast`,
     singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=Jwdjxr23`,
     // All-Access Pass Subscription
-    checkoutRegularSubscription: `${checkoutUrl}/enroll/1934512?price_id=2638738`,
-    checkout7DayTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713`,
-    checkout14DayTrial: `${checkoutUrl}/enroll/1934512?price_id=2663013`,
-    checkoutJan2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=1337082`,
-    checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3028888`,
-    checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3101991`,
-    checkoutJuly2025PromoTrial: `${checkoutUrl}/enroll/3433260?price_id=4348253&coupon=for19`,
-    checkoutQuarterlyPlan: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=withyouquarterly`,
-    checkoutQuarterlyPlanGregVoisen: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=ipg50`,
-    checkoutQuarterly149: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=148off`,
-    checkoutAnnualPlan: `${checkoutUrl}/enroll/1934512?price_id=2963437&coupon=withyouannually`,
-    checkoutAttachmentBootcamp: `${checkoutUrl}/enroll/3014795?price_id=3874590&coupon=148off`,
-    checkoutSimplifiedFa: `${checkoutUrl}/enroll/1934512?price_id=2638738&bci=2178659`,
-    checkout1MonthFree: `${checkoutUrl}/enroll/1934512?price_id=2638738&coupon=1monthoff`,
+    checkoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=2638738`,
+    checkout7DayTrial: `${thinkificUrl}/pages/checkout?price_id=2638713`,
+    checkout14DayTrial: `${thinkificUrl}/pages/checkout?price_id=2663013`,
+    checkoutJan2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2638713&bci=1337082`,
+    checkoutMarch2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2638713&bci=3028888`,
+    checkoutJune2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2638713&bci=3101991`,
+    checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4348253&coupon=for19`,
+    checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=withyouquarterly`,
+    checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=ipg50`,
+    checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=148off`,
+    checkoutAnnualPlan: `${thinkificUrl}/pages/checkout?price_id=2963437&coupon=withyouannually`,
+    checkoutAttachmentBootcamp: `${thinkificUrl}/pages/checkout?price_id=3874590&coupon=148off`,
+    checkoutSimplifiedFa: `${thinkificUrl}/pages/checkout?price_id=2638738&bci=2178659`,
+    checkout1MonthFree: `${thinkificUrl}/pages/checkout?price_id=2638738&coupon=1monthoff`,
     // IAT Recorded
-    checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2751990?price_id=3577378&coupon=iatbundleupfrontrecorded`,
-    checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919119&coupon=iatbundle3morecorded`,
-    checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919118&coupon=iatbundle6morecorded`,
-    checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919117&coupon=iatbundle12morecorded`,
+    checkoutIATRecordedUpfront: `${thinkificUrl}/pages/checkout?price_id=3577378&coupon=iatbundleupfrontrecorded`,
+    checkoutIATRecorded3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3919119&coupon=iatbundle3morecorded`,
+    checkoutIATRecorded6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3919118&coupon=iatbundle6morecorded`,
+    checkoutIATRecorded12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3919117&coupon=iatbundle12morecorded`,
     // IAT Summer 2025
-    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3400721?price_id=4312068&coupon=iatbundleupfrontlivesummer25`,
-    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312069&coupon=iatbundle3molivesummer25`,
-    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312073&coupon=iatbundle6molivesummer25`,
-    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3400721?price_id=4312074&coupon=iatbundle12molivesummer25`,
+    checkoutIATLiveUpfront: `${thinkificUrl}/pages/checkout?price_id=4312068&coupon=iatbundleupfrontlivesummer25`,
+    checkoutIATLive3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4312069&coupon=iatbundle3molivesummer25`,
+    checkoutIATLive6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4312073&coupon=iatbundle6molivesummer25`,
+    checkoutIATLive12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4312074&coupon=iatbundle12molivesummer25`,
     // IAT Recorded With Webinar Discount
-    checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2751990?price_id=4344753&coupon=iatwebinarsummer225ondemand`,
-    checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=4344755&coupon=iatwebinarsummer2253mnthondemand`,
-    checkoutIATRecordedWebinar6MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=4344758&coupon=iatwebinarsummer2256mnthondemand`,
-    checkoutIATRecordedWebinar12MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=4344759&coupon=iatwebinarsummer22512mnthondemand`,
+    checkoutIATRecordedWebinarUpfront: `${thinkificUrl}/pages/checkout?price_id=4344753&coupon=iatwebinarsummer225ondemand`,
+    checkoutIATRecordedWebinar3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4344755&coupon=iatwebinarsummer2253mnthondemand`,
+    checkoutIATRecordedWebinar6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4344758&coupon=iatwebinarsummer2256mnthondemand`,
+    checkoutIATRecordedWebinar12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4344759&coupon=iatwebinarsummer22512mnthondemand`,
     // IAT Summer 2 2025 With Webinar Discount
-    checkoutIATWebinarUpfront: `${checkoutUrl}/enroll/3430162?price_id=4344727&coupon=iatwebinarsummer225live`,
-    checkoutIATWebinar3MonthPlan: `${checkoutUrl}/enroll/3430162?price_id=4344731&coupon=iatwebinarsummer2253mnthlive`,
-    checkoutIATWebinar6MonthPlan: `${checkoutUrl}/enroll/3430162?price_id=4344734&coupon=iatwebinarsummer2256mnthlive`,
-    checkoutIATWebinar12MonthPlan: `${checkoutUrl}/enroll/3430162?price_id=4344736&coupon=iatwebinarsummer22512mnthlive`,
+    checkoutIATWebinarUpfront: `${thinkificUrl}/pages/checkout?price_id=4344727&coupon=iatwebinarsummer225live`,
+    checkoutIATWebinar3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4344731&coupon=iatwebinarsummer2253mnthlive`,
+    checkoutIATWebinar6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4344734&coupon=iatwebinarsummer2256mnthlive`,
+    checkoutIATWebinar12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4344736&coupon=iatwebinarsummer22512mnthlive`,
     // Lifetime All-Access Pass
-    checkoutLifetimeUpfront: `${checkoutUrl}/enroll/1934512?price_id=2663440&coupon=lifetimesale`,
-    checkoutLifetime6MonthPlan: `${checkoutUrl}/enroll/1934512?price_id=2963435&coupon=lifetimesale6mo`,
-    checkoutLifetime12MonthPlan: `${checkoutUrl}/enroll/1934512?price_id=4103315&coupon=lifetimesale12mo`,
+    checkoutLifetimeUpfront: `${thinkificUrl}/pages/checkout?price_id=2663440&coupon=lifetimesale`,
+    checkoutLifetime6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=2963435&coupon=lifetimesale6mo`,
+    checkoutLifetime12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4103315&coupon=lifetimesale12mo`,
     // Age Product
-    checkoutAgeProductFa: `${checkoutUrl}/enroll/3045798?price_id=3910019&coupon=265off`,
-    checkoutAgeProductAp: `${checkoutUrl}/enroll/3045793?price_id=3910014&coupon=265off`,
-    checkoutAgeProductDa: `${checkoutUrl}/enroll/3045789?price_id=3910010&coupon=265off`,
-    checkoutAgeProductSa: `${checkoutUrl}/enroll/3045787?price_id=3910008&coupon=265off`,
+    checkoutAgeProductFa: `${thinkificUrl}/pages/checkout?price_id=3910019&coupon=265off`,
+    checkoutAgeProductAp: `${thinkificUrl}/pages/checkout?price_id=3910014&coupon=265off`,
+    checkoutAgeProductDa: `${thinkificUrl}/pages/checkout?price_id=3910010&coupon=265off`,
+    checkoutAgeProductSa: `${thinkificUrl}/pages/checkout?price_id=3910008&coupon=265off`,
   },
 }
 
 let env: TCheckoutEnv = 'production'
-if (
-  checkoutUrl === 'https://staging.strapi.personaldevelopmentschool.com/api' ||
-  checkoutUrl === 'https://ngrok.personaldevelopmentschool.com/api' ||
-  checkoutUrl.includes('http://localhost:')
-) {
+if (thinkificUrl === 'https://staging.university.personaldevelopmentschool.com') {
   env = 'staging'
 }
 

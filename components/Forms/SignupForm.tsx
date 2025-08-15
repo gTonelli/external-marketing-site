@@ -45,6 +45,8 @@ interface ISignupFormProps extends IDefaultProps {
   classNameSuccessMessage?: string
   /** submit button additional mixpanel props */
   submitButtonMpProps?: { [key: string]: string }
+  /** submitting status listener for parent component */
+  setSubmitting?: (status: boolean) => void
   /** onSuccess callback function */
   onSuccess?: () => void
   /** show Phone field on the form */
@@ -63,6 +65,7 @@ export const SignupForm = ({
   successMessage = 'Thank you for your submission!',
   showPhoneField,
   submitButtonMpProps,
+  setSubmitting,
   onSuccess,
 }: ISignupFormProps) => {
   // =========== Context =========
@@ -75,6 +78,8 @@ export const SignupForm = ({
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
+    setSubmitting?.(true)
+
     const { email, firstName, phone } = values
     setUserData({ email, firstName })
 
@@ -103,7 +108,6 @@ export const SignupForm = ({
       insertId,
     }
 
-    // TODO change back to production
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
       headers: {
@@ -122,6 +126,7 @@ export const SignupForm = ({
       })
       .catch((error) => {
         console.error(error)
+        setSubmitting?.(false)
         formikHelpers.setSubmitting(false)
         setErrorMessage(typeof error === 'string' ? error : 'An unexpected error occured')
       })

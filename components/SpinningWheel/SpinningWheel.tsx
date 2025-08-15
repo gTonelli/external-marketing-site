@@ -50,6 +50,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
   const [prizeNumber, setPrizeNumber] = useState(0)
   const [wheelHasSpun, setWheelHasSpun] = useState(false)
   const [showPrizePopup, setShowPrizePopup] = useState(false)
+  const [showFormPopup, setShowFormPopup] = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
   useEffect(() => {
@@ -72,10 +73,12 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
 
   const onWheelClick = () => {
     if (pageVariant === 'email' && firstName && email) handleSpinClick()
+    if (pageVariant === 'osm' && !wheelHasSpun) setShowFormPopup(true)
   }
 
   const handleSpinClick = () => {
     setSubmitting(true)
+    setShowFormPopup(false)
     if (wheelHasSpun) return
     if (pageVariant === 'email' && firstName && email) {
       const insertId = MD5(Date.now() + JSON.stringify({ email })).toString()
@@ -149,7 +152,39 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         />
 
         <Dialog
-          className="w-full max-w-5xl p-4 bg-white rounded-20 md:p-8 lg:p-12"
+          className="w-full max-w-fit p-4 bg-white rounded-20  md:p-8 lg:p-10"
+          isShown={showFormPopup}
+          onToggle={() => setShowFormPopup(!showFormPopup)}>
+          <div>
+            <div className="w-full flex justify-end">
+              <FontAwesomeIcon
+                icon={faClose}
+                size="1x"
+                role="button"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setShowFormPopup(false)
+                }}
+              />
+            </div>
+
+            <h2 className="!text-2xl mb-4">Enter Your Details to Spin and Claim Your Prize</h2>
+
+            <SpinWheelLeadForm
+              prizeNumber={prizeNumber}
+              setSubmitting={setSubmitting}
+              onSuccess={handleSpinClick}
+            />
+
+            <p className="text-gray-500 text-sm mt-2">
+              By redeeming this offer, you agree to receive promotions and content from the Personal
+              Development School.
+            </p>
+          </div>
+        </Dialog>
+
+        <Dialog
+          className="w-full max-w-5xl p-4 bg-white rounded-20 md:p-8 lg:p-6"
           isShown={showPrizePopup}
           onToggle={() => setShowPrizePopup(!showPrizePopup)}>
           <div className="overflow-auto">
@@ -160,7 +195,10 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
                 icon={faClose}
                 size="1x"
                 role="button"
-                onClick={() => setShowPrizePopup(false)}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setShowPrizePopup(false)
+                }}
               />
             </div>
 
@@ -211,15 +249,17 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
                 <strong>guaranteed prize</strong>!
               </p>
 
-              <SignupForm
-                classNameFields="!flex-col !gap-y-4"
-                submitButtonLabel="SPIN THE WHEEL!"
-                successMessage="Spinning..."
-                userTags={[prizes[prizeNumber].userTag]}
-                listIds={[40]}
-                submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier }}
-                onSuccess={handleSpinClick}
-              />
+              {submitting ? (
+                <p className="text-lg text-green-check">
+                  <strong>Spinning</strong>
+                </p>
+              ) : (
+                <SpinWheelLeadForm
+                  prizeNumber={prizeNumber}
+                  setSubmitting={setSubmitting}
+                  onSuccess={handleSpinClick}
+                />
+              )}
             </>
           )}
 
@@ -232,6 +272,27 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         </div>
       )}
     </div>
+  )
+}
+
+interface ISpinWheelLeadFormProps {
+  prizeNumber: number
+  onSuccess: () => void
+  setSubmitting?: (status: boolean) => void
+}
+
+const SpinWheelLeadForm = ({ prizeNumber, setSubmitting, onSuccess }: ISpinWheelLeadFormProps) => {
+  return (
+    <SignupForm
+      classNameFields="!flex-col !gap-y-4"
+      submitButtonLabel="SPIN THE WHEEL!"
+      successMessage="Spinning..."
+      userTags={[prizes[prizeNumber].userTag]}
+      listIds={[40]}
+      submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier }}
+      setSubmitting={setSubmitting}
+      onSuccess={onSuccess}
+    />
   )
 }
 

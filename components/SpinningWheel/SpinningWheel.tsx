@@ -152,7 +152,7 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
         />
 
         <Dialog
-          className="w-full max-w-fit p-4 bg-white rounded-20 md:p-8 lg:p-6"
+          className="w-full max-w-fit p-4 bg-white rounded-20  md:p-8 lg:p-10"
           isShown={showFormPopup}
           onToggle={() => setShowFormPopup(!showFormPopup)}>
           <div>
@@ -170,17 +170,11 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
 
             <h2 className="!text-2xl mb-4">Enter Your Details to Spin and Claim Your Prize</h2>
 
-            {submitting ? (
-              <p className="text-green-check">
-                <strong>Spinning...</strong>
-              </p>
-            ) : (
-              <SpinWheelLeadForm
-                prizeNumber={prizeNumber}
-                setSubmitting={setSubmitting}
-                onSuccess={handleSpinClick}
-              />
-            )}
+            <SpinWheelLeadForm
+              prizeNumber={prizeNumber}
+              setSubmitting={setSubmitting}
+              onSuccess={handleSpinClick}
+            />
 
             <p className="text-gray-500 text-sm mt-2">
               By redeeming this offer, you agree to receive promotions and content from the Personal
@@ -256,8 +250,8 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
               </p>
 
               {submitting ? (
-                <p className="text-green-check">
-                  <strong>Spinning...</strong>
+                <p className="text-lg text-green-check">
+                  <strong>Spinning</strong>
                 </p>
               ) : (
                 <SpinWheelLeadForm
@@ -293,7 +287,6 @@ const SpinWheelLeadForm = ({ prizeNumber, setSubmitting, onSuccess }: ISpinWheel
       classNameFields="!flex-col !gap-y-4"
       submitButtonLabel="SPIN THE WHEEL!"
       successMessage="Spinning..."
-      formSource="spinWheel"
       userTags={[prizes[prizeNumber].userTag]}
       listIds={[40]}
       submitButtonMpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier }}

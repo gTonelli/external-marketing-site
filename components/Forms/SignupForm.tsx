@@ -78,6 +78,8 @@ export const SignupForm = ({
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
+    setSubmitting?.(true)
+
     const { email, firstName, phone } = values
     setUserData({ email, firstName })
 
@@ -95,10 +97,6 @@ export const SignupForm = ({
       })
     }
 
-    if (formSource === 'spinWheel') {
-      setSubmitting?.(true)
-    }
-
     const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
 
     const requestBody = {
@@ -110,7 +108,6 @@ export const SignupForm = ({
       insertId,
     }
 
-    // TODO change back to production
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
       headers: {
@@ -129,6 +126,7 @@ export const SignupForm = ({
       })
       .catch((error) => {
         console.error(error)
+        setSubmitting?.(false)
         formikHelpers.setSubmitting(false)
         setErrorMessage(typeof error === 'string' ? error : 'An unexpected error occured')
       })

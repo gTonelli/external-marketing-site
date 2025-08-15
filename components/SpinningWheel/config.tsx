@@ -31,7 +31,7 @@ export const prizes = [
     title: (
       <>
         Congratulations! You’ve Won a{' '}
-        <span className="text-primary">FREE Relationship Course + 7-Day Free Trial.</span>
+        <span className="text-primary">FREE Relationship Course For Life + 7-Day Free Trial.</span>
       </>
     ),
     subheader: 'Start Your Path to Healthy, Secure Love Today!',
@@ -76,7 +76,7 @@ export const prizes = [
     title: (
       <>
         Congratulations! You’ve Won a{' '}
-        <span className="text-primary">FREE Needs Course + 7-Day Free Trial.</span>
+        <span className="text-primary">FREE Needs Course For Life + 7-Day Free Trial.</span>
       </>
     ),
     subheader: 'Start Your Journey to Deep Emotional Fulfillment!',

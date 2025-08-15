@@ -45,6 +45,8 @@ interface ISignupFormProps extends IDefaultProps {
   classNameSuccessMessage?: string
   /** submit button additional mixpanel props */
   submitButtonMpProps?: { [key: string]: string }
+  /** submitting status listner for parent component */
+  setSubmitting?: (status: boolean) => void
   /** onSuccess callback function */
   onSuccess?: () => void
   /** show Phone field on the form */
@@ -63,6 +65,7 @@ export const SignupForm = ({
   successMessage = 'Thank you for your submission!',
   showPhoneField,
   submitButtonMpProps,
+  setSubmitting,
   onSuccess,
 }: ISignupFormProps) => {
   // =========== Context =========
@@ -90,6 +93,10 @@ export const SignupForm = ({
         eventAction: 'Form',
         eventLabel: 'Submit',
       })
+    }
+
+    if (formSource === 'spinWheel') {
+      setSubmitting?.(true)
     }
 
     const insertId = MD5(Date.now() + JSON.stringify(values)).toString()

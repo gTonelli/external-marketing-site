@@ -45,7 +45,7 @@ interface ISignupFormProps extends IDefaultProps {
   classNameSuccessMessage?: string
   /** submit button additional mixpanel props */
   submitButtonMpProps?: { [key: string]: string }
-  /** submitting status listner for parent component */
+  /** submitting status listener for parent component */
   setSubmitting?: (status: boolean) => void
   /** onSuccess callback function */
   onSuccess?: () => void

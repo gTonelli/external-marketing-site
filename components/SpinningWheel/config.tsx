@@ -26,6 +26,32 @@ export const prizes = [
     probability: 12,
   },
   {
+    option: '7-Day Trial + Free Course',
+    mixpanelIdentifier: '7DFT+Relationship',
+    title: (
+      <>
+        Congratulations! You’ve Won a{' '}
+        <span className="text-primary">FREE Relationship Course For Life + 7-Day Free Trial.</span>
+      </>
+    ),
+    subheader: 'Start Your Path to Healthy, Secure Love Today!',
+    copy: (
+      <>
+        Enjoy unlimited access (normally $97/month) to ALL courses, our community, and live webinars
+        with me, Thais Gibson, for a full 7 days, plus keep the{' '}
+        <strong>Key Pillars to a Secure Relationship</strong> course forever for FREE!
+      </>
+    ),
+    imgSrc: '/images/SpinTheWheel/relationships-course-congratulations.png',
+    imgAlt:
+      'Congratulations image with gifts and balloons and Key Pillars to a Secure Relationship course mockup',
+    disclaimer:
+      "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price). You get to keep the Key Pillars for a Secure Relationship Course for life, even if you don’t continue.",
+    checkoutLink: externalRoutes.checkoutJune2025PromoTrial,
+    userTag: 'mkt-spin-wheel-ft-relationships',
+    probability: 31,
+  },
+  {
     option: 'Free 14-Day Trial',
     mixpanelIdentifier: '14DFT',
     title: (
@@ -42,25 +68,7 @@ export const prizes = [
       "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.checkout14DayTrial,
     userTag: 'mkt-spin-wheel-14dft',
-    probability: 20,
-  },
-  {
-    option: '60% Off First Month',
-    mixpanelIdentifier: '60% off 1mo',
-    title: (
-      <>
-        Congratulations! You’ve Won <span className="text-primary">60% OFF Your First Month.</span>
-      </>
-    ),
-    subheader: 'Huge Savings, Instant Transformation!',
-    copy: "You've unlocked full access to the All-Access Pass (normally $97/month) for just $39 for your first month! Instant support, expert guidance, and powerful breakthroughs await.",
-    imgSrc: '/images/congratulations.png',
-    imgAlt: 'Congratulations image with gifts and balloons',
-    disclaimer:
-      "After your free month ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
-    checkoutLink: externalRoutes.singleStepCheckout39FirstMonth,
-    userTag: 'mkt-spin-wheel-39fmo',
-    probability: 1,
+    probability: 21,
   },
   {
     option: '7-Day Trial + Free Course',
@@ -68,7 +76,7 @@ export const prizes = [
     title: (
       <>
         Congratulations! You’ve Won a{' '}
-        <span className="text-primary">FREE Needs Course + 7-Day Free Trial.</span>
+        <span className="text-primary">FREE Needs Course For Life + 7-Day Free Trial.</span>
       </>
     ),
     subheader: 'Start Your Journey to Deep Emotional Fulfillment!',
@@ -87,7 +95,25 @@ export const prizes = [
       "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price). You get to keep the Discover, Embrace, and Fulfill Your Personal Needs course for life, even if you don’t continue.",
     checkoutLink: externalRoutes.checkoutJan2025PromoTrial,
     userTag: 'mkt-spin-wheel-ft-needs',
-    probability: 35,
+    probability: 36,
+  },
+  {
+    option: '60% Off First Month',
+    mixpanelIdentifier: '60% off 1mo',
+    title: (
+      <>
+        Congratulations! You’ve Won <span className="text-primary">60% OFF Your First Month.</span>
+      </>
+    ),
+    subheader: 'Huge Savings, Instant Transformation!',
+    copy: "You've unlocked full access to the All-Access Pass (normally $97/month) for just $39 for your first month! Instant support, expert guidance, and powerful breakthroughs await.",
+    imgSrc: '/images/congratulations.png',
+    imgAlt: 'Congratulations image with gifts and balloons',
+    disclaimer:
+      "After your free month ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
+    checkoutLink: externalRoutes.singleStepCheckout39FirstMonth,
+    userTag: 'mkt-spin-wheel-39fmo',
+    probability: 0,
   },
   {
     option: 'Free Month Membership',
@@ -106,7 +132,7 @@ export const prizes = [
       "After your free month ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price).",
     checkoutLink: externalRoutes.checkout1MonthFree,
     userTag: 'mkt-spin-wheel-1mo-free',
-    probability: 1,
+    probability: 0,
   },
   {
     option: '$19 Somatic Course',
@@ -130,33 +156,7 @@ export const prizes = [
     disclaimer: '',
     checkoutLink: externalRoutes.checkoutJuly2025PromoTrial,
     userTag: 'mkt-spin-wheel-somatic',
-    probability: 1,
-  },
-  {
-    option: '7-Day Trial + Free Course',
-    mixpanelIdentifier: '7DFT+Relationship',
-    title: (
-      <>
-        Congratulations! You’ve Won a{' '}
-        <span className="text-primary">FREE Relationship Course + 7-Day Free Trial.</span>
-      </>
-    ),
-    subheader: 'Start Your Path to Healthy, Secure Love Today!',
-    copy: (
-      <>
-        Enjoy unlimited access (normally $97/month) to ALL courses, our community, and live webinars
-        with me, Thais Gibson, for a full 7 days, plus keep the{' '}
-        <strong>Key Pillars to a Secure Relationship</strong> course forever for FREE!
-      </>
-    ),
-    imgSrc: '/images/SpinTheWheel/relationships-course-congratulations.png',
-    imgAlt:
-      'Congratulations image with gifts and balloons and Key Pillars to a Secure Relationship course mockup',
-    disclaimer:
-      "After your trial ends, you'll automatically continue as an All-Access Pass member at the discounted rate of $67/month (30% off the regular price). You get to keep the Key Pillars for a Secure Relationship Course for life, even if you don’t continue.",
-    checkoutLink: externalRoutes.checkoutJune2025PromoTrial,
-    userTag: 'mkt-spin-wheel-ft-relationships',
-    probability: 30,
+    probability: 0,
   },
 ]
 

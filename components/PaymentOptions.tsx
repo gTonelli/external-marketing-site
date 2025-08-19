@@ -123,7 +123,7 @@ const allConfigs = {
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
     checkoutUrl: externalRoutes.checkoutJan2025PromoTrial,
     disclaimer:
-      '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Discover, Embrace, and Fulfill Your Personal Needs course for life.',
+      "*$67.00/month after your free trial. You can cancel any time before your trial ends and you won't be charged. Plus you still get to keep the Discover, Embrace & Fulfill Your Personal Needs Course for life.",
   },
   dreamLifeSexCourse: {
     offerLabel: 'Free Course For Life + Free Trial',
@@ -141,7 +141,7 @@ const allConfigs = {
     ctaLabel: 'GET YOUR FREE COURSE & TRIAL',
     checkoutUrl: externalRoutes.checkoutMarch2025PromoTrial,
     disclaimer:
-      '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Attachment Styles & Sex Course for life. ',
+      "*$67.00/month after your free trial. You can cancel any time before your trial ends and you won't be charged. Plus you still get to keep the Attachment Styles & Sex Course for life.",
   },
   dreamLifePillarsCourse: {
     offerLabel: 'Free Trial & Exclusive Free Course!',
@@ -156,7 +156,7 @@ const allConfigs = {
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
     checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
     disclaimer:
-      '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the Key Pillars for a Secure Relationship Course for life.',
+      "*$67.00/month after your free trial. You can cancel any time before your trial ends and you won't be charged. Plus you still get to keep the Key Pillars for a Secure Relationship Course for life.",
   },
   dreamLifeSomatic: {
     offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',

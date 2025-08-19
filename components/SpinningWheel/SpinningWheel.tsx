@@ -330,7 +330,7 @@ const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) 
 
       <ButtonCheckout
         label="CLAIM YOUR PRIZE!"
-        href={prizes[prizeNumber].checkoutLink}
+        href={prizes[prizeNumber].checkoutLink.concat('-wheel')}
         mpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier, ctaLocation }}
       />
     </div>

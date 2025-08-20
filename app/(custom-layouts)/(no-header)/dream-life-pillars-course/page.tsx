@@ -49,7 +49,6 @@ export default function DreamLifeFreeCoursePage() {
 
         <div className="relative mt-8 lg:mt-12">
           <PaymentOptions
-            showDisclaimer={false}
             className="!max-w-xl mx-auto lg:flex-col"
             configKey="dreamLifePillarsCourse"
           />

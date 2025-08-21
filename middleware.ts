@@ -242,7 +242,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantUrl: {
       path: '/quiz/results/fa',
     },
-    variantRatio: 0.2,
+    variantRatio: 0.5,
     forceControlOnNewUser: true,
   },
 }

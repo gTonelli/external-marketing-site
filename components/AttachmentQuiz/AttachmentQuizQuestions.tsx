@@ -167,14 +167,8 @@ export const AttachmentQuizQuestions = ({
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }
 
-      const updateVariantQuestions = () => {
-        modifiedQuestions.splice(modifiedQuestions.length - 3, 1, detailedQuestions[6])
-        modifiedQuestions.splice(modifiedQuestions.length - 2, 0, detailedQuestions[7])
-      }
-
       if (currentIndex == 0) {
         handleInitialQuestion()
-        if (isQuizVariant) updateVariantQuestions()
       } else {
         if (answer === 'True') {
           handleScoreTracking()

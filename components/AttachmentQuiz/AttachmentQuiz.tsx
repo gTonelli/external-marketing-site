@@ -55,16 +55,6 @@ export const AttachmentQuiz = ({
   const [quizVariant, setQuizVariant] = useState(false)
 
   const onStartQuiz = useCallback(() => {
-    if (quiz_traffic_source === 'paidGoogle') {
-      setQuizVariant(
-        getSplitTest({
-          key: 'gm-1860-quiz-questions',
-          experimentName: 'GM-1860-Quiz-Questions-Test',
-          useCookies: false,
-        })
-      )
-    }
-
     Mixpanel.track.QuizStarted({
       quiz_name: quizName,
       quiz_traffic_source,

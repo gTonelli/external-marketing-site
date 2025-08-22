@@ -215,14 +215,18 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
                 />
               </div>
 
-              <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="popup" />
+              <SpinWheelSuccess
+                pageVariant={pageVariant}
+                prizeNumber={prizeNumber}
+                ctaLocation="popup"
+              />
             </div>
           </div>
         </Dialog>
       </div>
 
       {wheelHasSpun ? (
-        <SpinWheelSuccess prizeNumber={prizeNumber} ctaLocation="card" />
+        <SpinWheelSuccess pageVariant={pageVariant} prizeNumber={prizeNumber} ctaLocation="card" />
       ) : (
         <div className="flex flex-col text-left justify-center items-start">
           <h2>Spin to Win! Guaranteed Handpicked Prizes!</h2>
@@ -298,10 +302,11 @@ const SpinWheelLeadForm = ({ prizeNumber, setSubmitting, onSuccess }: ISpinWheel
 
 interface ISpinWheelSuccessProps {
   prizeNumber: number
+  pageVariant: 'email' | 'osm'
   ctaLocation: 'popup' | 'card'
 }
 
-const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) => {
+const SpinWheelSuccess = ({ pageVariant, prizeNumber, ctaLocation }: ISpinWheelSuccessProps) => {
   return (
     <div className="text-left">
       <h2 className="text-3xl mb-4">{prizes[prizeNumber].title}</h2>
@@ -330,7 +335,9 @@ const SpinWheelSuccess = ({ prizeNumber, ctaLocation }: ISpinWheelSuccessProps) 
 
       <ButtonCheckout
         label="CLAIM YOUR PRIZE!"
-        href={prizes[prizeNumber].checkoutLink}
+        href={prizes[prizeNumber].checkoutLink.concat(
+          `-${pageVariant === 'osm' ? 'spin-wheel' : 'wheel'}`
+        )}
         mpProps={{ wheelPrize: prizes[prizeNumber].mixpanelIdentifier, ctaLocation }}
       />
     </div>

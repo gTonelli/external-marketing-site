@@ -19,6 +19,7 @@ import { Page } from '@/components/Page'
 // modules
 import { externalRoutes } from '@/utils/constants'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 
 type ArticleKey = keyof typeof TH.ARTICLES
 
@@ -29,6 +30,11 @@ export default function DreamLifePage() {
 
   const onGoToBlog = (blog: ArticleKey) => {
     Mixpanel.track.ButtonClicked({
+      button_label: TH.ARTICLES[blog].name,
+      page_name: page_name,
+    })
+
+    TripleWhale.track.ButtonClicked({
       button_label: TH.ARTICLES[blog].name,
       page_name: page_name,
     })

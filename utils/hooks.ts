@@ -6,6 +6,7 @@ import { EWindowWidth } from './constants'
 import { IViewport } from './interfaces'
 import { throttle } from 'lodash'
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 import Cookies from 'universal-cookie'
 import { Storage, TStorageKeys } from '@/modules/Storage'
 
@@ -111,6 +112,11 @@ export function usePageScrolledEvent(scrollPercentage: number, pageName: Pages) 
     )
     if (nextThreshold) {
       Mixpanel.track.PageScrolled({
+        page_name: pageName,
+        scroll_depth: nextThreshold,
+      })
+
+      TripleWhale.track.PageScrolled({
         page_name: pageName,
         scroll_depth: nextThreshold,
       })

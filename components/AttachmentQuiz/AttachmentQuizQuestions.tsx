@@ -22,6 +22,7 @@ import { isMobile } from 'react-device-detect'
 import { gtag } from '../GoogleAdsTag'
 // utils
 import { TStyle } from '@/utils/types'
+import TripleWhale from '@/modules/TripleWhale'
 
 let modifiedQuestions = [...questions]
 
@@ -68,6 +69,13 @@ export const AttachmentQuizQuestions = ({
         question: currentIndex,
         total_questions: modifiedQuestions.length,
       })
+
+      TripleWhale.track.QuizProgress({
+        quiz_name: quizName,
+        progress: `${Math.round(progress)}%`,
+        question: currentIndex,
+        total_questions: modifiedQuestions.length,
+      })
     }
   }, [currentIndex, quizName])
 
@@ -75,6 +83,13 @@ export const AttachmentQuizQuestions = ({
     const progress = (currentIndex / modifiedQuestions.length) * 100
     if (progress < 100) {
       Mixpanel.track.QuizProgress({
+        quiz_name: quizName,
+        progress: `${Math.round(progress)}%`,
+        question: currentIndex,
+        total_questions: modifiedQuestions.length,
+      })
+
+      TripleWhale.track.QuizProgress({
         quiz_name: quizName,
         progress: `${Math.round(progress)}%`,
         question: currentIndex,
@@ -153,6 +168,12 @@ export const AttachmentQuizQuestions = ({
 
       const handleQuizEnd = () => {
         Mixpanel.track.QuizFinished({
+          quiz_name: quizName,
+          quiz_traffic_source,
+          progress: '100%',
+        })
+
+        TripleWhale.track.QuizFinished({
           quiz_name: quizName,
           quiz_traffic_source,
           progress: '100%',

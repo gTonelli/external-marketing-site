@@ -13,6 +13,7 @@ import cx from 'classnames'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { Regexes } from '@/utils/constants'
 
@@ -76,6 +77,8 @@ export const PodcastSuggestionForm = ({
         if (!res.success) throw res?.message || 'An unexpected error occured'
         else {
           Mixpanel.track.SignUp({ distinct_id: podcastEmail })
+
+          TripleWhale.track.Contact({firstName: podcastFirstName, email: podcastEmail})
           onSuccess?.()
           setSubmitted(true)
         }

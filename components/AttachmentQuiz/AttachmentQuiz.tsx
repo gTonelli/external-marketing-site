@@ -12,6 +12,7 @@ import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 import { getSplitTest } from '@/utils/functions'
 
 export interface IUserInfo {
@@ -66,6 +67,11 @@ export const AttachmentQuiz = ({
     }
 
     Mixpanel.track.QuizStarted({
+      quiz_name: quizName,
+      quiz_traffic_source,
+    })
+
+    TripleWhale.track.QuizStarted({
       quiz_name: quizName,
       quiz_traffic_source,
     })

@@ -12,6 +12,7 @@ import { overrideTailwindClasses as two } from 'tailwind-override'
 import { Regexes } from '@/utils/constants'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 import { Storage, TStorageKeys } from '@/modules/Storage'
 // utils
 import { TVariantVideoData } from '@/utils/types'
@@ -253,6 +254,12 @@ export const VideoPlayer = forwardRef<HTMLVideoElement, IVideoPlayer>(
 
             if (nextThreshold && nextThreshold !== currentThreshold) {
               Mixpanel.track.VideoProgress({
+                progress: nextThreshold,
+                page_name: page_name,
+                video_type: `${type} - ${page_name}`,
+              })
+
+              TripleWhale.track.VideoProgress({
                 progress: nextThreshold,
                 page_name: page_name,
                 video_type: `${type} - ${page_name}`,

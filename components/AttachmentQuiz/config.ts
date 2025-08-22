@@ -385,3 +385,16 @@ export const QUIZ_DETAILED_QUESTIONS = [
     options: ['Prefer not to say', 'Single', 'Recently ended a relationship', 'Still looking'],
   },
 ]
+
+export const QUIZ_STATS = [
+  'Built 1.71x stronger relationships, and now enjoy more trust, joy, and lasting connection.',
+  'Coping Skills: Our members let go of harmful habits and saw a 53.8% drop in toxic coping mechanisms like binging, numbing, and spiraling.',
+  'Felt lighter and more in control, with a 50.6% decrease in daily emotional triggers, enjoying fewer moments of overwhelm and more moments of calm.',
+  'Uncovered the root causes of their patterns, gaining 3.38x more clarity about their core wounds.',
+  'Approached tough talks with ease and composure, improving their tough-conversation skills by 2.01x.',
+  'Became 2.24x stronger at setting healthy boundaries, and are now protecting their energy, reducing conflict, and building self-respect.',
+  'Got 2.97x better at recognizing and meeting their needs, leading to more fulfillment and less self-sacrifice.',
+  'Boosted their ability to self-regulate by 2.62x and are now staying grounded through stress, frustration, and sadness.',
+  'Handled disagreements with more care and cooperation, improving 2.6x in conflict management skills.',
+  'Showed up for others with 1.28x more empathy and are now listening better, understanding deeper, and connecting more meaningfully.',
+]

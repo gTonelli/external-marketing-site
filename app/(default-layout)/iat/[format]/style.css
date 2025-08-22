@@ -1,0 +1,141 @@
+.bg-hero-mobile {
+    position: relative;
+    background: url('/images/IAT_AbandonedCart/heroBanner.webp') no-repeat top right / cover;
+    width: 100%;
+    height: 300px;
+  }
+  
+  .bg-watch-desktop {
+    position: relative;
+    background: url('/images/IAT_AbandonedCart/offerBanner.webp') no-repeat center / cover;
+    width: 100%;
+    height: 300px;
+  }
+  
+  .bg-gradient {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(227, 237, 237, 0) 0%, #e3eded calc(300px), rgba(213, 184, 216, 0.5) 100%);
+  }
+  
+  .pricing-wrapper #pricing > div {
+    transition: all 0.3s ease;
+  }
+  
+  .pricing-wrapper[data-selected='live'] #pricing > div:first-child {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01);
+    z-index: 1;
+  }
+  
+  .pricing-wrapper[data-selected='live'] #pricing > div:last-child {
+    opacity: 0.8;
+  }
+  
+  .pricing-wrapper[data-selected='ondemand'] #pricing > div:last-child {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    transform: scale(1.01);
+    z-index: 1;
+  }
+  
+  .pricing-wrapper[data-selected='ondemand'] #pricing > div:first-child {
+    opacity: 0.8;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .bg-watch-desktop {
+      background: url('/images/IAT_AbandonedCart/offerBannerMobile.webp') no-repeat center / cover;
+      width: 100%;
+      height: 600px;
+      position: relative;
+    }
+  }
+  
+  @media screen and (min-width: 601px) and (max-width: 1023px) {
+    .bg-watch-desktop {
+      background: url('/images/IAT_AbandonedCart/offerBanner.webp') no-repeat center / cover;
+      width: 100%;
+      height: 400px;
+      position: relative;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .bg-hero {
+      position: relative;
+      background: url('/images/IAT_AbandonedCart/heroBanner.webp') no-repeat top right / cover;
+    }
+  
+    .bg-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      background: linear-gradient(108deg, #e3eded 0%, rgba(213, 184, 216, 0.05) 71.01%);
+    }
+  
+    .bg-watch {
+      position: relative;
+    }
+  
+    .bg-watch::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/images/IAT_AbandonedCart/offerBanner.webp') no-repeat center / contain;
+      background-position: center;
+      background-size: auto 100%;
+      z-index: 0;
+    }
+  }
+  
+  @media screen and (min-width: 1280px) and (max-width: 1535px) {
+    .bg-watch::before {
+      background-size: auto 100%;
+    }
+  }
+  
+  @media screen and (min-width: 1536px) {
+    .bg-watch {
+      height: 600px;
+      width: 100vw;
+    }
+  
+    .bg-watch::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) and (max-width: 1535px) {
+    .bg-watch {
+      width: 100vw;
+    }
+  
+    .bg-watch::before {
+      width: 100vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  

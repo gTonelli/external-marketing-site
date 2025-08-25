@@ -101,6 +101,7 @@ export const AttachmentQuizQuestions = ({
 
   useEffect(() => {
     if (isQuizVariant) {
+      // select 4 random items from stats list
       setStats(
         statsList
           .slice()
@@ -321,8 +322,15 @@ export const AttachmentQuizQuestions = ({
       ) : (
         <>
           {isQuizVariant && showStat && currentIndex === modifiedQuestions.length ? (
-            <div className="text-center bg-white-secondary p-6">
-              <strong>{stats[currentStatIndex]}</strong>
+            <div className="text-center">
+              <p className="mb-4">
+                We’re crafting your personalized results based on your answers. Just a moment
+                longer!
+              </p>
+
+              <div className="bg-white-secondary p-6">
+                <strong>{stats[currentStatIndex]}</strong>
+              </div>
             </div>
           ) : (
             <AttachmentQuizForm

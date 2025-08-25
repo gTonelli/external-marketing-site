@@ -268,6 +268,31 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     })
 
     const { fa, ap, da, sa } = result
+
+    const { faPercentage, apPercentage, daPercentage, saPercentage, dominantStyle } =
+      getPercentageResults({ fa, da, ap, sa })
+
+    const url =
+      dominantStyle === 'fa'
+        ? `/quiz/v2/result/${dominantStyle}/${faPercentage}/${apPercentage}/${daPercentage}/${saPercentage}`
+        : `/quiz/${dominantStyle}`
+
+    const userData = registerUser(dominantStyle)
+    saveAttachmentResult({ ...userData, faPercentage, apPercentage, daPercentage, saPercentage })
+    router.push(url)
+  }, [questionGroups, router])
+
+  const getPercentageResults = ({
+    fa,
+    da,
+    ap,
+    sa,
+  }: {
+    fa: number
+    da: number
+    ap: number
+    sa: number
+  }) => {
     const total = fa + ap + da + sa
     const percentages = [
       Math.floor((fa / total) * 100),
@@ -281,16 +306,15 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     percentages[indexOf(percentages, highest)] += difference
 
     const [faPercentage, apPercentage, daPercentage, saPercentage] = percentages
-
-    const url =
-      dominantStyle === 'fa'
-        ? `/quiz/v2/result/${dominantStyle}/${faPercentage}/${apPercentage}/${daPercentage}/${saPercentage}`
-        : `/quiz/${dominantStyle}`
-
-    const userData = registerUser(dominantStyle)
-    saveAttachmentResult({ ...userData, faPercentage, apPercentage, daPercentage, saPercentage })
-    router.push(url)
-  }, [questionGroups, router])
+    return {
+      faPercentage,
+      apPercentage,
+      daPercentage,
+      saPercentage,
+      highest,
+      dominantStyle,
+    }
+  }
 
   const answerQuestion = (question: TQuizQuestion, val: any) => {
     question.userResponse = val
@@ -338,6 +362,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     onGoBack,
     onGoToNextQuestion,
     endQuiz,
+    getPercentageResults,
     getQuestionType,
     currentQuestionGroup,
     index: i,

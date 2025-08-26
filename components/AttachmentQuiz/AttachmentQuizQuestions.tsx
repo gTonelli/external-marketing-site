@@ -108,8 +108,7 @@ export const AttachmentQuizQuestions = ({
           .sort(() => Math.random() - 0.5)
           .slice(0, 4)
       )
-      const genRandom = (min: number, max: number) =>
-        Math.floor(Math.random() * (max - min + 1)) + min
+      const genRandom = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min
       const positions = [genRandom(7, 10), genRandom(17, 20), genRandom(27, 30)]
       setStatsPostion(positions)
     }
@@ -216,8 +215,10 @@ export const AttachmentQuizQuestions = ({
       if (
         currentIndex + 1 === statsPosition[currentStatIndex] ||
         currentIndex + 1 === modifiedQuestions.length
-      )
+      ) {
         setShowStat(true)
+      }
+
       setCurrentIndex(currentIndex + 1)
     },
     [

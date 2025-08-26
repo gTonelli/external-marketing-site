@@ -189,6 +189,24 @@ const allConfigs = {
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan.',
   },
+  dreamLifeBreakupCourse: {
+    offerLabel: 'Free Trial & Exclusive Free Course',
+    title: 'Get the Heal From a Breakup Course Free Forever & Start Healing Now',
+    copy: (
+      <>
+        When you start your <strong>7-Day Free Trial of the All-Access Pass Membership</strong>,
+        you’ll get the{' '}
+        <strong>Heal From a Breakup course (valued at $250) completely FREE for LIFE</strong>. This
+        course will help you move on from any past relationship trauma, transforming your pain into
+        personal growth, improving your relationship with yourself and your loved ones, and building
+        new, strong relationships in just one week!
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
+    checkoutUrl: externalRoutes.checkout7DayTrial,
+    disclaimer:
+      '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the $250-valued Heal From a Breakup course for life.',
+  },
 } satisfies Record<string, Partial<TConfig>>
 
 export type TPaymentOptionsConfigKey = keyof typeof allConfigs

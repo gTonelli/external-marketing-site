@@ -111,6 +111,7 @@ type TCheckoutRoutes = {
   checkoutMarch2025PromoTrial: string
   checkoutJune2025PromoTrial: string
   checkoutJuly2025PromoTrial: string
+  checkoutSep2025PromoTrial: string
   checkoutQuarterlyPlan: string
   checkoutQuarterlyPlanGregVoisen: string
   checkoutQuarterly149: string
@@ -164,6 +165,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=1585312&promo_label=15d-intimacy`,
     checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=570395&promo_label=15d-relationships`,
     checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2241811&coupon=dreamlifediscount`,
+    checkoutSep2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=713808&promo_label=15d-breakup`,
     checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=ipg50`,
     checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=148off`,
@@ -216,6 +218,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3028888&promo_label=15d-intimacy`,
     checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3101991&promo_label=15d-relationships`,
     checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4348253&coupon=for19`,
+    checkoutSep2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=713808&promo_label=15d-breakup`,
     checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=ipg50`,
     checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=148off`,

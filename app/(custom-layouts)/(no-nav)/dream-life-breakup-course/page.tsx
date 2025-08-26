@@ -20,14 +20,14 @@ import { externalRoutes } from '@/utils/constants'
 import '../dream-life-free-course/style.css'
 
 export const metadata: Metadata = {
-  title: 'Have the Best Sex Life Ever – Thanks to This Course!',
+  title: 'Heal Your Heart & Thrive in Relationships!',
   description:
-    'Sign up for our 7-day trial to get your FREE Attachment Style Sex Course for LIFE! Transform and have the best sex life with this guided program!',
+    'Breakups hurt. This free course for life will help you move forward and thrive in relationships! And get a 7-Day All-Access Pass Free Trial!',
   robots: 'noindex',
 }
 
 export default function DreamLifeBreakupCoursePage() {
-  const checkoutUrl = externalRoutes.checkoutMarch2025PromoTrial
+  const checkoutUrl = externalRoutes.checkoutSep2025PromoTrial
 
   return (
     <Page page_name="Dreamlife Breakup Course Page" className="relative">
@@ -119,7 +119,7 @@ export default function DreamLifeBreakupCoursePage() {
           <div>
             <Image
               alt="A desktop screen showcasing the Heal from Breakup Course"
-              src="/images/TrialHeadspace/sex-course-mockup.png"
+              src="/images/TrialHeadspace/breakup-course-mockup.png"
               width={588}
               height={470}
               quality={100}
@@ -317,7 +317,7 @@ const STEPS_TO_PURCHASE = [
     step: 'STEP TWO',
     title: 'Dive Into the Breakup Course (Yours to Keep!)',
     copy: "Process and heal from heavy emotions, rebuild your self-worth, self-compassion and turn grief into gratitude, and feel confident on your own so you can break toxic cycles and welcome new, healthy love into your life. You'll learn to heal your heart in as little as one week!",
-    image: '/images/course-attachment-styles-and-sex.jpg',
+    image: '/images/course-heal-from-breakup.jpg',
   },
   {
     icon: faSquare3,

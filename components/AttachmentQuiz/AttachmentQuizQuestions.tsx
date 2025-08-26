@@ -337,6 +337,7 @@ export const AttachmentQuizQuestions = ({
               quiz_traffic_source={quiz_traffic_source}
               userInfo={userInfo}
               userStyle={style as TStyle}
+              quizData={{ ...userInfo, fa: faPoints, ap: apPoints, da: daPoints, sa: saPoints }}
             />
           )}
         </>

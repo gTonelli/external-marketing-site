@@ -215,7 +215,7 @@ export default function OrganicQuizPage() {
             <h3 className="mb-4">Fearful Avoidant (Disorganized Attachment)</h3>
 
             <p>
-              The "hot and cold" push-pull of a Fearful Avoidant attachment style often feels like emotional whiplash, hence the term “Disorganized Attachment”. One minute, you're seeking closeness; the next, you're withdrawing in fear. This inner conflict can make relationships feel chaotic, confusing, and overwhelming as you feel torn between the anxieties of attachment and the need for independence. Healing from this Disorganized Attachment is possible through targeted tools and strategies designed to restore balance and help you find emotional security.{' '}
+              The "hot and cold" push-pull of a Fearful Avoidant attachment style often feels like emotional whiplash, hence the term “Disorganized Attachment”. One minute, you're seeking closeness; the next, you're withdrawing in fear. This inner conflict makes relationships feel chaotic and confusing because you're torn between getting attached and your need for independence. Healing from this Disorganized Attachment is possible through targeted tools and strategies designed to restore balance and help you find emotional security.{' '}
               <Link
                 className="text-primary underline"
                 href="https://university.personaldevelopmentschool.com/pages/the-fa"

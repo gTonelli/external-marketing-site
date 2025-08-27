@@ -12,6 +12,7 @@ import { AttachmentQuizForm } from './AttachmentQuizForm'
 import {
   QUIZ_DETAILED_QUESTIONS as detailedQuestions,
   EXTERNALQUIZQUESTIONS as questions,
+  QUIZ_STATS as statsList,
 } from './config'
 // libraries
 import cx from 'classnames'
@@ -46,6 +47,10 @@ export const AttachmentQuizQuestions = ({
   const [daPoints, setDaPoints] = useState(0)
   const [faPoints, setFaPoints] = useState(0)
   const [saPoints, setSaPoints] = useState(0)
+  const [showStat, setShowStat] = useState(false)
+  const [stats, setStats] = useState<string[]>([])
+  const [statsPosition, setStatsPostion] = useState<number[]>([])
+  const [currentStatIndex, setCurrentStatIndex] = useState(0)
   const [style, setStyle] = useState('')
   const [userInfo, setUserInfo] = useState<IUserInfo>({
     age: '',
@@ -82,6 +87,33 @@ export const AttachmentQuizQuestions = ({
       })
     }
   }, [currentIndex, quizName])
+
+  useEffect(() => {
+    if (showStat) {
+      const timer = setTimeout(() => {
+        setCurrentStatIndex(currentStatIndex + 1)
+        setShowStat(false)
+      }, 5000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [showStat])
+
+  useEffect(() => {
+    if (isQuizVariant) {
+      // select 4 random items from stats list
+      setStats(
+        statsList
+          .slice()
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 4)
+      )
+      const genRandom = (min: number, max: number) =>
+        Math.floor(Math.random() * (max - min + 1)) + min
+      const positions = [genRandom(7, 10), genRandom(17, 20), genRandom(27, 30)]
+      setStatsPostion(positions)
+    }
+  }, [isQuizVariant])
 
   useEffect(() => {
     if (isMobile) {
@@ -167,14 +199,8 @@ export const AttachmentQuizQuestions = ({
         setStyle(calculateResult({ fa: _fa, ap: _ap, da: _da, sa: _sa }))
       }
 
-      const updateVariantQuestions = () => {
-        modifiedQuestions.splice(modifiedQuestions.length - 3, 1, detailedQuestions[6])
-        modifiedQuestions.splice(modifiedQuestions.length - 2, 0, detailedQuestions[7])
-      }
-
       if (currentIndex == 0) {
         handleInitialQuestion()
-        if (isQuizVariant) updateVariantQuestions()
       } else {
         if (answer === 'True') {
           handleScoreTracking()
@@ -185,6 +211,13 @@ export const AttachmentQuizQuestions = ({
 
       if (currentIndex === modifiedQuestions.length - 1) {
         handleQuizEnd()
+      }
+
+      if (
+        currentIndex + 1 === statsPosition[currentStatIndex] ||
+        currentIndex + 1 === modifiedQuestions.length
+      ) {
+        setShowStat(true)
       }
 
       setCurrentIndex(currentIndex + 1)
@@ -247,40 +280,69 @@ export const AttachmentQuizQuestions = ({
               />
             </div>
           ) : (
-            <Text
-              className="font-bold text-lg lg:text-lg"
-              content={`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
-            />
+            <>
+              {isQuizVariant && statsPosition[currentStatIndex] === currentIndex ? (
+                <p>
+                  We're personalizing the next question based on your answers. Just a moment longer!
+                </p>
+              ) : (
+                <Text
+                  className="font-bold text-lg lg:text-lg"
+                  content={`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
+                />
+              )}
+            </>
           )}
 
           <div className={`flex flex-col flex-center space-y-4 mt-6 mx-auto lg:w-3/4`}>
-            {options!.map((obj, index) =>
-              newQuiz ? (
-                <button
-                  key={`option_${index}`}
-                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 py-4 sm:!w-full 
+            {isQuizVariant && currentIndex === statsPosition[currentStatIndex] ? (
+              <div className="text-center bg-white-secondary p-6">
+                <strong>{stats[currentStatIndex]}</strong>
+              </div>
+            ) : (
+              options!.map((obj, index) =>
+                newQuiz ? (
+                  <button
+                    key={`option_${index}`}
+                    className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 py-4 sm:!w-full 
                     lg:hover:bg-opacity-50 lg:hover:text-white lg:hover:shadow-md"
-                  onClick={onQuestionAnswer(obj)}>
-                  {obj}
-                </button>
-              ) : (
-                <button
-                  key={`option_${index}`}
-                  className="w-3/4 rounded bg-primary-old border-2 border-primary text-white py-3 lg:w-full lg:py-4 lg:hover:bg-opacity-50 lg:hover:shadow-md"
-                  onClick={onQuestionAnswer(obj)}>
-                  {obj}
-                </button>
+                    onClick={onQuestionAnswer(obj)}>
+                    {obj}
+                  </button>
+                ) : (
+                  <button
+                    key={`option_${index}`}
+                    className="w-3/4 rounded bg-primary-old border-2 border-primary text-white py-3 lg:w-full lg:py-4 lg:hover:bg-opacity-50 lg:hover:shadow-md"
+                    onClick={onQuestionAnswer(obj)}>
+                    {obj}
+                  </button>
+                )
               )
             )}
           </div>
         </div>
       ) : (
-        <AttachmentQuizForm
-          quiz_traffic_source={quiz_traffic_source}
-          userInfo={userInfo}
-          userStyle={style as TStyle}
-          quizData={{ ...userInfo, fa: faPoints, ap: apPoints, da: daPoints, sa: saPoints }}
-        />
+        <>
+          {isQuizVariant && showStat && currentIndex === modifiedQuestions.length ? (
+            <div className="text-center">
+              <p className="mb-4">
+                We’re crafting your personalized results based on your answers. Just a moment
+                longer!
+              </p>
+
+              <div className="bg-white-secondary p-6">
+                <strong>{stats[currentStatIndex]}</strong>
+              </div>
+            </div>
+          ) : (
+            <AttachmentQuizForm
+              quiz_traffic_source={quiz_traffic_source}
+              userInfo={userInfo}
+              userStyle={style as TStyle}
+              quizData={{ ...userInfo, fa: faPoints, ap: apPoints, da: daPoints, sa: saPoints }}
+            />
+          )}
+        </>
       )}
     </section>
   )

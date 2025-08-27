@@ -108,7 +108,8 @@ export const AttachmentQuizQuestions = ({
           .sort(() => Math.random() - 0.5)
           .slice(0, 4)
       )
-      const genRandom = (min: number, max: number) => Math.floor(Math.random() * (max - min)) + min
+      const genRandom = (min: number, max: number) =>
+        Math.floor(Math.random() * (max - min + 1)) + min
       const positions = [genRandom(7, 10), genRandom(17, 20), genRandom(27, 30)]
       setStatsPostion(positions)
     }

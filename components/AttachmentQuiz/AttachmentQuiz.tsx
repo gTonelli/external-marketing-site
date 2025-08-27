@@ -58,8 +58,9 @@ export const AttachmentQuiz = ({
     if (quiz_traffic_source === 'paidGoogle') {
       setQuizVariant(
         getSplitTest({
-          key: 'gm-1860-quiz-questions',
-          experimentName: 'GM-1860-Quiz-Questions-Test',
+          key: 'gm-1355-quiz-stats-test',
+          experimentName: 'GM-1355-Quiz-Stats-Test',
+          variantRatio: 0.2,
           useCookies: false,
         })
       )

@@ -34,7 +34,7 @@ export default function DreamLifeBreakupCoursePage() {
       <section className="text-center bg-purple-dark px-2">
         <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
           LIMITED TIME: Claim Your FREE Heal From a Breakup Course ($250 Value) For Life + Your
-          7-Day Free All-Access Trial
+          7-Day Free All-Access Pass Trial
         </h2>
 
         <div className="pb-4">

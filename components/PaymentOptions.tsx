@@ -203,7 +203,7 @@ const allConfigs = {
       </>
     ),
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
-    checkoutUrl: externalRoutes.checkout7DayTrial,
+    checkoutUrl: externalRoutes.checkoutSep2025PromoTrial,
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you don’t stay with us after 7 days, you still get to keep and access the $250-valued Heal From a Breakup course for life.',
   },

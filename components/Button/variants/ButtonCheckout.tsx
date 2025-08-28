@@ -30,18 +30,18 @@ export const ButtonCheckout = ({
   onClick,
   mpProps,
 }: IButtonCheckoutProps) => {
-  const [link, setLink] = useState(href)
+  const [link, setLink] = useState<string>(href)
 
   useEffect(() => {
-    const params = new URLSearchParams(href.slice(href.indexOf('?')))
+    const url = new URL(href)
     const firstName = Storage.get('userFirstName')
     const lastName = Storage.get('userLastName')
     const email = Storage.get('lastUserEmail')
-    if (firstName) params.set('first_name', firstName)
-    if (lastName) params.set('last_name', lastName)
-    if (email) params.set('email', email)
+    if (firstName) url.searchParams.set('first_name', firstName)
+    if (lastName) url.searchParams.set('last_name', lastName)
+    if (email) url.searchParams.set('email', email)
 
-    setLink(`${href.slice(0, href.indexOf('?'))}?${params.toString()}`)
+    setLink(url.toString())
   }, [href])
 
   return (

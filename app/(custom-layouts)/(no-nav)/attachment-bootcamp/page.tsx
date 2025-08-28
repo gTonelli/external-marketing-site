@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { IButtonDefaultProps } from '@/components/Button/variants/ButtonDefault'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { Button } from '@/components/Button/Button'
+import { ButtonCheckout as Button } from '@/components/Button/variants/ButtonCheckout'
 import { List } from '@/components/List'
 import { Faq } from '@/components/Faq/Faq'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
@@ -794,8 +794,6 @@ const BootcampPriceCard = () => (
 
 const ButtonCheckout = ({ className, label }: IButtonDefaultProps) => {
   return (
-    <Link href={externalRoutes.checkoutAttachmentBootcamp}>
-      <Button className={className} label={label} />
-    </Link>
+    <Button className={className} label={label} href={externalRoutes.checkoutAttachmentBootcamp} />
   )
 }

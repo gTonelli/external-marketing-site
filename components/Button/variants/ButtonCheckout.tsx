@@ -1,6 +1,7 @@
 'use client'
 // core
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 // components
 import { Button } from '../Button'
 import { IButtonDefaultProps } from './ButtonDefault'
@@ -9,6 +10,7 @@ import cx from 'classnames'
 import { overrideTailwindClasses as two } from 'tailwind-override'
 // utils
 import { externalRoutes } from '@/utils/constants'
+import { Storage } from '@/modules/Storage'
 
 export interface IButtonCheckoutProps extends IButtonDefaultProps {
   children?: React.ReactNode
@@ -27,9 +29,23 @@ export const ButtonCheckout = ({
   onClick,
   mpProps,
 }: IButtonCheckoutProps) => {
+  const [link, setLink] = useState(href)
+
+  useEffect(() => {
+    const params = new URLSearchParams(href.slice(href.indexOf('?')))
+    const firstName = Storage.get('userFirstName')
+    const lastName = Storage.get('userLastName')
+    const email = Storage.get('lastUserEmail')
+    if (firstName) params.set('first_name', firstName)
+    if (lastName) params.set('last_name', lastName)
+    if (email) params.set('email', email)
+
+    setLink(`${href.slice(0, href.indexOf('?'))}?${params.toString()}`)
+  }, [href])
+
   return (
     // There is an issue with next/link and the Thinkific Checkout. If the user is logged in the browser enters an infinite loop.
-    <Link className={children ? className : undefined} href={href} prefetch={false}>
+    <Link className={children ? className : undefined} href={link} prefetch={false}>
       {children || (
         <Button
           className={two(

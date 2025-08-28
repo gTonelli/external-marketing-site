@@ -1,8 +1,6 @@
 // components
 import { Section } from '@/app/(custom-layouts)/(quiz-v2)/quiz/v2/config'
-import { externalRoutes } from '@/utils/constants'
-import Link from 'next/link'
-import { Button } from '../Button/Button'
+import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 import Image from 'next/image'
 import { AttachmentQuizV2SelfImprovementSlider } from './AttachmentQuizV2SelfImprovementSlider'
 import { Animation } from '../Animation'
@@ -44,9 +42,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
           </Animation>
 
           <Animation direction="fromRight">
-            <Link href={externalRoutes.checkoutRegularSubscription} prefetch={false}>
-              <Button label="GET STARTED" />
-            </Link>
+            <ButtonCheckout label="GET STARTED" />
           </Animation>
         </div>
 
@@ -312,9 +308,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
               self-care at your fingertips for a more accessible and convenient experience.
             </p>
 
-            <Link href={externalRoutes.checkoutRegularSubscription} prefetch={false}>
-              <Button label="GET STARTED" />
-            </Link>
+            <ButtonCheckout label="GET STARTED" />
           </div>
 
           <div className="w-full flex items-start justify-center lg:self-end">
@@ -378,9 +372,7 @@ export const AttachmentQuizV2ResultsOfferSections = () => {
             ))}
           </div>
 
-          <Link href={externalRoutes.checkoutRegularSubscription} prefetch={false}>
-            <Button label="TRANSFORM YOUR LOVE LIFE" />
-          </Link>
+          <ButtonCheckout label="TRANSFORM YOUR LOVE LIFE" />
         </Animation>
       </Section>
     </>

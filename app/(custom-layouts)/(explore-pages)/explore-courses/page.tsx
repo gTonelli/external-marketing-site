@@ -19,6 +19,7 @@ import Mixpanel, { Pages } from '@/modules/Mixpanel'
 import { externalRoutes } from '@/utils/constants'
 import { EWindowWidth } from '@/utils/constants'
 import { useWindowWidth } from '@/utils/hooks'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 
 export default function ExploreCoursesPage() {
   const page_name = 'Explore Courses Page' as Pages
@@ -54,10 +55,6 @@ export default function ExploreCoursesPage() {
       window.removeEventListener('scroll', onScroll)
     }
   }, [])
-
-  const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    window.location.assign(externalRoutes.checkoutRegularSubscription)
-  }
 
   return (
     <Page className="relative w-full" page_name={page_name}>
@@ -127,7 +124,11 @@ export default function ExploreCoursesPage() {
             </div>
 
             <div className="flex flex-col space-y-4">
-              <Button className="border-primary" label="JOIN TODAY" onClick={onGoToCheckout} />
+              <ButtonCheckout
+                className="border-primary"
+                label="JOIN TODAY"
+                href={externalRoutes.checkoutRegularSubscription}
+              />
             </div>
           </div>
         </Section>

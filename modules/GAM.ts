@@ -30,6 +30,8 @@ export const useGamAnalytics = () => {
 
     Storage.set('lastUserEmail', email)
     Storage.set('userFirstName', firstName)
+    Storage.set('userLastName', lastName)
+    Storage.set('userFullName', `${firstName} ${lastName}`)
     if (phone) Storage.set('userPhone', phone)
 
     cookies.set('firstName', firstName)

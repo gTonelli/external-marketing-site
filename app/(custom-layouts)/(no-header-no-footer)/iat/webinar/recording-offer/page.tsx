@@ -21,7 +21,7 @@ import './style.css'
 export const metadata: Metadata = {
   title: 'Watch This Life-Altering IAT™ Masterclass Video!',
   description:
-    'Watch this High Impact Relationship Coach Masterclass to sign up for the revolutionary IAT™ Program that will transform your life, career, and finances!',
+    'Missed the IAT™ Masterclass? Don’t stress – you can watch Thais Gibson in the latest webinar explain what it’s like to be a high-impact relationship coach!',
   robots: 'noindex',
 }
 

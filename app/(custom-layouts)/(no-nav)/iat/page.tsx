@@ -24,8 +24,9 @@ import { IAT_CONFIG as CONFIG } from './config'
 import './style.css'
 
 export const metadata: Metadata = {
-  title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
-  description: 'Become an Integrated Attachment Coach through PDS',
+  title: 'Integrated Attachment Theory™ Certification Program',
+  description:
+    'Enroll in the Integrated Attachment Theory™ Certification Program and learn directly from Thais Gibson, a renowned attachment theory expert. Sign up now!',
   robots: 'all',
   metadataBase: new URL('https://attachment.personaldevelopmentschool.com/iat'),
   alternates: {

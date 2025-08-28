@@ -8,9 +8,10 @@ import { IButtonDefaultProps } from './ButtonDefault'
 // libraries
 import cx from 'classnames'
 import { overrideTailwindClasses as two } from 'tailwind-override'
+// modules
+import { Storage } from '@/modules/Storage'
 // utils
 import { externalRoutes } from '@/utils/constants'
-import { Storage } from '@/modules/Storage'
 
 export interface IButtonCheckoutProps extends IButtonDefaultProps {
   children?: React.ReactNode

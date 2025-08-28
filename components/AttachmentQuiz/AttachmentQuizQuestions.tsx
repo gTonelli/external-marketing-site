@@ -5,7 +5,6 @@ import { useCallback, useEffect, useState } from 'react'
 // components
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
-import { Text } from '../Text/Text'
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { AttachmentQuizForm } from './AttachmentQuizForm'
 // config
@@ -274,15 +273,13 @@ IAttachmentQuizQuestionsProps) => {
 
           {newQuiz ? (
             <div>
-              <Text
-                className="font-sspb text-3xl text-center mb-4 lg:text-3xl"
-                content={`Question ${currentIndex + 1}`}
-              />
+              <p className="font-sspb text-3xl text-center mb-4 lg:text-3xl">{`Question ${
+                currentIndex + 1
+              }`}</p>
 
-              <Text
-                className="text-lg text-center lg:w-3/4 lg:mx-auto"
-                content={modifiedQuestions[currentIndex].question}
-              />
+              <p className="text-lg text-center lg:w-3/4 lg:mx-auto">
+                {modifiedQuestions[currentIndex].question}
+              </p>
             </div>
           ) : (
             <>
@@ -291,7 +288,7 @@ IAttachmentQuizQuestionsProps) => {
                   We're personalizing the next question based on your answers. Just a moment longer!
                 </p>
               ) : ( */}
-              <Text
+              <p
                 className="font-bold text-lg lg:text-lg"
                 content={`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
               />
@@ -309,7 +306,7 @@ IAttachmentQuizQuestionsProps) => {
               newQuiz ? (
                 <button
                   key={`option_${index}`}
-                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 py-4 sm:!w-full 
+                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 p-4 sm:!w-full 
                     lg:hover:bg-opacity-50 lg:hover:text-white lg:hover:shadow-md"
                   onClick={onQuestionAnswer(obj)}>
                   {obj}

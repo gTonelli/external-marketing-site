@@ -9,7 +9,7 @@ import { SocialProofBar } from '@/components/SocialProofBar'
 import { List } from '@/components/List'
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import Link from 'next/link'
-import { Button } from '@/components/Button/Button'
+import { ButtonCheckout as Button } from '@/components/Button/variants/ButtonCheckout'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { FaqSecondary } from '@/components/Faq/variants/FaqSecondary'
 // libraries
@@ -672,9 +672,7 @@ export default function LastingLovePage() {
 }
 
 const CheckoutLink = ({ label = 'Start My All-Access Pass' }: { label?: string }) => (
-  <Link href={externalRoutes.singleStepCheckout39FirstMonth}>
-    <Button className="text-xl" label={label} />
-  </Link>
+  <Button className="text-xl" label={label} href={externalRoutes.singleStepCheckout39FirstMonth} />
 )
 
 const FAQs = [

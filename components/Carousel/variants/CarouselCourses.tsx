@@ -1,12 +1,12 @@
 'use client'
 
-import { useCallback, useContext } from 'react'
+import { useContext } from 'react'
 // components
 import { IDefaultProps } from '@/components'
-import { Button } from '@/components/Button/Button'
 import { Card } from '@/components/Card/Card'
 import { PageContext, ViewportContext } from '@/utils/contexts'
 import { Text } from '@/components/Text/Text'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { Image } from '@/components/Image'
 // libraries
 import { Autoplay, Navigation } from 'swiper/modules'
@@ -70,14 +70,6 @@ export const CarouselCourses = ({
   //======================== Hooks ============================
   const { windowWidth } = useContext(ViewportContext)
   const { page_name } = useContext(PageContext)
-
-  //============================ Events ========================================
-  const onGoToCheckout = useCallback(
-    (event: React.MouseEvent<Element, MouseEvent>) => {
-      window.location.assign(checkoutLink)
-    },
-    [checkoutLink, page_name]
-  )
 
   return (
     <section className={cx('relative w-full z-5', className)}>
@@ -151,10 +143,10 @@ export const CarouselCourses = ({
                   </div>
                   <Text.Heading className="!text-xl h-24 px-2 md:px-8" content={obj.title} />
 
-                  <Button
+                  <ButtonCheckout
                     className="bg-primary mt-4"
                     label="GET STARTED"
-                    onClick={onGoToCheckout}
+                    href={checkoutLink}
                   />
                 </Card>
               </SwiperSlide>

@@ -5,16 +5,18 @@ import { TQuizTrafficSource } from '@/utils/types'
 type TripleWhaleEvent = 'pageLoad' | 'custom' | 'contact'
 
 class TripleWhale {
+  private readonly MAX_ATTEMPTS = 50
+
   private isReady(): boolean {
     return typeof window !== 'undefined' && typeof window.TriplePixel === 'function'
   }
 
-  private waitForTriplePixel(callback: () => void, maxAttempts = 50, attempt = 0) {
+  private waitForTriplePixel(callback: () => void, attempt = 0) {
     if (this.isReady()) {
       callback()
-    } else if (attempt < maxAttempts) {
+    } else if (attempt < this.MAX_ATTEMPTS) {
       setTimeout(() => {
-        this.waitForTriplePixel(callback, maxAttempts, attempt + 1)
+        this.waitForTriplePixel(callback, attempt + 1)
       }, 100)
     } else {
       console.warn('Triple Whale TriplePixel function not available after waiting')
@@ -33,7 +35,7 @@ class TripleWhale {
 
   track = {
     PageLoad: (pageName: Pages) => {
-      this.sendEvent('pageLoad', { page_name: pageName || window.location.pathname })
+      this.sendEvent('pageLoad', { page_name: pageName })
     },
 
     Contact: (props: { firstName?: string; lastName?: string; email?: string }) => {

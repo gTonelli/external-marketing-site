@@ -8,10 +8,10 @@ declare global {
     }
     TriplePixel?: (event: string, props?: any) => string
     TripleWhaleReady?: boolean
-    gtag: any
-    fbq: any
-    dataLayer: any
-    hj: any
+    gtag?: (...args: any[]) => void
+    fbq?: (...args: any[]) => void
+    dataLayer?: Record<string, any>[]
+    hj?: (...args: any[]) => void
   }
 }
 

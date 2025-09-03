@@ -1,5 +1,6 @@
 // libraries
 import mixpanel, { Dict } from 'mixpanel-browser'
+import { TQuizTrafficSource } from '@/utils/types'
 
 /* Collection of all Mixpanel event names tracked throughout the app */
 type Events =
@@ -131,8 +132,6 @@ export type Pages =
   | `Youtube Funnel Quiz`
 
 export type ExperimentVariant = 'Control' | `Variant ${number}`
-
-export type QuizTrafficSource = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
 
 class Mixpanel {
   constructor() {
@@ -271,7 +270,7 @@ class Mixpanel {
     QuizFinished: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: QuizTrafficSource
+      quiz_traffic_source?: TQuizTrafficSource
       progress?: string
     }) => {
       this.event('Quiz Finished', props)
@@ -289,7 +288,7 @@ class Mixpanel {
     QuizStarted: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: QuizTrafficSource
+      quiz_traffic_source?: TQuizTrafficSource
     }) => {
       this.event('Quiz Started', props)
     },

@@ -1,12 +1,8 @@
 import { Pages } from './Mixpanel'
+import { TDict } from '@/utils/types'
+import { TQuizTrafficSource } from '@/utils/types'
 
-export type TripleWhaleEvent = 'pageLoad' | 'custom' | 'contact'
-
-export interface ITripleWhaleProps {
-  [key: string]: any
-}
-
-export type QuizTrafficSource = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
+type TripleWhaleEvent = 'pageLoad' | 'custom' | 'contact'
 
 class TripleWhale {
   private isReady(): boolean {
@@ -25,16 +21,10 @@ class TripleWhale {
     }
   }
 
-  private sendEvent(event: TripleWhaleEvent, props?: ITripleWhaleProps) {
+  private sendEvent(event: TripleWhaleEvent, props?: TDict) {
     this.waitForTriplePixel(() => {
       try {
-        // Use the TriplePixel function provided by the Triple Whale script
-        if (typeof window.TriplePixel === 'function') {
-          const eventId = window.TriplePixel(event, props)
-          console.log('Triple Whale event sent successfully:', event, eventId)
-        } else {
-          console.warn('TriplePixel function is not available')
-        }
+        window.TriplePixel?.(event, props)
       } catch (e) {
         console.error('Triple Whale event error:', e)
       }
@@ -72,7 +62,7 @@ class TripleWhale {
     QuizStarted: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: QuizTrafficSource
+      quiz_traffic_source?: TQuizTrafficSource
     }) => {
       this.sendEvent('custom', { custom_name: 'quizStarted', ...props })
     },
@@ -84,7 +74,7 @@ class TripleWhale {
     QuizFinished: (props: {
       quiz_name: string
       quiz_type?: 'romantic' | 'friends' | 'family'
-      quiz_traffic_source?: QuizTrafficSource
+      quiz_traffic_source?: TQuizTrafficSource
       progress?: string
     }) => {
       this.sendEvent('custom', { custom_name: 'quizFinished', ...props })

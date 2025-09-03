@@ -68,12 +68,12 @@ export const VideoThinkific = ({
     if (!watchedVideos.has(type)) {
       Mixpanel.track.VideoStarted({
         video_type: `${type} - ${page_name}`,
-        page_name: page_name,
+        page_name,
       })
 
       TripleWhale.track.VideoStarted({
         video_type: `${type} - ${page_name}`,
-        page_name: page_name,
+        page_name,
       })
     }
 

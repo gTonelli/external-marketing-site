@@ -24,7 +24,7 @@ export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
       {/* TRIPLE WHALE */}
       <Script
         id="triple-whale-pixel"
-        strategy='beforeInteractive'
+        strategy='lazyOnload'
         dangerouslySetInnerHTML={{
           __html: `
             window.TriplePixelData = {

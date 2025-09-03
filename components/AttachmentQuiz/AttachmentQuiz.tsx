@@ -14,6 +14,8 @@ import cx from 'classnames'
 import Mixpanel from '@/modules/Mixpanel'
 import TripleWhale from '@/modules/TripleWhale'
 import { getSplitTest } from '@/utils/functions'
+// Utils
+import { TQuizTrafficSource } from '@/utils/types'
 
 export interface IUserInfo {
   relationshipStatus?: string
@@ -36,7 +38,7 @@ export interface IResultProps extends IDefaultProps {
 
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean
-  quiz_traffic_source: TQuizTrafficSources
+  quiz_traffic_source: TQuizTrafficSource
   quizName?:
     | 'Attachment Style Quiz'
     | 'Main Funnel Quiz'
@@ -103,5 +105,3 @@ export const AttachmentQuiz = ({
     )
   }
 }
-
-export type TQuizTrafficSources = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'

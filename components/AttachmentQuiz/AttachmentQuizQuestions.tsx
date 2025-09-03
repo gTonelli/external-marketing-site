@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
 import { Text } from '../Text/Text'
-import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { IResultProps, IUserInfo } from './AttachmentQuiz'
 import { AttachmentQuizForm } from './AttachmentQuizForm'
 // config
 import {
@@ -21,7 +21,7 @@ import Mixpanel from '@/modules/Mixpanel'
 import { isMobile } from 'react-device-detect'
 import { gtag } from '../GoogleAdsTag'
 // utils
-import { TStyle } from '@/utils/types'
+import { TStyle, TQuizTrafficSource } from '@/utils/types'
 import TripleWhale from '@/modules/TripleWhale'
 
 let modifiedQuestions = [...questions]
@@ -29,7 +29,7 @@ let modifiedQuestions = [...questions]
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
   quizName: string
-  quiz_traffic_source: TQuizTrafficSources
+  quiz_traffic_source: TQuizTrafficSource
   isQuizVariant?: boolean
   onQuizFinished?: () => void
 }

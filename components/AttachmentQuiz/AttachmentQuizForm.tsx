@@ -3,17 +3,17 @@
 //core
 import { useRouter } from 'next/navigation'
 // components
-import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { IUserInfo } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
 // utils
-import { TStyle } from '@/utils/types'
+import { TStyle, TQuizTrafficSource } from '@/utils/types'
 import { getAttachmentStyleText } from '@/utils/functions'
 import { gtag } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
   userInfo?: IUserInfo
-  quiz_traffic_source: TQuizTrafficSources
+  quiz_traffic_source: TQuizTrafficSource
   isYoung?: boolean
   isVariant?: boolean
 }

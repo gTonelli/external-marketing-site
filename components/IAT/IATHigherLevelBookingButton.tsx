@@ -2,12 +2,22 @@
 
 // components
 import { Button } from '@/components/Button/Button'
+import { IDefaultProps } from '..'
+// libraries
+import cx from 'classnames'
 // modules
 import { useGamAnalytics } from '@/modules/GAM'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
-export const IATHigherLevelBookingButton = ({ label = 'BOOK NOW' }) => {
+interface IATHigherLevelBookingButtonProps extends IDefaultProps {
+  label?: string
+}
+
+export const IATHigherLevelBookingButton = ({
+  label = 'BOOK NOW',
+  className,
+}: IATHigherLevelBookingButtonProps) => {
   const { getUserData } = useGamAnalytics()
 
   const onBookNow = (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -34,5 +44,5 @@ export const IATHigherLevelBookingButton = ({ label = 'BOOK NOW' }) => {
     window.location.assign(url.toString())
   }
 
-  return <Button className="mb-8" label={label} onClick={onBookNow} />
+  return <Button className={cx('mb-8', className)} label={label} onClick={onBookNow} />
 }

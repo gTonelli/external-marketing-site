@@ -19,9 +19,9 @@ import { externalRoutes } from '@/utils/constants'
 import './style.css'
 
 export const metadata: Metadata = {
-  title: 'Thanks for Registering for the IAT™ Masterclass!',
+  title: 'Watch This Free Limited-Time IAT™ Masterclass Video',
   description:
-    'Thanks for registering to join the next IAT™ Masterclass! To get you prepared and excited, why not watch this little part of it?',
+    'Thanks for signing up for the free IAT™ Masterclass! While you’re waiting for your email, watch this limited-time Masterclass video, so you know what to expect!',
   robots: 'noindex',
 }
 

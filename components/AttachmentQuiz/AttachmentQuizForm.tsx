@@ -3,8 +3,14 @@
 //core
 import { useRouter } from 'next/navigation'
 // components
+<<<<<<< HEAD
 import { IUserInfo } from './AttachmentQuiz'
 import { RegistrationForm } from '../Forms/RegistrationForm'
+=======
+import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
+import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
+>>>>>>> main
 // utils
 import { TStyle, TQuizTrafficSource } from '@/utils/types'
 import { getAttachmentStyleText } from '@/utils/functions'
@@ -16,14 +22,19 @@ interface IAttachmentQuizFormProps {
   quiz_traffic_source: TQuizTrafficSource
   isYoung?: boolean
   isVariant?: boolean
+  quizData: IQuizData
 }
+
+interface IQuizData extends IUserInfo, Pick<IResultProps, 'fa' | 'ap' | 'da' | 'sa'> {}
 
 export const AttachmentQuizForm = ({
   quiz_traffic_source,
   userInfo,
   userStyle,
+  quizData,
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
+  const { getPercentageResults } = useAttachmentQuiz()
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -49,7 +60,7 @@ export const AttachmentQuizForm = ({
     }
   }
 
-  const onAfterSubmit = () => {
+  const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     gtag({
       event: 'form_tracking',
       eventCategory: 'Attachment Quiz',
@@ -60,6 +71,48 @@ export const AttachmentQuizForm = ({
     gtag('event', 'conversion', {
       send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
       attachment_style: getAttachmentStyleText(userStyle),
+    })
+
+    const {
+      fa,
+      ap,
+      da,
+      sa,
+      attachmentFamiliarity,
+      relationship,
+      relationshipSatisfaction,
+      gender,
+      intent,
+    } = quizData
+
+    const { faPercentage, apPercentage, daPercentage, saPercentage } = getPercentageResults({
+      fa,
+      da,
+      ap,
+      sa,
+    })
+
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        'attachment-familiarity': attachmentFamiliarity,
+        gender,
+        intent,
+        'relationship-status': relationship,
+        'relationship-satisfaction': relationshipSatisfaction,
+        faPercentage,
+        apPercentage,
+        daPercentage,
+        saPercentage,
+      }),
+    }).catch((error) => {
+      console.error('Error saving quiz result:', error)
     })
 
     const route = determineRoute()

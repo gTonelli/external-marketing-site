@@ -55,18 +55,19 @@ export const AttachmentQuiz = ({
   showStartButton = true,
 }: IAttachmentQuizProps) => {
   const [viewQuiz, setViewQuiz] = useState(!showStartButton)
-  const [quizVariant, setQuizVariant] = useState(false)
+  // const [quizVariant, setQuizVariant] = useState(false)
 
   const onStartQuiz = useCallback(() => {
-    if (quiz_traffic_source === 'paidGoogle') {
-      setQuizVariant(
-        getSplitTest({
-          key: 'gm-1860-quiz-questions',
-          experimentName: 'GM-1860-Quiz-Questions-Test',
-          useCookies: false,
-        })
-      )
-    }
+    // if (quiz_traffic_source === 'paidGoogle') {
+    //   setQuizVariant(
+    //     getSplitTest({
+    //       key: 'gm-1355-quiz-stats-test',
+    //       experimentName: 'GM-1355-Quiz-Stats-Test',
+    //       variantRatio: 0.2,
+    //       useCookies: false,
+    //     })
+    //   )
+    // }
 
     Mixpanel.track.QuizStarted({
       quiz_name: quizName,
@@ -84,7 +85,7 @@ export const AttachmentQuiz = ({
   if (viewQuiz) {
     return (
       <AttachmentQuizQuestions
-        isQuizVariant={quizVariant}
+        // isQuizVariant={quizVariant}
         className={className}
         quiz_traffic_source={quiz_traffic_source}
         quizName={quizName}

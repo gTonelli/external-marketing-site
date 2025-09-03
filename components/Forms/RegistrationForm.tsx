@@ -25,7 +25,7 @@ import 'react-international-phone/style.css'
 
 interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
-  onAfterSubmit?(): void
+  onAfterSubmit?({ firstName, lastName, email }: TOnAfterSubmitArgs): void
   /** String or function that retuirns a string for generating client tags */
   clientTag?: string
   /** Additional user info used by attachment quiz */
@@ -42,6 +42,12 @@ type TFieldConfig = {
   key: 'firstName' | 'lastName' | 'email'
   label: string
   autoComplete?: string
+}
+
+export type TOnAfterSubmitArgs = {
+  firstName?: string
+  lastName?: string
+  email?: string
 }
 
 const fields: TFieldConfig[] = [
@@ -117,7 +123,7 @@ export const RegistrationForm = ({
       console.error(error)
     })
 
-    onAfterSubmit?.()
+    onAfterSubmit?.({ firstName, lastName, email })
   }
 
   return (

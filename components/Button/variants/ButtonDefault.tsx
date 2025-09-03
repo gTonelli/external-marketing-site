@@ -9,6 +9,7 @@ import cx from 'classnames'
 import { overrideTailwindClasses as two } from 'tailwind-override'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { PageContext } from '@/utils/contexts'
 
@@ -75,6 +76,12 @@ export const ButtonDefault = ({
   const _onClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (isDisabled || isLoading) return
     Mixpanel.track.ButtonClicked({
+      button_label: event.currentTarget.innerText,
+      page_name,
+      ...mpProps,
+    })
+
+    TripleWhale.track.ButtonClicked({
       button_label: event.currentTarget.innerText,
       page_name,
       ...mpProps,

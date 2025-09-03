@@ -15,6 +15,7 @@ import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/Brea
 import { Page } from '@/components/Page'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { EXTERNALQUIZQUESTIONS } from '@/components/AttachmentQuiz/config'
 
@@ -35,6 +36,10 @@ export default function IATQuizPage() {
 
   const onStartQuiz = useCallback(() => {
     Mixpanel.track.QuizStarted({
+      quiz_name: 'IAT Quiz',
+    })
+
+    TripleWhale.track.QuizStarted({
       quiz_name: 'IAT Quiz',
     })
     setViewQuiz((prev) => !prev)
@@ -241,6 +246,10 @@ const QuizSection = () => {
       // Check if the question was last - go to the ResultsPage
       if (currentIndex === questions.length - 1) {
         Mixpanel.track.QuizFinished({
+          quiz_name: 'IAT Quiz',
+        })
+
+        TripleWhale.track.QuizFinished({
           quiz_name: 'IAT Quiz',
         })
       }

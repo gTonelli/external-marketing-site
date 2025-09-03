@@ -7,6 +7,7 @@ import { IDefaultWrapperProps } from '.'
 import { Intercom } from './Intercom'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 // libraries
 import cx from 'classnames'
 // utils
@@ -43,6 +44,7 @@ export const Page = ({
 
   useEffect(() => {
     Mixpanel.track.PageViewed({ page_name })
+    TripleWhale.track.PageLoad(page_name)
   }, [page_name])
 
   return (

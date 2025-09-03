@@ -13,6 +13,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core'
 import { Maybe } from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { indexOf } from 'lodash'
@@ -226,6 +227,8 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     })
     setUserData({ email, firstName, lastName, userStyle: dominantStyle })
     Mixpanel.track.SignUp({ distinct_id: email })
+    
+    TripleWhale.track.Contact({firstName, lastName, email})
 
     const requestBody = {
       tags: [`attachment-quiz-${dominantStyle}`],
@@ -255,6 +258,8 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
 
   const endQuiz = useCallback(() => {
     Mixpanel.track.QuizFinished({ quiz_name: 'Main Funnel Quiz' })
+    
+    TripleWhale.track.QuizFinished({ quiz_name: 'Main Funnel Quiz' })
 
     const result = { fa: 0, ap: 0, da: 0, sa: 0 }
 
@@ -329,6 +334,13 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
         question: i,
         total_questions: questionGroups.length,
       })
+
+      TripleWhale.track.QuizProgress({
+        quiz_name: 'Main Funnel Quiz',
+        progress: `${Math.round(progress)}%`,
+        question: i,
+        total_questions: questionGroups.length,
+      })
     }
   }, [i, questionGroups.length])
 
@@ -336,6 +348,13 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     const progress = (i / questionGroups.length) * 100
     if (progress < 100) {
       Mixpanel.track.QuizProgress({
+        quiz_name: 'Main Funnel Quiz',
+        progress: `${Math.round(progress)}%`,
+        question: i,
+        total_questions: questionGroups.length,
+      })
+
+      TripleWhale.track.QuizProgress({
         quiz_name: 'Main Funnel Quiz',
         progress: `${Math.round(progress)}%`,
         question: i,

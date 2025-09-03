@@ -54,6 +54,8 @@ export type TVariantVideoData = {
 
 export type TDict<T = any> = { [key: string]: T }
 
+export type TQuizTrafficSource = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'
+
 export interface IStrapiThumbnail {
   id: number
   name: string
@@ -74,3 +76,4 @@ export interface IStrapiFetchProps<T> {
     }
   }
 }
+

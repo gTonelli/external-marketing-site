@@ -15,6 +15,7 @@ import { PhoneInput } from 'react-international-phone'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
 import Mixpanel from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { TStyle } from '@/utils/types'
 import { Regexes } from '@/utils/constants'
@@ -90,6 +91,8 @@ export const RegistrationForm = ({
       distinct_id: values.email,
       $insert_id: insertId,
     })
+
+    TripleWhale.track.Contact({firstName, lastName, email})
 
     FBQ?.trackLead({
       email,

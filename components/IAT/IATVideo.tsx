@@ -6,6 +6,7 @@ import { useContext, useState } from 'react'
 import { Video } from '../Video/Video'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
+import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { PageContext } from '@/utils/contexts'
 
@@ -19,7 +20,12 @@ export const IATVideo = () => {
     if (!watchedVideos.has(type)) {
       Mixpanel.track.VideoStarted({
         video_type: `${type} - ${page_name}`,
-        page_name: page_name,
+        page_name,
+      })
+
+      TripleWhale.track.VideoStarted({
+        video_type: `${type} - ${page_name}`,
+        page_name,
       })
     }
 

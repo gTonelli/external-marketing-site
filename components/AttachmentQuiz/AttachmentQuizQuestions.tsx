@@ -25,7 +25,7 @@ import { gtag } from '../GoogleAdsTag'
 import { TStyle, TQuizTrafficSource } from '@/utils/types'
 import TripleWhale from '@/modules/TripleWhale'
 
-let modifiedQuestions = [...questions]
+let modifiedQuestions = [...questions] 
 
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean

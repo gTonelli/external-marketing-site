@@ -3,14 +3,9 @@
 //core
 import { useRouter } from 'next/navigation'
 // components
-<<<<<<< HEAD
-import { IUserInfo } from './AttachmentQuiz'
-import { RegistrationForm } from '../Forms/RegistrationForm'
-=======
-import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { IResultProps, IUserInfo } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
->>>>>>> main
 // utils
 import { TStyle, TQuizTrafficSource } from '@/utils/types'
 import { getAttachmentStyleText } from '@/utils/functions'

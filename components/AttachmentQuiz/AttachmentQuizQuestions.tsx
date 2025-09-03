@@ -30,13 +30,8 @@ let modifiedQuestions = [...questions]
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
   quizName: string
-<<<<<<< HEAD
   quiz_traffic_source: TQuizTrafficSource
   isQuizVariant?: boolean
-=======
-  quiz_traffic_source: TQuizTrafficSources
-  // isQuizVariant?: boolean
->>>>>>> main
   onQuizFinished?: () => void
 }
 

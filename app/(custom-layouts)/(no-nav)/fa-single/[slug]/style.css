@@ -31,12 +31,12 @@
 @media screen and (min-width: 1024px) {
   .bg-woman-using-laptop {
     position: relative;
-    background: url('/images/FASingle/woman-using-a-laptop.jpg') no-repeat top right / cover;
+    background: url('/images/FASingle/woman-using-a-laptop.jpg') no-repeat 60% top / cover;
   }
 
   .bg-couple-using-laptop {
     position: relative;
-    background: url('/images/FASingle/couple-using-laptop.jpg') no-repeat top center / cover;
+    background: url('/images/FASingle/couple-using-laptop.jpg') no-repeat 30% top / cover;
   }
 
   .bg-woman-using-laptop::after {
@@ -46,7 +46,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(103deg, #e3eded 0%, rgba(213, 184, 216, 0) 86.05%);
+    background: linear-gradient(103deg, #e3eded 50%, rgba(213, 184, 216, 0) 86.05%);
     z-index: 3;
   }
 
@@ -57,7 +57,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(108deg, #e3eded00 0%, rgba(237, 220, 239, 0.2) 31%);
+    background: linear-gradient(108deg, #e3eded00 0%, #eddcefaf 50%);
     z-index: 3;
   }
 }

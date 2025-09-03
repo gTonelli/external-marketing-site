@@ -50,7 +50,7 @@ export type TSplitTestKey = `${string}-${number}-${string}` | `${string}-${numbe
 export interface IGetSplitTest {
   key: TSplitTestKey
   experimentName: string
-  variantRatio?: 0.25 | 0.5
+  variantRatio?: 0.2 | 0.25 | 0.5
   useCookies?: boolean
   props?: TDict
 }

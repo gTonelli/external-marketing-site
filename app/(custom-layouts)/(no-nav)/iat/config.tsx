@@ -17,7 +17,7 @@ export const IAT_CONFIG = {
       </>
     ),
     copy3:
-      '*Sign up for the Live Training, starting July 24, 2025 to October 9, 2025. Spots are limited.',
+      '*Sign up for the Live Training, starting September 17, 2025 to December 3, 2025. Spots are limited.',
   },
   intro: {
     title: 'What is Integrated Attachment Theory™ (IAT™)?',

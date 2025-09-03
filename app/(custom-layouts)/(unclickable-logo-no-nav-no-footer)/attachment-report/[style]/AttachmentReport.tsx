@@ -217,7 +217,7 @@ export const AttachmentReport = ({
           <div className="text-left">
             <p className="mb-4">{COPY.copy8.p1}</p>
 
-            <p>{ageVariant ? AGE_REPORT_COPY[style].copy : COPY.copy8.p1}</p>
+            <p>{ageVariant ? AGE_REPORT_COPY[style].copy : COPY.copy8.p2}</p>
           </div>
         </div>
 

@@ -19,7 +19,7 @@ const IATLiveCardDetails: TIATCardDetails = {
   currentPriceLabel: '(Including $300 Masterclass Discount)',
   discount: 'TOTAL SAVINGS: $4,001',
   subheader: 'Unleash Your Coaching Potential with this Interactive Experience',
-  copy: 'Join weekly practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
+  copy: 'Join weekly group practice and Q&A sessions with Thais Gibson. Get on-the-spot support to learn quickly, receive helpful feedback to boost your confidence, and have all your questions answered about relationship coaching or building a business. Seats are limited for this unique opportunity.',
   perks: [
     '12-Week Comprehensive Live Program',
     '8 Weeks of Intensive Training with Thais Gibson',
@@ -32,7 +32,7 @@ const OnDemandIATCardDetails: TIATCardDetails = {
   title: 'On Demand',
   originalPrice: [{ price: '$4,000' }, { price: '$1,999', label: '(50% off)' }],
   currentPrice: '$1,799.00',
-  currentPriceLabel: '(Including $300 Masterclass Discount)',
+  currentPriceLabel: '(Including $200 Masterclass Discount)',
   discount: 'TOTAL SAVINGS: $2,201',
   subheader: 'Ignite Your Career & Finances With a Self-Paced Format',
   copy: "The perfect format for self-paced learners or those who can't make the weekly sessions. Get access to the same features as the Live Program IAT™, including pre-recorded video modules, essential client resources, and business materials to build your coaching practice. You can enroll for this Program at any time.",

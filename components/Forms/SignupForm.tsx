@@ -10,6 +10,7 @@ import { useContext, useState } from 'react'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
+import { gtag } from '../GoogleAdsTag'
 // libraries
 import * as yup from 'yup'
 import cx from 'classnames'
@@ -20,10 +21,8 @@ import { MD5 } from 'crypto-js'
 import { isPhoneValid } from '@/utils/functions'
 import { PageContext } from '@/utils/contexts'
 // modules
-import { useFunnelytics } from '@/modules/Funnelytics'
 import Mixpanel from '@/modules/Mixpanel'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
-import { useGoogleTagManager } from '@/modules/GTM'
 import { useGamAnalytics } from '@/modules/GAM'
 // styles
 import 'react-international-phone/style.css'
@@ -46,6 +45,8 @@ interface ISignupFormProps extends IDefaultProps {
   classNameSuccessMessage?: string
   /** submit button additional mixpanel props */
   submitButtonMpProps?: { [key: string]: string }
+  /** submitting status listener for parent component */
+  setSubmitting?: (status: boolean) => void
   /** onSuccess callback function */
   onSuccess?: () => void
   /** show Phone field on the form */
@@ -64,6 +65,7 @@ export const SignupForm = ({
   successMessage = 'Thank you for your submission!',
   showPhoneField,
   submitButtonMpProps,
+  setSubmitting,
   onSuccess,
 }: ISignupFormProps) => {
   // =========== Context =========
@@ -73,11 +75,11 @@ export const SignupForm = ({
   const [errorMessage, setErrorMessage] = useState('')
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
-  const funnelytics = useFunnelytics()
-  const tagManager = useGoogleTagManager()
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
+    setSubmitting?.(true)
+
     const { email, firstName, phone } = values
     setUserData({ email, firstName })
 
@@ -87,23 +89,11 @@ export const SignupForm = ({
     })
 
     if (formSource === 'IAT Ebook') {
-      tagManager?.track({
+      gtag({
         event: 'iat_form_tracking',
         eventCategory: 'IAT Ebook Form',
         eventAction: 'Form',
         eventLabel: 'Submit',
-      })
-
-      funnelytics?.track('Form Tracking', {
-        pageName: 'IAT Ebook',
-      })
-    } else if (formSource === 'IAT Webinar') {
-      funnelytics?.track('Form Tracking', {
-        pageName: 'IAT Webinar',
-      })
-    } else {
-      funnelytics?.track('Form Tracking', {
-        pageName: page_name,
       })
     }
 
@@ -118,7 +108,6 @@ export const SignupForm = ({
       insertId,
     }
 
-    // TODO change back to production
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
       headers: {
@@ -137,6 +126,7 @@ export const SignupForm = ({
       })
       .catch((error) => {
         console.error(error)
+        setSubmitting?.(false)
         formikHelpers.setSubmitting(false)
         setErrorMessage(typeof error === 'string' ? error : 'An unexpected error occured')
       })

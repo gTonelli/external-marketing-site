@@ -1,6 +1,5 @@
-// components
-import { List } from '@/components/List'
-import { faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// libraries
+import _ from 'lodash'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
@@ -16,7 +15,7 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
     heroVideo: {
       videoSrc: 'https://storage.googleapis.com/pds_videos/FA_VSL_Funnel.mp4',
-      videoThumbnailAlt: 'Fearful Avoidant video fa thumbnail',
+      videoThumbnailAlt: 'Fearful Avoidant video thumbnail',
       label: 'Special One-Time Invitation',
       segway: '',
       heading: (
@@ -26,7 +25,9 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         </>
       ),
       subheader: '(Included free with our All Access Pass)',
-      copy: 'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without compromising your freedom, independence, and boundaries.',
+      copy: [
+        'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without compromising your freedom, independence, and boundaries.',
+      ],
       ctaLabel: 'YES! I WANT A HEALTHY RELATIONSHIP',
     },
     outcomes: {
@@ -42,10 +43,12 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           and fostering a loving, trusted, and exciting relationship with transparency and openness.
         </>,
         <>
-          Take it as part of our <strong>All-Access Pass</strong> Membership to experience the
+          Take it as part of our <strong>All-Access Pass Membership</strong> to experience the
           profound and transformational change you desire in yourself and your relationships.
         </>,
       ],
+      listItems: undefined,
+      copy2: undefined,
       segway2: [],
     },
     course: {
@@ -142,16 +145,16 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
   faVariant: {
     ctaURL: externalRoutes.checkoutRegularSubscription,
     hero: {
-      header: "You're a Fearful Avoidant!",
+      header: 'Your Attachment Style is Fearful Avoidant.',
       copy: 'Your report is on its way! Check your inbox.',
       segway:
-        'You’re someone who’s finally ready to feel safe, seen, and securely connected. And we at The Personal Development School are here to walk that journey with you.',
+        'Are you ready to start building relationships where you finally feel safe, seen, and securely connected? At the Personal Development School we have a tailored program that gives you the right tools you need to start building the loving relationships you crave. Watch the video to learn more.',
       subheader:
         "You're 1 Step Away To Having Healthy, Loving Relationships – Without Being Fearful!",
     },
     heroVideo: {
       videoSrc: 'https://storage.googleapis.com/pds_videos/FA_VSL_Funnel.mp4',
-      videoThumbnailAlt: 'Fearful Avoidant video fa thumbnail',
+      videoThumbnailAlt: 'Fearful Avoidant video thumbnail',
       label: 'Special One-Time Invitation for Fearful Avoidants',
       segway:
         'At The Personal Development School, this is where everything shifts—your results are just the beginning of building love that feels safe, real, and never costs you your freedom.',
@@ -162,7 +165,9 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         </>
       ),
       subheader: '(Included with All Access Pass–Now 30% Off!)',
-      copy: 'What makes this program different? It’s designed specifically for Fearful Avoidants like you. This all-inclusive program will help you overcome relationship fear, rebuild trust, and finally feel safe being loved.',
+      copy: [
+        'What makes this program different? It’s designed specifically for Fearful Avoidants like you. This all-inclusive program will help you overcome relationship fear, rebuild trust, and finally feel safe being loved.',
+      ],
       ctaLabel: 'YES — I’M READY TO START HEALING',
     },
     outcomes: {
@@ -178,19 +183,14 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           secure, healthy, lasting love.
         </>,
         'With this program, you’ll start uncovering:',
-        <>
-          <List
-            classNameIcon="!text-black"
-            icon={faCircleSmall}
-            listItems={[
-              'What triggers your panic, withdrawal, or shutdown patterns',
-              'How to feel your emotions safely — without losing control',
-              'How to create closeness without feeling trapped',
-            ]}
-          />
-        </>,
-        'Plus, you’ll do it in a community built just for you, guided by an expert in attachment theory who understands your exact experience.',
       ],
+      listItems: [
+        'What triggers your panic, withdrawal, or shutdown patterns',
+        'How to feel your emotions safely — without losing control',
+        'How to create closeness without feeling trapped',
+      ],
+      copy2:
+        'Plus, you’ll do it in a community built just for you, guided by an expert in attachment theory who understands your exact experience.',
       segway2: [
         'Our team at The Personal Development School developed this system to help you understand your patterns, express your needs, and feel confident setting healthy boundaries.',
         'Inside the program, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',
@@ -273,16 +273,16 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
   ap: {
     ctaURL: externalRoutes.checkoutRegularSubscription,
     hero: {
-      header: "You're an Anxious Preoccupied!",
+      header: 'Your Attachment Style is Anxious Preoccupied.',
       copy: 'Your report is on its way! Check your inbox.',
       segway:
-        'At The Personal Development School, this is where your transformation begins—your results are just the start of a journey toward secure, lasting love.',
+        'Are you ready to start building relationships where you finally feel safe, wanted, and loved? At the Personal Development School we have a tailored program that gives you the right tools you need to start building lasting, loving relationships you crave. Watch the video to learn more.',
       subheader:
-        'You’re Just One Step Away from Feeling Loved, Secure, and Chosen – Without Overthinking Everything',
+        'You’re Just One Step Away from Feeling Loved, Secure, and Chosen – Without Overthinking Everything!',
     },
     heroVideo: {
-      videoSrc: 'https://storage.googleapis.com/pds_videos/FA_VSL_Funnel.mp4',
-      videoThumbnailAlt: 'Fearful Avoidant video fa thumbnail',
+      videoSrc: 'https://storage.googleapis.com/pds_videos/RoyalRumbleAPshortvideo.mp4',
+      videoThumbnailAlt: 'Anxious Preoccupied video thumbnail',
       label: 'Special One-Time Invitation',
       segway: '',
       heading: (
@@ -292,7 +292,9 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
         </>
       ),
       subheader: '(Included with All Access Pass–Now 30% Off!)',
-      copy: 'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without the fear of rejection, abandonment, or being “too much.”',
+      copy: [
+        'The NEW WAY to understand and overcome your relationship fears, uncover your needs, and create a powerful connection with someone special without the fear of rejection, abandonment, or being “too much.”',
+      ],
       ctaLabel: 'YES! I WANT A LOVE THAT LASTS!',
     },
     outcomes: {
@@ -311,6 +313,8 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
           over-give to be chosen. And it’s available through your <strong>All-Access Pass</strong>.
         </>,
       ],
+      listItems: undefined,
+      copy2: undefined,
       segway2: [
         'Our team at The Personal Development School developed this system to help you understand your patterns, express your needs, and feel confident setting healthy boundaries.',
         'Inside the program, we walk you step-by-step through the tools, techniques, and breakthroughs that have helped thousands of people just like you feel secure in love.',
@@ -407,3 +411,44 @@ export const SIMPLIFIED_RESULTS_CONFIG = {
     },
   },
 }
+
+export type TSimplifiedPageConfig = typeof SIMPLIFIED_RESULTS_CONFIG.ap
+
+export const FA_CLARITY_CONFIG: TSimplifiedPageConfig = _.cloneDeep(SIMPLIFIED_RESULTS_CONFIG.fa)
+
+FA_CLARITY_CONFIG.hero.copy = 'Your personalized report is on its way! Check your inbox.'
+FA_CLARITY_CONFIG.hero.subheader =
+  "You're One Step Away To Having Healthy, Loving Relationships – Without Being Fearful!"
+FA_CLARITY_CONFIG.heroVideo.subheader =
+  'Included with your All-Access Membership! Now Just $67/month.'
+FA_CLARITY_CONFIG.heroVideo.copy.push(
+  'Instead of paying $250 for each single course, your membership gives you access to this personalized healing program, plus our full library of on-demand transformative courses, weekly live support from Thais in our exclusive, members-only webinars, and a private, supportive community of healers, like-minded people, and personal growth enthusiasts inside our membership platform.'
+)
+FA_CLARITY_CONFIG.outcomes.header =
+  'Are You Ready To Start Having The Best Relationships Of Your Life?'
+FA_CLARITY_CONFIG.bonus.programCopy[0] = (
+  <>
+    When you join today, you will receive the{' '}
+    <strong>7 Days to Transform Relationships Course</strong> and an exclusive one-time offer with
+    our <strong>All-Access Pass Membership!</strong>
+  </>
+)
+FA_CLARITY_CONFIG.bonus.offerCopy = [
+  <>
+    You unlock everything for one price of just <strong>$67/month</strong> instead of paying $250
+    for the <strong>7 Days to Transform Relationships Course</strong> alone.
+  </>,
+  <>
+    <em className="block">*Single course normal price $250</em>
+
+    <em>*All-Access Pass normal price $97</em>
+  </>,
+]
+FA_CLARITY_CONFIG.footer.header =
+  'Get The 7 Days to Transform Relationships Course with Your Membership & Start Having A Healthy, Loving Relationship – Without Any Fears'
+FA_CLARITY_CONFIG.footer.pricing = (
+  <>
+    Enjoy the All-Access Pass Membership For Just <span className="line-through">$97</span>{' '}
+    $67/month
+  </>
+)

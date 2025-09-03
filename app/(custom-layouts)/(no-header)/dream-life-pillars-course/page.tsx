@@ -44,12 +44,11 @@ export default function DreamLifeFreeCoursePage() {
 
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          Get the Only Tools You Need to Build The Best Relationships of Your Life
+          Get the Only Tools You Need to Build The Best Relationship with Yourself and Others
         </h1>
 
         <div className="relative mt-8 lg:mt-12">
           <PaymentOptions
-            showDisclaimer={false}
             className="!max-w-xl mx-auto lg:flex-col"
             configKey="dreamLifePillarsCourse"
           />
@@ -87,15 +86,15 @@ export default function DreamLifeFreeCoursePage() {
       />
 
       <Section>
-        <h2>Unlock the Tools to Create a Healthy, Secure Relationship</h2>
+        <h2>Unlock the Tools to Create Healthy, Secure Relationships</h2>
 
         <div className="grid gap-8 text-left my-8 lg:grid-cols-2">
           <div>
             <p>
               <strong>
-                When you master dating with clarity and confidence, you stop chasing love—and start
-                choosing it. This is what the Key Pillars for a Secure Relationship will empower you
-                to do:
+                When you master personal growth and healing, you stop chasing the wrong
+                relationships—and start choosing the right person for you. This is what the Key
+                Pillars for a Secure Relationship course will empower you to do:
               </strong>
             </p>
 
@@ -119,6 +118,8 @@ export default function DreamLifeFreeCoursePage() {
               src="/images/TrialHeadspace/secure-pillars-mockup.png"
               width={588}
               height={470}
+              quality={100}
+              sizes="100vw"
             />
           </div>
         </div>
@@ -149,7 +150,7 @@ export default function DreamLifeFreeCoursePage() {
           </p>
         </div>
 
-        <ButtonCheckout href={checkoutUrl} label="SIGN UP FOR YOUR FREE TRIAL" />
+        <ButtonCheckout href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
       </Section>
 
       <Section classNameInner="bg-white-secondary rounded-2xl p-6">
@@ -177,7 +178,7 @@ export default function DreamLifeFreeCoursePage() {
           />
         </div>
 
-        <ButtonCheckout className="mb-4" href={checkoutUrl} label="SIGN UP FOR YOUR FREE TRIAL" />
+        <ButtonCheckout className="mb-4" href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
 
         <p>
           <em>

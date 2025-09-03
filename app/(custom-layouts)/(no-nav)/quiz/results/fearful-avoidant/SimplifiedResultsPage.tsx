@@ -3,40 +3,53 @@ import Image from 'next/image'
 import { cookies } from 'next/headers'
 // components
 import { Section } from '@/components/Section'
+import { List } from '@/components/List'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
-import { List } from '@/components/List'
-// config
-import { SIMPLIFIED_RESULTS_CONFIG as CONFIG } from './config'
-// libraries
 import { faCheckCircle, faCircleSmall } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// config
+import { TSimplifiedPageConfig } from './config'
 
 interface ISimplifiedResultsPageProps {
-  configKey: 'fa' | 'faVariant' | 'ap'
+  configKey: 'fa' | 'ap' | 'faVariant' | 'faClarity'
+  config: TSimplifiedPageConfig
 }
 
-export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps) => {
-  const config = CONFIG[configKey]
+export const SimplifiedResultsPage = ({ configKey, config }: ISimplifiedResultsPageProps) => {
   const userFirstName = cookies().get('firstName')?.value
   const checkoutUrl = config.ctaURL
 
   return (
     <>
-      <Section classNameInner="max-w-4xl mx-auto">
-        <h1 className="text-primary mb-4">
-          {userFirstName && configKey !== 'fa' ? `${userFirstName}!` : ''}
-          {config.hero.header}
-        </h1>
+      <Section classNameInner="!max-w-4xl mx-auto">
+        {configKey === 'ap' || configKey === 'faVariant' ? (
+          <>
+            <h1 className="mb-4">
+              {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'}{' '}
+              {config.hero.subheader}
+            </h1>
 
-        <p className="mb-4">{config.hero.copy}</p>
+            <h2 className="text-primary">{config.hero.header}</h2>
 
-        {config.hero.segway && <p className="max-w-3xl mx-auto mb-8">{config.hero.segway}</p>}
+            <p className="mb-4">
+              <strong>{config.hero.copy}</strong>
+            </p>
 
-        <h2>
-          {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'}{' '}
-          {config.hero.subheader}
-        </h2>
+            {config.hero.segway && <p className="max-w-3xl mx-auto mb-8">{config.hero.segway}</p>}
+          </>
+        ) : (
+          <>
+            <h1 className="text-primary mb-4">{config.hero.header}</h1>
+
+            <p className="mb-4">{config.hero.copy}</p>
+
+            <h2>
+              {userFirstName ? `Congratulations ${userFirstName}!` : 'Congratulations!'}{' '}
+              {config.hero.subheader}
+            </h2>
+          </>
+        )}
       </Section>
 
       <Section className="!py-0">
@@ -51,20 +64,24 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
               />
             </div>
 
-            <div className="!mx-0 mb-4 lg:text-left md:!m-4 md:w-1/2">
+            <div className="!mx-0 mb-4 lg:text-left md:!m-4 lg:w-1/2">
               <p className="mb-2">
                 <strong>{config.heroVideo.label}</strong>
               </p>
 
               <h2 className="mb-2 text-3xl">{config.heroVideo.heading}</h2>
 
-              <p className="mb-2">{config.heroVideo.subheader}</p>
+              <p className="mb-2">
+                <strong>{config.heroVideo.subheader}</strong>
+              </p>
 
               {config.heroVideo.segway && <p className="mb-4">{config.heroVideo.segway}</p>}
 
-              <p className="mb-4">
-                <strong>{config.heroVideo.copy}</strong>
-              </p>
+              {config.heroVideo.copy.map((copy, idx) => (
+                <p key={`heroVideo_copy_${idx}`} className="mb-4">
+                  {copy}
+                </p>
+              ))}
 
               <ButtonCheckout href={checkoutUrl} label={config.heroVideo.ctaLabel} />
             </div>
@@ -86,6 +103,17 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
                 {item}
               </p>
             ))}
+
+            {config.outcomes.listItems && (
+              <List
+                className="mb-4"
+                classNameIcon="!text-black"
+                icon={faCircleSmall}
+                listItems={config.outcomes.listItems}
+              />
+            )}
+
+            {config.outcomes.copy2 && <p>{config.outcomes.copy2}</p>}
           </div>
 
           <div className="flex items-center justify-center">
@@ -131,6 +159,12 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
               classNameListItems="mb-4"
               listItems={config.course.listItems}
             />
+
+            {configKey === 'faClarity' && (
+              <p className="mb-4">
+                <strong>And it is only available through the All-Access Pass Membership!</strong>
+              </p>
+            )}
 
             <ButtonCheckout href={checkoutUrl} label={config.course.ctaLabel} />
           </div>
@@ -202,6 +236,8 @@ export const SimplifiedResultsPage = ({ configKey }: ISimplifiedResultsPageProps
               width={581}
               height={307}
               src="/images/SimplifiedFAPage/special-bonus-mockup.jpg"
+              quality={100}
+              sizes="100vw"
             />
           </div>
         </div>

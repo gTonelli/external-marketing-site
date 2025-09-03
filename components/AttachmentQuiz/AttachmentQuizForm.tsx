@@ -2,17 +2,14 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useContext } from 'react'
 // components
-import { IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
-import { RegistrationForm } from '../Forms/RegistrationForm'
-// modules
-import { useFunnelytics } from '@/modules/Funnelytics'
-import { useGoogleTagManager } from '@/modules/GTM'
+import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
+import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
+import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
 // utils
 import { TStyle } from '@/utils/types'
-import { SplitTestContext } from '@/utils/contexts'
-import { getSplitTest, setSplitTest } from '@/utils/functions'
+import { getAttachmentStyleText } from '@/utils/functions'
+import { gtag } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -20,21 +17,19 @@ interface IAttachmentQuizFormProps {
   quiz_traffic_source: TQuizTrafficSources
   isYoung?: boolean
   isVariant?: boolean
+  quizData: IQuizData
 }
+
+interface IQuizData extends IUserInfo, Pick<IResultProps, 'fa' | 'ap' | 'da' | 'sa'> {}
 
 export const AttachmentQuizForm = ({
   quiz_traffic_source,
   userInfo,
   userStyle,
+  quizData,
 }: IAttachmentQuizFormProps) => {
-  const funnelytics = useFunnelytics()
-  const tagManager = useGoogleTagManager()
   const router = useRouter()
-  const splitTestContext = useContext(SplitTestContext)
-  if (splitTestContext && userStyle !== 'sa') {
-    setSplitTest({ ...splitTestContext, value: false })
-  }
-  const isVariant = splitTestContext && getSplitTest(splitTestContext)
+  const { getPercentageResults } = useAttachmentQuiz()
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -43,16 +38,10 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (isVariant) {
-          return `/quiz/${userStyle}/b`
-        } else {
-          return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
-        }
+        return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
 
       case 'paidMeta':
-        if (isVariant) {
-          return `/quiz/${userStyle}/b`
-        } else if (userStyle === 'da') {
+        if (userStyle === 'da') {
           return '/quiz/da'
         } else {
           return `/quiz/b/results/${userStyle}`
@@ -66,16 +55,59 @@ export const AttachmentQuizForm = ({
     }
   }
 
-  const onAfterSubmit = () => {
-    tagManager?.track({
+  const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
+    gtag({
       event: 'form_tracking',
       eventCategory: 'Attachment Quiz',
       eventAction: 'Form',
       eventLabel: 'Submit',
     })
 
-    funnelytics?.track('Form Tracking', {
-      pageName: `Attachment-Quiz-${quiz_traffic_source}`,
+    gtag('event', 'conversion', {
+      send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
+      attachment_style: getAttachmentStyleText(userStyle),
+    })
+
+    const {
+      fa,
+      ap,
+      da,
+      sa,
+      attachmentFamiliarity,
+      relationship,
+      relationshipSatisfaction,
+      gender,
+      intent,
+    } = quizData
+
+    const { faPercentage, apPercentage, daPercentage, saPercentage } = getPercentageResults({
+      fa,
+      da,
+      ap,
+      sa,
+    })
+
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        'attachment-familiarity': attachmentFamiliarity,
+        gender,
+        intent,
+        'relationship-status': relationship,
+        'relationship-satisfaction': relationshipSatisfaction,
+        faPercentage,
+        apPercentage,
+        daPercentage,
+        saPercentage,
+      }),
+    }).catch((error) => {
+      console.error('Error saving quiz result:', error)
     })
 
     const route = determineRoute()
@@ -84,8 +116,14 @@ export const AttachmentQuizForm = ({
 
   const baseTag = `attachment-quiz-${userStyle}`
 
-  const additionalTag =
-    userInfo?.relationshipStatus === 'No' && userStyle === 'fa' ? 'single-fa' : ''
+  let additionalTag = ''
+
+  if (userInfo?.relationshipStatus === 'No' && userStyle !== 'sa') {
+    additionalTag = `single-${userStyle}`
+  } else if (userInfo?.relationshipStatus === 'Yes') {
+    additionalTag = `relationship-${userStyle}`
+  }
+
   const tagArray = additionalTag ? `${baseTag}, ${additionalTag}` : baseTag
 
   return (

@@ -29,7 +29,7 @@ export const IAT_COPY = {
       'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
       <>
         <strong>
-          *Sign up for the Live Training, starting July 24, 2025 to October 9, 2025. Spots are
+          *Sign up for the Live Training, starting September 17, 2025 to December 3, 2025. Spots are
           limited.
         </strong>
       </>,
@@ -101,34 +101,52 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on July 24th, 6 PM ET`,
+          `Attend 1-hour review session on September 17th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on July 31st, 6 PM ET`,
+          `Attend 1-hour review session on September 24th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on August 7th, 6 PM ET`,
+          `Attend 1-hour review session on October 1st, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on August 14th, 6 PM ET`,
+          `Attend 1-hour review session on October 8th, 6 PM ET`,
         ],
       },
 
       intensive_week: {
         heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
-        copy: [
-          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from August 21st - October 9th every Wednesday at 6 PM ET for 8 weeks.',
-          "Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais. This is a great opportunity to boost your confidence (especially if you've never coached before) while getting feedback from Thais. These 1.5-hour sessions also include Q&A time with Thais.",
+        copy1: [
+          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from October 15th - December 3rd every Wednesday at 6 PM ET for 8 weeks.',
+          'Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais.',
+          <>
+            <strong>These group sessions with Thais include:</strong>
+          </>,
+        ],
+
+        list: [
+          'Live teaching and practice with the tools',
+          'Personal Q&A/Q&A about coaching',
+          'Weekly feedback and review of the coaching materials',
+          'Live examples of Thais using coaching tools',
+          'Critiqued examples of coaching with students',
+        ],
+
+        copy2: [
+          <>
+            *Also included in this program is the option to stay for an additional two hours in a
+            supervised setting with <strong>our coaches</strong> for personal feedback.
+          </>,
           'Each meeting is followed by plenty of support to ensure that you can learn quickly, get supervised and receive helpful feedback, and have all questions answered on your journey to building your coaching business.',
         ],
 
@@ -300,7 +318,7 @@ export const IAT_COPY = {
     live_mode: [
       `Integrated Attachment Theory™ Certification.`,
 
-      `Weekly live practice sessions with supervised feedback from Thais.`,
+      `Weekly live group practice sessions with supervised feedback from Thais.`,
 
       `Weekly live Q&A time to gain extra support and get your questions answered.`,
 
@@ -420,7 +438,7 @@ export const IAT_COPY = {
         `The exact steps needed to become securely attached in the shortest period of time`,
         `How to set up and run every client session (includes boundaries and practitioner ethics)`,
         `The overview of what creates insecure attachment styles and exactly how to transform these key areas (core wounds, needs, boundaries and more!)`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: `Plus you’ll learn the basics of Integrated Attachment Theory™, including an overview of core wounds, needs, emotional patterns, behaviors, communication patterns & boundaries of each attachment style.`,
@@ -437,7 +455,7 @@ export const IAT_COPY = {
         `Thais’ proven tools that she spent over a decade learning and creating in order to help others (and yourself) heal attachment trauma`,
         `How to get started when working with new clients, including identifying core wounds`,
         `How to recondition these core wounds and relationship insecurities rapidly using proven tools that target the subconscious mind to create rapid breakthroughs`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: ``,
@@ -453,7 +471,7 @@ export const IAT_COPY = {
         `The key principles of the subconscious mind so you can help others make lasting changes through these principles and powerful techniques`,
         `How to break through painful stories and release old baggage from the past`,
         `How to recognize the core wounds of others through their language patterns and emotions`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais' feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: ``,
@@ -469,7 +487,7 @@ export const IAT_COPY = {
         `Emotional regulation tools to help your client become securely attached and feel more confident, secure and trusting`,
         `How to use attachment style reprogramming tools to break through limiting beliefs, painful behaviors and fears`,
         `The best reprogramming tools to use for each attachment style`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: ``,
@@ -486,7 +504,7 @@ export const IAT_COPY = {
         `How to develop strategies for your client to meet their needs and request them from others`,
         `How to help your client feel secure and fulfilled in their lives through learning to meet their own needs`,
         `Developing healthy habits in relationships for meeting each others’ needs`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: ``,
@@ -502,7 +520,7 @@ export const IAT_COPY = {
         `How to communicate through conflict and be solution-oriented in your approach`,
         `How to help your client overcome activating and deactivation strategies to promote healthy levels of closeness (even in conflict)`,
         `How to help clients de-escalate and teaching them how to rapidly de-escalate conflicts with others`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: ``,
@@ -518,7 +536,7 @@ export const IAT_COPY = {
         `Powerful tools for nervous system regulation to emotionally regulate and feel safe`,
         `How to set healthy boundaries without fear`,
         `How to feel confident asking for support and expressing healthy vulnerability`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: ``,
@@ -536,7 +554,7 @@ export const IAT_COPY = {
         `Cutting-edge tips and strategies on how to create and grow a thriving coaching practice from scratch`,
         `How to market and brand yourself while choosing an empowering niche`,
         `How to make a healthy career transition with steps for success`,
-        `The live version includes 1.5 hours each week of practice time and Q&A with Thais’ feedback and supervision`,
+        `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
       textBottom: ``,

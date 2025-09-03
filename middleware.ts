@@ -117,13 +117,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: [
-    '/iat/info',
-    '/quiz/results/fearful-avoidant',
-    '/quiz/b/results/fa',
-    '/quiz/ap',
-    '/quiz/b/results/ap',
-  ],
+  matcher: ['/iat/info', '/quiz/results/fearful-avoidant'],
 }
 
 interface IConfigWithRegex {
@@ -140,20 +134,8 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
 
   const configs: Array<IConfigWithRegex> = [
     {
-      regex: /^\/quiz\/results\/fearful-avoidant/,
-      config: splitTestConfigs.faIcp,
-    },
-    {
-      regex: /^\/quiz\/b\/results\/fa/,
-      config: splitTestConfigs.faIcp,
-    },
-    {
-      regex: /^\/quiz\/ap/,
-      config: splitTestConfigs.apIcp,
-    },
-    {
-      regex: /^\/quiz\/b\/results\/ap/,
-      config: splitTestConfigs.apIcp,
+      config: splitTestConfigs.faClarityTest,
+      regex: /quiz\/results\/fearful-avoidant/,
     },
   ]
 
@@ -243,26 +225,6 @@ const sendEventUnsafe = async (
 }
 
 export const splitTestConfigs: TSplitTestConfigs = {
-  faIcp: {
-    cookieKey: 'gm-1774-fa',
-    pageName: 'VSL Royal Rumble Results - fa',
-    experimentName: 'GM-1774-ICP-FA',
-    variantUrl: {
-      path: '/quiz/results/fa',
-    },
-    variantRatio: 0.2,
-    forceControlOnNewUser: true,
-  },
-  apIcp: {
-    cookieKey: 'gm-1774-ap',
-    pageName: 'vsl-ap',
-    experimentName: 'GM-1774-ICP-AP',
-    variantUrl: {
-      path: '/quiz/results/ap',
-    },
-    variantRatio: 0.2,
-    forceControlOnNewUser: true,
-  },
   iatEbookTest: {
     cookieKey: 'ip-1248-iat-ebook-banner',
     pageName: 'IAT Info Page',
@@ -272,6 +234,16 @@ export const splitTestConfigs: TSplitTestConfigs = {
     },
     variantRatio: 0.25,
     forceControlOnNewUser: false,
+  },
+  faClarityTest: {
+    cookieKey: 'gm-1864-fa-clarity-split',
+    pageName: 'VSL Royal Rumble Results - fa',
+    experimentName: 'GM-1864-FA-Clarity-Test',
+    variantUrl: {
+      path: '/quiz/results/fa',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: true,
   },
 }
 

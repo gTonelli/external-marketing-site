@@ -2,17 +2,22 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
 // components
-import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { List } from '@/components/List'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CommunityTeaser } from '@/components/CommunityTeaser'
 import { PaymentOptions } from '@/components/PaymentOptions'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { CountdownTimer } from '@/components/CountDownTimer'
 import VideoTeaser from '@/components/Video/variants/VideoTeaser'
+import { faSquare1, faSquare2, faSquare3 } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { externalRoutes } from '@/utils/constants'
+// style
+import './style.css'
 
 export const metadata: Metadata = {
   title: 'Get Your Dream Life with a Free Trial & Course for Life!',
@@ -26,104 +31,201 @@ export default function DreamLifeFreeCoursePage() {
 
   return (
     <Page page_name="Dreamlife Free Course Page" className="relative">
-      <section className="w-full text-center bg-grey-7 pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
+      <section className="text-center bg-purple-dark px-2">
+        <h2 className="text-white pt-4 max-w-screen-lg mx-auto">
+          LIMITED TIME OFFER: Get The Discover, Fulfill, and Embrace Your Personal Needs Course
+          ($250 Value) FREE FOR LIFE with a 7-Day Free Trial to the All-Access Pass
+        </h2>
+
+        <div className="pb-4">
+          <CountdownTimer date={new Date(`2025-05-17T23:59:59-04:00`)} theme="dark" />
+        </div>
+      </section>
+
+      <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
+        <h1 className="max-w-2xl leading-[50px] mx-auto mb-4">
+          Lasting Love Begins Now. Learn What You Need to Attract & Build a Secure, Fulfilling
+          Relationship
+        </h1>
+
+        <div className="relative mt-8 lg:mt-12">
+          <PaymentOptions
+            className="!max-w-xl mx-auto lg:flex-col"
+            configKey="dreamLifeFreeCourse"
+          />
+        </div>
+
         <Image
           className="w-full mx-auto sm:w-3/4 md:w-1/2 lg:hidden"
           src="/images/TrialHeadspace/hero-left-mockup.png"
           alt="hero-mockup-left"
           width={729}
           height={796}
+          quality={100}
+          sizes="100vw"
         />
-
-        <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          What’s REALLY Holding Your Relationships Back? Discover The Missing Piece in Love &amp;
-          Life!
-        </h1>
-
-        <p className="max-w-xl font-bold mx-auto">
-          Tap into the power of your subconscious mind with our proprietary model to finally uncover
-          and fulfill your deepest personal and relationship needs!
-        </p>
-
-        <div className="relative mt-8 lg:mt-12">
-          <PaymentOptions className="lg:flex-col" configKey="dreamLifeFreeCourse" />
-        </div>
       </section>
 
       <Image
-        className="hidden absolute w-1/2 top-20 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
+        className="hidden absolute w-1/2 top-60 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
         src="/images/TrialHeadspace/hero-left-mockup.png"
         alt="hero-mockup-left"
         width={729}
         height={796}
+        quality={100}
+        sizes="100vw"
       />
 
       <Image
-        className="hidden absolute w-1/2 lg:-right-56 top-20 lg:block xl:w-1/3 xl:-right-32"
+        className="hidden absolute w-1/2 top-60 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
         src="/images/TrialHeadspace/hero-right-mockup.png"
         alt="hero-mockup-right"
         width={656}
         height={708}
-      />
-
-      <Image
-        className="w-full"
-        src="/images/TrialHeadspace/hero-bg.png"
-        alt="hero-mockup"
-        width={1120}
-        height={88}
+        quality={100}
+        sizes="100vw"
       />
 
       <Section>
-        <h2 className="mb-8">
-          Rebuild Your Life — With This Course, Your Needs Get Met Now & Forever!
-        </h2>
+        <h2>Unearth Your Needs and Transform Every Relationship</h2>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid gap-8 text-left my-8 lg:grid-cols-2">
           <div>
-            <Image
-              className="rounded-xl"
-              alt="Needs Course Thumbnail"
-              src="/images/course-personal-needs-alt.jpg"
-              width={640}
-              height={360}
+            <p>
+              Uncovering your personal needs is the first step to thriving in life and love. The{' '}
+              <strong>Discover, Embrace, and Fulfill Your Personal Needs</strong> course helps you:
+            </p>
+
+            <List
+              classNameIcon="text-primary"
+              icon={faCheckCircle}
+              listItems={[
+                'Rewire your daily habits, upgrade your communication, and build unshakeable self‑trust so your self‑talk and relationships support your goals.',
+                'Transform conflict into connection by speaking with clarity and turning tense moments into bonding breakthroughs that actually bring you closer.',
+                'Turn procrastination into purposeful momentum by linking every task to deep subconscious motivation, making your progress natural and unshakeable.',
+                'Spot true compatibility in minutes, not months, naturally attracting partners, projects, and opportunities that honour your values and future vision.',
+                'Create daily bonding rituals that keep your love life or relationship exciting and trustworthy, even when life is busy.',
+                'Protect your peace while staying open to love, setting healthy boundaries that let you feel seen, valued, and energized.',
+              ]}
             />
           </div>
 
-          <div className="text-left">
-            <p className="mb-4">
-              <strong>
-                Take the All-Access Pass Free Trial to Get Lifetime Access to the Discover, Embrace
-                & Fulfill Your Personal Needs Course
-              </strong>
-            </p>
-
-            <p className="mb-4">
-              Discover who you truly are, what you truly “need” in life and relationships to feel
-              fulfilled, and how to get them with our Needs Course – which you get to KEEP for FREE
-              for LIFE. It’s part of our All-Access Pass Membership, which you’ll get for FREE for 7
-              days! That’s access to this beginner course that will pave the way for continuous
-              personal growth and transformation and always be there when you need it in the future.
-            </p>
-
-            <ButtonCheckout href={checkoutUrl} label="JOIN TO TAKE THE COURSE" />
+          <div>
+            <Image
+              alt="A desktop screen showcasing the Discover, Embrace and Fulfill Personal Needs Course"
+              src="/images/TrialHeadspace/needs-course-mockup.png"
+              width={588}
+              height={470}
+              quality={100}
+              sizes="100vw"
+            />
           </div>
         </div>
+
+        <div className="bg-pink-tertiary rounded-2xl p-6 mb-4">
+          <p>
+            Activate your 7-Day Free Trial today and explore 70+ science‑backed courses, daily live
+            Q&As with me (Thais Gibson), and a private global community—all designed to help you
+            become securely attached and see tangible results in as little as one week.
+          </p>
+
+          <p>
+            Most students finish the{' '}
+            <strong>Discover, Embrace, and Fulfill Your Personal Needs</strong> course in just 3–4
+            evenings, then use the remaining trial days to practice the tools with live coaching and
+            community feedback.
+          </p>
+
+          <p>
+            Even if you cancel before the trial ends, this <strong>$250 course</strong> is yours
+            forever. We do this because results speak louder than promises, and we know you’ll feel
+            the shift and want to keep going.
+          </p>
+        </div>
+
+        <ButtonCheckout href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW" />
       </Section>
 
-      <Section
-        className="!max-w-full bg-[url('/images/pds-bg-vector.svg')] bg-center bg-no-repeat !bg-cover mx-auto !p-0"
-        classNameInner="px-4 py-24 lg:py-48">
-        <h2>
-          Get the Discover, Embrace & Fulfill Your Personal Needs Course FREE for LIFE with a 7-Day
-          Free Trial to the All-Access Pass!
-        </h2>
+      <Section classNameInner="bg-white-secondary rounded-2xl p-6">
+        <h2>When You Know Your Needs, Love Lasts. Here's How:</h2>
+
+        <div className="grid gap-4 text-left my-4 lg:grid-cols-2">
+          <List
+            classNameIcon="text-primary"
+            icon={faCheckCircle}
+            listItems={[
+              'Turn vague feelings into clear requests so that your partner knows exactly how to love you (and you them) without guesswork.',
+              'Create weekly rituals to satisfy core needs for certainty, growth, and intimacy, keeping affection and trust strong even on busy days.',
+              'Speak the "attachment‑safe" language of needs to turn hard conversations into cooperative problem‑solving.',
+            ]}
+          />
+
+          <List
+            classNameIcon="text-primary"
+            icon={faCheckCircle}
+            listItems={[
+              'Link triggers to unmet needs so you can calm conflict in minutes and replace reactive patterns with compassionate responses.',
+              'Transform self‑sabotage into self‑support by rewiring habits that once drained you into routines that refill you and your relationship.',
+              'Build a future‑proof partnership where both people feel seen, valued, and excited about what’s next because every need has a healthy way to be met.',
+            ]}
+          />
+        </div>
+
+        <ButtonCheckout className="mb-4" href={checkoutUrl} label="CLAIM YOUR FREE COURSE NOW*" />
+
+        <p>
+          <em>
+            *When you join now, you’ll enter a 7‑day Free Trial of our All‑Access Pass. After the
+            trial, you’ll automatically continue on the $67/month plan. But whether you stay on or
+            not, the $250 Discover, Embrace, and Fulfill Your Personal Needs course is yours for
+            life.
+          </em>
+        </p>
+      </Section>
+
+      <Section className="bg-black text-white !py-16">
+        <h2>Use the Revolutionary Tools Only Available In Our School!</h2>
+
+        <p>
+          Learn and use the Integrated Attachment Theory™ to create and build healthy relationships.
+        </p>
+
+        <div className="grid gap-8 text-left my-8 lg:grid-cols-3">
+          {STEPS_TO_PURCHASE.map((item, idx) => (
+            <div key={`puchase_steps_${idx}`}>
+              <div className="min-h-48 mb-4">
+                <Image
+                  className="w-full rounded-xl lg:max-h-48"
+                  alt="PDS Journey Step"
+                  src={item.image}
+                  width={360}
+                  height={180}
+                />
+              </div>
+
+              <div className=" bg-white text-black rounded-2xl p-4">
+                <p className="font-bold tracking-33 text-primary mb-4">
+                  <span className="mt-1 mr-2">
+                    <FontAwesomeIcon className="text-xl" icon={item.icon} />
+                  </span>
+                  {item.step}
+                </p>
+
+                <h3 className="mb-4">{item.title}</h3>
+
+                <p>{item.copy}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <ButtonCheckout href={checkoutUrl} label="SIGN UP NOW" />
       </Section>
 
       <Section>
-        <h2 className="mb-8">A 7-Day Free Trial to Our All-Access Pass Gives You:</h2>
+        <h2 className="mb-8">Use Your Free Trial to Continue Growing Your Relationships!</h2>
 
-        <div className="grid grid-cols-1 gap-4 mb-8 lg:grid-cols-3">
+        <div className="grid gap-4 mb-8 lg:grid-cols-3">
           {PDS_FEATURES.map((feature, idx) => (
             <div key={`feature_${idx}`}>
               <div className="flex justify-center mb-4">
@@ -136,112 +238,37 @@ export default function DreamLifeFreeCoursePage() {
             </div>
           ))}
         </div>
-
-        <div className="max-w-3xl mx-auto">
-          <h2 className="mb-8">
-            Ready for a Love Life Like No Other? Get Results You Can’t Find Anywhere Else With Our
-            Needs Course!
-          </h2>
-
-          <div className="grid grid-cols-1 gap-4 text-left mb-8 lg:grid-cols-2">
-            <List
-              icon={faCheckCircle}
-              classNameIcon="!text-green"
-              classNameListItems="mb-4"
-              listItems={[
-                'Identify and understand your subconscious personality needs & how they define your life and relationships',
-                'Create healthy life habits and utilize strategies to support and meet your needs so you can honor yourself and show up as your best self',
-              ]}
-            />
-
-            <List
-              icon={faCheckCircle}
-              classNameIcon="!text-green"
-              classNameListItems="mb-4"
-              listItems={[
-                'Understand the power of procrastination and self-sabotage and how they derail your growth and love life – and how to stop them from happening',
-                'Start your journey to becoming securely attached so you have the fulfilling, peaceful, and harmonious life and relationships you want',
-              ]}
-            />
-          </div>
-
-          <ButtonCheckout href={checkoutUrl} label="START THE COURSE NOW!*" className="mb-8" />
-
-          <p className="max-w-2xl mx-auto">
-            <i>
-              *When you join now to start the course, you’ll sign up for our All-Access Pass
-              Membership. At the end of the trial, you’ll automatically become a member with plans
-              starting at $67.00/month. Cancel anytime before your trial ends to avoid charges!*
-            </i>
-          </p>
-        </div>
-      </Section>
-
-      <Section className="bg-black text-white !py-16">
-        <div className="grid grid-cols-1 gap-8 !text-left lg:grid-cols-3">
-          {STEPS_TO_PURCHASE.map((item, idx) => (
-            <div key={`puchase_steps_${idx}`}>
-              <div className="min-h-48 mb-4">
-                <Image
-                  className="rounded-xl"
-                  alt="PDS Journey Step"
-                  src={item.image}
-                  width={360}
-                  height={180}
-                />
-              </div>
-
-              <p className="font-bold tracking-33 mb-4">{item.step}</p>
-
-              <h3 className="mb-4">{item.title}</h3>
-
-              <p>{item.copy}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="max-w-3xl mx-auto mt-16">
-          <h2 className="mb-4">
-            Become Your Best Self By Using Our Results Driven Proprietary Method Found Exclusively
-            Only At The Personal Development School
-          </h2>
-
-          <p className="mb-8">
-            We're the only platform that utilizes the groundbreaking Integrated Attachment Theory™
-            to help you understand what you want and how to get it faster than ever before by
-            unlocking and rewiring your subconscious patterns.
-          </p>
-
-          <ButtonCheckout href={checkoutUrl} label="YOUR JOURNEY STARTS NOW" />
-        </div>
-      </Section>
-
-      <Section className="max-w-full !p-0 my-8" classNameInner="!max-w-full !m-0 !p-0">
-        <CarouselTestimonialThinkific initialSlide={1} />
       </Section>
 
       <Section>
         <div className="max-w-3xl mx-auto">
-          <h2 className="mb-4">
-            Master Your Needs With Our Revolutionary Model & Unlock Your Full Potential
-          </h2>
+          <h2>Don't Stop Your Personal Growth</h2>
 
-          <p className="mb-4">
-            Completing the Needs Course will set you up to continue exploring your personal growth
-            and relationship needs. Check out some snippets of our most popular courses from each of
-            the categories below!
+          <p>
+            Unlock our most popular courses to gain powerful tools for emotional insight,
+            self-awareness, and lasting relationship growth.
           </p>
 
           <ButtonCheckout href={checkoutUrl} label="TRY THEM WITH A FREE TRIAL" />
         </div>
 
-        <VideoTeaser description="Progression is the key to success! With the All-Access Pass, you can use what you learned in the Needs course to continue your personal and relationship growth." />
+        <VideoTeaser
+          className="bg-white-secondary"
+          description="Progression is the key to success! With the All-Access Pass, you can continue your personal and relationship growth."
+        />
       </Section>
 
       <CommunityTeaser
-        paymentOptionsConfigKey="dreamLifeFreeCourse"
         sectionHeading="Experience Belonging to an Unstoppable Powerhouse Community That Ignites Your Life!"
-        teaserHeading="Get a 7-Day Free Trial + Lifetime Access to Our Needs Course"
+        teaserHeading="Start Your 7-Day All-Access Pass Trial & Keep the Discover, Embrace & Fulfill Your Personal Needs Course for LIFE!"
+        classNamePaymentOptions="!max-w-xl mx-auto lg:flex-col"
+        paymentOptionsConfigKey="dreamLifeFreeCourse"
+        communityBullets={[
+          'Discover your core needs to create authentic self-worth and secure, healthy relationships.',
+          'Apply the course tools to meet those needs and experience real, transformative change within 7 days.',
+          'Understand exactly what you need and deserve so you can embrace daily joy, fulfillment, and inner peace.',
+          'Use our proven framework to set healthy boundaries, deepen connections, and grow alongside the people you love.',
+        ]}
       />
     </Page>
   )
@@ -250,38 +277,44 @@ export default function DreamLifeFreeCoursePage() {
 const PDS_FEATURES = [
   {
     icon: '/images/TrialHeadspace/watching-on-laptop.svg',
-    title: '65+ Video Courses',
-    subtitle: 'Choose and take any of our 65+ courses on needs, attachment styles, and more.',
+    title: '70+ Self-Paced Courses',
+    subtitle:
+      'Transform your life or relationships by becoming securely attached. Explore and choose from our 70+ courses on attachment styles, relationships, and more.',
   },
   {
     icon: '/images/TrialHeadspace/couple-holding-heart-message.svg',
-    title: 'Weekly Webinars & Q&As',
-    subtitle: 'Attend live webinars and Q&As with me, Thais Gibson, and our Certified Coaches.',
+    title: 'Interactive Webinars',
+    subtitle:
+      'Embrace a classroom experience by attending weekly live webinars and Q&A sessions with me, Thais Gibson, and our team of Certified Relationship Coaches.',
   },
   {
     icon: '/images/TrialHeadspace/fly-on-rocket.svg',
-    title: 'An Online Community',
-    subtitle: 'Learn and grow with like-minded people from around the world in our community.',
+    title: 'Supportive Community',
+    subtitle:
+      'Take inspiration, share your experiences, and learn and grow with like-minded people from around the world in our private online community.',
   },
 ]
 
 const STEPS_TO_PURCHASE = [
   {
+    icon: faSquare1,
     step: 'STEP ONE',
-    title: 'Sign Up for the 7-Day Free Trial',
-    copy: 'Sign up for our 7-day free trial to the All-Access Pass Membership to start your healing journey with the Needs course! You have a week to try everything we offer at The Personal Development School.',
+    title: 'Sign Up for Your Free Trial Right Here & Now',
+    copy: 'Activate your 7-Day Free Trial and instantly unlock everything inside the All-Access Pass. You’ll get immediate access to over 70 expert-led courses, live webinars, and a supportive community that truly gets you. No strings attached — just real tools that work.',
     image: '/images/RoyalRumblePage/rr-offer.png',
   },
   {
+    icon: faSquare2,
     step: 'STEP TWO',
-    title: 'Go Ahead & Take Your Needs Course',
-    copy: 'Use the powerful and simple tools and strategies from the Needs Course to rediscover who you are, what you truly desire in yourself and your relationships, and, most importantly, get them met!',
+    title: 'Dive Into the Needs Course (Yours to Keep!)',
+    copy: 'Decode your personal subconscious needs, learn to communicate without misunderstanding, and install micro‑habits that refill your emotional tank automatically. Within one week, you’ll resolve conflicts in minutes and become more connected in your relationships.',
     image: '/images/course-personal-needs-alt.jpg',
   },
   {
+    icon: faSquare3,
     step: 'STEP THREE',
-    title: 'Continue Your Journey to Become Securely Attached',
-    copy: 'The Needs Course is the first step in your journey to become securely attached! With this as your foundation, continue your growth by taking our Attachment Style intro courses – for FREE for 7 days!',
+    title: 'Keep Growing with the All-Access Pass',
+    copy: 'Stay on your healing journey with full access to everything inside the All-Access Pass: courses on boundaries, self-esteem, attachment styles, emotional mastery, and more, plus live webinars and community access. This is how lasting continues to foster.',
     image: '/images/TrialHeadspace/pds-courses-mockup.png',
   },
 ]

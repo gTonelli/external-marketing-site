@@ -43,6 +43,7 @@ export type Pages =
   | `7-Day Trial Page (Variant)`
   | `Abandoned Card Offer - ${string}`
   | `Age Funnel - ${string}`
+  | `AP Single - ${string}`
   | `Attachment Bootcamp`
   | `Attachment Style Needs Beliefs Page`
   | `Attachment Style Quiz`
@@ -62,18 +63,21 @@ export type Pages =
   | `Corporate Quiz Results Page`
   | `Cyber Monday`
   | `Cyber Monday Variant Page`
+  | `DA Single - ${string}`
   | `Dating Freebie Page`
   | `Dreamlife Results Page FA`
   | `Dreamlife Free Course Page`
   | `Dreamlife Pillars Course Page`
   | `Dreamlife Sex Course Page`
   | `Dreamlife Holiday Free Trial Page`
+  | `Dreamlife Upsell Page`
   | `External IAT Page`
   | `External IAT Page (Klarna)`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`
   | `Explore Courses Page`
   | `FA Single - ${string}`
+  | `FA Relationship - ${string}`
   | `Find My Courses`
   | `Free Masterclass Mel Robbins`
   | `Greg Voisen Podcast Guest Page`
@@ -85,7 +89,9 @@ export type Pages =
   | `IAT Webinar Recording Page`
   | `IAT Post Registration Masterclass Page`
   | `ICP Results Page - ${string}`
+  | `IAT ${string} Abandoned Cart Page`
   | `Intent Project - FA`
+  | `July Promo Somatic`
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
@@ -124,6 +130,8 @@ export type Pages =
   | `VSL Royal Rumble Results - ${string}`
   | `Wellness Page`
   | `Youtube Funnel Quiz`
+  | 'IAT Live Abandoned Cart Page'
+  | 'IAT Ondemand Abandoned Cart Page'
 
 export type ExperimentVariant = 'Control' | `Variant ${number}`
 

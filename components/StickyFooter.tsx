@@ -6,8 +6,6 @@ import { Button } from './Button/Button'
 import { Text } from './Text/Text'
 //libraries
 import cx from 'classnames'
-//modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
 // utils
 import { ScrollContext } from '@/utils/contexts'
 
@@ -15,7 +13,6 @@ interface IStickyFooterProps {
   className?: string
   copyDesktop?: string
   copyMobile?: string
-  page_name: Pages
   redirectionURL: string
 }
 
@@ -23,7 +20,6 @@ export const StickyFooter = ({
   className,
   copyDesktop,
   copyMobile,
-  page_name,
   redirectionURL,
 }: IStickyFooterProps) => {
   // ==================== Context ====================

@@ -17,7 +17,6 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 
 export default function YoutubeQuizPage() {
   const quizCopy = REGULAR_COPY
@@ -32,10 +31,6 @@ export default function YoutubeQuizPage() {
   const onStartQuiz = useCallback(() => {
     if (!viewQuiz) {
       Mixpanel.track.QuizStarted({
-        quiz_name: 'Youtube Funnel Quiz',
-      })
-
-      TripleWhale.track.QuizStarted({
         quiz_name: 'Youtube Funnel Quiz',
       })
       setViewQuiz((prev) => !prev)

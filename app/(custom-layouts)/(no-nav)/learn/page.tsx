@@ -20,7 +20,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faStar, faChevronsRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 //utils
 import { EWindowWidth } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
@@ -340,17 +339,11 @@ export default function SecondarySalesPage() {
               srcUrl={SSP.TESTIMONIAL_URL}
               style={{ maxWidth: '845px', borderRadius: '20px' }}
               thumbnailUrl="SecondarySalesPage/testimonial-thumbnail.png"
-              onClick={() => {
-                  Mixpanel.track.VideoStarted({
-                    video_type: `testimonial - ${page_name}}`,
-                    page_name: page_name,
-                  })
-
-                  TripleWhale.track.VideoStarted({
-                    video_type: `testimonial - ${page_name}}`,
-                    page_name: page_name,
-                  })
-                } 
+              onClick={() =>
+                Mixpanel.track.VideoStarted({
+                  video_type: `testimonial - ${page_name}}`,
+                  page_name: page_name,
+                })
               }
             />
 

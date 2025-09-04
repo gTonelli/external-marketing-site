@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faCheckSquare } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { ISplitTest } from '@/utils/interfaces'
 // styles
@@ -39,10 +38,6 @@ export const AttachmentQuizVariant = ({ page_name, config, splitTestData }: IQui
   const onStartQuiz = useCallback(() => {
     if (!viewQuiz) {
       Mixpanel.track.QuizStarted({
-        quiz_name: page_name,
-      })
-
-      TripleWhale.track.QuizStarted({
         quiz_name: page_name,
       })
       setViewQuiz((prev) => !prev)

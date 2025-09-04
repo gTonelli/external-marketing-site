@@ -12,10 +12,7 @@ import { REGULAR_COPY } from '@/app/(custom-layouts)/(no-nav)/config'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 import { getSplitTest } from '@/utils/functions'
-// Utils
-import { TQuizTrafficSource } from '@/utils/types'
 
 export interface IUserInfo {
   relationshipStatus?: string
@@ -38,7 +35,7 @@ export interface IResultProps extends IDefaultProps {
 
 interface IAttachmentQuizProps extends IDefaultProps {
   newQuiz?: boolean
-  quiz_traffic_source: TQuizTrafficSource
+  quiz_traffic_source: TQuizTrafficSources
   quizName?:
     | 'Attachment Style Quiz'
     | 'Main Funnel Quiz'
@@ -74,11 +71,6 @@ export const AttachmentQuiz = ({
       quiz_traffic_source,
     })
 
-    TripleWhale.track.QuizStarted({
-      quiz_name: quizName,
-      quiz_traffic_source,
-    })
-
     setViewQuiz(true)
   }, [quizName])
 
@@ -106,3 +98,5 @@ export const AttachmentQuiz = ({
     )
   }
 }
+
+export type TQuizTrafficSources = 'organic' | 'paidGoogle' | 'paidMeta' | 'paidYouTube'

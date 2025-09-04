@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react'
 // components
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
-import { IResultProps, IUserInfo } from './AttachmentQuiz'
+import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { AttachmentQuizForm } from './AttachmentQuizForm'
 // config
 import {
@@ -21,16 +21,15 @@ import Mixpanel from '@/modules/Mixpanel'
 import { isMobile } from 'react-device-detect'
 import { gtag } from '../GoogleAdsTag'
 // utils
-import { TStyle, TQuizTrafficSource } from '@/utils/types'
-import TripleWhale from '@/modules/TripleWhale'
+import { TStyle } from '@/utils/types'
 
-let modifiedQuestions = [...questions] 
+let modifiedQuestions = [...questions]
 
 export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
   quizName: string
-  quiz_traffic_source: TQuizTrafficSource
-  isQuizVariant?: boolean
+  quiz_traffic_source: TQuizTrafficSources
+  // isQuizVariant?: boolean
   onQuizFinished?: () => void
 }
 
@@ -73,13 +72,6 @@ IAttachmentQuizQuestionsProps) => {
         question: currentIndex,
         total_questions: modifiedQuestions.length,
       })
-
-      TripleWhale.track.QuizProgress({
-        quiz_name: quizName,
-        progress: `${Math.round(progress)}%`,
-        question: currentIndex,
-        total_questions: modifiedQuestions.length,
-      })
     }
   }, [currentIndex, quizName])
 
@@ -87,13 +79,6 @@ IAttachmentQuizQuestionsProps) => {
     const progress = (currentIndex / modifiedQuestions.length) * 100
     if (progress < 100) {
       Mixpanel.track.QuizProgress({
-        quiz_name: quizName,
-        progress: `${Math.round(progress)}%`,
-        question: currentIndex,
-        total_questions: modifiedQuestions.length,
-      })
-
-      TripleWhale.track.QuizProgress({
         quiz_name: quizName,
         progress: `${Math.round(progress)}%`,
         question: currentIndex,
@@ -204,12 +189,6 @@ IAttachmentQuizQuestionsProps) => {
 
       const handleQuizEnd = () => {
         Mixpanel.track.QuizFinished({
-          quiz_name: quizName,
-          quiz_traffic_source,
-          progress: '100%',
-        })
-
-        TripleWhale.track.QuizFinished({
           quiz_name: quizName,
           quiz_traffic_source,
           progress: '100%',

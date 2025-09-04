@@ -22,7 +22,6 @@ import { isPhoneValid } from '@/utils/functions'
 import { PageContext } from '@/utils/contexts'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
 // styles
@@ -121,9 +120,6 @@ export const SignupForm = ({
         if (!res.success) throw res?.message || 'An unexpected error occured'
         else {
           Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
-
-          TripleWhale.track.Contact({firstName, email})
-          
           onSuccess?.()
           setSubmitted(true)
         }

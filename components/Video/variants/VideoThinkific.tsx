@@ -9,7 +9,6 @@ import { Dialog } from '@/components/Dialog/Dialog'
 import cx from 'classnames'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { PageContext } from '@/utils/contexts'
 
@@ -68,12 +67,7 @@ export const VideoThinkific = ({
     if (!watchedVideos.has(type)) {
       Mixpanel.track.VideoStarted({
         video_type: `${type} - ${page_name}`,
-        page_name,
-      })
-
-      TripleWhale.track.VideoStarted({
-        video_type: `${type} - ${page_name}`,
-        page_name,
+        page_name: page_name,
       })
     }
 

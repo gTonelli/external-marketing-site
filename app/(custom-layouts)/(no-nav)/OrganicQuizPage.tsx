@@ -15,7 +15,6 @@ import { faCheckCircle, faPenToSquare } from '@awesome.me/kit-545b942488/icons/c
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 // style
 import './style.css'
 
@@ -30,10 +29,6 @@ export default function OrganicQuizPage() {
   const onStartQuiz = useCallback(() => {
     if (!viewQuiz) {
       Mixpanel.track.QuizStarted({
-        quiz_name: 'Attachment Style Quiz',
-      })
-
-      TripleWhale.track.QuizStarted({
         quiz_name: 'Attachment Style Quiz',
       })
       setViewQuiz((prev) => !prev)

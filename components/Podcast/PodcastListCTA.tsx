@@ -1,7 +1,6 @@
 import { IDefaultProps } from '..'
 import { Button } from '../Button/Button'
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 
 interface IPodcastListCTAProps extends IDefaultProps {
   id: number
@@ -21,12 +20,6 @@ export const PodcastListCTA = ({
       video_type: `Podcast List Ep - ${id}`,
       page_name: 'Podcast Page',
     })
-
-    TripleWhale.track.VideoStarted({
-      video_type: `Podcast List Ep - ${id}`,
-      page_name: 'Podcast Page',
-    })
-
     setCurrentVideoId(id)
   }
 

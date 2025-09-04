@@ -25,7 +25,6 @@ import Confetti from 'react-confetti-boom'
 // modules
 import { Storage } from '@/modules/Storage'
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 
 interface ISpinWheelProps {
   pageVariant: TSpinWheelVariant
@@ -101,9 +100,6 @@ export const SpinningWheel = ({ pageVariant, firstName, email }: ISpinWheelProps
           if (res.status !== 200) throw res?.message || 'An unexpected error occured'
           else {
             Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
-
-            TripleWhale.track.Contact({ firstName, email })
-            
             Storage.set(`${storageVar}-${pageVariant}`, prizeNumber)
             setMustSpin(true)
           }

@@ -12,7 +12,7 @@ import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { IATWebinarPricing } from '@/components/IAT/IATWebinarPricing'
 import { IATCoachCareerBenefits } from '@/components/IAT/IATCoachCareerBenefits'
 // libraries
-import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
+import { InlineHigherLevelWidget } from '@/components/InlineHigherLevelWidget'
 // utils
 import { getOfferEndDate } from '@/utils/functions'
 // styles
@@ -113,7 +113,7 @@ export default function IATMasterclassRecordingPage() {
         </div>
 
         <div className="min-h-min">
-          <InlineCalendlyWidget />
+          <InlineHigherLevelWidget />
         </div>
       </Section>
 

@@ -7,7 +7,7 @@ import { Section } from '@/components/Section'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
-import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
+import { InlineHigherLevelWidget } from '@/components/InlineHigherLevelWidget'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { IATWebinarPricing } from '@/components/IAT/IATWebinarPricing'
@@ -225,7 +225,7 @@ export default function IATWebinarSqueezePage() {
         </div>
 
         <div className="min-h-min">
-          <InlineCalendlyWidget />
+          <InlineHigherLevelWidget />
         </div>
       </Section>
 

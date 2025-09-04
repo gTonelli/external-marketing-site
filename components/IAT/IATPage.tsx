@@ -9,7 +9,7 @@ import { IATBanner } from '@/components/IAT/IATBanner'
 import { IATPriceCardSection } from './IATPriceCardSection'
 import { KlarnaPricing } from './KlarnaPricing'
 import { IATEBookModal } from './IATEBookModal'
-import { IATCalendlyBookingButton } from './IATCalendlyBookingButton'
+import { IATHigherLevelBookingButton } from './IATHigherLevelBookingButton'
 import { IATVideo } from './IATVideo'
 import { IATTestimonialSection } from './IATTestimonialSection'
 import { IATTrustbar } from './IATTrustbar'
@@ -79,7 +79,7 @@ export const IATPage = ({
               coaching specialist!
             </p>
 
-            <IATCalendlyBookingButton label="BOOK YOUR FREE CALL NOW" />
+            <IATHigherLevelBookingButton label="BOOK YOUR FREE CALL NOW" />
 
             <h3 className="mb-4">Watch Below To Get The Breakdown Of Your New IAT™ Career</h3>
           </div>
@@ -288,7 +288,7 @@ export const IATPage = ({
             : 'Schedule a Free Call to Learn More'}
         </p>
 
-        <IATCalendlyBookingButton />
+        <IATHigherLevelBookingButton />
       </div>
 
       {/* PROGRAM ITINERARY */}

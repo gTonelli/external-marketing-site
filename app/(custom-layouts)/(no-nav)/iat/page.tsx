@@ -7,7 +7,7 @@ import { Section } from '@/components/Section'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { List } from '@/components/List'
 import { IATTestimonialSection } from '@/components/IAT/IATTestimonialSection'
-import { IATCalendlyBookingButton } from '@/components/IAT/IATCalendlyBookingButton'
+import { IATHigherLevelBookingButton } from '@/components/IAT/IATHigherLevelBookingButton'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { IATPriceCardSection } from '@/components/IAT/IATPriceCardSection'
 import { IATCertificationCoaches } from '@/components/IAT/IATCertificationCoaches'
@@ -89,7 +89,7 @@ export default function IATSalePage() {
           </div>
         </div>
 
-        <IATCalendlyBookingButton label="BOOK A DISCOVERY CALL" />
+        <IATHigherLevelBookingButton label="BOOK A DISCOVERY CALL" />
       </Section>
 
       <Section className="bg-pink-auxiliary">
@@ -122,7 +122,7 @@ export default function IATSalePage() {
               listItems={CONFIG.learn.learningOutcomes}
             />
 
-            <IATCalendlyBookingButton label="BOOK A DISCOVERY CALL" />
+            <IATHigherLevelBookingButton label="BOOK A DISCOVERY CALL" />
           </div>
         </div>
       </Section>
@@ -184,7 +184,7 @@ export default function IATSalePage() {
 
         <p className="text-2xl mt-4 mb-8 mx-6">Schedule a Free Call to Learn More</p>
 
-        <IATCalendlyBookingButton />
+        <IATHigherLevelBookingButton />
       </div>
 
       <IATProgramItinerary />

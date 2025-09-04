@@ -12,7 +12,6 @@ import { FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 import { gtag } from '../GoogleAdsTag'
 
 const quizValidationScehma = Yup.object()
@@ -42,9 +41,6 @@ export const Quiz = ({
 
   const onStartQuiz = () => {
     Mixpanel.track.QuizStarted({ quiz_name: quizName })
-    
-    TripleWhale.track.QuizStarted({ quiz_name: quizName })
-
     setQuizState('quiz')
   }
 

@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconProp, SizeProp } from '@fortawesome/fontawesome-svg-core'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { PageContext } from '@/utils/contexts'
 
@@ -68,13 +67,6 @@ export const LinkDefault = ({
         page_name,
         ...mpProps,
       })
-
-      TripleWhale.track.ButtonClicked({
-        button_label: event.currentTarget.innerText,
-        page_name,
-        ...mpProps,
-      })
-
       onClick?.(event)
     },
     [onClick]
@@ -141,13 +133,6 @@ export const LinkWrapper = ({
         page_name,
         ...mpProps,
       })
-
-      TripleWhale.track.ButtonClicked({
-        button_label: event.currentTarget.innerText,
-        page_name,
-        ...mpProps,
-      })
-
       onClick?.(event)
     },
     [onClick]

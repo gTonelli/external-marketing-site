@@ -16,7 +16,6 @@ import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
@@ -452,13 +451,6 @@ const Button = ({ className, label }: IButtonProps) => {
 
   const onGoToAmazon = () => {
     Mixpanel.track.ButtonClicked({
-      button_label: label,
-      page_name,
-      redirection: externalRoutes.amazonLearningLoveBookPurchase,
-      seq_no: instanceNumber,
-    })
-
-    TripleWhale.track.ButtonClicked({
       button_label: label,
       page_name,
       redirection: externalRoutes.amazonLearningLoveBookPurchase,

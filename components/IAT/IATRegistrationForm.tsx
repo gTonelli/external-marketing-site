@@ -12,7 +12,6 @@ import { FormikHelpers, Formik, Form } from 'formik'
 import * as Yup from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 
 const RegistrationFormValidationSchema = Yup.object()
   .shape({
@@ -55,8 +54,6 @@ export const IATRegistrationForm = () => {
 
         Mixpanel.setUser(values.email)
         Mixpanel.track.SignUp({ distinct_id: values.email })
-
-        TripleWhale.track.Contact({firstName: values.firstName, email: values.email})
       })
       .catch((err: any) => {
         formikHelpers.setSubmitting(false)

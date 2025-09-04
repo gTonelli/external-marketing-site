@@ -6,7 +6,6 @@ import { useContext } from 'react'
 import { IVideoDefaultProps, VideoDefault } from './VideoDefault'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { PageContext } from '@/utils/contexts'
 import { TVariantVideoData } from '@/utils/types'
@@ -38,11 +37,6 @@ export const VideoThumbnail = ({
   const _onClick = () => {
     defaultProps.onClick?.()
     Mixpanel.track.VideoStarted({
-      video_type: `${type} - ${page_name}`,
-      page_name: page_name,
-    })
-
-    TripleWhale.track.VideoStarted({
       video_type: `${type} - ${page_name}`,
       page_name: page_name,
     })

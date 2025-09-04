@@ -5,18 +5,12 @@ import { Button } from '../Button/Button'
 import { IResultProps } from './AttachmentQuiz'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
 export const AttachmentQuizResults = ({ ap, da, fa, sa }: IResultProps) => {
   const goToMembershipsPage = () => {
     Mixpanel.track.ButtonClicked({
-      page_name: 'Attachment Style Quiz',
-      redirection: 'Memberships page',
-    })
-
-    TripleWhale.track.ButtonClicked({
       page_name: 'Attachment Style Quiz',
       redirection: 'Memberships page',
     })

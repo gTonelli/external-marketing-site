@@ -7,7 +7,6 @@ import Image from 'next/image'
 import { LinkWrapper } from './Link'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 
 type Props = {
   target: '_self' | '_blank'
@@ -24,11 +23,6 @@ type Props = {
 export const SiteLinkButton = ({ icon, iconAlt, label, target, url }: Props) => {
   const onClick = useCallback(() => {
     Mixpanel.track.ButtonClicked({
-      button_label: label,
-      page_name: 'Site Links',
-    })
-
-    TripleWhale.track.ButtonClicked({
       button_label: label,
       page_name: 'Site Links',
     })

@@ -14,7 +14,6 @@ import { faChevronLeft, faTimes } from '@awesome.me/kit-545b942488/icons/classic
 import { faHeart, faHouse, faPeople } from '@awesome.me/kit-545b942488/icons/classic/light'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import TripleWhale from '@/modules/TripleWhale'
 import { CONFIG, ICalculateQuizPointsParams } from '../config'
 import Image from 'next/image'
 import { Text } from '@/components/Text/Text'
@@ -43,8 +42,6 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
   useEffect(() => {
     localStorage.removeItem('canViewResults')
     Mixpanel.track.QuizStarted({ quiz_name: 'Members Quiz', quiz_type: quiz?.type })
-    
-    TripleWhale.track.QuizStarted({ quiz_name: 'Members Quiz', quiz_type: quiz?.type })
   }, [quiz?.type])
 
   const onQuestionAnswer = useCallback(
@@ -107,13 +104,6 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
             total_questions: questions.length,
           })
 
-          TripleWhale.track.QuizProgress({
-            quiz_name: 'Members Quiz',
-            progress: ((currentIndex + 1) / questions.length) * 100 + '%',
-            question: currentIndex + 1,
-            total_questions: questions.length,
-          })
-
         setCurrentIndex(currentIndex + 1)
       }
     },
@@ -159,8 +149,6 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
     saPoints,
   }: ICalculateQuizPointsParams): string => {
     Mixpanel.track.QuizFinished({ quiz_name: 'Members Quiz', quiz_type: quiz.type })
-
-    TripleWhale.track.QuizFinished({ quiz_name: 'Members Quiz', quiz_type: quiz.type })
 
     const scores = [
       { style: 'fa', score: faPoints },

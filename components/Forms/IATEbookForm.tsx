@@ -19,7 +19,7 @@ export const IATEbookForm = ({ id, classNameFields, submitButtonLabel }: IIATEbo
 
   // ==================== State ====================
   const [isVariant, setIsVariant] = useState(false)
-  const [includePhoneField, setIncludePhoneField] = useState(false)
+  // const [includePhoneField, setIncludePhoneField] = useState(false)
 
   useEffect(() => {
     setIsVariant(
@@ -31,20 +31,20 @@ export const IATEbookForm = ({ id, classNameFields, submitButtonLabel }: IIATEbo
       })
     )
 
-    setIncludePhoneField(
-      getSplitTest({
-        key: 'IP-1462-ebook-sms',
-        experimentName: 'IP-1462-ebook-sms-test',
-        variantRatio: 0.25,
-        useCookies: false,
-      })
-    )
+    // setIncludePhoneField(
+    //   getSplitTest({
+    //     key: 'IP-1462-ebook-sms',
+    //     experimentName: 'IP-1462-ebook-sms-test',
+    //     variantRatio: 0.25,
+    //     useCookies: false,
+    //   })
+    // )
   }, [])
 
   return (
     <SignupForm
       id={id}
-      showPhoneField={includePhoneField}
+      showPhoneField={false}
       formSource="IAT Ebook"
       classNameFields={classNameFields}
       userTags={[isVariant ? 'iat-tips-ebook-v2' : 'iat-tips-ebook']}

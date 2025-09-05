@@ -288,10 +288,9 @@ IAttachmentQuizQuestionsProps) => {
                   We're personalizing the next question based on your answers. Just a moment longer!
                 </p>
               ) : ( */}
-              <p
-                className="font-bold text-lg lg:text-lg"
-                content={`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
-              />
+              <p className="font-bold text-lg lg:text-lg">
+                {`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
+              </p>
               {/* )} */}
             </>
           )}

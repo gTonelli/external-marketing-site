@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from 'react'
 // components
 import { LIMITED_OFFER } from './config'
-import { Button } from '@/components/Button/Button'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
 import { Video } from '@/components/Video/Video'
@@ -46,13 +46,6 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
     setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
   }, [page_name])
 
-  const onGoToCheckout = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, seq_no: number) => {
-      window.location.assign(externalRoutes.checkoutRegularSubscription)
-    },
-    [page_name]
-  )
-
   return (
     <Page page_name={`Limited Offer - ${style}`}>
       {/* COUNT DOWN TIMER SECTION */}
@@ -83,10 +76,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
             <Text.Paragraph className="font-bold mt-4" content={pageCopy.HERO.copy} />
 
             <div className="text-center mt-12 md:text-left">
-              <Button
+              <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SIGN UP"
-                onClick={(e) => onGoToCheckout(e, 1)}
               />
             </div>
           </div>
@@ -196,10 +188,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
             <Text.Paragraph className="text-center" content={pageCopy.CTA.copyTwo} />
           </div>
           <div className="mt-8">
-            <Button
+            <ButtonCheckout
               className="!bg-blue !text-black !border-none drop-shadow-lg"
               label="SIGN UP"
-              onClick={(e) => onGoToCheckout(e, 2)}
             />
           </div>
         </div>
@@ -441,10 +432,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                 />
 
                 <div className="mt-4 mb-8">
-                  <Button
+                  <ButtonCheckout
                     className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                     label="SIGN UP"
-                    onClick={(e) => onGoToCheckout(e, 3)}
                   />
                 </div>
               </div>
@@ -461,10 +451,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               <Text.Paragraph key={index} useMD className="mb-4 !text-lg" content={text} />
             ))}
             <div className="flex justify-center my-16 md:hidden">
-              <Button
+              <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                 label="SIGN UP"
-                onClick={(e) => onGoToCheckout(e, 4)}
               />
             </div>
           </div>
@@ -480,10 +469,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         </div>
 
         <div className="hidden mt-16 md:flex md:justify-center">
-          <Button
+          <ButtonCheckout
             className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
             label="SIGN UP"
-            onClick={(e) => onGoToCheckout(e, 5)}
           />
         </div>
       </section>
@@ -592,10 +580,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               {/* </div> */}
 
               <div className="pt-4">
-                <Button
+                <ButtonCheckout
                   className="bg-blue text-black border-none drop-shadow-lg"
                   label="SIGN UP"
-                  onClick={(e) => onGoToCheckout(e, 6)}
                 />
               </div>
             </div>
@@ -625,10 +612,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               ))}
 
               <div className="flex flex-col justify-center my-8 md:mt-16">
-                <Button
+                <ButtonCheckout
                   className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
                   label="SIGN UP"
-                  onClick={(e) => onGoToCheckout(e, 7)}
                 />
               </div>
             </div>
@@ -683,10 +669,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
           <Text.Paragraph className="max-w-3xl mb-8" content={pageCopy.REFLECT.copy2} />
 
-          <Button
+          <ButtonCheckout
             className="bg-blue text-black border-none drop-shadow-lg"
             label="SIGN UP"
-            onClick={(e) => onGoToCheckout(e, 8)}
           />
         </div>
       </section>

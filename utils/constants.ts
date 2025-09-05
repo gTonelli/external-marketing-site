@@ -111,6 +111,7 @@ type TCheckoutRoutes = {
   checkoutMarch2025PromoTrial: string
   checkoutJune2025PromoTrial: string
   checkoutJuly2025PromoTrial: string
+  checkoutSep2025PromoTrial: string
   checkoutQuarterlyPlan: string
   checkoutQuarterlyPlanGregVoisen: string
   checkoutQuarterly149: string
@@ -164,6 +165,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=1585312&promo_label=15d-intimacy`,
     checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=570395&promo_label=15d-relationships`,
     checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2241811&coupon=dreamlifediscount`,
+    checkoutSep2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=713808&promo_label=15d-breakup`,
     checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=ipg50`,
     checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=148off`,
@@ -216,6 +218,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3028888&promo_label=15d-intimacy`,
     checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3101991&promo_label=15d-relationships`,
     checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4348253&coupon=for19`,
+    checkoutSep2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3197987&promo_label=15d-breakup`,
     checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=ipg50`,
     checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=148off`,
@@ -276,7 +279,7 @@ export const externalRoutes = {
     'https://www.amazon.com/Learning-Love-Relationship-Integrated-Attachment/dp/B0CFGFV5CH/ref=mp_s_a_1_1?crid=241WSK4NOH946&keywords=thais+gibson+learning+love&qid=1697043535&sprefix=thais+gibson+learning+love%2Caps%2C74&sr=8-1',
   androidApp:
     'https://play.google.com/store/apps/details?id=com.personaldevelopment2.app&pcampaignid=web_share',
-  calendlyMelanie: 'https://calendly.com/info-pds/call-with-melanie-pds',
+  higherLevelMelanie: 'https://link.higherlevel.app/widget/booking/UL9L2ws0nW53SkgvNXyf',
   contactUs: `${thinkificUrl}/pages/contact-us`,
   corporate: 'https://www.corporate.personaldevelopmentschool.com/',
   discord: 'https://discord.com/invite/EasJ2CvUkv',

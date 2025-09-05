@@ -22,7 +22,7 @@ export const IATInfo = ({ isVariant = false }: IATInfoPageProps) => {
     <>
       <Section
         className="bg-gradient-to-b from-blue-lightest/10 via-blue-lightest to-primary-light/50 rounded-bl-[100px]"
-        classNameInner="!max-w-screen-xl !text-left pb-24 lg:pb-36 lg:grid lg:grid-cols-[588px_1fr] lg:items-center lg:gap-32">
+        classNameInner="relative !max-w-screen-xl !text-left pb-24 z-10 lg:pb-36 lg:grid lg:grid-cols-[588px_1fr] lg:items-center lg:gap-32">
         <Animation>
           {isVariant ? (
             <>

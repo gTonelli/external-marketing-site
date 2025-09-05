@@ -4,6 +4,7 @@
 import { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 import { WELLNESS_PAGE as AP } from './config'
+import Link from 'next/link'
 // components
 import { Page } from '@/components/Page'
 import { Button } from '@/components/Button/Button'
@@ -12,6 +13,7 @@ import { Video } from '@/components/Video/Video'
 import { List } from '@/components/List'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // libraries
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -28,16 +30,6 @@ import 'swiper/css/pagination'
 import './style.css'
 
 export default function WellnessPage() {
-  const page_name = 'Wellness Page FA' as Pages
-  // ==================== Hooks ====================
-  const router = useRouter()
-
-  const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>, gotoCheckout: boolean) => {
-    gotoCheckout
-      ? window.location.assign(externalRoutes.checkoutRegularSubscription)
-      : router.push(routes.exploreCoursesPage)
-  }
-
   return (
     <Page page_name="Wellness Page">
       {/**Attachment Style Section */}
@@ -105,7 +97,11 @@ export default function WellnessPage() {
         <Text.Paragraph useMD className="text-left" content={AP.DREAM_LIFE.introduction} />
 
         <div className="text-left">
-          <Button className="mt-8" label="SIGN UP TODAY" onClick={(e) => onGoToCheckout(e, true)} />
+          <ButtonCheckout
+            className="mt-8"
+            label="SIGN UP TODAY"
+            href={externalRoutes.checkoutRegularSubscription}
+          />
         </div>
       </Section>
 
@@ -129,10 +125,10 @@ export default function WellnessPage() {
               content={AP.DREAM_LIFE.successful_relationship_copy}
             />
 
-            <Button
+            <ButtonCheckout
               className="border-none mt-8"
               label="SIGN UP NOW"
-              onClick={(e) => onGoToCheckout(e, true)}
+              href={externalRoutes.checkoutRegularSubscription}
             />
           </div>
         </div>
@@ -149,10 +145,10 @@ export default function WellnessPage() {
               content={AP.DREAM_LIFE.discover_dreamlife_copy}
             />
 
-            <Button
+            <ButtonCheckout
               className="border-none bg-teal mt-8"
               label="SIGN UP"
-              onClick={(e) => onGoToCheckout(e, true)}
+              href={externalRoutes.checkoutRegularSubscription}
             />
           </div>
 
@@ -189,10 +185,10 @@ export default function WellnessPage() {
 
           <Text.Paragraph className="max-w-2xl mx-auto mt-6" content={AP.PDS.answer} />
 
-          <Button
+          <ButtonCheckout
             className="mt-6"
             label="ENROLL NOW AND SAVE"
-            onClick={(e) => onGoToCheckout(e, true)}
+            href={externalRoutes.checkoutRegularSubscription}
           />
 
           <div className="flex flex-col space-y-6 mt-6 lg:flex-row lg:space-x-16 lg:space-y-0 lg:mt-16">
@@ -211,10 +207,10 @@ export default function WellnessPage() {
                 </div>
               ))}
 
-              <Button
+              <ButtonCheckout
                 className="mt-8"
                 label="SIGN UP TODAY"
-                onClick={(e) => onGoToCheckout(e, true)}
+                href={externalRoutes.checkoutRegularSubscription}
               />
             </div>
           </div>
@@ -236,10 +232,10 @@ export default function WellnessPage() {
 
           <Text.Paragraph className="mt-6" content={AP.WELLNESS.copy} />
 
-          <Button
+          <ButtonCheckout
             className="mt-6"
             label="BEGIN YOUR JOURNEY TODAY"
-            onClick={(e) => onGoToCheckout(e, true)}
+            href={externalRoutes.checkoutRegularSubscription}
           />
 
           <Text.Heading className="mt-12" content={AP.STORIES.title} />
@@ -264,17 +260,15 @@ export default function WellnessPage() {
           </div>
 
           <div className="flex flex-col space-y-4">
-            <Button
+            <ButtonCheckout
               className="border-primary"
               label="JOIN TODAY"
-              onClick={(e) => onGoToCheckout(e, true)}
+              href={externalRoutes.checkoutRegularSubscription}
             />
 
-            <Button
-              className="bg-transparent !border-[3px] !border-white"
-              label="EXPLORE"
-              onClick={(e) => onGoToCheckout(e, false)}
-            />
+            <Link href={routes.exploreCoursesPage}>
+              <Button className="bg-transparent !border-[3px] !border-white" label="EXPLORE" />
+            </Link>
           </div>
         </div>
       </Section>

@@ -1,5 +1,6 @@
 // core
 import Image from 'next/image'
+import { Metadata } from 'next'
 // components
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
@@ -17,6 +18,13 @@ import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { getOfferEndDate } from '@/utils/functions'
 // style
 import './style.css'
+
+export const metadata: Metadata = {
+  title: 'Free IAT™ Masterclass with Thais Gibson',
+  description:
+    'Limited spots available! Save your spot in this exclusive free IAT™ Masterclass hosted by Thais Gibson. Learn what it’s like to be a Certified IAT™ Coach.',
+  robots: 'noindex',
+}
 
 export default function IATWebinarPage() {
   return (

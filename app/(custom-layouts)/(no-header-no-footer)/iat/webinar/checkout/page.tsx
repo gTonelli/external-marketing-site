@@ -7,7 +7,7 @@ import { Section } from '@/components/Section'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
-import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
+import { InlineHigherLevelWidget } from '@/components/InlineHigherLevelWidget'
 import { List } from '@/components/List'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { IATWebinarPricing } from '@/components/IAT/IATWebinarPricing'
@@ -35,9 +35,9 @@ import { getOfferEndDate } from '@/utils/functions'
 import './style.css'
 
 export const metadata: Metadata = {
-  title: 'Claim Your $300 IAT Masterclass Discount!',
+  title: 'Claim Your IAT™ Masterclass Discount!',
   description:
-    'Save $300 on the IAT Program by claiming your IAT Masterclass Discount within the next 72 hours! Hurry, time is running out for this exclusive one-time offer!',
+    'The clock is ticking! Don’t miss your chance to claim your exclusive IAT™ Masterclass discount! Join the Live IAT™ Program with Thais Gibson today and save!',
   robots: 'noindex',
 }
 
@@ -225,7 +225,7 @@ export default function IATWebinarSqueezePage() {
         </div>
 
         <div className="min-h-min">
-          <InlineCalendlyWidget />
+          <InlineHigherLevelWidget />
         </div>
       </Section>
 

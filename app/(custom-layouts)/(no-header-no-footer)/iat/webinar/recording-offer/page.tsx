@@ -12,7 +12,7 @@ import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { IATWebinarPricing } from '@/components/IAT/IATWebinarPricing'
 import { IATCoachCareerBenefits } from '@/components/IAT/IATCoachCareerBenefits'
 // libraries
-import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
+import { InlineHigherLevelWidget } from '@/components/InlineHigherLevelWidget'
 // utils
 import { getOfferEndDate } from '@/utils/functions'
 // styles
@@ -21,7 +21,7 @@ import './style.css'
 export const metadata: Metadata = {
   title: 'Watch This Life-Altering IAT™ Masterclass Video!',
   description:
-    'Watch this High Impact Relationship Coach Masterclass to sign up for the revolutionary IAT™ Program that will transform your life, career, and finances!',
+    'Missed the IAT™ Masterclass? Don’t stress – you can watch Thais Gibson in the latest webinar explain what it’s like to be a high-impact relationship coach!',
   robots: 'noindex',
 }
 
@@ -113,7 +113,7 @@ export default function IATMasterclassRecordingPage() {
         </div>
 
         <div className="min-h-min">
-          <InlineCalendlyWidget />
+          <InlineHigherLevelWidget />
         </div>
       </Section>
 

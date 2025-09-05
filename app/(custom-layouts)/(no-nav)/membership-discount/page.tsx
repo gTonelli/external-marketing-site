@@ -1,30 +1,21 @@
 'use client'
 
-// core
-import { useCallback } from 'react'
 // components
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { Text } from '@/components/Text/Text'
 import { Image } from '@/components/Image'
-import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
 import { FLASH_SALE_PAGE } from './config'
 import { Page } from '@/components/Page'
 // libraries
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { Pages } from '@/modules/Mixpanel'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
 export default function FlashSalePage() {
   const page_name = `Flash Sale` as Pages
-  // ================= Events =======================
-  const onGoToCheckout = useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      window.location.assign(externalRoutes.singleStepCheckoutRegularSubscription59Dollar)
-    },
-    [page_name]
-  )
 
   return (
     <Page className="w-full" page_name={page_name}>
@@ -35,10 +26,10 @@ export default function FlashSalePage() {
 
           <Image className="w-full mt-4 mb-8 sm:w-[60%]" src="thais-gibson-signature.svg" />
 
-          <Button
+          <ButtonCheckout
             className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white mb-2"
             label="UNLOCK MY POTENTIAL NOW AT 40% OFF"
-            onClick={onGoToCheckout}
+            href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
           />
 
           <small className="text-center">
@@ -103,10 +94,10 @@ export default function FlashSalePage() {
             content="By signing up today, you'll lock in the rate at 40% off for the first month! This offer is only valid for a few days for our anniversary celebration."
           />
 
-          <Button
+          <ButtonCheckout
             className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg my-8 hover:!text-white"
             label="I'M READY TO LEVEL UP MY LIFE"
-            onClick={onGoToCheckout}
+            href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
           />
         </div>
       </section>
@@ -122,10 +113,10 @@ export default function FlashSalePage() {
             <Text key={idx} useMD className="mb-4 leading-7" content={item} />
           ))}
 
-          <Button
+          <ButtonCheckout
             className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg my-8 hover:!text-white"
             label="I'M READY FOR BETTER RELATIONSHIPS NOW"
-            onClick={onGoToCheckout}
+            href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
           />
         </div>
 
@@ -197,10 +188,10 @@ export default function FlashSalePage() {
               content={`And step into the version of you with a love life based on mutual respect, deep intimacy, and fulfillment.\n\nIt is 100% possible.\n\nUnlock your 40% off today!`}
             />
 
-            <Button
+            <ButtonCheckout
               className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
               label="I'M READY FOR LOVE"
-              onClick={onGoToCheckout}
+              href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
             />
           </div>
         </div>
@@ -212,10 +203,10 @@ export default function FlashSalePage() {
 
         <Text.Heading className="text-center my-8" content="Join The Personal Development School" />
 
-        <Button
+        <ButtonCheckout
           className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
           label="I CLAIM MY 40% OFF!"
-          onClick={onGoToCheckout}
+          href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
         />
       </section>
     </Page>

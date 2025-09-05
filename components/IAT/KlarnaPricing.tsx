@@ -23,6 +23,7 @@ import cx from 'classnames'
 // utils
 import { externalRoutes } from '@/utils/constants'
 import { getUserCountry } from '@/utils/functions'
+import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 
 export const KlarnaPricing = () => {
   const [countryCode, setCountryCode] = useState<string | undefined>()
@@ -208,14 +209,11 @@ const LivePriceCard = () => {
         />
 
         {!showOverview && (
-          <Link
-            className="hover:no-underline lg:w-auto lg:flex-grow lg:flex"
-            href={`${externalRoutes.checkoutIATLiveUpfront}&klarna=true&pm=${selectedPaymentMethod}`}>
-            <Button
-              className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
-              label="CHECKOUT"
-            />
-          </Link>
+          <ButtonCheckout
+            className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
+            label="CHECKOUT"
+            href={`${externalRoutes.checkoutIATLiveUpfront}&klarna=true&pm=${selectedPaymentMethod}`}
+          />
         )}
       </div>
 
@@ -367,14 +365,11 @@ const OnDemandPriceCard = () => {
         />
 
         {!showOverview && (
-          <Link
-            className="hover:no-underline lg:w-auto lg:flex-grow lg:flex"
-            href={`${externalRoutes.checkoutIATRecordedUpfront}&klarna=true&pm=${selectedPaymentMethod}`}>
-            <Button
-              className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
-              label="CHECKOUT"
-            />
-          </Link>
+          <ButtonCheckout
+            className='className="w-max mx-auto bg-gradient-to-t from-purple-dark to-purple-medium via-purple-dark lg:w-auto lg:flex-grow'
+            label="CHECKOUT"
+            href={`${externalRoutes.checkoutIATRecordedUpfront}&klarna=true&pm=${selectedPaymentMethod}`}
+          />
         )}
       </div>
 

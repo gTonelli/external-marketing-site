@@ -6,7 +6,8 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { FaqDefault } from '@/components/Faq/variants/FaqDefault'
-import { InlineCalendlyWidget } from '@/components/InlineCalendlyWidget'
+import { IATHigherLevelBookingButton } from '@/components/IAT/IATHigherLevelBookingButton'
+import { InlineHigherLevelWidget } from '@/components/InlineHigherLevelWidget'
 import { IATPriceCardSection } from '@/components/IAT/IATPriceCardSection'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { TrustbarSlider } from '@/components/Trustbar/variants/TrustbarSlider'
@@ -20,6 +21,7 @@ import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import './style.css'
 // utils
 import { getOfferEndDate } from '@/utils/functions'
+import { externalRoutes } from '@/utils/constants'
 
 export const dynamicParams = false
 
@@ -65,13 +67,7 @@ export default function AbandonCartPage({ params }: TAbcartParams) {
             date={getOfferEndDate(new Date('2025-04-18T23:59:59-04:00'), 1)}
           />
 
-          <Link
-            href="https://calendly.com/info-pds/call-with-melanie-pds"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-block w-full max-w-[320px] bg-primary text-white hover:text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:brightness-110 hover:shadow-md">
-            BOOK A DISCOVERY CALL NOW
-          </Link>
+          <IATHigherLevelBookingButton className="mt-8" label="BOOK A DISCOVERY CALL NOW" />
         </div>
       </Section>
 
@@ -101,7 +97,7 @@ export default function AbandonCartPage({ params }: TAbcartParams) {
         <IATPriceCardSection />
       </Section>
 
-      <Section className="bg-black text-white" id="calendly">
+      <Section className="bg-black text-white" id="higherLevel">
         <div className="grid gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
           <div className="pl-2 md:pl-6 lg:pl-10">
             <h2 className="text-3xl md:text-4xl font-bold leading-snug text-left">
@@ -113,8 +109,8 @@ export default function AbandonCartPage({ params }: TAbcartParams) {
             </h2>
 
             <div className="space-y-4 text-sm md:text-base text-left">
-              {shared.calendlySteps.map((step, idx) => (
-                <div key={`shared_calendly_step_${idx}`} className="flex items-start space-x-4">
+              {shared.higherLevelSteps.map((step, idx) => (
+                <div key={`shared_higherlevel_step_${idx}`} className="flex items-start space-x-4">
                   <div className="min-w-[32px] h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-bold">
                     {idx + 1}
                   </div>
@@ -125,7 +121,7 @@ export default function AbandonCartPage({ params }: TAbcartParams) {
             </div>
           </div>
 
-          <InlineCalendlyWidget />
+          <InlineHigherLevelWidget />
         </div>
       </Section>
 
@@ -161,13 +157,7 @@ export default function AbandonCartPage({ params }: TAbcartParams) {
             It's time to unlock your coaching potential with this revolutionary program.
           </p>
 
-          <Link
-            href="https://calendly.com/info-pds/call-with-melanie-pds"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-primary text-white hover:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:brightness-110 hover:shadow-md">
-            BOOK YOUR DISCOVERY CALL
-          </Link>
+          <IATHigherLevelBookingButton label="BOOK A DISCOVERY CALL NOW" />
         </div>
       </Section>
 

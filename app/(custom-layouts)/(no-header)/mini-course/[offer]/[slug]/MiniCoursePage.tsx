@@ -5,7 +5,9 @@ import { Section } from '@/components/Section'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { List } from '@/components/List'
-import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faCheckCircle, faInfoCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
 import { MINI_COURSE_CONFIG, TMiniCoursePageOffer, TMiniCoursePageSlugs } from './config'
 // utils
@@ -57,7 +59,9 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
             }
             srcUrl={offer === 'with-offer' ? config.banner.videoSrc : config.banner.videoVariantSrc}
           />
+        </div>
 
+        <div className="text-left">
           {config.banner.copy2.map((lineItem, idx) => (
             <p key={`course_banner_copy2_${idx}`} className="mb-4">
               {lineItem}
@@ -66,7 +70,7 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
         </div>
       </Section>
 
-      <Section classNameInner="!max-w-5xl bg-gradient-to-b from-blue-lightest-50 from-25% to-primary-light to-100% rounded-xl p-6 mx-auto">
+      <Section classNameInner="!max-w-6xl bg-gradient-to-b from-blue-lightest-50 from-25% to-primary-light-25 to-100% rounded-xl p-6 mx-auto">
         <h2 className="mb-4">{config.offer.h2}</h2>
 
         {config.offer.copy.map((lineItem, idx) => (
@@ -75,7 +79,7 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
           </p>
         ))}
 
-        <div className="grid gap-4 mb-8 lg:grid-cols-2">
+        <div className="grid gap-4 my-8 lg:grid-cols-2">
           <div>Image</div>
 
           <div className="text-left">
@@ -95,6 +99,18 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
         </div>
 
         <ButtonCheckout href={checkoutUrl} label={config.offer.ctaLabel} />
+
+        <div className="text-left bg-white rounded-lg p-4 mt-8">
+          <p>
+            <span>
+              <FontAwesomeIcon className="!text-primary mr-2" icon={faInfoCircle} />
+            </span>
+
+            <span>
+              <em>{common.disclaimer}</em>
+            </span>
+          </p>
+        </div>
       </Section>
     </>
   )

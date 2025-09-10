@@ -460,8 +460,9 @@ export const MINI_COURSE_PAGES_SEO = {
       'The secret to your past wounds is what is sabotaging your future love. Learn to identify them with The Personal Development School.',
   },
   'craving-relationships': {
-    seoTitle: '',
-    seoDescription: '',
+    seoTitle: 'What Are You Craving in Your Relationships?',
+    seoDescription:
+      'You can’t create lasting love when you don’t know what you actually need. Learn more here with The Personal Development School.',
   },
   'nervous-system': {
     seoTitle: 'What is Your Nervous System Telling You? ',

@@ -21,7 +21,11 @@ interface IMiniCoursePageProps {
 export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
   const common = MINI_COURSE_CONFIG['common']
   const config = MINI_COURSE_CONFIG['versions'][slug]
-  const checkoutUrl = externalRoutes.checkout7DayTrial.concat('mec')
+  const checkoutUrl = externalRoutes.checkout7DayTrial.concat(
+    '-mec',
+    offer === 'with-offer' ? '-o' : '-wo',
+    `-${slug}`
+  )
 
   return (
     <>

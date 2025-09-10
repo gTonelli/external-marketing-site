@@ -12,7 +12,13 @@ import { gtag } from '../GoogleAdsTag'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const IATWebinarForm = () => {
+interface IIATWebinarFormProps {
+  submitButtonLabel?: string
+}
+
+export const IATWebinarForm = ({
+  submitButtonLabel = 'BOOK YOUR FREE MASTERCLASS',
+}: IIATWebinarFormProps) => {
   const router = useRouter()
   return (
     <SignupForm
@@ -22,7 +28,7 @@ export const IATWebinarForm = () => {
       classNameSuccessMessage="w-fit bg-white rounded-lg p-2"
       formSource="IAT Webinar"
       successMessage="Thanks for joining the masterclass!"
-      submitButtonLabel="BOOK YOUR FREE MASTERCLASS"
+      submitButtonLabel={submitButtonLabel}
       onSuccess={() => router.push('/iat/post-registration-masterclass?signup=success')}
     />
   )

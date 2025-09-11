@@ -183,10 +183,10 @@ export default function DreamLifeBreakupCoursePage() {
 
         <p>
           <em>
-            *When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the
-            trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you
-            don’t stay with us after 7 days, you still get to keep and access the $250-valued Heal
-            From a Breakup course for life.
+            *With your 7 day free trial, you’ll get to keep the How to Heal from A Break Up Course
+            for free (and keep it for life, even after your trial ends!) After 7 days, you’ll become
+            a member of PDS and get access to every course and every live event for $67/month. You
+            won’t be charged before day 7 and can cancel anytime prior with no charge.
           </em>
         </p>
       </Section>

@@ -150,8 +150,20 @@ const thinkificUrl =
 const checkoutUrl =
   process.env.NEXT_PUBLIC_CHECKOUT_URL || 'https://checkout.personaldevelopmentschool.com'
 
+const sharedCheckoutRoutes = {
+  // All-Access Pass Subscription
+  checkout7DayTrial: `${thinkificUrl}/pages/checkout?price_id=1&promo_label=15d-7dft`,
+  checkout14DayTrial: `${thinkificUrl}/pages/checkout?price_id=2&promo_label=15d-14dft`,
+  checkoutJan2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=1&bci=1337082&promo_label=15d-needs`,
+  checkoutMarch2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=1&bci=3028888&promo_label=15d-intimacy`,
+  checkoutJune2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=1&bci=3101991&promo_label=15d-relationships`,
+  checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4348253&coupon=for19`,
+  checkoutSep2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4&bci=713808&promo_label=15d-breakup`,
+}
+
 const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
   production: {
+    ...sharedCheckoutRoutes,
     // Single-Step Checkout
     singleStepCheckout39FirstMonth: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=28off1mo`,
     singleStepCheckoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=1285773`,
@@ -159,13 +171,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=Jwdjxr23`,
     // All-Access Pass Subscription
     checkoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=1285773`,
-    checkout7DayTrial: `${thinkificUrl}/pages/checkout?price_id=590989&promo_label=15d-7dft`,
-    checkout14DayTrial: `${thinkificUrl}/pages/checkout?price_id=2357208&promo_label=15d-14dft`,
-    checkoutJan2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=590989&bci=530903&promo_label=15d-needs`,
-    checkoutMarch2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=590989&bci=1585312&promo_label=15d-intimacy`,
-    checkoutJune2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=590989&bci=570395&promo_label=15d-relationships`,
     checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2241811&coupon=dreamlifediscount`,
-    checkoutSep2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4&bci=713808&promo_label=15d-breakup`,
     checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=ipg50`,
     checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=616936&coupon=148off`,
@@ -205,6 +211,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
   },
 
   staging: {
+    ...sharedCheckoutRoutes,
     // Single-Step Checkout
     singleStepCheckout39FirstMonth: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=28off1mo`,
     singleStepCheckoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=2638738`,
@@ -212,13 +219,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=Jwdjxr23`,
     // All-Access Pass Subscription
     checkoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=2638738`,
-    checkout7DayTrial: `${thinkificUrl}/pages/checkout?price_id=2638713&promo_label=15d-7dft`,
-    checkout14DayTrial: `${thinkificUrl}/pages/checkout?price_id=2663013&promo_label=15d-14dft`,
-    checkoutJan2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2638713&bci=1337082&promo_label=15d-needs`,
-    checkoutMarch2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2638713&bci=3028888&promo_label=15d-intimacy`,
-    checkoutJune2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=2638713&bci=3101991&promo_label=15d-relationships`,
     checkoutJuly2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4348253&coupon=for19`,
-    checkoutSep2025PromoTrial: `${thinkificUrl}/pages/checkout?price_id=4&bci=3197987&promo_label=15d-breakup`,
     checkoutQuarterlyPlan: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=ipg50`,
     checkoutQuarterly149: `${thinkificUrl}/pages/checkout?price_id=2661437&coupon=148off`,

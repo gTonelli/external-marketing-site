@@ -44,7 +44,7 @@ export default function DreamLifeBreakupCoursePage() {
 
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          From Relationship Endings to Breakthroughs: Unlock Personal Growth & New Love!
+          Turn Past Pain Into Breakthroughs: Unlock Personal Growth & New Love!
         </h1>
 
         <div className="relative mt-8 lg:mt-12">

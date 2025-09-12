@@ -194,12 +194,13 @@ const allConfigs = {
     title: 'Get the Heal From a Breakup Course Free Forever & Start Healing Now',
     copy: (
       <>
-        When you start your <strong>7-Day Free Trial of the All-Access Pass Membership</strong>,
-        you’ll get the{' '}
+        When you start your 7-Day Free Trial of the All-Access Pass Membership, you’ll get the{' '}
         <strong>Heal From a Breakup course (valued at $250) completely FREE for LIFE</strong>. This
-        course will help you move on from any past relationship trauma, transforming your pain into
-        personal growth, improving your relationship with yourself and your loved ones, and building
-        new, strong relationships in just one week!
+        course will help you get answers on why any relationship (romantic, friendship, or family)
+        broke down, understand what is driving your pain, and discover how to rebuild yourself from
+        a place of calmness and self-love. In just one week, you’ll begin transforming that pain
+        into growth, strengthening your relationship with yourself, and creating space for healthier
+        connections.
       </>
     ),
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',

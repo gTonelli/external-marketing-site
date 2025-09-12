@@ -23,7 +23,7 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
   const config = MINI_COURSE_CONFIG['versions'][slug]
   const checkoutUrl = externalRoutes.checkout7DayTrial.concat(
     '-mec',
-    offer === 'with-offer' ? '-o' : '-wo',
+    offer === 'offer' ? '-o' : '-wo',
     `-${slug}`
   )
 
@@ -52,16 +52,14 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
             playInline
             className="!w-full"
             thumbnailUrl={
-              offer === 'with-offer'
-                ? config.banner.videoThumbnail
-                : config.banner.videoVariantThumbnail
+              offer === 'offer' ? config.banner.videoThumbnail : config.banner.videoVariantThumbnail
             }
             thumbnailAlt={
-              offer === 'with-offer'
+              offer === 'offer'
                 ? config.banner.videoThumbnailAlt
                 : config.banner.videoVariantThumbnailAlt
             }
-            srcUrl={offer === 'with-offer' ? config.banner.videoSrc : config.banner.videoVariantSrc}
+            srcUrl={offer === 'offer' ? config.banner.videoSrc : config.banner.videoVariantSrc}
           />
         </div>
 

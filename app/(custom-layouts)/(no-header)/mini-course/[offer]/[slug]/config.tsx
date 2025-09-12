@@ -481,5 +481,5 @@ export const MINI_COURSE_PAGES_SEO = {
   },
 }
 
-export type TMiniCoursePageOffer = 'with-offer' | 'without-offer'
+export type TMiniCoursePageOffer = 'offer' | 'intro'
 export type TMiniCoursePageSlugs = keyof (typeof MINI_COURSE_CONFIG)['versions']

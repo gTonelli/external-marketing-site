@@ -24,20 +24,20 @@ export function generateStaticParams(): {
   slug: TMiniCoursePageSlugs
 }[] {
   return [
-    { offer: 'with-offer', slug: 'hard-relationships' },
-    { offer: 'with-offer', slug: 'patterns' },
-    { offer: 'with-offer', slug: 'past-wounds' },
-    { offer: 'with-offer', slug: 'craving-relationships' },
-    { offer: 'with-offer', slug: 'nervous-system' },
-    { offer: 'with-offer', slug: 'setting-boundaries' },
-    { offer: 'with-offer', slug: 'self-sabotaging' },
-    { offer: 'without-offer', slug: 'hard-relationships' },
-    { offer: 'without-offer', slug: 'patterns' },
-    { offer: 'without-offer', slug: 'past-wounds' },
-    { offer: 'without-offer', slug: 'craving-relationships' },
-    { offer: 'without-offer', slug: 'nervous-system' },
-    { offer: 'without-offer', slug: 'setting-boundaries' },
-    { offer: 'without-offer', slug: 'self-sabotaging' },
+    { offer: 'offer', slug: 'hard-relationships' },
+    { offer: 'offer', slug: 'patterns' },
+    { offer: 'offer', slug: 'past-wounds' },
+    { offer: 'offer', slug: 'craving-relationships' },
+    { offer: 'offer', slug: 'nervous-system' },
+    { offer: 'offer', slug: 'setting-boundaries' },
+    { offer: 'offer', slug: 'self-sabotaging' },
+    { offer: 'intro', slug: 'hard-relationships' },
+    { offer: 'intro', slug: 'patterns' },
+    { offer: 'intro', slug: 'past-wounds' },
+    { offer: 'intro', slug: 'craving-relationships' },
+    { offer: 'intro', slug: 'nervous-system' },
+    { offer: 'intro', slug: 'setting-boundaries' },
+    { offer: 'intro', slug: 'self-sabotaging' },
   ]
 }
 

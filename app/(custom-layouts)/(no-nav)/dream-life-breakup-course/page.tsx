@@ -44,7 +44,7 @@ export default function DreamLifeBreakupCoursePage() {
 
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
         <h1 className="max-w-xl leading-[50px] mx-auto mb-4">
-          Turn Breakups into Breakthroughs to Experience Personal Growth & New Love!
+          From Relationship Endings to Breakthroughs: Unlock Personal Growth & New Love!
         </h1>
 
         <div className="relative mt-8 lg:mt-12">
@@ -87,29 +87,30 @@ export default function DreamLifeBreakupCoursePage() {
 
       <Section>
         <h2>
-          Unlock the Tools To Heal, Grow, & Move On From Your Past Relationships in Just One Week!
+          Unlock the Tools To Heal, Grow, & Move On From Your Past Romances, Friendships, or Family
+          Bonds in Just One Week!
         </h2>
 
         <div className="grid gap-8 text-left my-8 lg:grid-cols-2">
           <div>
             <p>
-              <strong>
-                Healing from your past and self-soothing your pain is the first step toward
-                welcoming secure, healthy love into your life. Whether you’re recently single or
-                still trying to heal from past relationship trauma, the Heal From a Breakup course
-                helps you:
-              </strong>
+              Healing from your past and self-soothing your pain is the first step toward welcoming
+              secure, healthy love into your life. Whether you’re recently single, going through a
+              difficult period with relationships, or dealing with the grief of any relationship
+              ending—family, friends, or romantic—the <strong>Heal From a Breakup</strong> course is
+              here to help. And because it’s yours for life, you can return to it anytime you face a
+              difficult season or a relationship struggling or ending. It helps you:
             </p>
 
             <List
               classNameIcon="text-primary"
               icon={faCheckCircle}
               listItems={[
-                'Sit with your feelings, heal through your pain, and make it to the other side, instead of just numbing yourself.',
-                'Improve your self-esteem by teaching you to release limiting beliefs and replace them with positive ones.',
+                'Look back at past relationships to understand behaviors through attachment styles.',
+                'Discover whether a relationship is truly right for you—and what to do right now.',
                 'Self-soothe with science-backed techniques that are proven to help you feel better in a healthy way.',
-                'End the cycle of falling for the same types of partners by empowering you to feel comfortable being on your own.',
-                'Acknowledge what you bring to the table so you never settle for anything less than you deserve again in future relationships.',
+                'Navigate distance (or no contact) in any relationship—romantic, friendship, or family.',
+                'Overcome challenging periods in any relationship now and in the future.',
                 'Create self-compassion and turn grief into gratitude with simple mindset shifts and new perspectives.',
                 'Strengthen your relationship with yourself so you can start your next romantic connection whole, complete, and ready for secure love.',
               ]}

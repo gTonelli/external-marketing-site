@@ -7,7 +7,7 @@ import { Section } from '@/components/Section'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { List } from '@/components/List'
 import { IATTestimonialSection } from '@/components/IAT/IATTestimonialSection'
-import { IATCalendlyBookingButton } from '@/components/IAT/IATCalendlyBookingButton'
+import { IATHigherLevelBookingButton } from '@/components/IAT/IATHigherLevelBookingButton'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { IATPriceCardSection } from '@/components/IAT/IATPriceCardSection'
 import { IATCertificationCoaches } from '@/components/IAT/IATCertificationCoaches'
@@ -24,8 +24,9 @@ import { IAT_CONFIG as CONFIG } from './config'
 import './style.css'
 
 export const metadata: Metadata = {
-  title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
-  description: 'Become an Integrated Attachment Coach through PDS',
+  title: 'Integrated Attachment Theory™ Certification Program',
+  description:
+    'Enroll in the Integrated Attachment Theory™ Certification Program and learn directly from Thais Gibson, a renowned attachment theory expert. Sign up now!',
   robots: 'all',
   metadataBase: new URL('https://attachment.personaldevelopmentschool.com/iat'),
   alternates: {
@@ -88,7 +89,7 @@ export default function IATSalePage() {
           </div>
         </div>
 
-        <IATCalendlyBookingButton label="BOOK A DISCOVERY CALL" />
+        <IATHigherLevelBookingButton label="BOOK A DISCOVERY CALL" />
       </Section>
 
       <Section className="bg-pink-auxiliary">
@@ -121,7 +122,7 @@ export default function IATSalePage() {
               listItems={CONFIG.learn.learningOutcomes}
             />
 
-            <IATCalendlyBookingButton label="BOOK A DISCOVERY CALL" />
+            <IATHigherLevelBookingButton label="BOOK A DISCOVERY CALL" />
           </div>
         </div>
       </Section>
@@ -183,7 +184,7 @@ export default function IATSalePage() {
 
         <p className="text-2xl mt-4 mb-8 mx-6">Schedule a Free Call to Learn More</p>
 
-        <IATCalendlyBookingButton />
+        <IATHigherLevelBookingButton />
       </div>
 
       <IATProgramItinerary />

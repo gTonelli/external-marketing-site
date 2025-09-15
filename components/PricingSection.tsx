@@ -2,12 +2,12 @@
 
 // core
 import { useState } from 'react'
+// components
+import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 // libraries
 import cx from 'classnames'
 // utils
 import { externalRoutes } from '@/utils/constants'
-import Link from 'next/link'
-import { Button } from './Button/Button'
 
 export const PricingSection = () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -43,9 +43,11 @@ export const PricingSection = () => {
           </p>
         </div>
 
-        <Link href={defaultData[selectedIndex].link} prefetch={false}>
-          <Button className="w-full" label="SIGN UP NOW" />
-        </Link>
+        <ButtonCheckout
+          className="w-full"
+          label="SIGN UP NOW"
+          href={defaultData[selectedIndex].link}
+        />
       </div>
     </div>
   )

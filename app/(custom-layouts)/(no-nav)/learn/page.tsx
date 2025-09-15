@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 // components
-import { Button } from '@/components/Button/Button'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { Carousel } from '@/components/Carousel/Carousel'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Tab, Tabs } from '@/components/Tabs'
@@ -21,7 +21,7 @@ import { faCircle, faStar, faChevronsRight } from '@awesome.me/kit-545b942488/ic
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
 //utils
-import { externalRoutes, EWindowWidth } from '@/utils/constants'
+import { EWindowWidth } from '@/utils/constants'
 import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
 
@@ -114,11 +114,6 @@ export default function SecondarySalesPage() {
     setSelectedTab(tab)
   }, [])
 
-  //============================ Events ========================================
-  const onGoToCheckout = (event: React.MouseEvent<Element, MouseEvent>) => {
-    window.location.assign(externalRoutes.checkoutRegularSubscription)
-  }
-
   // Dynamic title
   const title = 'Learn'
   // Dynamic course tab
@@ -151,16 +146,11 @@ export default function SecondarySalesPage() {
 
               <Text.Paragraph useMD className="mb-4" content={LEARN_PAGE.BANNER.subheading} />
 
-              <Button
-                className="bg-primary lg:hidden"
-                label="ENROLL NOW"
-                onClick={onGoToCheckout}
-              />
+              <ButtonCheckout className="bg-primary lg:hidden" label="ENROLL NOW" />
 
-              <Button
+              <ButtonCheckout
                 className="hidden bg-primary lg:block"
                 label="ENROLL NOW FOR 30% OFF"
-                onClick={onGoToCheckout}
               />
             </div>
 
@@ -243,10 +233,9 @@ export default function SecondarySalesPage() {
                           listItems={LEARN_PAGE.LEARN_FEATURES[index].bullet}
                         />
 
-                        <Button
+                        <ButtonCheckout
                           className="block bg-primary mx-auto mt-6 mb-2 lg:mt-12 lg:ml-12"
                           label="SIGN UP NOW"
-                          onClick={onGoToCheckout}
                         />
 
                         <Text.Paragraph
@@ -319,10 +308,9 @@ export default function SecondarySalesPage() {
               </div>
             </div>
             <div>
-              <Button
+              <ButtonCheckout
                 className="block bg-primary mx-auto mt-3 mb-2 lg:mt-8"
                 label="CLAIM MY OFFER NOW"
-                onClick={onGoToCheckout}
               />
 
               <div className="">
@@ -338,11 +326,7 @@ export default function SecondarySalesPage() {
           </div>
         </section>
         {/* DISCOUNT SECTION */}
-        <DiscountSection
-          offerEndDate={offerEndDate}
-          title={title}
-          onGoToCheckout={onGoToCheckout}
-        />
+        <DiscountSection offerEndDate={offerEndDate} />
         {/* TESTIMONIAL SECTION */}
         <section className="relative w-full">
           <div
@@ -386,13 +370,7 @@ export default function SecondarySalesPage() {
           </div>
         </section>
         {/* DISCOUNT SECTION */}
-        <DiscountSection
-          isBottomSection
-          isSecondCTA
-          offerEndDate={offerEndDate}
-          title={title}
-          onGoToCheckout={onGoToCheckout}
-        />
+        <DiscountSection isBottomSection isSecondCTA offerEndDate={offerEndDate} />
       </main>
     </Page>
   )
@@ -401,16 +379,12 @@ export default function SecondarySalesPage() {
 interface IDiscountSectionProps {
   isBottomSection?: boolean
   offerEndDate: Date | undefined
-  onGoToCheckout: any
-  title: string
   isSecondCTA?: boolean
 }
 
 const DiscountSection = ({
   isBottomSection = false,
   offerEndDate,
-  onGoToCheckout,
-  title,
   isSecondCTA = false,
 }: IDiscountSectionProps) => {
   return (
@@ -502,11 +476,7 @@ const DiscountSection = ({
                 </>
               )}
 
-              <Button
-                className="bg-primary mx-auto mt-4 lg:mx-0"
-                label="SIGN UP NOW"
-                onClick={onGoToCheckout}
-              />
+              <ButtonCheckout className="bg-primary mx-auto mt-4 lg:mx-0" label="SIGN UP NOW" />
               <div>
                 {isSecondCTA ? (
                   <Text.Paragraph

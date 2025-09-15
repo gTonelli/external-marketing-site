@@ -2,8 +2,9 @@ import { Metadata } from 'next'
 import { IATPage } from '@/components/IAT/IATPage'
 
 export const metadata: Metadata = {
-  title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
-  description: 'Become an Integrated Attachment Coach through PDS',
+  title: 'Become a Relationship Coach in 12 Weeks!',
+  description:
+    'Start the IAT™ Certification Program — the revolutionary relationship coaching certification — to become a successful relationship coach in 12 weeks!',
   robots: 'noindex',
 }
 

@@ -10,8 +10,9 @@ import { splitTestConfigs } from '@/middleware'
 import './style.css'
 
 export const metadata: Metadata = {
-  title: "Thais Gibson's Integrated Attachment Theory Coaching Certification",
-  description: 'Become an Integrated Attachment Coach through PDS',
+  title: 'Download Your Free IAT™ eBook',
+  description:
+    'Download your free IAT™ eBook to discover how you can build a relationship coaching practice, embrace financial freedom, and help people worldwide!',
   robots: 'noindex',
 }
 

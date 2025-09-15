@@ -2,16 +2,26 @@
 
 // components
 import { Button } from '@/components/Button/Button'
+import { IDefaultProps } from '..'
+// libraries
+import cx from 'classnames'
 // modules
 import { useGamAnalytics } from '@/modules/GAM'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
-export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
+interface IATHigherLevelBookingButtonProps extends IDefaultProps {
+  label?: string
+}
+
+export const IATHigherLevelBookingButton = ({
+  label = 'BOOK NOW',
+  className,
+}: IATHigherLevelBookingButtonProps) => {
   const { getUserData } = useGamAnalytics()
 
   const onBookNow = (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const url = new URL(externalRoutes.calendlyMelanie)
+    const url = new URL(externalRoutes.higherLevelMelanie)
 
     const { gamLastTouchData } = getUserData()
 
@@ -34,5 +44,5 @@ export const IATCalendlyBookingButton = ({ label = 'BOOK NOW' }) => {
     window.location.assign(url.toString())
   }
 
-  return <Button className="mb-8" label={label} onClick={onBookNow} />
+  return <Button className={cx('mb-8', className)} label={label} onClick={onBookNow} />
 }

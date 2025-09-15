@@ -75,7 +75,7 @@ type TConfig = {
   copy: string | JSX.Element
   ctaLabel: string
   checkoutUrl: string
-  disclaimer?: string
+  disclaimer?: string | JSX.Element
 }
 
 const baseConfig: TConfig = {
@@ -122,8 +122,17 @@ const allConfigs = {
     ),
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
     checkoutUrl: externalRoutes.checkoutJan2025PromoTrial,
-    disclaimer:
-      "*$67.00/month after your free trial. You can cancel any time before your trial ends and you won't be charged. Plus you still get to keep the Discover, Embrace & Fulfill Your Personal Needs Course for life.",
+    disclaimer: (
+      <>
+        *
+        <strong>
+          With your 7 day free trial, you’ll get to keep the Personal Needs Course for free (and
+          keep it for life, even after your trial ends!) After 7 days, you’ll become a member of PDS
+          and get access to every course and every live event for $67/month. You won’t be charged
+          before day 7 and can cancel anytime prior with no charge.
+        </strong>
+      </>
+    ),
   },
   dreamLifeSexCourse: {
     offerLabel: 'Free Course For Life + Free Trial',
@@ -140,8 +149,17 @@ const allConfigs = {
     ),
     ctaLabel: 'GET YOUR FREE COURSE & TRIAL',
     checkoutUrl: externalRoutes.checkoutMarch2025PromoTrial,
-    disclaimer:
-      "*$67.00/month after your free trial. You can cancel any time before your trial ends and you won't be charged. Plus you still get to keep the Attachment Styles & Sex Course for life.",
+    disclaimer: (
+      <>
+        *
+        <strong>
+          With your 7 day free trial, you’ll get to keep the Attachment Styles & Sex Course for free
+          (and keep it for life, even after your trial ends!) After 7 days, you’ll become a member
+          of PDS and get access to every course and every live event for $67/month. You won’t be
+          charged before day 7 and can cancel anytime prior with no charge.
+        </strong>
+      </>
+    ),
   },
   dreamLifePillarsCourse: {
     offerLabel: 'Free Trial & Exclusive Free Course!',
@@ -155,8 +173,17 @@ const allConfigs = {
     ),
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
     checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
-    disclaimer:
-      "*$67.00/month after your free trial. You can cancel any time before your trial ends and you won't be charged. Plus you still get to keep the Key Pillars for a Secure Relationship Course for life.",
+    disclaimer: (
+      <>
+        *
+        <strong>
+          With your 7 day free trial, you’ll get to keep the Key Pillars for a Secure Relationship
+          Course for free (and keep it for life, even after your trial ends!) After 7 days, you’ll
+          become a member of PDS and get access to every course and every live event for $67/month.
+          You won’t be charged before day 7 and can cancel anytime prior with no charge.
+        </strong>
+      </>
+    ),
   },
   dreamLifeSomatic: {
     offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
@@ -188,6 +215,34 @@ const allConfigs = {
     checkoutUrl: externalRoutes.checkout7DayTrial,
     disclaimer:
       '*When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the trial, you’ll automatically become a member of the $67.00/month plan.',
+  },
+  dreamLifeBreakupCourse: {
+    offerLabel: 'Free Trial & Exclusive Free Course',
+    title: 'Get the Heal From a Breakup Course Free Forever & Start Healing Now',
+    copy: (
+      <>
+        When you start your 7-Day Free Trial of the All-Access Pass Membership, you’ll get the{' '}
+        <strong>Heal From a Breakup course (valued at $250) completely FREE for LIFE</strong>. This
+        course will help you get answers on why any relationship (romantic, friendship, or family)
+        broke down, understand what is driving your pain, and discover how to rebuild yourself from
+        a place of calmness and self-love. In just one week, you’ll begin transforming that pain
+        into growth, strengthening your relationship with yourself, and creating space for healthier
+        connections.
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
+    checkoutUrl: externalRoutes.checkoutSep2025PromoTrial,
+    disclaimer: (
+      <>
+        *
+        <strong>
+          With your 7 day free trial, you’ll get to keep the How to Heal from A Break Up Course for
+          free (and keep it for life, even after your trial ends!) After 7 days, you’ll become a
+          member of PDS and get access to every course and every live event for $67/month. You won’t
+          be charged before day 7 and can cancel anytime prior with no charge.
+        </strong>
+      </>
+    ),
   },
 } satisfies Record<string, Partial<TConfig>>
 

@@ -1,3 +1,5 @@
+import { externalRoutes } from '@/utils/constants'
+
 export const AB_CART_COPY = {
   live: {
     formatLabel: 'LIVE',
@@ -36,7 +38,7 @@ export const AB_CART_COPY = {
       'Design your ideal lifestyle, working when and how you choose',
       'Become a sought-after expert in a booming $7 trillion industry',
     ],
-    calendlySteps: [
+    higherLevelSteps: [
       'Book a call with our IAT™ Coaching Specialist on a date and time that works for you.',
       'Get your questions answered, discuss your Relationship Coaching goals, and talk through the next steps.',
       'Receive your bonus gift when you join the call.',
@@ -46,8 +48,7 @@ export const AB_CART_COPY = {
         {
           question:
             'Can I join this training if I have no prior coaching experience? Is it a good fit for me and my current career goals?',
-          answer:
-            'Absolutely! This course is specifically designed for anyone new to coaching, existing coaches and therapists who would like to learn more about attachment theory, or anyone who wants to gain emotional mastery and radically improve their relationships. If you want more information, [set up a call with our coaching specialist](https://calendly.com/info-pds/call-with-melanie-pds).',
+          answer: `Absolutely! This course is specifically designed for anyone new to coaching, existing coaches and therapists who would like to learn more about attachment theory, or anyone who wants to gain emotional mastery and radically improve their relationships. If you want more information, [set up a call with our coaching specialist](${externalRoutes.higherLevelMelanie}).`,
         },
         {
           question:

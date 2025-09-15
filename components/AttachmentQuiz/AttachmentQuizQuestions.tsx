@@ -5,7 +5,6 @@ import { useCallback, useEffect, useState } from 'react'
 // components
 import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
-import { Text } from '../Text/Text'
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { AttachmentQuizForm } from './AttachmentQuizForm'
 // config
@@ -30,7 +29,7 @@ export interface IAttachmentQuizQuestionsProps extends IDefaultProps {
   newQuiz?: boolean
   quizName: string
   quiz_traffic_source: TQuizTrafficSources
-  isQuizVariant?: boolean
+  // isQuizVariant?: boolean
   onQuizFinished?: () => void
 }
 
@@ -39,8 +38,8 @@ export const AttachmentQuizQuestions = ({
   newQuiz,
   quizName,
   quiz_traffic_source,
-  isQuizVariant,
-}: IAttachmentQuizQuestionsProps) => {
+}: // isQuizVariant,
+IAttachmentQuizQuestionsProps) => {
   // ======================== State ====================
   const [currentIndex, setCurrentIndex] = useState(0)
   const [apPoints, setApPoints] = useState(0)
@@ -99,21 +98,26 @@ export const AttachmentQuizQuestions = ({
     }
   }, [showStat])
 
-  useEffect(() => {
-    if (isQuizVariant) {
-      // select 4 random items from stats list
-      setStats(
-        statsList
-          .slice()
-          .sort(() => Math.random() - 0.5)
-          .slice(0, 4)
-      )
-      const genRandom = (min: number, max: number) =>
-        Math.floor(Math.random() * (max - min + 1)) + min
-      const positions = [genRandom(7, 10), genRandom(17, 20), genRandom(27, 30)]
-      setStatsPostion(positions)
-    }
-  }, [isQuizVariant])
+  useEffect(
+    () => {
+      // if (isQuizVariant) {
+      //   // select 4 random items from stats list
+      //   setStats(
+      //     statsList
+      //       .slice()
+      //       .sort(() => Math.random() - 0.5)
+      //       .slice(0, 4)
+      //   )
+      //   const genRandom = (min: number, max: number) =>
+      //     Math.floor(Math.random() * (max - min + 1)) + min
+      //   const positions = [genRandom(7, 10), genRandom(17, 20), genRandom(27, 30)]
+      //   setStatsPostion(positions)
+      // }
+    },
+    [
+      /*isQuizVariant*/
+    ]
+  )
 
   useEffect(() => {
     if (isMobile) {
@@ -229,7 +233,7 @@ export const AttachmentQuizQuestions = ({
       saPoints,
       currentIndex,
       quizName,
-      isQuizVariant,
+      //isQuizVariant,
       quiz_traffic_source,
       modifiedQuestions,
     ]
@@ -269,61 +273,58 @@ export const AttachmentQuizQuestions = ({
 
           {newQuiz ? (
             <div>
-              <Text
-                className="font-sspb text-3xl text-center mb-4 lg:text-3xl"
-                content={`Question ${currentIndex + 1}`}
-              />
+              <p className="font-sspb text-3xl text-center mb-4 lg:text-3xl">{`Question ${
+                currentIndex + 1
+              }`}</p>
 
-              <Text
-                className="text-lg text-center lg:w-3/4 lg:mx-auto"
-                content={modifiedQuestions[currentIndex].question}
-              />
+              <p className="text-lg text-center lg:w-3/4 lg:mx-auto">
+                {modifiedQuestions[currentIndex].question}
+              </p>
             </div>
           ) : (
             <>
-              {isQuizVariant && statsPosition[currentStatIndex] === currentIndex ? (
+              {/* {isQuizVariant && statsPosition[currentStatIndex] === currentIndex ? (
                 <p>
                   We're personalizing the next question based on your answers. Just a moment longer!
                 </p>
-              ) : (
-                <Text
-                  className="font-bold text-lg lg:text-lg"
-                  content={`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
-                />
-              )}
+              ) : ( */}
+              <p className="font-bold text-lg lg:text-lg">
+                {`${currentIndex + 1}) ${modifiedQuestions[currentIndex].question}`}
+              </p>
+              {/* )} */}
             </>
           )}
 
           <div className={`flex flex-col flex-center space-y-4 mt-6 mx-auto lg:w-3/4`}>
-            {isQuizVariant && currentIndex === statsPosition[currentStatIndex] ? (
+            {/* {isQuizVariant && currentIndex === statsPosition[currentStatIndex] ? (
               <div className="text-center bg-white-secondary p-6">
                 <strong>{stats[currentStatIndex]}</strong>
               </div>
-            ) : (
-              options!.map((obj, index) =>
-                newQuiz ? (
-                  <button
-                    key={`option_${index}`}
-                    className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 py-4 sm:!w-full 
+            ) : ( */}
+            {options!.map((obj, index) =>
+              newQuiz ? (
+                <button
+                  key={`option_${index}`}
+                  className="w-full rounded-full bg-gradient-to-r from-primary-old to-primary-light border-2 border-primary !min-w-min uppercase text-black tracking-10 p-4 sm:!w-full 
                     lg:hover:bg-opacity-50 lg:hover:text-white lg:hover:shadow-md"
-                    onClick={onQuestionAnswer(obj)}>
-                    {obj}
-                  </button>
-                ) : (
-                  <button
-                    key={`option_${index}`}
-                    className="w-3/4 rounded bg-primary-old border-2 border-primary text-white py-3 lg:w-full lg:py-4 lg:hover:bg-opacity-50 lg:hover:shadow-md"
-                    onClick={onQuestionAnswer(obj)}>
-                    {obj}
-                  </button>
-                )
+                  onClick={onQuestionAnswer(obj)}>
+                  {obj}
+                </button>
+              ) : (
+                <button
+                  key={`option_${index}`}
+                  className="w-3/4 rounded bg-primary-old border-2 border-primary text-white py-3 lg:w-full lg:py-4 lg:hover:bg-opacity-50 lg:hover:shadow-md"
+                  onClick={onQuestionAnswer(obj)}>
+                  {obj}
+                </button>
               )
             )}
+            {/* )} */}
           </div>
         </div>
       ) : (
         <>
-          {isQuizVariant && showStat && currentIndex === modifiedQuestions.length ? (
+          {/* {isQuizVariant && showStat && currentIndex === modifiedQuestions.length ? (
             <div className="text-center">
               <p className="mb-4">
                 We’re crafting your personalized results based on your answers. Just a moment
@@ -334,14 +335,14 @@ export const AttachmentQuizQuestions = ({
                 <strong>{stats[currentStatIndex]}</strong>
               </div>
             </div>
-          ) : (
-            <AttachmentQuizForm
-              quiz_traffic_source={quiz_traffic_source}
-              userInfo={userInfo}
-              userStyle={style as TStyle}
-              quizData={{ ...userInfo, fa: faPoints, ap: apPoints, da: daPoints, sa: saPoints }}
-            />
-          )}
+          ) : ( */}
+          <AttachmentQuizForm
+            quiz_traffic_source={quiz_traffic_source}
+            userInfo={userInfo}
+            userStyle={style as TStyle}
+            quizData={{ ...userInfo, fa: faPoints, ap: apPoints, da: daPoints, sa: saPoints }}
+          />
+          {/* )} */}
         </>
       )}
     </section>

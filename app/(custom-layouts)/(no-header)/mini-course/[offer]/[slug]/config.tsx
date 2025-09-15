@@ -41,13 +41,12 @@ export const MINI_COURSE_CONFIG = {
           </>,
           'Without uncovering the root cause of these frustrating patterns, you’ll be trapped repeating them over and over. But what if there was a way to break free?',
         ],
-        videoThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoThumbnailAlt: 'Alt',
-        videoSrc: 'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
-        videoVariantThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoVariantThumbnailAlt: 'Alt',
-        videoVariantSrc:
-          'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
+        videoThumbnail: '/images/MiniCourse/1.png',
+        videoThumbnailAlt: 'Day 1 - Intro to Attachment Styles Course Thumbnail',
+        videoSrc: 'fd944e6f06fe3db3bf18bc9655c41ecf',
+        videoVariantThumbnail: '/images/MiniCourse/1.png',
+        videoVariantThumbnailAlt: 'Day 1 - Intro to Attachment Styles Course Thumbnail',
+        videoVariantSrc: 'fd944e6f06fe3db3bf18bc9655c41ecf',
         copy2: [
           <>
             In this free lesson, <strong>Day 1</strong> of our{' '}
@@ -87,13 +86,12 @@ export const MINI_COURSE_CONFIG = {
         copy1: [
           "Have you ever wondered why you keep repeating the same patterns in your relationships, even when you know they aren't working? That's because 95% of your behaviors are driven by your subconscious mind, the part of you that’s been conditioned since childhood.",
         ],
-        videoThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoThumbnailAlt: 'Alt',
-        videoSrc: 'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
-        videoVariantThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoVariantThumbnailAlt: 'Alt',
-        videoVariantSrc:
-          'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
+        videoThumbnail: '/images/MiniCourse/2.png',
+        videoThumbnailAlt: 'Day 2 - Intro to Attachment Styles Course Thumbnail',
+        videoSrc: 'c6866b6a0ed019dc6b065de25a7183e5',
+        videoVariantThumbnail: '/images/MiniCourse/2.png',
+        videoVariantThumbnailAlt: 'Day 2 - Intro to Attachment Styles Course Thumbnail',
+        videoVariantSrc: '417b0eff9acfb54d0318d5fc9443c7fe',
         copy2: [
           <>
             In this video, <strong>Day 2</strong> of our{' '}
@@ -146,13 +144,12 @@ export const MINI_COURSE_CONFIG = {
           </>,
           'What if you could finally understand the root cause of these patterns and learn to heal them for good?',
         ],
-        videoThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoThumbnailAlt: 'Alt',
-        videoSrc: 'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
-        videoVariantThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoVariantThumbnailAlt: 'Alt',
-        videoVariantSrc:
-          'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
+        videoThumbnail: '/images/MiniCourse/3.png',
+        videoThumbnailAlt: 'Day 3 - Intro to Attachment Styles Course Thumbnail',
+        videoSrc: '9e73762f5a8b6b5e9cc71458f06b44d2',
+        videoVariantThumbnail: '/images/MiniCourse/3.png',
+        videoVariantThumbnailAlt: 'Day 3 - Intro to Attachment Styles Course Thumbnail',
+        videoVariantSrc: 'b7c4efa6ebeaca1dcf46d60cb0ab376b',
         copy2: [
           <>
             In this free lesson, <strong>Day 3</strong> of our{' '}
@@ -218,13 +215,12 @@ export const MINI_COURSE_CONFIG = {
             </strong>
           </>,
         ],
-        videoThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoThumbnailAlt: 'Alt',
-        videoSrc: 'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
-        videoVariantThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoVariantThumbnailAlt: 'Alt',
-        videoVariantSrc:
-          'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
+        videoThumbnail: '/images/MiniCourse/4.png',
+        videoThumbnailAlt: 'Day 4 - Intro to Attachment Styles Course Thumbnail',
+        videoSrc: 'd60c7bdda54fde84f94f13488718e41c',
+        videoVariantThumbnail: '/images/MiniCourse/4.png',
+        videoVariantThumbnailAlt: 'Day 4 - Intro to Attachment Styles Course Thumbnail',
+        videoVariantSrc: 'f319e4f8e672760f0fd8c7ed7726fc9d',
         copy2: [
           <>
             <strong>In this exclusive, free lesson</strong>, normally only made available to our
@@ -269,13 +265,12 @@ export const MINI_COURSE_CONFIG = {
         copy1: [
           "Have you ever felt a sudden urge to run, fight, or shut down during a difficult conversation? That's your nervous system hijacking your relationships. Without understanding these signals, you'll keep sabotaging connections right when they matter most.",
         ],
-        videoThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoThumbnailAlt: 'Alt',
-        videoSrc: 'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
-        videoVariantThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoVariantThumbnailAlt: 'Alt',
-        videoVariantSrc:
-          'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
+        videoThumbnail: '/images/MiniCourse/5.png',
+        videoThumbnailAlt: 'Day 5 - Intro to Attachment Styles Course Thumbnail',
+        videoSrc: 'be111dc05056055c558fb6d17897151b',
+        videoVariantThumbnail: '/images/MiniCourse/5.png',
+        videoVariantThumbnailAlt: 'Day 5 - Intro to Attachment Styles Course Thumbnail',
+        videoVariantSrc: 'e5b1ecdcd6d01e867b5fa1f450a6f6e3',
         copy2: [
           <>
             In <strong>Day 5</strong> of our <strong>Intro to Attachment Styles Course</strong>,
@@ -333,13 +328,12 @@ export const MINI_COURSE_CONFIG = {
             .
           </>,
         ],
-        videoThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoThumbnailAlt: 'Alt',
-        videoSrc: 'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
-        videoVariantThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoVariantThumbnailAlt: 'Alt',
-        videoVariantSrc:
-          'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
+        videoThumbnail: '/images/MiniCourse/6.png',
+        videoThumbnailAlt: 'Day 6 - Intro to Attachment Styles Course Thumbnail',
+        videoSrc: '21032d275497608eef7f9dc9ddd018b9',
+        videoVariantThumbnail: '/images/MiniCourse/6.png',
+        videoVariantThumbnailAlt: 'Day 6 - Intro to Attachment Styles Course Thumbnail',
+        videoVariantSrc: '5c7b22995b956f16a1c474274113e21e',
         copy2: [
           <>
             In <strong>Day 6</strong> of our <strong>Intro to Attachment Styles Course</strong>{' '}
@@ -389,13 +383,12 @@ export const MINI_COURSE_CONFIG = {
           "Have you ever wondered why you react the way you do when you feel triggered in a relationship? Without understanding these protective patterns, you'll keep pushing away the very love you're trying to create, wondering why you can't stop behaviors that sabotage your happiness even when you desperately want to change.",
           `But your "self-sabotaging" behaviors aren't character flaws. They're learned survival strategies that are now working against you.`,
         ],
-        videoThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoThumbnailAlt: 'Alt',
-        videoSrc: 'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
-        videoVariantThumbnail: '/IATWebinar/iat-webinar-thumbnail.jpg',
-        videoVariantThumbnailAlt: 'Alt',
-        videoVariantSrc:
-          'https://storage.googleapis.com/pds_videos/Integrated_Attachment_Theory_2023.mp4',
+        videoThumbnail: '/images/MiniCourse/7.png',
+        videoThumbnailAlt: 'Day 7 - Intro to Attachment Styles Course Thumbnail',
+        videoSrc: 'fd5ae67569f71919000dc089d346b917',
+        videoVariantThumbnail: '/images/MiniCourse/7.png',
+        videoVariantThumbnailAlt: 'Day 7 - Intro to Attachment Styles Course Thumbnail',
+        videoVariantSrc: '80a3fccf6374e05c3181e38d2522780f',
         copy2: [
           <>
             In <strong>Day 7</strong>, the final day of our{' '}

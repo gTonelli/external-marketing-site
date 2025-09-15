@@ -3,7 +3,7 @@ import Image from 'next/image'
 // components
 import { Section } from '@/components/Section'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { VideoStream } from '@/components/Video/variants/VideoStream'
 import { List } from '@/components/List'
 import { faCheckCircle, faInfoCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // libraries
@@ -47,20 +47,20 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
           </p>
         ))}
 
-        <div className="my-4">
-          <VideoThumbnail
-            playInline
-            className="!w-full"
-            thumbnailUrl={
-              offer === 'offer' ? config.banner.videoThumbnail : config.banner.videoVariantThumbnail
-            }
-            thumbnailAlt={
-              offer === 'offer'
-                ? config.banner.videoThumbnailAlt
-                : config.banner.videoVariantThumbnailAlt
-            }
-            srcUrl={offer === 'offer' ? config.banner.videoSrc : config.banner.videoVariantSrc}
-          />
+        <div className="w-full h-fit my-4">
+          {offer === 'offer' ? (
+            <VideoStream
+              thumbnailSrc={config.banner.videoThumbnail}
+              thumbnailAlt={config.banner.videoThumbnailAlt}
+              videoId={config.banner.videoSrc}
+            />
+          ) : (
+            <VideoStream
+              thumbnailSrc={config.banner.videoVariantThumbnail}
+              thumbnailAlt={config.banner.videoVariantThumbnailAlt}
+              videoId={config.banner.videoVariantSrc}
+            />
+          )}
         </div>
 
         <div className="text-left">
@@ -82,7 +82,16 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
         ))}
 
         <div className="grid gap-4 my-8 lg:grid-cols-2">
-          <div>Image</div>
+          <div>
+            <Image
+              alt="Image of a lady and a couple with PDS feature floating as a callout on top of those images."
+              src="/images/MiniCourse/pds-features.png"
+              width={486}
+              height={348}
+              quality={100}
+              sizes="100vw"
+            />
+          </div>
 
           <div className="text-left">
             <p className="mb-4">{common.features.copy}</p>

@@ -33,7 +33,7 @@ export default function IATWebinarVariantPage() {
       <section className="bg-purple-dark">
         <div className="default-padding pt-4 lg:pt-8">
           <CountdownTimer
-            date={getOfferEndDate(new Date('2025-09-08T17:30:00-04:00'), 1)}
+            date={getOfferEndDate(new Date('2025-09-29T13:00:00-04:00'), 1)}
             theme="dark"
           />
         </div>
@@ -171,6 +171,13 @@ export default function IATWebinarVariantPage() {
             content:
               'As a student of the IAT Personal Development program, I have learned a valuable skill set. The cutting edge information and knowledge shared during the course in a very comprehensive manner has been enriching. The tool set and assistance for providing others with steps forward is impressive. I am highly recommending this program to anyone interested in self improvement or supporting others in change.',
           },
+          {
+            author: {
+              name: 'Christy A.',
+            },
+            content:
+              'Thank you for offering this opportunity. There have been other coaching programs and digital products I’ve invested in over the past couple of years and nothing compares to this. I truly believe IAT work is something everyone can benefit from, myself included.',
+          },
         ]}
       />
 
@@ -195,7 +202,7 @@ export default function IATWebinarVariantPage() {
 
           <p className="mb-4">{COPY.signUp.copy2}</p>
 
-          <IATWebinarForm />
+          <IATWebinarForm submitButtonLabel="RESERVE MY SPOT NOW" />
         </div>
       </Section>
     </Page>

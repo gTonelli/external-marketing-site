@@ -39,7 +39,7 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
           height={73}
         />
 
-        <h1 className="mt-8 mb-4">{config.banner.h1}</h1>
+        <h1 className="text-primary mt-8 mb-4">{config.banner.h1}</h1>
 
         {config.banner.copy1.map((lineItem, idx) => (
           <p key={`course_banner_copy1_${idx}`} className="mb-4">
@@ -50,12 +50,14 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
         <div className="w-full h-fit my-4">
           {offer === 'offer' ? (
             <VideoStream
+              classNameThumbnail="rounded-xl"
               thumbnailSrc={config.banner.videoThumbnail}
               thumbnailAlt={config.banner.videoThumbnailAlt}
               videoId={config.banner.videoSrc}
             />
           ) : (
             <VideoStream
+              classNameThumbnail="rounded-xl"
               thumbnailSrc={config.banner.videoVariantThumbnail}
               thumbnailAlt={config.banner.videoVariantThumbnailAlt}
               videoId={config.banner.videoVariantSrc}
@@ -84,8 +86,8 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
         <div className="grid gap-4 my-8 lg:grid-cols-2">
           <div>
             <Image
-              alt="Image of a lady and a couple with PDS feature floating as a callout on top of those images."
-              src="/images/MiniCourse/pds-features.png"
+              alt={common.features.imageAlt}
+              src={common.features.image}
               width={486}
               height={348}
               quality={100}

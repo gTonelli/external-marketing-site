@@ -1,8 +1,9 @@
 export const MINI_COURSE_CONFIG = {
   common: {
     features: {
-      image: '',
-      imageAlt: '',
+      image: '/images/MiniCourse/pds-features.png',
+      imageAlt:
+        'Image of a lady and a couple with PDS feature floating as a callout on top of those images.',
       copy: 'Inside, you’ll find the community and resources to help you continue this journey:',
       list: [
         <>
@@ -104,8 +105,8 @@ export const MINI_COURSE_CONFIG = {
           <>
             This <strong>powerful lesson</strong> reveals the secret to{' '}
             <strong>permanent change</strong>. It's your chance to get a taste of the exact methods
-            our members use to transform their relationships. Don't let another day pass feeling
-            stuck and alone. It's time to create a new future built on{' '}
+            our members use to <strong>transform their relationships</strong>. Don't let another day
+            pass feeling stuck and alone. It's time to create a new future built on{' '}
             <strong>security, confidence, and genuine connection</strong>.
           </>,
         ],
@@ -226,11 +227,11 @@ export const MINI_COURSE_CONFIG = {
             <strong>In this exclusive, free lesson</strong>, normally only made available to our
             paid members, you’ll discover the secret framework that reveals your deepest
             relationship needs, from autonomy to consistency to reassurance. In{' '}
-            <strong>Day 4</strong> of our Intro to Attachment Styles Course, you’ll learn to
-            identify what’s missing and finally ask for what you need with confidence.
+            <strong>Day 4</strong> of our <strong>Intro to Attachment Styles Course</strong>, you’ll
+            learn to identify what’s missing and finally ask for what you need with confidence.
           </>,
           <>
-            This video will transform you from constantly guessing what's wrong to clearly
+            This video will transform you from constantly guessing what's wrong to clearly{' '}
             <strong>understanding what you need to feel truly seen and valued</strong>. The lesson
             reveals why understanding these core needs is the key to fostering authentic, lasting
             connections, and gives you the roadmap to stop feeling misunderstood and start building

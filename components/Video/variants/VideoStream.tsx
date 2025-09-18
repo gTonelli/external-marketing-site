@@ -20,12 +20,15 @@ interface IVideoStreamProps {
   thumbnailAlt: string
   /** CSS class name for wrapper */
   className?: string
+  /** CSS class name for thumbnail image */
+  classNameThumbnail?: string
   /** If provided, will let us separate events based on the video that has been played given that there are more than 1 videos */
   type?: string
 }
 
 export const VideoStream = ({
   className,
+  classNameThumbnail,
   videoId,
   thumbnailSrc = '/images/pds-video-thumbnail.jpg',
   thumbnailAlt = 'The Personal Development School Video Thumbnail',
@@ -106,7 +109,8 @@ export const VideoStream = ({
       {!isPlaying ? (
         <div className="relative w-full h-full cursor-pointer">
           <Image
-            className="w-full h-full object-cover"
+            className={cx('w-full h-full object-cover', classNameThumbnail)}
+            loading="lazy"
             alt={thumbnailAlt}
             src={thumbnailSrc}
             width={600}

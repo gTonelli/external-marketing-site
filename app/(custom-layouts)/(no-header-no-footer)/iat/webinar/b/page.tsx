@@ -2,13 +2,12 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
 // components
-import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { IATWebinarForm } from '@/components/Forms/IATWebinarForm'
 import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { faTriangleExclamation } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { CountdownTimer } from '@/components/CountDownTimer'
 // config
 import { COPY } from './config'
@@ -18,7 +17,6 @@ import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { getOfferEndDate } from '@/utils/functions'
 // style
 import '../style.css'
-import { faTriangleExclamation } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export const metadata: Metadata = {
   title: 'Free IAT™ Masterclass with Thais Gibson',
@@ -101,7 +99,7 @@ export default function IATWebinarVariantPage() {
         </div>
       </Section>
 
-      <Section className="max-w-5xl mx-auto" classNameInner="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <Section className="max-w-5xl mx-auto" classNameInner="grid gap-8 lg:grid-cols-2">
         <div className="text-left">
           <h2 className="mb-4">{COPY.thais.title}</h2>
 

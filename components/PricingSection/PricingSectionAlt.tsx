@@ -1,4 +1,6 @@
+// core
 import Image from 'next/image'
+// components
 import { Section } from '../Section'
 import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 

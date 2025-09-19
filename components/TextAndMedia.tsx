@@ -1,8 +1,11 @@
+// core
 import Image from 'next/image'
+// components
 import { Section } from './Section'
 import { ButtonCheckout, IButtonCheckoutProps } from './Button/variants/ButtonCheckout'
-import cx from 'classnames'
 import { ButtonDefault, IButtonDefaultProps } from './Button/variants/ButtonDefault'
+// libraries
+import cx from 'classnames'
 
 interface ITextAndMediaProps {
   className?: string

@@ -1,10 +1,12 @@
-import { faChevronDown, faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// core
 import Image from 'next/image'
-import { config } from 'process'
+// components
+import { faChevronDown, faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 import { Expandable } from './Expandable'
 import { Section } from './Section'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface IItineraryProps {
   listItems: TListItem[]

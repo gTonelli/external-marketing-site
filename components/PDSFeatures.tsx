@@ -1,7 +1,10 @@
-import { faCheckCircle, faInfo } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// core
 import Image from 'next/image'
+// components
 import { Section } from './Section'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faInfo } from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export const PDSFeatures = () => {
   return (

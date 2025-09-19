@@ -1,21 +1,9 @@
 // core
-import Link from 'next/link'
+import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-// config
-import { SEGMENTED_RESULTS_PAGE_AP_CONFIG } from './config'
-// styles
-import '@/styles/default-styles.css'
-import './style.css'
-// utils
-import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import { SocialProofMediaOutlets } from '@/components/SocialProof/SocialProofMediaOutlets'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faLightbulb } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import Image from 'next/image'
-import { faInfo, faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { Itinerary } from '@/components/Itinerary'
 import { TextAndMedia } from '@/components/TextAndMedia'
 import { PDSFeatures } from '@/components/PDSFeatures'
@@ -23,7 +11,18 @@ import { PricingSectionAlt } from '@/components/PricingSection/PricingSectionAlt
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import { SocialProofStatistics } from '@/components/SocialProof/SocialProofStatistics'
 import { Faq } from '@/components/Faq/Faq'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
+import { SocialProofMediaOutlets } from '@/components/SocialProof/SocialProofMediaOutlets'
+// config
+import { SEGMENTED_RESULTS_PAGE_AP_CONFIG } from './config'
 import { ROYAL_RUMBLE } from '../../[style]/config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckCircle, faLightbulb } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faInfo, faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// styles
+import '@/styles/default-styles.css'
+import './style.css'
 
 export default function SegmentedResultsPage() {
   const config = SEGMENTED_RESULTS_PAGE_AP_CONFIG
@@ -318,6 +317,7 @@ export default function SegmentedResultsPage() {
           height={748}
           sizes="100vw"
           quality={100}
+          tabIndex={-1}
         />
 
         <Image
@@ -328,6 +328,7 @@ export default function SegmentedResultsPage() {
           height={500}
           sizes="100vw"
           quality={100}
+          tabIndex={-1}
         />
 
         <div className="relative z-10">

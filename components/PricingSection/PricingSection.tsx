@@ -3,7 +3,7 @@
 // core
 import { useState } from 'react'
 // components
-import { ButtonCheckout } from './Button/variants/ButtonCheckout'
+import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
 // libraries
 import cx from 'classnames'
 // utils

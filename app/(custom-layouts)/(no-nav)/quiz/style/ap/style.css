@@ -1,0 +1,14 @@
+.section-ten-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(227, 237, 237, 0) 0%,
+    #e3eded 25.49%,
+    rgba(213, 184, 216, 0.5) 100%
+  );
+}
+
+@media screen and (min-width: 1024px) {
+  .section-ten-gradient {
+    background: linear-gradient(90deg, #e3eded 50%, rgba(213, 184, 216, 0) 100%);
+  }
+}

@@ -3,15 +3,19 @@
 import Image from 'next/image'
 // components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faCheck,
-  faCheckCircle,
-  faChevronDown,
-  faInfo,
-} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheck, faCheckCircle, faInfo } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCheckCircle as faCheckCircleRegular } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import { Expandable } from '@/components/Expandable'
+import { SocialProofMediaOutlets } from '@/components/SocialProof/SocialProofMediaOutlets'
+import { Itinerary } from '@/components/Itinerary'
+import { TextAndMedia } from '@/components/TextAndMedia'
+import { PDSFeatures } from '@/components/PDSFeatures'
+import { PricingSectionAlt } from '@/components/PricingSection/PricingSectionAlt'
+import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
+import { SocialProofStatistics } from '@/components/SocialProof/SocialProofStatistics'
+import { Faq } from '@/components/Faq/Faq'
+// config
+import { ROYAL_RUMBLE } from '../../[style]/config'
 // libraries
 import cx from 'classnames'
 // utils
@@ -22,12 +26,6 @@ import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 // styles
 import '@/styles/default-styles.css'
 import './style.css'
-
-import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
-import { SocialProofStatistics } from '@/components/SocialProof/SocialProofStatistics'
-import { Faq } from '@/components/Faq/Faq'
-import { ROYAL_RUMBLE } from '../../[style]/config'
-import { SocialProofMediaOutlets } from '@/components/SocialProof/SocialProofMediaOutlets'
 
 export default function SegmentedResultsPage() {
   const config = SEGMENTED_RESULTS_PAGE_FA_CONFIG
@@ -102,30 +100,12 @@ export default function SegmentedResultsPage() {
         <SocialProofMediaOutlets />
       </Section>
 
-      <Section
-        className="bg-green-7"
-        classNameInner="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
-        <Image
-          alt="A couple smiling at each other on the couch and high-fiving"
-          className="w-full h-auto rounded-20"
-          width={343}
-          height={267}
-          quality={90}
-          src="/images/SegmentedResultsPages/high-fiving-couple.jpg"
-        />
-
-        <div className="text-left">
-          <h2>Why Attachment Style Matters & Why Our Way Works</h2>
-
-          <p>
-            {config.sectionTwo.body.map((text, i) => (
-              <p key={`serction_two_text_${i}`}>{text}</p>
-            ))}
-          </p>
-
-          <ButtonCheckout label="VIEW MY PATH TO HEALING" />
-        </div>
-      </Section>
+      <TextAndMedia
+        heading="Why Attachment Style Matters & Why Our Way Works"
+        body={config.sectionTwo.body}
+        image={config.sectionTwo.image}
+        button={<ButtonCheckout label="VIEW MY PATH TO HEALING" />}
+      />
 
       <Section>
         <h2>Does This Sound Like You?</h2>
@@ -145,24 +125,12 @@ export default function SegmentedResultsPage() {
         </div>
       </Section>
 
-      <Section classNameInner="grid gap-6 rounded-2xl bg-pink-auxiliary px-4 py-10 lg:grid-cols-[282px_484px] lg:items-center lg:py-15 lg:px-52">
-        <Image
-          src="/images/SegmentedResultsPages/consciousness-pie-chart.png"
-          alt="A pie chart of consciousness vs subconscious - 97% subconscious and 3% conscious"
-          className="lg:w-72 lg:h-72 ml-auto"
-          width={250}
-          height={250}
-          quality={100}
-        />
-
-        <div className="text-left">
-          <h2>This ISN’T Your Fault…</h2>
-
-          {config.sectionFour.body.map((text, i) => (
-            <p key={`section_four_text_${i}`}>{text}</p>
-          ))}
-        </div>
-      </Section>
+      <TextAndMedia
+        heading="This ISN’T Your Fault…"
+        body={config.sectionFour.body}
+        classNameInner="gap-6 rounded-2xl bg-pink-auxiliary px-4 py-10 lg:grid-cols-[282px_484px] lg:items-center lg:py-15 lg:px-52"
+        image={config.sectionFour.image}
+      />
 
       <Section>
         <h2>The Secret Ingredient to Finally Healing...</h2>
@@ -197,88 +165,14 @@ export default function SegmentedResultsPage() {
         <ButtonCheckout label="START HEALING TODAY" />
       </Section>
 
-      <Image
-        src="/images/SegmentedResultsPages/teal-wave.png"
-        className="w-full"
-        alt="Teal wave"
-        width={1920}
-        height={57}
-        quality={100}
-        tabIndex={-1}
+      <Itinerary listItems={config.sectionSix.weeksItems} />
+
+      <TextAndMedia
+        heading="Discover The Personal Development School"
+        body={config.sectionSeven.body}
+        image={config.sectionSeven.image}
+        button={<ButtonCheckout className="mt-8" label="START MY PROGRAM" />}
       />
-
-      <Section className="bg-[rgba(227,237,237,0.5)]" classNameInner="!max-w-4xl">
-        <h2>Your 90 Day Path to Healing</h2>
-
-        {config.sectionSix.body.map((text, i) => (
-          <p key={`section_six_text_${i}`}>{text}</p>
-        ))}
-
-        {config.sectionSix.weeksItems.map((item, i) => (
-          <Expandable
-            key={`section_six_week_item_${i}`}
-            className="bg-white rounded-20 border-2 border-green mb-4"
-            contentInnerClassName="text-left px-6 grid gap-4 grid-cols-[20px_1fr]"
-            open={i === 0}
-            openedClassName="bg-white rounded-20 border-2 border-green mb-4"
-            trigger={
-              <div className="flex justify-between items-center p-6">
-                <p className="text-primary font-bold mb-0">{item.heading}</p>
-
-                <FontAwesomeIcon
-                  className="text-primary transition-transform"
-                  icon={faChevronDown}
-                />
-              </div>
-            }>
-            <FontAwesomeIcon
-              className="text-white rounded-full py-1 px-[5px] bg-success"
-              icon={faCheck}
-            />
-
-            <div>
-              {item.body.map((text, i) => (
-                <p key={`section_six_week_item_text_${i}`}>{text}</p>
-              ))}
-
-              <p className="text-grey-9">
-                Recommended time: {item.hoursPerWeek} hour{item.hoursPerWeek > 1 ? 's' : ''} per
-                week
-              </p>
-            </div>
-          </Expandable>
-        ))}
-
-        <div className="border-[3px] border-green-8 rounded-xl px-8 py-10 mt-10 bg-[rgba(49,212,0,0.18)]">
-          <h2 className="font-bold mb-0">Change Your Life–Or Pay nothing</h2>
-
-          {config.sectionSix.card.body.map((text, i) => (
-            <p key={`section_six_card_text_${i}`}>{text}</p>
-          ))}
-
-          <ButtonCheckout className="mt-7" label="START MY PROGRAM" />
-        </div>
-      </Section>
-
-      <Section classNameInner="grid gap-4 lg:grid-cols-2 lg:items-center lg:gap-8">
-        <Image
-          src="/images/SegmentedResultsPages/pds-mockup-macbook.png"
-          alt="A mockup of PDS courses on a Macbook"
-          className="w-full rounded-2xl"
-          width={577}
-          height={418}
-        />
-
-        <div className="text-left">
-          <h2>Discover The Personal Development School</h2>
-
-          {config.sectionSeven.body.map((text, i) => (
-            <p key={`section_seven_text_${i}`}>{text}</p>
-          ))}
-
-          <ButtonCheckout className="mt-8" label="START MY PROGRAM" />
-        </div>
-      </Section>
 
       <Section className="!p-0 relative" classNameInner="lg:grid lg:grid-cols-12">
         <div className="absolute top-0 left-0 z-10 w-full h-full bg-gradient-to-b section-eight-gradient" />
@@ -314,7 +208,7 @@ export default function SegmentedResultsPage() {
           <ul>
             {config.sectionEight.listOne.map((text, i) => (
               <li key={`section_eight_list_one_item_${i}`} className="flex">
-                <FontAwesomeIcon className="text-success mr-2" icon={faCheckCircle} />
+                <FontAwesomeIcon className="text-success mr-2 pt-[5px]" icon={faCheck} />
 
                 <p>{text}</p>
               </li>
@@ -331,7 +225,7 @@ export default function SegmentedResultsPage() {
           <ul>
             {config.sectionEight.listTwo.map((text, i) => (
               <li key={`section_eight_list_two_item_${i}`} className="flex">
-                <FontAwesomeIcon className="text-success mr-2" icon={faCheckCircle} />
+                <FontAwesomeIcon className="text-success mr-2 pt-[5px]" icon={faCheck} />
 
                 <p>{text}</p>
               </li>
@@ -370,174 +264,9 @@ export default function SegmentedResultsPage() {
         </p>
       </Section>
 
-      <Section classNameInner="grid gap-4 !max-w-3xl lg:grid-cols-2 lg:gap-6">
-        <h2 className="lg:col-span-2">
-          What’s Included In Your Transformation Journey With Your All-Access Pass Membership:
-        </h2>
+      <PDSFeatures />
 
-        <div className="text-left">
-          <h4 className="text-primary mb-4">The Core Program ($999 Value)</h4>
-
-          <ul>
-            {config.sectionNine.coreProgram.map((text, i) => (
-              <li key={`section_nine_core_program_item_${i}`} className="flex">
-                <FontAwesomeIcon
-                  className="text-white bg-primary border border-primary rounded-full mr-2"
-                  icon={faCheckCircle}
-                />
-
-                <p>{text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <Image
-          src="/images/SegmentedResultsPages/core-program.png"
-          alt="Core program"
-          className="w-full"
-          width={384}
-          height={306}
-        />
-
-        <Image
-          src="/images/SegmentedResultsPages/bonus-community-access.png"
-          alt="Bonus community access"
-          className="w-full"
-          width={384}
-          height={204}
-        />
-
-        <div className="text-left">
-          <h4 className="text-primary mb-4">Bonus Community Access ($499 Value)</h4>
-
-          <ul>
-            {config.sectionNine.bonusCommunityAccess.map((text, i) => (
-              <li key={`section_nine_bonus_community_access_item_${i}`} className="flex">
-                <FontAwesomeIcon
-                  className="text-white bg-primary border border-primary rounded-full mr-2"
-                  icon={faCheckCircle}
-                />
-
-                <p>{text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="text-left">
-          <h4 className="text-primary mb-4">Bonus Course Library ($1999+ Value)</h4>
-
-          <ul>
-            {config.sectionNine.bonusCourseLibrary.map((text, i) => (
-              <li key={`section_nine_bonus_course_library_item_${i}`} className="flex">
-                <FontAwesomeIcon
-                  className="text-white bg-primary border border-primary rounded-full mr-2"
-                  icon={faCheckCircle}
-                />
-
-                <p>{text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <Image
-          src="/images/SegmentedResultsPages/bonus-course-library.png"
-          alt="Bonus course library"
-          className="w-full"
-          width={384}
-          height={175}
-        />
-
-        <Image
-          src="/images/SegmentedResultsPages/tools-trackers.png"
-          alt="Tools and trackers"
-          className="w-full"
-          width={384}
-          height={198}
-        />
-
-        <div className="text-left">
-          <h4 className="text-primary mb-4">Tools and Trackers</h4>
-
-          <ul>
-            {config.sectionNine.toolsAndTrackers.map((text, i) => (
-              <li key={`section_nine_tools_and_trackers_item_${i}`} className="flex">
-                <FontAwesomeIcon
-                  className="text-white bg-primary border border-primary rounded-full mr-2"
-                  icon={faCheckCircle}
-                />
-
-                <p>{text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="!p-4 bg-blue-3 rounded lg:col-span-2 grid gap-4 lg:grid-cols-[21px_1fr]">
-          <FontAwesomeIcon
-            className="text-blue-darkest bg-transparent border-2 border-blue-darkest rounded-full px-[6px] py-[2px]"
-            icon={faInfo}
-            size="xs"
-          />
-
-          <div className="text-left">
-            <p>
-              <strong>90-Day Money-Back Guarantee </strong>
-            </p>
-
-            <p>
-              If you complete all 7 attachment styles courses, follow the 15-Day Kickstart
-              Challenge, and still don’t feel like at least 50% securely attached,{' '}
-              <strong>we’ll refund every penny*</strong>. That’s how confident we are in your
-              transformation.
-            </p>
-
-            <p>
-              <em>*See more details at the bottom of the page.</em>
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      <Section classNameInner="grid gap-4 lg:grid-cols-2 lg:gap-6 lg:!max-w-[996px]">
-        <Image
-          src="/images/SegmentedResultsPages/features-mockup.png"
-          alt="4 devices, a laptop, mac, and 2 tablets showing PDS features like a course player, webinars and Q&A sessions"
-          className="w-full"
-          width={466}
-          height={270}
-        />
-
-        <div className="relative text-left py-10 px-6 rounded-20 shadow-centered-card-2 overflow-hidden">
-          <p className="absolute top-7 -right-24 w-max font-bold bg-green-9 text-white px-24 rotate-45">
-            SAVE 30%
-          </p>
-
-          <h3 className="mb-0">Exclusive Offer & Value</h3>
-
-          <p>Total Value: $3,497+</p>
-
-          <div className="lg:flex lg:items-center">
-            <p>
-              <strong>Today’s Price</strong>
-            </p>
-
-            <div className="flex items-center text-primary">
-              <p className="font-bold text-[40px] leading-[40px] mr-2 lg:mx-4">$67.00</p>
-
-              <p> / per month</p>
-            </div>
-          </div>
-
-          <p className="max-w-[400px]">
-            <strong>A 30% discount off the regular price for the All-Access Pass for LIFE.</strong>
-          </p>
-
-          <ButtonCheckout label="JOIN THE ALL-ACCESS TODAY" />
-        </div>
-      </Section>
+      <PricingSectionAlt />
 
       <Section className="bg-green-7" classNameInner="grid gap-4 text-left lg:grid-cols-2">
         <h2 className="text-center lg:col-span-2">What You’ll Experience</h2>

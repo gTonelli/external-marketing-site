@@ -8,7 +8,7 @@ import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText } from '@/utils/functions'
+import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
 import { gtag } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
@@ -38,7 +38,32 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        return userStyle === 'fa' ? '/quiz/results/fearful-avoidant' : `/quiz/${userStyle}`
+        if (userStyle === 'ap' && userInfo?.intent === 'Improve my current relationship') {
+          const isVariant = getSplitTest({
+            key: 'GM-1895-AP',
+            experimentName: 'GM-1895-Segmented-Results-Test-AP',
+            variantRatio: 0.5,
+            useCookies: false,
+          })
+
+          if (isVariant) return '/quiz/style/ap'
+        } else if (
+          userStyle === 'fa' &&
+          userInfo?.intent ===
+            'Learn more about myself and heal (self-esteem, anxiety, depression, etc.)'
+        ) {
+          const isVariant = getSplitTest({
+            key: 'GM-1895-FA',
+            experimentName: 'GM-1895-Segmented-Results-Test-FA',
+            variantRatio: 0.5,
+            useCookies: false,
+          })
+
+          if (isVariant) return '/quiz/style/fa'
+          else return '/quiz/results/fearful-avoidant'
+        }
+
+        return `/quiz/${userStyle}`
 
       case 'paidMeta':
         if (userStyle === 'da') {

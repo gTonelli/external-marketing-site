@@ -15,6 +15,15 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
         start feeling like home.
       </>,
     ],
+
+    image: {
+      alt: 'A couple smiling at each other on the couch and high-fiving',
+      className: 'w-full rounded-20',
+      width: 343,
+      height: 267,
+      quality: 90,
+      src: '/images/SegmentedResultsPages/high-fiving-couple.jpg',
+    },
   },
 
   sectionThree: {
@@ -39,6 +48,15 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
       </>,
       'Fearful avoidant attachment develops when love in childhood felt unpredictable. Your nervous system wired in protection strategies to survive. Those walls and shutdowns weren’t choices. They were survival.',
     ],
+
+    image: {
+      src: '/images/SegmentedResultsPages/consciousness-pie-chart.png',
+      alt: 'A pie chart of consciousness vs subconscious - 97% subconscious and 3% conscious',
+      className: 'lg:w-72 lg:h-72 ml-auto',
+      width: 250,
+      height: 250,
+      quality: 100,
+    },
   },
 
   sectionFive: {
@@ -90,17 +108,6 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
   },
 
   sectionSix: {
-    body: [
-      'Your entire Secure Attachment Bootcamp is designed to target your subconscious mind for healing — because your subconscious drives 95–97% of your fears, patterns, and protective behaviors. ',
-      <>
-        As a Fearful Avoidant, you may feel torn{' '}
-        <strong>between craving closeness and pulling away</strong> when things feel too intense.
-        Integrated Attachment Theory works at the subconscious level to rewire the 6 pillars of
-        attachment so you can build consistent trust and safety, both with yourself and in your
-        relationships.
-      </>,
-    ],
-
     weeksItems: [
       {
         heading: 'WEEKS 1 AND 2: YOUR TRIGGERS',
@@ -189,16 +196,6 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
         hoursPerWeek: 2,
       },
     ],
-
-    card: {
-      body: [
-        'When you use the Secure Rewiring Method™ in our 90-Day Bootcamp, you will feel completely different or we’ll refund you and extend your membership for free until you do.',
-        <>
-          <strong>This means you either change your life or you pay nothing.</strong> All we ask is
-          that you complete the program.
-        </>,
-      ],
-    },
   },
 
   sectionSeven: {
@@ -216,6 +213,14 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
         </strong>
       </>,
     ],
+
+    image: {
+      src: '/images/SegmentedResultsPages/pds-mockup-macbook.png',
+      alt: 'A mockup of PDS courses on a Macbook',
+      className: 'w-full rounded-2xl',
+      width: 577,
+      height: 418,
+    },
   },
 
   sectionEight: {
@@ -237,33 +242,6 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
     footerText: [
       'There are daily, optional live events that you can attend (twice per day) for any follow up support that you need. You’ll get your questions answered by trained counsellors and coaches, be able to connect with other like-minded people on the same journey of growth and be able to truly enjoy the journey!',
       'If you’ve been trapped in the push–pull of fearful avoidant attachment, this is your moment. The program is designed so anyone—no matter your history—can recondition old patterns and start feeling secure. That’s because everyone’s subconscious mind works the same way.',
-    ],
-  },
-
-  sectionNine: {
-    coreProgram: [
-      'Rewiring Relationship Wounds with Neuroscience',
-      'Discovering & Meeting Your Core Emotional Needs',
-      'Regulating Your Nervous System for Emotional Safety',
-      'Setting Healthy Boundaries (Without Guilt)',
-      'Mastering Conflict & Communication in Relationships',
-      'Rewiring Unhealthy Coping Mechanisms in Love',
-    ],
-
-    bonusCommunityAccess: [
-      'Live daily classes to practice tools and ask questions (optional attendance)',
-      'Live Q&As with Thais Gibson to get ongoing emotional support',
-      'Peer connection with others on the same journey',
-    ],
-
-    bonusCourseLibrary: [
-      'Instant access to our full vault of 70+ courses on attachment styles, relationships, family healing, personal growth, career dynamics, & more',
-      'Monthly live trainings on trending relationship and personal growth topics',
-    ],
-
-    toolsAndTrackers: [
-      'Quizzes, workbooks, and habit trackers to measure and celebrate your growth',
-      'Built-in progress dashboard so you always know where you are and what’s next',
     ],
   },
 

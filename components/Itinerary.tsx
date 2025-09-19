@@ -94,7 +94,7 @@ export const Itinerary = ({ listItems }: IItineraryProps) => {
             <strong>This means you either change your life or you pay nothing.</strong> All we ask
             is that you complete the program.
           </p>
-          ,
+
           <ButtonCheckout className="mt-7" label="START MY PROGRAM" />
         </div>
       </Section>

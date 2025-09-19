@@ -2,9 +2,6 @@
 
 import Image from 'next/image'
 // components
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faCheckCircle, faInfo } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { faCheckCircle as faCheckCircleRegular } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { SocialProofMediaOutlets } from '@/components/SocialProof/SocialProofMediaOutlets'
 import { Itinerary } from '@/components/Itinerary'
@@ -14,15 +11,16 @@ import { PricingSectionAlt } from '@/components/PricingSection/PricingSectionAlt
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import { SocialProofStatistics } from '@/components/SocialProof/SocialProofStatistics'
 import { Faq } from '@/components/Faq/Faq'
-// config
-import { ROYAL_RUMBLE } from '../../[style]/config'
-// libraries
-import cx from 'classnames'
-// utils
+import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
+// config
+import { ROYAL_RUMBLE } from '../../[style]/config'
 import { SEGMENTED_RESULTS_PAGE_FA_CONFIG } from './config'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faInfo } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle as faCheckCircleRegular } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // styles
 import '@/styles/default-styles.css'
 import './style.css'

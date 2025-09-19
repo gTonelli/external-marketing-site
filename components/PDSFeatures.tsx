@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Section } from './Section'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckCircle, faInfo } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faInfo, faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export const PDSFeatures = () => {
   return (
@@ -19,10 +19,7 @@ export const PDSFeatures = () => {
         <ul>
           {config.coreProgram.map((text, i) => (
             <li key={`core_program_item_${i}`} className="flex">
-              <FontAwesomeIcon
-                className="text-white bg-primary border border-primary rounded-full mr-2"
-                icon={faCheckCircle}
-              />
+              <FontAwesomeIcon className="text-primary rounded-full mr-2" icon={faCheckCircle} />
 
               <p>{text}</p>
             </li>
@@ -52,10 +49,7 @@ export const PDSFeatures = () => {
         <ul>
           {config.bonusCommunityAccess.map((text, i) => (
             <li key={`bonus_community_access_item_${i}`} className="flex">
-              <FontAwesomeIcon
-                className="text-white bg-primary border border-primary rounded-full mr-2"
-                icon={faCheckCircle}
-              />
+              <FontAwesomeIcon className="text-primary rounded-full mr-2" icon={faCheckCircle} />
 
               <p>{text}</p>
             </li>
@@ -69,10 +63,7 @@ export const PDSFeatures = () => {
         <ul>
           {config.bonusCourseLibrary.map((text, i) => (
             <li key={`bonus_course_library_item_${i}`} className="flex">
-              <FontAwesomeIcon
-                className="text-white bg-primary border border-primary rounded-full mr-2"
-                icon={faCheckCircle}
-              />
+              <FontAwesomeIcon className="text-primary rounded-full mr-2" icon={faCheckCircle} />
 
               <p>{text}</p>
             </li>
@@ -102,10 +93,7 @@ export const PDSFeatures = () => {
         <ul>
           {config.toolsAndTrackers.map((text, i) => (
             <li key={`tools_and_trackers_item_${i}`} className="flex">
-              <FontAwesomeIcon
-                className="text-white bg-primary border border-primary rounded-full mr-2"
-                icon={faCheckCircle}
-              />
+              <FontAwesomeIcon className="text-primary rounded-full mr-2" icon={faCheckCircle} />
 
               <p>{text}</p>
             </li>

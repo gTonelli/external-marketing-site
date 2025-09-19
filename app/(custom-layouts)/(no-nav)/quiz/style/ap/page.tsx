@@ -105,7 +105,7 @@ export default function SegmentedResultsPage() {
 
         <ButtonCheckout
           className="lg:block lg:col-span-3 lg:w-max lg:mx-auto"
-          label="Start Healing Today"
+          label="START HEALING TODAY"
         />
       </Section>
 
@@ -338,7 +338,7 @@ export default function SegmentedResultsPage() {
             <p key={`section_fifteen_body_${i}`}>{text}</p>
           ))}
 
-          <ButtonCheckout label="Take Action & Start Healing Now!" />
+          <ButtonCheckout label="TAKE ACTION & START HEALING NOW!" />
         </div>
       </Section>
     </Page>

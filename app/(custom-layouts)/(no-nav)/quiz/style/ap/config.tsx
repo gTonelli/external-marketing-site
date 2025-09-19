@@ -144,7 +144,7 @@ export const SEGMENTED_RESULTS_PAGE_AP_CONFIG = {
       {
         heading: 'WEEK 6: SOMATIC PROCESSING AND NERVOUS SYSTEM REGULATION',
         body: [
-          '',
+          'Take the Somatic Processing & Nervous System Regulation Course to learn in-depth tools and simple daily exercises for somatic healing—a cornerstone for releasing past suffering at the bodily level. ',
           <>
             By practicing somatic healing and nervous system regulation, you’ll retrain your body
             for safety and peace so you can{' '}
@@ -270,8 +270,8 @@ export const SEGMENTED_RESULTS_PAGE_AP_CONFIG = {
 
     body: [
       <>
-        90-Day Transformation → End the cycle of chasing, fearing abandonment, overthinking, and
-        feeling “too much.”{' '}
+        90-Day Transformation &rarr; End the cycle of chasing, fearing abandonment, overthinking,
+        and feeling “too much.”{' '}
         <strong>
           If you don’t feel completely different in 90 days, we’ll refund you and extend your
           membership free

@@ -57,6 +57,9 @@ export const VideoStream = ({
       }
 
       videoRef.current.addEventListener('timeupdate', onVideoProgress)
+      videoRef.current
+        .play()
+        .catch((err) => console.error('Video playback failed with message ', err))
     }
     attachListeners()
 
@@ -130,7 +133,7 @@ export const VideoStream = ({
           </div>
         </div>
       ) : (
-        <Stream controls autoplay className="w-full h-full" streamRef={videoRef} src={videoId} />
+        <Stream controls className="w-full h-full" streamRef={videoRef} src={videoId} />
       )}
     </div>
   )

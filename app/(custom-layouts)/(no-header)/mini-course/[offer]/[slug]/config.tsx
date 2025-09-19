@@ -72,8 +72,8 @@ export const MINI_COURSE_CONFIG = {
           <>
             The insights you gain in this video are just the beginning. To truly break free from old
             patterns and create the stable, loving relationships you deserve, you need a plan. That
-            plan comes in the form of your <strong>7-Day Free Trial</strong> of an All-Access Pass
-            to <strong>The Personal Development School</strong>.
+            plan comes in the form of your <strong>7-Day Free Trial</strong> of our{' '}
+            <strong>All-Access Pass</strong> to <strong>The Personal Development School</strong>.
           </>,
           "We've seen countless members experience profound shifts in just one week by completing the exact courses they need for their attachment style. We know that you can, too. Get started today and discover what a week of dedicated, expert guidance can do for yourself and your relationships.",
         ],
@@ -182,7 +182,7 @@ export const MINI_COURSE_CONFIG = {
             Ready to learn the proven system to heal these subconscious triggers for good? This free
             lesson is just the beginning of your transformation. To get the complete roadmap and
             ongoing support you need to create lasting change, I’m inviting you to start your{' '}
-            <strong>7-Day Free Trial</strong> with an <strong>All-Access Pass</strong> to{' '}
+            <strong>7-Day Free Trial</strong> of our <strong>All-Access Pass</strong> to{' '}
             <strong>The Personal Development School</strong>, at absolutely no cost to you.
           </>,
           <>
@@ -245,8 +245,8 @@ export const MINI_COURSE_CONFIG = {
         copy: [
           <>
             Ready to finally understand what you've been craving in your relationships, and get the
-            complete system to make it happen? I’m inviting you to start your{' '}
-            <strong>7-Day Free Trial</strong> with an <strong>All-Access Pass</strong> to{' '}
+            complete platform to make it happen? I’m inviting you to start your{' '}
+            <strong>7-Day Free Trial</strong> of our <strong>All-Access Pass</strong> to{' '}
             <strong>The Personal Development School</strong>.
           </>,
           <>
@@ -301,8 +301,7 @@ export const MINI_COURSE_CONFIG = {
             relationships when it matters most? Understanding your patterns is just the beginning.
             Real transformation happens when you have the proven tools and ongoing support to
             retrain your body's automatic reactions. I’m inviting you to start your{' '}
-            <strong>7-Day Free Trial</strong>
-            with an <strong>All-Access Pass</strong> to{' '}
+            <strong>7-Day Free Trial</strong> of our <strong>All-Access Pass</strong> to{' '}
             <strong>The Personal Development School</strong>.
           </>,
           <>
@@ -339,8 +338,7 @@ export const MINI_COURSE_CONFIG = {
           <>
             In <strong>Day 6</strong> of our <strong>Intro to Attachment Styles Course</strong>{' '}
             (normally only available to our paid members, but free for you today), you'll discover
-            the crucial link between your
-            <strong>attachment style</strong> and your{' '}
+            the crucial link between your <strong>attachment style</strong> and your{' '}
             <strong>boundary and communication patterns</strong> .
           </>,
           'This lesson reveals why some people are "boundaryless" while others use extreme "survival boundaries," and why our most essential needs often get lost in translation, so you can finally communicate your needs in ways that bring you closer instead of pushing people away.',
@@ -362,9 +360,8 @@ export const MINI_COURSE_CONFIG = {
             brings you closer? Once you understand how your attachment style has been sabotaging
             your boundaries and conversations, you need the complete pathway to practice these new
             skills and make them stick. I’m inviting you to start your{' '}
-            <strong>7-Day Free Trial</strong> with an
-            <strong> All-Access Pass</strong> to <strong>The Personal Development School</strong> at
-            absolutely no cost to you.
+            <strong>7-Day Free Trial</strong> of our <strong> All-Access Pass</strong> to{' '}
+            <strong>The Personal Development School</strong> at absolutely no cost to you.
           </>,
           <>
             <strong>7 days</strong> gives you enough time to practice the exact boundary-setting

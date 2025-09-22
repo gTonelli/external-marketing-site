@@ -86,6 +86,7 @@ export type Pages =
   | `IAT Info Page`
   | `IAT Info Variant Page`
   | `IAT Webinar Page`
+  | `IAT Webinar Variant Page`
   | `IAT Webinar Squeeze Page`
   | `IAT Webinar Recording Page`
   | `IAT Post Registration Masterclass Page`

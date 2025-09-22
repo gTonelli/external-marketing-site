@@ -50,9 +50,9 @@ export const VideoStream = ({
 
     let raf: number
 
-    const attachListeners = () => {
+    const triggerVideoWhenReady = () => {
       if (!videoRef.current) {
-        raf = requestAnimationFrame(attachListeners)
+        raf = requestAnimationFrame(triggerVideoWhenReady)
         return
       }
 
@@ -61,7 +61,7 @@ export const VideoStream = ({
         .play()
         .catch((err) => console.error('Video playback failed with message ', err))
     }
-    attachListeners()
+    triggerVideoWhenReady()
 
     return () => {
       cancelAnimationFrame(raf)

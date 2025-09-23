@@ -1,7 +1,7 @@
 export const MINI_COURSE_CONFIG = {
   common: {
     features: {
-      image: '/images/MiniCourse/course-day-pds-features.png',
+      image: '/images/MiniCourse/pds-features.png',
       imageAlt:
         'Image of a lady and a couple with PDS feature floating as a callout on top of those images.',
       copy: 'Inside, you’ll find the community and resources to help you continue this journey:',

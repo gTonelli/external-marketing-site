@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@awesome.me/kit-545b942488": "^1.0.7",
+    "@cloudflare/stream-react": "^1.9.3",
     "@next/third-parties": "^15.3.3",
     "@stripe/react-stripe-js": "^3.1.1",
     "@stripe/stripe-js": "^5.5.0",

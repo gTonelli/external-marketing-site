@@ -110,6 +110,7 @@ export type Pages =
   | `Members Quiz Form`
   | `Members Quiz Results`
   | `Masterclass Quiz`
+  | `Mini Course Page - ${string}`
   | `Order Complete`
   | `mha-month`
   | `mha-month-b`

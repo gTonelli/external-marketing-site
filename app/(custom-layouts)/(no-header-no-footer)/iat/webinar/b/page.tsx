@@ -7,10 +7,13 @@ import { IATWebinarForm } from '@/components/Forms/IATWebinarForm'
 import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { faTriangleExclamation } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { SplitTestTracker } from '@/components/SplitTestTracker'
 import { CountdownTimer } from '@/components/CountDownTimer'
+import { faTriangleExclamation } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { COPY } from './config'
+// middleware
+import { splitTestConfigs } from '@/middleware'
 // libraries
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
@@ -28,6 +31,8 @@ export const metadata: Metadata = {
 export default function IATWebinarVariantPage() {
   return (
     <Page page_name="IAT Webinar Variant Page">
+      <SplitTestTracker variant="Variant 1" {...splitTestConfigs.iatMasterclassTest} />
+
       <section className="bg-purple-dark">
         <div className="default-padding pt-4 lg:pt-8">
           <CountdownTimer

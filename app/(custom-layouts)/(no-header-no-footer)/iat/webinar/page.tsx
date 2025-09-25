@@ -9,9 +9,12 @@ import { List } from '@/components/List'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { SplitTestTracker } from '@/components/SplitTestTracker'
 import { CountdownTimer } from '@/components/CountDownTimer'
 // config
 import { COPY } from './config'
+// middleware
+import { splitTestConfigs } from '@/middleware'
 // libraries
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // utils
@@ -29,6 +32,8 @@ export const metadata: Metadata = {
 export default function IATWebinarPage() {
   return (
     <Page page_name="IAT Webinar Page">
+      <SplitTestTracker variant="Control" {...splitTestConfigs.iatMasterclassTest} />
+
       <section className="bg-purple-dark">
         <div className="default-padding pt-4 lg:pt-8">
           <CountdownTimer

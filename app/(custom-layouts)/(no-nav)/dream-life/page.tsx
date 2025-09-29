@@ -1,3 +1,5 @@
+// core
+import { Metadata } from 'next'
 //components
 import { Page } from '@/components/Page'
 import { Articles } from '@/components/Articles'
@@ -8,6 +10,13 @@ import { DreamLifeBanner } from '@/components/DreamLifeBanner'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 // utils
 import { externalRoutes } from '@/utils/constants'
+
+export const metadata: Metadata = {
+  title: 'Unlock Unlimited Access with a 7-Day All-Access Pass Free Trial',
+  description:
+    'With a 7-Day Free Trial of the All-Access Pass, you’ll unlock unlimited access to our school’s courses, webinars, and communities.',
+  robots: 'noindex',
+}
 
 export default function DreamLifePage() {
   return (

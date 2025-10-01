@@ -87,6 +87,7 @@ export type Pages =
   | `IAT Info Page`
   | `IAT Info Variant Page`
   | `IAT Webinar Page`
+  | `IAT Webinar Variant Page`
   | `IAT Webinar Squeeze Page`
   | `IAT Webinar Recording Page`
   | `IAT Post Registration Masterclass Page`
@@ -110,6 +111,7 @@ export type Pages =
   | `Members Quiz Form`
   | `Members Quiz Results`
   | `Masterclass Quiz`
+  | `Mini Course Page - ${string}`
   | `Order Complete`
   | `mha-month`
   | `mha-month-b`

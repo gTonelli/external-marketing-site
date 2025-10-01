@@ -178,21 +178,21 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutIATRecorded3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258844&coupon=iatbundle3morecorded`,
     checkoutIATRecorded6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258846&coupon=iatbundle6morecorded`,
     checkoutIATRecorded12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258849&coupon=iatbundle12morecorded`,
-    // IAT Fall 2025
-    checkoutIATLiveUpfront: `${thinkificUrl}/pages/checkout?price_id=4370303&coupon=iatbundleupfrontlivefall25`,
-    checkoutIATLive3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370311&coupon=iatbundle3molivefall25`,
-    checkoutIATLive6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370313&coupon=iatbundle6molivefall25`,
-    checkoutIATLive12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370314&coupon=iatbundle12molivefall25`,
+    // IAT Fall 2 2025
+    checkoutIATLiveUpfront: `${thinkificUrl}/pages/checkout?price_id=4404279&coupon=iatbundleupfrontlivefall225`,
+    checkoutIATLive3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4404282&coupon=iatbundle3molivefall225`,
+    checkoutIATLive6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4404284&coupon=iatbundle6molivefall225`,
+    checkoutIATLive12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4404285&coupon=iatbundle12molivefall225`,
     // IAT Recorded With Webinar Discount
     checkoutIATRecordedWebinarUpfront: `${thinkificUrl}/pages/checkout?price_id=3951355&coupon=iatwebinarfall25ondemand`,
     checkoutIATRecordedWebinar3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3951356&coupon=iatwebinarfall253mnthondemand`,
     checkoutIATRecordedWebinar6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3951358&coupon=iatwebinarfall256mnthondemand`,
     checkoutIATRecordedWebinar12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3951360&coupon=iatwebinarfall2512mnthondemand`,
-    // IAT Fall 2025 With Webinar Discount
-    checkoutIATWebinarUpfront: `${thinkificUrl}/pages/checkout?price_id=4370315&coupon=iatwebinarfall25live`,
-    checkoutIATWebinar3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370316&coupon=iatwebinarfall253mnthlive`,
-    checkoutIATWebinar6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370317&coupon=iatwebinarfall256mnthlive`,
-    checkoutIATWebinar12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4370319&coupon=iatwebinarfall2512mnthlive`,
+    // IAT Fall 2 2025 With Webinar Discount
+    checkoutIATWebinarUpfront: `${thinkificUrl}/pages/checkout?price_id=4404286&coupon=iatwebinarfall225live`,
+    checkoutIATWebinar3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4404287&coupon=iatwebinarfall2253mnthlive`,
+    checkoutIATWebinar6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4404289&coupon=iatwebinarfall2256mnthlive`,
+    checkoutIATWebinar12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=4404290&coupon=iatwebinarfall22512mnthlive`,
     // Lifetime All-Access Pass
     checkoutLifetimeUpfront: `${thinkificUrl}/pages/checkout?price_id=1053866&coupon=lifetimesale`,
     checkoutLifetime6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=1053856&coupon=lifetimesale6mo`,

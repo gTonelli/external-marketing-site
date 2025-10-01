@@ -48,7 +48,7 @@ export default function IATMasterclassRecordingPage() {
           <VideoYoutube
             playInline
             classNameThumbnail="w-full"
-            videoId="LaUrMcrkryA"
+            videoId="IJy9kZtQ7tk"
             thumbnail="/images/IATWebinar/iat-webinar-thumbnail.jpg"
             thumbnailAlt="Thais Gibson Masterclass Video Thumbnail"
           />
@@ -59,9 +59,8 @@ export default function IATMasterclassRecordingPage() {
         <h2 className="mb-4">Are You Ready to Transform Lives & Secure Your Financial Future?</h2>
 
         <p className="mb-16">
-          Sign up for the Live IAT™ Program starting on{' '}
-          <strong>Wednesday, September 17th, 2025</strong>, and get your exclusive Masterclass
-          discount!
+          Sign up for the Live IAT™ Program starting on <strong>Monday, October 20th, 2025</strong>,
+          and get your exclusive Masterclass discount!
         </p>
 
         <p className="mb-2">
@@ -71,7 +70,7 @@ export default function IATMasterclassRecordingPage() {
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2025-09-12T23:59:59-04:00'), 1)}
+          date={getOfferEndDate(new Date('2025-10-03T23:59:59-04:00'), 1)}
         />
       </Section>
 
@@ -141,8 +140,8 @@ export default function IATMasterclassRecordingPage() {
             </>,
             'This revolutionary program is designed to equip you with the practical tools and knowledge from our proprietary healing model and the business solutions to turn your passion for helping people into a fulfilling and financially rewarding career.',
             <>
-              Enrolment for our next cohort starting{' '}
-              <strong>Wednesday, September 17th, 2025</strong>, is closing soon!
+              Enrolment for our next cohort starting <strong>Monday, October 20th, 2025</strong>, is
+              closing soon!
             </>,
             'This is your final chance to be part of a groundbreaking movement that is changing the way people experience personal growth and transformation.',
             'Secure your spot today!',

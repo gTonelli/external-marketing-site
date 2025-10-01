@@ -53,6 +53,7 @@ export default function SegmentedResultsPage() {
 
       <Section className="!pt-0" classNameInner="lg:p-10 lg:shadow-centered-2 lg:rounded-20">
         <VideoStream
+          className="max-w-xl mx-auto mb-8"
           videoId="2308ea025543fcf37c63cea63c2bd845"
           thumbnailSrc="https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/pds_video_thumbnail_3437236ac6.jpg"
         />

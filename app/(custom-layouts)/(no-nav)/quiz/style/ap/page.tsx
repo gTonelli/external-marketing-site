@@ -3,7 +3,6 @@ import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { Itinerary } from '@/components/Itinerary'
 import { TextAndMedia } from '@/components/TextAndMedia'
 import { PDSFeatures } from '@/components/PDSFeatures'
@@ -13,6 +12,8 @@ import { SocialProofStatistics } from '@/components/SocialProof/SocialProofStati
 import { Faq } from '@/components/Faq/Faq'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { SocialProofMediaOutlets } from '@/components/SocialProof/SocialProofMediaOutlets'
+import { VideoStream } from '@/components/Video/variants/VideoStream'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 // config
 import { SEGMENTED_RESULTS_PAGE_AP_CONFIG } from './config'
 import { ROYAL_RUMBLE } from '../../[style]/config'
@@ -31,15 +32,14 @@ export default function SegmentedResultsPage() {
     <Page page_name={`Segmented Results Page - ap`}>
       <Section className="bg-gradient-to-b from-pink-auxiliary via-white to-white">
         <div className="bg-white rounded-20 p-4 lg:grid lg:grid-cols-2 lg:gap-6 lg:p-10 lg:items-center">
-          <VideoThumbnail
-            className="lg:rounded-20"
-            srcUrl={''}
-            thumbnailUrl="AttachmentQuizResults/thais-writing.jpg"
+          <VideoStream
+            videoId="d262cf554e8e2f4413dd88ae9aa6cdb6"
+            thumbnailSrc="https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/pds_video_thumbnail_3437236ac6.jpg"
           />
 
           <div className="text-left">
             <h2 className="text-center text-primary lg:text-left">
-              Why do I love so much… and still feel like it’s never enough?
+              Why Do I Love So Much… And Still Feel Like It’s Never Enough?
             </h2>
 
             <p>
@@ -62,7 +62,7 @@ export default function SegmentedResultsPage() {
             <p key={`section_two_body_${i}`}>{text}</p>
           ))}
 
-          <ButtonCheckout label="VIEW MY PATH TO HEALING" />
+          <ButtonScroll label="VIEW MY PATH TO HEALING" target="#path-to-healing" />
         </div>
 
         <Image

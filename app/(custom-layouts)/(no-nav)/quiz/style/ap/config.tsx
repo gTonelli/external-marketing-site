@@ -117,34 +117,34 @@ export const SEGMENTED_RESULTS_PAGE_AP_CONFIG = {
       {
         heading: 'WEEK 3: YOUR NEEDS ',
         body: [
-          'Take the Emotional Mastery & Trigger Rewiring Course to rewire your emotional triggers using subconscious and neuroplasticity tools.',
+          'With the Needs course, you will learn to understand your needs in all areas of life and how to self-soothe. This will help you diminish anxiety, feel secure, and create habits that bring real happiness.',
           <>
-            <strong>
-              You’ll release fears of abandonment, betrayal pain, and self-doubt so you can finally
-              feel calm, confident, and free.
-            </strong>
+            You will also develop healthy habits for{' '}
+            <strong>meeting your needs and finally feel like you truly know who you are.</strong> As
+            a result, you will gain confidence in yourself and learn to enjoy your time alone.
           </>,
-          'You’ll also learn to self-regulate and rewire the painful beliefs that hold you back, helping you break through limitations in every area of life—especially when it comes to dating and relationships.',
         ],
         hoursPerWeek: 2,
       },
       {
         heading: 'WEEKS 4 AND 5: EMOTIONAL MASTERY AND TRIGGER REWIRING',
         body: [
-          'You’ll learn tools to rewire the push-pull patterns — shedding old abandonment wounds, fear of betrayal, and feeling unworthy.',
           <>
+            In the Emotional Mastery & Trigger Rewiring Course, you will learn how to rewire
+            emotional triggers using subconscious and neuroplasticity tools.{' '}
             <strong>
-              This helps you stop sabotaging so that you can have healthier internal dialogue, more
-              self-love, and finally have control over your emotional state.
+              This process will help you release abandonment fears, betrayal pain, and self-doubt so
+              that you can finally feel calm, confident, and free.
             </strong>
           </>,
+          'You will also gain practical skills to self-regulate and rewire the painful beliefs that are holding you back. As a result, you will be able to break through limitations in all areas of life, especially when it comes to dating and relationships.',
         ],
         hoursPerWeek: 2,
       },
       {
         heading: 'WEEK 6: SOMATIC PROCESSING AND NERVOUS SYSTEM REGULATION',
         body: [
-          'Take the Somatic Processing & Nervous System Regulation Course to learn in-depth tools and simple daily exercises for somatic healing—a cornerstone for releasing past suffering at the bodily level. ',
+          'Take the Somatic Processing & Nervous System Regulation Course to learn in-depth tools and simple daily exercises for somatic healing—a cornerstone for releasing past suffering at the bodily level.',
           <>
             By practicing somatic healing and nervous system regulation, you’ll retrain your body
             for safety and peace so you can{' '}
@@ -154,7 +154,7 @@ export const SEGMENTED_RESULTS_PAGE_AP_CONFIG = {
         hoursPerWeek: 1.5,
       },
       {
-        heading: 'WEEKS 7 AND 8: BOUNDARIES',
+        heading: 'WEEKS 7 AND 8: SETTING BOUNDARIES',
         body: [
           <>
             Take the Rewiring Healthy Boundaries Course to deeply understand your own boundaries
@@ -169,7 +169,7 @@ export const SEGMENTED_RESULTS_PAGE_AP_CONFIG = {
         hoursPerWeek: 2,
       },
       {
-        heading: 'WEEKS 9 AND 10: COMMUNICATION',
+        heading: 'WEEKS 9 AND 10: LEARN HEALTHY COMMUNICATION',
         body: [
           'Learn Healthy Communication with our 5-step system designed to make conversations easier and more effective. ',
           <>
@@ -182,7 +182,7 @@ export const SEGMENTED_RESULTS_PAGE_AP_CONFIG = {
         hoursPerWeek: 2,
       },
       {
-        heading: 'WEEKS 11 AND 12: COMMUNICATION',
+        heading: 'WEEKS 11 AND 12: REWIRING OLD BEHAVIORS',
         body: [
           'Rewiring Old Behaviors helps you break free from old coping patterns like clinginess or over-pursuing.',
           <>

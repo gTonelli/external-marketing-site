@@ -11,9 +11,10 @@ import { PricingSectionAlt } from '@/components/PricingSection/PricingSectionAlt
 import { CarouselTestimonial } from '@/components/Carousel/variants/CarouselTestimonial'
 import { SocialProofStatistics } from '@/components/SocialProof/SocialProofStatistics'
 import { Faq } from '@/components/Faq/Faq'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
+import { VideoStream } from '@/components/Video/variants/VideoStream'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
+import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 // config
 import { ROYAL_RUMBLE } from '../../[style]/config'
 import { SEGMENTED_RESULTS_PAGE_FA_CONFIG } from './config'
@@ -51,10 +52,9 @@ export default function SegmentedResultsPage() {
       </Section>
 
       <Section className="!pt-0" classNameInner="lg:p-10 lg:shadow-centered-2 lg:rounded-20">
-        <VideoThumbnail
-          className="max-w-xl mx-auto mb-4"
-          srcUrl="https://storage.googleapis.com/pds_videos/FA_VSL_FUNNEL.mp4"
-          thumbnailUrl="AttachmentQuizResults/thais-writing.jpg"
+        <VideoStream
+          videoId="2308ea025543fcf37c63cea63c2bd845"
+          thumbnailSrc="https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/pds_video_thumbnail_3437236ac6.jpg"
         />
 
         <h2 className="text-center">Your Quiz Result: Fearful Avoidant Attachment Style</h2>
@@ -90,7 +90,7 @@ export default function SegmentedResultsPage() {
             rewire your subconscious mind.
           </p>
 
-          <ButtonCheckout label="VIEW MY PATH TO HEALING" />
+          <ButtonScroll label="VIEW MY PATH TO HEALING" target="#path-to-healing" />
         </div>
       </Section>
 
@@ -102,7 +102,7 @@ export default function SegmentedResultsPage() {
         heading="Why Attachment Style Matters & Why Our Way Works"
         body={config.sectionTwo.body}
         image={config.sectionTwo.image}
-        button={<ButtonCheckout label="VIEW MY PATH TO HEALING" />}
+        button={<ButtonScroll label="VIEW MY PATH TO HEALING" target="#path-to-healing" />}
       />
 
       <Section>

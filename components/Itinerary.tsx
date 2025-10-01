@@ -31,7 +31,10 @@ export const Itinerary = ({ listItems }: IItineraryProps) => {
         tabIndex={-1}
       />
 
-      <Section className="bg-[rgba(227,237,237,0.5)]" classNameInner="!max-w-4xl">
+      <Section
+        className="bg-[rgba(227,237,237,0.5)] scroll-mt-4 lg:scroll-mt-8"
+        classNameInner="!max-w-4xl"
+        id="path-to-healing">
         <h2>Your 90 Day Path to Healing</h2>
 
         <p>

@@ -161,7 +161,7 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
         hoursPerWeek: 1.5,
       },
       {
-        heading: 'WEEKS 7 AND 8: BOUNDARIES',
+        heading: 'WEEKS 7 AND 8: SETTING BOUNDARIES',
         body: [
           'As a Fearful Avoidant, you may swing between rigid walls and over-giving. ',
           'Here you’ll learn how to set balanced, consistent boundaries that protect you without shutting people out. This builds self-respect and saves you from living in a state of burn out.',
@@ -169,7 +169,7 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
         hoursPerWeek: 2,
       },
       {
-        heading: 'WEEKS 9 AND 10: COMMUNICATION',
+        heading: 'WEEKS 9 AND 10: LEARN HEALTHY COMMUNICATION',
         body: [
           'Learn to express needs without fearing rejection or conflict. ',
           <>
@@ -183,7 +183,7 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
         hoursPerWeek: 2,
       },
       {
-        heading: 'WEEKS 11 AND 12: COMMUNICATION',
+        heading: 'WEEKS 11 AND 12: REWIRING OLD BEHAVIORS',
         body: [
           'Replace old coping strategies — like disappearing, testing, or clinging — with secure habits that build trust. ',
           <>

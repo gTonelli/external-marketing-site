@@ -6,7 +6,7 @@ import { AttachmentQuizV2SelfImprovementSlider } from './AttachmentQuizV2SelfImp
 import { Animation } from '../Animation'
 import { TrustbarSlider } from '../Trustbar/variants/TrustbarSlider'
 import { VideoYoutube } from '../Video/variants/VideoYoutube'
-import { PricingSection } from '../PricingSection'
+import { PricingSection } from '../PricingSection/PricingSection'
 import { CarouselTestimonial } from '../Carousel/variants/CarouselTestimonial'
 import { Faq } from '../Faq/Faq'
 // config

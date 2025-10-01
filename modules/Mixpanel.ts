@@ -1,4 +1,5 @@
 // libraries
+import { TStyle } from '@/utils/types'
 import mixpanel, { Dict } from 'mixpanel-browser'
 
 /* Collection of all Mixpanel event names tracked throughout the app */
@@ -126,6 +127,7 @@ export type Pages =
   | `Spin The Wheel - Email`
   | `Spin The Wheel - OSM`
   | `Secondary Sales - ${string}`
+  | `Segmented Results Page - ${TStyle}`
   | `Straight to Offer ${string}`
   | `Valentine's Day`
   | `Valentine's Day - Short`

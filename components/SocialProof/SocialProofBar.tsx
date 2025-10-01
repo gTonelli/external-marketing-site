@@ -3,8 +3,8 @@
 // core
 import { useRef } from 'react'
 // components
-import { IDefaultProps } from '.'
-import { Text } from './Text/Text'
+import { IDefaultProps } from '@/components'
+import { Text } from '@/components/Text/Text'
 import { faCalendarCheck, faUserPlus } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faYoutube } from '@awesome.me/kit-545b942488/icons/classic/brands'
 // libraries

@@ -170,7 +170,7 @@ export const EXTERNALQUIZQUESTIONS = [
     options: ['Not at all', 'A little', 'Somewhat familiar', 'Very familiar'],
   },
   {
-    question: 'What are you hoping to acheive today?',
+    question: 'What are you hoping to achieve today?',
     association: 'intent',
     associationType: 'userInfo',
     options: [

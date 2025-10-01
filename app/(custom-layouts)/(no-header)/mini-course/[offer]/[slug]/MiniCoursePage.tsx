@@ -50,16 +50,12 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
         <div className="w-full h-fit my-4">
           {offer === 'offer' ? (
             <VideoStream
-              classNameThumbnail="rounded-xl"
               thumbnailSrc={config.banner.videoThumbnail}
-              thumbnailAlt={config.banner.videoThumbnailAlt}
               videoId={config.banner.videoSrc}
             />
           ) : (
             <VideoStream
-              classNameThumbnail="rounded-xl"
               thumbnailSrc={config.banner.videoVariantThumbnail}
-              thumbnailAlt={config.banner.videoVariantThumbnailAlt}
               videoId={config.banner.videoVariantSrc}
             />
           )}

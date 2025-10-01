@@ -3,7 +3,7 @@ import Image from 'next/image'
 // components
 import { Card } from '@/components/Card/Card'
 import { Section } from '@/components/Section'
-import { SocialProofBar } from '@/components/SocialProofBar'
+import { SocialProofBar } from '@/components/SocialProof/SocialProofBar'
 import { ITextDefaultProps } from '@/components/Text/variants/TextDefault'
 import { MHAButton } from './MHAButton'
 import { List } from '@/components/List'
@@ -268,8 +268,7 @@ interface IPDSSocialProofProps {
   isNewVersion?: boolean
 }
 
-export const PDSSocialProof = ( { isNewVersion = true } : IPDSSocialProofProps) => {
-  
+export const PDSSocialProof = ({ isNewVersion = true }: IPDSSocialProofProps) => {
   return (
     <>
       <SocialProofBar
@@ -279,7 +278,6 @@ export const PDSSocialProof = ( { isNewVersion = true } : IPDSSocialProofProps) 
             ? ['Course enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide']
             : ['Attachment Styles Discovered', 'Youtube Views', 'Countries']
         }
-        className="text-black"
         classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
         classNameIcon="!bg-white"
         icons={

@@ -88,7 +88,7 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
 
         <ButtonCheckout className="mb-4" label="JOIN THE ALL-ACCESS & SAVE 30%" />
 
-        <div className="w-fit bg-[#D9E0FE] flex items-center text-blue-darkest p-4 mx-auto">
+        <div className="w-fit bg-blue-3 flex items-center text-blue-darkest p-4 mx-auto">
           <FontAwesomeIcon className="mr-2" icon={faInfoCircle} />
 
           <p className="mb-0">

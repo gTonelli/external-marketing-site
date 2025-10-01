@@ -60,7 +60,7 @@ const fields: TFieldConfig[] = [
     label: 'Last Name',
     autoComplete: 'family-name',
   },
-  { key: 'email', label: 'Email' },
+  { key: 'email', label: 'Email', autoComplete: 'email' },
 ]
 
 export const RegistrationForm = ({

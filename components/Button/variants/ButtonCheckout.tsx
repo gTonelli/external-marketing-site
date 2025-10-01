@@ -46,7 +46,7 @@ export const ButtonCheckout = ({
 
   return (
     // There is an issue with next/link and the Thinkific Checkout. If the user is logged in the browser enters an infinite loop.
-    <Link className={children ? className : undefined} href={link} prefetch={false}>
+    <Link className={className} href={link} prefetch={false}>
       {children || (
         <Button
           className={two(

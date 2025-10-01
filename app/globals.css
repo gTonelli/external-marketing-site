@@ -378,7 +378,7 @@ option {
 }
 
 .trial-btn {
-  @apply !bg-gradient-to-t from-[#523DAD] to-[#9747FF] hover:!text-white tracking-widest !rounded-full shadow-lg lg:!px-8;
+  @apply !bg-gradient-to-t from-[#523DAD] to-[#9747FF] hover:!text-white tracking-widest !rounded-full shadow-lg max-w-max;
 
   font-size: 1.25em;
 }

@@ -74,3 +74,13 @@ export interface IStrapiFetchProps<T> {
     }
   }
 }
+
+export type TUserData = {
+  id: number
+  firstName?: string
+  lastName?: string
+  createdAt: string
+  avatar_url?: string
+  iat: number
+  exp: number
+}

@@ -1,6 +1,5 @@
 'use client'
 // core
-import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 // components
 import { IQuizCardProps, IQuizResults } from '@/components/QuizCard'
@@ -62,8 +61,6 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
   const userTag = Storage.get('userTag') || ''
 
   // ==================== Hooks ====================
-  const router = useRouter()
-
   const onAfterSubmit = () => {
     Storage.set('canViewResults', '1')
     setCanViewResults(true)
@@ -156,7 +153,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
         />
         <Image
           alt="A styled vector wave"
-          className="bg-desktop absolute inset-0 z-5 lg:top-0 xl:-top-6 laptop:-top-20 2xl:-top-32 3xl:-top-52 4k:-top-88"
+          className="bg-desktop absolute inset-0 z-5 w-full lg:top-0 xl:-top-6 laptop:-top-20 2xl:-top-32 3xl:-top-52 4k:-top-88"
           src={quiz.introBgDesktop}
           width={1024}
           height={251}
@@ -549,7 +546,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
           />
 
           <RegistrationForm
-            className="!text-left md:!pt-0 shadow-md rounded-lg py-4"
+            className="!text-left shadow-md rounded-lg p-4"
             clientTag={userTag}
             userStyle={style.toLowerCase() as unknown as TStyle | undefined}
             onAfterSubmit={onAfterSubmit}

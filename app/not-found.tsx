@@ -1,5 +1,5 @@
 import { Footer } from '@/components/Footer'
-import { Header, PDSDefaultNavLinks } from '@/components/Header'
+import { Header, PDSDefaultNavLinks } from '@/components/Header/Header'
 import { NotFound } from '@/components/NotFound'
 
 export default function NotFoundPage() {

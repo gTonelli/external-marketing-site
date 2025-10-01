@@ -46,13 +46,10 @@ export const QuizCard = ({ color, title, description, image, isNew, type }: IQui
       <Text.Paragraph content={description} size={14} />
 
       <Button
-        // @ts-ignore
-        color={color}
         className={cx(
           'font-effra font-bold tracking-widest absolute bottom-5 rounded-full px-4 py-3',
           borderColor,
           btnBg
-          //   btnTxtColor
         )}
         label="START QUIZ"
         onClick={onGoToQuiz}

@@ -3,6 +3,7 @@
 import { createContext } from 'react'
 import { IPage, IScrolldepth, ISplitTest, IViewport } from './interfaces'
 import { Maybe } from 'yup'
+import { TUserData } from './types'
 
 // ==================== Viewport context ====================
 export const ViewportContext = createContext<IViewport>({
@@ -30,5 +31,10 @@ export const ScrollContext = createContext<IScrolldepth>({
 
 // ==================== Page context ====================
 export const PageContext = createContext<IPage>({ page_name: undefined })
+
+// ==================== UserData context ====================
+export const UserDataContext = createContext<
+  Pick<TUserData, 'firstName' | 'lastName' | 'avatar_url' | 'createdAt'> | undefined
+>(undefined)
 
 export const SplitTestContext = createContext<Maybe<ISplitTest>>(undefined)

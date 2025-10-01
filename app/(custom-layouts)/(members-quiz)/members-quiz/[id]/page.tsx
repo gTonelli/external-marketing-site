@@ -3,25 +3,29 @@
 // core
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 // components
 import { Button } from '@/components/Button/Button'
 import { Dialog } from '@/components/Dialog/Dialog'
 import { ProgressBar } from '@/components/ProgressBar'
+import { Text } from '@/components/Text/Text'
+import { NotFound } from '@/components/NotFound'
+import { Page } from '@/components/Page'
+// config
+import { CONFIG, ICalculateQuizPointsParams } from '../config'
 // libraries
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faTimes } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faHeart, faHouse, faPeople } from '@awesome.me/kit-545b942488/icons/classic/light'
+import { orderBy } from 'lodash'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { CONFIG, ICalculateQuizPointsParams } from '../config'
-import Image from 'next/image'
-import { Text } from '@/components/Text/Text'
+import { Storage } from '@/modules/Storage'
 // styles
 import '../styles.css'
-import { orderBy } from 'lodash'
-import { NotFound } from '@/components/NotFound'
-import { Page } from '@/components/Page'
+// utils
+import { getUserData } from '@/utils/functions'
 
 type TQuizType = 'romantic' | 'family' | 'friends'
 
@@ -82,6 +86,12 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
           totalTrueAnswers === 0 ? 0 : ((newFaPoints / totalTrueAnswers) * 100).toFixed(0)
         const saPercentage =
           totalTrueAnswers === 0 ? 0 : ((newSaPoints / totalTrueAnswers) * 100).toFixed(0)
+
+        const userData = getUserData()
+        console.log('userData', userData)
+        if (userData) {
+          Storage.set('canViewResults', '1')
+        }
 
         router.push(
           `/members-quiz/results/${params.id}/${calculateResult({

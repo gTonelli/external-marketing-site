@@ -11,7 +11,7 @@ import { Button } from '@/components/Button/Button'
 import { ButtonScroll } from '@/components/Button/variants/ButtonScroll'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // styles
-import '../dream-life-pillars-course/style.css'
+import './style.css'
 
 export const metadata: Metadata = {
   title: 'Download Your Life-Changing Dating Freebie!',

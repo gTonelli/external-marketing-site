@@ -104,7 +104,7 @@ export default function SegmentedResultsPage() {
         ))}
 
         <ButtonCheckout
-          className="lg:block lg:col-span-3 lg:w-max lg:mx-auto"
+          className="!no-underline lg:block lg:col-span-3 lg:w-max lg:mx-auto"
           label="START HEALING TODAY"
         />
       </Section>

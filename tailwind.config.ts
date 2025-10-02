@@ -30,12 +30,14 @@ const config: Config = {
         'primary-light-4': '#E4DFE5',
 
         black: '#252334',
+        'black-2': '#2C2E35',
         'black-secondary': '#21202D',
         'blue-tertiary': '#008BDC',
         'black-transparent': 'rgba(0, 0, 0, 0.6)',
 
         blue: '#85bbca',
         'blue-2': '#465E62',
+        'blue-3': '#D9E0FE',
         'blue-75': 'rgba(133, 187, 202, 0.75)',
         'blue-light': '#c3d7db',
         'blue-lightest': '#e3eded',
@@ -60,6 +62,8 @@ const config: Config = {
         'green-5': '#D7EFD7',
         'green-6': '#E7EFF1',
         'green-7': '#F5FBFC',
+        'green-8': '#00BA00',
+        'green-9': '#30A114',
 
         // secondaries
         'black-light': '#2C3E42',
@@ -71,6 +75,7 @@ const config: Config = {
         'grey-6': '#9D9D9D',
         'grey-7': '#DEEAEA',
         'grey-8': '#F1F2F4',
+        'grey-9': '#9A9BA0',
         'gray-light': '#F5F4FB',
         'gray-lightest': '#F5F5F5',
         'gray-dark': '#BFBFBF',
@@ -114,6 +119,7 @@ const config: Config = {
         'purple-light': '#7557FA80',
 
         'red-1': '#EFD7D9',
+        'red-2': '#D32F2F',
         success: colors.green[500],
 
         teal: '#71C2C1',
@@ -181,8 +187,9 @@ const config: Config = {
           '0 5px 25px -5px rgb(255 255 255 / 50%), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         sidepanel: '0 0px 30px 13px rgba(0, 0, 0, 0.35)',
         centered: '0 3px 14px 5px rgba(0, 0, 0, 0.2)',
+        'centered-2': '0 0 16px 0 rgba(0, 0, 0, 0.16)',
         'centered-card': '0px 0px 16px 0px rgba(0, 0, 0, 0.16)',
-        'centered-card-2': 'box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.24)',
+        'centered-card-2': '0px 4px 4px 0px rgba(0, 0, 0, 0.24)',
         'center-light': '0 2px 12px 2px rgba(0, 0, 0, 0.1)',
       },
       fill: (theme) => ({

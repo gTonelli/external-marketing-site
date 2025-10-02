@@ -266,6 +266,13 @@ if (thinkificUrl === 'https://staging.university.personaldevelopmentschool.com')
 export const externalRoutes = {
   // External
   about: `${thinkificUrl}/pages/about`,
+  account: `${thinkificUrl}/account`,
+  accountPassword: `${thinkificUrl}/account/password`,
+  accountCertificates: `${thinkificUrl}/account/certificates`,
+  accountNotifications: `${thinkificUrl}/account/notifications`,
+  accountBilling: `${thinkificUrl}/account/billing`,
+  accountMembership: `${thinkificUrl}/pages/my-account-membership`,
+  accountOrders: `${thinkificUrl}/account/orders`,
   attachmentBootcamp: `${thinkificUrl}/pages/attachment-bootcamp`,
   blog: 'https://blog.personaldevelopmentschool.com/',
   collections: `${thinkificUrl}/collections`,

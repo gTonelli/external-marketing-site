@@ -73,7 +73,10 @@ export const Header = async ({
       </header>
 
       {(includeSideMenu || userData) && (
-        <HeaderSideMenu includeMembersQuiz={useMembersQuiz && navLinks == PDSDefaultNavLinks} />
+        <HeaderSideMenu
+          includeMembersQuiz={useMembersQuiz && navLinks == PDSDefaultNavLinks}
+          userData={userData}
+        />
       )}
     </>
   )

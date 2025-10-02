@@ -14,7 +14,7 @@ export async function getUserData() {
     if (!secret || !token) return undefined
     const userData = jwt.verify(token, secret) as TUserData
     if (userData.exp && userData.exp < Date.now() / 1000) return undefined
-    return pick(userData, ['firstName', 'lastName', 'avatar_url', 'createdAt'])
+    return pick(userData, ['firstName', 'lastName', 'avatar_url', 'createdAt', 'roles'])
   } catch {
     return undefined
   }

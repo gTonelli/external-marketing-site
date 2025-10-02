@@ -5,8 +5,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 // utils
 import { externalRoutes, routes } from '@/utils/constants'
+import { TUserData } from '@/utils/types'
 
-export const HeaderSideMenu = ({ includeMembersQuiz }: { includeMembersQuiz: boolean }) => {
+export const HeaderSideMenu = ({
+  includeMembersQuiz,
+  userData,
+}: {
+  includeMembersQuiz: boolean
+  userData?: Pick<TUserData, 'firstName' | 'lastName' | 'avatar_url' | 'createdAt' | 'roles'>
+}) => {
   if (includeMembersQuiz) {
     SideMenuLinks[0].link = routes.membersQuiz
   }

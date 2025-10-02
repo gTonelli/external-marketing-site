@@ -81,6 +81,7 @@ export type TUserData = {
   lastName?: string
   createdAt: string
   avatar_url?: string
+  roles?: string
   iat: number
   exp: number
 }

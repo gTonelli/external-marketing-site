@@ -1,16 +1,30 @@
 'use client'
 
+import { externalRoutes } from '@/utils/constants'
 import { TUserData } from '@/utils/types'
-import { faChevronDown } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faChevronDown, faSignOut } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faGear } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import dayjs from 'dayjs'
 // core
 import Image from 'next/image'
+import Link from 'next/link'
+import { config } from 'process'
+import { headerSideMenuButtonConfig } from './config'
+import { Button } from '../Button/Button'
+// libraries
+import cx from 'classnames'
+// styles
+import './style.css'
+import { useState } from 'react'
 
 export const HeaderSideMenuButton = ({
   userData,
 }: {
-  userData?: Pick<TUserData, 'firstName' | 'lastName' | 'avatar_url' | 'createdAt'>
+  userData?: Pick<TUserData, 'firstName' | 'lastName' | 'avatar_url' | 'createdAt' | 'roles'>
 }) => {
+  const [accountSettingsIsOpen, setAccountSettingsIsOpen] = useState(false)
+
   const setSideMenuIsOpen = () => {
     const sideMenu = document.querySelector('#header__side-menu')
     const sideMenuOverlay = document.querySelector('#header__side-menu-overlay')
@@ -24,30 +38,107 @@ export const HeaderSideMenuButton = ({
 
   return (
     <div className="min-w-[108px] ml-auto text-right">
-      {userData && userData.firstName ? (
-        <div className="gap-2.5 hidden lg:flex items-center justify-center border-2 border-primary rounded-4xl cursor-pointer bg-white py-2 px-4 my-2 text-decoration-none">
-          <Image
-            alt="avatar"
-            src={parseAvatarUrl(userData.avatar_url)}
-            className="mx-[5px]"
-            width={32}
-            height={32}
-          />
+      {userData && userData.firstName && (
+        <div className="relative header-side-menu-button text-left">
+          <div className="cursor-pointer gap-2.5 hidden lg:flex items-center justify-center border-2 border-primary rounded-4xl bg-white py-2 px-4 my-2 text-decoration-none">
+            <Image
+              alt="avatar"
+              src={parseAvatarUrl(userData.avatar_url)}
+              className="mx-[5px]"
+              width={32}
+              height={32}
+            />
 
-          <span className="font-bold">{userData.firstName}</span>
+            <span className="font-bold">{userData.firstName}</span>
 
-          <FontAwesomeIcon icon={faChevronDown} className="text-primary" size="xl" />
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              className="header-side-menu-button__chevron-down text-primary"
+              size="xl"
+            />
+          </div>
+
+          <div className="floating-menu absolute top-full -left-28 bg-white shadow-centered-card p-5 w-[340px] rounded-2xl z-50">
+            <div>
+              <h3 className="mb-0">Welcome, {userData.firstName}!</h3>
+
+              <p className="mb-4">Member since {dayjs(userData.createdAt).format('MMM D, YYYY')}</p>
+            </div>
+
+            <ul>
+              <li className="mb-2">
+                <p
+                  className="flex items-center cursor-pointer"
+                  onClick={() => setAccountSettingsIsOpen(!accountSettingsIsOpen)}>
+                  Account Settings
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    className={cx(
+                      'ml-2 transition-transform',
+                      accountSettingsIsOpen ? 'rotate-180' : ''
+                    )}
+                  />
+                </p>
+
+                <div
+                  className={cx(
+                    'flex flex-col items-start justify-start text-left bg-white shadow-centered-card p-3 mt-2 rounded-2xl',
+                    accountSettingsIsOpen ? 'block' : 'hidden'
+                  )}>
+                  <div className="p-2 mb-2 bg-grey-8 rounded-lg">
+                    <h4 className="relative flex items-baseline">
+                      <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-primary-light z-5" />
+                      <FontAwesomeIcon
+                        icon={faGear}
+                        className="text-primary relative z-10"
+                        size="xl"
+                      />
+                      Account Settings
+                    </h4>
+
+                    <p>Keep your information secure and up-to-date</p>
+                  </div>
+
+                  {headerSideMenuButtonConfig.accountSettingsLinks.map((item, i) => (
+                    <Link
+                      className="mb-1 !no-underline hover:text-primary"
+                      href={item.link}
+                      key={`header_side_menu_button_link_${i}`}>
+                      {item.text}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+
+              <li className="mb-2">
+                <Link
+                  className="flex items-center !no-underline"
+                  href={`https://staging.university.personaldevelopmentschool.com/users/sign_out`}>
+                  Sign Out <FontAwesomeIcon icon={faSignOut} className="ml-2" />
+                </Link>
+              </li>
+
+              <div id="membership-change-upgrade">
+                <Button
+                  onClick={() => {
+                    window.location.href = `${externalRoutes.collections}`
+                  }}
+                  label="Upgrade my membership"
+                />
+              </div>
+            </ul>
+          </div>
         </div>
-      ) : (
-        <Image
-          alt="sidemenu"
-          className="ml-auto cursor-pointer lg:hidden"
-          src="/icons/hamburger-menu.svg"
-          width={24}
-          height={28}
-          onClick={() => setSideMenuIsOpen()}
-        />
       )}
+
+      <Image
+        alt="sidemenu"
+        className="ml-auto cursor-pointer lg:hidden"
+        src="/icons/hamburger-menu.svg"
+        width={24}
+        height={28}
+        onClick={() => setSideMenuIsOpen()}
+      />
     </div>
   )
 }

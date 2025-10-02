@@ -31,21 +31,27 @@ export const CONFIG: TPromotionPageConfig = {
     image: '/images/TrialHeadspace/secure-pillars-mockup.png',
     imageAlt: 'A desktop screen showcasing the Key Pillars to Secure Course',
     offer: [
-      <strong>
-        Get 7 days of full access to our All-Access Pass, our all-inclusive membership! Explore 70+
-        life-changing courses, live webinars, and a private support community embedded with our
-        science-backed, results-driven proprietary method designed to help you become securely
-        attached and see results in just 1 week.
-      </strong>,
-      <strong>
-        Even if you cancel before the trial ends, you'll keep our Key Pillars for a Secure
-        Relationship course (A FREE GIFT WORTH $250) for life.
-      </strong>,
-      <strong>
-        Why are we giving all this away at no cost? Because we know you'll love what The Personal
-        Development School has to offer, and we're willing to let you try it to believe it, at no
-        risk or cost to you.
-      </strong>,
+      <>
+        <strong>
+          Get 7 days of full access to our All-Access Pass, our all-inclusive membership! Explore
+          70+ life-changing courses, live webinars, and a private support community embedded with
+          our science-backed, results-driven proprietary method designed to help you become securely
+          attached and see results in just 1 week.
+        </strong>
+      </>,
+      <>
+        <strong>
+          Even if you cancel before the trial ends, you'll keep our Key Pillars for a Secure
+          Relationship course (A FREE GIFT WORTH $250) for life.
+        </strong>
+      </>,
+      <>
+        <strong>
+          Why are we giving all this away at no cost? Because we know you'll love what The Personal
+          Development School has to offer, and we're willing to let you try it to believe it, at no
+          risk or cost to you.
+        </strong>
+      </>,
     ],
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
   },

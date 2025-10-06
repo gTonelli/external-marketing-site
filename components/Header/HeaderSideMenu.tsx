@@ -4,8 +4,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 // utils
-import { externalRoutes, routes } from '@/utils/constants'
+import { routes } from '@/utils/constants'
 import { TUserData } from '@/utils/types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { SideMenuLinks } from './config'
+import { HeaderSideMenuLinks } from './HeaderSideMenuLinks'
 
 export const HeaderSideMenu = ({
   includeMembersQuiz,
@@ -22,12 +26,13 @@ export const HeaderSideMenu = ({
     const sideMenu = document.querySelector('#header__side-menu')
     const sideMenuOverlay = document.querySelector('#header__side-menu-overlay')
     if (sideMenu && sideMenuOverlay) {
-      sideMenu.classList.remove('translate-x-0')
-      sideMenu.classList.add('translate-x-full')
+      sideMenu.classList.remove('right-0')
+      sideMenu.classList.add('-right-full')
       sideMenuOverlay.classList.remove('block')
       sideMenuOverlay.classList.add('hidden')
     }
   }
+
   return (
     <>
       <div
@@ -37,7 +42,7 @@ export const HeaderSideMenu = ({
 
       <div
         id="header__side-menu"
-        className="bg-white absolute w-full h-full top-0 left-0 z-40 transition-transform duration-500 ease-in-out translate-x-full lg:hidden">
+        className="bg-white fixed w-full h-full top-0 -right-full z-40 transition-all duration-500 ease-out max-w-[550px] overflow-scroll lg:hidden">
         <div className="p-5 flex">
           <Image
             alt="PDS Logo, the Tree of Life"
@@ -47,108 +52,18 @@ export const HeaderSideMenu = ({
             width={40}
           />
 
-          <Image
-            alt="Close"
-            src="/icons/times.svg"
-            height={30}
-            width={30}
+          <FontAwesomeIcon
+            icon={faXmark}
+            className="p-2 cursor-pointer"
             onClick={() => setSideMenuIsClosed()}
+            size="xl"
           />
         </div>
 
-        <div className="flex flex-col justify-center items-start pt-[10px] px-[50px] pb-[50px]">
-          {SideMenuLinks.map((item, i) => (
-            <SideMenuLink
-              key={`sidenu_linl_${i}`}
-              imgAlt={item.imgAlt}
-              imgSrc={item.imgSrc}
-              link={item.link}
-              text={item.text}
-            />
-          ))}
+        <div className="flex flex-col justify-center items-start pt-[5px] px-[15px] pb-[15px] xxs:pt-[10px] xxs:px-[50px] xxs:pb-[50px]">
+          <HeaderSideMenuLinks userData={userData} />
         </div>
       </div>
     </>
   )
 }
-
-interface ISideMenuLinkProps {
-  link: string
-  imgAlt: string
-  imgSrc: string
-  text: string
-}
-
-const SideMenuLink = ({ imgAlt, link, imgSrc, text }: ISideMenuLinkProps) => (
-  <Link className="flex items-center justify-center mb-5" href={link}>
-    <div className="w-10 flex justify-start mr-[10px]">
-      <Image
-        alt={imgAlt}
-        className="w-[30px] h-[30px] mr-[15px]"
-        src={imgSrc}
-        height={30}
-        width={30}
-        tabIndex={-1}
-      />
-    </div>
-
-    <p className="mb-0">{text}</p>
-  </Link>
-)
-
-const SideMenuLinks = [
-  {
-    imgAlt: 'The Attachment Quiz Icon, a hand prerssing a checkmark button',
-    link: routes.attachmentQuiz,
-    imgSrc: '/icons/sidemenu-quiz.svg',
-    text: 'Attachment Quiz',
-  },
-  {
-    imgAlt: 'PDS Courses Icon, a vector image of a person on a computer',
-    link: externalRoutes.pdsCourses,
-    imgSrc: '/icons/sidemenu-courses.svg',
-    text: 'View Courses',
-  },
-  {
-    imgAlt: 'Memberships Icon: a vector image of 3 pamphlet leafs',
-    link: externalRoutes.collections,
-    imgSrc: '/icons/sidemenu-membership.svg',
-    text: 'Memberships',
-  },
-  {
-    imgAlt: 'Certifications Icon: a vector image of a sheet with a badge',
-    link: routes.iatSalesPage,
-    imgSrc: '/icons/sidemenu-certification.svg',
-    text: 'Certification',
-  },
-  {
-    imgAlt: 'Book Icon: a vector image of a Book',
-    link: routes.learningLovePage,
-    imgSrc: '/icons/sidemenu-book.svg',
-    text: 'Book',
-  },
-  {
-    imgAlt: 'About Icon: An information icon over a vector image of a person',
-    link: externalRoutes.about,
-    imgSrc: '/icons/sidemenu-about.svg',
-    text: 'About',
-  },
-  {
-    imgAlt: 'Blog Icon: a plain folder',
-    link: externalRoutes.blog,
-    imgSrc: '/icons/sidemenu-blog.svg',
-    text: 'Blog',
-  },
-  {
-    imgAlt: 'Help Icon: a question mark in a circle',
-    link: externalRoutes.supportPage,
-    imgSrc: '/icons/sidemenu-faq.svg',
-    text: 'Help',
-  },
-  {
-    imgAlt: 'Sign In Icon: an arrow pointing to an overlaid door.',
-    link: externalRoutes.signIn,
-    imgSrc: '/icons/sidemenu-sign-in.svg',
-    text: 'Sign In',
-  },
-]

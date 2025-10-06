@@ -18,3 +18,15 @@
 .header-side-menu-button__chevron-down {
   transition: transform 0.3s ease-in-out;
 }
+
+.accordion-content {
+  display: none;
+}
+
+.accordion.open .accordion-content {
+  display: flex;
+}
+
+.accordion.open .accordion-icon {
+  transform: rotate(180deg);
+}

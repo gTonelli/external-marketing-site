@@ -1,5 +1,5 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { TDict, TStyle, TUserData } from './types'
+import { TDict, TRole, TStyle, TUserData } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
@@ -180,11 +180,16 @@ export const getUserCountry = async () => {
 /** Browser method to get user data */
 export const getUserData = () => {
   const cookies = new Cookies()
-  const token = cookies.get('_pds_staging_session')
+  const token = cookies.get(process.env.NEXT_PUBLIC_SESSION_COOKIE_NAME || '_pds_session')
   if (!token) return undefined
   const userData = jwt.decode(token) as TUserData
   if (userData.exp && userData.exp < Date.now() / 1000) return undefined
-  return pick(userData, ['firstName', 'lastName', 'avatar_url', 'createdAt'])
+  return pick(userData, ['firstName', 'lastName', 'email', 'avatar_url', 'createdAt'])
+}
+
+export const getUserRoles = (roles?: TUserData['roles']) => {
+  if (!roles) return []
+  return JSON.parse(roles) as TRole[]
 }
 
 export const getAttachmentStyleText = (style: TStyle) => {

@@ -29,7 +29,7 @@ export const AttachmentQuizForm = ({
   quizData,
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
-  const { getPercentageResults } = useAttachmentQuiz()
+  const { getPercentageResults, saveResult } = useAttachmentQuiz()
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -112,28 +112,22 @@ export const AttachmentQuizForm = ({
       sa,
     })
 
-    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    if (firstName && lastName && email) {
+      saveResult({
         firstName,
         lastName,
         email,
-        'attachment-familiarity': attachmentFamiliarity,
+        attachmentFamiliarity,
         gender,
         intent,
-        'relationship-status': relationship,
-        'relationship-satisfaction': relationshipSatisfaction,
+        relationship,
+        relationshipSatisfaction,
         faPercentage,
         apPercentage,
         daPercentage,
         saPercentage,
-      }),
-    }).catch((error) => {
-      console.error('Error saving quiz result:', error)
-    })
+      })
+    }
 
     const route = determineRoute()
     router.push(route)

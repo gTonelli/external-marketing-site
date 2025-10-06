@@ -10,7 +10,9 @@ export async function getUserData() {
   try {
     const cookieStore = await cookies()
     const secret = process.env.NEXT_PRIVATE_JWT_SECRET
-    const token = cookieStore.get('_pds_staging_session')?.value
+    const token = cookieStore.get(
+      process.env.NEXT_PUBLIC_SESSION_COOKIE_NAME || '_pds_session'
+    )?.value
     if (!secret || !token) return undefined
     const userData = jwt.verify(token, secret) as TUserData
     if (userData.exp && userData.exp < Date.now() / 1000) return undefined

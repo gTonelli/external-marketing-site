@@ -34,6 +34,21 @@ interface IQuestionRequiredProps {
   userResponse?: TAnswerQuestionArgs
 }
 
+export interface ISaveResultArgs {
+  firstName: string
+  lastName: string
+  email: string
+  attachmentFamiliarity?: string
+  gender?: string
+  intent?: string
+  relationship?: string
+  relationshipSatisfaction?: string
+  faPercentage: number
+  apPercentage: number
+  daPercentage: number
+  saPercentage: number
+}
+
 type TFormInputData = {
   readonly type: 'text' | 'email' | 'number'
   readonly autocomplete: 'name' | 'email' | 'age'
@@ -320,6 +335,44 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     question.userResponse = val
   }
 
+  const saveResult = ({
+    firstName,
+    lastName,
+    email,
+    attachmentFamiliarity,
+    gender,
+    intent,
+    relationship,
+    relationshipSatisfaction,
+    faPercentage,
+    apPercentage,
+    daPercentage,
+    saPercentage,
+  }: ISaveResultArgs) => {
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        'attachment-familiarity': attachmentFamiliarity,
+        gender,
+        intent,
+        'relationship-status': relationship,
+        'relationship-satisfaction': relationshipSatisfaction,
+        faPercentage,
+        apPercentage,
+        daPercentage,
+        saPercentage,
+      }),
+    }).catch((error) => {
+      console.error('Error saving quiz result:', error)
+    })
+  }
+
   const trackProgressMobile = useCallback(() => {
     const progress = (i / questionGroups.length) * 100
     if (document.visibilityState === 'hidden' && progress < 100) {
@@ -364,6 +417,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     endQuiz,
     getPercentageResults,
     getQuestionType,
+    saveResult,
     currentQuestionGroup,
     index: i,
     length,

@@ -11,6 +11,7 @@ import { ProgressBar } from '@/components/ProgressBar'
 import { Text } from '@/components/Text/Text'
 import { NotFound } from '@/components/NotFound'
 import { Page } from '@/components/Page'
+import { useAttachmentQuiz } from '@/components/AttachmentQuizV2/useAttachmentQuiz'
 // config
 import { CONFIG, ICalculateQuizPointsParams } from '../config'
 // libraries
@@ -39,7 +40,11 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
   const [daPoints, setDaPoints] = useState<number>(0)
   const [faPoints, setFaPoints] = useState<number>(0)
   const [saPoints, setSaPoints] = useState<number>(0)
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const [showLeaveConfirmationWithQuizId, setShowLeaveConfirmationWithQuizId] = useState<string>('')
+
+  // ==================== Hooks ====================
+  const { getPercentageResults, saveResult } = useAttachmentQuiz()
 
   const quiz = CONFIG.find((i) => i.type === params.id || i.id === params.id)
 
@@ -50,6 +55,8 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
 
   const onQuestionAnswer = useCallback(
     (answer: boolean) => () => {
+      if (isSubmitting) return
+      setIsSubmitting(true)
       let newFaPoints = faPoints,
         newDaPoints = daPoints,
         newSaPoints = saPoints,
@@ -88,9 +95,24 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
           totalTrueAnswers === 0 ? 0 : ((newSaPoints / totalTrueAnswers) * 100).toFixed(0)
 
         const userData = getUserData()
-        console.log('userData', userData)
-        if (userData) {
+
+        if (userData && userData.email && userData.firstName && userData.lastName) {
           Storage.set('canViewResults', '1')
+          const { faPercentage, daPercentage, apPercentage, saPercentage } = getPercentageResults({
+            fa: newFaPoints,
+            da: newDaPoints,
+            ap: newApPoints,
+            sa: newSaPoints,
+          })
+          saveResult({
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            faPercentage,
+            daPercentage,
+            apPercentage,
+            saPercentage,
+          })
         }
 
         router.push(
@@ -115,6 +137,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
           })
 
         setCurrentIndex(currentIndex + 1)
+        setIsSubmitting(false)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -385,12 +408,14 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
               {/* ANSWER BUTTONS */}
               <div className="w-full flex-center space-x-3 mb-5 lg:mb-10">
                 <Button
+                  disabled={isSubmitting}
                   theme={quizColor}
                   className="font-bold tracking-widest rounded-full py-4 px-10"
                   label="TRUE"
                   onClick={onQuestionAnswer(true)}
                 />
                 <Button
+                  disabled={isSubmitting}
                   theme={quizColor}
                   className="font-bold tracking-widest rounded-full py-4 px-10"
                   label="FALSE"

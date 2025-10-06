@@ -9,14 +9,14 @@ import dayjs from 'dayjs'
 // core
 import Image from 'next/image'
 import Link from 'next/link'
-import { config } from 'process'
-import { headerSideMenuButtonConfig } from './config'
+import { LoggedInSideMenuLinks } from './config'
 import { Button } from '../Button/Button'
 // libraries
 import cx from 'classnames'
 // styles
 import './style.css'
 import { useState } from 'react'
+import { HeaderSideMenuAccordion } from './HeaderSideMenuAccordion'
 
 export const HeaderSideMenuButton = ({
   userData,
@@ -29,8 +29,8 @@ export const HeaderSideMenuButton = ({
     const sideMenu = document.querySelector('#header__side-menu')
     const sideMenuOverlay = document.querySelector('#header__side-menu-overlay')
     if (sideMenu && sideMenuOverlay) {
-      sideMenu.classList.add('translate-x-0')
-      sideMenu.classList.remove('translate-x-full')
+      sideMenu.classList.add('right-0')
+      sideMenu.classList.remove('-right-full')
       sideMenuOverlay.classList.add('block')
       sideMenuOverlay.classList.remove('hidden')
     }
@@ -66,49 +66,10 @@ export const HeaderSideMenuButton = ({
             </div>
 
             <ul>
-              <li className="mb-2">
-                <p
-                  className="flex items-center cursor-pointer"
-                  onClick={() => setAccountSettingsIsOpen(!accountSettingsIsOpen)}>
-                  Account Settings
-                  <FontAwesomeIcon
-                    icon={faChevronDown}
-                    className={cx(
-                      'ml-2 transition-transform',
-                      accountSettingsIsOpen ? 'rotate-180' : ''
-                    )}
-                  />
-                </p>
-
-                <div
-                  className={cx(
-                    'flex flex-col items-start justify-start text-left bg-white shadow-centered-card p-3 mt-2 rounded-2xl',
-                    accountSettingsIsOpen ? 'block' : 'hidden'
-                  )}>
-                  <div className="p-2 mb-2 bg-grey-8 rounded-lg">
-                    <h4 className="relative flex items-baseline">
-                      <div className="absolute -top-1 -left-1 w-6 h-6 rounded-full bg-primary-light z-5" />
-                      <FontAwesomeIcon
-                        icon={faGear}
-                        className="text-primary relative z-10"
-                        size="xl"
-                      />
-                      Account Settings
-                    </h4>
-
-                    <p>Keep your information secure and up-to-date</p>
-                  </div>
-
-                  {headerSideMenuButtonConfig.accountSettingsLinks.map((item, i) => (
-                    <Link
-                      className="mb-1 !no-underline hover:text-primary"
-                      href={item.link}
-                      key={`header_side_menu_button_link_${i}`}>
-                      {item.text}
-                    </Link>
-                  ))}
-                </div>
-              </li>
+              <HeaderSideMenuAccordion
+                userData={userData}
+                linkData={LoggedInSideMenuLinks.accountSettings}
+              />
 
               <li className="mb-2">
                 <Link

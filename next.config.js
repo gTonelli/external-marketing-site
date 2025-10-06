@@ -25,6 +25,11 @@ const nextConfig = {
         hostname: 'university.personaldevelopmentschool.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'files.cdn.thinkific.com',
+        pathname: '/**',
+      },
     ],
   },
 }

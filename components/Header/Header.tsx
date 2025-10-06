@@ -48,6 +48,7 @@ export const Header = async ({
   }
 
   const userData = await getUserData()
+  console.log('userData', userData)
 
   return (
     <>

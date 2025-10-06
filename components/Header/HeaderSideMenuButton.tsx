@@ -44,7 +44,7 @@ export const HeaderSideMenuButton = ({
             <Image
               alt="avatar"
               src={parseAvatarUrl(userData.avatar_url)}
-              className="mx-[5px]"
+              className="rounded-full mx-[5px]"
               width={32}
               height={32}
             />
@@ -107,7 +107,11 @@ export const HeaderSideMenuButton = ({
 function parseAvatarUrl(
   avatar_url?: string
 ): string | import('next/dist/shared/lib/get-img-props').StaticImport {
-  if (!avatar_url || !avatar_url.includes('https://university.personaldevelopmentschool.com')) {
+  if (
+    !avatar_url ||
+    (!avatar_url.includes('https://university.personaldevelopmentschool.com') &&
+      !avatar_url.includes('https://files.cdn.thinkific.com/'))
+  ) {
     return 'https://university.personaldevelopmentschool.com/assets/tenant/defaults/avatar.png'
   }
 

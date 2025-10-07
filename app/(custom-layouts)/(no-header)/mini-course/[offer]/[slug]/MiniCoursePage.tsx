@@ -3,24 +3,37 @@ import Image from 'next/image'
 // components
 import { Section } from '@/components/Section'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
+import { IATHigherLevelBookingButton } from '@/components/IAT/IATHigherLevelBookingButton'
 import { VideoStream } from '@/components/Video/variants/VideoStream'
 import { List } from '@/components/List'
 import { faCheckCircle, faInfoCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
-import { MINI_COURSE_CONFIG, TMiniCoursePageOffer, TMiniCoursePageSlugs } from './config'
+import {
+  MINI_COURSE_CONFIG,
+  MINI_COURSE_IAT_CONFIG,
+  TMiniCoursePageOffer,
+  TMiniCoursePageSlugs,
+  TMiniCourseIATSlugs,
+} from './config'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
 interface IMiniCoursePageProps {
   offer: TMiniCoursePageOffer
-  slug: TMiniCoursePageSlugs
+  slug: TMiniCoursePageSlugs | TMiniCourseIATSlugs
+  isIATOnly?: boolean
 }
 
-export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
-  const common = MINI_COURSE_CONFIG['common']
-  const config = MINI_COURSE_CONFIG['versions'][slug]
+export const MiniCoursePage = ({ offer, slug, isIATOnly = false }: IMiniCoursePageProps) => {
+  // Determine which config to use based on whether it's an IAT page
+  const common = isIATOnly ? MINI_COURSE_IAT_CONFIG['common'] : MINI_COURSE_CONFIG['common']
+
+  const config = isIATOnly
+    ? MINI_COURSE_IAT_CONFIG['versions'][slug as TMiniCourseIATSlugs]
+    : MINI_COURSE_CONFIG['versions'][slug as TMiniCoursePageSlugs]
+
   const checkoutUrl = externalRoutes.checkout7DayTrial.concat(
     '-mec',
     offer === 'offer' ? '-o' : '-wo',
@@ -48,15 +61,20 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
         ))}
 
         <div className="w-full h-fit my-4">
-          {offer === 'offer' ? (
+          {isIATOnly ? (
             <VideoStream
               thumbnailSrc={config.banner.videoThumbnail}
               videoId={config.banner.videoSrc}
             />
+          ) : offer === 'intro' ? (
+            <VideoStream
+              thumbnailSrc={(config.banner as any).videoVariantThumbnail}
+              videoId={(config.banner as any).videoVariantSrc}
+            />
           ) : (
             <VideoStream
-              thumbnailSrc={config.banner.videoVariantThumbnail}
-              videoId={config.banner.videoVariantSrc}
+              thumbnailSrc={config.banner.videoThumbnail}
+              videoId={config.banner.videoSrc}
             />
           )}
         </div>
@@ -101,25 +119,33 @@ export const MiniCoursePage = ({ offer, slug }: IMiniCoursePageProps) => {
               listItems={common.features.list}
             />
 
+            {isIATOnly && common.postCopy && <p className="my-4">{common.postCopy}</p>}
+
             <p>
               <strong>{config.offer.hook}</strong>
             </p>
           </div>
         </div>
 
-        <ButtonCheckout href={checkoutUrl} label={config.offer.ctaLabel} />
+        {isIATOnly ? (
+          <IATHigherLevelBookingButton label={config.offer.ctaLabel} />
+        ) : (
+          <ButtonCheckout href={checkoutUrl} label={config.offer.ctaLabel} />
+        )}
 
-        <div className="text-left bg-white rounded-lg p-4 mt-8">
-          <p>
-            <span>
-              <FontAwesomeIcon className="!text-primary mr-2" icon={faInfoCircle} />
-            </span>
+        {common.disclaimer && (
+          <div className="text-left bg-white rounded-lg p-4 mt-8">
+            <p>
+              <span>
+                <FontAwesomeIcon className="!text-primary mr-2" icon={faInfoCircle} />
+              </span>
 
-            <span>
-              <em>{common.disclaimer}</em>
-            </span>
-          </p>
-        </div>
+              <span>
+                <em>{common.disclaimer}</em>
+              </span>
+            </p>
+          </div>
+        )}
       </Section>
     </>
   )

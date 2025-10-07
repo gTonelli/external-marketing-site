@@ -4,7 +4,7 @@ export const MINI_COURSE_CONFIG = {
       image: '/images/MiniCourse/pds-features.png',
       imageAlt:
         'Image of a lady and a couple with PDS feature floating as a callout on top of those images.',
-      copy: 'Inside, you’ll find the community and resources to help you continue this journey:',
+      copy: "Inside, you'll find the community and resources to help you continue this journey:",
       list: [
         <>
           <strong>70+ science-backed courses</strong>, where you’ll get the exact help you need to
@@ -25,8 +25,9 @@ export const MINI_COURSE_CONFIG = {
         </>,
       ],
     },
+    postCopy: '',
     disclaimer:
-      '*When you join now, you’ll enter a 7‑day Free Trial of our All‑Access Pass. After the trial, you’ll automatically continue on the $67/month plan. You can cancel any time before your trial ends, and you won’t be charged.',
+      "*When you join now, you'll enter a 7-day Free Trial of our All-Access Pass. After the trial, you'll automatically continue on the $67/month plan. You can cancel any time before your trial ends, and you won't be charged.",
   },
   versions: {
     'hard-relationships': {
@@ -472,5 +473,424 @@ export const MINI_COURSE_PAGES_SEO = {
   },
 }
 
-export type TMiniCoursePageOffer = 'offer' | 'intro'
+export const MINI_COURSE_IAT_CONFIG = {
+  common: {
+    features: {
+      image: '/images/MiniCourse/pds-features.png',
+      imageAlt:
+        'Image of a lady and a couple with PDS feature floating as a callout on top of those images.',
+      copy: 'You will master practical coaching skills that drive real results:',
+      list: [
+        <>
+          Identifying <strong>core needs</strong> and mapping patterns
+        </>,
+        <>
+          Transforming <strong>core wounds</strong> with simple, repeatable steps
+        </>,
+        <>
+          Building healthy <strong>boundaries</strong> and clean communication
+        </>,
+        <>
+          Reprogramming patterns at the <strong>subconscious</strong> level
+        </>,
+      ],
+    },
+    postCopy:
+      'You also get client-ready resources, lifetime access to the training materials, and step-by-step business strategy coaching so you can launch and grow with confidence.',
+    disclaimer: '',
+  },
+  versions: {
+    'iat-relationships': {
+      banner: {
+        h1: (
+          <>
+            Intro to Attachment Styles: An IAT<sup>TM</sup> Primer for Coaches
+          </>
+        ),
+        copy1: [
+          <>
+            When a client starts working with a coach, it's often because they feel misunderstood in
+            their relationships, stuck with worries, or caught in push-pull dynamics.
+          </>,
+          <>
+            But it's not from a lack of effort or willingness to change. It's because people play by
+            different "rulebooks" based on their attachment style. Without a way to read those
+            rules, even good coaches can miss what actually moves the needle.
+          </>,
+          <>
+            That's where Integrated Attachment Theory<sup>TM</sup> (IAT<sup>TM</sup>) comes in.
+          </>,
+          <>
+            In Day 1 of this free Intro to Attachment Styles course, you'll get a clear IAT
+            <sup>TM</sup> lens to spot patterns quickly. That shared map lowers defensiveness,
+            builds safety and creates early wins, so breakthroughs stop feeling random and start
+            feeling repeatable.
+          </>,
+        ],
+        videoThumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/course_day_1_cc6079def0.png',
+        videoSrc: 'fd944e6f06fe3db3bf18bc9655c41ecf',
+        copy2: [
+          <>
+            This foundation upgrades the whole arc of your coaching: faster intakes, cleaner session
+            goals, and measurable progress your clients can feel. When you can see the pattern
+            behind the pattern, you help clients rewrite it. That means clearer communication,
+            steadier follow-through, and change that lasts.
+          </>,
+        ],
+      },
+      offer: {
+        h2: 'Want to deliver these results for client after client?',
+        copy: [
+          <>
+            The Integrated Attachment Theory<sup>TM</sup> Relationship Coaching Certification gives
+            you a clear, 12-week path to a proven method you can use in every session, plus the
+            tools to turn it into a real business.
+          </>,
+          <>
+            Choose the learning style that fits: live cohort training with Thais Gibson and
+            supervised practice, or a flexible on-demand track. Both lead to the same certification.
+          </>,
+        ],
+        hook: 'Ready to see if the certification fits your goals? Book a free discovery call and get straight answers on format, support, and next steps.',
+        ctaLabel: 'BOOK A FREE CALL WITH A COACHING SPECIALIST',
+      },
+    },
+    'iat-patterns': {
+      banner: {
+        h1: "Here's Why Clients Repeat the Same Patterns in Relationships",
+        copy1: [
+          <>
+            Why do people keep repeating the same patterns, even when everyone knows they aren't
+            working? It's not a willpower problem, it's the subconscious at work.
+          </>,
+          <>
+            About 95% of day-to-day reactions are driven by learned patterns from earlier
+            experiences, which is why change can feel so tough when you only work at the surface
+            level. In Day 2 of this free Intro to Attachment Styles course, you'll see how an IAT
+            <sup>TM</sup>
+            lens helps you coach where patterns actually live.
+          </>,
+        ],
+        videoThumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/course_day_2_dbacbe83aa.png',
+        videoSrc: '417b0eff9acfb54d0318d5fc9443c7fe',
+        copy2: [
+          <>
+            As a coach, this perspective upgrades the whole process. Clients understand why a
+            reaction shows up and defenses drop. Sessions become more predictable, communication
+            gets easier, and behavior change moves from hopeful to teachable. This lesson gives you
+            a practical taste of that shift so you can start turning insight into reliable results,
+            client after client.
+          </>,
+        ],
+      },
+      offer: {
+        h2: 'Want to deliver these results for client after client?',
+        copy: [
+          <>
+            The Integrated Attachment Theory<sup>TM</sup> Relationship Coaching Certification gives
+            you a clear, 12-week path to a proven method you can use in every session, plus the
+            tools to turn it into a real business.
+          </>,
+          <>
+            Choose the learning style that fits: live cohort training with Thais Gibson and
+            supervised practice, or a flexible on-demand track. Both lead to the same certification.
+          </>,
+        ],
+        hook: 'Ready to see if the certification fits your goals? Book a free discovery call and get straight answers on format, support, and next steps.',
+        ctaLabel: 'BOOK A FREE CALL WITH A COACHING SPECIALIST',
+      },
+    },
+    'iat-healing': {
+      banner: {
+        h1: 'The Key to Lasting Change? Spotting Core Wounds in Clients',
+        copy1: [
+          <>
+            Do you keep seeing clients do the work, yet run into the same wall in their
+            relationships? That is often a core wound from earlier experiences shaping beliefs,
+            choices, and protective responses, which then creates self-fulfilling loops. Naming that
+            root pattern is the first step to changing it.
+          </>,
+          <>
+            In this Day 3 lesson from our free Intro to Attachment Styles course, you'll learn how
+            to recognize core wounds and the subconscious triggers that quietly sabotage connection.
+            You'll see how to spot the loop, understand what it's protecting, and begin to point
+            clients toward relief at the source.
+          </>,
+        ],
+        videoThumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/course_day_3_48fb7450f7.png',
+        videoSrc: 'b7c4efa6ebeaca1dcf46d60cb0ab376b',
+        copy2: [
+          <>
+            Once the wound and loop are named, clients feel understood and defenses drop. You can
+            agree on one small step that meets the real need underneath. That creates visible wins
+            between sessions, less reactivity, steadier communication, and momentum you can build
+            on.
+          </>,
+          <>
+            Over time, this perspective helps keep the past from steering the present. Repeat crises
+            become teachable moments. New habits stick. Use this lesson as a foundation you can
+            bring into sessions today.
+          </>,
+        ],
+      },
+      offer: {
+        h2: 'Want to deliver these results for client after client?',
+        copy: [
+          <>
+            The Integrated Attachment Theory<sup>TM</sup> Relationship Coaching Certification gives
+            you a clear, 12-week path to a proven method you can use in every session, plus the
+            tools to turn it into a real business.
+          </>,
+          <>
+            Choose the learning style that fits: live cohort training with Thais Gibson and
+            supervised practice, or a flexible on-demand track. Both lead to the same certification.
+          </>,
+        ],
+        hook: 'Ready to see if the certification fits your goals? Book a free discovery call and get straight answers on format, support, and next steps.',
+        ctaLabel: 'BOOK A FREE CALL WITH A COACHING SPECIALIST',
+      },
+    },
+    'iat-needs': {
+      banner: {
+        h1: 'From Misunderstood to Seen: Getting Clear on Client Needs',
+        copy1: [
+          <>
+            What are your clients really asking for when they say they want more love, attention, or
+            space?
+          </>,
+          <>
+            Love languages are useful, but the deeper drivers are core needs like safety, clarity,
+            reassurance, autonomy and consistency. When those needs stay unnamed even good
+            relationships feel confusing and unfulfilling.
+          </>,
+          <>
+            In this free Day 4 lesson from our Intro to Attachment Styles course, you will learn how
+            to recognize core needs in plain language and why meeting them changes the dynamic. It
+            gives you a clear lens you can bring into sessions so conversations feel simpler and
+            progress feels possible.
+          </>,
+        ],
+        videoThumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/course_day_4_cbafd74b61.png',
+        videoSrc: 'f319e4f8e672760f0fd8c7ed7726fc9d',
+        copy2: [
+          <>
+            For coaches, this shift creates quick traction. Once a need is named, defensiveness
+            drops, small requests become doable, and partners can align without constant compromise
+            battles. You get steadier follow-through between sessions and fewer repeat arguments,
+            even when two people want different things.
+          </>,
+          <>
+            Over time, clarity on needs turns guesswork into a reliable process. You'll turn vague
+            frustration into specific requests, reduce unnecessary conflict, and see steady progress
+            between sessions.
+          </>,
+        ],
+      },
+      offer: {
+        h2: 'Want to deliver these results for client after client?',
+        copy: [
+          <>
+            The Integrated Attachment Theory<sup>TM</sup> Relationship Coaching Certification gives
+            you a clear, 12-week path to a proven method you can use in every session, plus the
+            tools to turn it into a real business.
+          </>,
+          <>
+            Choose the learning style that fits: live cohort training with Thais Gibson and
+            supervised practice, or a flexible on-demand track. Both lead to the same certification.
+          </>,
+        ],
+        hook: 'Ready to see if the certification fits your goals? Book a free discovery call and get straight answers on format, support, and next steps.',
+        ctaLabel: 'BOOK A FREE CALL WITH A COACHING SPECIALIST',
+      },
+    },
+    'iat-emotions': {
+      banner: {
+        h1: 'From Reaction to Connection: A Somatic Starter for Client Connection',
+        copy1: [
+          <>
+            Ever notice when a client suddenly wants to argue, leave, go blank, or appease? That is
+            a nervous system on high alert. If you do not name the signal in the moment, connection
+            goes offline and the old pattern repeats.
+          </>,
+          <>
+            In this free Day 5 lesson from our Intro to Attachment Styles course, you'll see how
+            nervous system cues link to emotional patterns and attachment style. A small shift in
+            awareness helps you run quick resets so the client returns to connection instead of
+            reaction.
+          </>,
+        ],
+        videoThumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/course_day_5_1067135dd6.png',
+        videoSrc: 'e5b1ecdcd6d01e867b5fa1f450a6f6e3',
+        copy2: [
+          <>
+            When clients can notice the signal in their body and name what is happening,
+            defensiveness drops and the mind comes back online. You can agree on one simple reset,
+            continue the conversation, and turn a flare-up into forward movement.
+          </>,
+          <>
+            Over time, these small resets add up to deeper transformation. Clients stay present more
+            often, communication feels calmer, and behavior change becomes something you can teach
+            and repeat. Use this lesson to give your work a solid somatic foundation so progress is
+            easier to start and easier to sustain.
+          </>,
+        ],
+      },
+      offer: {
+        h2: 'Want to deliver these results for client after client?',
+        copy: [
+          <>
+            The Integrated Attachment Theory<sup>TM</sup> Relationship Coaching Certification gives
+            you a clear, 12-week path to a proven method you can use in every session, plus the
+            tools to turn it into a real business.
+          </>,
+          <>
+            Choose the learning style that fits: live cohort training with Thais Gibson and
+            supervised practice, or a flexible on-demand track. Both lead to the same certification.
+          </>,
+        ],
+        hook: 'Ready to see if the certification fits your goals? Book a free discovery call and get straight answers on format, support, and next steps.',
+        ctaLabel: 'BOOK A FREE CALL WITH A COACHING SPECIALIST',
+      },
+    },
+    'iat-boundaries': {
+      banner: {
+        h1: 'Creating Boundaries That Build Trust',
+        copy1: [
+          <>
+            When clients swing between saying nothing and shutting down, the problem is usually
+            unclear boundaries. Limits get mistaken for rejection or control, needs go unnamed, and
+            the same argument plays on repeat. As a coach, reframing boundaries restores safety and
+            makes connection possible again.
+          </>,
+          <>
+            In this free Day 6 lesson from our Intro to Attachment Styles course, you will see how
+            attachment patterns shape boundary habits and why messages get lost in translation. The
+            video shows a simple way to define what a boundary is, explain why it is needed, and
+            deliver it in language that keeps the door to connection open.
+          </>,
+        ],
+        videoThumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/course_day_6_f51d06cca8.png',
+        videoSrc: '5c7b22995b956f16a1c474274113e21e',
+        copy2: [
+          <>
+            This perspective steadies your sessions. People understand what is truly being asked,
+            autonomy is protected, and conversations move forward instead of looping.
+          </>,
+          <>
+            Over time, boundary clarity turns all-or-nothing into calm, consistent limits that
+            people can respect. You get fewer misfires, more follow-through, and communication that
+            holds up under stress. Use this lesson as a practical foundation for all your client
+            sessions.
+          </>,
+        ],
+      },
+      offer: {
+        h2: 'Want to deliver these results for client after client?',
+        copy: [
+          <>
+            The Integrated Attachment Theory<sup>TM</sup> Relationship Coaching Certification gives
+            you a clear, 12-week path to a proven method you can use in every session, plus the
+            tools to turn it into a real business.
+          </>,
+          <>
+            Choose the learning style that fits: live cohort training with Thais Gibson and
+            supervised practice, or a flexible on-demand track. Both lead to the same certification.
+          </>,
+        ],
+        hook: 'Ready to see if the certification fits your goals? Book a free discovery call and get straight answers on format, support, and next steps.',
+        ctaLabel: 'BOOK A FREE CALL WITH A COACHING SPECIALIST',
+      },
+    },
+    'iat-behaviors': {
+      banner: {
+        h1: 'Turning Protective Patterns into Secure Habits',
+        copy1: [
+          <>
+            As a coach, you will see "self-sabotage" show up as clinging, shutting down,
+            stonewalling, or people-pleasing. Know that these are not character flaws. They are
+            protective strategies learned to keep someone safe. When you treat them as protection
+            rather than failure, shame eases and clients become curious enough to try something new.
+          </>,
+          <>
+            In this Day 7 lesson from our free Intro to Attachment Styles course, you will look at
+            the common behavioral coping patterns tied to each style and how they keep repeating.
+          </>,
+        ],
+        videoThumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/course_day_7_69c7061b85.png',
+        videoSrc: '80a3fccf6374e05c3181e38d2522780f',
+        copy2: [
+          <>
+            This perspective turns blowups and shutdowns into teachable moments in your coaching
+            sessions. You get clearer follow-through, fewer spirals, and progress you can track in
+            real life.
+          </>,
+        ],
+      },
+      offer: {
+        h2: 'Want to deliver these results for client after client?',
+        copy: [
+          <>
+            The Integrated Attachment Theory<sup>TM</sup> Relationship Coaching Certification gives
+            you a clear, 12-week path to a proven method you can use in every session, plus the
+            tools to turn it into a real business.
+          </>,
+          <>
+            Choose the learning style that fits: live cohort training with Thais Gibson and
+            supervised practice, or a flexible on-demand track. Both lead to the same certification.
+          </>,
+        ],
+        hook: 'Ready to see if the certification fits your goals? Book a free discovery call and get straight answers on format, support, and next steps.',
+        ctaLabel: 'BOOK A FREE CALL WITH A COACHING SPECIALIST',
+      },
+    },
+  },
+}
+
+export const MINI_COURSE_IAT_PAGES_SEO = {
+  'iat-relationships': {
+    seoTitle: 'Understanding Your Relationship Patterns',
+    seoDescription:
+      'Learn to understand your relationship patterns and build secure, lasting love with The Personal Development School.',
+  },
+  'iat-patterns': {
+    seoTitle: 'Breaking Free from Relationship Patterns',
+    seoDescription:
+      'Discover how to break free from old relationship patterns and create healthy new ones with The Personal Development School.',
+  },
+  'iat-healing': {
+    seoTitle: 'Healing from Past Relationship Wounds',
+    seoDescription:
+      'Learn to heal from past relationship wounds and build secure connections with The Personal Development School.',
+  },
+  'iat-needs': {
+    seoTitle: 'Understanding Your Core Relationship Needs',
+    seoDescription:
+      'Discover your core relationship needs and learn to communicate them effectively with The Personal Development School.',
+  },
+  'iat-emotions': {
+    seoTitle: 'Mastering Your Emotional Responses',
+    seoDescription:
+      'Learn to master your emotional responses in relationships and build deeper connections with The Personal Development School.',
+  },
+  'iat-boundaries': {
+    seoTitle: 'Setting Healthy Boundaries in Relationships',
+    seoDescription:
+      'Learn to set healthy boundaries that strengthen your relationships with The Personal Development School.',
+  },
+  'iat-behaviors': {
+    seoTitle: 'Understanding Your Protective Relationship Behaviors',
+    seoDescription:
+      'Learn to understand and transform your relationship behaviors with The Personal Development School.',
+  },
+}
+
+export type TMiniCoursePageOffer = 'offer' | 'intro' | 'iat'
 export type TMiniCoursePageSlugs = keyof (typeof MINI_COURSE_CONFIG)['versions']
+export type TMiniCourseIATSlugs = keyof (typeof MINI_COURSE_IAT_CONFIG)['versions']

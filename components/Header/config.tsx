@@ -1,5 +1,4 @@
-import { externalRoutes, routes } from '@/utils/constants'
-import { TRole, TUserData } from '@/utils/types'
+// libraries
 import {
   faClipboard,
   faIdCardAlt,
@@ -17,6 +16,9 @@ import {
   faUsers,
 } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+// utils
+import { externalRoutes, routes } from '@/utils/constants'
+import { TRole } from '@/utils/types'
 
 export const SideMenuLinks = [
   {

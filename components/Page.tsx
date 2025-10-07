@@ -21,7 +21,6 @@ import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/uti
 import { useGamAnalytics } from '@/modules/GAM'
 import { ISplitTest } from '@/utils/interfaces'
 import { getUserData } from '@/utils/functions'
-import { TUserData } from '@/utils/types'
 
 interface IPageProps extends IDefaultWrapperProps {
   page_name: Pages

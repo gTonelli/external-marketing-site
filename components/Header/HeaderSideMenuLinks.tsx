@@ -1,16 +1,17 @@
 // core
 import Link from 'next/link'
 import Image from 'next/image'
-// config
-import { LoggedInSideMenuLinks, SideMenuLinks } from './config'
-// utils
-import { TUserData } from '@/utils/types'
-import { getUserRoles } from '@/utils/functions'
-import dayjs from 'dayjs'
+import Script from 'next/script'
+// components
 import { HeaderSideMenuAccordion } from './HeaderSideMenuAccordion'
 import { HeaderSideMenuLink } from './HeaderSideMenuLink'
-import Script from 'next/script'
 import { Button } from '../Button/Button'
+// config
+import { LoggedInSideMenuLinks, SideMenuLinks } from './config'
+// libraries
+import dayjs from 'dayjs'
+// utils
+import { TUserData } from '@/utils/types'
 import { externalRoutes } from '@/utils/constants'
 
 export const HeaderSideMenuLinks = ({

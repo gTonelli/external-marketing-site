@@ -1,30 +1,29 @@
 'use client'
 
-import { externalRoutes } from '@/utils/constants'
-import { TUserData } from '@/utils/types'
-import { faChevronDown, faSignOut } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { faGear } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import dayjs from 'dayjs'
 // core
 import Image from 'next/image'
 import Link from 'next/link'
-import { LoggedInSideMenuLinks } from './config'
+import { useState } from 'react'
+// components
 import { Button } from '../Button/Button'
+import { HeaderSideMenuAccordion } from './HeaderSideMenuAccordion'
+// config
+import { LoggedInSideMenuLinks } from './config'
 // libraries
-import cx from 'classnames'
+import { faChevronDown, faSignOut } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import dayjs from 'dayjs'
 // styles
 import './style.css'
-import { useState } from 'react'
-import { HeaderSideMenuAccordion } from './HeaderSideMenuAccordion'
+// utils
+import { externalRoutes } from '@/utils/constants'
+import { TUserData } from '@/utils/types'
 
 export const HeaderSideMenuButton = ({
   userData,
 }: {
   userData?: Pick<TUserData, 'firstName' | 'lastName' | 'avatar_url' | 'createdAt' | 'roles'>
 }) => {
-  const [accountSettingsIsOpen, setAccountSettingsIsOpen] = useState(false)
-
   const setSideMenuIsOpen = () => {
     const sideMenu = document.querySelector('#header__side-menu')
     const sideMenuOverlay = document.querySelector('#header__side-menu-overlay')
@@ -74,7 +73,7 @@ export const HeaderSideMenuButton = ({
               <li className="mb-2">
                 <Link
                   className="flex items-center !no-underline"
-                  href={`https://staging.university.personaldevelopmentschool.com/users/sign_out`}>
+                  href={`${process.env.NEXT_PUBLIC_THINKIFIC_URL}/users/sign_out`}>
                   Sign Out <FontAwesomeIcon icon={faSignOut} className="ml-2" />
                 </Link>
               </li>

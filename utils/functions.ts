@@ -1,10 +1,12 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { TDict, TStyle } from './types'
+import { TDict, TRole, TStyle, TUserData } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
 import Cookies from 'universal-cookie'
 import dayjs from 'dayjs'
+import jwt from 'jsonwebtoken'
+import { pick } from 'lodash'
 
 /**
  * Check if property is function
@@ -173,6 +175,21 @@ export const getUserCountry = async () => {
     })
   )
   return res.countryCode as string
+}
+
+/** Browser method to get user data */
+export const getUserData = () => {
+  const cookies = new Cookies()
+  const token = cookies.get(process.env.NEXT_PUBLIC_SESSION_COOKIE_NAME || '_pds_session')
+  if (!token) return undefined
+  const userData = jwt.decode(token) as TUserData
+  if (userData.exp && userData.exp < Date.now() / 1000) return undefined
+  return pick(userData, ['firstName', 'lastName', 'email', 'avatar_url', 'createdAt'])
+}
+
+export const getUserRoles = (roles?: TUserData['roles']) => {
+  if (!roles) return []
+  return JSON.parse(roles) as TRole[]
 }
 
 export const getAttachmentStyleText = (style: TStyle) => {

@@ -3,7 +3,7 @@ import { externalRoutes } from '@/utils/constants'
 
 export const CONFIG: TPromotionPageConfig = {
   paymentOptionsConfigKey: 'dreamLifeCodependencyCourse',
-  checkoutUrl: externalRoutes.checkoutSep2025PromoTrial,
+  checkoutUrl: externalRoutes.checkoutOct2025PromoTrial,
   timer: {
     title:
       'LIMITED TIME: Claim Your FREE Ending Codependency & Enmeshment Course ($250 Value) For Life + Your 7 Day Free PDS Membership',
@@ -70,7 +70,7 @@ export const CONFIG: TPromotionPageConfig = {
     stepTwo: {
       title: 'Dive Into the Codependency Course (Yours to Keep!)',
       copy: 'Rebuild your sense of self, set boundaries with confidence, and practice daily habits that protect your energy automatically. Within one week, you’ll feel more grounded, communicate without fear, and experience healthier, more secure connections.',
-      image: '/images/TrialHeadspace/codependency-course-mockup.png',
+      image: '/images/course-codependency-enmeshment.jpg',
     },
     ctaLabel: 'GET YOUR COURSE + 7-DAY TRIAL!',
   },

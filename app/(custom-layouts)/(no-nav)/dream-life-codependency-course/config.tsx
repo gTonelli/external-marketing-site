@@ -13,7 +13,14 @@ export const CONFIG: TPromotionPageConfig = {
   },
   courseOutcome: {
     title: 'Heal Codependency and Create Relationships That Last',
-    copy: 'Breaking free from codependency is the first step to building secure, balanced relationships. The Ending Codependency & Enmeshment course helps you:',
+    copy: (
+      <>
+        <strong>
+          Breaking free from codependency is the first step to building secure, balanced
+          relationships. The Ending Codependency & Enmeshment course helps you:
+        </strong>
+      </>
+    ),
     outcomes: [
       'Reclaim your sense of self by honouring your unique needs and values, so you no longer lose yourself in relationships.',
       'Transform conflict into connection by setting and communicating boundaries with clarity, turning tension into trust and closeness.',

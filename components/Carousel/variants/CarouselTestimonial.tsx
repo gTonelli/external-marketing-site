@@ -27,6 +27,10 @@ interface ICarouselTestimonialProps extends IDefaultProps {
   classNameCard?: string
   /** Classnames for carousel children (cards) */
   classNameHeader?: string
+  /** Classnames for carousel header wrapper */
+  classNameHeaderWrapper?: string
+  /** Classnames for carousel quotations */
+  classNameQuotations?: string
   /** Classnames for swiper slides */
   classNameSlide?: string
   /** Classnames for swiper wrapper */
@@ -38,6 +42,11 @@ interface ICarouselTestimonialProps extends IDefaultProps {
   headingText?: string
   /** Subheading text */
   subheadingText?: string
+  /**
+   * Quotation sizes
+   * @default "24px"
+   */
+  quotationSizes?: string
   /**
    * Show stylized quotations surrounding header text
    * @default true
@@ -113,9 +122,12 @@ export const CarouselTestimonial = forwardRef(
       className,
       classNameCard,
       classNameHeader,
+      classNameHeaderWrapper,
+      classNameQuotations,
       classNameSlide,
       classNameSwiper,
       headingText = "Here's What Our Students Say:",
+      quotationSizes,
       subheadingText,
       showQuotations = true,
       testimonials = DEFAULT_TESTIMONIALS,
@@ -145,15 +157,17 @@ export const CarouselTestimonial = forwardRef(
           }`
         )}>
         {/* QUOTE HEADER */}
-        <div className="w-full flex items-center justify-around mb-4">
+        <div className={cx('w-full flex items-center justify-around mb-4', classNameHeaderWrapper)}>
           {/* LEFT QUOTE */}
           {showQuotations && (
             <Image
-              className="hidden lg:block"
+              className={cx('hidden lg:block', classNameQuotations)}
               src="/images/homepage_quote_left.png"
               alt="left quote"
               width={24}
               height={24}
+              quality={100}
+              sizes={quotationSizes}
             />
           )}
 
@@ -172,11 +186,13 @@ export const CarouselTestimonial = forwardRef(
           {/* RIGHT QUOTE */}
           {showQuotations && (
             <Image
-              className="hidden lg:block"
+              className={cx('hidden lg:block', classNameQuotations)}
               src="/images/homepage_quote_right.png"
               alt="right quote"
               width={24}
               height={24}
+              quality={100}
+              sizes={quotationSizes}
             />
           )}
         </div>

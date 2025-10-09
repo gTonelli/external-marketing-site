@@ -27,7 +27,6 @@ interface IMiniCoursePageProps {
 }
 
 export const MiniCoursePage = ({ offer, slug, isIATOnly = false }: IMiniCoursePageProps) => {
-  // Determine which config to use based on whether it's an IAT page
   const common = isIATOnly ? MINI_COURSE_IAT_CONFIG['common'] : MINI_COURSE_CONFIG['common']
 
   const config = isIATOnly

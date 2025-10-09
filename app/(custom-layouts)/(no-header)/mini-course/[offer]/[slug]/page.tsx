@@ -41,21 +41,19 @@ export function generateStaticParams(): {
     { offer: 'intro', slug: 'nervous-system' },
     { offer: 'intro', slug: 'setting-boundaries' },
     { offer: 'intro', slug: 'self-sabotaging' },
-    // New IAT pages (only work with iat offer)
-    { offer: 'iat', slug: 'iat-relationships' },
-    { offer: 'iat', slug: 'iat-patterns' },
-    { offer: 'iat', slug: 'iat-healing' },
-    { offer: 'iat', slug: 'iat-needs' },
-    { offer: 'iat', slug: 'iat-emotions' },
-    { offer: 'iat', slug: 'iat-boundaries' },
-    { offer: 'iat', slug: 'iat-behaviors' },
+    { offer: 'iat', slug: 'hard-relationships' },
+    { offer: 'iat', slug: 'patterns' },
+    { offer: 'iat', slug: 'past-wounds' },
+    { offer: 'iat', slug: 'craving-relationships' },
+    { offer: 'iat', slug: 'nervous-system' },
+    { offer: 'iat', slug: 'setting-boundaries' },
+    { offer: 'iat', slug: 'self-sabotaging' },
   ]
 }
 
 export async function generateMetadata({ params }: IMiniCoursePageParams): Promise<Metadata> {
   const { offer, slug } = await params
 
-  // Check if it's an IAT page
   const isIATPage = offer === 'iat'
 
   if (isIATPage) {
@@ -73,10 +71,9 @@ export async function generateMetadata({ params }: IMiniCoursePageParams): Promi
   }
 }
 
-export default async function APSinglePage({ params }: IMiniCoursePageParams) {
+export default async function EmailMiniCoursePages({ params }: IMiniCoursePageParams) {
   const { offer, slug } = await params
 
-  // Determine if this is an IAT page
   const isIATOnly = offer === 'iat'
 
   return (

@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface IItineraryProps {
   listItems: TListItem[]
+  subheading: (string | JSX.Element)[]
 }
 
 type TListItem = {
@@ -18,7 +19,7 @@ type TListItem = {
   hoursPerWeek: number
 }
 
-export const Itinerary = ({ listItems }: IItineraryProps) => {
+export const Itinerary = ({ listItems, subheading }: IItineraryProps) => {
   return (
     <>
       <Image
@@ -37,19 +38,9 @@ export const Itinerary = ({ listItems }: IItineraryProps) => {
         id="path-to-healing">
         <h2>Your 90 Day Path to Healing</h2>
 
-        <p>
-          Your entire Secure Attachment Bootcamp is designed to target your subconscious mind for
-          healing — because your subconscious drives 95–97% of your fears, patterns, and protective
-          behaviors.
-        </p>
-
-        <p>
-          As a Fearful Avoidant, you may feel torn{' '}
-          <strong>between craving closeness and pulling away</strong> when things feel too intense.
-          Integrated Attachment Theory works at the subconscious level to rewire the 6 pillars of
-          attachment so you can build consistent trust and safety, both with yourself and in your
-          relationships.
-        </p>
+        {subheading.map((item, i) => (
+          <p key={`itinerary_subheading_text_${i}`}>{item}</p>
+        ))}
 
         {listItems.map((item, i) => (
           <Expandable

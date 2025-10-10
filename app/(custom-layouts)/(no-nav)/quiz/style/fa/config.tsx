@@ -108,6 +108,17 @@ export const SEGMENTED_RESULTS_PAGE_FA_CONFIG = {
   },
 
   sectionSix: {
+    subheading: [
+      'Your entire Secure Attachment Bootcamp is designed to target your subconscious mind for healing — because your subconscious drives 95–97% of your fears, patterns, and protective behaviors.',
+
+      <>
+        As a Fearful Avoidant, you may feel torn{' '}
+        <strong>between craving closeness and pulling away</strong> when things feel too intense.
+        Integrated Attachment Theory works at the subconscious level to rewire the 6 pillars of
+        attachment so you can build consistent trust and safety, both with yourself and in your
+        relationships.
+      </>,
+    ],
     weeksItems: [
       {
         heading: 'WEEKS 1 AND 2: YOUR TRIGGERS',

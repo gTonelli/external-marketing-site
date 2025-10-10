@@ -100,6 +100,19 @@ export const SEGMENTED_RESULTS_PAGE_AP_CONFIG = {
   },
 
   sectionEight: {
+    subheading: [
+      'Your entire Secure Attachment Journey is designed to target your subconscious mind for healing–because your subconscious is responsible for 95-97% of all of your triggers, fears, patterns and daily actions. ',
+
+      <>
+        The subconscious mind MUST be a part of the process for any true healing to take place. It
+        is based on Integrated Attachment Theory–
+        <strong>
+          the neuroscience and psychology of how we can rewire the 6 pillars of our attachment
+          styles to become secure in the shortest period of time.
+        </strong>
+      </>,
+    ],
+
     listItems: [
       {
         heading: 'WEEKS 1 AND 2: YOUR TRIGGERS',

@@ -1,7 +1,7 @@
 // core
 import { Metadata } from 'next'
 // components
-import { PromotionPage } from '@/components/FreeTrialFreeCourse/PromotionPage'
+import { FreeTrialFreeCoursePromotionPage } from '@/components/FreeTrialFreeCourse/FreeTrialFreeCoursePromotionPage'
 // config
 import { CONFIG } from './config'
 
@@ -13,5 +13,10 @@ export const metadata: Metadata = {
 }
 
 export default function DreamLifeCodependencyCoursePage() {
-  return <PromotionPage config={CONFIG} pageName="Dreamlife Codependency Course Page" />
+  return (
+    <FreeTrialFreeCoursePromotionPage
+      config={CONFIG}
+      pageName="Dreamlife Codependency Course Page"
+    />
+  )
 }

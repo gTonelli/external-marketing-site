@@ -1,4 +1,4 @@
-import type { TPromotionPageConfig } from '@/components/FreeTrialFreeCourse/PromotionPage'
+import type { TPromotionPageConfig } from '@/components/FreeTrialFreeCourse/FreeTrialFreeCoursePromotionPage'
 import { externalRoutes } from '@/utils/constants'
 
 export const CONFIG: TPromotionPageConfig = {

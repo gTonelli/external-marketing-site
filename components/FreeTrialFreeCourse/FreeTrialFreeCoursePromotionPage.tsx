@@ -23,7 +23,7 @@ interface IPromotionPageProps {
   config: TPromotionPageConfig
 }
 
-export const PromotionPage = ({ config, pageName }: IPromotionPageProps) => {
+export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotionPageProps) => {
   return (
     <Page page_name={pageName} className="relative">
       <section className="text-center bg-purple-dark px-2">

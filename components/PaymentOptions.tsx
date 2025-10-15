@@ -244,6 +244,31 @@ const allConfigs = {
       </>
     ),
   },
+  dreamLifeCodependencyCourse: {
+    offerLabel: 'Free Trial & Exclusive Free Course',
+    title: 'Get the Ending Codependency Course Free Forever & Start Thriving in Love and Life',
+    copy: (
+      <>
+        When you start your <strong>7-Day Free Trial of the All-Access Pass</strong>, you’ll get the{' '}
+        <strong>Ending Codependency & Enmeshment</strong> course (valued at $250) completely{' '}
+        <strong>FREE for LIFE</strong>. In just one week, you’ll reclaim your identity, set healthy
+        boundaries, and finally create safe, secure, and fulfilling relationships.
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
+    checkoutUrl: externalRoutes.checkoutOct2025PromoTrial,
+    disclaimer: (
+      <>
+        *
+        <strong>
+          When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the
+          trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you
+          don’t stay with us after 7 days, you still get to keep and access the Ending Codependency
+          & Enmeshment course for life.
+        </strong>
+      </>
+    ),
+  },
 } satisfies Record<string, Partial<TConfig>>
 
 export type TPaymentOptionsConfigKey = keyof typeof allConfigs

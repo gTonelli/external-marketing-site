@@ -140,7 +140,10 @@ export default function SegmentedResultsPage() {
         button={<ButtonCheckout label="START HEALING TODAY" />}
       />
 
-      <Itinerary listItems={config.sectionEight.listItems} />
+      <Itinerary
+        subheading={config.sectionEight.subheading}
+        listItems={config.sectionEight.listItems}
+      />
 
       <TextAndMedia
         heading="Discover The Personal Development School"
@@ -219,10 +222,10 @@ export default function SegmentedResultsPage() {
             </p>
 
             <p>
-              If you’ve been trapped in the push–pull of fearful avoidant attachment, this is your
-              moment. The program is designed so anyone—no matter your history—can recondition old
-              patterns and start feeling secure. That’s because everyone’s subconscious mind works
-              the same way.
+              If you’ve been trapped in the push–pull of anxious attachment, this is your moment.
+              The program is designed so anyone—no matter your history—can recondition old patterns
+              and start feeling secure. That’s because everyone’s subconscious mind works the same
+              way.
             </p>
           </div>
         </div>
@@ -239,10 +242,9 @@ export default function SegmentedResultsPage() {
         </p>
 
         <p>
-          If you’ve been trapped in the push–pull of fearful avoidant attachment, this is your
-          moment. The program is designed so anyone—no matter your history—can recondition old
-          patterns and start feeling secure. That’s because everyone’s subconscious mind works the
-          same way.
+          If you’ve been trapped in the push–pull of anxious attachment, this is your moment. The
+          program is designed so anyone—no matter your history—can recondition old patterns and
+          start feeling secure. That’s because everyone’s subconscious mind works the same way.
         </p>
       </Section>
 

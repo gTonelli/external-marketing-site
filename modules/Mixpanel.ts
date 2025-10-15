@@ -68,6 +68,7 @@ export type Pages =
   | `Dating Freebie Page`
   | `Dreamlife Results Page FA`
   | `Dreamlife Breakup Course Page`
+  | `Dreamlife Codependency Course Page`
   | `Dreamlife Free Course Page`
   | `Dreamlife Pillars Course Page`
   | `Dreamlife Sex Course Page`
@@ -150,6 +151,7 @@ class Mixpanel {
         // config override goes here
         api_host: 'https://api.personaldevelopmentschool.com',
         debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
+        record_sessions_percent: 100,
       }
     )
   }

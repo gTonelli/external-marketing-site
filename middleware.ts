@@ -49,7 +49,8 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
         })
         return response
       } else {
-        showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
+        const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+        showVariant = randomFloat < variantRatio
         const response = generateResponse({
           showVariant,
           variantUrl,
@@ -58,6 +59,15 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
           request,
           controlUrl,
         })
+        if (randomFloat > variantRatio * 2) {
+          response.cookies.set({
+            name: cookieKey,
+            value: showVariant.toString(),
+            httpOnly: false,
+            maxAge: 7776000, // 3 Months,
+            domain: domain || request.nextUrl.hostname,
+          })
+        }
         return response
       }
     }

@@ -27,7 +27,7 @@
     "framer-motion": "^11.0.24",
     "google-libphonenumber": "^3.2.39",
     "lodash": "^4.17.21",
-    "mixpanel-browser": "^2.47.0",
+    "mixpanel-browser": "^2.71.0",
     "next": "^14.2.15",
     "postcss": "8.4.29",
     "qs": "^6.12.0",

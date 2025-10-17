@@ -278,7 +278,7 @@ export const PDSSocialProof = ({ isNewVersion = true }: IPDSSocialProofProps) =>
             ? ['Course enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide']
             : ['Attachment Styles Discovered', 'Youtube Views', 'Countries']
         }
-        classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
+        classNameCard="text-black lg:pt-7 xs:!px-3 lg:pb-5"
         classNameIcon="!bg-white"
         icons={
           isNewVersion

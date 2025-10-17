@@ -4,3 +4,8 @@ h3,
 p {
   margin-bottom: 1rem;
 }
+
+ul {
+  list-style: decimal;
+  padding-left: 1rem;
+}

@@ -18,10 +18,11 @@ interface ILogo extends IDefaultProps {
 }
 
 export const DEFAULT_TRUSTBAR: ILogo[] = [
-  { img: 'psychology-today-logo.png', className: 'max-h-[30px] xxs:max-h-[40px]' },
-  { img: 'forbes-logo.png', className: 'max-h-[24px] xxs:max-h-[33px]' },
-  { img: 'amazon-com-logo.png', className: 'max-h-[30px] xxs:max-h-[39px]' },
-  { img: 'success-logo-alt.png', className: 'max-h-[21px] xxs:max-h-[28px]' },
+  { img: 'mel-robbins-logo.png', className: 'max-h-[36px] xxs:max-h-[53px]' },
+  { img: 'psychology-today-logo.png', className: 'max-h-[42px] xxs:max-h-[61px]' },
+  { img: 'new-york-post-logo.png', className: 'max-h-[24px] xxs:max-h-[33px]' },
+  { img: 'ceo-weekly-logo.png', className: 'max-h-[44px] xxs:max-h-[60px]' },
+  { img: 'yahoo-logo.png', className: 'max-h-[32px] xxs:max-h-[36px]' },
 ]
 
 export const TrustbarDefault = ({

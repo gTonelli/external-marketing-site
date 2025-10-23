@@ -98,18 +98,18 @@ const SocialProofCard = ({
   return (
     <div
       className={cx(
-        'flex flex-center py-4 px-2 my-4 rounded-3xl text-left shadow-center-light bg-white xxs:px-4 xs:px-7',
+        'py-4 px-2 my-4 rounded-3xl text-left shadow-center-light bg-white xxs:px-4 xs:px-7',
         className
       )}>
-      <div className="grid grid-cols-12 gap-2 items-center">
+      <div className="grid text-left grid-cols-12 gap-2 items-center">
         <div className="flex justify-center items-center col-span-4">
           <FontAwesomeIcon className={cx('!text-primary', classNameIcon)} icon={icon} size="2x" />
         </div>
 
-        <div className="col-span-8">
+        <div className="col-span-8 text-black">
           <div ref={countUpRef} className="font-sspb text-3xl" />
 
-          <Text content={label} />
+          <p>{label}</p>
         </div>
       </div>
     </div>

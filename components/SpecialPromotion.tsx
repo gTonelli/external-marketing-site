@@ -272,7 +272,7 @@ export const PDSSocialProof = ({ isNewVersion = true }: IPDSSocialProofProps) =>
   return (
     <>
       <SocialProofBar
-        cardNumbers={isNewVersion ? [70000, 50000000, 45000] : [4700000, 50000000, 120]}
+        cardNumbers={isNewVersion ? [70000, 76500000, 45000] : [6500000, 76500000, 120]}
         cardTexts={
           isNewVersion
             ? ['Course enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide']

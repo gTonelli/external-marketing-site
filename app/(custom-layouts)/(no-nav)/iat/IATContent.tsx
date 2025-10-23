@@ -91,12 +91,13 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
             <div className="flex flex-col gap-8 text-left mb-8 lg:flex-row">
               <div className="w-full lg:w-1/3">
                 <Image
-                  alt="Coaching Shortcoming Image"
-                  className="w-full h-auto"
-                  src={CONFIG.variant.coachingShortcomingSection.image}
-                  width={256}
-                  height={256}
+                  src="/images/DatingQuiz/woman-thinking.png"
+                  className="w-full h-full rounded-2xl object-cover"
+                  alt="A woman engaged in thought"
+                  width={384}
+                  height={286}
                   quality={100}
+                  sizes="100vw"
                 />
               </div>
 
@@ -112,7 +113,7 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
 
           <Section>
             <div className="flex flex-col gap-8 text-left mb-8 lg:flex-row">
-              <div className="w-full lg:w-3/4">
+              <div className="w-full lg:w-2/3">
                 <h2>{CONFIG.variant.iatExplanationSection.h2}</h2>
 
                 {CONFIG.variant.iatExplanationSection.copy.map((paragraph, index) => (
@@ -120,14 +121,15 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
                 ))}
               </div>
 
-              <div className="w-full lg:w-1/4">
+              <div className="w-full lg:w-1/3">
                 <Image
-                  alt="IAT Explanation Image"
-                  className="w-full h-auto"
-                  src={CONFIG.variant.iatExplanationSection.image}
-                  width={256}
-                  height={256}
+                  src="/images/DatingQuiz/thais-with-laptop.png"
+                  className="w-full h-full rounded-2xl object-cover"
+                  alt="Thais Gibson with a laptop"
+                  width={400}
+                  height={400}
                   quality={100}
+                  sizes="100vw"
                 />
               </div>
             </div>

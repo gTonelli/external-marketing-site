@@ -21,7 +21,10 @@ import { IAT_CONFIG as CONFIG } from './config'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import cx from 'classnames'
-import { InlineHigherLevelWidget } from '@/components/InlineHigherLevelWidget'
+import { CountdownTimer } from '@/components/CountDownTimer'
+import { IATPricingTable } from '@/components/IAT/IATPricingTable'
+// style
+import './style.css'
 
 interface IIATContentProps {
   isVariant?: boolean
@@ -222,10 +225,67 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
 
         <hr className="my-8 border-t-2 border-gray-300" />
 
-        <IATFormats />
+        <IATFormats isVariant={isVariant} />
 
-        <ButtonScroll target="#click-purchase-target" label="GET STARTED NOW" />
+        {!isVariant && <ButtonScroll target="#click-purchase-target" label="GET STARTED NOW" />}
       </Section>
+
+      {isVariant && (
+        <>
+          <Section
+            className="bg-watch w-full z-5 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
+            classNameInner="relative !max-w-full p-6 lg:!p-0 !m-0 lg:grid lg:grid-cols-12 lg:gap-4">
+            <div className="max-w-2xl text-left bg-white rounded-20 shadow-lg p-4 mx-auto lg:col-span-5 lg:col-start-7">
+              <h2>{CONFIG.variant.promise.title}</h2>
+
+              {CONFIG.variant.promise.copy1.map((text, index) => (
+                <p key={`promise_copy1_${index}`}>{text}</p>
+              ))}
+
+              <div className="bg-white-secondary rounded-2xl p-4">
+                <p className="text-danger font-bold">SPACE IS LIMITED</p>
+
+                {CONFIG.variant.promise.copy2.map((text, index) => (
+                  <p key={`promise_copy2_${index}`}>{text}</p>
+                ))}
+
+                <IATHigherLevelBookingButton label="APPLY NOW" />
+              </div>
+            </div>
+          </Section>
+
+          <Section classNameInner="!max-w-full">
+            <h3>Time Left to Claim Your Discounted Price</h3>
+
+            <CountdownTimer
+              classNameDate="!text-black"
+              classNameDateSeperator="!text-black"
+              date={new Date('2025-10-03T23:59:59-04:00')}
+              theme="light"
+            />
+
+            <IATPricingTable />
+          </Section>
+
+          <Section className="!w-full bg-green-7" classNameInner="grid gap-8 lg:grid-cols-2">
+            <div className="text-left p-6">
+              <h3 className="text-center mb-4">{CONFIG.variant.actNow.title}</h3>
+
+              {CONFIG.variant.actNow.copy.map((paragraph, index) => (
+                <p key={`act_now_${index}`}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="text-left rounded-2xl bg-[#E2EFF2] p-6">
+              <h3 className="text-center mb-4">{CONFIG.variant.reasonItWorks.title}</h3>
+
+              {CONFIG.variant.reasonItWorks.copy.map((paragraph, index) => (
+                <p key={`reason_it_works_${index}`}>{paragraph}</p>
+              ))}
+            </div>
+          </Section>
+        </>
+      )}
 
       <Section>
         <div className="grid gap-8 text-left mb-8 lg:grid-cols-2">
@@ -245,7 +305,7 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
             <ButtonScroll target="#click-purchase-target" label="ENROLL TODAY" />
           </div>
 
-          <div>
+          <div className="mx-auto">
             <Image
               alt="A Girl With A Notepad Mockup"
               className="w-full hidden lg:block lg:w-[466px]"
@@ -263,15 +323,19 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
 
       <IATOfferFeatures />
 
-      <div id="click-purchase-target" className="text-center mt-16 mb-12 scroll-m-16 lg:mb-18">
-        <IATPriceCardSection />
+      {!isVariant && (
+        <>
+          <div id="click-purchase-target" className="text-center mt-16 mb-12 scroll-m-16 lg:mb-18">
+            <IATPriceCardSection />
 
-        <p className="text-2xl mt-4 mb-8 mx-6">Schedule a Free Call to Learn More</p>
+            <p className="text-2xl mt-4 mb-8 mx-6">Schedule a Free Call to Learn More</p>
 
-        <IATHigherLevelBookingButton />
-      </div>
+            <IATHigherLevelBookingButton />
+          </div>
 
-      <IATProgramItinerary />
+          <IATProgramItinerary />
+        </>
+      )}
 
       <Section classNameInner="grid gap-8 lg:grid-cols-2">
         <div>

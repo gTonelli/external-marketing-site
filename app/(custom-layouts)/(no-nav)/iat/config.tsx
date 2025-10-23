@@ -249,5 +249,55 @@ export const IAT_CONFIG = {
         },
       ],
     },
+    actNow: {
+      title: 'Your Time to Start Is Now',
+      copy: [
+        'If you don’t act, you risk staying stuck—another year in the same unfulfilling job, another year wondering if you’re really living your purpose, another year without the freedom and abundance you know you deserve.',
+        'Worse, you miss the chance to create a business that changes lives while transforming your own.',
+        'The time to start is now.',
+        'Remember, you’re not piecing things together on your own — you’re handed the exact blueprint that works.',
+      ],
+    },
+    reasonItWorks: {
+      title: (
+        <>
+          Why IAT<sup>TM</sup> Works So Differently
+        </>
+      ),
+      copy: [
+        'The reason this works is simple: it goes directly to the subconscious.',
+        'Most coaching programs focus on conscious strategies—discipline, willpower, mindset shifts.',
+        <>
+          But here’s the problem:{' '}
+          <strong>
+            the subconscious always wins until you rewire it. Research conclusively shows that your
+            conscious mind cannot outwill or overpower your subconscious mind (but it can rewire
+            it!)
+          </strong>
+        </>,
+      ],
+    },
+    promise: {
+      title: 'Here’s Our Promise:',
+      copy1: [
+        <>
+          <strong>
+            Become a certified relationship coach in 12 weeks, fully equipped with the tools,
+            methods, and confidence to thrive in the industry.
+          </strong>
+        </>,
+        <>
+          <strong>
+            If you don’t feel completely confident by the end of 12 weeks to build your business and
+            start seeing clients, we will work with you for free until you do!
+          </strong>
+        </>,
+      ],
+      copy2: [
+        'Because we mentor our students directly and provide personalized support, spots in the live certification program are limited. We only accept a set number of applicants per cohort.',
+        'If you’ve ever wanted to build a thriving, meaningful business where you set your schedule, work from anywhere, and truly change lives—this is your chance.',
+        'But you must act now. The next cohort begins soon, and once spots are filled, enrollment closes.',
+      ],
+    },
   },
 }

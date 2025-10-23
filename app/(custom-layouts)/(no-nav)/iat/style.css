@@ -9,3 +9,16 @@ ul {
   list-style: decimal;
   padding-left: 1rem;
 }
+
+.bg-watch {
+  background-color: #f0f0f0;
+}
+
+@media screen and (min-width: 1024px) {
+  .bg-watch {
+    background-image: url('/images/IATPage/thais-pointing-up-portrait.webp');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

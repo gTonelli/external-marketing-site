@@ -176,25 +176,25 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutSimplifiedFa: `${checkoutUrl}/enroll/559833?price_id=1285773&bci=2178659`,
     checkout1MonthFree: `${checkoutUrl}/enroll/559833?price_id=1285773&coupon=1monthoff`,
     // IAT Recorded
-    checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded`,
-    checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded`,
-    checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded`,
-    checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded`,
-    // IAT Fall 2 2025
-    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3482760?price_id=4404279&coupon=iatbundleupfrontlivefall225`,
-    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3482760?price_id=4404282&coupon=iatbundle3molivefall225`,
-    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3482760?price_id=4404284&coupon=iatbundle6molivefall225`,
-    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3482760?price_id=4404285&coupon=iatbundle12molivefall225`,
+    checkoutIATRecordedUpfront: `${thinkificUrl}/pages/checkout?price_id=3258840&coupon=iatbundleupfrontrecorded`,
+    checkoutIATRecorded3MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258844&coupon=iatbundle3morecorded`,
+    checkoutIATRecorded6MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258846&coupon=iatbundle6morecorded`,
+    checkoutIATRecorded12MonthPlan: `${thinkificUrl}/pages/checkout?price_id=3258849&coupon=iatbundle12morecorded`,
+    // IAT Winter 2026
+    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3482765?price_id=4404292&coupon=iatbundleupfrontlivewinter26`,
+    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3482765?price_id=4404303&coupon=iatbundle3molivewinter26`,
+    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3482765?price_id=4404304&coupon=iatbundle6molivewinter26`,
+    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3482765?price_id=4404305&coupon=iatbundle12molivewinter26`,
     // IAT Recorded With Webinar Discount
-    checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2463967?price_id=3951355&coupon=iatwebinarfall25ondemand`,
-    checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951356&coupon=iatwebinarfall253mnthondemand`,
-    checkoutIATRecordedWebinar6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951358&coupon=iatwebinarfall256mnthondemand`,
-    checkoutIATRecordedWebinar12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951360&coupon=iatwebinarfall2512mnthondemand`,
-    // IAT Fall 2 2025 With Webinar Discount
-    checkoutIATWebinarUpfront: `${checkoutUrl}/enroll/3482760?price_id=4404286&coupon=iatwebinarfall225live`,
-    checkoutIATWebinar3MonthPlan: `${checkoutUrl}/enroll/3482760?price_id=4404287&coupon=iatwebinarfall2253mnthlive`,
-    checkoutIATWebinar6MonthPlan: `${checkoutUrl}/enroll/3482760?price_id=4404289&coupon=iatwebinarfall2256mnthlive`,
-    checkoutIATWebinar12MonthPlan: `${checkoutUrl}/enroll/3482760?price_id=4404290&coupon=iatwebinarfall22512mnthlive`,
+    checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2463967?price_id=3951355&coupon=iatwebinarondemandMC`,
+    checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951356&coupon=iatwebinar3mnthondemandMC`,
+    checkoutIATRecordedWebinar6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951358&coupon=iatwebinar6mnthondemandMC`,
+    checkoutIATRecordedWebinar12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951360&coupon=iatwebinar12mnthondemandMC`,
+    // IAT Winter 2026 With Webinar Discount
+    checkoutIATWebinarUpfront: `${checkoutUrl}/enroll/3482765?price_id=4404310&coupon=iatwebinarwinter26live`,
+    checkoutIATWebinar3MonthPlan: `${checkoutUrl}/enroll/3482765?price_id=4404306&coupon=iatwebinarwinter263mnthlive`,
+    checkoutIATWebinar6MonthPlan: `${checkoutUrl}/enroll/3482765?price_id=4404307&coupon=iatwebinarwinter266mnthlive`,
+    checkoutIATWebinar12MonthPlan: `${checkoutUrl}/enroll/3482765?price_id=4404308&coupon=iatwebinarwinter2612mnthlive`,
     // Lifetime All-Access Pass
     checkoutLifetimeUpfront: `${checkoutUrl}/enroll/559833?price_id=1053866&coupon=lifetimesale`,
     checkoutLifetime6MonthPlan: `${checkoutUrl}/enroll/559833?price_id=1053856&coupon=lifetimesale6mo`,

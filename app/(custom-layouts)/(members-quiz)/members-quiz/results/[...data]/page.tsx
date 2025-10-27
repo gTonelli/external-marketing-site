@@ -236,7 +236,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
 
       {/* DESCRIPTION */}
       <section
-        className="w-full flex flex-col px-page-xxs space-y-12 mb-10 mt-4 relative z-0
+        className="w-full flex flex-col px-page-xxs space-y-12 mb-10 mt-4 relative z-5
             lg:flex-row lg:space-y-0 lg:space-x-11 lg:px-page-md lg:mb-24 lg:items-center
             xl:px-page">
         <AttachmentStylesChart className="xl:w-1/2 xl:self-center" sortedValues={sortedChartData} />

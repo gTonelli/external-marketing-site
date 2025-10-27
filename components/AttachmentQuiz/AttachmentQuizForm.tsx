@@ -55,7 +55,7 @@ export const AttachmentQuizForm = ({
             const isVariant = getSplitTest({
               key: 'GM-1895-FA',
               experimentName: 'GM-1895-Segmented-Results-Test-FA',
-              variantRatio: 0.2,
+              variantRatio: 0.5,
               useCookies: false,
             })
 

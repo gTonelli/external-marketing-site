@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import cx from 'classnames'
 
 const courses = [
   `course-fa-to-sa.jpg`,
@@ -26,15 +27,20 @@ const courses = [
 interface ICarouselPromotionCoursesProps {
   title?: string
   copy?: string
+  className?: string
 }
 
-export const CarouselPromotionCourses = ({ title, copy }: ICarouselPromotionCoursesProps) => {
+export const CarouselPromotionCourses = ({
+  title,
+  copy,
+  className,
+}: ICarouselPromotionCoursesProps) => {
   // ==================== State ====================
   const [prevEl, setPrevEl] = useState<HTMLElement | null>(null)
   const [nextEl, setNextEl] = useState<HTMLElement | null>(null)
 
   return (
-    <Section className="max-w-[100vw] 2xl:pt-24" classNameInner="max-w-screen-2xl">
+    <Section className={cx('max-w-[100vw] 2xl:pt-24', className)} classNameInner="max-w-screen-2xl">
       <h2>{title || 'Get Instant Access To All 65+ Courses At The Personal Development School'}</h2>
 
       <MHAPageText

@@ -1,0 +1,32 @@
+.header-side-menu-button:hover .floating-menu {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header-side-menu-button:hover .header-side-menu-button__chevron-down {
+  transform: rotate(180deg);
+}
+
+.floating-menu {
+  visibility: hidden;
+  transform: translateY(4rem);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.header-side-menu-button__chevron-down {
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion-content {
+  display: none;
+}
+
+.accordion.open .accordion-content {
+  display: flex;
+}
+
+.accordion.open .accordion-icon {
+  transform: rotate(180deg);
+}

@@ -38,29 +38,7 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (userStyle === 'ap' && userInfo?.intent === 'Improve my current relationship') {
-          const isVariant = getSplitTest({
-            key: 'GM-1895-AP',
-            experimentName: 'GM-1895-Segmented-Results-Test-AP',
-            variantRatio: 0.2,
-            useCookies: false,
-          })
-
-          if (isVariant) return '/quiz/style/ap'
-        } else if (userStyle === 'fa') {
-          if (
-            userInfo?.intent ===
-            'Learn more about myself and heal (self-esteem, anxiety, depression, etc.)'
-          ) {
-            const isVariant = getSplitTest({
-              key: 'GM-1895-FA',
-              experimentName: 'GM-1895-Segmented-Results-Test-FA',
-              variantRatio: 0.5,
-              useCookies: false,
-            })
-
-            if (isVariant) return '/quiz/style/fa'
-          }
+        if (userStyle === 'fa') {
           return '/quiz/results/fearful-avoidant'
         }
 

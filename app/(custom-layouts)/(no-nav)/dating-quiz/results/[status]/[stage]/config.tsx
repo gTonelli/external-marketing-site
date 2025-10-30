@@ -127,7 +127,7 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
     dating: {
       videoId: 'dQw4w9WgXcQ',
       painPoints: {
-        title: ' Your Result: Stage 1 — Dating (Single; you tend to stall here)',
+        title: 'Your Result: Stage 1 — Dating (Single; you tend to stall here)',
         copy: [
           <>
             <strong>
@@ -287,8 +287,8 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
             icon: faSquare1,
             copy: (
               <>
-                Regulate first, talk second. 60-second downshifts, time-outs with return times, and
-                co-regulation prompts.
+                <strong>Regulate first, talk second</strong>. 60-second downshifts, time-outs with
+                return times, and co-regulation prompts.
               </>
             ),
           },
@@ -453,8 +453,8 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
         ],
         list: [
           <>
-            Mixed signals & hesitation. Bursts of closeness followed by pauses; promises without
-            patterns.
+            <strong>Mixed signals & hesitation</strong>. Bursts of closeness followed by pauses;
+            promises without patterns.
           </>,
           <>
             <strong>Freedom vs. closeness split</strong>. Commitment feels like a trade rather than
@@ -937,38 +937,46 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
 export const DATING_QUIZ_RESULTS_SEO = {
   single: {
     dating: {
-      seoTitle: 'Dating Quiz Results - Dating',
-      seoDescription: 'Dating Quiz Results - Dating',
+      seoTitle: 'You’re in the Dating Stage | Six Stages of a Dating Quiz',
+      seoDescription:
+        'You’re in the Dating Stage! Discover what this means, learn how to attract emotionally available partners, and cultivate deeper connections from the outset.',
     },
     'power-struggle': {
-      seoTitle: 'Dating Quiz Results - Power Struggle',
-      seoDescription: 'Dating Quiz Results - Power Struggle',
+      seoTitle: 'You’re in the Power Struggle Stage | Here’s What to Do',
+      seoDescription:
+        'Discover why dating feels challenging right now. Learn how to move through the Power Struggle stage with clarity and build secure, lasting love.',
     },
     rhythm: {
-      seoTitle: 'Dating Quiz Results - Rhythm',
-      seoDescription: 'Dating Quiz Results - Rhythm',
+      seoTitle: 'You’re in the Rhythm Stage | Keep Building that Love',
+      seoDescription:
+        'You’re finding your flow in relationships. Now, here’s how to deepen emotional safety, sustain attraction, and move toward a healthy, lasting connection.',
     },
     devotion: {
-      seoTitle: 'Dating Quiz Results - Devotion',
-      seoDescription: 'Dating Quiz Results - Devotion',
+      seoTitle: 'You’re in the Devotion Stage | Embrace True Love',
+      seoDescription:
+        'You’re ready for deep commitment and emotional closeness. Discover how to maintain connection, independence, and love that continues to grow.',
     },
   },
   relationship: {
     dating: {
-      seoTitle: 'Dating Quiz Results - Dating',
-      seoDescription: 'Dating Quiz Results - Dating',
+      seoTitle: 'You’re in the Dating Stage in Your Relationship',
+      seoDescription:
+        'You’re in the beginning stage of your relationship. Here’s how to build trust, emotional safety, and connection as your relationship takes shape.',
     },
     'power-struggle': {
-      seoTitle: 'Dating Quiz Results - Power Struggle',
-      seoDescription: 'Dating Quiz Results - Power Struggle',
+      seoTitle: 'You’re in the Power Struggle Stage in Your Relationship',
+      seoDescription:
+        'You’re facing growing pains in your relationship. Discover how to navigate the Power Struggle stage and reconnect securely with your partner.',
     },
     rhythm: {
-      seoTitle: 'Dating Quiz Results - Rhythm',
-      seoDescription: 'Dating Quiz Results - Rhythm',
+      seoTitle: 'You’re in the Rhythm Stage in Your Relationship',
+      seoDescription:
+        'You’ve found balance and connection with your partner. Continue learning how to maintain harmony, deepen your love, and grow together in the long term.',
     },
     devotion: {
-      seoTitle: 'Dating Quiz Results - Devotion',
-      seoDescription: 'Dating Quiz Results - Devotion',
+      seoTitle: 'You’re in the Devotion Stage in Your Relationship',
+      seoDescription:
+        'You’ve reached a secure, fulfilling stage of love. Learn how to foster long-term emotional intimacy and maintain a strong bond for years to come.',
     },
   },
 }

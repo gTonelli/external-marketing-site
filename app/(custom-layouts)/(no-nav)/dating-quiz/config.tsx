@@ -158,7 +158,7 @@ export const DATING_QUIZ_CONFIG = {
       },
     ],
   },
-  thaisBio: {
+  roadmap: {
     title: 'What Makes This Different: A Complete Roadmap for Every Stage of Dating',
     list: [
       <>

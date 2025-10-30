@@ -1,5 +1,5 @@
 // components
-import { Header, PDSDefaultNavLinks } from '@/components/Header'
+import { Header, PDSDefaultNavLinks } from '@/components/Header/Header'
 import { Footer } from '@/components/Footer'
 import type { Metadata } from 'next'
 

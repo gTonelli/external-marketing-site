@@ -30,7 +30,7 @@ export const ButtonCheckout = ({
 }: IButtonCheckoutProps) => {
   return (
     // There is an issue with next/link and the Thinkific Checkout. If the user is logged in the browser enters an infinite loop.
-    <Link href={href} prefetch={false}>
+    <Link href={href} className="hover:!no-underline" prefetch={false}>
       {children || (
         <Button
           className={two(

@@ -122,6 +122,165 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       ctaLabel: 'START MY 90-DAY REWIRE NOW',
       disclaimer: 'Risk-Free 90-day Guarantee. Cancel anytime.',
     },
+    bootcampOfferings: {
+      title: "What You'll Get Inside the Bootcamp",
+      items: [
+        {
+          title: 'The Full 6 Stages Relationship Course',
+          description:
+            'In-depth video lessons walking you through each stage, what to expect, and how to move forward with clarity and confidence.',
+        },
+        {
+          title: 'The 6 Stages Quiz',
+          description:
+            'Take our stages of a relationship quiz to instantly discover where you are in your relationship journey (or where your past relationships stopped progressing).',
+        },
+        {
+          title: 'Communication & Trigger Healing Tools',
+          description:
+            'Learn how to express your needs safely, calm your nervous system, and handle conflict without disconnection or shutdowns.',
+        },
+        {
+          title: 'Needs Mapping & Emotional Awareness Training',
+          description:
+            "Understand your emotional blueprint and your partner's — so both people feel seen, valued, and understood.",
+        },
+        {
+          title: 'Subconscious Reprogramming Exercises',
+          description:
+            "Target the root causes of anxiety, avoidance, or fear of intimacy. You'll literally rewire old beliefs about love at the subconscious level.",
+        },
+        {
+          title: 'Free Bonus Courses',
+          description: '',
+          bonusItems: [
+            'Healing your attachment style',
+            'Releasing resentment',
+            'Healing from family dynamics',
+            'Building secure self-worth',
+          ],
+        },
+        {
+          title: 'Daily Live Classes & Community Support',
+          description:
+            'Join live sessions with expert coaches and peers to stay consistent, ask questions, and receive real-time feedback.',
+        },
+      ],
+    },
+    roadmap: {
+      title: 'What Makes This Different: A Complete Roadmap for Every Stage of Dating',
+      list: [
+        <>
+          <strong>We work with the subconscious</strong>, not just surface communication tips.
+        </>,
+        <>
+          <strong>You’ll get a complete roadmap</strong> for each of the different stages of a
+          relationship​ — not fragmented advice.
+        </>,
+        <>
+          <strong>You’ll see results that last</strong> — because we teach you how to rewire your
+          brain, not just your behavior.
+        </>,
+      ],
+      copy: [
+        'Most relationship courses tell you what to do.',
+        'We show you how to reprogram the part of you that makes it natural.',
+      ],
+    },
+    testimonials: {
+      title: 'Real People. Real Results.',
+    },
+    socialProof: {
+      text: (
+        <>
+          <strong>
+            <span className="font-ssp text-5xl text-primary">Over 40,000</span> student enrollments
+            from more than 120 countries worldwide
+          </strong>
+        </>
+      ),
+    },
+    pricing: {
+      image: '/images/AttachmentQuizResults/course-player-mockup-3-da.png',
+      imageAlt: 'A mockup of PDS courses on the PDs course players on 2 tablets and a laptop.',
+      badge: 'SAVE 30%',
+      title: 'Your Investment',
+      subtitle: 'No contracts, cancel anytime.',
+      priceLabel: "Today's Price",
+      price: '$67',
+      priceUnit: '/ per month',
+      description:
+        "You'll receive full access to every course, the stages of love quiz, bonus program, and live class immediately after joining. That's less than the cost of one therapy session — but with tools you'll use for life.",
+      buttonLabel: 'JOIN THE ALL-ACCESS PASS TODAY',
+    },
+    guarantee: {
+      title: "Our Bold Promise: Transform or It's Free",
+      copy: [
+        <>
+          We're so confident in this program that we offer a{' '}
+          <strong>90-Day Transformation Guarantee</strong>: If you don't experience massive
+          awareness and progress — in your relationship or your healing — we'll refund you and
+          extend your access until you do.
+        </>,
+        'The only condition? You complete your course.',
+        'You either transform… or you pay nothing.',
+      ],
+      buttonLabel: 'READY TO BREAK OLD PATTERNS AND EXPERIENCE REAL LOVE?',
+      disclaimer:
+        'Join the Relationship Bootcamp today — and start mastering the 6 stages of love.',
+      backgroundImage: '/images/IAT_AbandonedCart/offerBanner.webp',
+    },
+    whoThisIsFor: {
+      title: 'Who This Is For',
+      list: [
+        'Singles who want to stop repeating painful relationship cycles.',
+        'Couples who feel stuck, disconnected, or confused.',
+        'Anyone ready to heal subconscious patterns and experience lasting, secure love.',
+      ],
+      copy: [
+        'If you’ve ever said:',
+        <>
+          <em>"I don’t know what went wrong,"</em>
+        </>,
+        <>
+          <em>"We were perfect at first"</em>, or
+        </>,
+        <>
+          <em>"Why do I always attract the same people?"</em>
+        </>,
+        <>
+          <strong>...then this Bootcamp is for you.</strong>
+        </>,
+      ],
+    },
+    learnHowTo: {
+      title: "You'll Learn How To:",
+      list: [
+        'Communicate without conflict or shutdowns',
+        'Heal triggers and repair faster',
+        'Stop attracting emotionally unavailable people',
+        'Build trust after betrayal or disappointment',
+        'Keep passion alive — even after years together',
+        'Create emotional safety that lasts a lifetime',
+      ],
+    },
+    endResult: {
+      title: 'The End Result',
+      copy1: [
+        'Love that feels peaceful.',
+        'Partnership that feels equal.',
+        'Connection that feels real.',
+      ],
+      copy2:
+        "When you understand where you are — and what's next — relationships stop feeling like chaos… and start feeling like choice.",
+    },
+    footer: {
+      header: 'Transform your relationship — or your relationship with yourself — in just 90 days.',
+      description:
+        'Join now and get instant access to the complete 6 Stages Relationship Bootcamp.',
+      ctaLabel: 'START MY TRANSFORMATION',
+      disclaimer: 'Risk-Free 90-Day Guarantee',
+    },
   },
   single: {
     dating: {

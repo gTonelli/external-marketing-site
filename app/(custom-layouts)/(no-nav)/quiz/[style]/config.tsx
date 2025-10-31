@@ -97,13 +97,6 @@ export const ROYAL_RUMBLE = {
       testimonial: `Hi! I’m Carrie from northern California, USA. I’ve been a member of the PDS school since around June, 2020. This experience has been a life changer for me.  I have always been a seeker and self-improvement fan, but the courses and webinars with Thais as well as the zoom meetings with the community led by Mike, have given me actionable tools and a supportive safe space to discuss and practice them.  I am so fortunate to have found this school and so many friendly folks to share this journey!`,
     },
     {
-      avatar: 'avatar_tappy.jpg',
-      name: 'Tapanga P',
-      testimonial: `I discovered PDS shortly after my 19th birthday, even being one of the youngest in the school, everyone is so welcoming!!
-        I really love how Thais Gibson covers so many topics and goes above and beyond to cater to the needs of the members. The post-webinar breakout rooms have so many brilliant, and like-minded individuals who I always look forward to talking to!
-        PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself 😊`,
-    },
-    {
       avatar: 'avatar_jake.png',
       name: 'Jake J',
       testimonial: `PDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others in all relationships. It has honestly changed my life for the better and am on my path towards becoming a more secure person. Not to sound too much like an infomercial, but I don’t know where I would be in my life without this place. They have created such an amazing community that is extremely supportive and is full of wonderful people. PDS has grown into something I am very proud to be a part of and look forward to seeing where this journey takes me.`,

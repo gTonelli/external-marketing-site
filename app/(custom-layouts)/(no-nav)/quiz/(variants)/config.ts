@@ -131,12 +131,6 @@ export const ATTACHMENT_QUIZ_VARIANT = {
         content: `"I've researched relationships most of my life. However, I couldn't find anything that explained my dynamic in them. I thought about therapy until I stumbled upon this.. I'm usually a bit of a skeptic but I was hooked! I finally figured out my problem and how to solve it!"`,
       },
       {
-        author_avatar: 'avatar_tappy.jpg',
-        author_name: 'TAPPY',
-        heading: "'I FEEL SO MUCH MORE CONFIDENT WITHIN MYSELF!'",
-        content: `"PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools within PDS have provided me with the strength, and ability to heal, and I feel so much more confident within myself!"`,
-      },
-      {
         author_avatar: 'avatar_leona.jpg',
         author_name: 'LEONA',
         heading: "'MY ONLY REGRET IS THAT I DID NOT FIND ALL THIS OUT SOONER.'",

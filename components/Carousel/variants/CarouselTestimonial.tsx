@@ -74,17 +74,6 @@ export const DEFAULT_TESTIMONIALS = [
   },
   {
     author: {
-      name: 'Tappy P.',
-      picture: 'avatar_tappy.jpg',
-      state: 'England',
-      country: 'UK',
-    },
-    content:
-      '“PDS has had such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The community has so many brilliant, and like-minded individuals who I always look forward to talking to! The tools within PDS have provided me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself.”',
-    score: 5,
-  },
-  {
-    author: {
       name: 'Athira D.',
       picture: 'avatar_athira.jpg',
       state: 'San Francisco',

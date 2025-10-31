@@ -4,7 +4,24 @@ import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
+import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
+import { List } from '@/components/List'
+import {
+  BootcampOfferingsSection,
+  EndResultSection,
+  FooterCtaSection,
+  GuaranteeSection,
+  LearnHowToSection,
+  PricingSection,
+  RoadmapSection,
+  SocialProofSection,
+  TestimonialsSection,
+  TrustbarSection,
+  WhoThisIsForSection,
+} from '@/app/(custom-layouts)/(no-nav)/_stages-of-a-relationship-quiz/page'
+import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { faStars } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheckCircle, faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import cx from 'classnames'
@@ -15,27 +32,10 @@ import {
   TDatingStatus,
   TDatingQuizResultsParams,
 } from './config'
+// utils
+import { externalRoutes } from '@/utils/constants'
 // styles
 import '@/styles/default-styles.css'
-import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
-import { List } from '@/components/List'
-import { faCheckCircle, faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { externalRoutes } from '@/utils/constants'
-import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import {
-  BootcampOfferingsSection,
-  EndResultSection,
-  FooterCtaSection,
-  GuaranteeSection,
-  LearnHowToSection,
-  PdsHealingStepsSection,
-  PricingSection,
-  RoadmapSection,
-  SocialProofSection,
-  TestimonialsSection,
-  TrustbarSection,
-  WhoThisIsForSection,
-} from '../../../page'
 
 export const dynamicParams = false
 

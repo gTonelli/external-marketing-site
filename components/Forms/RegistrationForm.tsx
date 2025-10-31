@@ -3,6 +3,7 @@
 // components
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
+import { TDatingStage } from '../DatingQuiz/useDatingQuiz'
 import { IDefaultProps } from '..'
 import { gtag } from '../GoogleAdsTag'
 // libraries
@@ -35,6 +36,8 @@ interface IRegistrationFormProps extends IDefaultProps {
   submitButtonLabel?: string
   /** whether or not to show the phone number field */
   showPhoneField?: boolean
+  /** Dating stage to append to the user's profile*/
+  datingStage?: TDatingStage
 }
 
 type TFieldConfig = {
@@ -69,6 +72,7 @@ export const RegistrationForm = ({
   clientTag,
   userInfo,
   userStyle,
+  datingStage,
   submitButtonLabel,
   showPhoneField = false,
 }: IRegistrationFormProps) => {
@@ -84,6 +88,7 @@ export const RegistrationForm = ({
     Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
+    if (datingStage) Mixpanel.setPeople({ 'Dating Stage': datingStage })
 
     const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
     Mixpanel.track.SignUp({

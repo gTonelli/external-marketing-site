@@ -19,6 +19,7 @@ import { DATING_QUIZ_CONFIG as CONFIG } from './config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // style
 import './style.css'
+import { DatingQuiz } from '@/components/DatingQuiz/DatingQuiz'
 
 export const metadata: Metadata = {
   title: '',
@@ -29,6 +30,8 @@ export const metadata: Metadata = {
 export default function DatingQuizPage() {
   return (
     <Page page_name="Dating Quiz" className="relative">
+      <DatingQuiz />
+
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22">
         <h1 className="max-w-3xl text-primary leading-[50px] mx-auto mb-4">{CONFIG.hero.title}</h1>
 

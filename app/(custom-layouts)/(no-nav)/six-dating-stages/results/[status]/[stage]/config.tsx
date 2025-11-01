@@ -11,19 +11,32 @@ import {
 export const DATING_QUIZ_RESULTS_CONFIG = {
   common: {
     banner: {
-      header: 'Your Results Are In — Scroll for Your Personalized Map',
-      copy: 'Your results load as you scroll: where you are, why this keeps happening, and the exact plan to change it starting today.',
+      header1: 'Your Results Are In — Scroll for Your Personalized Map',
+      copy1:
+        'Your results load as you scroll: where you are, why this keeps happening, and the exact plan to change it starting today.',
       label: (
         <>
           <strong>
-            Keep going &darr; You’ll see the 6 Stages map, your current stage & pain points, and
+            Keep going &darr; You’ll see the Six Stages map, your current stage & pain points, and
             your personalized offer to fix this pattern.
           </strong>
         </>
       ),
+      header2: 'Every Relationship Moves Through Six Stages — Most People Get Stuck in One.',
+      copy2: (
+        <>
+          Learn exactly where <em>you are</em>, <em>why you’re stuck</em>, and{' '}
+          <em>how to create lasting love</em> that thrives through every phase.
+        </>
+      ),
+      header3: 'Discover the Proven Roadmap to Navigate Every Stage of a Relationship',
+      copy3:
+        'If your relationships tend to follow the same script, this program helps you uncover why — and teaches you how to break free from old cycles to build something secure and lasting.',
+      buttonLabel: 'START THE SIX STAGES BOOTCAMP',
+      disclaimer: '*Free assessment included with membership — only $67/month to join',
     },
     relationshipStages: {
-      title: 'The 6 Stages of Relationships (Your Map)',
+      title: 'The Six Stages of Relationships (Your Map)',
       description:
         'Every healthy relationship follows six predictable stages. Each one has unique emotional needs, subconscious patterns, and skills to master before moving forward.',
       stages: [
@@ -62,8 +75,8 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
         <>
           Join our exclusive{' '}
           <strong>
-            90 day Relationship Pattern Rewire Bootcamp and rewire the pattern in 90 days or your
-            money back — and we’ll extend your membership until the transformation is real.
+            Six Stages of Love Bootcamp and rewire the pattern in 90 days or your money back — and
+            we’ll extend your membership until the transformation is real.
           </strong>
         </>
       ),
@@ -72,22 +85,22 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
         'If you don’t feel a shift within 7 days, you can get a full refund.',
         'No risks at all—just the life-changing results you’ve been waiting for.',
       ],
-      ctaLabel: 'JOIN THE 90-DAY BOOTCAMP',
+      ctaLabel: 'JOIN THE SIX STAGES OF LOVE BOOTCAMP NOW',
       disclaimer: 'Only $67/month. Risk-free guarantee.',
     },
     implementation: {
       title: 'The Fastest Way to Implement This (With Support)',
-      copy: 'The 90-Day Relationship Pattern Rewire. Rewire the patterns keeping you stuck — or your money back (and we’ll extend your membership until you do).',
+      copy: 'Rewire the patterns keeping you stuck — or your money back (and we’ll extend your membership until you do).',
       support: [
         <>
-          <strong>In 90 days you’ll master</strong>: regulation on demand, standards→behaviors
+          <strong>In 90 days you’ll master</strong>: regulation on demand, standards&arr;behaviors
           scorecards, chemistry-vs-compatibility tools, secure questions, a 30-day pacing plan,
           needs & boundaries templates, and red-flag vs. growth-edge triage.
         </>,
         <>
-          <strong>You’ll also get</strong>: the full 6 Stages course, the assessment, communication
-          & trigger healing, needs mapping, subconscious reprogramming, bonus courses (attachment,
-          resentment, family dynamics, secure self-worth), and daily live classes.
+          <strong>You’ll also get</strong>: the full Six Stages course, the assessment,
+          communication & trigger healing, needs mapping, subconscious reprogramming, bonus courses
+          (attachment, resentment, family dynamics, secure self-worth), and daily live classes.
         </>,
       ],
       offer: [
@@ -102,7 +115,7 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
           </em>
         </>,
       ],
-      ctaLabel: 'JOIN THE 90-DAY RELATIONSHIP PATTERN REWIRE',
+      ctaLabel: 'JOIN THE SIX STAGES OF LOVE BOOTCAMP',
     },
     nextSteps: {
       title: 'What Happens Next',
@@ -119,19 +132,19 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
         },
         { icon: faSquare5, text: 'Watch your patterns shift—from ambiguous to intentional.' },
       ],
-      ctaLabel: 'START MY 90-DAY REWIRE NOW',
+      ctaLabel: 'START MY BOOTCAMP NOW',
       disclaimer: 'Risk-Free 90-day Guarantee. Cancel anytime.',
     },
     bootcampOfferings: {
       title: "What You'll Get Inside the Bootcamp",
       items: [
         {
-          title: 'The Full 6 Stages Relationship Course',
+          title: 'The Full Six Stages Relationship Course',
           description:
             'In-depth video lessons walking you through each stage, what to expect, and how to move forward with clarity and confidence.',
         },
         {
-          title: 'The 6 Stages Quiz',
+          title: 'The Six Stages Quiz',
           description:
             'Take our stages of a relationship quiz to instantly discover where you are in your relationship journey (or where your past relationships stopped progressing).',
         },
@@ -227,7 +240,7 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       ],
       buttonLabel: 'READY TO BREAK OLD PATTERNS AND EXPERIENCE REAL LOVE?',
       disclaimer:
-        'Join the Relationship Bootcamp today — and start mastering the 6 stages of love.',
+        'Join the Relationship Bootcamp today — and start mastering the six stages of love.',
       backgroundImage: '/images/IAT_AbandonedCart/offerBanner.webp',
     },
     whoThisIsFor: {
@@ -277,14 +290,13 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
     footer: {
       header: 'Transform your relationship — or your relationship with yourself — in just 90 days.',
       description:
-        'Join now and get instant access to the complete 6 Stages Relationship Bootcamp.',
+        'Join now and get instant access to the complete Six Stages Relationship Bootcamp.',
       ctaLabel: 'START MY TRANSFORMATION',
       disclaimer: 'Risk-Free 90-Day Guarantee',
     },
   },
   single: {
     dating: {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 1 — Dating (Single; you tend to stall here)',
         copy: [
@@ -396,7 +408,6 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       },
     },
     'power-struggle': {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 3 — Power Struggle (Single; you tend to break up here)',
         copy: [
@@ -500,7 +511,6 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       },
     },
     rhythm: {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 4 — Rhythm (Single; you tend to fade here)',
         copy: [
@@ -595,7 +605,6 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       },
     },
     devotion: {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 5 — Devotion (Single; commitment stalls here)',
         copy: [
@@ -699,7 +708,6 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
   },
   relationship: {
     dating: {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 1 — Dating (While You’re Actively Seeing Someone)',
         copy: [
@@ -811,7 +819,6 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       },
     },
     'power-struggle': {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 3 — Power Struggle',
         copy: [
@@ -911,7 +918,6 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       },
     },
     rhythm: {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 4 — Rhythm',
         copy: [
@@ -1001,7 +1007,6 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
       },
     },
     devotion: {
-      videoId: 'dQw4w9WgXcQ',
       painPoints: {
         title: 'Your Result: Stage 5 — Devotion (Commitment Next Steps)',
         copy: [

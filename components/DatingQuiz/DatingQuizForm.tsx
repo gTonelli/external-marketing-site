@@ -9,12 +9,12 @@ import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { gtag } from '../GoogleAdsTag'
 import { useDatingQuiz } from './useDatingQuiz'
 import { getDatingStageText } from '@/utils/functions'
+import { TDatingStage, TAnswerHistory } from './DatingQuizQuestions'
+import { useEffect } from 'react'
 
 interface IUserInfo {
   relationshipStatus: string
 }
-
-type TDatingStage = 'dating' | 'powerStruggle' | 'rhythm' | 'devotion'
 
 type TDatingQuizData = {
   dating: number
@@ -27,9 +27,15 @@ interface IDatingQuizFormProps extends IDefaultProps {
   userInfo: IUserInfo
   datingStage: TDatingStage
   quizData: TDatingQuizData
+  answerHistory: TAnswerHistory[]
 }
 
-export const DatingQuizForm = ({ userInfo, datingStage, quizData }: IDatingQuizFormProps) => {
+export const DatingQuizForm = ({
+  userInfo,
+  datingStage,
+  quizData,
+  answerHistory,
+}: IDatingQuizFormProps) => {
   const router = useRouter()
   const { getPercentageResults, saveResult } = useDatingQuiz()
 
@@ -61,7 +67,7 @@ export const DatingQuizForm = ({ userInfo, datingStage, quizData }: IDatingQuizF
     //     devotionPercentage,
     //   })
 
-    router.push(`/dating-quiz/results/${userInfo.relationshipStatus}/${datingStage}`)
+    router.push(`/six-dating-stages/results/${userInfo.relationshipStatus}/${datingStage}`)
   }
 
   return (

@@ -1,11 +1,21 @@
 import Image from 'next/image'
-import { BREAKTHROUGH_SEGMENTS } from './config'
+import { BREAKTHROUGH_SEGMENTS, BREAKTHROUGH_SEGMENTS_SIX_DATING_STAGES } from './config'
 
-export const BreakThroughSectionDesktop = () => {
+interface IBreakThroughSectionDesktopProps {
+  isSixDatingStages?: boolean
+}
+
+export const BreakThroughSectionDesktop = ({
+  isSixDatingStages = false,
+}: IBreakThroughSectionDesktopProps) => {
+  const segments = isSixDatingStages
+    ? BREAKTHROUGH_SEGMENTS_SIX_DATING_STAGES
+    : BREAKTHROUGH_SEGMENTS
+
   return (
     <div className="hidden mt-4 lg:flex max-w-[926px]">
       {/* FLEX SECTION */}
-      {BREAKTHROUGH_SEGMENTS.map((breakThroughs, index) => (
+      {segments.map((breakThroughs, index) => (
         <div key={`breakthrough_${index}`} className="basis-1/3">
           <div className="flex flex-col">
             <div className="mx-auto">
@@ -20,7 +30,7 @@ export const BreakThroughSectionDesktop = () => {
             </div>
 
             <div>
-              <span className="uppercase tracking-33">{breakThroughs.title}</span>
+              <span className="tracking-33">{breakThroughs.title}</span>
             </div>
           </div>
         </div>

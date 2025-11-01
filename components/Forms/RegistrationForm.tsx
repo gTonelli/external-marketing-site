@@ -188,10 +188,10 @@ export const RegistrationForm = ({
             </div>
           )}
 
-          <p className="text-left md:text-cente mt-4">
-            By clicking Submit, I agree to receive my attachment style report and other email
-            communication. If you haven&apos;t received your report, please be sure to check your
-            Spam/Junk folder, and also mark it as safe so you don't miss anything.
+          <p className="text-left mt-4">
+            {datingStage
+              ? "By clicking Submit, I agree to receive email communication from the Personal Development School. Please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything."
+              : "By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything."}
           </p>
 
           <div className="flex justify-center">

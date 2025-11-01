@@ -7,7 +7,7 @@ import { Section } from '@/components/Section'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { List } from '@/components/List'
 import { Trustbar } from '@/components/Trustbar/Trustbar'
-import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
+import { VideoStream } from '@/components/Video/variants/VideoStream'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { faCircle, faStars } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCheckCircle, faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
@@ -25,6 +25,7 @@ import {
 import { externalRoutes } from '@/utils/constants'
 // styles
 import '@/styles/default-styles.css'
+import './style.css'
 
 export const dynamicParams = false
 
@@ -65,11 +66,11 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
   const checkoutUrl = externalRoutes.checkoutRegularSubscription
 
   return (
-    <Page page_name={`Dating Quiz Results - ${status} - ${stage}`}>
+    <Page page_name={`Dating Quiz Results Page - ${status} - ${stage}`}>
       <Section className="bg-gradient-to-b from-pink-auxiliary to-white">
-        <h1 className="text-primary">{CONFIG['common'].banner.header}</h1>
+        <h1 className="text-primary">{CONFIG['common'].banner.header1}</h1>
 
-        <p>{CONFIG['common'].banner.copy}</p>
+        <p>{CONFIG['common'].banner.copy1}</p>
 
         <div className="w-fit bg-black text-white rounded-10 mx-auto p-4">
           <p className="mb-0">
@@ -80,18 +81,33 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto my-4">
-          <div className="w-full bg-white rounded-2xl shadow-xl p-4 mx-auto">
-            <VideoYoutube
-              playInline
-              classNameThumbnail="w-full"
-              videoId={CONFIG[status][stage].videoId}
-              thumbnail="/images/AttachmentQuizResults/thais-writing.jpg"
-              thumbnailAlt={`Video about Dating Quiz Results - ${status} - ${stage}`}
-              type={`dating quiz results ${status} ${stage}`}
+        <div className="my-8 lg:grid lg:items-end lg:grid-cols-2 lg:gap-4">
+          <div className="p-4 bg- shadow-xl rounded-20">
+            <VideoStream
+              className="bg-white"
+              videoId="18c795d0f3e4c719fa8e395078d289db"
+              thumbnailSrc="https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg"
             />
           </div>
+
+          <div className="text-left mt-4">
+            <h2>{CONFIG['common'].banner.header2}</h2>
+
+            <p>{CONFIG['common'].banner.copy2}</p>
+
+            <div className="bg-pink-tertiary-60 rounded-20 p-4">
+              <p className="font-ssp font-bold text-xl">{CONFIG['common'].banner.header3}</p>
+
+              <p className="mb-0">{CONFIG['common'].banner.copy3}</p>
+            </div>
+          </div>
         </div>
+
+        <ButtonCheckout label={CONFIG['common'].banner.buttonLabel} />
+
+        <p className="text-sm mt-2">
+          <em>{CONFIG['common'].banner.disclaimer}</em>
+        </p>
       </Section>
 
       <Section>
@@ -253,7 +269,7 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
         <div className="text-left mb-4 lg:grid lg:grid-cols-5 lg:gap-4">
           {CONFIG['common'].nextSteps.steps.map((step, index) => (
             <div
-              key={`healing_step_${index}`}
+              key={`nextSteps_step_${index}`}
               className="bg-white-secondary rounded-lg default-padding mb-4 lg:mb-0 lg:py-4">
               <div className="flex mb-4">
                 <FontAwesomeIcon className="text-primary py-1 rounded" icon={step.icon} />
@@ -499,7 +515,7 @@ const GuaranteeSection = () => {
     <Section
       className="bg-watch w-full z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
       classNameInner="relative !max-w-full p-6 lg:!p-0 !m-0 lg:grid lg:grid-cols-12 lg:gap-4">
-      <div className="text-left bg-white rounded-20 shadow-lg p-7 lg:col-span-5 lg:col-start-7">
+      <div className="max-w-2xl mx-auto text-left bg-white rounded-20 shadow-lg p-7 lg:col-span-5 lg:col-start-7">
         <h2 className="mb-4">{CONFIG['common'].guarantee.title}</h2>
 
         {CONFIG['common'].guarantee.copy.map((text, index) => (

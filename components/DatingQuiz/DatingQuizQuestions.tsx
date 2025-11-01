@@ -3,7 +3,6 @@
 // core
 import { useCallback, useEffect, useRef, useState } from 'react'
 // components
-import { ProgressBar } from '../ProgressBar'
 import { IDefaultProps } from '..'
 import DatingQuizForm from './DatingQuizForm'
 import {
@@ -37,12 +36,13 @@ export interface IDatingQuizQuestionsProps extends IDefaultProps {
   onQuizFinished?: () => void
 }
 
-type TDatingStage = 'dating' | 'powerStruggle' | 'rhythm' | 'devotion'
+export type TDatingStage = 'dating' | 'powerStruggle' | 'rhythm' | 'devotion'
 
 let modifiedQuestions = [DATING_QUIZ_FIRST_QUESTION]
 
-type TAnswerHistory = {
+export type TAnswerHistory = {
   index: number
+  answerIndex: number
   association?: TDatingStage
   relationshipStatus?: string
 }
@@ -56,11 +56,9 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
   const [stage, setStage] = useState<TDatingStage | null>(null)
   const [userInfo, setUserInfo] = useState<IUserInfo>({ relationshipStatus: '' })
   const [answerHistory, setAnswerHistory] = useState<TAnswerHistory[]>([])
-  const isMovingBackward = useRef(false)
+  const quizStartedTracked = useRef(false)
 
   const trackProgressMobile = useCallback(() => {
-    if (isMovingBackward.current) return
-
     const progress = (currentIndex / modifiedQuestions.length) * 100
     if (document.visibilityState === 'hidden' && progress < 100) {
       Mixpanel.track.QuizProgress({
@@ -73,9 +71,8 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
   }, [currentIndex, quizName])
 
   const trackProgressDesktop = useCallback(() => {
-    if (isMovingBackward.current) return
-
     const progress = (currentIndex / modifiedQuestions.length) * 100
+
     if (progress < 100) {
       Mixpanel.track.QuizProgress({
         quiz_name: quizName,
@@ -99,16 +96,8 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
     }
   }, [currentIndex, trackProgressMobile, trackProgressDesktop])
 
-  useEffect(() => {
-    if (isMovingBackward.current) {
-      isMovingBackward.current = false
-    }
-  }, [currentIndex])
-
   const onGoBack = useCallback(() => {
     if (currentIndex === 0) return
-
-    isMovingBackward.current = true
 
     const previousIndex = currentIndex - 1
     const lastAnswer = answerHistory[answerHistory.length - 1]
@@ -153,6 +142,12 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
         setUserInfo((prev) => ({ ...prev, [field]: value }))
       }
 
+      const handleQuizStart = () => {
+        if (quizStartedTracked.current) return
+        quizStartedTracked.current = true
+        Mixpanel.track.QuizStarted({ quiz_name: quizName })
+      }
+
       const handleInitialQuestion = () => {
         const selectedLabel = currentQuestion.options[optionIndex].label
         if (selectedLabel === 'Single') {
@@ -160,21 +155,25 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
           modifiedQuestions = [DATING_QUIZ_FIRST_QUESTION, ...DATING_QUIZ_SINGLE_QUESTIONS]
           setAnswerHistory((prev) => [
             ...prev,
-            { index: currentIndex, relationshipStatus: 'single' },
+            { index: currentIndex, answerIndex: optionIndex, relationshipStatus: 'single' },
           ])
         } else {
           updateUserInfo('relationshipStatus', 'relationship')
           modifiedQuestions = [DATING_QUIZ_FIRST_QUESTION, ...DATING_QUIZ_RELATIONSHIP_QUESTIONS]
           setAnswerHistory((prev) => [
             ...prev,
-            { index: currentIndex, relationshipStatus: 'relationship' },
+            { index: currentIndex, answerIndex: optionIndex, relationshipStatus: 'relationship' },
           ])
         }
+        handleQuizStart()
       }
 
       const handleScoreTracking = () => {
         const association = currentQuestion.options[optionIndex].association as TDatingStage
-        setAnswerHistory((prev) => [...prev, { index: currentIndex, association }])
+        setAnswerHistory((prev) => [
+          ...prev,
+          { index: currentIndex, answerIndex: optionIndex, association },
+        ])
 
         switch (association) {
           case 'dating':
@@ -228,7 +227,6 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
         handleQuizEnd()
       }
 
-      isMovingBackward.current = false
       setCurrentIndex(currentIndex + 1)
     },
     [
@@ -288,14 +286,14 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
               </div>
 
               <div className="col-span-4">
-                <p className="font-bold text-lg">
+                <p className="font-bold lg:text-lg">
                   {`${currentIndex}`}/{modifiedQuestions.length - 1}
                 </p>
               </div>
             </div>
           )}
 
-          <p className="!font-ssp font-bold text-2xl">{`${
+          <p className="!font-ssp font-bold text-xl lg:text-2xl">{`${
             currentIndex > 0 ? currentIndex + ')' : ''
           } ${modifiedQuestions[currentIndex].question}`}</p>
 
@@ -305,7 +303,7 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
                 <button
                   key={`option_${index}`}
                   className={
-                    'w-3/4 flex rounded bg-white-secondary text-left p-4 lg:w-full lg:hover:bg-white lg:hover:shadow-lg lg:hover:border-2 lg:hover:border-primary'
+                    'w-full flex rounded bg-white-secondary text-left p-4 border-2 border-transparent lg:hover:bg-white lg:hover:shadow-lg lg:hover:border-primary'
                   }
                   onClick={onQuestionAnswer(index)}>
                   <span>
@@ -322,6 +320,7 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
           <DatingQuizForm
             userInfo={userInfo as IUserInfo}
             datingStage={stage as TDatingStage}
+            answerHistory={answerHistory}
             quizData={{
               dating: datingPoints,
               powerStruggle: powerStrugglePoints,

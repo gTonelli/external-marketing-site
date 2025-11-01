@@ -1,13 +1,5 @@
-// Dating Quiz Question Bank
-// Each question can either be a quizQuestion (scored) or userInfo (captures demographics/intake)
-
-export type TDatingAssociation =
-  | 'relationshipStatus'
-  | 'rhythm'
-  | 'dating'
-  | 'devotion'
-  | 'powerStruggle'
-export type TDatingAssociationType = 'userInfo' | 'quizQuestion'
+type TDatingAssociation = 'relationshipStatus' | 'rhythm' | 'dating' | 'devotion' | 'powerStruggle'
+type TDatingAssociationType = 'userInfo' | 'quizQuestion'
 export type TDatingQuestionOption = { label: string; association: TDatingAssociation }
 export type TDatingQuestion = {
   question: string
@@ -15,17 +7,18 @@ export type TDatingQuestion = {
   options: TDatingQuestionOption[]
 }
 
-// Q1: Relationship status
 export const DATING_QUIZ_FIRST_QUESTION: TDatingQuestion = {
   question: 'What is your current relationship status?',
   associationType: 'userInfo',
   options: [
     { label: 'Single', association: 'relationshipStatus' },
-    { label: 'In a relationship', association: 'relationshipStatus' },
+    {
+      label: 'Currently seeing someone or in a long term relationship',
+      association: 'relationshipStatus',
+    },
   ],
 }
 
-// Next 10 if user is Single
 export const DATING_QUIZ_SINGLE_QUESTIONS: TDatingQuestion[] = [
   {
     question: 'How long into your relationships do you normally experience a break up?',
@@ -217,7 +210,6 @@ export const DATING_QUIZ_SINGLE_QUESTIONS: TDatingQuestion[] = [
   },
 ]
 
-// Next 10 if user is In a relationship
 export const DATING_QUIZ_RELATIONSHIP_QUESTIONS: TDatingQuestion[] = [
   {
     question:

@@ -1,7 +1,7 @@
 'use client'
 
-// core
 import { indexOf } from 'lodash'
+import { TAnswerHistory } from './DatingQuizQuestions'
 
 export type TDatingStage = 'dating' | 'powerStruggle' | 'rhythm' | 'devotion'
 

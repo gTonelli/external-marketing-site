@@ -9,7 +9,7 @@ import { DatingQuiz } from '@/components/DatingQuiz/DatingQuiz'
 export const metadata: Metadata = {
   title: 'The Personal Development School’s Six Stages of Dating Quiz',
   description:
-    'You’re on your way! Discover which relationship stage you’re in and how to move forward with this exclusive  Six Stages of Dating Quiz by Thais Gibson.',
+    'You’re on your way! Discover which relationship stage you’re in and how to move forward with this exclusive Six Stages of Dating Quiz by Thais Gibson.',
   metadataBase: new URL('https://attachment.personaldevelopmentschool.com/six-dating-stages/quiz'),
   alternates: {
     canonical: '/',

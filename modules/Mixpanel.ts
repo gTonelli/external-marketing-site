@@ -68,6 +68,7 @@ export type Pages =
   | `Dating Freebie Page`
   | `Dating Quiz Landing Page`
   | `Dating Quiz Page`
+  | `Dating Quiz VSL Page`
   | `Dating Quiz Results Page - ${string}`
   | `Dreamlife Results Page FA`
   | `Dreamlife Breakup Course Page`

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function DatingQuizPage() {
   return (
-    <Page page_name="Dating Quiz" className="relative">
+    <Page page_name="Dating Quiz VSL Page" className="relative">
       <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22">
         <h1 className="max-w-3xl text-primary leading-[50px] mx-auto mb-4">{CONFIG.hero.title}</h1>
 

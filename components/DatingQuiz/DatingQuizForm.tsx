@@ -2,14 +2,13 @@
 
 // core
 import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 // components
 import { IDefaultProps } from '..'
 // libraries
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { gtag } from '../GoogleAdsTag'
 import { useDatingQuiz } from './useDatingQuiz'
-import { getDatingStageText } from '@/utils/functions'
+import { getDatingStageText, getDatingStageSlug } from '@/utils/functions'
 import { TDatingStage, TAnswerHistory } from './DatingQuizQuestions'
 
 interface IUserInfo {
@@ -37,7 +36,7 @@ export const DatingQuizForm = ({
   answerHistory,
 }: IDatingQuizFormProps) => {
   const router = useRouter()
-  const { getPercentageResults, saveResult, getAnswersJSON } = useDatingQuiz()
+  const { getPercentageResults, saveResult } = useDatingQuiz()
 
   const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     gtag({
@@ -68,7 +67,9 @@ export const DatingQuizForm = ({
         answerHistory,
       })
 
-    router.push(`/six-dating-stages/results/${userInfo.relationshipStatus}/${datingStage}`)
+    router.push(
+      `/six-dating-stages/results/${userInfo.relationshipStatus}/${getDatingStageSlug(datingStage)}`
+    )
   }
 
   return (

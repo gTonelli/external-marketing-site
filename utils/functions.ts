@@ -218,3 +218,16 @@ export const getDatingStageText = (stage: TDatingStage) => {
       return 'Devotion'
   }
 }
+
+export const getDatingStageSlug = (stage: TDatingStage) => {
+  switch (stage) {
+    case 'dating':
+      return 'dating'
+    case 'powerStruggle':
+      return 'power-struggle'
+    case 'rhythm':
+      return 'rhythm'
+    case 'devotion':
+      return 'devotion'
+  }
+}

@@ -2,6 +2,7 @@
 
 // core
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 // components
 import { IDefaultProps } from '..'
 // libraries
@@ -10,7 +11,6 @@ import { gtag } from '../GoogleAdsTag'
 import { useDatingQuiz } from './useDatingQuiz'
 import { getDatingStageText } from '@/utils/functions'
 import { TDatingStage, TAnswerHistory } from './DatingQuizQuestions'
-import { useEffect } from 'react'
 
 interface IUserInfo {
   relationshipStatus: string
@@ -37,7 +37,7 @@ export const DatingQuizForm = ({
   answerHistory,
 }: IDatingQuizFormProps) => {
   const router = useRouter()
-  const { getPercentageResults, saveResult } = useDatingQuiz()
+  const { getPercentageResults, saveResult, getAnswersJSON } = useDatingQuiz()
 
   const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     gtag({
@@ -55,17 +55,18 @@ export const DatingQuizForm = ({
     const { datingPercentage, powerStrugglePercentage, rhythmPercentage, devotionPercentage } =
       getPercentageResults(quizData)
 
-    // if (firstName && lastName && email)
-    //   saveResult({
-    //     firstName,
-    //     lastName,
-    //     email,
-    //     relationshipStatus: userInfo.relationshipStatus,
-    //     datingPercentage,
-    //     powerStrugglePercentage,
-    //     rhythmPercentage,
-    //     devotionPercentage,
-    //   })
+    if (firstName && lastName && email)
+      saveResult({
+        firstName,
+        lastName,
+        email,
+        relationshipStatus: userInfo.relationshipStatus,
+        datingPercentage,
+        powerStrugglePercentage,
+        rhythmPercentage,
+        devotionPercentage,
+        answerHistory,
+      })
 
     router.push(`/six-dating-stages/results/${userInfo.relationshipStatus}/${datingStage}`)
   }

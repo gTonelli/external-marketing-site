@@ -1,4 +1,9 @@
-type TDatingAssociation = 'relationshipStatus' | 'rhythm' | 'dating' | 'devotion' | 'powerStruggle'
+export type TDatingAssociation =
+  | 'relationshipStatus'
+  | 'rhythm'
+  | 'dating'
+  | 'devotion'
+  | 'powerStruggle'
 type TDatingAssociationType = 'userInfo' | 'quizQuestion'
 export type TDatingQuestionOption = { label: string; association: TDatingAssociation }
 export type TDatingQuestion = {

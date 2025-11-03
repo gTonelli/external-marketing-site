@@ -17,6 +17,7 @@ import {
   DATING_QUIZ_FIRST_QUESTION,
   DATING_QUIZ_SINGLE_QUESTIONS,
   DATING_QUIZ_RELATIONSHIP_QUESTIONS,
+  TDatingAssociation,
 } from './config'
 // libraries
 import cx from 'classnames'
@@ -36,15 +37,16 @@ export interface IDatingQuizQuestionsProps extends IDefaultProps {
   onQuizFinished?: () => void
 }
 
-export type TDatingStage = 'dating' | 'powerStruggle' | 'rhythm' | 'devotion'
-
 let modifiedQuestions = [DATING_QUIZ_FIRST_QUESTION]
+
+export type TDatingStage = Exclude<TDatingAssociation, 'relationshipStatus'>
 
 export type TAnswerHistory = {
   index: number
   answerIndex: number
-  association?: TDatingStage
-  relationshipStatus?: string
+  answer: string
+  question: string
+  association: TDatingAssociation
 }
 
 export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestionsProps) => {
@@ -155,14 +157,26 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
           modifiedQuestions = [DATING_QUIZ_FIRST_QUESTION, ...DATING_QUIZ_SINGLE_QUESTIONS]
           setAnswerHistory((prev) => [
             ...prev,
-            { index: currentIndex, answerIndex: optionIndex, relationshipStatus: 'single' },
+            {
+              index: currentIndex,
+              answerIndex: optionIndex,
+              answer: selectedLabel,
+              question: currentQuestion.question,
+              association: currentQuestion.options[optionIndex].association as TDatingStage,
+            },
           ])
         } else {
           updateUserInfo('relationshipStatus', 'relationship')
           modifiedQuestions = [DATING_QUIZ_FIRST_QUESTION, ...DATING_QUIZ_RELATIONSHIP_QUESTIONS]
           setAnswerHistory((prev) => [
             ...prev,
-            { index: currentIndex, answerIndex: optionIndex, relationshipStatus: 'relationship' },
+            {
+              index: currentIndex,
+              answerIndex: optionIndex,
+              answer: selectedLabel,
+              question: currentQuestion.question,
+              association: currentQuestion.options[optionIndex].association,
+            },
           ])
         }
         handleQuizStart()
@@ -172,7 +186,13 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
         const association = currentQuestion.options[optionIndex].association as TDatingStage
         setAnswerHistory((prev) => [
           ...prev,
-          { index: currentIndex, answerIndex: optionIndex, association },
+          {
+            index: currentIndex,
+            answerIndex: optionIndex,
+            answer: currentQuestion.options[optionIndex].label,
+            question: currentQuestion.question,
+            association,
+          },
         ])
 
         switch (association) {

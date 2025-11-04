@@ -38,6 +38,7 @@ export interface ISaveResultArgs {
   firstName: string
   lastName: string
   email: string
+  eventId: string
   attachmentFamiliarity?: string
   gender?: string
   intent?: string
@@ -342,6 +343,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     firstName,
     lastName,
     email,
+    eventId,
     attachmentFamiliarity,
     gender,
     intent,
@@ -353,7 +355,6 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     daPercentage,
     saPercentage,
   }: ISaveResultArgs) => {
-    const eventId = crypto.randomUUID()
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
       method: 'POST',
       headers: {

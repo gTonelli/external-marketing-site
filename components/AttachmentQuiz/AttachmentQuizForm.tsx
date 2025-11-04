@@ -96,17 +96,18 @@ export const AttachmentQuizForm = ({
       })
 
     if (firstName && lastName && email) {
+      const eventId = crypto.randomUUID()
+
       FBQ?.trackAttachmentQuizResult({
         attachmentStyle: getAttachmentStyleText(userStyle),
-        eventId: crypto.randomUUID(),
+        eventId,
       })
-      /*
-const { attachmentStyle, email, firstName, lastName, phone, eventId } = request.body;
-      */
+
       saveResult({
         firstName,
         lastName,
         email,
+        eventId,
         attachmentFamiliarity,
         gender,
         intent,

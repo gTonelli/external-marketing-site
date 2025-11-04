@@ -23,6 +23,7 @@ import { orderBy } from 'lodash'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 // styles
 import '../styles.css'
 // utils
@@ -45,6 +46,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
 
   // ==================== Hooks ====================
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
+  const FBQ = useFacebookPixel()
 
   const quiz = CONFIG.find((i) => i.type === params.id || i.id === params.id)
 
@@ -98,6 +100,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
 
         if (userData && userData.email && userData.firstName && userData.lastName) {
           Storage.set('canViewResults', '1')
+          const eventId = crypto.randomUUID()
           const { faPercentage, daPercentage, apPercentage, saPercentage, dominantStyle } =
             getPercentageResults({
               fa: newFaPoints,
@@ -105,11 +108,16 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
               ap: newApPoints,
               sa: newSaPoints,
             })
+          FBQ?.trackAttachmentQuizResult({
+            attachmentStyle: getAttachmentStyleText(dominantStyle),
+            eventId,
+          })
           saveResult({
             dominantStyle: getAttachmentStyleText(dominantStyle),
             firstName: userData.firstName,
             lastName: userData.lastName,
             email: userData.email,
+            eventId,
             faPercentage,
             daPercentage,
             apPercentage,

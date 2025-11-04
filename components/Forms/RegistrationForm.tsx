@@ -85,19 +85,15 @@ export const RegistrationForm = ({
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
 
-    const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
+    const eventId = crypto.randomUUID()
     Mixpanel.track.SignUp({
       distinct_id: values.email,
-      $insert_id: insertId,
+      $insert_id: eventId,
     })
 
-    FBQ?.trackLead({
-      email,
-    })
+    FBQ?.trackLead({ email, eventId })
 
-    gtag('set', 'user_data', {
-      email: email.trim(),
-    })
+    gtag('set', 'user_data', { email: email.trim() })
 
     const requestBody = {
       tags: clientTag ? clientTag.split(',').map((tag) => tag.trim()) : [],
@@ -106,12 +102,13 @@ export const RegistrationForm = ({
       email,
       phone,
       listIds: [2],
-      insertId,
+      insertId: eventId,
       userInfo,
     }
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

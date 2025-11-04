@@ -17,6 +17,7 @@ import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { indexOf } from 'lodash'
 import { Storage } from '@/modules/Storage'
+import { MD5 } from 'crypto-js'
 
 export interface IQuizComponentDefaultArgs {
   readonly questionGroup?: IAttachmentStyleQuestionGroup | IUserDataGroup
@@ -238,6 +239,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     Storage.set('userFullName', name)
     FBQ?.trackLead({
       email: email,
+      eventId: crypto.randomUUID(),
     })
     setUserData({ email, firstName, lastName, userStyle: dominantStyle })
     Mixpanel.track.SignUp({ distinct_id: email })
@@ -252,6 +254,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
 
     fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

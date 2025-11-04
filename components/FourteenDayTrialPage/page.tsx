@@ -14,6 +14,8 @@ import { PDS14dftBreakthrough, PDS14dftTestimonialVideo, ValentinesFAQs } from '
 import { Faq } from '../Faq/Faq'
 import { faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // config
@@ -22,7 +24,6 @@ import { FOURTEEN_DAY_TRIAL_CONFIG as CONFIG } from './config'
 import { externalRoutes } from '@/utils/constants'
 // styles
 import '@/styles/default-styles.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface FourteenDayTrialPageProps {
   page_name: Pages
@@ -160,13 +161,14 @@ export const FourteenDayTrialPage = ({ page_name, configKey }: FourteenDayTrialP
         {CONFIG.featureOffers.features.map((item, index) => (
           <div
             key={`feature_offers_${index}`}
-            className="bg-white text-left rounded-2xl shadow-xl p-4 mb-6 lg:grid lg:grid-cols-2 lg:gap-6 lg:p-6">
-            <div>
+            className="bg-white text-left rounded-2xl shadow-xl p-4 mb-6 lg:grid lg:grid-cols-2 lg:gap-4 lg:p-6">
+            <div className="flex flex-col">
               <p className="tracking-33 text-primary">
                 <strong>{item.title}</strong>
               </p>
 
               <Image
+                className="justify-self-end"
                 alt={item.imageAlt}
                 src={item.image}
                 width={450}

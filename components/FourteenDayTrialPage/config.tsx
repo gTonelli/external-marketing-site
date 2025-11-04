@@ -97,8 +97,8 @@ export const FOURTEEN_DAY_TRIAL_CONFIG = {
     features: [
       {
         title: 'EMPOWERING ONLINE COURSES FOR EVERY AREA OF YOUR LIFE',
-        image: '/images/FourteenDayTrialPage/feature-offers-1.jpg',
-        imageAlt: '',
+        image: '/images/BlackFridayPage/mockup-1.png',
+        imageAlt: 'Mockup of PDS platform showing Handbook for Better Life course',
         copy1: [
           'Take 14 days to explore our complete list of tailed courses carefully designed to help you tackle a wide range of personal challenges you might be facing, like:',
         ],
@@ -117,8 +117,8 @@ export const FOURTEEN_DAY_TRIAL_CONFIG = {
       },
       {
         title: 'INVITES TO WEEKLY LIVE WEBINARS AND Q&A SESSIONS',
-        image: '/images/FourteenDayTrialPage/feature-offers-2.jpg',
-        imageAlt: '',
+        image: '/images/BlackFridayPage/mockup-2.png',
+        imageAlt: 'Mockup of PDS platform showing the Community Hub page',
         copy1: [
           'Get additional guidance and information from me, Thais Gibson (founder of The Personal Development School and industry leader), and our Certified Coaches, as you make your way through our courses and face the deeper parts of yourself.',
         ],
@@ -149,8 +149,8 @@ export const FOURTEEN_DAY_TRIAL_CONFIG = {
       },
       {
         title: 'A WELCOME INTO A COMMUNITY THAT TRULY UNDERSTANDS YOU',
-        image: '/images/FourteenDayTrialPage/feature-offers-3.jpg',
-        imageAlt: '',
+        image: '/images/BlackFridayPage/mockup-3.png',
+        imageAlt: 'Mockup of PDS platform showing webinars hosted by Thais Gibson',
         copy1: [
           'You don’t need to go through this healing journey on your own.',
           <>

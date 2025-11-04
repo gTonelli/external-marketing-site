@@ -66,6 +66,10 @@ export type Pages =
   | `Cyber Monday Variant Page`
   | `DA Single - ${string}`
   | `Dating Freebie Page`
+  | `Dating Quiz Landing Page`
+  | `Dating Quiz Page`
+  | `Dating Quiz VSL Page`
+  | `Dating Quiz Results Page - ${string}`
   | `Dreamlife Results Page FA`
   | `Dreamlife Breakup Course Page`
   | `Dreamlife Codependency Course Page`

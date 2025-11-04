@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie'
 import dayjs from 'dayjs'
 import jwt from 'jsonwebtoken'
 import { pick } from 'lodash'
+import { TDatingStage } from '@/components/DatingQuiz/useDatingQuiz'
 
 /**
  * Check if property is function
@@ -202,5 +203,31 @@ export const getAttachmentStyleText = (style: TStyle) => {
       return 'Dismissive Avoidant'
     case 'sa':
       return 'Securely Attached'
+  }
+}
+
+export const getDatingStageText = (stage: TDatingStage) => {
+  switch (stage) {
+    case 'dating':
+      return 'Dating'
+    case 'powerStruggle':
+      return 'Power Struggle'
+    case 'rhythm':
+      return 'Rhythm'
+    case 'devotion':
+      return 'Devotion'
+  }
+}
+
+export const getDatingStageSlug = (stage: TDatingStage) => {
+  switch (stage) {
+    case 'dating':
+      return 'dating'
+    case 'powerStruggle':
+      return 'power-struggle'
+    case 'rhythm':
+      return 'rhythm'
+    case 'devotion':
+      return 'devotion'
   }
 }

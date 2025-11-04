@@ -15,6 +15,7 @@ import { useFacebookPixel } from '@/modules/FacebookPixel'
 import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { Regexes } from '@/utils/constants'
+import { MD5 } from 'crypto-js'
 
 interface IPodcastSuggestionFormProps extends IDefaultProps {
   classNameFields?: string
@@ -51,6 +52,8 @@ export const PodcastSuggestionForm = ({
     Mixpanel.setUser(podcastEmail)
     FBQ?.trackLead({
       email: podcastEmail,
+      eventId: crypto.randomUUID(),
+      sendServerSideEvent: true,
     })
 
     const requestBody = {

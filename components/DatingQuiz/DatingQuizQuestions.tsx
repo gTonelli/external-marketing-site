@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 // components
 import { IDefaultProps } from '..'
 import DatingQuizForm from './DatingQuizForm'
+import { useDatingQuiz } from './useDatingQuiz'
 import {
   faSquareA,
   faSquareB,
@@ -21,7 +22,6 @@ import {
 } from './config'
 // libraries
 import cx from 'classnames'
-import { orderBy } from 'lodash'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
@@ -59,6 +59,7 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
   const [userInfo, setUserInfo] = useState<IUserInfo>({ relationshipStatus: '' })
   const [answerHistory, setAnswerHistory] = useState<TAnswerHistory[]>([])
   const quizStartedTracked = useRef(false)
+  const { calculateResult } = useDatingQuiz()
 
   const trackProgressMobile = useCallback(() => {
     const progress = (currentIndex / modifiedQuestions.length) * 100
@@ -268,26 +269,6 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
       : []
   }
 
-  const calculateResult = ({
-    dating,
-    powerStruggle,
-    rhythm,
-    devotion,
-  }: {
-    dating: number
-    powerStruggle: number
-    rhythm: number
-    devotion: number
-  }): TDatingStage => {
-    const stages = [
-      { stage: 'dating', score: dating },
-      { stage: 'powerStruggle', score: powerStruggle },
-      { stage: 'rhythm', score: rhythm },
-      { stage: 'devotion', score: devotion },
-    ]
-    return orderBy(stages, ['score'], ['desc'])[0].stage as TDatingStage
-  }
-
   return (
     <section className={cx('w-full default-padding mx-auto lg:max-w-3xl', className)}>
       {currentIndex !== modifiedQuestions.length ? (
@@ -348,10 +329,6 @@ export const DatingQuizQuestions = ({ className, quizName }: IDatingQuizQuestion
               devotion: devotionPoints,
             }}
           />
-
-          <p className="text-center mt-6">
-            We're crafting your personalized results – just a moment longer!
-          </p>
         </>
       )}
     </section>

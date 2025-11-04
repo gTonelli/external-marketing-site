@@ -1098,6 +1098,7 @@ export const DATING_QUIZ_RESULTS_CONFIG = {
     },
   },
 }
+
 export const DATING_QUIZ_RESULTS_SEO = {
   single: {
     dating: {
@@ -1145,5 +1146,5 @@ export const DATING_QUIZ_RESULTS_SEO = {
   },
 }
 
-export type TDatingStatus = keyof typeof DATING_QUIZ_RESULTS_SEO
+export type TDatingStatusParams = keyof typeof DATING_QUIZ_RESULTS_SEO
 export type TDatingQuizResultsParams = keyof (typeof DATING_QUIZ_RESULTS_SEO)['single']

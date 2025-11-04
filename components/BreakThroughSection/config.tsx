@@ -25,7 +25,7 @@ export const BREAKTHROUGH_SEGMENTS_SIX_DATING_STAGES = [
   {
     alt: 'A styled report card',
     image: '/images/external-quiz-slide-2.png',
-    title: 'GET A PERSONALIZED DATING OR RELATIONSHIP REPORT!',
+    title: 'GET PERSONALIZED DATING OR RELATIONSHIP RESULTS!',
   },
   {
     alt: 'A styled image of a man picking up a woman.',

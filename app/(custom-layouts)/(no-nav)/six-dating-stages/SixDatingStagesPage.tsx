@@ -1,4 +1,6 @@
+// core
 import Link from 'next/link'
+// components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'

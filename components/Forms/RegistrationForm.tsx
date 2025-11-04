@@ -38,6 +38,8 @@ interface IRegistrationFormProps extends IDefaultProps {
   showPhoneField?: boolean
   /** Dating stage to append to the user's profile*/
   datingStage?: TDatingStage
+  /** Disclaimer text to display below the form */
+  disclaimer?: string
 }
 
 type TFieldConfig = {
@@ -75,6 +77,7 @@ export const RegistrationForm = ({
   datingStage,
   submitButtonLabel,
   showPhoneField = false,
+  disclaimer = "By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything.",
 }: IRegistrationFormProps) => {
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
@@ -188,11 +191,7 @@ export const RegistrationForm = ({
             </div>
           )}
 
-          <p className="text-left mt-4">
-            {datingStage
-              ? "By clicking Submit, I agree to receive email communication from the Personal Development School. Please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything."
-              : "By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything."}
-          </p>
+          {disclaimer && <p className="text-left mt-4">{disclaimer}</p>}
 
           <div className="flex justify-center">
             <Button.Submit

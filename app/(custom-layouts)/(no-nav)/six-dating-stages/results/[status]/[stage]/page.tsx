@@ -18,7 +18,7 @@ import cx from 'classnames'
 import {
   DATING_QUIZ_RESULTS_CONFIG as CONFIG,
   DATING_QUIZ_RESULTS_SEO as SEO_CONFIG,
-  TDatingStatus,
+  TDatingStatusParams,
   TDatingQuizResultsParams,
 } from './config'
 // utils
@@ -31,13 +31,13 @@ export const dynamicParams = false
 
 interface IDatingQuizResultsParams {
   params: Promise<{
-    status: TDatingStatus
+    status: TDatingStatusParams
     stage: TDatingQuizResultsParams
   }>
 }
 
 export function generateStaticParams(): {
-  status: TDatingStatus
+  status: TDatingStatusParams
   stage: TDatingQuizResultsParams
 }[] {
   return [
@@ -61,6 +61,7 @@ export async function generateMetadata({ params }: IDatingQuizResultsParams): Pr
     robots: 'noindex',
   }
 }
+
 export default async function DatingQuizResultsPage({ params }: IDatingQuizResultsParams) {
   const { status, stage } = await params
   const checkoutUrl = externalRoutes.checkoutRegularSubscription
@@ -299,7 +300,13 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
 
       <PricingSection />
 
-      <TrustbarSection />
+      <Section className="!p-4" classNameInner="!w-full !p-0">
+        <p className="tracking-33 mb-4">
+          <strong>OUR PRODUCTS HAVE BEEN FEATURED ON</strong>
+        </p>
+
+        <Trustbar />
+      </Section>
 
       <GuaranteeSection />
 
@@ -494,18 +501,6 @@ const PricingSection = () => {
 
         <ButtonCheckout label={CONFIG['common'].pricing.buttonLabel} />
       </div>
-    </Section>
-  )
-}
-
-const TrustbarSection = () => {
-  return (
-    <Section className="!p-4" classNameInner="!w-full !p-0">
-      <p className="tracking-33 mb-4">
-        <strong>OUR PRODUCTS HAVE BEEN FEATURED ON</strong>
-      </p>
-
-      <Trustbar />
     </Section>
   )
 }

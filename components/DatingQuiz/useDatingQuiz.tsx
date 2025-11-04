@@ -1,7 +1,9 @@
 'use client'
 
-import { indexOf } from 'lodash'
+// components
 import { TAnswerHistory } from './DatingQuizQuestions'
+// libraries
+import { indexOf, orderBy } from 'lodash'
 
 export type TDatingStage = 'dating' | 'powerStruggle' | 'rhythm' | 'devotion'
 
@@ -81,14 +83,14 @@ export const useDatingQuiz = () => {
         powerStrugglePercentage,
         rhythmPercentage,
         devotionPercentage,
-        answers: getAnswersJSON(answerHistory),
+        answers: getAnswersDump(answerHistory),
       }),
     }).catch((error) => {
       console.error('Error saving dating quiz result:', error)
     })
   }
 
-  const getAnswersJSON = (answerHistory: TAnswerHistory[]) => {
+  const getAnswersDump = (answerHistory: TAnswerHistory[]) => {
     return answerHistory.map((answer) => ({
       question: answer.question,
       answer: answer.answer,
@@ -97,5 +99,26 @@ export const useDatingQuiz = () => {
     }))
   }
 
-  return { getPercentageResults, saveResult, getAnswersJSON }
+  const calculateResult = ({
+    dating,
+    powerStruggle,
+    rhythm,
+    devotion,
+  }: {
+    dating: number
+    powerStruggle: number
+    rhythm: number
+    devotion: number
+  }): TDatingStage => {
+    const stages = [
+      { stage: 'dating', score: dating, priority: 4 },
+      { stage: 'powerStruggle', score: powerStruggle, priority: 1 },
+      { stage: 'rhythm', score: rhythm, priority: 2 },
+      { stage: 'devotion', score: devotion, priority: 3 },
+    ]
+
+    return orderBy(stages, ['score', 'priority'], ['desc', 'asc'])[0].stage as TDatingStage
+  }
+
+  return { getPercentageResults, saveResult, calculateResult }
 }

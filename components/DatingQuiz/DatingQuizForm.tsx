@@ -84,6 +84,7 @@ export const DatingQuizForm = ({
         userInfo={userInfo}
         datingStage={datingStage}
         onAfterSubmit={onAfterSubmit}
+        disclaimer="By clicking Submit, I agree to receive email communication from the Personal Development School. Please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything."
       />
     </div>
   )

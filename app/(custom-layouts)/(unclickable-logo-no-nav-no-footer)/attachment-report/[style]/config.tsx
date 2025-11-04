@@ -115,6 +115,8 @@ export const REPORT_COPY = {
           at The Personal Development School.
         </>
       ),
+      p2Member:
+        'This is what I teach you how to do in the Fearful Avoidant to Securely Attached Program at The Personal Development School.',
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of
@@ -281,6 +283,8 @@ export const REPORT_COPY = {
           at The Personal Development School.
         </>
       ),
+      p2Member:
+        'This is what I teach you how to do in the Anxious Preoccupied to Securely Attached Program at The Personal Development School.',
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of
@@ -437,6 +441,8 @@ export const REPORT_COPY = {
           at The Personal Development School.
         </>
       ),
+      p2Member:
+        'This is what I teach you how to do in the Dismissive Avoidant to Securely Attached Program at The Personal Development School.',
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of
@@ -570,6 +576,8 @@ export const REPORT_COPY = {
           at The Personal Development School.
         </>
       ),
+      p2Member:
+        'This is what I teach you how to do in the Emotional Healing Program at The Personal Development School.',
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of

@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
-import { TStyle } from '@/utils/types'
+import { TStyle, TStyleLong } from '@/utils/types'
 // config
 import { defaultQuestionGroups, quizPillSelectOptions } from './config'
 // libraries
@@ -17,7 +17,6 @@ import { useGamAnalytics } from '@/modules/GAM'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { indexOf } from 'lodash'
 import { Storage } from '@/modules/Storage'
-import { MD5 } from 'crypto-js'
 
 export interface IQuizComponentDefaultArgs {
   readonly questionGroup?: IAttachmentStyleQuestionGroup | IUserDataGroup
@@ -44,6 +43,7 @@ export interface ISaveResultArgs {
   intent?: string
   relationship?: string
   relationshipSatisfaction?: string
+  dominantStyle: TStyleLong
   faPercentage: number
   apPercentage: number
   daPercentage: number
@@ -347,20 +347,24 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     intent,
     relationship,
     relationshipSatisfaction,
+    dominantStyle,
     faPercentage,
     apPercentage,
     daPercentage,
     saPercentage,
   }: ISaveResultArgs) => {
+    const eventId = crypto.randomUUID()
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        attachmentStyle: dominantStyle,
         firstName,
         lastName,
         email,
+        eventId,
         'attachment-familiarity': attachmentFamiliarity,
         gender,
         intent,

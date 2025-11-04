@@ -26,7 +26,7 @@ import { Storage } from '@/modules/Storage'
 // styles
 import '../styles.css'
 // utils
-import { getUserData } from '@/utils/functions'
+import { getAttachmentStyleText, getUserData } from '@/utils/functions'
 
 type TQuizType = 'romantic' | 'family' | 'friends'
 
@@ -98,13 +98,15 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
 
         if (userData && userData.email && userData.firstName && userData.lastName) {
           Storage.set('canViewResults', '1')
-          const { faPercentage, daPercentage, apPercentage, saPercentage } = getPercentageResults({
-            fa: newFaPoints,
-            da: newDaPoints,
-            ap: newApPoints,
-            sa: newSaPoints,
-          })
+          const { faPercentage, daPercentage, apPercentage, saPercentage, dominantStyle } =
+            getPercentageResults({
+              fa: newFaPoints,
+              da: newDaPoints,
+              ap: newApPoints,
+              sa: newSaPoints,
+            })
           saveResult({
+            dominantStyle: getAttachmentStyleText(dominantStyle),
             firstName: userData.firstName,
             lastName: userData.lastName,
             email: userData.email,

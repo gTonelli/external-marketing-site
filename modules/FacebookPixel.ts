@@ -1,9 +1,11 @@
 'use client'
 
 // libraries
-import sha3 from 'crypto-js/sha256'
 import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
+// utils
+import { TStyleLong } from '@/utils/types'
+import { getAttachmentStyleText } from '@/utils/functions'
 
 interface IFBQLead {
   email: string
@@ -12,9 +14,15 @@ interface IFBQLead {
   sendServerSideEvent?: boolean
 }
 
+interface IFBQAttachmentQuizResult {
+  attachmentStyle: TStyleLong
+  eventId: string
+}
+
 interface IFacebookPixel {
   event(title: string, args?: any): void
   trackLead(args: IFBQLead): void
+  trackAttachmentQuizResult(args: IFBQAttachmentQuizResult): void
 }
 
 export function useFacebookPixel() {
@@ -36,6 +44,13 @@ export function useFacebookPixel() {
            */
           event(title: string, args?: any) {
             ReactPixel.track(title, args)
+          }
+
+          async trackAttachmentQuizResult({ attachmentStyle, eventId }: IFBQAttachmentQuizResult) {
+            ReactPixel.trackCustom('Attachment Quiz Result', {
+              attachmentStyle: attachmentStyle,
+              eventId: eventId,
+            })
           }
 
           async trackLead({ email, phone, sendServerSideEvent = false, eventId }: IFBQLead) {

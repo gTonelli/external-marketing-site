@@ -34,7 +34,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faFacebook, faTwitter } from '@awesome.me/kit-545b942488/icons/classic/brands'
 // utils
-import { getInitials } from '@/utils/functions'
+import { getAttachmentStyleText, getInitials } from '@/utils/functions'
 // styles
 import '../../styles.css'
 
@@ -66,12 +66,13 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
   const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     Storage.set('canViewResults', '1')
     if (firstName && lastName && email) {
-      const { faPercentage, daPercentage, apPercentage, saPercentage } = getPercentageResults({
-        fa: Number(fa),
-        da: Number(da),
-        ap: Number(ap),
-        sa: Number(sa),
-      })
+      const { faPercentage, daPercentage, apPercentage, saPercentage, dominantStyle } =
+        getPercentageResults({
+          fa: Number(fa),
+          da: Number(da),
+          ap: Number(ap),
+          sa: Number(sa),
+        })
       saveResult({
         firstName,
         lastName,
@@ -80,6 +81,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
         daPercentage,
         apPercentage,
         saPercentage,
+        dominantStyle: getAttachmentStyleText(dominantStyle),
       })
     }
     setCanViewResults(true)

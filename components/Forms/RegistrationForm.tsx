@@ -3,6 +3,7 @@
 // components
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
+import { TDatingStage } from '../DatingQuiz/useDatingQuiz'
 import { IDefaultProps } from '..'
 import { gtag } from '../GoogleAdsTag'
 // libraries
@@ -35,6 +36,10 @@ interface IRegistrationFormProps extends IDefaultProps {
   submitButtonLabel?: string
   /** whether or not to show the phone number field */
   showPhoneField?: boolean
+  /** Dating stage to append to the user's profile*/
+  datingStage?: TDatingStage
+  /** Disclaimer text to display below the form */
+  disclaimer?: string
 }
 
 type TFieldConfig = {
@@ -69,8 +74,10 @@ export const RegistrationForm = ({
   clientTag,
   userInfo,
   userStyle,
+  datingStage,
   submitButtonLabel,
   showPhoneField = false,
+  disclaimer = "By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything.",
 }: IRegistrationFormProps) => {
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
@@ -84,6 +91,7 @@ export const RegistrationForm = ({
     Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
+    if (datingStage) Mixpanel.setPeople({ 'Dating Stage': datingStage })
 
     const eventId = crypto.randomUUID()
     Mixpanel.track.SignUp({
@@ -180,11 +188,7 @@ export const RegistrationForm = ({
             </div>
           )}
 
-          <p className="text-left md:text-cente mt-4">
-            By clicking Submit, I agree to receive my attachment style report and other email
-            communication. If you haven&apos;t received your report, please be sure to check your
-            Spam/Junk folder, and also mark it as safe so you don't miss anything.
-          </p>
+          {disclaimer && <p className="text-left mt-4">{disclaimer}</p>}
 
           <div className="flex justify-center">
             <Button.Submit

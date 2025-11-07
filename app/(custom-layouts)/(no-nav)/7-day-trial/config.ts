@@ -90,22 +90,5 @@ export const TRIAL_PAGE = {
           who is ready to really heal themselves, PDS is filled with practical insights and powerful tools. `,
       img: 'avatar_tamara.jpg',
     },
-    {
-      author: 'Tappy',
-      testimonial: `I discovered PDS shortly after my 19th birthday, even being one of the
-        youngest in the school, everyone is so welcoming!!\\
-        \\
-        I really love how Thais Gibson covers so many topics and goes above
-        and beyond to cater to the needs of the members. The post-webinar
-        breakout rooms have so many brilliant, and like-minded individuals who
-        I always look forward to talking to!\\
-        \\
-        PDS has had such an amazing impact on my relationships, my self-
-        esteem and has given me valuable self-awareness. The tools within 
-        PDS have provided me with the strength, and ability to heal, almost
-        completely from my anxiety, and I feel so much more confident within
-        myself 😊`,
-      img: 'avatar_tappy.jpg',
-    },
   ],
 }

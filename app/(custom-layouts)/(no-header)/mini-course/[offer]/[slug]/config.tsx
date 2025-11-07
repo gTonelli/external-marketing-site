@@ -371,7 +371,7 @@ export const MINI_COURSE_CONFIG = {
           </>,
         ],
         hook: "It's time to stop letting miscommunication damage your relationships.",
-        ctaLabel: 'START ME FREE TRIAL TO MASTER HEALTHY COMMUNICATION',
+        ctaLabel: 'START MY FREE TRIAL TO MASTER HEALTHY COMMUNICATION',
       },
     },
     'self-sabotaging': {

@@ -67,6 +67,10 @@ export type Pages =
   | `Cyber Monday Variant Page`
   | `DA Single - ${string}`
   | `Dating Freebie Page`
+  | `Dating Quiz Landing Page`
+  | `Dating Quiz Page`
+  | `Dating Quiz VSL Page`
+  | `Dating Quiz Results Page - ${string}`
   | `Dreamlife Results Page FA`
   | `Dreamlife Breakup Course Page`
   | `Dreamlife Codependency Course Page`
@@ -152,6 +156,8 @@ class Mixpanel {
         // config override goes here
         api_host: 'https://api.personaldevelopmentschool.com',
         debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
+        // record_sessions_percent: 5,
+        // cross_subdomain_cookie: true,
       }
     )
   }

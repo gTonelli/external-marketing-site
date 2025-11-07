@@ -83,9 +83,12 @@ export const SignupForm = ({
     const { email, firstName, phone } = values
     setUserData({ email, firstName })
 
+    const eventId = crypto.randomUUID()
+
     Mixpanel.setUser(email)
     FBQ?.trackLead({
       email: email,
+      eventId,
     })
 
     if (formSource === 'IAT Ebook') {
@@ -97,15 +100,13 @@ export const SignupForm = ({
       })
     }
 
-    const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
-
     const requestBody = {
       tags: userTags,
       firstName,
       email,
       phone,
       listIds,
-      insertId,
+      insertId: eventId,
     }
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
@@ -119,7 +120,7 @@ export const SignupForm = ({
       .then((res) => {
         if (!res.success) throw res?.message || 'An unexpected error occured'
         else {
-          Mixpanel.track.SignUp({ distinct_id: email, $insert_id: insertId })
+          Mixpanel.track.SignUp({ distinct_id: email, $insert_id: eventId })
           onSuccess?.()
           setSubmitted(true)
         }

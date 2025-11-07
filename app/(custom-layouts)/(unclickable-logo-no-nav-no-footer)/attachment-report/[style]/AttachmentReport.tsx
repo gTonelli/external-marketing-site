@@ -8,18 +8,18 @@ import { AttachmentReportHeader } from './AttachmentReportHeadline'
 import { faCircle, faHeart, faStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 // config
-import { REPORT_COPY, AGE_REPORT_COPY } from './config'
+import { REPORT_COPY } from './config'
 // utils
 import { TStyle } from '@/utils/types'
 
 interface IAttachmentReportProps {
   style: TStyle
-  ageVariant?: boolean
+  memberVariant?: boolean
   pdfVariant?: boolean
 }
 
 export const AttachmentReport = ({
-  ageVariant = false,
+  memberVariant = false,
   pdfVariant = false,
   style,
 }: IAttachmentReportProps) => {
@@ -217,7 +217,7 @@ export const AttachmentReport = ({
           <div className="text-left">
             <p className="mb-4">{COPY.copy8.p1}</p>
 
-            <p>{ageVariant ? AGE_REPORT_COPY[style].copy : COPY.copy8.p2}</p>
+            <p>{memberVariant ? COPY.copy8.p2Member : COPY.copy8.p2}</p>
           </div>
         </div>
 
@@ -321,41 +321,43 @@ export const AttachmentReport = ({
 
       {/* MBG and Footer */}
       <Section className="max-w-5xl mx-auto">
-        <h2 className="mb-8">
-          {ageVariant ? AGE_REPORT_COPY[style].footerCopy : COPY.footer.title}
-        </h2>
+        <h2 className="mb-8">{COPY.footer.title}</h2>
 
-        <div className="max-w-2xl mx-auto mb-16">
-          <div className="flex flex-col justify-center items-center gap-4 mb-8 lg:flex-row">
-            <div>
-              <Image
-                src="/images/ReportsOld/money-back.jpg"
-                alt="Money back guarantee"
-                width={188}
-                height={157}
-              />
+        {!memberVariant && (
+          <>
+            <div className="max-w-2xl mx-auto mb-16">
+              <div className="flex flex-col justify-center items-center gap-4 mb-8 lg:flex-row">
+                <div>
+                  <Image
+                    src="/images/ReportsOld/money-back.jpg"
+                    alt="Money back guarantee"
+                    width={188}
+                    height={157}
+                  />
+                </div>
+
+                <div className="flex-1">
+                  <p className="text-left">
+                    We’re so confident that this program will get you the results you’re looking for
+                    that we even offer a 7-day money-back guarantee. <br />
+                    <br />
+                    If you’re not loving the program, request a refund within your first week of
+                    starting, and we’ll give you a full refund.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-primary font-bold tracking-33">{COPY.footer.copy}</p>
             </div>
 
-            <div className="flex-1">
-              <p className="text-left">
-                We’re so confident that this program will get you the results you’re looking for
-                that we even offer a 7-day money-back guarantee. <br />
-                <br />
-                If you’re not loving the program, request a refund within your first week of
-                starting, and we’ll give you a full refund.
-              </p>
-            </div>
-          </div>
-
-          <p className="text-primary font-bold tracking-33">{COPY.footer.copy}</p>
-        </div>
-
-        <Link
-          className="border-2 rounded-full tracking-10 px-4 py-2 transition-colors active:shadow-md !no-underline lg:hover:text-white lg:hover:shadow-md bg-primary border-primary text-white active:bg-opacity-50 lg:hover:bg-opacity-50 cursor-pointer"
-          label="TRANSFORM MY LIFE"
-          prefetch={false}
-          url={ageVariant ? AGE_REPORT_COPY[style].checkoutUrl : COPY.footer.ctaLink}
-        />
+            <Link
+              className="border-2 rounded-full tracking-10 px-4 py-2 transition-colors active:shadow-md !no-underline lg:hover:text-white lg:hover:shadow-md bg-primary border-primary text-white active:bg-opacity-50 lg:hover:bg-opacity-50 cursor-pointer"
+              label="TRANSFORM MY LIFE"
+              prefetch={false}
+              url={COPY.footer.ctaLink}
+            />
+          </>
+        )}
       </Section>
 
       <Image

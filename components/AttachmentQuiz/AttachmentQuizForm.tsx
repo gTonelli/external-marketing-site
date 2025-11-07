@@ -29,7 +29,7 @@ export const AttachmentQuizForm = ({
   quizData,
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
-  const { getPercentageResults } = useAttachmentQuiz()
+  const { getPercentageResults, saveResult } = useAttachmentQuiz()
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -38,29 +38,7 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (userStyle === 'ap' && userInfo?.intent === 'Improve my current relationship') {
-          const isVariant = getSplitTest({
-            key: 'GM-1895-AP',
-            experimentName: 'GM-1895-Segmented-Results-Test-AP',
-            variantRatio: 0.2,
-            useCookies: false,
-          })
-
-          if (isVariant) return '/quiz/style/ap'
-        } else if (userStyle === 'fa') {
-          if (
-            userInfo?.intent ===
-            'Learn more about myself and heal (self-esteem, anxiety, depression, etc.)'
-          ) {
-            const isVariant = getSplitTest({
-              key: 'GM-1895-FA',
-              experimentName: 'GM-1895-Segmented-Results-Test-FA',
-              variantRatio: 0.5,
-              useCookies: false,
-            })
-
-            if (isVariant) return '/quiz/style/fa'
-          }
+        if (userStyle === 'fa') {
           return '/quiz/results/fearful-avoidant'
         }
 
@@ -113,28 +91,22 @@ export const AttachmentQuizForm = ({
       sa,
     })
 
-    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    if (firstName && lastName && email) {
+      saveResult({
         firstName,
         lastName,
         email,
-        'attachment-familiarity': attachmentFamiliarity,
+        attachmentFamiliarity,
         gender,
         intent,
-        'relationship-status': relationship,
-        'relationship-satisfaction': relationshipSatisfaction,
+        relationship,
+        relationshipSatisfaction,
         faPercentage,
         apPercentage,
         daPercentage,
         saPercentage,
-      }),
-    }).catch((error) => {
-      console.error('Error saving quiz result:', error)
-    })
+      })
+    }
 
     const route = determineRoute()
     router.push(route)

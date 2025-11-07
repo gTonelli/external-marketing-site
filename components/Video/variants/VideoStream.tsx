@@ -28,7 +28,7 @@ export const VideoStream = ({
   className,
   classNameVideo,
   videoId,
-  thumbnailSrc = '/images/pds-video-thumbnail.jpg',
+  thumbnailSrc,
   type = 'default',
 }: IVideoStreamProps) => {
   // ==================== Context ====================
@@ -85,7 +85,8 @@ export const VideoStream = ({
         controls
         responsive
         preload="auto"
-        className={cx('w-full h-full', classNameVideo)}
+        className={cx('w-full h-full bg-white', classNameVideo)}
+        letterboxColor="transparent"
         onPlay={onToggleVideo}
         poster={thumbnailSrc}
         streamRef={videoRef}

@@ -120,7 +120,7 @@ export const FOURTEEN_DAY_TRIAL_CONFIG = {
         image: '/images/BlackFridayPage/mockup-2.png',
         imageAlt: 'Mockup of PDS platform showing the Community Hub page',
         copy1: [
-          'Get additional guidance and information from me, Thais Gibson (founder of The Personal Development School and industry leader), and our Certified Coaches, as you make your way through our courses and face the deeper parts of yourself.',
+          'Get additional guidance and information from me, Thais Gibson (founder of The Personal Development School and industry leader), and our Certified Coaches.',
         ],
         list: [
           <>
@@ -179,13 +179,40 @@ export const FOURTEEN_DAY_TRIAL_CONFIG = {
     copy: [
       <>
         <strong>
-          I’m a personal development expert, best-selling author and founder of The Personal
-          Development School.
+          I’m the co-founder of The Personal Development School, best-selling author, host of The
+          Thais Gibson Podcast, Ph.D. recipient,
+        </strong>{' '}
+        and <strong>leader in the personal development field</strong> with an audience of{' '}
+        <strong>over 500,000 followers across social media.</strong>
+      </>,
+      <>
+        After completing my Ph.D. and over 13 different certifications in a variety of disciplines,
+        such as Cognitive Behavioral Therapy, Hypnosis, Somatic Experiencing, and more – I ran an
+        extremely busy client-based practice for the better part of a decade.
+      </>,
+      <>
+        The ever-growing waitlist of clients made me realize that people of all ages, backgrounds,
+        and cultures needed a more accessible and affordable way to overcome lifelong emotional
+        challenges and heal themselves. Hence,{' '}
+        <strong>The Personal Development School was born.</strong>
+      </>,
+      <>
+        <strong>You’ll learn directly from me</strong> via self-paced courses, weekly webinars, and
+        Q&As as I guide you to utilize our proprietary and game-changing healing method to help you
+        transform!
+      </>,
+      <>
+        Since its launch, coupled with my years of research and client experience, I have become a{' '}
+        <strong>leading authority on healing attachment trauma</strong> and have built a thriving
+        membership and online community, including over{' '}
+        <strong>
+          45,000 members in 120+ countries worldwide, more than 50,000,000 views on YouTube and
+          70,000+ course enrollments.
         </strong>
       </>,
-      'After completing my master’s degree and over 13 different certifications in a variety of disciplines, such as Cognitive Behavioral Therapy, Hypnosis, Somatic Experiencing and more – I ran an extremely busy client-based practice for the better part of a decade.',
-      'Now I help clients across the globe overcome lifelong emotional challenges through the Personal Development School.',
-      'Since co-creating the Personal Development School and my years of research and client experience, I have become a leading authority on healing attachment trauma and have built a thriving membership and online community, including over 10 million views on YouTube.',
+      <>
+        So, I would like to welcome you to <strong>The Personal Development School!</strong>
+      </>,
     ],
   },
   mentalHealth: {

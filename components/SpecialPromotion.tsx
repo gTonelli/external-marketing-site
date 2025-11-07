@@ -572,13 +572,9 @@ export const PDS14dftBreakthrough = ({ isNewVersion = false }: { isNewVersion?: 
         </div>
       </div>
 
-      {!isNewVersion && (
-        <>
-          <MHAButton label="TRY FOR FREE FOR 14 DAYS" />
+      <MHAButton label="TRY FOR FREE FOR 14 DAYS" />
 
-          <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
-        </>
-      )}
+      <p className="italic font-medium mt-4">* This offer is available for a limited time *</p>
     </Section>
   )
 }

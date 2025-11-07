@@ -1,11 +1,9 @@
 // core
 import Image from 'next/image'
 // components
-import { Page } from '../Page'
 import { Section } from '../Section'
 import { CountdownTimer } from '../CountDownTimer'
 import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
-import { VideoYoutube } from '../Video/variants/VideoYoutube'
 import { List } from '../List'
 import { SocialProofBar } from '../SocialProof/SocialProofBar'
 import { CarouselTestimonialThinkific } from '../Carousel/variants/CarouselTestimonialThinkific'
@@ -60,13 +58,14 @@ export const FourteenDayTrialPage = ({ configKey }: FourteenDayTrialPageProps) =
 
       <Section>
         <div className="mb-6 lg:grid lg:grid-cols-2 lg:gap-4">
-          <div className="w-full h-fit bg-white rounded-2xl shadow-xl p-4 mx-auto">
-            <VideoYoutube
-              playInline
-              classNameThumbnail="w-full"
-              videoId={'Y9i01V8P8_c'}
-              thumbnail="/images/AttachmentQuizResults/thais-writing.jpg"
-              thumbnailAlt={`Thais Gibson sitting at a desk smiling and filling in a workbook.`}
+          <div className="w-full h-fit mx-auto">
+            <Image
+              src="/images/BlackFridayPage/woman-looking-at-phone.png"
+              alt="picture of a woman looking at her phone"
+              width={585}
+              height={330}
+              quality={100}
+              sizes="100vw"
             />
           </div>
 
@@ -209,12 +208,12 @@ export const FourteenDayTrialPage = ({ configKey }: FourteenDayTrialPageProps) =
         copy="Try our best-selling and most powerful courses that have helped thousands of students break their destructive habits, build their self-esteem, become securely attached, and transform their lives from the inside out."
       />
 
-      <Section classNameInner="max-w-4xl mx-auto lg:grid lg:grid-cols-2 lg:gap-4">
-        <div className="flex justify-end">
+      <Section classNameInner="max-w-4xl mx-auto lg:grid lg:grid-cols-12 lg:gap-8">
+        <div className="rounded-2xl overflow-hidden lg:col-span-5">
           <Image
             src="/images/BlackFridayPage/thais-portrait.webp"
             alt="Thais Gibson portrait"
-            className="w-full h-auto"
+            className="w-full h-full lg:object-cover"
             width={450}
             height={324}
             quality={100}
@@ -222,7 +221,7 @@ export const FourteenDayTrialPage = ({ configKey }: FourteenDayTrialPageProps) =
           />
         </div>
 
-        <div className="text-left">
+        <div className="text-left lg:col-span-7">
           <h2>{CONFIG.thaisIntro.title}</h2>
 
           {CONFIG.thaisIntro.copy.map((item, index) => (

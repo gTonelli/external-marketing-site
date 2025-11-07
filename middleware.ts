@@ -127,7 +127,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
 }
 
 export const config = {
-  matcher: ['/iat/info', '/iat/webinar'],
+  matcher: ['/iat/info', '/iat/webinar', '/black-friday'],
 }
 
 interface IConfigWithRegex {
@@ -146,6 +146,10 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       config: splitTestConfigs.iatMasterclassTest,
       regex: /^\/iat\/webinar/,
+    },
+    {
+      config: splitTestConfigs.blackFriday,
+      regex: /^\/black-friday/,
     },
   ]
 
@@ -253,6 +257,16 @@ export const splitTestConfigs: TSplitTestConfigs = {
       path: '/iat/webinar/b',
     },
     variantRatio: 0.25,
+    forceControlOnNewUser: false,
+  },
+  blackFriday: {
+    cookieKey: 'gm-2088-black-friday-test',
+    pageName: 'Black Friday Page',
+    experimentName: 'GM-2088-Black-Friday-Test',
+    variantUrl: {
+      path: '/black-friday/b',
+    },
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
 }

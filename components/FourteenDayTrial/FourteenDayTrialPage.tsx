@@ -26,15 +26,14 @@ import { externalRoutes } from '@/utils/constants'
 import '@/styles/default-styles.css'
 
 interface FourteenDayTrialPageProps {
-  page_name: Pages
   configKey: 'black-friday'
 }
 
-export const FourteenDayTrialPage = ({ page_name, configKey }: FourteenDayTrialPageProps) => {
+export const FourteenDayTrialPage = ({ configKey }: FourteenDayTrialPageProps) => {
   const checkoutUrl = externalRoutes.checkout14DayTrial
 
   return (
-    <Page page_name={page_name}>
+    <>
       <section className="text-center bg-purple-dark px-2">
         <h2 className="text-white pt-4 max-w-screen-lg mx-auto">{CONFIG[configKey].timer.title}</h2>
 
@@ -61,7 +60,7 @@ export const FourteenDayTrialPage = ({ page_name, configKey }: FourteenDayTrialP
 
       <Section>
         <div className="mb-6 lg:grid lg:grid-cols-2 lg:gap-4">
-          <div className="w-full bg-white rounded-2xl shadow-xl p-4 mx-auto">
+          <div className="w-full h-fit bg-white rounded-2xl shadow-xl p-4 mx-auto">
             <VideoYoutube
               playInline
               classNameThumbnail="w-full"
@@ -168,7 +167,7 @@ export const FourteenDayTrialPage = ({ page_name, configKey }: FourteenDayTrialP
               </p>
 
               <Image
-                className="justify-self-end"
+                className="h-auto justify-self-end"
                 alt={item.imageAlt}
                 src={item.image}
                 width={450}
@@ -206,13 +205,12 @@ export const FourteenDayTrialPage = ({ page_name, configKey }: FourteenDayTrialP
       </Section>
 
       <CarouselPromotionCourses
-        className="!-mt-8"
         title="Get Instant Access to On-Demand Courses at The Personal Development School"
         copy="Try our best-selling and most powerful courses that have helped thousands of students break their destructive habits, build their self-esteem, become securely attached, and transform their lives from the inside out."
       />
 
       <Section classNameInner="max-w-4xl mx-auto lg:grid lg:grid-cols-2 lg:gap-4">
-        <div>
+        <div className="flex justify-end">
           <Image
             src="/images/BlackFridayPage/thais-portrait.webp"
             alt="Thais Gibson portrait"
@@ -264,6 +262,6 @@ export const FourteenDayTrialPage = ({ page_name, configKey }: FourteenDayTrialP
       <PDS14dftTestimonialVideo isNewVersion className="!max-w-4xl mx-auto" />
 
       <Faq className="!max-w-4xl mx-auto" faq={ValentinesFAQs} />
-    </Page>
+    </>
   )
 }

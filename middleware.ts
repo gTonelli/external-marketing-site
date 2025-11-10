@@ -50,7 +50,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
         return response
       } else {
         const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
-        showVariant = randomFloat < variantRatio
+        showVariant = variantCookie ? parseVariantCookie(variantCookie) : randomFloat < variantRatio
         const response = generateResponse({
           showVariant,
           variantUrl,

@@ -3,9 +3,6 @@ import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
 import PromotionPage from '@/components/PromotionPage'
-import { SplitTestTracker } from '@/components/SplitTestTracker'
-// middleware
-import { splitTestConfigs } from '@/middleware'
 
 export const metadata: Metadata = {
   title: 'Black Friday | 14-Day Free Trial of Our All-Access Pass',
@@ -16,8 +13,6 @@ export const metadata: Metadata = {
 export default function BlackFriday() {
   return (
     <Page className="w-full overflow-hidden" page_name="Black Friday">
-      <SplitTestTracker variant="Control" {...splitTestConfigs.blackFriday} />
-
       <PromotionPage page="Black Friday" />
     </Page>
   )

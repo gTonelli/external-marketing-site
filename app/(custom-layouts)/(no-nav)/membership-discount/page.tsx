@@ -29,7 +29,7 @@ export default function FlashSalePage() {
           <ButtonCheckout
             className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white mb-2"
             label="UNLOCK MY POTENTIAL NOW AT 40% OFF"
-            href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
+            href={externalRoutes.checkoutRegularSubscription59Dollar}
           />
 
           <small className="text-center">
@@ -97,7 +97,7 @@ export default function FlashSalePage() {
           <ButtonCheckout
             className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg my-8 hover:!text-white"
             label="I'M READY TO LEVEL UP MY LIFE"
-            href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
+            href={externalRoutes.checkoutRegularSubscription59Dollar}
           />
         </div>
       </section>
@@ -116,7 +116,7 @@ export default function FlashSalePage() {
           <ButtonCheckout
             className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg my-8 hover:!text-white"
             label="I'M READY FOR BETTER RELATIONSHIPS NOW"
-            href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
+            href={externalRoutes.checkoutRegularSubscription59Dollar}
           />
         </div>
 
@@ -191,7 +191,7 @@ export default function FlashSalePage() {
             <ButtonCheckout
               className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
               label="I'M READY FOR LOVE"
-              href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
+              href={externalRoutes.checkoutRegularSubscription59Dollar}
             />
           </div>
         </div>
@@ -206,7 +206,7 @@ export default function FlashSalePage() {
         <ButtonCheckout
           className="w-fit bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
           label="I CLAIM MY 40% OFF!"
-          href={externalRoutes.singleStepCheckoutRegularSubscription59Dollar}
+          href={externalRoutes.checkoutRegularSubscription59Dollar}
         />
       </section>
     </Page>

@@ -105,6 +105,8 @@ type TCheckoutRoutes = {
   singleStepCheckoutRegularSubscription49Dollar: string
   singleStepCheckoutRegularSubscription59Dollar: string
   checkoutRegularSubscription: string
+  checkoutRegularSubscription39FirstMonth: string
+  checkoutRegularSubscription59Dollar: string
   checkout7DayTrial: string
   checkout14DayTrial: string
   checkoutJan2025PromoTrial: string
@@ -157,9 +159,11 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     singleStepCheckout39FirstMonth: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=28off1mo`,
     singleStepCheckoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=1285773`,
     singleStepCheckoutRegularSubscription49Dollar: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=ifpodcast`,
-    singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=Jwdjxr23`,
+    singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=559833&price_id=1285773&coupon=8off1mo`,
     // All-Access Pass Subscription
     checkoutRegularSubscription: `${checkoutUrl}/enroll/559833?price_id=1285773`,
+    checkoutRegularSubscription39FirstMonth: `${checkoutUrl}/enroll/559833?price_id=1285773&coupon=28off1mo`,
+    checkoutRegularSubscription59Dollar: `${checkoutUrl}/enroll/559833?price_id=1285773&coupon=8off1mo`,
     checkout7DayTrial: `${checkoutUrl}/enroll/559833?price_id=590989&promo_label=15d-7dft`,
     checkout14DayTrial: `${checkoutUrl}/enroll/559833?price_id=2357208&promo_label=15d-14dft`,
     checkoutJan2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=530903&promo_label=15d-needs`,
@@ -211,9 +215,11 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     singleStepCheckout39FirstMonth: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=28off1mo`,
     singleStepCheckoutRegularSubscription: `${thinkificUrl}/pages/checkout?price_id=2638738`,
     singleStepCheckoutRegularSubscription49Dollar: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=ifpodcast`,
-    singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=Jwdjxr23`,
+    singleStepCheckoutRegularSubscription59Dollar: `${thinkificUrl}/pages/checkout?product_id=1934512&price_id=2638738&coupon=8off1mo`,
     // All-Access Pass Subscription
     checkoutRegularSubscription: `${checkoutUrl}/enroll/1934512?price_id=2638738`,
+    checkoutRegularSubscription39FirstMonth: `${checkoutUrl}/enroll/1934512?price_id=2638738&coupon=28off1mo`,
+    checkoutRegularSubscription59Dollar: `${checkoutUrl}/enroll/1934512?price_id=2638738&coupon=8off1mo`,
     checkout7DayTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&promo_label=15d-7dft`,
     checkout14DayTrial: `${checkoutUrl}/enroll/1934512?price_id=4247022&promo_label=15d-14dft`,
     checkoutJan2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=1337082&promo_label=15d-needs`,

@@ -21,8 +21,8 @@ export const COPY = {
     ],
     copy2: [
       <>
-        The Masterclass is happening on <strong>November 25th, at 6:30 PM ET</strong>. The next step is
-        yours!
+        The Masterclass is happening on <strong>November 25th, at 5:30 PM ET</strong>. The next step
+        is yours!
       </>,
     ],
   },

@@ -84,7 +84,8 @@ export const RegistrationForm = ({
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
-    const { email, firstName, lastName, phone } = values
+    const { firstName, lastName, phone } = values
+    const email = values.email.trim()
     setUserData({ email, firstName, lastName, phone, userStyle })
 
     Mixpanel.setUser(values.email)

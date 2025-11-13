@@ -12,14 +12,14 @@ import { externalRoutes } from '@/utils/constants'
 
 interface IPaymentOptionsProps extends IDefaultProps {
   showDisclaimer?: boolean
-  placement?: 'top' | 'bottom'
+  theme?: 'light' | 'dark'
   configKey: TPaymentOptionsConfigKey
 }
 
 export const PaymentOptions = ({
   className,
   showDisclaimer = true,
-  placement = 'top',
+  theme = 'light',
   configKey,
 }: IPaymentOptionsProps) => {
   const config: TConfig = allConfigs[configKey]
@@ -34,7 +34,7 @@ export const PaymentOptions = ({
           )}>
           <p
             className={`absolute -top-7 font-bold max-w-[calc(100%-3rem)] xxs:-top-5 ${
-              placement === 'top' ? 'bg-black text-white' : 'bg-white text-black'
+              theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
             } rounded-10 py-2 px-4`}>
             {config.offerLabel}
           </p>
@@ -59,7 +59,7 @@ export const PaymentOptions = ({
         <p
           className={cx(
             'max-w-xl mx-auto mb-4',
-            placement === 'top' ? 'text-gray-800' : 'text-gray-200'
+            theme === 'light' ? 'text-gray-800' : 'text-gray-200'
           )}>
           <i>{config.disclaimer}</i>
         </p>
@@ -266,6 +266,36 @@ const allConfigs = {
           don’t stay with us after 7 days, you still get to keep and access the Ending Codependency
           & Enmeshment course for life.
         </strong>
+      </>
+    ),
+  },
+  somaticAttachmentHealing: {
+    offerLabel: 'Free Trial & Exclusive Free Course',
+    title: 'Get the Somatic Attachment Healing Course & Feel Calmer FAST',
+    copy: (
+      <>
+        For the first time ever, we’re giving away the <em>Somatic Attachment Healing Course</em>
+        —our most transformative, body-based program—for free. Experience our biggest offer yet and
+        feel the difference in just one week. When you start your 7-Day Free Trial of the All-Access
+        Pass Membership, you’ll get the <strong>Somatic Attachment Healing Course</strong> (valued
+        at $250) completely
+        <strong>FREE for LIFE</strong>. This course is designed to help you calm your nervous
+        system, process emotions safely, rebuild a sense of safety in your body, and turn
+        dysregulation into personal growth, and improve your relationship with yourself and your
+        loved ones while creating steady, secure connection.
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
+    checkoutUrl: externalRoutes.checkoutNov2025PromoTrial,
+    disclaimer: (
+      <>
+        *
+        <em>
+          When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the
+          trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you
+          don’t stay with us after 7 days, you still get to keep and access the{' '}
+          <strong>Somatic Attachment Healing Course</strong> for life.
+        </em>
       </>
     ),
   },

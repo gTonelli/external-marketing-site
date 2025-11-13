@@ -13,10 +13,12 @@ import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faSquare1, faSquare2, faSquare3 } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import cx from 'classnames'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // styles
 import './style.css'
+import '@/styles/default-styles.css'
 
 interface IPromotionPageProps {
   pageName: Pages
@@ -34,12 +36,17 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
         </div>
       </section>
 
-      <section className="w-full text-center bg-pink-auxiliary pt-6 pb-10 px-4 lg:pt-22 lg:pb-0">
+      <section
+        className={cx(
+          'w-full text-center pt-6 pb-10 px-4 lg:pt-22 lg:pb-8',
+          config.banner.theme === 'dark' ? 'bg-black-secondary text-white' : 'bg-pink-auxiliary'
+        )}>
         <h1 className="max-w-2xl leading-[50px] mx-auto mb-4">{config.banner.title}</h1>
 
         <div className="relative mt-8 lg:mt-12">
           <PaymentOptions
             className="!max-w-xl mx-auto lg:flex-col"
+            theme={config.banner.theme}
             configKey={config.paymentOptionsConfigKey}
           />
         </div>
@@ -84,6 +91,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
 
             <List
               classNameIcon="text-primary"
+              classNameListItems="mb-4"
               icon={faCheckCircle}
               listItems={config.courseOutcome.outcomes}
             />
@@ -279,6 +287,7 @@ export type TPromotionPageConfig = {
   }
   banner: {
     title: string
+    theme?: 'light' | 'dark' // default is light
   }
   courseOutcome: {
     title: string

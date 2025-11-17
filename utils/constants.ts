@@ -115,6 +115,7 @@ type TCheckoutRoutes = {
   checkoutJuly2025PromoTrial: string
   checkoutSep2025PromoTrial: string
   checkoutOct2025PromoTrial: string
+  checkoutNov2025PromoTrial: string
   checkoutQuarterlyPlan: string
   checkoutQuarterlyPlanGregVoisen: string
   checkoutQuarterly149: string
@@ -172,6 +173,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutJuly2025PromoTrial: `${checkoutUrl}/enroll/1703605?price_id=2241811&coupon=dreamlifediscount`,
     checkoutSep2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=713808&promo_label=15d-breakup`,
     checkoutOct2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=584963&promo_label=15d-codependency`,
+    checkoutNov2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=1625876&promo_label=ftfc-somatic`,
     checkoutQuarterlyPlan: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=ipg50`,
     checkoutQuarterly149: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=148off`,
@@ -225,9 +227,10 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutJan2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=1337082&promo_label=15d-needs`,
     checkoutMarch2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3028888&promo_label=15d-intimacy`,
     checkoutJune2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3101991&promo_label=15d-relationships`,
+    checkoutJuly2025PromoTrial: `${checkoutUrl}/enroll/3433260?price_id=4348253&coupon=for19`,
     checkoutSep2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3197987&promo_label=15d-breakup`,
     checkoutOct2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=1924765&promo_label=15d-codependency`,
-    checkoutJuly2025PromoTrial: `${checkoutUrl}/enroll/3433260?price_id=4348253&coupon=for19`,
+    checkoutNov2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3137617&promo_label=ftfc-somatic`,
     checkoutQuarterlyPlan: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=ipg50`,
     checkoutQuarterly149: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=148off`,

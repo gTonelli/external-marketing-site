@@ -16,7 +16,7 @@ interface ICommunityTeaserProps {
   sectionHeading?: string
   teaserHeading?: string
   paymentOptionsConfigKey: TPaymentOptionsConfigKey
-  communityBullets?: string[]
+  communityBullets?: (string | JSX.Element)[]
 }
 
 export const CommunityTeaser = ({

@@ -41,7 +41,9 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
           'w-full text-center pt-6 pb-10 px-4 lg:pt-22 lg:pb-8',
           config.banner.theme === 'dark' ? 'bg-black-secondary text-white' : 'bg-pink-auxiliary'
         )}>
-        <h1 className="max-w-2xl leading-[50px] mx-auto mb-4">{config.banner.title}</h1>
+        <h1 className="relative max-w-xl leading-[50px] mx-auto mb-4 z-10">
+          {config.banner.title}
+        </h1>
 
         <div className="relative mt-8 lg:mt-12">
           <PaymentOptions
@@ -63,7 +65,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
       </section>
 
       <Image
-        className="hidden absolute w-1/2 top-60 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
+        className="hidden absolute w-1/2 max-w-2xl top-60 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
         src="/images/TrialHeadspace/hero-left-mockup.png"
         alt="hero-mockup-left"
         width={729}
@@ -73,7 +75,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
       />
 
       <Image
-        className="hidden absolute w-1/2 top-60 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
+        className="hidden absolute w-1/2 max-w-2xl top-60 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
         src="/images/TrialHeadspace/hero-right-mockup.png"
         alt="hero-mockup-right"
         width={656}
@@ -317,6 +319,6 @@ export type TPromotionPageConfig = {
   }
   communityTeaser: {
     teaserHeading: string
-    communityBullets: string[]
+    communityBullets: (string | JSX.Element)[]
   }
 }

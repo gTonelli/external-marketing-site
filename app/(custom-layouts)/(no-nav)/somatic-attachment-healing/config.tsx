@@ -116,10 +116,22 @@ export const CONFIG: TPromotionPageConfig = {
     teaserHeading:
       'Start Your 7-Day All-Access Pass & Keep the Somatic Attachment Healing Course for LIFE!',
     communityBullets: [
-      'Heal from acute or long-held emotional pain without numbing by working directly with body sensations.',
-      'Apply somatic tools (witness, label, breathe, equilibrate) to self-soothe, restore safety, and experience real change within seven days.',
-      'Boost self-trust and self-worth by regulating first, then updating beliefs and boundaries from a calm nervous system.',
-      'Turn overwhelming feelings into clear signals you can regulate using evidence-based practices grounded in neuroscience and attachment.',
+      <>
+        Heal from acute or long-held emotional pain without numbing by working directly with{' '}
+        <strong>body sensations</strong>.
+      </>,
+      <>
+        Apply somatic tools (witness, label, breathe, <strong>equilibrate</strong>) to self-soothe,
+        restore safety, and experience real change within seven days.
+      </>,
+      <>
+        Boost self-trust and self-worth by <strong>regulating first</strong>, then updating beliefs
+        and boundaries from a calm nervous system.
+      </>,
+      <>
+        Turn overwhelming feelings into <strong>clear signals</strong> you can regulate using
+        evidence-based practices grounded in neuroscience and attachment.
+      </>,
     ],
   },
 }

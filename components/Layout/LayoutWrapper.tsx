@@ -1,5 +1,5 @@
 import { effra, sourceSerifPro } from '@/fonts'
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google'
 import Script from 'next/script'
 import { IDefaultWrapperProps } from '..'
 import { GoogleAdsTag } from '../GoogleAdsTag'
@@ -38,6 +38,8 @@ export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
       </body>
 
       <GoogleTagManager gtmId="GTM-T49JFVN" />
+
+      <GoogleAnalytics gaId="G-YX58DQ9DW1" />
 
       <GoogleAdsTag />
     </html>

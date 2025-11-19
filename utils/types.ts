@@ -8,6 +8,12 @@ export type TFonts =
 
 export type TStyle = 'ap' | 'da' | 'fa' | 'sa'
 
+export type TStyleLong =
+  | 'Anxious Preoccupied'
+  | 'Dismissive Avoidant'
+  | 'Fearful Avoidant'
+  | 'Securely Attached'
+
 /**
  * Window width breakpoints
  */

@@ -21,7 +21,7 @@ export const SIX_DATING_STAGES_CONFIG = {
         <strong>A Proven Science-Backed Healthy Relationship Quiz by Thais Gibson</strong>
       </>
     ),
-    ctaLabel: 'START THE DATING QUIZ',
+    ctaLabel: 'START ASSESSMENT',
     label:
       'Created by Thais Gibson, author and founder of The Personal Development School — trusted by 60,000+ students worldwide.',
   },
@@ -45,7 +45,7 @@ export const SIX_DATING_STAGES_CONFIG = {
       'Reveal the subconscious patterns keeping you stuck',
       'Learn the exact tools to move toward healthy, secure love',
     ],
-    ctaLabel: 'START THE DATING QUIZ',
+    ctaLabel: 'START ASSESSMENT',
   },
   stages: {
     title: 'The Six Stages of Love',
@@ -70,6 +70,6 @@ export const SIX_DATING_STAGES_CONFIG = {
         </strong>
       </>
     ),
-    ctaLabel: 'START THE DATING QUIZ',
+    ctaLabel: 'START ASSESSMENT',
   },
 }

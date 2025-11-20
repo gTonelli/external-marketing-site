@@ -1,5 +1,5 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { TDict, TRole, TStyle, TStyleLong, TUserData } from './types'
+import { TDict, TRole, TStyle, TStyleLong, TUserData, TDatingStageLong } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
@@ -206,7 +206,7 @@ export const getAttachmentStyleText = (style: TStyle): TStyleLong => {
   }
 }
 
-export const getDatingStageText = (stage: TDatingStage) => {
+export const getDatingStageText = (stage: TDatingStage): TDatingStageLong => {
   switch (stage) {
     case 'dating':
       return 'Dating'

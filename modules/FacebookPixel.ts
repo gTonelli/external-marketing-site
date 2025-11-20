@@ -4,8 +4,7 @@
 import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
 // utils
-import { TStyleLong } from '@/utils/types'
-import { getAttachmentStyleText } from '@/utils/functions'
+import { TStyleLong, TDatingStageLong } from '@/utils/types'
 
 interface IFBQLead {
   email: string
@@ -19,10 +18,16 @@ interface IFBQAttachmentQuizResult {
   eventId: string
 }
 
+interface IFBQDatingQuizResult {
+  datingStage: TDatingStageLong
+  eventId: string
+}
+
 interface IFacebookPixel {
   event(title: string, args?: any): void
   trackLead(args: IFBQLead): void
   trackAttachmentQuizResult(args: IFBQAttachmentQuizResult): void
+  trackDatingQuizResult(args: IFBQDatingQuizResult): void
 }
 
 export function useFacebookPixel() {
@@ -48,8 +53,15 @@ export function useFacebookPixel() {
 
           async trackAttachmentQuizResult({ attachmentStyle, eventId }: IFBQAttachmentQuizResult) {
             ReactPixel.trackCustom('Attachment Quiz Result', {
-              attachmentStyle: attachmentStyle,
-              eventId: eventId,
+              attachmentStyle,
+              eventId,
+            })
+          }
+
+          async trackDatingQuizResult({ datingStage, eventId }: IFBQDatingQuizResult) {
+            ReactPixel.trackCustom('Dating Quiz Result', {
+              datingStage,
+              eventId,
             })
           }
 

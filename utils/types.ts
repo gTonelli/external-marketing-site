@@ -14,6 +14,7 @@ export type TStyleLong =
   | 'Fearful Avoidant'
   | 'Securely Attached'
 
+export type TDatingStageLong = 'Dating' | 'Power Struggle' | 'Rhythm' | 'Devotion'
 /**
  * Window width breakpoints
  */

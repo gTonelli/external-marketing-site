@@ -54,14 +54,14 @@ export function useFacebookPixel() {
           async trackAttachmentQuizResult({ attachmentStyle, eventId }: IFBQAttachmentQuizResult) {
             ReactPixel.trackCustom('Attachment Quiz Result', {
               attachmentStyle,
-              eventID: eventId,
+              eventId,
             })
           }
 
           async trackDatingQuizResult({ datingStage, eventId }: IFBQDatingQuizResult) {
             ReactPixel.trackCustom('Dating Quiz Result', {
               datingStage,
-              eventID: eventId,
+              eventId,
             })
           }
 

@@ -4,12 +4,14 @@
 import { useRouter } from 'next/navigation'
 // components
 import { IDefaultProps } from '..'
-// libraries
+import { useDatingQuiz } from './useDatingQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { gtag } from '../GoogleAdsTag'
-import { useDatingQuiz } from './useDatingQuiz'
-import { getDatingStageText, getDatingStageSlug } from '@/utils/functions'
 import { TDatingStage, TAnswerHistory } from './DatingQuizQuestions'
+// modules
+import { useFacebookPixel } from '@/modules/FacebookPixel'
+// utils
+import { getDatingStageText, getDatingStageSlug } from '@/utils/functions'
 
 interface IUserInfo {
   relationshipStatus: string
@@ -37,6 +39,7 @@ export const DatingQuizForm = ({
 }: IDatingQuizFormProps) => {
   const router = useRouter()
   const { getPercentageResults, saveResult } = useDatingQuiz()
+  const FBQ = useFacebookPixel()
 
   const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     gtag({
@@ -54,18 +57,28 @@ export const DatingQuizForm = ({
     const { datingPercentage, powerStrugglePercentage, rhythmPercentage, devotionPercentage } =
       getPercentageResults(quizData)
 
-    if (firstName && lastName && email)
+    if (firstName && lastName && email) {
+      const eventId = crypto.randomUUID()
+
+      FBQ?.trackDatingQuizResult({
+        datingStage: getDatingStageText(datingStage),
+        eventId,
+      })
+
       saveResult({
         firstName,
         lastName,
         email,
+        eventId,
         relationshipStatus: userInfo.relationshipStatus,
+        dominantStage: getDatingStageText(datingStage),
         datingPercentage,
         powerStrugglePercentage,
         rhythmPercentage,
         devotionPercentage,
         answerHistory,
       })
+    }
 
     router.push(
       `/six-dating-stages/results/${userInfo.relationshipStatus}/${getDatingStageSlug(datingStage)}`

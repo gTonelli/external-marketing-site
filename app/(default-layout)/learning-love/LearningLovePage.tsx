@@ -571,12 +571,6 @@ const TestimonialSlides = [
       'The learning and support is deep, the profound knowledge and patience, the breakdown of the info…don’t hesitate.',
   },
   {
-    author: 'Tappy P.',
-    testimonial: `Such an amazing impact on my relationships, my self-esteem and has given me valuable self-awareness. The tools have provided 
-      me with the strength, and ability to heal, almost completely from my anxiety, and I feel so much more confident within myself.`,
-  },
-
-  {
     author: 'Robin A.',
     testimonial: `Thais is passionate about her work and the embodiment of it, she over delivers in every way and the experience, her content and 
       her community are priceless and life changing.`,

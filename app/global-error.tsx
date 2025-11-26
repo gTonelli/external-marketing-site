@@ -1,16 +1,10 @@
-'use client'
+'use server'
 
 import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
+import { Header } from '@/components/Header/Header'
 import { NotFound } from '@/components/NotFound'
 
-export default function GlobalError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string }
-  reset: () => void
-}) {
+export default async function GlobalError() {
   return (
     <>
       <Header />

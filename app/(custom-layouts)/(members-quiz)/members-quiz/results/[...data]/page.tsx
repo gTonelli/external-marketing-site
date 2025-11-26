@@ -1,6 +1,5 @@
 'use client'
 // core
-import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 // components
 import { IQuizCardProps, IQuizResults } from '@/components/QuizCard'
@@ -10,7 +9,7 @@ import { IDefaultProps } from '@/components'
 import { Card } from '@/components/Card/Card'
 import { Video } from '@/components/Video/Video'
 import { Button } from '@/components/Button/Button'
-import { RegistrationForm } from '@/components/Forms/RegistrationForm'
+import { RegistrationForm, TOnAfterSubmitArgs } from '@/components/Forms/RegistrationForm'
 import { TStyle } from '@/utils/types'
 import { NotFound } from '@/components/NotFound'
 import { Storage } from '@/modules/Storage'
@@ -24,6 +23,7 @@ import {
   faMountain,
   faPeople,
 } from '@awesome.me/kit-545b942488/icons/classic/light'
+import { useAttachmentQuiz } from '@/components/AttachmentQuizV2/useAttachmentQuiz'
 // config
 import { CONFIG } from '../../config'
 // libraries
@@ -62,10 +62,26 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
   const userTag = Storage.get('userTag') || ''
 
   // ==================== Hooks ====================
-  const router = useRouter()
-
-  const onAfterSubmit = () => {
+  const { getPercentageResults, saveResult } = useAttachmentQuiz()
+  const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     Storage.set('canViewResults', '1')
+    if (firstName && lastName && email) {
+      const { faPercentage, daPercentage, apPercentage, saPercentage } = getPercentageResults({
+        fa: Number(fa),
+        da: Number(da),
+        ap: Number(ap),
+        sa: Number(sa),
+      })
+      saveResult({
+        firstName,
+        lastName,
+        email,
+        faPercentage,
+        daPercentage,
+        apPercentage,
+        saPercentage,
+      })
+    }
     setCanViewResults(true)
     scrollTo(0, 0)
   }
@@ -156,7 +172,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
         />
         <Image
           alt="A styled vector wave"
-          className="bg-desktop absolute inset-0 z-5 lg:top-0 xl:-top-6 laptop:-top-20 2xl:-top-32 3xl:-top-52 4k:-top-88"
+          className="bg-desktop absolute inset-0 z-5 w-full lg:top-0 xl:-top-6 laptop:-top-20 2xl:-top-32 3xl:-top-52 4k:-top-88"
           src={quiz.introBgDesktop}
           width={1024}
           height={251}
@@ -220,7 +236,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
 
       {/* DESCRIPTION */}
       <section
-        className="w-full flex flex-col px-page-xxs space-y-12 mb-10 mt-4 relative z-0
+        className="w-full flex flex-col px-page-xxs space-y-12 mb-10 mt-4 relative z-5
             lg:flex-row lg:space-y-0 lg:space-x-11 lg:px-page-md lg:mb-24 lg:items-center
             xl:px-page">
         <AttachmentStylesChart className="xl:w-1/2 xl:self-center" sortedValues={sortedChartData} />
@@ -434,9 +450,10 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
 
         <div
           className="w-full self-center flex flex-col items-center justify-center space-y-8 mt-10 mb-10
-            lg:w-3/4 lg:flex-row lg:space-y-0 lg:space-x-4">
+            lg:w-3/4 lg:grid lg:grid-cols-3 lg:space-y-0 lg:space-x-4">
           <div>
             <Video.Thumbnail
+              className="w-full"
               url="https://university.personaldevelopmentschool.com/courses/take/the-handbook-for-a-better-life/downloads/27403655-course-workbook"
               thumbnailUrl="/course-handbook-for-a-better-life.jpg"
             />
@@ -444,6 +461,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
 
           <div>
             <Video.Thumbnail
+              className="w-full"
               url="https://university.personaldevelopmentschool.com/courses/take/personal-needs/downloads/8813112-workbook-course-summary-worksheet"
               thumbnailUrl="/course-personal-needs.jpg"
             />
@@ -452,18 +470,21 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
           <div>
             {style === 'FA' && (
               <Video.Thumbnail
+                className="w-full"
                 url="https://university.personaldevelopmentschool.com/courses/take/reprogramming-fa/downloads/8813051-workbook-course-summary-worksheet"
                 thumbnailUrl="/course-fa-to-sa.jpg"
               />
             )}
             {style === 'DA' && (
               <Video.Thumbnail
+                className="w-full"
                 url="https://university.personaldevelopmentschool.com/courses/take/da-reprogramming/downloads/8813046-workbook-course-summary-worksheet"
                 thumbnailUrl="/course-da-to-sa.jpg"
               />
             )}
             {style === 'AP' && (
               <Video.Thumbnail
+                className="w-full"
                 url="https://university.personaldevelopmentschool.com/courses/take/aa-reprogramming/downloads/8813131-workbook-course-summary-worksheet"
                 thumbnailUrl="/course-ap-to-sa.jpg"
               />
@@ -549,7 +570,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
           />
 
           <RegistrationForm
-            className="!text-left md:!pt-0 shadow-md rounded-lg py-4"
+            className="!text-left shadow-md rounded-lg p-4"
             clientTag={userTag}
             userStyle={style.toLowerCase() as unknown as TStyle | undefined}
             onAfterSubmit={onAfterSubmit}

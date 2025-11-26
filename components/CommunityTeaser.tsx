@@ -16,7 +16,7 @@ interface ICommunityTeaserProps {
   sectionHeading?: string
   teaserHeading?: string
   paymentOptionsConfigKey: TPaymentOptionsConfigKey
-  communityBullets?: string[]
+  communityBullets?: (string | JSX.Element)[]
 }
 
 export const CommunityTeaser = ({
@@ -45,10 +45,10 @@ export const CommunityTeaser = ({
       <div className="relative max-w-5xl text-center text-white mx-auto">
         <SocialProofStatistics />
 
-        <div className="text-left mt-12 lg:mt-[70px]">
-          <h2 className="mb-8">{teaserHeading}</h2>
+        <div className="mt-12 lg:mt-[70px]">
+          <h2 className="text-center mb-8">{teaserHeading}</h2>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 text-left lg:grid-cols-2">
             {communityBulletsCopy.map((bullet, idx) => (
               <div key={`community_perk_${idx}`} className="flex items-center space-x-6">
                 <FontAwesomeIcon icon={faCheck} size="2x" />
@@ -68,7 +68,7 @@ export const CommunityTeaser = ({
             <PaymentOptions
               className={classNamePaymentOptions}
               configKey={paymentOptionsConfigKey}
-              placement="bottom"
+              theme="dark"
             />
           </div>
         )}

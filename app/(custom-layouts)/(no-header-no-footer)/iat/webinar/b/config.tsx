@@ -6,7 +6,7 @@ export const COPY = {
     copy1: [
       <>
         <strong>
-          On October 27, learn about the certification program that’s helped thousands of coaches
+          On November 25th, learn about the certification program that’s helped thousands of coaches
           and healers around the world unlock secure attachment, transform relationships, and build
           thriving practices.
         </strong>
@@ -21,8 +21,8 @@ export const COPY = {
     ],
     copy2: [
       <>
-        The Masterclass is happening on <strong>October 27, at 5:30 PM ET</strong>. The next step is
-        yours!
+        The Masterclass is happening on <strong>November 25th, at 5:30 PM ET</strong>. The next step
+        is yours!
       </>,
     ],
   },

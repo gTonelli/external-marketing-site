@@ -671,7 +671,11 @@ export default function LastingLovePage() {
 }
 
 const CheckoutLink = ({ label = 'Start My All-Access Pass' }: { label?: string }) => (
-  <Button className="text-xl" label={label} href={externalRoutes.singleStepCheckout39FirstMonth} />
+  <Button
+    className="text-xl"
+    label={label}
+    href={externalRoutes.checkoutRegularSubscription39FirstMonth}
+  />
 )
 
 const FAQs = [

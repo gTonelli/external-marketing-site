@@ -40,8 +40,8 @@ interface ISocialProofBarProps extends IDefaultProps {
 }
 
 export const SocialProofBar = ({
-  cardTexts = ['Course Enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide'],
-  cardNumbers = [70000, 50000000, 45000],
+  cardTexts = ['Course Enrolments', 'Views on YouTube', 'Members in 120+ countries'],
+  cardNumbers = [70000, 76500000, 45000],
   className,
   classNameCard,
   classNameIcon,
@@ -50,8 +50,7 @@ export const SocialProofBar = ({
   return (
     <div
       className={cx(
-        `max-w-sm mx-auto py-10 text-center px-2 xxs:px-4 xs:px-6
-                    lg:gap-4  lg:max-w-screen-xl lg:grid lg:grid-cols-3 xl:gap-12`,
+        `max-w-sm mx-auto py-10 text-center px-2 xxs:px-4 xs:px-6 lg:gap-4  lg:max-w-screen-xl lg:grid lg:grid-cols-3 xl:gap-12`,
         className
       )}>
       {cardNumbers.map((_, i) => (

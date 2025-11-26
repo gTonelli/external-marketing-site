@@ -64,7 +64,9 @@ export async function generateMetadata({ params }: IDatingQuizResultsParams): Pr
 
 export default async function DatingQuizResultsPage({ params }: IDatingQuizResultsParams) {
   const { status, stage } = await params
-  const checkoutUrl = externalRoutes.checkoutRegularSubscription
+  const checkoutUrl = externalRoutes.checkoutRegularSubscription.concat(
+    `&promo_label=dating-quiz-${status}-${stage}`
+  )
 
   return (
     <Page page_name={`Dating Quiz Results Page - ${status} - ${stage}`}>
@@ -104,7 +106,7 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
           </div>
         </div>
 
-        <ButtonCheckout label={CONFIG['common'].banner.buttonLabel} />
+        <ButtonCheckout href={checkoutUrl} label={CONFIG['common'].banner.buttonLabel} />
 
         <p className="text-sm mt-2">
           <em>{CONFIG['common'].banner.disclaimer}</em>
@@ -298,7 +300,7 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
 
       <SocialProofSection />
 
-      <PricingSection />
+      <PricingSection checkoutUrl={checkoutUrl} />
 
       <Section className="!p-4" classNameInner="!w-full !p-0">
         <p className="tracking-33 mb-4">
@@ -308,7 +310,7 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
         <Trustbar />
       </Section>
 
-      <GuaranteeSection />
+      <GuaranteeSection checkoutUrl={checkoutUrl} />
 
       <WhoThisIsForSection />
 
@@ -316,7 +318,7 @@ export default async function DatingQuizResultsPage({ params }: IDatingQuizResul
 
       <EndResultSection />
 
-      <FooterCtaSection />
+      <FooterCtaSection checkoutUrl={checkoutUrl} />
     </Page>
   )
 }
@@ -457,7 +459,7 @@ const SocialProofSection = () => {
   )
 }
 
-const PricingSection = () => {
+const PricingSection = ({ checkoutUrl }: { checkoutUrl: string }) => {
   return (
     <Section classNameInner="!text-left lg:grid lg:gap-4 lg:grid-cols-2 lg:items-center">
       <div className="flex items-center justify-center">
@@ -499,13 +501,13 @@ const PricingSection = () => {
 
         <p className="mb-4">{CONFIG['common'].pricing.description}</p>
 
-        <ButtonCheckout label={CONFIG['common'].pricing.buttonLabel} />
+        <ButtonCheckout href={checkoutUrl} label={CONFIG['common'].pricing.buttonLabel} />
       </div>
     </Section>
   )
 }
 
-const GuaranteeSection = () => {
+const GuaranteeSection = ({ checkoutUrl }: { checkoutUrl: string }) => {
   return (
     <Section
       className="bg-watch w-full z-10 !p-0 lg:!p-4 lg:!py-24 xl:!py-28 2xl:!py-32 3xl:!py-40"
@@ -519,7 +521,7 @@ const GuaranteeSection = () => {
           </p>
         ))}
 
-        <ButtonCheckout label={CONFIG['common'].guarantee.buttonLabel} />
+        <ButtonCheckout href={checkoutUrl} label={CONFIG['common'].guarantee.buttonLabel} />
 
         <p className="text-center">
           <small>
@@ -633,7 +635,7 @@ const EndResultSection = () => {
   )
 }
 
-const FooterCtaSection = () => {
+const FooterCtaSection = ({ checkoutUrl }: { checkoutUrl: string }) => {
   return (
     <Section className="relative !py-40 lg:!py-22" classNameInner="!max-w-2xl py-12">
       <Image
@@ -663,7 +665,7 @@ const FooterCtaSection = () => {
 
         <p className="mb-4">{CONFIG['common'].footer.description}</p>
 
-        <ButtonCheckout label={CONFIG['common'].footer.ctaLabel} />
+        <ButtonCheckout href={checkoutUrl} label={CONFIG['common'].footer.ctaLabel} />
 
         <p>
           <small>

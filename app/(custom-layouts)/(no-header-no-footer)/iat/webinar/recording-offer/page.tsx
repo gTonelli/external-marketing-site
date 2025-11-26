@@ -49,7 +49,7 @@ export default function IATMasterclassRecordingPage() {
           <VideoYoutube
             playInline
             classNameThumbnail="w-full"
-            videoId="jfwyVk0k6dU"
+            videoId="EbrN_nCy-VU"
             thumbnail="/images/IATWebinar/iat-webinar-thumbnail.jpg"
             thumbnailAlt="Thais Gibson Masterclass Video Thumbnail"
           />
@@ -71,7 +71,7 @@ export default function IATMasterclassRecordingPage() {
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2025-11-28T23:59:59-05:00'), 1)}
+          date={getOfferEndDate(new Date('2025-11-29T23:59:59-05:00'), 1)}
         />
       </Section>
 

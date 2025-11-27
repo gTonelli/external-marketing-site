@@ -6,9 +6,11 @@ import { useRouter } from 'next/navigation'
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
+// modules
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
+import { getAttachmentStyleText } from '@/utils/functions'
 import { gtag } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
@@ -30,6 +32,7 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
+  const FBQ = useFacebookPixel()
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -84,23 +87,33 @@ export const AttachmentQuizForm = ({
       intent,
     } = quizData
 
-    const { faPercentage, apPercentage, daPercentage, saPercentage } = getPercentageResults({
-      fa,
-      da,
-      ap,
-      sa,
-    })
+    const { faPercentage, apPercentage, daPercentage, saPercentage, dominantStyle } =
+      getPercentageResults({
+        fa,
+        da,
+        ap,
+        sa,
+      })
 
     if (firstName && lastName && email) {
+      const eventId = crypto.randomUUID()
+
+      FBQ?.trackAttachmentQuizResult({
+        attachmentStyle: getAttachmentStyleText(userStyle),
+        eventId,
+      })
+
       saveResult({
         firstName,
         lastName,
         email,
+        eventId,
         attachmentFamiliarity,
         gender,
         intent,
         relationship,
         relationshipSatisfaction,
+        dominantStyle: getAttachmentStyleText(dominantStyle),
         faPercentage,
         apPercentage,
         daPercentage,

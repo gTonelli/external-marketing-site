@@ -1,9 +1,10 @@
 'use client'
 
 // libraries
-import sha3 from 'crypto-js/sha256'
 import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
+// utils
+import { TStyleLong, TDatingStageLong } from '@/utils/types'
 
 interface IFBQLead {
   email: string
@@ -12,9 +13,21 @@ interface IFBQLead {
   sendServerSideEvent?: boolean
 }
 
+interface IFBQAttachmentQuizResult {
+  attachmentStyle: TStyleLong
+  eventId: string
+}
+
+interface IFBQDatingQuizResult {
+  datingStage: TDatingStageLong
+  eventId: string
+}
+
 interface IFacebookPixel {
   event(title: string, args?: any): void
   trackLead(args: IFBQLead): void
+  trackAttachmentQuizResult(args: IFBQAttachmentQuizResult): void
+  trackDatingQuizResult(args: IFBQDatingQuizResult): void
 }
 
 export function useFacebookPixel() {
@@ -36,6 +49,20 @@ export function useFacebookPixel() {
            */
           event(title: string, args?: any) {
             ReactPixel.track(title, args)
+          }
+
+          async trackAttachmentQuizResult({ attachmentStyle, eventId }: IFBQAttachmentQuizResult) {
+            ReactPixel.trackCustom('Attachment Quiz Result', {
+              attachmentStyle,
+              eventId,
+            })
+          }
+
+          async trackDatingQuizResult({ datingStage, eventId }: IFBQDatingQuizResult) {
+            ReactPixel.trackCustom('Dating Quiz Result', {
+              datingStage,
+              eventId,
+            })
           }
 
           async trackLead({ email, phone, sendServerSideEvent = false, eventId }: IFBQLead) {

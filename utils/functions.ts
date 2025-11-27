@@ -1,5 +1,5 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { TDict, TRole, TStyle, TUserData } from './types'
+import { TDict, TRole, TStyle, TStyleLong, TUserData, TDatingStageLong } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
@@ -193,7 +193,7 @@ export const getUserRoles = (roles?: TUserData['roles']) => {
   return JSON.parse(roles) as TRole[]
 }
 
-export const getAttachmentStyleText = (style: TStyle) => {
+export const getAttachmentStyleText = (style: TStyle): TStyleLong => {
   switch (style) {
     case 'fa':
       return 'Fearful Avoidant'
@@ -206,7 +206,7 @@ export const getAttachmentStyleText = (style: TStyle) => {
   }
 }
 
-export const getDatingStageText = (stage: TDatingStage) => {
+export const getDatingStageText = (stage: TDatingStage): TDatingStageLong => {
   switch (stage) {
     case 'dating':
       return 'Dating'

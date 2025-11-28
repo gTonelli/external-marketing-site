@@ -9,7 +9,7 @@ export const CONFIG: TPromotionPageConfig = {
       'LIMITED TIME: Claim Your FREE Somatic Attachment Healing Course ($250 Value) For Life + Your 7 Day Free PDS Membership',
   },
   banner: {
-    title: 'Black Friday Special: Get Our #1 Most Powerful Healing Course FREE For Life',
+    title: 'Cyber Monday Special: Get Our #1 Most Powerful Healing Course FREE For Life',
     theme: 'dark',
   },
   courseOutcome: {
@@ -37,7 +37,7 @@ export const CONFIG: TPromotionPageConfig = {
     image: '/images/TrialHeadspace/somatic-course-mockup.png',
     imageAlt: 'A desktop screen showcasing the Release Emotions with Somatic Processing Course',
     offer: [
-      'Get your Black Friday Deal! Start a 7-Day Free Trial today and explore on-demand, science-backed courses, daily live Q&As with me (Thais Gibson), and a private global community, all designed to help you become securely attached and see tangible results in as little as one week.',
+      'Get your Cyber Monday Deal! Start a 7-Day Free Trial today and explore on-demand, science-backed courses, daily live Q&As with me (Thais Gibson), and a private global community, all designed to help you become securely attached and see tangible results in as little as one week.',
       <>
         Most students complete the <strong>Somatic Attachment Healing Course</strong> in a few
         sessions and feel more regulated, clear, and grounded. They then use the remaining trial

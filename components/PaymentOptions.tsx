@@ -271,7 +271,7 @@ const allConfigs = {
   },
   somaticAttachmentHealing: {
     offerLabel: 'Free Trial & Exclusive Free Course',
-    title: 'Black Friday Special: Get the Somatic Attachment Healing Course & Feel Calmer FAST',
+    title: 'Cyber Monday Special: Get the Somatic Attachment Healing Course & Feel Calmer FAST',
     copy: (
       <>
         For the first time ever, we’re giving away the <em>Somatic Attachment Healing Course</em>

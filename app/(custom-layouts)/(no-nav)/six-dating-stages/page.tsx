@@ -7,6 +7,7 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { List } from '@/components/List'
+import { SplitTestTracker } from '@/components/SplitTestTracker'
 import { BreakThroughSectionDesktop } from '@/components/BreakThroughSection/BreakThroughSectionDesktop'
 import { BreakThroughSectionMobile } from '@/components/BreakThroughSection/BreakThroughSectionMobile'
 import { faCheckCircle, faStars } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -14,6 +15,8 @@ import { faCheckCircle, faStars } from '@awesome.me/kit-545b942488/icons/classic
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
 import { SIX_DATING_STAGES_CONFIG as CONFIG } from './config'
+// middleware
+import { splitTestConfigs } from '@/middleware'
 // styles
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -36,6 +39,8 @@ export const metadata: Metadata = {
 export default function SixDatingStagesPage() {
   return (
     <Page page_name="Dating Quiz Landing Page">
+      <SplitTestTracker variant="Control" {...splitTestConfigs.datingQuizLPTest} />
+
       <Section
         className="bg-gradient-to-b from-blue-lightest-50 to-white"
         classNameInner="flex flex-col items-center">

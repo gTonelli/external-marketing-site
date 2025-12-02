@@ -271,6 +271,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantUrl: {
       path: 'https://offer.personaldevelopmentschool.com/6-stages-quiz',
     },
+    domain: '.personaldevelopmentschool.com',
     variantRatio: 0.5,
     forceControlOnNewUser: false,
   },

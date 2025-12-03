@@ -2,16 +2,17 @@
 
 //core
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 // components
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
+import { gtag } from '../GoogleAdsTag'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText } from '@/utils/functions'
-import { gtag } from '../GoogleAdsTag'
+import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -31,8 +32,22 @@ export const AttachmentQuizForm = ({
   quizData,
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
+  const [isVariant, setIsVariant] = useState(false)
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
   const FBQ = useFacebookPixel()
+
+  useEffect(() => {
+    if (quiz_traffic_source === 'paidGoogle' && userStyle === 'fa') {
+      setIsVariant(
+        getSplitTest({
+          key: 'gm-2270-fa-ip-test',
+          experimentName: 'GM-2270-FA-Instapage-Test',
+          variantRatio: 0.2,
+          useCookies: true,
+        })
+      )
+    }
+  }, [quiz_traffic_source, userStyle])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -41,6 +56,10 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
+        if (isVariant) {
+          return 'https://offer.personaldevelopmentschool.com/fa-results'
+        }
+
         if (userStyle === 'fa') {
           return '/quiz/results/fearful-avoidant'
         }
@@ -125,6 +144,11 @@ export const AttachmentQuizForm = ({
     router.push(route)
   }
 
+  let clientTags = [`attachment-quiz-${userStyle}`]
+  if (isVariant) {
+    clientTags.push('healing-fa')
+  }
+
   return (
     <section className="flex justify-center">
       <div className="max-w-5xl w-full text-center rounded-2xl mt-6 mx-2 p-2 xxs:p-3 xs:p-4 xxs:shadow-centered md:mx-4 md:p-8 lg:px-12 xl:px-16">
@@ -134,7 +158,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={`attachment-quiz-${userStyle}`}
+          clientTag={clientTags.join(',')}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

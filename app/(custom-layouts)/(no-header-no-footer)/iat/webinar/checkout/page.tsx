@@ -68,7 +68,7 @@ export default function IATWebinarSqueezePage() {
             <span className="text-primary">Transform Lives</span> & Secure Your Financial Future
           </h1>
 
-          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on December 1st, 2025</p>
+          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on January 22nd, 2026</p>
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
@@ -288,7 +288,7 @@ export default function IATWebinarSqueezePage() {
               width={500}
               height={282}
               alt="Thumbnail for IAT webinar"
-              src="/images/IATWebinar/IAT-Winter-2026-Thumbnail.webp"
+              src="/images/IATWebinar/IAT-January-2026-Thumbnail.webp"
               sizes="100vw"
               quality={100}
             />

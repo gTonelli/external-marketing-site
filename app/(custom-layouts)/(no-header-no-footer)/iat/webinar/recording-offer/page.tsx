@@ -34,7 +34,8 @@ const trustbarSlides = [
 ]
 
 export default function IATMasterclassRecordingPage() {
-  const liveCohortDate = 'Monday, December 1st, 2025'
+  const liveCohortDate = 'Thursday, January 22nd, 2026'
+
   return (
     <Page page_name="IAT Webinar Recording Page">
       <Section>

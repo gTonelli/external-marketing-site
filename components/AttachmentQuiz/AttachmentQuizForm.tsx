@@ -2,17 +2,17 @@
 
 //core
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 // components
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
+import { gtag } from '../GoogleAdsTag'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
 import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
-import { gtag } from '../GoogleAdsTag'
-import { useEffect, useState } from 'react'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle

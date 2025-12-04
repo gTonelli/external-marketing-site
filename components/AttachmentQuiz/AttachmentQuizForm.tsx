@@ -141,7 +141,11 @@ export const AttachmentQuizForm = ({
     }
 
     const route = determineRoute()
-    router.push(route)
+    if (isVariant) {
+      window.location.href = route
+    } else {
+      router.push(route)
+    }
   }
 
   let clientTags = [`attachment-quiz-${userStyle}`]

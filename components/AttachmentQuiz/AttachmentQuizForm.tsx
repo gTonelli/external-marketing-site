@@ -42,7 +42,7 @@ export const AttachmentQuizForm = ({
         getSplitTest({
           key: 'gm-2270-fa-ip-test',
           experimentName: 'GM-2270-FA-Instapage-Test',
-          variantRatio: 0.5,
+          variantRatio: 0.2,
           useCookies: true,
         })
       )

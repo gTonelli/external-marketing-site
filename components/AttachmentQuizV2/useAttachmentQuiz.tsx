@@ -355,8 +355,9 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     daPercentage,
     saPercentage,
   }: ISaveResultArgs) => {
-    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
+    return fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
       method: 'POST',
+      keepalive: true,
       headers: {
         'Content-Type': 'application/json',
       },

@@ -102,7 +102,7 @@ export const RegistrationForm = ({
 
     FBQ?.trackLead({ email, eventId })
 
-    gtag('set', 'user_data', { email: email.trim() })
+    gtag('set', 'user_data', { email })
 
     const requestBody = {
       tags: clientTag ? clientTag.split(',').map((tag) => tag.trim()) : [],
@@ -118,6 +118,7 @@ export const RegistrationForm = ({
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
       credentials: 'include',
+      keepalive: true,
       headers: {
         'Content-Type': 'application/json',
       },

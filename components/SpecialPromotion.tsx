@@ -272,13 +272,13 @@ export const PDSSocialProof = ({ isNewVersion = true }: IPDSSocialProofProps) =>
   return (
     <>
       <SocialProofBar
-        cardNumbers={isNewVersion ? [70000, 50000000, 45000] : [4700000, 50000000, 120]}
+        cardNumbers={isNewVersion ? [70000, 76500000, 45000] : [6500000, 76500000, 120]}
         cardTexts={
           isNewVersion
             ? ['Course enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide']
             : ['Attachment Styles Discovered', 'Youtube Views', 'Countries']
         }
-        classNameCard="lg:pt-7 xs:!px-3 lg:pb-5"
+        classNameCard="text-black lg:pt-7 xs:!px-3 lg:pb-5"
         classNameIcon="!bg-white"
         icons={
           isNewVersion
@@ -501,9 +501,15 @@ export const PDS14dftFeatureOffers = () => {
   )
 }
 
-export const PDS14dftTestimonialVideo = () => {
+export const PDS14dftTestimonialVideo = ({
+  isNewVersion = false,
+  className,
+}: {
+  isNewVersion?: boolean
+  className?: string
+}) => {
   return (
-    <Section className="2xl:pb-24">
+    <Section className={cx('2xl:pb-24', className)}>
       <h2 className="my-4 max-w-4xl mx-auto lg:mb-12">
         Curious to See How the All-Access Pass Can Change Your Life? Hit Play to Find Out What
         Awaits You.
@@ -513,16 +519,18 @@ export const PDS14dftTestimonialVideo = () => {
         className="w-fit bg-white rounded-2xl shadow-xl p-4 mb-8 mx-auto"
         srcUrl="https://storage.googleapis.com/pds_videos/Testimonial-video-long.mp4"
         thumbnailAlt={`Video thumbnail`}
-        thumbnailUrl="pds-video-thumbnail.jpg"
+        thumbnailUrl={
+          isNewVersion ? '/AttachmentQuizResults/thais-writing.jpg' : 'pds-video-thumbnail.jpg'
+        }
         type="testimonial"
       />
 
-      <MHAButton label="ENJOY OUR THRIVING COMMUNITY" />
+      {!isNewVersion && <MHAButton label="ENJOY OUR THRIVING COMMUNITY" />}
     </Section>
   )
 }
 
-export const PDS14dftBreakthrough = () => {
+export const PDS14dftBreakthrough = ({ isNewVersion = false }: { isNewVersion?: boolean }) => {
   return (
     <Section className="bg-black-secondary text-white 2xl:py-24">
       <h2>Ready for Your First Breakthrough?</h2>
@@ -537,7 +545,11 @@ export const PDS14dftBreakthrough = () => {
           className="w-full"
           width={1980}
           height={981}
-          src="/images/best-value-mockup.png"
+          src={
+            isNewVersion
+              ? '/images/SegmentedResultsPages/features-mockup.png'
+              : '/images/best-value-mockup.png'
+          }
         />
 
         <div className="text-left">

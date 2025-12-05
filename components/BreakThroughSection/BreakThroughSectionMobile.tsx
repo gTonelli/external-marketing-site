@@ -6,9 +6,19 @@ import Image from 'next/image'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // config
-import { BREAKTHROUGH_SEGMENTS } from './config'
+import { BREAKTHROUGH_SEGMENTS, BREAKTHROUGH_SEGMENTS_SIX_DATING_STAGES } from './config'
 
-export const BreakThroughSectionMobile = () => {
+interface IBreakThroughSectionMobileProps {
+  isSixDatingStages?: boolean
+}
+
+export const BreakThroughSectionMobile = ({
+  isSixDatingStages = false,
+}: IBreakThroughSectionMobileProps) => {
+  const segments = isSixDatingStages
+    ? BREAKTHROUGH_SEGMENTS_SIX_DATING_STAGES
+    : BREAKTHROUGH_SEGMENTS
+
   return (
     <div className="max-w-[250px] -mt-12 md:max-w-[798px] lg:hidden">
       <Swiper
@@ -22,7 +32,7 @@ export const BreakThroughSectionMobile = () => {
             'inline-block w-2 h-2 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer',
           clickable: true,
         }}>
-        {BREAKTHROUGH_SEGMENTS.map((breakthrough, index) => (
+        {segments.map((breakthrough, index) => (
           <SwiperSlide key={`breakthrough_${index}`}>
             <div className="py-10">
               <Image
@@ -34,7 +44,7 @@ export const BreakThroughSectionMobile = () => {
                 height={160}
               />
 
-              <span className="uppercase tracking-33 text-center">{breakthrough.title}</span>
+              <span className="tracking-33 text-center">{breakthrough.title}</span>
             </div>
           </SwiperSlide>
         ))}

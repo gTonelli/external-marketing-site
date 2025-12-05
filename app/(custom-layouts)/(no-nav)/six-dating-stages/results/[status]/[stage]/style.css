@@ -1,0 +1,12 @@
+.bg-watch {
+  background-image: url('/images/IAT_AbandonedCart/offerBanner.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .bg-watch {
+    background-image: url('/images/IAT_AbandonedCart/offerBannerMobile.webp');
+  }
+}

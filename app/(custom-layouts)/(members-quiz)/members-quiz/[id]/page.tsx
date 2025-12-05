@@ -3,25 +3,31 @@
 // core
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 // components
 import { Button } from '@/components/Button/Button'
 import { Dialog } from '@/components/Dialog/Dialog'
 import { ProgressBar } from '@/components/ProgressBar'
+import { Text } from '@/components/Text/Text'
+import { NotFound } from '@/components/NotFound'
+import { Page } from '@/components/Page'
+import { useAttachmentQuiz } from '@/components/AttachmentQuizV2/useAttachmentQuiz'
+// config
+import { CONFIG, ICalculateQuizPointsParams } from '../config'
 // libraries
 import cx from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faTimes } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faHeart, faHouse, faPeople } from '@awesome.me/kit-545b942488/icons/classic/light'
+import { orderBy } from 'lodash'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
-import { CONFIG, ICalculateQuizPointsParams } from '../config'
-import Image from 'next/image'
-import { Text } from '@/components/Text/Text'
+import { Storage } from '@/modules/Storage'
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 // styles
 import '../styles.css'
-import { orderBy } from 'lodash'
-import { NotFound } from '@/components/NotFound'
-import { Page } from '@/components/Page'
+// utils
+import { getAttachmentStyleText, getUserData } from '@/utils/functions'
 
 type TQuizType = 'romantic' | 'family' | 'friends'
 
@@ -35,7 +41,12 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
   const [daPoints, setDaPoints] = useState<number>(0)
   const [faPoints, setFaPoints] = useState<number>(0)
   const [saPoints, setSaPoints] = useState<number>(0)
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false)
   const [showLeaveConfirmationWithQuizId, setShowLeaveConfirmationWithQuizId] = useState<string>('')
+
+  // ==================== Hooks ====================
+  const { getPercentageResults, saveResult } = useAttachmentQuiz()
+  const FBQ = useFacebookPixel()
 
   const quiz = CONFIG.find((i) => i.type === params.id || i.id === params.id)
 
@@ -46,6 +57,8 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
 
   const onQuestionAnswer = useCallback(
     (answer: boolean) => () => {
+      if (isSubmitting) return
+      setIsSubmitting(true)
       let newFaPoints = faPoints,
         newDaPoints = daPoints,
         newSaPoints = saPoints,
@@ -83,6 +96,35 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
         const saPercentage =
           totalTrueAnswers === 0 ? 0 : ((newSaPoints / totalTrueAnswers) * 100).toFixed(0)
 
+        const userData = getUserData()
+
+        if (userData && userData.email && userData.firstName && userData.lastName) {
+          Storage.set('canViewResults', '1')
+          const eventId = crypto.randomUUID()
+          const { faPercentage, daPercentage, apPercentage, saPercentage, dominantStyle } =
+            getPercentageResults({
+              fa: newFaPoints,
+              da: newDaPoints,
+              ap: newApPoints,
+              sa: newSaPoints,
+            })
+          FBQ?.trackAttachmentQuizResult({
+            attachmentStyle: getAttachmentStyleText(dominantStyle),
+            eventId,
+          })
+          saveResult({
+            dominantStyle: getAttachmentStyleText(dominantStyle),
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            eventId,
+            faPercentage,
+            daPercentage,
+            apPercentage,
+            saPercentage,
+          })
+        }
+
         router.push(
           `/members-quiz/results/${params.id}/${calculateResult({
             faPoints: newFaPoints,
@@ -105,6 +147,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
           })
 
         setCurrentIndex(currentIndex + 1)
+        setIsSubmitting(false)
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -375,12 +418,14 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
               {/* ANSWER BUTTONS */}
               <div className="w-full flex-center space-x-3 mb-5 lg:mb-10">
                 <Button
+                  disabled={isSubmitting}
                   theme={quizColor}
                   className="font-bold tracking-widest rounded-full py-4 px-10"
                   label="TRUE"
                   onClick={onQuestionAnswer(true)}
                 />
                 <Button
+                  disabled={isSubmitting}
                   theme={quizColor}
                   className="font-bold tracking-widest rounded-full py-4 px-10"
                   label="FALSE"

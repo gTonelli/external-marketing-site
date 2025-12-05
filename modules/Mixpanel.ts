@@ -57,6 +57,7 @@ export type Pages =
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Black Friday`
   | `Black Friday Variant Page`
+  | `Black Friday Variant Page B`
   | `Codependency Quiz`
   | `Corporate Quiz Landing Page`
   | `Corporate Quiz Questions Page`
@@ -66,6 +67,10 @@ export type Pages =
   | `Cyber Monday Variant Page`
   | `DA Single - ${string}`
   | `Dating Freebie Page`
+  | `Dating Quiz Landing Page`
+  | `Dating Quiz Page`
+  | `Dating Quiz VSL Page`
+  | `Dating Quiz Results Page - ${string}`
   | `Dreamlife Results Page FA`
   | `Dreamlife Breakup Course Page`
   | `Dreamlife Codependency Course Page`
@@ -74,6 +79,7 @@ export type Pages =
   | `Dreamlife Sex Course Page`
   | `Dreamlife Holiday Free Trial Page`
   | `Dreamlife Upsell Page`
+  | `Dreamlife Somatic Course Page`
   | `External IAT Page`
   | `External IAT Page - Variant`
   | `External IAT Page (Klarna)`
@@ -152,6 +158,8 @@ class Mixpanel {
         // config override goes here
         api_host: 'https://api.personaldevelopmentschool.com',
         debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
+        // record_sessions_percent: 5,
+        // cross_subdomain_cookie: true,
       }
     )
   }

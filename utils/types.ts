@@ -8,6 +8,13 @@ export type TFonts =
 
 export type TStyle = 'ap' | 'da' | 'fa' | 'sa'
 
+export type TStyleLong =
+  | 'Anxious Preoccupied'
+  | 'Dismissive Avoidant'
+  | 'Fearful Avoidant'
+  | 'Securely Attached'
+
+export type TDatingStageLong = 'Dating' | 'Power Struggle' | 'Rhythm' | 'Devotion'
 /**
  * Window width breakpoints
  */
@@ -74,3 +81,17 @@ export interface IStrapiFetchProps<T> {
     }
   }
 }
+
+export type TUserData = {
+  id: number
+  firstName?: string
+  lastName?: string
+  email?: string
+  createdAt: string
+  avatar_url?: string
+  roles?: string
+  iat: number
+  exp: number
+}
+
+export type TRole = 'iat_member' | 'member' | 'bootcamp_member'

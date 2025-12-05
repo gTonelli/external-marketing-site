@@ -40,8 +40,8 @@ interface ISocialProofBarProps extends IDefaultProps {
 }
 
 export const SocialProofBar = ({
-  cardTexts = ['Course Enrolments', 'Views on YouTube', 'Members in over 120 countries worldwide'],
-  cardNumbers = [70000, 50000000, 45000],
+  cardTexts = ['Course Enrolments', 'Views on YouTube', 'Members in 120+ countries'],
+  cardNumbers = [70000, 76500000, 45000],
   className,
   classNameCard,
   classNameIcon,
@@ -50,8 +50,7 @@ export const SocialProofBar = ({
   return (
     <div
       className={cx(
-        `max-w-sm mx-auto py-10 text-center px-2 xxs:px-4 xs:px-6
-                    lg:gap-4  lg:max-w-screen-xl lg:grid lg:grid-cols-3 xl:gap-12`,
+        `max-w-sm mx-auto py-10 text-center px-2 xxs:px-4 xs:px-6 lg:gap-4  lg:max-w-screen-xl lg:grid lg:grid-cols-3 xl:gap-12`,
         className
       )}>
       {cardNumbers.map((_, i) => (
@@ -98,18 +97,18 @@ const SocialProofCard = ({
   return (
     <div
       className={cx(
-        'flex flex-center py-4 px-2 my-4 rounded-3xl text-left shadow-center-light bg-white xxs:px-4 xs:px-7',
+        'py-4 px-2 my-4 rounded-3xl text-left shadow-center-light bg-white xxs:px-4 xs:px-7',
         className
       )}>
-      <div className="grid grid-cols-12 gap-2 items-center">
+      <div className="grid text-left grid-cols-12 gap-2 items-center">
         <div className="flex justify-center items-center col-span-4">
           <FontAwesomeIcon className={cx('!text-primary', classNameIcon)} icon={icon} size="2x" />
         </div>
 
-        <div className="col-span-8">
+        <div className="col-span-8 text-black">
           <div ref={countUpRef} className="font-sspb text-3xl" />
 
-          <Text content={label} />
+          <p>{label}</p>
         </div>
       </div>
     </div>

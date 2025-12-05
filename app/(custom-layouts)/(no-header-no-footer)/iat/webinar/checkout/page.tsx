@@ -68,7 +68,7 @@ export default function IATWebinarSqueezePage() {
             <span className="text-primary">Transform Lives</span> & Secure Your Financial Future
           </h1>
 
-          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on October 20th, 2025</p>
+          <p className="font-bold text-xl mb-8">Join the Live IAT™ Program on January 22nd, 2026</p>
 
           <p className="font-bold">Time Left to Claim Your Exclusive Masterclass Discount</p>
 
@@ -76,7 +76,7 @@ export default function IATWebinarSqueezePage() {
             className="!justify-start"
             classNameDate="!bg-inherit !shadow-none !text-black !p-0"
             theme="light"
-            date={getOfferEndDate(new Date('2025-10-03T23:59:59-04:00'), 1)}
+            date={getOfferEndDate(new Date('2025-11-29T23:59:59-05:00'), 1)}
           />
 
           <ButtonScroll className="mt-8" label="JOIN NOW & SAVE $300" target="#pricing" />
@@ -288,8 +288,9 @@ export default function IATWebinarSqueezePage() {
               width={500}
               height={282}
               alt="Thumbnail for IAT webinar"
-              src="/images/IATWebinar/IAT-Fall-2-2025-Thumbnail.png"
+              src="/images/IATWebinar/IAT-January-2026-Thumbnail.webp"
               sizes="100vw"
+              quality={100}
             />
 
             <div className="border-b border-black pt-4 my-4">

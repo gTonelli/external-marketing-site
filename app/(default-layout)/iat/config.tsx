@@ -29,7 +29,7 @@ export const IAT_COPY = {
       'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
       <>
         <strong>
-          *Sign up for the Live Training, starting October 20, 2025 to January 5, 2026. Spots are
+          *Sign up for the Live Training, starting January 22, 2026 to April 9, 2026. Spots are
           limited.
         </strong>
       </>,
@@ -101,25 +101,25 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on October 20th, 1 PM ET`,
+          `Attend 1-hour review session on January 22nd, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on October 27th, 1 PM ET`,
+          `Attend 1-hour review session on January 29th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on November 3rd, 1 PM ET`,
+          `Attend 1-hour review session on February 5th, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on November 10th, 1 PM ET`,
+          `Attend 1-hour review session on February 12th, 6 PM ET`,
         ],
       },
 
@@ -127,7 +127,7 @@ export const IAT_COPY = {
         heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
         copy1: [
-          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from November 17th - January 5th every Monday at 1 PM ET for 8 weeks.',
+          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from February 19th - April 9th every Thursday at 6 PM ET for 8 weeks.',
           'Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais.',
           <>
             <strong>These group sessions with Thais include:</strong>
@@ -422,7 +422,7 @@ export const IAT_COPY = {
         `The impact of Personality Needs on your life`,
         `How To Express Your Needs and Build Connection`,
         `Healthy Habits to Get Your Needs Met`,
-        ` Q&A session with IAT™ Coaches (Live Program Only)`,
+        `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
       textBottom: ``,

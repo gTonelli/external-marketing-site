@@ -379,6 +379,8 @@ export const IAT_COPY = {
         `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
+      variantListItem: 'Live Session Thursday January 22, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `You'll begin your journey by learning:`,
@@ -394,6 +396,8 @@ export const IAT_COPY = {
         `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
 
+      variantListItem: 'Live Session Thursday January 29, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `You'll begin your journey by learning:`,
@@ -408,6 +412,8 @@ export const IAT_COPY = {
         `Reprogramming Tools`,
         `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
+
+      variantListItem: 'Live Session Thursday February 5, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -425,6 +431,8 @@ export const IAT_COPY = {
         `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
+      variantListItem: 'Live Session Thursday February 12, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `You'll begin your journey by learning:`,
@@ -440,6 +448,8 @@ export const IAT_COPY = {
         `The overview of what creates insecure attachment styles and exactly how to transform these key areas (core wounds, needs, boundaries and more!)`,
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
+
+      variantListItem: 'Live Session Thursday February 19, 2026, at 6PM ET',
 
       textBottom: `Plus you’ll learn the basics of Integrated Attachment Theory™, including an overview of core wounds, needs, emotional patterns, behaviors, communication patterns & boundaries of each attachment style.`,
 
@@ -458,6 +468,8 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Thursday February 26, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s training, you’ll learn:`,
@@ -474,6 +486,8 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Thursday March 5, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week's module, you'll learn:`,
@@ -489,6 +503,8 @@ export const IAT_COPY = {
         `The best reprogramming tools to use for each attachment style`,
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
+
+      variantListItem: 'Live Session Thursday March 12, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -507,6 +523,8 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Thursday March 19, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s module, you’ll learn:`,
@@ -523,6 +541,8 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Thursday March 26, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s module, you’ll learn:`,
@@ -538,6 +558,8 @@ export const IAT_COPY = {
         `How to feel confident asking for support and expressing healthy vulnerability`,
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
+
+      variantListItem: 'Live Session Thursday April 2, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -556,6 +578,8 @@ export const IAT_COPY = {
         `How to make a healthy career transition with steps for success`,
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
+
+      variantListItem: 'Live Session Thursday April 9, 2026, at 6PM ET',
 
       textBottom: ``,
 

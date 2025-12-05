@@ -87,7 +87,7 @@ export const IATFormats = ({ isVariant = false }: { isVariant?: boolean }) => {
                   key={`itinerary1_${index}`}
                   heading={week.heading}
                   initialOpenState={index == 0 ? true : false}
-                  listItems={week.listItems}
+                  listItems={isVariant ? [...week.listItems, week.variantListItem] : week.listItems}
                   textBottom={week.textBottom}
                   textTop={week.textTop}
                 />
@@ -157,7 +157,7 @@ export const IATFormats = ({ isVariant = false }: { isVariant?: boolean }) => {
                   key={`itinerary2_${index}`}
                   heading={week.heading}
                   initialOpenState={false}
-                  listItems={week.listItems}
+                  listItems={isVariant ? [...week.listItems, week.variantListItem] : week.listItems}
                   textBottom={week.textBottom}
                   textTop={week.textTop}
                 />

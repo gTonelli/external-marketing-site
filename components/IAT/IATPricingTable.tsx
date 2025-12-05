@@ -153,7 +153,7 @@ export const IATPricingTable = () => {
                       {`${formatPrice(plan.originalPrice)}`}
                     </p>
 
-                    <p className="!text-3xl font-ssp font-bold text-purple-dark inline">
+                    <p className="!text-3xl font-ssp font-bold text-primary inline">
                       {`${formatPrice(plan.currentPrice)}`}
                     </p>
                   </div>
@@ -164,7 +164,7 @@ export const IATPricingTable = () => {
 
                   {/* ENROLL BTN */}
                   <Button
-                    label="SEE PRICE"
+                    label="VIEW PLANS"
                     onClick={() =>
                       isRecommended ? setIsLiveModalOpen(true) : setIsRecordedModalOpen(true)
                     }
@@ -191,14 +191,14 @@ export const IATPricingTable = () => {
                           <p className="font-sspb text-left text-sm m-0">{benefit.text}</p>
                         </div>
 
-                        <div className="text-purple-dark">
+                        <div className="text-primary">
                           <strong>{benefit.price}</strong>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="w-full text-center text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
+                  <div className="w-full text-center text-base bg-primary text-white rounded-lg p-2 mt-4">
                     <strong>Savings Valued At Over $3,500</strong>
                   </div>
                 </Card>
@@ -212,14 +212,14 @@ export const IATPricingTable = () => {
         <section className="container shadow-centered rounded-2xl mx-auto p-6 overflow-visible">
           <div className="relative w-full grid grid-cols-5 grid-rows-9 gap-y-2 text-center place-items-center overflow-visible">
             <div className="h-fit flex col-span-2 place-self-start mt-4">
-              <div className=" text-purple-dark text-2xl pl-4 ">
+              <div className=" text-primary text-2xl pl-4 ">
                 <h2>Integrated Attachment</h2>
 
                 <h2>
                   Theory<sup>TM</sup> Certification
                 </h2>
 
-                <div className="w-fit text-base bg-purple-dark text-white rounded-lg p-2 mt-4">
+                <div className="w-fit text-base bg-primary text-white rounded-lg p-2 mt-4">
                   <strong>Savings Valued At Over $3,500</strong>
                 </div>
               </div>
@@ -235,14 +235,14 @@ export const IATPricingTable = () => {
                 height={43}
               />
 
-              <p className="font-bold tracking-widest px-2 mb-2">LIVE TRAINING</p>
+              <p className="font-bold tracking-widest px-2 my-2">LIVE TRAINING</p>
 
               <div className="mb-2">
                 <p className="line-through text-grey font-medium inline pr-2">
                   {`${formatPrice(pricingPlan[0].originalPrice)}`}
                 </p>
 
-                <p className="!text-3xl font-ssp font-bold text-purple-dark inline">
+                <p className="!text-3xl font-ssp font-bold text-primary inline">
                   {`${formatPrice(pricingPlan[0].currentPrice)}`}
                 </p>
               </div>
@@ -251,7 +251,7 @@ export const IATPricingTable = () => {
                 {`SAVE ${formatPrice(pricingPlan[0].originalPrice - pricingPlan[0].currentPrice)}`}
               </p>
 
-              <Button label="SEE PRICE" onClick={() => setIsLiveModalOpen(true)} />
+              <Button label="VIEW PLANS" onClick={() => setIsLiveModalOpen(true)} />
             </div>
             {/* on-demand */}
             <div className="col-start-5 row-start-1 mt-4">
@@ -263,14 +263,14 @@ export const IATPricingTable = () => {
                 height={43}
               />
 
-              <p className="font-bold tracking-widest px-2 mb-2">ON-DEMAND</p>
+              <p className="font-bold tracking-widest px-2 my-2">ON-DEMAND</p>
 
               <div className="mb-2">
                 <p className="line-through text-grey font-medium inline pr-2">
                   {`${formatPrice(pricingPlan[1].originalPrice)}`}
                 </p>
 
-                <p className="!text-3xl font-ssp font-bold text-purple-dark inline">
+                <p className="!text-3xl font-ssp font-bold text-primary inline">
                   {`${formatPrice(pricingPlan[1].currentPrice)}`}
                 </p>
               </div>
@@ -279,7 +279,7 @@ export const IATPricingTable = () => {
                 {`SAVE ${formatPrice(pricingPlan[1].originalPrice - pricingPlan[1].currentPrice)}`}
               </p>
 
-              <Button label="SEE PRICE" onClick={() => setIsRecordedModalOpen(true)} />
+              <Button label="VIEW PLANS" onClick={() => setIsRecordedModalOpen(true)} />
             </div>
 
             {/* highlight */}
@@ -289,7 +289,7 @@ export const IATPricingTable = () => {
               <p className="text-black text-left font-medium py-3 m-0">Certification</p>
             </div>
 
-            <div className="col-start-3 row-start-2 text-purple-dark font-bold">
+            <div className="col-start-3 row-start-2 text-primary font-bold">
               <p className="m-0">$2,000</p>
             </div>
 
@@ -307,7 +307,7 @@ export const IATPricingTable = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-3 place-self-stretch font-bold flex justify-center items-center text-purple-dark bg-primary-light/20">
+            <div className="col-start-3 row-start-3 place-self-stretch font-bold flex justify-center items-center text-primary bg-primary-light/20">
               <p className="m-0">$1,000</p>
             </div>
 
@@ -325,7 +325,7 @@ export const IATPricingTable = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-4 text-purple-dark font-bold">
+            <div className="col-start-3 row-start-4 text-primary font-bold">
               <p className="m-0">$1,000</p>
             </div>
 
@@ -343,7 +343,7 @@ export const IATPricingTable = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-5 place-self-stretch font-bold flex justify-center items-center text-purple-dark bg-primary-light/20">
+            <div className="col-start-3 row-start-5 place-self-stretch font-bold flex justify-center items-center text-primary bg-primary-light/20">
               <p className="m-0">$2,200</p>
             </div>
 
@@ -361,7 +361,7 @@ export const IATPricingTable = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-6 text-purple-dark font-bold">
+            <div className="col-start-3 row-start-6 text-primary font-bold">
               <p className="m-0">$500</p>
             </div>
 
@@ -380,7 +380,7 @@ export const IATPricingTable = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-7 place-self-stretch font-bold flex justify-center items-center text-purple-dark bg-primary-light/20">
+            <div className="col-start-3 row-start-7 place-self-stretch font-bold flex justify-center items-center text-primary bg-primary-light/20">
               <p className="m-0">$500</p>
             </div>
 
@@ -398,7 +398,7 @@ export const IATPricingTable = () => {
               </p>
             </div>
 
-            <div className="col-start-3 row-start-8 place-self-stretch font-bold flex justify-center items-center text-purple-dark">
+            <div className="col-start-3 row-start-8 place-self-stretch font-bold flex justify-center items-center text-primary">
               <p className="m-0">$300</p>
             </div>
 
@@ -414,7 +414,7 @@ export const IATPricingTable = () => {
               <p className="text-black text-left font-medium py-3 m-0">Live Q&A With Thais</p>
             </div>
 
-            <div className="col-start-3 row-start-9 place-self-stretch font-bold flex justify-center items-center text-purple-dark bg-primary-light/20">
+            <div className="col-start-3 row-start-9 place-self-stretch font-bold flex justify-center items-center text-primary bg-primary-light/20">
               <p className="m-0">$1,500</p>
             </div>
 

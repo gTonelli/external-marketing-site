@@ -151,7 +151,7 @@ export const IATPriceCard = ({
           } px-2 pt-8 mb-8 !pb-0 lg:px-4`}
           classNameInner="!max-w-full !px-4 !m-0 mx-auto">
           {isLive && (
-            <div className="absolute -mt-24 left-1/2 -translate-x-1/2 ">
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2">
               <p className="w-[280px] text-center text-white font-bold bg-green-check rounded-10 py-4 tracking-0.325 md:px-4">
                 RECOMMENDED
               </p>
@@ -166,11 +166,9 @@ export const IATPriceCard = ({
             {prices.map((data, index) => (
               <div
                 key={`price_${index}`}
-                className={`p-2 rounded-10 col-span-2 border-2 border-purple-dark cursor-pointer
+                className={`p-2 rounded-10 col-span-2 border-2 border-primary cursor-pointer
                   lg:hover:bg-gray-light lg:p-3 ${
-                    selectedCardIndex === index
-                      ? 'bg-purple-dark text-white lg:hover:!bg-purple-medium lg:hover:!border-purple-medium'
-                      : ''
+                    selectedCardIndex === index ? 'bg-primary text-white lg:!bg-primary' : ''
                   }`}
                 onClick={() => setSelectedCardIndex(index)}>
                 <div className="flex items-start mb-2">
@@ -182,13 +180,13 @@ export const IATPriceCard = ({
 
                   <div className="flex items-end">
                     <p
-                      className={`inline font-sspb !text-4xl text-black mx-2 ${
+                      className={`inline font-sspb !text-3xl text-black mx-2 ${
                         selectedCardIndex === index ? 'text-white' : 'text-black'
                       }`}>
                       {data.price}
                     </p>
 
-                    <p className="inline text-lg font-medium">{data.priceLabel}</p>
+                    <p className="inline font-medium">{data.priceLabel}</p>
                   </div>
                 </div>
 
@@ -197,7 +195,7 @@ export const IATPriceCard = ({
             ))}
 
             <Button
-              className="!text-black w-full border-purple-dark border-2 bg-white"
+              className="!text-black w-full border-primary border-2 bg-white"
               label="BACK"
               onClick={() => {
                 setIsExpanded(false)

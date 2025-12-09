@@ -433,7 +433,7 @@ export const IATPricingTable = () => {
       <Dialog
         isShown={isLiveModalOpen}
         onToggle={() => setIsLiveModalOpen(!isLiveModalOpen)}
-        className="w-full max-w-2xl">
+        className="[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] w-full max-w-2xl overflow-y-auto pt-16">
         <IATPriceCard
           isLive
           isCardExpanded
@@ -450,7 +450,7 @@ export const IATPricingTable = () => {
       <Dialog
         isShown={isRecordedModalOpen}
         onToggle={() => setIsRecordedModalOpen(!isRecordedModalOpen)}
-        className="w-full max-w-2xl">
+        className="[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] w-full max-w-2xl overflow-y-auto pt-16">
         <IATPriceCard
           isCardExpanded
           benefits={IAT.price.recorded_mode}

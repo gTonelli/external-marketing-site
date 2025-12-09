@@ -72,7 +72,7 @@ export default function IATMasterclassRecordingPage() {
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2025-11-29T23:59:59-05:00'), 1)}
+          date={getOfferEndDate(new Date('2026-01-17T17:30:00-05:00'), 1)}
         />
       </Section>
 

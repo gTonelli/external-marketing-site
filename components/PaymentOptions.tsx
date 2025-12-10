@@ -98,6 +98,31 @@ const fourteendayFTConfig: TConfig = {
     '*$67.00/month after your free trial. Cancel any time before your trial ends to avoid being charged. This offer ends soon!*',
 }
 
+const pillarsConfig: TConfig = {
+  offerLabel: 'Free Trial & Exclusive Free Course!',
+  title: 'Get the Key Pillars Course For Free & Start Building Relationships With Confidence',
+  copy: (
+    <>
+      Sign up for a 7-day Free Trial to our All-Access Pass and KEEP the Key Pillars for a Secure
+      Relationship Course for LIFE. Learn how to heal deep wounds, break unhealthy patterns, and
+      feel secure in love!
+    </>
+  ),
+  ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
+  checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
+  disclaimer: (
+    <>
+      *
+      <strong>
+        With your 7 day free trial, you’ll get to keep the Key Pillars for a Secure Relationship
+        Course for free (and keep it for life, even after your trial ends!) After 7 days, you’ll
+        become a member of PDS and get access to every course and every live event for $67/month.
+        You won’t be charged before day 7 and can cancel anytime prior with no charge.
+      </strong>
+    </>
+  ),
+}
+
 const allConfigs = {
   dreamLife: baseConfig,
   blackFriday14day: { ...fourteendayFTConfig, offerLabel: 'BLACK FRIDAY OFFER' },
@@ -161,30 +186,7 @@ const allConfigs = {
       </>
     ),
   },
-  dreamLifePillarsCourse: {
-    offerLabel: 'Free Trial & Exclusive Free Course!',
-    title: 'Get the Key Pillars Course For Free & Start Building Relationships With Confidence',
-    copy: (
-      <>
-        Sign up for a 7-day Free Trial to our All-Access Pass and KEEP the Key Pillars for a Secure
-        Relationship Course for LIFE. Learn how to heal deep wounds, break unhealthy patterns, and
-        feel secure in love!
-      </>
-    ),
-    ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
-    checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
-    disclaimer: (
-      <>
-        *
-        <strong>
-          With your 7 day free trial, you’ll get to keep the Key Pillars for a Secure Relationship
-          Course for free (and keep it for life, even after your trial ends!) After 7 days, you’ll
-          become a member of PDS and get access to every course and every live event for $67/month.
-          You won’t be charged before day 7 and can cancel anytime prior with no charge.
-        </strong>
-      </>
-    ),
-  },
+  dreamLifePillarsCourse: pillarsConfig,
   dreamLifeSomatic: {
     offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
     title: 'Unlock the Powerful Tools to Start Healing & Reconnecting With Yourself',
@@ -323,6 +325,30 @@ const allConfigs = {
           your trial ends!) After 7 days, you’ll become a member of PDS and get access to every
           course and every live event for $67/month. You won’t be charged until day 7, and you can
           cancel at any time with no additional charge.
+        </em>
+      </>
+    ),
+  },
+  newYearNewYou: {
+    ...pillarsConfig,
+    copy: (
+      <>
+        Set into the new you this new year! Sign up for a <strong>7-Day Free Trial</strong> to our
+        All-Access Pass and{' '}
+        <strong>KEEP the Key Pillars for a Secure Relationship Course for LIFE.</strong> Learn how
+        to heal deep wounds, break unhealthy patterns, and feel secure in love!
+      </>
+    ),
+    checkoutUrl: externalRoutes.checkoutJune2025PromoTrial.concat('-new-year'),
+    disclaimer: (
+      <>
+        *
+        <em>
+          With your 7-day free trial, you’ll get to keep the{' '}
+          <strong>Key Pillars for a Secure Relationship Course for free</strong> (and keep it for
+          life, even after your trial ends!) After 7 days, you’ll become a member of PDS and get
+          access to every course and every live event for $67/month. You won’t be charged before day
+          7 and can cancel at any time before day 7 with no charge.
         </em>
       </>
     ),

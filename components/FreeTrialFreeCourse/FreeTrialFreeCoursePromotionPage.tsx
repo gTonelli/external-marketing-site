@@ -17,7 +17,6 @@ import cx from 'classnames'
 // modules
 import { Pages } from '@/modules/Mixpanel'
 // styles
-import './style.css'
 import '@/styles/default-styles.css'
 
 interface IPromotionPageProps {
@@ -28,18 +27,42 @@ interface IPromotionPageProps {
 export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotionPageProps) => {
   return (
     <Page page_name={pageName} className="relative">
-      <section className="text-center bg-purple-dark px-2">
-        <h2 className="text-white pt-4 max-w-screen-lg mx-auto">{config.timer.title}</h2>
+      <section className={cx('text-center text-white bg-purple-dark px-2', config.timer.className)}>
+        {config.timer.imageSrc && (
+          <Image
+            className={config.timer.imageClassName}
+            alt={config.timer.imageAlt || 'Countdown timer section image'}
+            src={config.timer.imageSrc}
+            width={config.timer.imageWidth}
+            height={config.timer.imageHeight}
+            quality={100}
+            sizes="100vw"
+          />
+        )}
+
+        <h2 className="pt-4 max-w-screen-lg mx-auto">{config.timer.title}</h2>
 
         <div className="pb-4">
-          <CountdownTimer date={new Date(`2025-05-17T23:59:59-04:00`)} theme="dark" />
+          <CountdownTimer
+            className={config.timer.classNameCountdown}
+            classNameDate={config.timer.classNameDate}
+            classNameLabel={config.timer.classNameDateLabel}
+            classNameDateSeperator={config.timer.classNameDateSeperator}
+            date={
+              config.timer.date
+                ? new Date(config.timer.date)
+                : new Date(`2025-05-17T23:59:59-04:00`)
+            }
+            theme="dark"
+          />
         </div>
       </section>
 
       <section
         className={cx(
-          'w-full text-center pt-6 pb-10 px-4 lg:pt-22 lg:pb-8',
-          config.banner.theme === 'dark' ? 'bg-black-secondary text-white' : 'bg-pink-auxiliary'
+          'w-full relative text-center pt-6 pb-10 px-4 lg:pt-22 lg:pb-8',
+          config.banner.theme === 'dark' ? 'bg-black-secondary text-white' : 'bg-pink-auxiliary',
+          config.banner.className
         )}>
         <h1 className="relative max-w-xl leading-[50px] mx-auto mb-4 z-10">
           {config.banner.title}
@@ -65,7 +88,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
       </section>
 
       <Image
-        className="hidden absolute w-1/2 max-w-2xl top-60 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
+        className="hidden absolute w-1/2 max-w-2xl top-80 lg:-left-56 lg:block xl:w-1/3 xl:-left-32 2xl:-left-44"
         src="/images/TrialHeadspace/hero-left-mockup.png"
         alt="hero-mockup-left"
         width={729}
@@ -75,7 +98,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
       />
 
       <Image
-        className="hidden absolute w-1/2 max-w-2xl top-60 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
+        className="hidden absolute w-1/2 max-w-2xl top-80 lg:-right-56 lg:block xl:w-1/3 xl:-right-32"
         src="/images/TrialHeadspace/hero-right-mockup.png"
         alt="hero-mockup-right"
         width={656}
@@ -111,7 +134,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
           </div>
         </div>
 
-        <div className="bg-pink-tertiary rounded-2xl p-6 mb-4">
+        <div className="shadow-2xl rounded-2xl p-6 mb-8">
           {config.courseOutcome.offer.map((item, idx) => (
             <p key={`course_outcome_offer_${idx}`}>{item}</p>
           ))}
@@ -120,7 +143,19 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
         <ButtonCheckout href={config.checkoutUrl} label={config.courseOutcome.ctaLabel} />
       </Section>
 
-      <Section classNameInner="bg-white-secondary rounded-2xl p-6">
+      <Section
+        className={config.howItHelps.className}
+        classNameInner={cx('bg-white-secondary rounded-2xl p-6', config.howItHelps.classNameInner)}>
+        {config.howItHelps.imageSrc && (
+          <Image
+            className={config.howItHelps.classNameImage}
+            alt={config.howItHelps.imageAlt || 'How it helps section image'}
+            src={config.howItHelps.imageSrc}
+            width={config.howItHelps.imageWidth}
+            height={config.howItHelps.imageHeight}
+          />
+        )}
+
         <h2>{config.howItHelps.title}</h2>
 
         <div className="grid gap-4 text-left my-4 lg:grid-cols-2">
@@ -148,7 +183,17 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
         </p>
       </Section>
 
-      <Section className="bg-black text-white !py-16">
+      <Section className={cx('bg-black text-white py-16', config.steps.className)}>
+        {config.steps.imageSrc && (
+          <Image
+            className={config.steps.classNameImage}
+            alt={config.steps.imageAlt || 'Steps section image'}
+            src={config.steps.imageSrc}
+            width={config.steps.imageWidth}
+            height={config.steps.imageHeight}
+          />
+        )}
+
         <h2>{config.steps.title}</h2>
 
         <p>{config.steps.copy}</p>
@@ -159,7 +204,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
             { ...STEPS_TO_PURCHASE[1], ...config.steps.stepTwo },
             STEPS_TO_PURCHASE[2],
           ].map((item, idx) => (
-            <div key={`puchase_steps_${idx}`}>
+            <div key={`purchase_steps_${idx}`}>
               <div className="min-h-48 mb-4">
                 <Image
                   className="w-full rounded-xl lg:max-h-48"
@@ -231,6 +276,11 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
         classNamePaymentOptions="!max-w-xl mx-auto lg:flex-col"
         paymentOptionsConfigKey={config.paymentOptionsConfigKey}
         communityBullets={config.communityTeaser.communityBullets}
+        footerImageClassName={config.communityTeaser.footerImageClassName}
+        footerImageSrc={config.communityTeaser.footerImageSrc}
+        footerImageAlt={config.communityTeaser.footerImageAlt}
+        footerImageWidth={config.communityTeaser.footerImageWidth}
+        footerImageHeight={config.communityTeaser.footerImageHeight}
       />
     </Page>
   )
@@ -286,10 +336,22 @@ export type TPromotionPageConfig = {
   checkoutUrl: string
   timer: {
     title: string
+    className?: string
+    imageClassName?: string
+    imageAlt?: string
+    imageSrc?: string
+    imageWidth?: number
+    imageHeight?: number
+    classNameCountdown?: string
+    classNameDate?: string
+    classNameDateLabel?: string
+    classNameDateSeperator?: string
+    date?: string
   }
   banner: {
     title: string
     theme?: 'light' | 'dark' // default is light
+    className?: string
   }
   courseOutcome: {
     title: string
@@ -301,14 +363,27 @@ export type TPromotionPageConfig = {
     ctaLabel: string
   }
   howItHelps: {
+    className?: string
+    classNameInner?: string
+    classNameImage?: string
     title: string
     leftList: (string | JSX.Element)[]
     rightList: (string | JSX.Element)[]
     ctaLabel: string
     disclaimer: string | JSX.Element
+    imageSrc?: string
+    imageAlt?: string
+    imageWidth?: number
+    imageHeight?: number
   }
   steps: {
     title: string
+    className?: string
+    classNameImage?: string
+    imageSrc?: string
+    imageAlt?: string
+    imageWidth?: number
+    imageHeight?: number
     copy: string | JSX.Element
     stepTwo: {
       title: string
@@ -320,5 +395,10 @@ export type TPromotionPageConfig = {
   communityTeaser: {
     teaserHeading: string
     communityBullets: (string | JSX.Element)[]
+    footerImageClassName?: string
+    footerImageSrc?: string
+    footerImageAlt?: string
+    footerImageWidth?: number
+    footerImageHeight?: number
   }
 }

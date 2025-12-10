@@ -66,19 +66,19 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
           />
         </div>
 
-        <h2>{CONFIG.intro.title}</h2>
+        <h2>{isVariant ? CONFIG.variant.iatExplanationSection.h2 : CONFIG.intro.title}</h2>
 
         <div className="grid gap-8 text-left mb-8 lg:grid-cols-2">
           <div>
-            <p>{CONFIG.intro.copy1}</p>
+            <p>{isVariant ? CONFIG.variant.iatExplanationSection.copy[0] : CONFIG.intro.copy1}</p>
 
-            <p>{CONFIG.intro.copy2}</p>
+            <p>{isVariant ? CONFIG.variant.iatExplanationSection.copy[1] : CONFIG.intro.copy2}</p>
           </div>
 
           <div>
-            <p>{CONFIG.intro.copy3}</p>
+            <p>{isVariant ? CONFIG.variant.iatExplanationSection.copy[2] : CONFIG.intro.copy3}</p>
 
-            <p>{CONFIG.intro.copy4}</p>
+            <p>{isVariant ? CONFIG.variant.iatExplanationSection.copy[3] : CONFIG.intro.copy4}</p>
           </div>
         </div>
 
@@ -107,30 +107,8 @@ export function IATContent({ isVariant = false }: IIATContentProps) {
                 {CONFIG.variant.coachingShortcomingSection.copy.map((paragraph, index) => (
                   <p key={`coaching_shortcoming_${index}`}>{paragraph}</p>
                 ))}
-              </div>
-            </div>
-          </Section>
 
-          <Section>
-            <div className="flex flex-col gap-8 text-left mb-8 lg:flex-row">
-              <div className="w-full lg:w-2/3">
-                <h2>{CONFIG.variant.iatExplanationSection.h2}</h2>
-
-                {CONFIG.variant.iatExplanationSection.copy.map((paragraph, index) => (
-                  <p key={`iat_explanation_${index}`}>{paragraph}</p>
-                ))}
-              </div>
-
-              <div className="w-full lg:w-1/3">
-                <Image
-                  src="/images/DatingQuiz/thais-with-laptop.png"
-                  className="w-full h-full rounded-2xl object-cover"
-                  alt="Thais Gibson with a laptop"
-                  width={400}
-                  height={400}
-                  quality={100}
-                  sizes="100vw"
-                />
+                <IATHigherLevelBookingButton className="mt-8" label="BOOK A DISCOVERY CALL" />
               </div>
             </div>
           </Section>

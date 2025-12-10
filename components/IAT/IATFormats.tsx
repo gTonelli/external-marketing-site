@@ -170,7 +170,9 @@ export const IATFormats = ({ isVariant = false }: { isVariant?: boolean }) => {
       {isVariant && (
         <div className="text-left">
           <p className="font-bold uppercase tracking-33">
-            {IAT.training.live_training.intensive_week.copy1[2]}
+            {isVariant
+              ? 'THESE INTENSIVE GROUP TRAINING SESSIONS WITH THAIS INCLUDE:'
+              : IAT.training.live_training.intensive_week.copy1[2]}
           </p>
 
           <List

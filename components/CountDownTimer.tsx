@@ -131,7 +131,7 @@ export const CountdownTimer = forwardRef(
                               : theme === 'transparent'
                               ? 'text-primary'
                               : 'text-black'
-                          } -mt-12 mx-1`,
+                          } -mt-8 mx-1`,
                           classNameDateSeperator
                         )}>
                         :

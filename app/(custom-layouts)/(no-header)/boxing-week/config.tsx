@@ -67,7 +67,6 @@ export const CONFIG: TPromotionPageConfig = {
   },
   howItHelps: {
     title: 'Learn Exactly How to Create Lasting Emotional and Physical Closeness',
-    className: '',
     classNameInner: 'relative bg-snowflakes !bg-blue-auxiliary',
     classNameImage: 'absolute -top-8 -left-8 w-24 h-24 lg:-top-16 lg:-left-16 lg:w-40 lg:h-40',
     imageSrc: '/images/NewYearPromotion/santa-hat.png',

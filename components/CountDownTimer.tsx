@@ -106,15 +106,17 @@ export const CountdownTimer = forwardRef(
                         </p>
                       </div>
 
-                      <div className={cx('mt-2', classNameLabel)}>
+                      <div>
                         <p
-                          className={`text-sm font-normal ${
+                          className={cx(
+                            'text-sm font-normal lg:text-base',
                             theme === 'dark'
                               ? 'text-white'
                               : theme === 'transparent'
                               ? 'text-primary'
-                              : 'text-black'
-                          } lg:text-base`}>
+                              : 'text-black',
+                            classNameLabel
+                          )}>
                           {number.label}
                         </p>
                       </div>

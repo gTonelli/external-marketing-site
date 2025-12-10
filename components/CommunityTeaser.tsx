@@ -11,37 +11,35 @@ import { SocialProofStatistics } from './SocialProof/SocialProofStatistics'
 
 interface ICommunityTeaserProps {
   classNamePaymentOptions?: string
-  includeBgImage?: boolean
   includePaymentOptions?: boolean
   sectionHeading?: string
   teaserHeading?: string
   paymentOptionsConfigKey: TPaymentOptionsConfigKey
   communityBullets?: (string | JSX.Element)[]
+  footerImageClassName?: string
+  footerImageSrc?: string
+  footerImageAlt?: string
+  footerImageWidth?: number
+  footerImageHeight?: number
 }
 
 export const CommunityTeaser = ({
   classNamePaymentOptions,
-  includeBgImage = false,
   includePaymentOptions = true,
   sectionHeading = TH.COMMUNITY.heading,
   teaserHeading = TH.COMMUNITY.subheading,
   paymentOptionsConfigKey,
   communityBullets,
+  footerImageClassName,
+  footerImageSrc,
+  footerImageAlt,
+  footerImageWidth,
+  footerImageHeight,
 }: ICommunityTeaserProps) => {
   const communityBulletsCopy = communityBullets || TH.COMMUNITY.bullets
 
   return (
     <section className="relative w-full bg-black px-4 py-20">
-      {includeBgImage && (
-        <Image
-          className="absolute w-full h-full top-0 left-0 z-0 opacity-30"
-          src="/images/TrialHeadspace/snowflakes-bg.webp"
-          alt="hero-mockup"
-          width={3000}
-          height={2000}
-        />
-      )}
-
       <div className="relative max-w-5xl text-center text-white mx-auto">
         <SocialProofStatistics />
 
@@ -73,6 +71,16 @@ export const CommunityTeaser = ({
           </div>
         )}
       </div>
+
+      {footerImageSrc && (
+        <Image
+          className={footerImageClassName}
+          src={footerImageSrc}
+          alt={footerImageAlt || 'Community teaser footer image'}
+          width={footerImageWidth}
+          height={footerImageHeight}
+        />
+      )}
     </section>
   )
 }

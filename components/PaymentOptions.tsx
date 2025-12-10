@@ -298,6 +298,35 @@ const allConfigs = {
       </>
     ),
   },
+  boxingWeek: {
+    offerLabel: 'Boxing Week Special: Free Course For Life + Free Trial',
+    title: 'Get Your Attachment Styles & Sex Course ($250 Value) - For Free!',
+    copy: (
+      <>
+        Start your <strong>7-Day Free Trial of the All-Access Pass</strong> today and get lifetime
+        access to the{' '}
+        <strong>Attachment Styles & Sex course (a $250 value) absolutely FREE.</strong>
+        For Boxing Week only, get the proven roadmap to help you navigate intimacy, build deeper
+        connections, embrace more enjoyable experiences, and learn how you and your partner approach
+        intimacy based on your attachment style. Even if you leave before the trial ends, you’ll
+        keep the course forever!
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE COURSE & TRIAL',
+    checkoutUrl: externalRoutes.checkoutMarch2025PromoTrial.concat('-boxing-week'),
+    disclaimer: (
+      <>
+        *
+        <em>
+          With your 7-day free trial, you’ll get to keep the{' '}
+          <strong>Attachment Styles & Sex Course for free</strong> (and keep it for life, even after
+          your trial ends!) After 7 days, you’ll become a member of PDS and get access to every
+          course and every live event for $67/month. You won’t be charged until day 7, and you can
+          cancel at any time with no additional charge.
+        </em>
+      </>
+    ),
+  },
 } satisfies Record<string, Partial<TConfig>>
 
 export type TPaymentOptionsConfigKey = keyof typeof allConfigs

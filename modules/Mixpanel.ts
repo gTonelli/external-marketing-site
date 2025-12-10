@@ -55,6 +55,7 @@ export type Pages =
   | `Attachment Style Report - FA`
   | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
+  | `Boxing Week Page`
   | `Black Friday`
   | `Black Friday Variant Page`
   | `Black Friday Variant Page B`

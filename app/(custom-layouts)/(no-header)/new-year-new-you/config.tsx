@@ -21,7 +21,7 @@ CONFIG.timer.classNameDateSeperator = '!text-black'
 CONFIG.timer.date = '2026-01-01T23:59:59-05:00'
 CONFIG.banner.title =
   'New Year, New You! Get the Only Tools You Need to Build The Best Relationship with Yourself and Others'
-CONFIG.banner.className = 'bg-blue-auxiliary'
+CONFIG.banner.className = 'bg-fireworks !bg-blue-auxiliary'
 CONFIG.courseOutcome.title =
   'This New Year, Unlock the Tools to Create Healthy, Secure Relationships'
 CONFIG.courseOutcome.offer = [
@@ -41,7 +41,7 @@ CONFIG.courseOutcome.offer = [
     or cost to you.
   </>,
 ]
-CONFIG.howItHelps.classNameInner = 'relative !bg-pink-auxiliary'
+CONFIG.howItHelps.classNameInner = 'relative bg-fireworks !bg-pink-auxiliary'
 CONFIG.howItHelps.classNameImage =
   'absolute -top-12 -left-8 w-24 h-24 lg:-top-20 lg:-left-16 lg:w-36 lg:h-36'
 CONFIG.howItHelps.imageSrc = '/images/NewYearPromotion/happy-new-year-gift.png'

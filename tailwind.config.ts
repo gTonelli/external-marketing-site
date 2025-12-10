@@ -44,6 +44,7 @@ const config: Config = {
         'blue-lightest-50': '#e3eded80',
         'blue-dashboard': '#F7F7FE',
         'blue-darkest': '#142BD5',
+        'blue-auxiliary': '#D7E7EA',
 
         brown: '#82737d',
         beige: '#e4d9d3',

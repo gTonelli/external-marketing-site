@@ -15,7 +15,7 @@ export const CONFIG: TPromotionPageConfig = {
   banner: {
     title:
       'Lasting Love Begins Now. Learn What You Need to Attract & Build a Secure, Fulfilling Relationship',
-    className: 'bg-[#CDDFE3]',
+    className: '!bg-[#CDDFE3]',
   },
   courseOutcome: {
     title: 'Unearth Your Needs and Transform Every Relationship',

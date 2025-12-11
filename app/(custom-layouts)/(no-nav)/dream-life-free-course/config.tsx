@@ -7,10 +7,10 @@ export const CONFIG: TPromotionPageConfig = {
   timer: {
     title:
       'LIMITED TIME OFFER: Get The Discover, Fulfill, and Embrace Your Personal Needs Course ($250 Value) FREE FOR LIFE with a 7-Day Free Trial to the All-Access Pass',
-    className: '!bg-blue !text-black',
+    className: 'bg-[#CDDFE3] text-black',
     classNameDate: '!bg-black !text-white ',
-    classNameDateLabel: '!text-black',
-    classNameDateSeperator: '!text-black',
+    classNameDateLabel: 'text-black',
+    classNameDateSeperator: 'text-black',
   },
   banner: {
     title:

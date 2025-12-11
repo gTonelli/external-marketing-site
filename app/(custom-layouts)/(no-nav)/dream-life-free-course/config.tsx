@@ -7,15 +7,15 @@ export const CONFIG: TPromotionPageConfig = {
   timer: {
     title:
       'LIMITED TIME OFFER: Get The Discover, Fulfill, and Embrace Your Personal Needs Course ($250 Value) FREE FOR LIFE with a 7-Day Free Trial to the All-Access Pass',
-    className: 'bg-[#CDDFE3] text-black',
+    className: '!bg-blue !text-black',
     classNameDate: '!bg-black !text-white ',
-    classNameDateLabel: 'text-black',
-    classNameDateSeperator: 'text-black',
+    classNameDateLabel: '!text-black',
+    classNameDateSeperator: '!text-black',
   },
   banner: {
     title:
       'Lasting Love Begins Now. Learn What You Need to Attract & Build a Secure, Fulfilling Relationship',
-    className: 'bg-[#CDDFE3]',
+    className: '!bg-[#CDDFE3]',
   },
   courseOutcome: {
     title: 'Unearth Your Needs and Transform Every Relationship',

@@ -9,9 +9,10 @@ import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import cx from 'classnames'
+// modules
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { externalRoutes } from '@/utils/constants'
-import Mixpanel from '@/modules/Mixpanel'
 
 interface IPaymentOptionsProps extends IDefaultProps {
   showDisclaimer?: boolean

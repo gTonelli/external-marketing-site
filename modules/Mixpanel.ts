@@ -82,6 +82,7 @@ export type Pages =
   | `Dreamlife Upsell Page`
   | `Dreamlife Somatic Course Page`
   | `External IAT Page`
+  | `External IAT Page - Variant`
   | `External IAT Page (Klarna)`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`

@@ -11,7 +11,6 @@ import { Section } from '../Section'
 // libraries
 import { faCircleCheck, faCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// utils
 
 type TIATPrice = {
   price: string
@@ -24,23 +23,27 @@ interface IIATPriceCard {
   benefits: string[]
   heading: string
   isLive?: boolean
+  isCardExpanded?: boolean
   originalPrice?: string
   prices: TIATPrice[]
   salePrice: string
   subheading?: string
+  onClose?: () => void
 }
 
 export const IATPriceCard = ({
   benefits,
   heading,
   isLive = false,
+  isCardExpanded = false,
   originalPrice,
   prices,
   salePrice,
   subheading,
+  onClose,
 }: IIATPriceCard) => {
   // ================== State =============
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(isCardExpanded)
   const [selectedCardIndex, setSelectedCardIndex] = useState(0)
 
   return (
@@ -48,7 +51,7 @@ export const IATPriceCard = ({
       {!isExpanded ? (
         isLive ? (
           // LIVE, NOT EXPANDED
-          <Section className="relative rounded-3xl border-2 border-green-check px-3 pt-4 pb-4 lg:px-4 lg:pb-6 lg:pt-6">
+          <Section className="relative rounded-3xl border-2 border-green-check px-3 pt-4 pb-4 mb-8 lg:px-4 lg:pb-6 lg:pt-6">
             <div className="absolute -mt-20 left-1/2 -translate-x-1/2 ">
               <p className="w-[280px] text-center text-white font-bold bg-green-check rounded-10 py-4 tracking-0.325 md:px-4">
                 RECOMMENDED
@@ -97,10 +100,10 @@ export const IATPriceCard = ({
         ) : (
           // RECORDED, NOT EXPANDED
           <Section
-            className="flex flex-col relative rounded-3xl shadow-2xl px-3 pt-4 pb-4 lg:px-4 lg:pb-6 lg:pt-6"
+            className="flex flex-col relative rounded-3xl shadow-2xl px-3 pt-4 pb-4 mb-8 lg:px-4 lg:pb-6 lg:pt-6"
             classNameInner="flex flex-col flex-grow">
             <Image
-              alt="Live Icon Red"
+              alt="Recorded Icon Red"
               className="w-fit h-12 mx-auto"
               src="/images/IATPage/recorded-icon-red.png"
               width={120}
@@ -143,11 +146,12 @@ export const IATPriceCard = ({
       ) : (
         // EXPANDED
         <Section
-          className={`relative rounded-3xl ${
+          className={`relative rounded-3xl bg-white ${
             isLive ? 'border-2 border-green-check' : 'shadow-2xl'
-          } px-3 pt-16 pb-12 lg:px-11`}>
+          } px-2 pt-8 mb-8 !pb-0 lg:px-4`}
+          classNameInner="!max-w-full !px-4 !m-0 mx-auto">
           {isLive && (
-            <div className="absolute -mt-24 left-1/2 -translate-x-1/2 ">
+            <div className="absolute -top-12 left-1/2 -translate-x-1/2">
               <p className="w-[280px] text-center text-white font-bold bg-green-check rounded-10 py-4 tracking-0.325 md:px-4">
                 RECOMMENDED
               </p>
@@ -156,19 +160,15 @@ export const IATPriceCard = ({
 
           {originalPrice && <p className="text-xl font-medium line-through">{originalPrice}</p>}
 
-          <h2 className="text-black mb-6 text-h1">{salePrice}</h2>
-
-          {/* {subheading && <p className="tracking-33 font-semibold mb-4">{subheading}</p>} */}
+          <h2 className="text-black text-h1">{salePrice}</h2>
 
           <div className="grid grid-cols-2 items-center gap-2 border-grey border-t-2 py-2 mb-2 lg:gap-4">
             {prices.map((data, index) => (
               <div
                 key={`price_${index}`}
-                className={`p-2 rounded-10 col-span-2 border-2 border-purple-dark cursor-pointer
+                className={`p-2 rounded-10 col-span-2 border-2 border-primary cursor-pointer
                   lg:hover:bg-gray-light lg:p-3 ${
-                    selectedCardIndex === index
-                      ? 'bg-purple-dark text-white lg:hover:!bg-purple-medium lg:hover:!border-purple-medium'
-                      : ''
+                    selectedCardIndex === index ? 'bg-primary text-white lg:!bg-primary' : ''
                   }`}
                 onClick={() => setSelectedCardIndex(index)}>
                 <div className="flex items-start mb-2">
@@ -180,13 +180,13 @@ export const IATPriceCard = ({
 
                   <div className="flex items-end">
                     <p
-                      className={`inline font-sspb !text-4xl text-black mx-2 ${
+                      className={`inline font-sspb !text-3xl text-black mx-2 ${
                         selectedCardIndex === index ? 'text-white' : 'text-black'
                       }`}>
                       {data.price}
                     </p>
 
-                    <p className="inline text-lg font-medium">{data.priceLabel}</p>
+                    <p className="inline font-medium">{data.priceLabel}</p>
                   </div>
                 </div>
 
@@ -195,12 +195,16 @@ export const IATPriceCard = ({
             ))}
 
             <Button
-              className="!text-black border-purple-dark border-2 bg-white"
+              className="!text-black w-full border-primary border-2 bg-white"
               label="BACK"
-              onClick={() => setIsExpanded(false)}
+              onClick={() => {
+                setIsExpanded(false)
+                onClose?.()
+              }}
             />
 
             <ButtonCheckout
+              className="w-full"
               label="BUY NOW"
               href={prices[selectedCardIndex].link}
               mpProps={{

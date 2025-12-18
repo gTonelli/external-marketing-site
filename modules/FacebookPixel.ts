@@ -55,6 +55,8 @@ export function useFacebookPixel() {
             ReactPixel.trackCustom('Attachment Quiz Result', {
               attachmentStyle,
               eventID: eventId,
+              currency: 'usd',
+              value: 2.0,
             })
           }
 
@@ -62,13 +64,15 @@ export function useFacebookPixel() {
             ReactPixel.trackCustom('Dating Quiz Result', {
               datingStage,
               eventID: eventId,
+              currency: 'usd',
+              value: 2.0,
             })
           }
 
           async trackLead({ email, phone, sendServerSideEvent = false, eventId }: IFBQLead) {
             const cookies = new Cookies()
 
-            this.event('Lead', { eventId: eventId })
+            this.event('Lead', { eventId: eventId, currency: 'usd', value: 2.0 })
             if (sendServerSideEvent) {
               await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/facebook-capi/lead`, {
                 method: 'POST',
@@ -82,6 +86,8 @@ export function useFacebookPixel() {
                   fbp: cookies.get('_fbp'),
                   fbc: cookies.get('_fbc'),
                   event_id: eventId,
+                  currency: 'usd',
+                  value: 2.0,
                 }),
               }).catch((err) => {
                 console.error(err)

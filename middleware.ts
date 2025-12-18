@@ -275,7 +275,7 @@ export const splitTestConfigs: TSplitTestConfigs = {
     variantUrl: {
       path: '/iat/b',
     },
-    variantRatio: 0.5,
+    variantRatio: 0.2,
     forceControlOnNewUser: false,
   },
   datingQuizLPTest: {

@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
 import { IATContent } from './IATContent'
+import { SplitTestTracker } from '@/components/SplitTestTracker'
+import { splitTestConfigs } from '@/middleware'
 // styles
 import './style.css'
 
@@ -23,6 +25,8 @@ export const metadata: Metadata = {
 export default function IATSalePage() {
   return (
     <Page page_name="External IAT Page">
+      <SplitTestTracker variant="Control" {...splitTestConfigs.iatSalesPageTest} />
+      
       <IATContent />
     </Page>
   )

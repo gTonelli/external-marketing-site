@@ -1,3 +1,5 @@
+'use client'
+
 // core
 import Link from 'next/link'
 // components
@@ -7,6 +9,8 @@ import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import cx from 'classnames'
+// modules
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
@@ -26,7 +30,15 @@ export const PaymentOptions = ({
 
   return (
     <div className="flex flex-col items-center space-y-4 lg:justify-between">
-      <Link href={config.checkoutUrl} className="hover:!no-underline">
+      <Link
+        href={config.checkoutUrl}
+        className="hover:!no-underline"
+        onClick={() => {
+          Mixpanel.track.ButtonClicked({
+            button_label: config.offerLabel,
+            page_name: 'Dreamlife Free Course Page',
+          })
+        }}>
         <div
           className={cx(
             'relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5',

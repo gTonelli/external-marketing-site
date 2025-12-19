@@ -72,7 +72,7 @@ export const IATOfferFeatures = () => {
             <ButtonScroll label="SIGN UP TODAY" target="#click-purchase-target" />
           </div>
 
-          <div className="w-full max-w-[502px]">
+          <div className="w-full max-w-[502px] mx-auto">
             <Image
               alt="IAT Benefits Mockup Desktop"
               className="w-full hidden lg:block"

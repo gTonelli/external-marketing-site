@@ -154,7 +154,7 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     },
     {
       config: splitTestConfigs.iatSalesPageTest,
-      regex: /^\/iat(?!\/webinar)/,
+      regex: /^\/iat(?:$|\?)/,
     },
     {
       config: splitTestConfigs.datingQuizLPTest,

@@ -14,7 +14,7 @@ export const CONFIG: TPromotionPageConfig = {
     imageSrc: '/images/NewYearPromotion/hanging-christmas-decorations.png',
     imageWidth: 735,
     imageHeight: 60,
-    classNameDate: '!bg-red-500 !text-white !w-12 !h-12 lg:!leading-1',
+    classNameDate: '!bg-red-500 !text-white lg:!w-12 lg:!h-12 lg:!leading-1',
     classNameDateLabel: '!text-black',
     classNameDateSeperator: '!text-red-500',
     date: '2025-12-26T23:59:59-05:00',

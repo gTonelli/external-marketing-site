@@ -212,6 +212,33 @@ const allConfigs = {
     checkoutUrl: externalRoutes.checkoutJuly2025PromoTrial,
     ctaLabel: 'GET THE COURSE NOW!',
   },
+  dreamLifeFamilyDynamics: {
+    offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
+    title:
+      'Brand New Offer! For The First Time Ever, Get the Healing Family Dynamics Course Free For Life. Act Now!',
+    copy: (
+      <>
+        For Boxing Day only, we’re giving you the opportunity to get a{' '}
+        <strong>brand new course</strong> for free when you start a 7-Day Free Trial of the
+        All-Access Pass! Claim your Healing Family Trauma and Challenging Family Dynamics course for
+        life and get the exact tools to have calmer conversations, navigate conflict with ease, and
+        learn how to set boundaries for the holiday season.
+      </>
+    ),
+    checkoutUrl: externalRoutes.checkoutFamilyDynamicsFlashsale,
+    ctaLabel: 'GET THE COURSE NOW!',
+    disclaimer: (
+      <>
+        *
+        <strong>
+          When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the
+          trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you
+          don’t stay with us after 7 days, you still get to keep and access the Healing Family
+          Trauma and Challenging Family Dynamics course for life.
+        </strong>
+      </>
+    ),
+  },
   dreamLifeUpsell: {
     offerLabel: 'Take Step 2 RISK-FREE',
     title: 'Get the Emotional Mastery Course FOR FREE for 7 Days with an All-Access Pass Trial',

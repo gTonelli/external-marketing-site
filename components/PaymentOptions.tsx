@@ -213,7 +213,7 @@ const allConfigs = {
     ctaLabel: 'GET THE COURSE NOW!',
   },
   dreamLifeFamilyDynamics: {
-    offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
+    offerLabel: 'Free Trial & Exclusive Free Course',
     title:
       'Brand New Offer! For The First Time Ever, Get the Healing Family Dynamics Course Free For Life. Act Now!',
     copy: (

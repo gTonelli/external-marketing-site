@@ -6,7 +6,7 @@ export const CONFIG: TPromotionPageConfig = {
   checkoutUrl: externalRoutes.checkoutFamilyDynamicsFlashsale,
   timer: {
     title:
-      'LIMITED TIME FLASH SALE: Claim Your FREE Healing Family Dynamics Course For Life + Your Bonus 7-Day Free Trial to the All-Access Pass',
+      'LIMITED TIME NEW OFFER: Claim Your FREE Healing Family Dynamics Course For Life + Your Bonus 7-Day Free Trial to the All-Access Pass',
   },
   banner: {
     title:
@@ -64,7 +64,7 @@ export const CONFIG: TPromotionPageConfig = {
         reacting from old roles or expectations
       </>,
     ],
-    image: '/images/TrialHeadspace/somatic-course-mockup.png',
+    image: '/images/family-dynamics-course-mockup.png',
     imageAlt: 'A desktop screen showcasing the Release Emotions with Somatic Processing Course',
     offer: [
       <>
@@ -148,7 +148,7 @@ export const CONFIG: TPromotionPageConfig = {
     stepTwo: {
       title: 'Dive Into the Somatic Course (Yours to Keep!)',
       copy: 'Process feelings you can’t think through by working at the body level. Calm your nervous system, rebuild self-trust and self-worth, and feel grounded on your own to break old cycles and create healthy, secure connections. Feel the shift in as little as one week!',
-      image: '/images/course-healing-family-dynamics.jpg',
+      image: '/images/course-healing-family-dynamics.png',
     },
     ctaLabel: 'CLAIM YOUR COURSE + 7-DAY TRIAL!',
   },

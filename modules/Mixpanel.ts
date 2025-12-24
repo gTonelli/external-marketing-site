@@ -75,6 +75,7 @@ export type Pages =
   | `Dreamlife Results Page FA`
   | `Dreamlife Breakup Course Page`
   | `Dreamlife Codependency Course Page`
+  | `Dreamlife Family Dynamics Page`
   | `Dreamlife Free Course Page`
   | `Dreamlife Pillars Course Page`
   | `Dreamlife Sex Course Page`

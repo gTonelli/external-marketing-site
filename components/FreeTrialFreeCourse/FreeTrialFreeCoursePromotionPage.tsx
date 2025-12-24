@@ -110,7 +110,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
       <Section>
         <h2>{config.courseOutcome.title}</h2>
 
-        <div className="grid gap-8 text-left my-8 lg:grid-cols-2">
+        <div className="grid gap-8 text-left my-8 lg:items-center lg:grid-cols-2">
           <div>
             <p>{config.courseOutcome.copy}</p>
 
@@ -207,7 +207,7 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
             <div key={`purchase_steps_${idx}`}>
               <div className="min-h-48 mb-4">
                 <Image
-                  className="w-full rounded-xl lg:max-h-48"
+                  className="w-full rounded-xl mx-auto lg:max-h-48"
                   alt="PDS Journey Step"
                   src={item.image}
                   width={360}

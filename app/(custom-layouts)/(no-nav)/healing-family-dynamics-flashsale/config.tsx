@@ -10,7 +10,7 @@ export const CONFIG: TPromotionPageConfig = {
   },
   banner: {
     title:
-      'Boxing Day Flash Sale: Get the Most Powerful Method to Heal Challenging Family Dynamics So the Holidays Feel Peaceful and Enjoyable, Not Stressful',
+      'Boxing Day Flash Sale: Heal Challenging Family Dynamics So the Holidays Feel Peaceful and Enjoyable, Not Stressful',
     theme: 'dark',
   },
   courseOutcome: {

@@ -215,10 +215,10 @@ const allConfigs = {
   dreamLifeFamilyDynamics: {
     offerLabel: 'Free Trial & Exclusive Free Course',
     title:
-      'Brand New Offer! For The First Time Ever, Get the Healing Family Dynamics Course Free For Life. Act Now!',
+      'Brand New Offer! For The First Time Ever, Get the Healing Family Dynamics Course Free For Life.',
     copy: (
       <>
-        For Boxing Day only, we’re giving you the opportunity to get a{' '}
+        For our Boxing Day flash sale, we’re giving you the opportunity to get a{' '}
         <strong>brand new course</strong> for free when you start a 7-Day Free Trial of the
         All-Access Pass! Claim your Healing Family Trauma and Challenging Family Dynamics course for
         life and get the exact tools to have calmer conversations, navigate conflict with ease, and

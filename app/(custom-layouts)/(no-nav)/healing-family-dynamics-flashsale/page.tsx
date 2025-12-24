@@ -6,13 +6,13 @@ import { FreeTrialFreeCoursePromotionPage } from '@/components/FreeTrialFreeCour
 import { CONFIG } from './config'
 
 export const metadata: Metadata = {
-  title: 'Regulate Emotions Fast with Somatic Healing',
+  title: 'Heal Family Dynamics and Set Boundaries This Holiday',
   description:
-    'Learn body-based tools to regulate emotions and calm your nervous system. Get free-for-life access to the Somatic Attachment Healing Course, plus a 7-Day Trial.',
+    'Boxing Day only. Heal family dynamics, set boundaries without guilt, and navigate difficult conversations with clarity.',
   robots: 'noindex',
 }
 
-export default function SomaticAttachmentHealingPage() {
+export default function FamilyDynamicsHealingPage() {
   return (
     <FreeTrialFreeCoursePromotionPage config={CONFIG} pageName="Dreamlife Family Dynamics Page" />
   )

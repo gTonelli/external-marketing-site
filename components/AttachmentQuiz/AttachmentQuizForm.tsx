@@ -2,7 +2,6 @@
 
 //core
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
 // components
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
@@ -12,7 +11,7 @@ import { gtag } from '../GoogleAdsTag'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
+import { getAttachmentStyleText } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -32,22 +31,8 @@ export const AttachmentQuizForm = ({
   quizData,
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
-  const [isVariant, setIsVariant] = useState(false)
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
   const FBQ = useFacebookPixel()
-
-  useEffect(() => {
-    if (quiz_traffic_source === 'paidGoogle' && userStyle === 'fa') {
-      setIsVariant(
-        getSplitTest({
-          key: 'gm-2270-fa-ip-test',
-          experimentName: 'GM-2270-FA-Instapage-Test',
-          variantRatio: 0.5,
-          useCookies: true,
-        })
-      )
-    }
-  }, [quiz_traffic_source, userStyle])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -56,10 +41,6 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (isVariant) {
-          return 'https://offer.personaldevelopmentschool.com/fa-results'
-        }
-
         if (userStyle === 'fa') {
           return '/quiz/results/fearful-avoidant'
         }
@@ -141,16 +122,7 @@ export const AttachmentQuizForm = ({
     }
 
     const route = determineRoute()
-    if (isVariant) {
-      window.location.href = route
-    } else {
-      router.push(route)
-    }
-  }
-
-  let clientTags = [`attachment-quiz-${userStyle}`]
-  if (isVariant) {
-    clientTags.push('healing-fa')
+    router.push(route)
   }
 
   return (
@@ -162,7 +134,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={clientTags.join(',')}
+          clientTag={`attachment-quiz-${userStyle}`}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

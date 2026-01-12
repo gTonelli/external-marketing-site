@@ -146,8 +146,8 @@ export const CONFIG: TPromotionPageConfig = {
       </>
     ),
     stepTwo: {
-      title: 'Dive Into the Somatic Course (Yours to Keep!)',
-      copy: 'Process feelings you can’t think through by working at the body level. Calm your nervous system, rebuild self-trust and self-worth, and feel grounded on your own to break old cycles and create healthy, secure connections. Feel the shift in as little as one week!',
+      title: 'Heal Family Trauma & Painful Patterns (Yours to Keep!)',
+      copy: 'Clear frameworks and practical tools to begin breaking generational cycles and creating healthier, more secure connections, starting with your relationship to yourself and extending outward into every area of life.',
       image: '/images/course-healing-family-dynamics.png',
     },
     ctaLabel: 'CLAIM YOUR COURSE + 7-DAY TRIAL!',

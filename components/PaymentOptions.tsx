@@ -312,17 +312,17 @@ const allConfigs = {
   },
   somaticAttachmentHealing: {
     offerLabel: 'Free Trial & Exclusive Free Course',
-    title: 'Cyber Monday Special: Get the Somatic Attachment Healing Course & Feel Calmer FAST',
+    title: 'Get the Somatic Attachment Healing Course & Feel Calmer FAST',
     copy: (
       <>
-        For the first time ever, we’re giving away the <em>Somatic Attachment Healing Course</em>
-        —our most transformative, body-based program—for free. Experience our biggest offer yet and
-        feel the difference in just one week. When you start your 7-Day Free Trial of the All-Access
-        Pass Membership, you’ll get the <strong>Somatic Attachment Healing Course</strong> (valued
-        at $250) completely <strong>FREE for LIFE</strong>. This course is designed to help you calm
-        your nervous system, process emotions safely, rebuild a sense of safety in your body, and
-        turn dysregulation into personal growth, and improve your relationship with yourself and
-        your loved ones while creating steady, secure connection.
+        We’re giving away the Somatic Attachment Healing Course—our most transformative, body-based
+        program—for free. Feel the difference in just one week. When you start your 7-Day Free Trial
+        of the All-Access Pass Membership, you’ll get the{' '}
+        <strong>Somatic Attachment Healing Course</strong> (valued at $250) completely{' '}
+        <strong>FREE for LIFE</strong>. This course is designed to help you calm your nervous
+        system, process emotions safely, rebuild a sense of safety in your body, and turn
+        dysregulation into personal growth, and improve your relationship with yourself and your
+        loved ones while creating steady, secure connection.
       </>
     ),
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',

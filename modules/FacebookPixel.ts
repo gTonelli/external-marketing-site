@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
 // utils
 import { TStyleLong, TDatingStageLong } from '@/utils/types'
+import { TLoveLanguagesAssociation } from '@/components/LoveLanguagesQuiz/config'
 
 interface IFBQLead {
   email: string
@@ -23,11 +24,17 @@ interface IFBQDatingQuizResult {
   eventId: string
 }
 
+interface IFBQLoveLanguagesQuizResult {
+  loveLanguage: string
+  eventId: string
+}
+
 interface IFacebookPixel {
   event(title: string, args?: any): void
   trackLead(args: IFBQLead): void
   trackAttachmentQuizResult(args: IFBQAttachmentQuizResult): void
   trackDatingQuizResult(args: IFBQDatingQuizResult): void
+  trackLoveLanguagesQuizResult(args: IFBQLoveLanguagesQuizResult): void
 }
 
 export function useFacebookPixel() {
@@ -63,6 +70,18 @@ export function useFacebookPixel() {
           async trackDatingQuizResult({ datingStage, eventId }: IFBQDatingQuizResult) {
             ReactPixel.trackCustom('Dating Quiz Result', {
               datingStage,
+              eventID: eventId,
+              currency: 'usd',
+              value: 2.0,
+            })
+          }
+
+          async trackLoveLanguagesQuizResult({
+            loveLanguage,
+            eventId,
+          }: IFBQLoveLanguagesQuizResult) {
+            ReactPixel.trackCustom('Love Languages Quiz Result', {
+              loveLanguage,
               eventID: eventId,
               currency: 'usd',
               value: 2.0,

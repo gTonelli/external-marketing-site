@@ -22,6 +22,7 @@ import { Regexes } from '@/utils/constants'
 import { isPhoneValid } from '@/utils/functions'
 // styles
 import 'react-international-phone/style.css'
+import { TLoveLanguagesAssociation } from '../LoveLanguagesQuiz/config'
 
 interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
@@ -38,6 +39,8 @@ interface IRegistrationFormProps extends IDefaultProps {
   showPhoneField?: boolean
   /** Dating stage to append to the user's profile*/
   datingStage?: TDatingStage
+  /** Love language to append to the user's profile*/
+  loveLanguage?: TLoveLanguagesAssociation
   /** Disclaimer text to display below the form */
   disclaimer?: string
 }
@@ -75,6 +78,7 @@ export const RegistrationForm = ({
   userInfo,
   userStyle,
   datingStage,
+  loveLanguage,
   submitButtonLabel,
   showPhoneField = false,
   disclaimer = "By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything.",
@@ -93,7 +97,7 @@ export const RegistrationForm = ({
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
     if (datingStage) Mixpanel.setPeople({ 'Dating Stage': datingStage })
-
+    if (loveLanguage) Mixpanel.setPeople({ 'Love Language': loveLanguage })
     const eventId = crypto.randomUUID()
     Mixpanel.track.SignUp({
       distinct_id: values.email,

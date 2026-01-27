@@ -37,7 +37,7 @@ export default function IATWebinarPage() {
       <section className="bg-purple-dark">
         <div className="default-padding pt-4 lg:pt-8">
           <CountdownTimer
-            date={getOfferEndDate(new Date('2026-01-13T17:30:00-05:00'), 1)}
+            date={getOfferEndDate(new Date('2026-02-18T17:30:00-05:00'), 1)}
             theme="dark"
           />
         </div>

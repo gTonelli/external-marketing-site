@@ -96,6 +96,8 @@ export const LoveLanguagesQuizForm = ({
         onAfterSubmit={onAfterSubmit}
         disclaimer="By clicking Submit, I agree to receive email communication from the Personal Development School. Please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything."
       />
+
+      <p className="font-effra mt-4">AND also get a free emailed report.</p>
     </div>
   )
 }

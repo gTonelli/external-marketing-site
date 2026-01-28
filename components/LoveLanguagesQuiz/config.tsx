@@ -48,7 +48,7 @@ export const LOVE_LANGUAGES_QUIZ_QUESTIONS: TLoveLanguagesQuestion[] = [
       { label: 'Seeing changed behavior or follow-through', association: 'actsOfService' },
       { label: 'A small but intentional gesture', association: 'receivingGifts' },
       { label: 'Hearing sincere acknowledgment', association: 'wordsOfAffirmation' },
-      { label: 'Reestablishing closeness', association: 'physicalTouch' },
+      { label: 'Re-establishing closeness', association: 'physicalTouch' },
     ],
   },
   {
@@ -87,7 +87,7 @@ export const LOVE_LANGUAGES_QUIZ_QUESTIONS: TLoveLanguagesQuestion[] = [
         label: 'When someone communicates that they appreciate things about me',
         association: 'wordsOfAffirmation',
       },
-      { label: 'Intimacy through touch or sex', association: 'physicalTouch' },
+      { label: 'Intimacy through touch', association: 'physicalTouch' },
       {
         label: 'When they do something practical for me like fill the gas tank or cook dinner',
         association: 'actsOfService',
@@ -132,14 +132,14 @@ export const LOVE_LANGUAGES_QUIZ_QUESTIONS: TLoveLanguagesQuestion[] = [
   },
   {
     question:
-      'In close relationships, what do you tend to pay the most attention to without trying to?',
+      'In close relationships, what do you tend to pay the most attention to?',
     associationType: 'quizQuestion',
     options: [
       { label: 'Subtle shifts in energy or mood', association: 'physicalTouch' },
-      { label: 'What needs to be handled or followed through on', association: 'actsOfService' },
+      { label: 'What tasks, actions, or activities need to be done', association: 'actsOfService' },
       { label: 'Small details that feel personal or symbolic', association: 'receivingGifts' },
       {
-        label: 'The way conversations land and what’s left unsaid',
+        label: 'How a conversation lands',
         association: 'wordsOfAffirmation',
       },
       {

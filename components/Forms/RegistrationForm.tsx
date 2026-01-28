@@ -12,6 +12,7 @@ import { Field, Form, Formik } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
 import { PhoneInput } from 'react-international-phone'
+import { TLoveLanguagesAssociation } from '../LoveLanguagesQuiz/config'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -22,7 +23,6 @@ import { Regexes } from '@/utils/constants'
 import { isPhoneValid } from '@/utils/functions'
 // styles
 import 'react-international-phone/style.css'
-import { TLoveLanguagesAssociation } from '../LoveLanguagesQuiz/config'
 
 interface IRegistrationFormProps extends IDefaultProps {
   /** Function to run after form submission */
@@ -229,8 +229,9 @@ export const RegistrationFormValidationSchema = yup
   })
   .defined()
 
-export interface IQuizRegistrationFormSchema
-  extends yup.InferType<typeof RegistrationFormValidationSchema> {}
+export interface IQuizRegistrationFormSchema extends yup.InferType<
+  typeof RegistrationFormValidationSchema
+> {}
 
 export const registrationFormInitialValues: IQuizRegistrationFormSchema =
   RegistrationFormValidationSchema.cast({})

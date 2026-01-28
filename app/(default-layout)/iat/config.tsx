@@ -413,7 +413,7 @@ export const IAT_COPY = {
         `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
 
-      variantListItem: 'Live Session Thursday April 1, 2026, at 6PM ET',
+      variantListItem: 'Live Session Wednesday April 1, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -431,7 +431,7 @@ export const IAT_COPY = {
         `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
-      variantListItem: 'Live Session Thursday February 12, 2026, at 6PM ET',
+      variantListItem: 'Live Session Wednesday April 8, 2026, at 6PM ET',
 
       textBottom: ``,
 

@@ -23,7 +23,7 @@ export const IAT_CONFIG = {
       </>
     ),
     copy3:
-      '*Sign up for the Live Training, starting January 22, 2026 to April 9, 2026. Spots are limited.',
+      '*Sign up for the Live Training, starting March 18, 2026 to June 3, 2026. Spots are limited.',
   },
   intro: {
     title: (

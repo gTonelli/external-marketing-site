@@ -34,7 +34,7 @@ const trustbarSlides = [
 ]
 
 export default function IATMasterclassRecordingPage() {
-  const liveCohortDate = 'Thursday, January 22nd, 2026'
+  const liveCohortDate = 'Wednesday, March 18th, 2026'
 
   return (
     <Page page_name="IAT Webinar Recording Page">
@@ -72,7 +72,7 @@ export default function IATMasterclassRecordingPage() {
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2026-01-17T17:30:00-05:00'), 1)}
+          date={getOfferEndDate(new Date('2026-02-22T17:30:00-05:00'), 1)}
         />
       </Section>
 

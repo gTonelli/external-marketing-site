@@ -184,15 +184,15 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutSimplifiedFa: `${checkoutUrl}/enroll/559833?price_id=1285773&bci=2178659`,
     checkout1MonthFree: `${checkoutUrl}/enroll/559833?price_id=1285773&coupon=1monthoff`,
     // IAT Recorded
-    checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded`,
-    checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded`,
-    checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded`,
-    checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded`,
-    // IAT January 2026
-    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3593730?price_id=4529896&coupon=upfrontLive`,
-    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3593730?price_id=4529899&coupon=3monthLive`,
-    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3593730?price_id=4529900&coupon=6monthLive`,
-    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3593730?price_id=4529901&coupon=12monthLive`,
+    checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2751990?price_id=3577378&coupon=iatbundleupfrontrecorded&promo_label=iat-recorded`,
+    checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919119&coupon=iatbundle3morecorded&promo_label=iat-recorded`,
+    checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919118&coupon=iatbundle6morecorded&promo_label=iat-recorded`,
+    checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919117&coupon=iatbundle12morecorded&promo_label=iat-recorded`,
+    // IAT March 2026
+    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3600203?price_id=4536634&coupon=upfrontLive&promo_label=iat-live`,
+    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536638&coupon=3monthLive&promo_label=iat-live`,
+    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536639&coupon=6monthLive&promo_label=iat-live`,
+    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536640&coupon=12monthLive&promo_label=iat-live`,
     // IAT Recorded With Webinar Discount
     checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2463967?price_id=3951355&coupon=iatwebinarondemandMC`,
     checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951356&coupon=iatwebinar3mnthondemandMC`,
@@ -242,15 +242,15 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutSimplifiedFa: `${checkoutUrl}/enroll/1934512?price_id=2638738&bci=2178659`,
     checkout1MonthFree: `${checkoutUrl}/enroll/1934512?price_id=2638738&coupon=1monthoff`,
     // IAT Recorded
-    checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2751990?price_id=3577378&coupon=iatbundleupfrontrecorded`,
-    checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919119&coupon=iatbundle3morecorded`,
-    checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919118&coupon=iatbundle6morecorded`,
-    checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919117&coupon=iatbundle12morecorded`,
-    // IAT January 2026
-    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3593730?price_id=4529896&coupon=upfrontLive`,
-    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3593730?price_id=4529899&coupon=3monthLive`,
-    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3593730?price_id=4529900&coupon=6monthLive`,
-    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3593730?price_id=4529901&coupon=12monthLive`,
+    checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2751990?price_id=3577378&coupon=iatbundleupfrontrecorded&promo_label=iat-recorded`,
+    checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919119&coupon=iatbundle3morecorded&promo_label=iat-recorded`,
+    checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919118&coupon=iatbundle6morecorded&promo_label=iat-recorded`,
+    checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919117&coupon=iatbundle12morecorded&promo_label=iat-recorded`,
+    // IAT March 2026
+    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3600203?price_id=4536634&coupon=upfrontLive&promo_label=iat-live`,
+    checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536638&coupon=3monthLive&promo_label=iat-live`,
+    checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536639&coupon=6monthLive&promo_label=iat-live`,
+    checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536640&coupon=12monthLive&promo_label=iat-live`,
     // IAT Recorded With Webinar Discount
     checkoutIATRecordedWebinarUpfront: `${checkoutUrl}/enroll/2751990?price_id=4344753&coupon=iatwebinarsummer225ondemand`,
     checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=4344755&coupon=iatwebinarsummer2253mnthondemand`,

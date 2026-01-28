@@ -142,7 +142,7 @@ export const IAT_CONFIG = {
     listTitle: 'Here are some important questions to reflect on:',
     bullets: [
       'What does it cost you to not take action today to become a relationship coach?',
-      "What does life look like in 1 year, 2 years, or 5 years if you don't gain the knowledge offered in the Integrated Attachment Theory<sup>TM</sup> Program, so you can design the life you want?",
+      <>What does life look like in 1 year, 2 years, or 5 years if you don't gain the knowledge offered in the Integrated Attachment Theory<sup>TM</sup> Program, so you can design the life you want?</>,
       'How would you feel knowing you can help anyone, anywhere in the world, live their best lives with the best relationships?',
     ],
     copy: (

@@ -1,23 +1,24 @@
 // core
 import Image from 'next/image'
-// import { Metadata } from 'next'
+import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { LoveLanguagesQuiz } from '@/components/LoveLanguagesQuiz/LoveLanguagesQuiz'
 
-// export const metadata: Metadata = {
-//   title: 'The Personal Development School’s Five Love Languages Quiz',
-//   description: '',
-//   metadataBase: new URL('https://attachment.personaldevelopmentschool.com/love-languages/quiz'),
-//   alternates: {
-//     canonical: '/',
-//     languages: {
-//       'en-US': '/',
-//     },
-//   },
-//   robots: 'index, follow, max-snippet:-1',
-// }
+export const metadata: Metadata = {
+  title: 'Love Language Quiz Questions | Free Love Languages Quiz',
+  description:
+    'Answer a few simple questions to reveal your love language. This free love languages quiz by Thais Gibson shows how you feel most connected in relationships.',
+  metadataBase: new URL('https://attachment.personaldevelopmentschool.com/love-languages/quiz'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/',
+    },
+  },
+  robots: 'noindex',
+}
 
 export default function LoveLanguagesQuizPage() {
   return (

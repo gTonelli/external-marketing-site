@@ -153,8 +153,8 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: `If you're single:\n Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to **3X more success and confidence in your dating life.**`,
-        copy3: `If you’re in a relationship:\n This exact same course will give you the communication and conflict management tools you need to **strengthen your relationship with your partner by up to 50%!**`,
+        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
+        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -348,8 +348,8 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: `If you're single:\n Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to **3X more success and confidence in your dating life.**`,
-        copy3: `If you’re in a relationship:\n This exact same course will give you the communication and conflict management tools you need to **strengthen your relationship with your partner by up to 50%!**`,
+        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
+        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We we provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -460,58 +460,58 @@ export const LIMITED_OFFER = {
       bullet: {
         part1: [
           {
-            text_bold: '**What you need in relationships,**',
+            text_bold: 'What you need in relationships,',
             text: 'so you can start asking for it when you need more freedom/ independence or more connection.',
           },
           {
-            text_bold: '**Your own insecurities/fears,**',
+              text_bold: 'Your own insecurities/fears,',
             text: 'plus tools for overcoming them, so that you can feel confident and secure in your love life.',
           },
           {
-            text_bold: '**Your expectations in relationships.**',
+            text_bold: 'Your expectations in relationships.',
             text: 'So that you understand what you’re looking for and uphold the standards you deserve.',
           },
         ],
         part2: [
           {
-            text_bold: '**Your boundaries,**',
+            text_bold: 'Your boundaries,',
             text: 'so that you can stop feeling taken advantage of in relationships and know how to put yourself first.',
           },
           {
-            text_bold: '**Strategies for communicating with different types of people,**',
+            text_bold: 'Strategies for communicating with different types of people,',
             text: 'so that you can have more seamless relationships where you’re on the same page.',
           },
           {
             text_bold:
-              '**Specific tools to quickly recognize others’ attachment styles and to understand their needs, fears and boundaries.**',
+              'Specific tools to quickly recognize others’ attachment styles and to understand their needs, fears and boundaries.',
             text: 'So that you can navigate your relationships with less guesswork.',
           },
         ],
       },
       //for desktop layout
       bullet1: {
-        text_bold: '**What you need in relationships,**',
+        text_bold: 'What you need in relationships,',
         text: 'so you can start asking for it when you need more freedom/ independence or more connection.',
       },
       bullet2: {
-        text_bold: '**Your own insecurities/fears,**',
+        text_bold: 'Your own insecurities/fears,',
         text: 'plus tools for overcoming them, so that you can feel confident and secure in your love life.',
       },
       bullet3: {
-        text_bold: '**Your expectations in relationships.**',
+        text_bold: 'Your expectations in relationships.',
         text: 'So that you understand what you’re looking for and uphold the standards you deserve.',
       },
       bullet4: {
-        text_bold: '**Your boundaries,**',
+        text_bold: 'Your boundaries,',
         text: 'so that you can stop feeling taken advantage of in relationships and know how to put yourself first.',
       },
       bullet5: {
-        text_bold: '**Strategies for communicating with different types of people,**',
+        text_bold: 'Strategies for communicating with different types of people,',
         text: 'so that you can have more seamless relationships where you’re on the same page.',
       },
       bullet6: {
         text_bold:
-          '**Specific tools to quickly recognize others’ attachment styles and to understand their needs, fears and boundaries.**',
+          'Specific tools to quickly recognize others’ attachment styles and to understand their needs, fears and boundaries.',
         text: 'So that you can navigate your relationships with less guesswork.',
       },
     },
@@ -527,8 +527,8 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: `If you're single:\n Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to **3X more success and confidence in your dating life.**`,
-        copy3: `If you’re in a relationship:\n This exact same course will give you the communication and conflict management tools you need to **strengthen your relationship with your partner by up to 50%!**`,
+        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
+        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We we provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -711,8 +711,8 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: `If you're single:\n Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to **3X more success and confidence in your dating life.**`,
-        copy3: `If you’re in a relationship:\n This exact same course will give you the communication and conflict management tools you need to **strengthen your relationship with your partner by up to 50%!**`,
+        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
+        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We we provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -770,5 +770,28 @@ export const LIMITED_OFFER = {
       copy2:
         'Or, by taking action today, you could experience a different reality starting right now.',
     },
+  },
+}
+
+export const LIMITED_OFFER_SEO_CONFIG = {
+  fa: {
+    title: 'Special Offer for Fearful Avoidant Attachment | PDS',
+    description:
+      'Get a special limited-time offer with tools and courses for the Fearful Avoidant Style to build trust, confidence, and connection.',
+  },
+  ap: {
+    title: 'Special Offer for Anxious Preoccupied Attachment | PDS',
+    description:
+      'Access limited-time programs tailored for the Anxious Preoccupied Style to strengthen self-worth, communication, and security.',
+  },
+  da: {
+    title: 'Special Offer for Dismissive Avoidant Attachment | PDS',
+    description:
+      'Unlock exclusive tools for the Dismissive Avoidant Style—develop openness, vulnerability, and emotional connection.',
+  },
+  sa: {
+    title: 'Special Offer for Secure Attachment | PDS',
+    description:
+      'Explore special Secure Attachment offers to deepen balance, communication, and relationship growth with PDS resources.',
   },
 }

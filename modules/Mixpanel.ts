@@ -108,6 +108,7 @@ export type Pages =
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
+  | `Limited Offer Variant - ${string}`
   | `New Year New You Page`
   | `Not Found Page`
   | `Main Funnel Quiz`

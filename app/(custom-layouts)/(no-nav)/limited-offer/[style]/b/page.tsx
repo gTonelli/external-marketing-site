@@ -9,7 +9,7 @@ import { Faq } from '@/components/Faq/Faq'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { TestimonialSSP } from '@/components/Testimonial/variants/TestimonialSSP'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { LIMITED_OFFER, LIMITED_OFFER_SEO_CONFIG as SEO_CONFIG } from './config'
+import { LIMITED_OFFER, LIMITED_OFFER_SEO_CONFIG as SEO_CONFIG } from '../config'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
@@ -19,12 +19,6 @@ export interface ILimitedOfferPageParams {
   params: Promise<{
     style: TStyle
   }>
-}
-
-export const dynamicParams = false
-
-export function generateStaticParams() {
-  return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }, { style: 'sa' }]
 }
 
 export async function generateMetadata({ params }: ILimitedOfferPageParams): Promise<Metadata> {
@@ -37,12 +31,18 @@ export async function generateMetadata({ params }: ILimitedOfferPageParams): Pro
   }
 }
 
-export default async function LimitedOfferPage({ params }: ILimitedOfferPageParams) {
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }]
+}
+
+export default async function LimitedOfferPage2({ params }: ILimitedOfferPageParams) {
   const { style } = await params
   const pageCopy = LIMITED_OFFER[style]
 
   return (
-    <Page page_name={`Limited Offer - ${style}`}>
+    <Page page_name={`Limited Offer Variant - ${style}`}>
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">

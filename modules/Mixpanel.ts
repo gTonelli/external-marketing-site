@@ -108,6 +108,7 @@ export type Pages =
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
+  | `Love Languages Quiz Page`
   | `New Year New You Page`
   | `Not Found Page`
   | `Main Funnel Quiz`
@@ -162,7 +163,6 @@ class Mixpanel {
         api_host: 'https://api.personaldevelopmentschool.com',
         debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
         // record_sessions_percent: 5,
-        // cross_subdomain_cookie: true,
       }
     )
   }

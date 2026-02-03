@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 import jwt from 'jsonwebtoken'
 import { pick } from 'lodash'
 import { TDatingStage } from '@/components/DatingQuiz/useDatingQuiz'
+import { TLoveLanguagesAssociation } from '@/components/LoveLanguagesQuiz/config'
 
 /**
  * Check if property is function
@@ -229,5 +230,35 @@ export const getDatingStageSlug = (stage: TDatingStage) => {
       return 'rhythm'
     case 'devotion':
       return 'devotion'
+  }
+}
+
+export const getLoveLanguageText = (loveLanguage: TLoveLanguagesAssociation) => {
+  switch (loveLanguage) {
+    case 'wordsOfAffirmation':
+      return 'Words of Affirmation'
+    case 'qualityTime':
+      return 'Quality Time'
+    case 'actsOfService':
+      return 'Acts of Service'
+    case 'physicalTouch':
+      return 'Physical Touch'
+    case 'receivingGifts':
+      return 'Receiving Gifts'
+  }
+}
+
+export const getLoveLanguageSlug = (loveLanguage: TLoveLanguagesAssociation) => {
+  switch (loveLanguage) {
+    case 'wordsOfAffirmation':
+      return 'words-of-affirmation'
+    case 'qualityTime':
+      return 'quality-time'
+    case 'actsOfService':
+      return 'acts-of-service'
+    case 'physicalTouch':
+      return 'physical-touch'
+    case 'receivingGifts':
+      return 'receiving-gifts'
   }
 }

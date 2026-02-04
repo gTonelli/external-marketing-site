@@ -108,6 +108,7 @@ export type Pages =
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
+  | `Love Languages Quiz Page`
   | `New Year New You Page`
   | `Not Found Page`
   | `Main Funnel Quiz`
@@ -159,10 +160,10 @@ class Mixpanel {
       process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
       {
         // config override goes here
+        cross_subdomain_cookie: true,
         api_host: 'https://api.personaldevelopmentschool.com',
         debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
         // record_sessions_percent: 5,
-        // cross_subdomain_cookie: true,
       }
     )
   }
@@ -211,6 +212,14 @@ class Mixpanel {
   setUser(userId?: string | null) {
     if (!userId) return
     mixpanel.identify(String(userId))
+  }
+
+  setUserWithBeacon(userId?: string | null) {
+    if (!userId) return
+    const currentTransport = mixpanel.get_config('api_transport')
+    mixpanel.set_config({ api_transport: 'sendBeacon' })
+    mixpanel.identify(String(userId))
+    mixpanel.set_config({ api_transport: currentTransport })
   }
 
   track = {
@@ -317,6 +326,10 @@ class Mixpanel {
 
     SignUp: (props: { distinct_id: string; $insert_id?: string }) => {
       this.event('$signup', props)
+    },
+
+    SignUpWithBeacon: (props: { distinct_id: string; $insert_id?: string }) => {
+      mixpanel.track('$signup', props, { transport: 'sendBeacon' })
     },
 
     VideoStarted: (props: { video_type: string; page_name?: Pages }) => {

@@ -92,17 +92,26 @@ export const RegistrationForm = ({
     const email = values.email.trim()
     setUserData({ email, firstName, lastName, phone, userStyle })
 
-    Mixpanel.setUser(values.email)
+    if (loveLanguage) Mixpanel.setUserWithBeacon(values.email)
+    else Mixpanel.setUser(values.email)
+
     Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
     if (datingStage) Mixpanel.setPeople({ 'Dating Stage': datingStage })
     if (loveLanguage) Mixpanel.setPeople({ 'Love Language': loveLanguage })
     const eventId = crypto.randomUUID()
-    Mixpanel.track.SignUp({
-      distinct_id: values.email,
-      $insert_id: eventId,
-    })
+    if (loveLanguage) {
+      Mixpanel.track.SignUpWithBeacon({
+        distinct_id: values.email,
+        $insert_id: eventId,
+      })
+    } else {
+      Mixpanel.track.SignUp({
+        distinct_id: values.email,
+        $insert_id: eventId,
+      })
+    }
 
     FBQ?.trackLead({ email, eventId })
 

@@ -214,6 +214,14 @@ class Mixpanel {
     mixpanel.identify(String(userId))
   }
 
+  setUserWithBeacon(userId?: string | null) {
+    if (!userId) return
+    const currentTransport = mixpanel.get_config('api_transport')
+    mixpanel.set_config({ api_transport: 'sendBeacon' })
+    mixpanel.identify(String(userId))
+    mixpanel.set_config({ api_transport: currentTransport })
+  }
+
   track = {
     AudioStarted: (props: { audio_type: string; page_name?: Pages }) => {
       this.event('Audio Started', {

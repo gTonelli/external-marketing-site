@@ -92,7 +92,9 @@ export const RegistrationForm = ({
     const email = values.email.trim()
     setUserData({ email, firstName, lastName, phone, userStyle })
 
-    Mixpanel.setUser(values.email)
+    if (loveLanguage) Mixpanel.setUserWithBeacon(values.email)
+    else Mixpanel.setUser(values.email)
+
     Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })

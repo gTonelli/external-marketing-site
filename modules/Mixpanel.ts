@@ -160,6 +160,7 @@ class Mixpanel {
       process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
       {
         // config override goes here
+        cross_subdomain_cookie: true,
         api_host: 'https://api.personaldevelopmentschool.com',
         debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
         // record_sessions_percent: 5,
@@ -317,6 +318,10 @@ class Mixpanel {
 
     SignUp: (props: { distinct_id: string; $insert_id?: string }) => {
       this.event('$signup', props)
+    },
+
+    SignUpWithBeacon: (props: { distinct_id: string; $insert_id?: string }) => {
+      mixpanel.track('$signup', props, { transport: 'sendBeacon' })
     },
 
     VideoStarted: (props: { video_type: string; page_name?: Pages }) => {

@@ -1,6 +1,7 @@
 'use client'
 
 //core
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
@@ -11,7 +12,7 @@ import { gtag } from '../GoogleAdsTag'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText } from '@/utils/functions'
+import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -32,7 +33,21 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
+  const [isVariant, setIsVariant] = useState(false)
   const FBQ = useFacebookPixel()
+
+  useEffect(() => {
+    if (userStyle !== 'sa' && quiz_traffic_source === 'paidGoogle') {
+      setIsVariant(
+        getSplitTest({
+          key: 'gm-2354-attachment-funnel-cro-test',
+          experimentName: 'GM-2354-Attachment-Funnel-CRO-Test',
+          variantRatio: 0.5,
+          useCookies: true,
+        })
+      )
+    }
+  }, [quiz_traffic_source, userStyle])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -41,6 +56,9 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
+        if (isVariant) {
+          return `/quiz/results/b/${userStyle}`
+        }
         if (userStyle === 'fa') {
           return '/quiz/results/fearful-avoidant'
         }

@@ -52,7 +52,7 @@ export default async function LimitedOfferPage2({ params }: ILimitedOfferPagePar
   )
 
   return (
-    <Page page_name={`Limited Offer Variant - ${style}`}>
+    <Page page_name={`Limited Offer Variant B - ${style}`}>
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">

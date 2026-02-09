@@ -9,13 +9,14 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { Faq } from '@/components/Faq/Faq'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // config
 import { CONFIG } from './config'
 // utils
 import { externalRoutes } from '@/utils/constants'
 // styles
 import '@/styles/default-styles.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type TStyle = 'fa' | 'ap' | 'da'
 
@@ -36,8 +37,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
   )
 
   return (
-    <Page page_name={`Attachment Style Results - Variant B - ${style}`}>
-      {/* <Section  classNameInner="!max-w-4xl mx-auto"> */}
+    <Page page_name={`Attachment Style Results Variant B - ${style}`}>
       <section className="relative">
         <div className="relative w-full h-[300px] lg:h-auto">
           <Image
@@ -66,7 +66,6 @@ export default async function VariantBResultsPage({ params }: TParams) {
           </div>
         </div>
       </section>
-      {/* </Section> */}
 
       <Section classNameInner="!max-w-4xl mx-auto">
         <h2>{config.nothingWrongSection.title}</h2>
@@ -520,6 +519,12 @@ export default async function VariantBResultsPage({ params }: TParams) {
           {config.continuingBenefitsSection.copy2.map((copy, i) => (
             <p key={`continuing_benefits_copy2_${i}`}>{copy}</p>
           ))}
+
+          <ButtonCheckout
+            className="text-2xl bg-[#E87D1B] text-white font-bold !rounded-10 !border-none px-8 py-4 mt-8 mx-auto hover:bg-[#E87D1B]/80"
+            href={checkoutUrl}
+            label="GET STARTED"
+          />
         </div>
 
         <div className="relative h-80 lg:col-span-5 lg:h-auto">

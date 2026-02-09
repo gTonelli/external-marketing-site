@@ -3,6 +3,7 @@ import { Page } from '@/components/Page'
 import { QuizResultsPage } from './QuizResultsPage'
 // utils
 import { TStyle } from '@/utils/types'
+import { externalRoutes } from '@/utils/constants'
 
 export type TParams = { params: { style: TStyle } }
 
@@ -39,7 +40,14 @@ export async function generateMetadata({ params }: TParams) {
 export default function RoyalRumble({ params }: TParams) {
   return (
     <Page className="w-full text-center z-10" page_name={`vsl-${params.style}`}>
-      <QuizResultsPage style={params.style} />
+      <QuizResultsPage
+        style={params.style}
+        checkoutUrl={
+          params.style !== 'sa'
+            ? externalRoutes.checkoutRegularSubscription.concat('&promo_label=vsl-funnel')
+            : undefined
+        }
+      />
     </Page>
   )
 }

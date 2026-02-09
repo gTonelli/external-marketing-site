@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { TStyle } from '@/utils/types'
 import { getAttachmentStyleText } from '@/utils/functions'
+import { externalRoutes } from '@/utils/constants'
 // config
 import { config } from './config'
 // style
@@ -21,9 +22,13 @@ import './style.css'
 
 interface IPDSResultsOfferProps {
   style: TStyle
+  checkoutUrl?: string
 }
 
-export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
+export const PDSResultsOfferSection = ({
+  style,
+  checkoutUrl = externalRoutes.checkoutRegularSubscription,
+}: IPDSResultsOfferProps) => {
   const attachmentStyleLong = getAttachmentStyleText(style)
   const { base: baseConfig } = config
   const pdsGrowthConfig = baseConfig.pdsGrowth(style)
@@ -86,7 +91,11 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
 
         <p className="text-lg font-bold">So what does this look like for you?</p>
 
-        <ButtonCheckout className="mb-4" label="JOIN THE ALL-ACCESS & SAVE 30%" />
+        <ButtonCheckout
+          href={checkoutUrl}
+          className="mb-4"
+          label="JOIN THE ALL-ACCESS & SAVE 30%"
+        />
 
         <div className="w-fit bg-blue-3 flex items-center text-blue-darkest p-4 mx-auto">
           <FontAwesomeIcon className="mr-2" icon={faInfoCircle} />
@@ -134,7 +143,7 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
           ))}
         </div>
 
-        <ButtonCheckout label="START YOUR JOURNEY TODAY" />
+        <ButtonCheckout href={checkoutUrl} label="START YOUR JOURNEY TODAY" />
       </Section>
 
       <Section className="!px-4 lg:!px-0" classNameInner="!max-w-full">
@@ -239,7 +248,7 @@ export const PDSResultsOfferSection = ({ style }: IPDSResultsOfferProps) => {
             ]}
           />
 
-          <ButtonCheckout label={pdsNextStepsConfig.ctaLabel} />
+          <ButtonCheckout href={checkoutUrl} label={pdsNextStepsConfig.ctaLabel} />
         </div>
       </Section>
 

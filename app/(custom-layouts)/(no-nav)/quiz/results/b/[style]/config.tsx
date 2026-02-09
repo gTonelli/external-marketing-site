@@ -1,3 +1,5 @@
+import { faGlobe, faGraduationCap, faUser } from '@awesome.me/kit-545b942488/icons/classic/regular'
+
 export const CONFIG = {
   common: {
     aboutSection: {
@@ -8,8 +10,6 @@ export const CONFIG = {
         'Rather than offering one-size-fits-all advice, the School provides structured tools, guided lessons, and practical exercises designed to help you understand why certain reactions show up and how to work with them in a way that feels manageable and supportive.',
         'Many people come to The Personal Development School after years of trying to “fix” themselves, only to realize they don’t need more pressure, they need clarity, context, and tools that actually fit their experience.',
       ],
-      image: '',
-      imageAlt: '',
     },
     whatYouGetSection: {
       title: 'What You Get Inside The Personal Development School',
@@ -27,8 +27,6 @@ export const CONFIG = {
       copy2: [
         'You’re not expected to complete everything at once or know where to start, we’re just here to give you the opportunity to choose a path for yourself that makes you feel happy and fulfilled.',
       ],
-      image: '',
-      imageAlt: '',
     },
     gettingStartedSection: {
       title: 'Getting Started in The Personal Development School',
@@ -47,8 +45,6 @@ export const CONFIG = {
         'Return to specific tools when situations come up',
         'Go at their own pace, without pressure to “keep up”',
       ],
-      image: '',
-      imageAlt: '',
     },
     noRiskSection: {
       title: 'A No Risk Way to Start',
@@ -80,8 +76,6 @@ export const CONFIG = {
         'If understanding this attachment style with guidance feels like the right next step, you can continue below.',
       ],
       ctaLabel: 'Continue With Guided Support - 30% Off',
-      image: '',
-      imageAlt: '',
     },
     continueWithGuidedSupportSection: {
       title: 'Continue With Support, At Your Own Pace',
@@ -115,8 +109,6 @@ export const CONFIG = {
         'Explore privately, on your own schedule',
       ],
       ctaLabel: 'Get Started',
-      image: '',
-      imageAlt: '',
     },
     aboutThaisSection: {
       title: 'About Thais Gibson',
@@ -134,17 +126,17 @@ export const CONFIG = {
       title: 'Join The The Personal Development School for 30% Off',
       communityCards: [
         {
-          icon: '',
+          icon: faGlobe,
           metric: '145+',
           label: 'Countries Worldwide',
         },
         {
-          icon: '',
+          icon: faGraduationCap,
           metric: '60,000+',
           label: 'Student Enrollments',
         },
         {
-          icon: '',
+          icon: faUser,
           metric: '99.7%',
           label: 'User Statisfaction Rate',
         },
@@ -158,14 +150,14 @@ export const CONFIG = {
         'Start your healing journey and embrace personal growth.',
       ],
       ctaLabel: 'START YOUR JOURNEY',
-      image: '',
-      imageAlt: '',
     },
   },
   fa: {
     style: 'Fearful Avoidant',
     hero: {
       label: 'Your Attachment Style Is',
+      image: '/images/AttachmentQuizResults/fa-variant-hero.webp',
+      imageAlt: 'An image of a woman sipping coffee while looking at a laptop.',
     },
     nothingWrongSection: {
       title: 'Your Results Don’t Mean Anything Is Wrong With You',
@@ -253,8 +245,6 @@ export const CONFIG = {
       copy2: [
         'You don’t need to feel “ready,” confident, or clear about what comes next, you just have to decide that you want something different for yourself. The Personal Development School is a place to take what you’ve learned through this attachment style quiz and actually work with it.',
       ],
-      image: '',
-      imageAlt: '',
     },
     attachmentCanChangeSection: {
       title: 'What Understanding This Attachment Style Can Change',
@@ -274,8 +264,6 @@ export const CONFIG = {
         'Both paths are valid. There’s no expectation to move faster than you’re ready for.',
         'If having fewer moments of emotional whiplash, less second-guessing after connection, and more ability to stay present instead of pulling away is important to you, you’re in the right place.',
       ],
-      image: '',
-      imageAlt: '',
     },
     shiftSection: {
       title: 'What Begins to Shift Beneath the Surface',
@@ -295,8 +283,6 @@ export const CONFIG = {
         'Many people with a fearful avoidant attachment style reach moments like this, where things finally make sense, but the urge is to pause, step back, or think it through later. The challenge is that these patterns don’t usually change on their own with time or insight alone. They tend to resurface in the same moments of closeness, stress, or emotional intensity. If you don’t take time to understand now, this often becomes something you revisit after the next confusing relationship moment or the next time you feel yourself pulling away again. This doesn’t mean you need to rush or commit to change.',
         'It simply means this is a window where understanding can turn into something different.',
       ],
-      image: '',
-      imageAlt: '',
     },
     supportSection: {
       title: 'How This Supports Fearful Avoidant Attachment Styles',
@@ -335,14 +321,14 @@ export const CONFIG = {
         'If you want relationships that feel steady, safe, and mutual without losing yourself this is the next step that actually supports that.',
       ],
       ctaLabel: 'GET STARTED',
-      image: '',
-      imageAlt: '',
     },
   },
   ap: {
     style: 'Anxious Preoccupied',
     hero: {
       label: 'Your Attachment Style Is',
+      image: '/images/AttachmentQuizResults/ap-variant-hero.webp',
+      imageAlt: 'An image of a man who is seemingly stressed',
     },
     nothingWrongSection: {
       title: 'Your Results Don’t Mean Anything Is Wrong With You',
@@ -452,8 +438,6 @@ export const CONFIG = {
         'Both paths are valid. There’s no expectation to move faster than you’re ready for.',
         'Either path will lead you to fewer moments of emotional overwhelm, less reassurance-seeking driven by fear, and more capacity to stay grounded and connected without losing yourself.',
       ],
-      image: '',
-      imageAlt: '',
     },
     shiftSection: {
       title: 'What Begins to Shift Beneath the Surface',
@@ -477,8 +461,6 @@ export const CONFIG = {
         'If you don’t take time to understand your attachment style now, this often becomes something you revisit after the next spiral or emotional low.',
         'This isn’t about fixing anything today. It’s about giving yourself support before the anxiety has to take over again.',
       ],
-      image: '',
-      imageAlt: '',
     },
     supportSection: {
       title: 'How This Supports Anxious Preoccupied Attachment Styles',
@@ -491,8 +473,8 @@ export const CONFIG = {
       ],
       copy2:
         'This isn’t about becoming less emotional or less connected. It’s about building internal safety so connection no longer feels so fragile or consuming.',
-      image: '',
-      imageAlt: '',
+      image: '/images/AttachmentQuizResults/advanced-anxious-preoccupied-course.png',
+      imageAlt: 'A thumbnail of the advanced anxious preoccupied course',
     },
     continuingBenefitsSection: {
       title: 'What Continuing Can Give You',
@@ -509,14 +491,14 @@ export const CONFIG = {
         'If you want relationships that feel secure without constant effort, this is the next step that actually supports that.',
       ],
       ctaLabel: 'GET STARTED',
-      image: '',
-      imageAlt: '',
     },
   },
   da: {
     style: 'Dismissive Avoidant',
     hero: {
       label: 'Your Attachment Style Is',
+      image: '/images/AttachmentQuizResults/da-variant-hero.webp',
+      imageAlt: 'An image of a woman with her hand raised up to say no/stop',
     },
     nothingWrongSection: {
       title: 'Your Results Don’t Mean Anything Is Wrong With You',
@@ -603,8 +585,6 @@ export const CONFIG = {
         'You don’t need to feel ready to be more emotional or relational, you just need to decide that you want something different.',
         'This is a place to take what you’ve learned here and work with it in a way that preserves autonomy and choice.',
       ],
-      image: '',
-      imageAlt: '',
     },
     attachmentCanChangeSection: {
       title: 'What Understanding This Attachment Style Can Change',
@@ -629,8 +609,6 @@ export const CONFIG = {
         'Both paths are valid. There’s no expectation to change faster than feels natural.',
         'With either path, it means less emotional exhaustion, fewer avoidance loops, and more choice in how close or distant they want to be.',
       ],
-      image: '',
-      imageAlt: '',
     },
     shiftSection: {
       title: 'What Begins to Shift Beneath the Surface',
@@ -668,8 +646,8 @@ export const CONFIG = {
       copy2:
         'This work isn’t about taking away your independence. It’s about giving you more control and choice in how you relate.',
 
-      image: '/images/AttachmentQuizResults/dismissive-avoidant-course.png',
-      imageAlt: 'A thumbnail of the dismissive avoidant course',
+      image: '/images/AttachmentQuizResults/advanced-dismissive-avoidant-course.png',
+      imageAlt: 'A thumbnail of the advanced dismissive avoidant course',
     },
     continuingBenefitsSection: {
       title: 'What Continuing Can Give You',
@@ -686,8 +664,6 @@ export const CONFIG = {
         'If you want relationships that feel steady, safe, and mutual without losing yourself this is the next step that actually supports that.',
       ],
       ctaLabel: 'GET STARTED',
-      image: '',
-      imageAlt: '',
     },
   },
 }

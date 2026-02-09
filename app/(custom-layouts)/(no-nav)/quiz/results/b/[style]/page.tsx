@@ -1,15 +1,21 @@
+// core
 import Image from 'next/image'
+// components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
-import { CONFIG } from './config'
-import '@/styles/default-styles.css'
 import { List } from '@/components/List'
-import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
-import { externalRoutes } from '@/utils/constants'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { Faq } from '@/components/Faq/Faq'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// config
+import { CONFIG } from './config'
+// utils
+import { externalRoutes } from '@/utils/constants'
+// styles
+import '@/styles/default-styles.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type TStyle = 'fa' | 'ap' | 'da'
 
@@ -31,17 +37,36 @@ export default async function VariantBResultsPage({ params }: TParams) {
 
   return (
     <Page page_name={`Attachment Style Results - Variant B - ${style}`}>
-      <Section classNameInner="!max-w-4xl mx-auto">
-        <div className="my-8 lg:my-16 lg:grid lg:grid-cols-12">
-          <div className="col-span-7 text-left">
-            <h1>
-              <span className="block !text-2xl">{config.hero.label}</span>
+      {/* <Section  classNameInner="!max-w-4xl mx-auto"> */}
+      <section className="relative">
+        <div className="relative w-full h-[300px] lg:h-auto">
+          <Image
+            priority
+            className="w-full h-full object-cover object-right lg:h-auto lg:object-cover"
+            src={config.hero.image}
+            alt={config.hero.imageAlt}
+            width={1920}
+            height={1080}
+            sizes="100vw"
+            quality={100}
+          />
+        </div>
 
-              <span className="uppercase font-bold">{config.style}</span>
-            </h1>
+        <div className="hero-gradient-bridge lg:hidden" />
+
+        <div className="relative !max-w-4xl mx-auto z-5 px-4 pt-16 pb-8 lg:absolute lg:inset-0 lg:py-32 xl:py-40 2xl:py-64 3xl:py-80">
+          <div className="lg:grid lg:grid-cols-12">
+            <div className="text-left lg:col-span-7">
+              <h1>
+                <span className="block !text-2xl">{config.hero.label}</span>
+
+                <span className="uppercase font-bold">{config.style}</span>
+              </h1>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
+      {/* </Section> */}
 
       <Section classNameInner="!max-w-4xl mx-auto">
         <h2>{config.nothingWrongSection.title}</h2>
@@ -123,7 +148,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
         </div>
       </Section>
 
-      <Section className="bg-pink-tertiary">
+      <Section className="bg-pink-tertiary" classNameInner="relative !pb-0">
         <div className="grid gap-8 mb-16 lg:grid-cols-12">
           <div className="relative h-80 lg:col-span-5 lg:h-auto">
             <Image
@@ -155,7 +180,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
           </div>
         </div>
 
-        <div className="max-w-4xl text-left mb-16">
+        <div className="max-w-3xl text-left">
           <h2>{config.attachmentCanChangeSection.title}</h2>
 
           {config.attachmentCanChangeSection.copy1.map((copy, i) => (
@@ -169,13 +194,13 @@ export default async function VariantBResultsPage({ params }: TParams) {
             listItems={config.attachmentCanChangeSection.listItems}
           />
 
-          {config.attachmentCanChangeSection.copy2.map((copy, i) => (
-            <p key={`attachment_can_change_copy2_${i}`}>{copy}</p>
-          ))}
-        </div>
+          <div className="max-w-xl">
+            {config.attachmentCanChangeSection.copy2.map((copy, i) => (
+              <p key={`attachment_can_change_copy2_${i}`}>{copy}</p>
+            ))}
+          </div>
 
-        <div className="max-w-4xl text-left">
-          <h2>{config.shiftSection.title}</h2>
+          <h2 className="mt-16">{config.shiftSection.title}</h2>
 
           {config.shiftSection.copy1.map((copy, i) => (
             <p key={`shift_copy1_${i}`}>{copy}</p>
@@ -188,10 +213,20 @@ export default async function VariantBResultsPage({ params }: TParams) {
             listItems={config.shiftSection.listItems}
           />
 
-          {config.shiftSection.copy2.map((copy, i) => (
-            <p key={`shift_copy2_${i}`}>{copy}</p>
-          ))}
+          <div className="max-w-xl">
+            {config.shiftSection.copy2.map((copy, i) => (
+              <p key={`shift_copy2_${i}`}>{copy}</p>
+            ))}
+          </div>
         </div>
+
+        <Image
+          className="hidden lg:block lg:!z-5 lg:absolute lg:-bottom-16 lg:-right-12 lg:!max-w-lg lg:h-auto xl:!max-w-xl 2xl:!max-w-2xl 3xl:!max-w-3xl"
+          src="/images/AttachmentQuizResults/thais-gibson-portrait-large.png"
+          alt="Portrait of Thais Gibson"
+          width={897}
+          height={1117}
+        />
       </Section>
 
       <Section className="bg-primary text-white">
@@ -202,8 +237,8 @@ export default async function VariantBResultsPage({ params }: TParams) {
         ))}
       </Section>
 
-      <Section classNameInner="gap-8 lg:grid lg:grid-cols-12">
-        <div className="text-left lg:col-span-7">
+      <Section classNameInner="gap-8 grid lg:grid-cols-12">
+        <div className="text-left order-2 lg:order-1 lg:col-span-7">
           <h2>{config.supportSection.title}</h2>
 
           <p>{config.supportSection.copy1}</p>
@@ -219,7 +254,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
           <p>{config.supportSection.copy2}</p>
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="order-1 lg:order-2 lg:col-span-5">
           <Image
             src={config.supportSection.image}
             alt={config.supportSection.imageAlt}
@@ -229,7 +264,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
         </div>
       </Section>
 
-      <Section classNameInner="gap-8 lg:grid lg:grid-cols-12">
+      <Section classNameInner="gap-8 grid lg:grid-cols-12">
         <div className="flex justify-center items-center lg:col-span-5">
           <Image
             src="/images/AttachmentQuizResults/platform-mockup-1.png"
@@ -259,8 +294,8 @@ export default async function VariantBResultsPage({ params }: TParams) {
         </div>
       </Section>
 
-      <Section classNameInner="gap-8 lg:grid lg:grid-cols-12">
-        <div className="text-left lg:col-span-7">
+      <Section classNameInner="gap-8 grid lg:grid-cols-12">
+        <div className="text-left order-2 lg:order-1 lg:col-span-7">
           <h2>{common.gettingStartedSection.title}</h2>
 
           {common.gettingStartedSection.copy.map((copy, i) => (
@@ -276,7 +311,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
           />
         </div>
 
-        <div className="flex justify-center items-center lg:col-span-5">
+        <div className="order-1 flex justify-center items-center lg:order-2 lg:col-span-5">
           <Image
             src="/images/AttachmentQuizResults/rocket-cloud-vector.png"
             alt="A vector image of a rocket launching into the cloud"
@@ -344,8 +379,8 @@ export default async function VariantBResultsPage({ params }: TParams) {
         />
       </Section>
 
-      <Section className="bg-blue-lightest" classNameInner="gap-4 lg:grid lg:grid-cols-12">
-        <div className="text-left lg:col-span-7">
+      <Section className="bg-blue-lightest" classNameInner="gap-8 grid lg:grid-cols-12">
+        <div className="text-left order-2 lg:order-1 lg:col-span-7">
           <h2>{common.afterJoiningSection.title}</h2>
 
           {common.afterJoiningSection.copy1.map((copy, i) => (
@@ -377,7 +412,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
           />
         </div>
 
-        <div className="flex justify-center items-center lg:col-span-5">
+        <div className="flex justify-center items-center order-1 lg:order-2 lg:col-span-5">
           <Image
             width={927}
             height={497}
@@ -388,11 +423,11 @@ export default async function VariantBResultsPage({ params }: TParams) {
       </Section>
 
       <Section>
-        <div className="gap-8 mb-8 lg:grid lg:grid-cols-12">
+        <div className="gap-8 grid mb-8 lg:grid-cols-12">
           <div className="relative h-80 lg:col-span-5 lg:h-auto">
             <Image
               fill
-              className="object-cover rounded-20"
+              className="object-top object-cover rounded-20"
               src="/images/AttachmentQuizResults/thais-gibson.png"
               alt="Thais sitting on a couch smiling with her head slightly tilted to the side."
             />
@@ -423,11 +458,13 @@ export default async function VariantBResultsPage({ params }: TParams) {
       </Section>
 
       <Section className="bg-black">
-        <div className="flex justify-center gap-8 mb-16">
+        <div className="flex flex-col justify-center items-center gap-8 mb-16 sm:flex-row">
           {common.featuresSection.communityCards.map((card, i) => (
             <div
               key={`feature_card_${i}`}
               className="min-w-48 max-w-48 flex flex-col items-center justify-center border-4 border-primary bg-white rounded-20 p-6">
+              <FontAwesomeIcon className="text-primary mb-4" size="2x" icon={card.icon} />
+
               <p className="text-primary text-2xl">
                 <strong>{card.metric}</strong>
               </p>
@@ -437,7 +474,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
           ))}
         </div>
 
-        <div className="gap-8 lg:grid lg:grid-cols-12">
+        <div className="gap-8 grid px-4 lg:grid-cols-12">
           <div className="text-left text-white lg:col-span-7">
             <h2>{common.featuresSection.title}</h2>
 

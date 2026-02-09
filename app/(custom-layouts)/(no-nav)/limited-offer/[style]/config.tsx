@@ -153,8 +153,22 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
-        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
+        copy2: (
+          <>
+            If you're single:
+            <br /> Our step-by-step course will give you the breakthroughs you need to change the
+            way you date. You can expect to experience up to{' '}
+            <strong>3X more success and confidence in your dating life.</strong>
+          </>
+        ),
+        copy3: (
+          <>
+            If you’re in a relationship:
+            <br /> This exact same course will give you the communication and conflict management
+            tools you need to{' '}
+            <strong>strengthen your relationship with your partner by up to 50%!</strong>
+          </>
+        ),
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -348,8 +362,22 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
-        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
+        copy2: (
+          <>
+            If you're single:
+            <br /> Our step-by-step course will give you the breakthroughs you need to change the
+            way you date. You can expect to experience up to{' '}
+            <strong>3X more success and confidence in your dating life.</strong>
+          </>
+        ),
+        copy3: (
+          <>
+            If you’re in a relationship:
+            <br /> This exact same course will give you the communication and conflict management
+            tools you need to{' '}
+            <strong>strengthen your relationship with your partner by up to 50%!</strong>
+          </>
+        ),
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We we provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -464,7 +492,7 @@ export const LIMITED_OFFER = {
             text: 'so you can start asking for it when you need more freedom/ independence or more connection.',
           },
           {
-              text_bold: 'Your own insecurities/fears,',
+            text_bold: 'Your own insecurities/fears,',
             text: 'plus tools for overcoming them, so that you can feel confident and secure in your love life.',
           },
           {
@@ -527,8 +555,22 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
-        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
+        copy2: (
+          <>
+            If you're single:
+            <br /> Our step-by-step course will give you the breakthroughs you need to change the
+            way you date. You can expect to experience up to{' '}
+            <strong>3X more success and confidence in your dating life.</strong>
+          </>
+        ),
+        copy3: (
+          <>
+            If you’re in a relationship:
+            <br /> This exact same course will give you the communication and conflict management
+            tools you need to{' '}
+            <strong>strengthen your relationship with your partner by up to 50%!</strong>
+          </>
+        ),
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We we provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -711,8 +753,22 @@ export const LIMITED_OFFER = {
       },
       course: {
         copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
-        copy2: <>If you're single:<br /> Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to <strong>3X more success and confidence in your dating life.</strong></>,
-        copy3: <>If you’re in a relationship:<br /> This exact same course will give you the communication and conflict management tools you need to <strong>strengthen your relationship with your partner by up to 50%!</strong></>,
+        copy2: (
+          <>
+            If you're single:
+            <br /> Our step-by-step course will give you the breakthroughs you need to change the
+            way you date. You can expect to experience up to{' '}
+            <strong>3X more success and confidence in your dating life.</strong>
+          </>
+        ),
+        copy3: (
+          <>
+            If you’re in a relationship:
+            <br /> This exact same course will give you the communication and conflict management
+            tools you need to{' '}
+            <strong>strengthen your relationship with your partner by up to 50%!</strong>
+          </>
+        ),
         copy4:
           "This course is backed by our unwavering confidence in what it can do for you. We we provide a 100% refund if you don't experience a significant breakthrough in your love life within 7 days of starting it.",
         copy5: `This discount and guarantee is only available for a `,
@@ -793,5 +849,267 @@ export const LIMITED_OFFER_SEO_CONFIG = {
     title: 'Special Offer for Secure Attachment | PDS',
     description:
       'Explore special Secure Attachment offers to deepen balance, communication, and relationship growth with PDS resources.',
+  },
+}
+
+export const LIMITED_OFFER_VARIANT = {
+  LOGO_FEATURE: {
+    title: 'The Personal Development School Has Been Featured In...',
+  },
+  QUOTE: {
+    headline: 'Why Understanding Comes Before Change',
+  },
+  CTA: {
+    copyOne:
+      'In the very first hour of your access, you will learn three simple steps to leave your painful attachment style patterns behind.',
+  },
+  ACCESS: {
+    headline: 'Your Access in The Personal Development School Includes:',
+    features: [
+      {
+        title: 'All Attachment Style Programs',
+        copy: 'Learn how other attachment styles operate so you can navigate relationships with more understanding and less confusion.',
+      },
+      {
+        title: 'The Full Personal Development School Course Library',
+        copy: 'Explore additional programs covering boundaries, self-esteem, emotional regulation, communication, relationship repair, burnout, and more, all included with your membership.',
+      },
+      {
+        title: 'Weekly Optional Live Coaching Calls',
+        copy: 'Get real-time support, guidance, and answers when you want it. Attend live or engage on your own terms.',
+      },
+      {
+        title: 'Self-Paced, Cancel-Anytime Access',
+        copy: 'Move at your own pace, revisit lessons as needed, and continue only as long as it’s supportive for you.',
+      },
+    ],
+  },
+  RISKFREE: {
+    headline1: 'A Risk-Free Way to Start Working With Your Attachment Style',
+    copy1: [
+      <>
+        After supporting over 20,000 students inside The Personal Development School, we know one
+        thing to be true: lasting change doesn’t come from insight alone, it comes from learning how
+        to respond differently in real moments.
+      </>,
+      'Whether you’re single or in a relationship, the tools inside your All Access Pass are designed to help you work with your attachment style in everyday situations, not just understand it intellectually.',
+    ],
+    headline2: 'Try The Personal Development School risk-free for 7 days.',
+    copy2:
+      'If you don’t feel supported, clearer, or better equipped to work with your attachment style during that time, you can cancel your access easily and receive a full refund. No pressure. No obligation.',
+    headline3: 'Why This Is Available at 30% Off, And Why It’s Time-Limited...',
+    copy3: [
+      'We know that real change doesn’t happen from reading about your attachment style.',
+      'It happens when you begin applying the right tools in real relationships with guidance and support along the way.',
+      <>
+        That’s why we’re offering{' '}
+        <strong>30% off membership to The Personal Development School for a limited time.</strong>
+      </>,
+      'For many people, the hardest step is simply getting started.',
+      'This offer is designed to make that first step easier so you can begin with your personalized Secure Relationship Program and see whether this approach feels supportive for you.',
+      'Once you’re inside, you’ll have access to the full school, optional live support, and a clear place to start without pressure to rush or commit beyond what feels right.',
+    ],
+    headline4: 'Why the Timing Matters',
+    copy4: [
+      'This discount is tied to your attachment-style results and the upcoming live support cycle.',
+      'It’s meant to encourage action while the insights from your quiz are still fresh and relevant, while something is on your mind that prompted you to take the quiz in the first place.',
+      'If now feels like the right time to begin, this offer is here to support that decision.',
+    ],
+  },
+  ap: {
+    HERO: {
+      headline: (
+        <>
+          Finally, Build More Secure, Reassuring Relationships <em>Without</em> Overthinking or
+          Self-Doubt
+        </>
+      ),
+      copy: 'Join The Personal Development School and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the Anxious Preoccupied to Secure Relationship Program as Your Personalized Starting Point',
+    },
+    ACCESS: {
+      copy: [
+        'When you join, you’re not just getting access to a single program. You’re stepping into a complete, ongoing support system designed to help you build more secure relationships over time.',
+        <>
+          <strong>Here's what's included:</strong>
+        </>,
+      ],
+      feature: {
+        title: 'The Anxious Preoccupied to Secure Relationship Program',
+        copy: (
+          <>
+            Your personalized starting point, designed for anxious preoccupied attachment{' '}
+            <em>(Included as a bonus)</em>
+          </>
+        ),
+      },
+    },
+    PROGRAM: {
+      headline:
+        'Join Today and We’ll Set You Up For Success With Your Anxious Preoccupied to Secure Relationship Program FREE ($595 Value)',
+      copy: [
+        <>
+          <strong>This is the first transformation you’ll experience when you join.</strong>
+        </>,
+        'The Anxious Preoccupied to Secure Relationship Program is designed specifically for anxious preoccupied attachment and gives you a clear, structured place to start building more security in your relationships.',
+        'Inside this bonus program, you’ll learn how to:',
+      ],
+      listItems: [
+        <>
+          <strong>Calm anxious responses as they show up in real moments</strong>{' '}
+          <em>
+            so that emotional reactions don’t escalate before you have a chance to respond
+            intentionally
+          </em>
+          .
+        </>,
+        <>
+          <strong>Stop overthinking, reassurance-seeking, and emotional spirals</strong>{' '}
+          <em>
+            so that uncertainty in relationships doesn’t immediately turn into anxiety or self-doubt
+          </em>
+          .
+        </>,
+        <>
+          <strong>Communicate your needs more clearly without fear of pushing people away</strong>{' '}
+          <em>
+            so that closeness doesn’t require over-explaining, apologizing, or minimizing yourself
+          </em>
+          .
+        </>,
+        <>
+          <strong>Build connection without abandoning yourself</strong>{' '}
+          <em>
+            so that relationships feel steady and supportive instead of emotionally exhausting
+          </em>
+          .
+        </>,
+      ],
+    },
+    SINGLE:
+      'You’ll learn how to relate more securely so dating doesn’t feel like a cycle of overthinking, uncertainty, or emotional highs and lows.',
+    RELATIONSHIP:
+      'You’ll build practical communication and regulation skills so closeness doesn’t automatically turn into anxiety, shutdown, or conflict.',
+  },
+  da: {
+    HERO: {
+      headline:
+        'Finally, Experience Relationships That Respect Your Need For Space While Still Feeling Solid And Uncomplicated',
+      copy: 'Join The Personal Development School and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the Dismissive Avoidant to Securely Attached Program as Your Personalized Starting Point',
+    },
+    ACCESS: {
+      copy: [
+        'When you join, you’re not just getting access to a single program. You’re stepping into a complete, ongoing support system designed to help you create real, lasting improvements in their relationships.',
+        'Everything inside is designed to meet you where you are and support steady, meaningful change over time.',
+        <>
+          <strong>Here's what's included:</strong>
+        </>,
+      ],
+      feature: {
+        title: 'The Dismissive Avoidant to Securely Attached Program',
+        copy: (
+          <>
+            Your personalized starting point, designed for dismissive avoidant attachment
+            <em>(Included as a bonus)</em>
+          </>
+        ),
+      },
+    },
+    PROGRAM: {
+      headline:
+        'Join Today and We’ll Set You Up For Success With Your Dismissive Avoidant to Securely Attached Program FREE ($595 Value)',
+      copy: [
+        <>
+          <strong>This is the first transformation you’ll experience when you join.</strong>
+        </>,
+        'The Dismissive Avoidant to Securely Attached Program is designed specifically for Dismissive Avoidant attachment types, to create real, measurable change in the way you experience your love life whether you’re dating or already in a relationship.',
+        'Inside this bonus program, you’ll learn how to:',
+      ],
+      listItems: [
+        <>
+          <strong>Change the way you approach dating</strong> so that confidence replaces
+          overthinking and hesitation, and you experience up to 3X more ease and success in forming
+          meaningful connections.
+        </>,
+        <>
+          <strong>Handle communication and conflict more calmly and effectively</strong> so that
+          your relationship can strengthen by up to 50%, instead of repeating the same frustrating
+          or unresolved dynamics.
+        </>,
+        <>
+          <strong>Notice and interrupt old relational habits as they happen</strong> so that your
+          love life feels more intentional, steady, and self-directed rather than reactive or stuck
+          in familiar patterns.
+        </>,
+        <>
+          <strong>Experience a clear, noticeable shift within your first 7 days</strong> so that
+          progress feels real and tangible early on, not abstract, theoretical, or “somewhere down
+          the line”.
+        </>,
+      ],
+    },
+    SINGLE:
+      'Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to 3X more success and confidence in your dating life.',
+    RELATIONSHIP:
+      'This exact same course will give you the communication and conflict management tools you need to strengthen your relationship with your partner by up to 50%!',
+  },
+  fa: {
+    HERO: {
+      headline:
+        'Finally, Build Deeply Connected Relationships Without Losing Your Freedom Or Independence',
+      copy: 'Join The Personal Development School and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the The Fearful Avoidant 7 Day Transformation Course as Your Personalized Starting Point',
+    },
+    ACCESS: {
+      copy: [
+        'When you join, you’re not just getting access to a single program. You’re stepping into a complete, ongoing support system designed to help you build more secure relationships over time.',
+        <>
+          <strong>Here's what's included:</strong>
+        </>,
+      ],
+      feature: {
+        title: 'The Fearful Avoidant 7 Day Transformation Course',
+        copy: (
+          <>
+            Your personalized starting point, designed for fearful avoidant attachment
+            <em>(Included as a bonus)</em>
+          </>
+        ),
+      },
+    },
+    PROGRAM: {
+      headline:
+        'Join Today and We’ll Set You Up For Success With Your Fearful Avoidant 7 Day Transformation Course FREE ($595 Value)',
+      copy: [
+        <>
+          <strong>This is the first transformation you’ll experience when you join.</strong>
+        </>,
+        'The Fearful Avoidant 7 Day Transformation Course is designed specifically for Fearful Avoidant attachment types, to create real, measurable change in the way you experience your love life whether you’re dating or already in a relationship.',
+        'Inside this bonus program, you’ll learn how to:',
+      ],
+      listItems: [
+        <>
+          <strong>Shift the way you show up in dating</strong> so that confidence replaces
+          second-guessing and you experience up to <strong>3X more success</strong> in forming
+          meaningful connections.
+        </>,
+        <>
+          <strong>Navigate communication and conflict with clarity and steadiness</strong> so that
+          your relationship grows stronger by as much as <strong>50%</strong>, instead of cycling
+          through the same unresolved patterns.
+        </>,
+        <>
+          <strong>Recognize and interrupt old relational habits in real time</strong> so that your
+          love life starts to feel intentional, grounded, and forward-moving rather than reactive or
+          stuck.
+        </>,
+        <>
+          <strong>Experience a noticeable breakthrough within the first 7 days</strong> so that
+          progress feels tangible early on, not theoretical or “someday.”
+        </>,
+      ],
+    },
+    SINGLE:
+      'Our step-by-step course will give you the breakthroughs you need to change the way you date. You can expect to experience up to 3X more success and confidence in your dating life.',
+    RELATIONSHIP:
+      'This exact same course will give you the communication and conflict management tools you need to strengthen your relationship with your partner by up to 50%!',
   },
 }

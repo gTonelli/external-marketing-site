@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 // components
-import { TStyle } from '@/utils/types'
+import { TStyle, TStyleLong } from '@/utils/types'
 // config
 import { defaultQuestionGroups, quizPillSelectOptions } from './config'
 // libraries
@@ -32,6 +32,23 @@ interface IQuestionRequiredProps {
   readonly subheading?: string | JSX.Element
   readonly onAnswerQuestion?: () => void
   userResponse?: TAnswerQuestionArgs
+}
+
+export interface ISaveResultArgs {
+  firstName: string
+  lastName: string
+  email: string
+  eventId: string
+  attachmentFamiliarity?: string
+  gender?: string
+  intent?: string
+  relationship?: string
+  relationshipSatisfaction?: string
+  dominantStyle: TStyleLong
+  faPercentage: number
+  apPercentage: number
+  daPercentage: number
+  saPercentage: number
 }
 
 type TFormInputData = {
@@ -223,6 +240,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     Storage.set('userFullName', name)
     FBQ?.trackLead({
       email: email,
+      eventId: crypto.randomUUID(),
     })
     setUserData({ email, firstName, lastName, userStyle: dominantStyle })
     Mixpanel.track.SignUp({ distinct_id: email })
@@ -237,6 +255,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
 
     fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -320,6 +339,49 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     question.userResponse = val
   }
 
+  const saveResult = ({
+    firstName,
+    lastName,
+    email,
+    eventId,
+    attachmentFamiliarity,
+    gender,
+    intent,
+    relationship,
+    relationshipSatisfaction,
+    dominantStyle,
+    faPercentage,
+    apPercentage,
+    daPercentage,
+    saPercentage,
+  }: ISaveResultArgs) => {
+    return fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
+      method: 'POST',
+      keepalive: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        attachmentStyle: dominantStyle,
+        firstName,
+        lastName,
+        email,
+        eventId,
+        'attachment-familiarity': attachmentFamiliarity,
+        gender,
+        intent,
+        'relationship-status': relationship,
+        'relationship-satisfaction': relationshipSatisfaction,
+        faPercentage,
+        apPercentage,
+        daPercentage,
+        saPercentage,
+      }),
+    }).catch((error) => {
+      console.error('Error saving quiz result:', error)
+    })
+  }
+
   const trackProgressMobile = useCallback(() => {
     const progress = (i / questionGroups.length) * 100
     if (document.visibilityState === 'hidden' && progress < 100) {
@@ -364,6 +426,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     endQuiz,
     getPercentageResults,
     getQuestionType,
+    saveResult,
     currentQuestionGroup,
     index: i,
     length,

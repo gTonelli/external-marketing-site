@@ -11,44 +11,42 @@ import { SocialProofStatistics } from './SocialProof/SocialProofStatistics'
 
 interface ICommunityTeaserProps {
   classNamePaymentOptions?: string
-  includeBgImage?: boolean
   includePaymentOptions?: boolean
   sectionHeading?: string
   teaserHeading?: string
   paymentOptionsConfigKey: TPaymentOptionsConfigKey
-  communityBullets?: string[]
+  communityBullets?: (string | JSX.Element)[]
+  footerImageClassName?: string
+  footerImageSrc?: string
+  footerImageAlt?: string
+  footerImageWidth?: number
+  footerImageHeight?: number
 }
 
 export const CommunityTeaser = ({
   classNamePaymentOptions,
-  includeBgImage = false,
   includePaymentOptions = true,
   sectionHeading = TH.COMMUNITY.heading,
   teaserHeading = TH.COMMUNITY.subheading,
   paymentOptionsConfigKey,
   communityBullets,
+  footerImageClassName,
+  footerImageSrc,
+  footerImageAlt,
+  footerImageWidth,
+  footerImageHeight,
 }: ICommunityTeaserProps) => {
   const communityBulletsCopy = communityBullets || TH.COMMUNITY.bullets
 
   return (
     <section className="relative w-full bg-black px-4 py-20">
-      {includeBgImage && (
-        <Image
-          className="absolute w-full h-full top-0 left-0 z-0 opacity-30"
-          src="/images/TrialHeadspace/snowflakes-bg.webp"
-          alt="hero-mockup"
-          width={3000}
-          height={2000}
-        />
-      )}
-
       <div className="relative max-w-5xl text-center text-white mx-auto">
         <SocialProofStatistics />
 
-        <div className="text-left mt-12 lg:mt-[70px]">
-          <h2 className="mb-8">{teaserHeading}</h2>
+        <div className="mt-12 lg:mt-[70px]">
+          <h2 className="text-center mb-8">{teaserHeading}</h2>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 text-left lg:grid-cols-2">
             {communityBulletsCopy.map((bullet, idx) => (
               <div key={`community_perk_${idx}`} className="flex items-center space-x-6">
                 <FontAwesomeIcon icon={faCheck} size="2x" />
@@ -68,11 +66,21 @@ export const CommunityTeaser = ({
             <PaymentOptions
               className={classNamePaymentOptions}
               configKey={paymentOptionsConfigKey}
-              placement="bottom"
+              theme="dark"
             />
           </div>
         )}
       </div>
+
+      {footerImageSrc && (
+        <Image
+          className={footerImageClassName}
+          src={footerImageSrc}
+          alt={footerImageAlt || 'Community teaser footer image'}
+          width={footerImageWidth}
+          height={footerImageHeight}
+        />
+      )}
     </section>
   )
 }

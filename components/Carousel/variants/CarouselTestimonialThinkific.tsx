@@ -69,7 +69,7 @@ export const CarouselTestimonialThinkific = forwardRef(
             clickable: true,
             bulletActiveClass: '!opacity-100',
             bulletClass:
-              'inline-block w-4 h-4 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer lg:hover:opacity-100',
+              'inline-block w-2 h-2 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer lg:hover:opacity-100',
           }}
           autoplay={{
             delay: 6000,

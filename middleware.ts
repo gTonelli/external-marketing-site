@@ -49,7 +49,8 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
         })
         return response
       } else {
-        showVariant = crypto.getRandomValues(new Uint8Array(1))[0] / 255 < variantRatio
+        const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
+        showVariant = variantCookie ? parseVariantCookie(variantCookie) : randomFloat < variantRatio
         const response = generateResponse({
           showVariant,
           variantUrl,
@@ -58,6 +59,15 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
           request,
           controlUrl,
         })
+        if (randomFloat > variantRatio * 2) {
+          response.cookies.set({
+            name: cookieKey,
+            value: showVariant.toString(),
+            httpOnly: false,
+            maxAge: 7776000, // 3 Months,
+            domain: domain || request.nextUrl.hostname,
+          })
+        }
         return response
       }
     }
@@ -65,11 +75,7 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
     const mixpanelID = JSON.parse(mixpanelCookie.value)?.distinct_id
 
     if (typeof variantCookie === 'string') {
-      try {
-        showVariant = JSON.parse(variantCookie)
-      } catch (_) {
-        showVariant = false
-      }
+      showVariant = parseVariantCookie(variantCookie)
     } else {
       setSplitTestCookie = true
       const randomFloat = crypto.getRandomValues(new Uint8Array(1))[0] / 255
@@ -116,8 +122,17 @@ export async function middleware(request: NextRequest, context: NextFetchEvent) 
   }
 }
 
+/** invalidates any malformed JSON */
+const parseVariantCookie = (variantCookie: string) => {
+  try {
+    return JSON.parse(variantCookie)
+  } catch (_) {
+    return false
+  }
+}
+
 export const config = {
-  matcher: ['/iat/info', '/iat/webinar'],
+  matcher: ['/iat/info', '/iat/webinar', '/six-dating-stages', '/iat'],
 }
 
 interface IConfigWithRegex {
@@ -136,6 +151,14 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       config: splitTestConfigs.iatMasterclassTest,
       regex: /^\/iat\/webinar/,
+    },
+    {
+      config: splitTestConfigs.iatSalesPageTest,
+      regex: /^\/iat(?:$|\?)/,
+    },
+    {
+      config: splitTestConfigs.datingQuizLPTest,
+      regex: /^\/six-dating-stages/,
     },
   ]
 
@@ -243,6 +266,27 @@ export const splitTestConfigs: TSplitTestConfigs = {
       path: '/iat/webinar/b',
     },
     variantRatio: 0.25,
+    forceControlOnNewUser: false,
+  },
+  iatSalesPageTest: {
+    cookieKey: 'ip-1599',
+    pageName: 'External IAT Page',
+    experimentName: 'IP-1599-IAT-Sales-Page-Test',
+    variantUrl: {
+      path: '/iat/b',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  datingQuizLPTest: {
+    cookieKey: 'gm-2272-dating-quiz-test',
+    pageName: 'Dating Quiz Landing Page',
+    experimentName: 'GM-2272-Dating-Quiz-LP-Test',
+    variantUrl: {
+      path: 'https://offer.personaldevelopmentschool.com/6-stages-quiz',
+    },
+    domain: '.personaldevelopmentschool.com',
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
 }

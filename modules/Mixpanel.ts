@@ -55,8 +55,10 @@ export type Pages =
   | `Attachment Style Report - FA`
   | `Attachment Style Results - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
+  | `Boxing Week Page`
   | `Black Friday`
   | `Black Friday Variant Page`
+  | `Black Friday Variant Page B`
   | `Codependency Quiz`
   | `Corporate Quiz Landing Page`
   | `Corporate Quiz Questions Page`
@@ -66,14 +68,22 @@ export type Pages =
   | `Cyber Monday Variant Page`
   | `DA Single - ${string}`
   | `Dating Freebie Page`
+  | `Dating Quiz Landing Page`
+  | `Dating Quiz Page`
+  | `Dating Quiz VSL Page`
+  | `Dating Quiz Results Page - ${string}`
   | `Dreamlife Results Page FA`
   | `Dreamlife Breakup Course Page`
+  | `Dreamlife Codependency Course Page`
+  | `Dreamlife Family Dynamics Page`
   | `Dreamlife Free Course Page`
   | `Dreamlife Pillars Course Page`
   | `Dreamlife Sex Course Page`
   | `Dreamlife Holiday Free Trial Page`
   | `Dreamlife Upsell Page`
+  | `Dreamlife Somatic Course Page`
   | `External IAT Page`
+  | `External IAT Page - Variant`
   | `External IAT Page (Klarna)`
   | `External IAT Ebook Page`
   | `External IAT Coaching Page`
@@ -98,6 +108,8 @@ export type Pages =
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
+  | `Love Languages Quiz Page`
+  | `New Year New You Page`
   | `Not Found Page`
   | `Main Funnel Quiz`
   | `Main Funnel Quiz Variant`
@@ -148,8 +160,10 @@ class Mixpanel {
       process.env.NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN || '449fc24bc868d03e5a530ce37f0cac9d',
       {
         // config override goes here
+        cross_subdomain_cookie: true,
         api_host: 'https://api.personaldevelopmentschool.com',
         debug: process.env.NEXT_PUBLIC_ENVIRONMENT_TYPE === 'dev',
+        // record_sessions_percent: 5,
       }
     )
   }
@@ -198,6 +212,14 @@ class Mixpanel {
   setUser(userId?: string | null) {
     if (!userId) return
     mixpanel.identify(String(userId))
+  }
+
+  setUserWithBeacon(userId?: string | null) {
+    if (!userId) return
+    const currentTransport = mixpanel.get_config('api_transport')
+    mixpanel.set_config({ api_transport: 'sendBeacon' })
+    mixpanel.identify(String(userId))
+    mixpanel.set_config({ api_transport: currentTransport })
   }
 
   track = {
@@ -304,6 +326,10 @@ class Mixpanel {
 
     SignUp: (props: { distinct_id: string; $insert_id?: string }) => {
       this.event('$signup', props)
+    },
+
+    SignUpWithBeacon: (props: { distinct_id: string; $insert_id?: string }) => {
+      mixpanel.track('$signup', props, { transport: 'sendBeacon' })
     },
 
     VideoStarted: (props: { video_type: string; page_name?: Pages }) => {

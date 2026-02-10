@@ -6,10 +6,12 @@ import { useRouter } from 'next/navigation'
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
+import { gtag } from '../GoogleAdsTag'
+// modules
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
-import { gtag } from '../GoogleAdsTag'
+import { getAttachmentStyleText } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -29,7 +31,8 @@ export const AttachmentQuizForm = ({
   quizData,
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
-  const { getPercentageResults } = useAttachmentQuiz()
+  const { getPercentageResults, saveResult } = useAttachmentQuiz()
+  const FBQ = useFacebookPixel()
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -38,29 +41,8 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (userStyle === 'ap' && userInfo?.intent === 'Improve my current relationship') {
-          const isVariant = getSplitTest({
-            key: 'GM-1895-AP',
-            experimentName: 'GM-1895-Segmented-Results-Test-AP',
-            variantRatio: 0.2,
-            useCookies: false,
-          })
-
-          if (isVariant) return '/quiz/style/ap'
-        } else if (
-          userStyle === 'fa' &&
-          userInfo?.intent ===
-            'Learn more about myself and heal (self-esteem, anxiety, depression, etc.)'
-        ) {
-          const isVariant = getSplitTest({
-            key: 'GM-1895-FA',
-            experimentName: 'GM-1895-Segmented-Results-Test-FA',
-            variantRatio: 0.2,
-            useCookies: false,
-          })
-
-          if (isVariant) return '/quiz/style/fa'
-          else return '/quiz/results/fearful-avoidant'
+        if (userStyle === 'fa') {
+          return '/quiz/results/fearful-avoidant'
         }
 
         return `/quiz/${userStyle}`
@@ -105,51 +87,43 @@ export const AttachmentQuizForm = ({
       intent,
     } = quizData
 
-    const { faPercentage, apPercentage, daPercentage, saPercentage } = getPercentageResults({
-      fa,
-      da,
-      ap,
-      sa,
-    })
+    const { faPercentage, apPercentage, daPercentage, saPercentage, dominantStyle } =
+      getPercentageResults({
+        fa,
+        da,
+        ap,
+        sa,
+      })
 
-    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/attachment-quiz-result`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    if (firstName && lastName && email) {
+      const eventId = crypto.randomUUID()
+
+      FBQ?.trackAttachmentQuizResult({
+        attachmentStyle: getAttachmentStyleText(userStyle),
+        eventId,
+      })
+
+      saveResult({
         firstName,
         lastName,
         email,
-        'attachment-familiarity': attachmentFamiliarity,
+        eventId,
+        attachmentFamiliarity,
         gender,
         intent,
-        'relationship-status': relationship,
-        'relationship-satisfaction': relationshipSatisfaction,
+        relationship,
+        relationshipSatisfaction,
+        dominantStyle: getAttachmentStyleText(dominantStyle),
         faPercentage,
         apPercentage,
         daPercentage,
         saPercentage,
-      }),
-    }).catch((error) => {
-      console.error('Error saving quiz result:', error)
-    })
+      })
+    }
 
     const route = determineRoute()
     router.push(route)
   }
-
-  const baseTag = `attachment-quiz-${userStyle}`
-
-  let additionalTag = ''
-
-  if (userInfo?.relationshipStatus === 'No' && userStyle !== 'sa') {
-    additionalTag = `single-${userStyle}`
-  } else if (userInfo?.relationshipStatus === 'Yes') {
-    additionalTag = `relationship-${userStyle}`
-  }
-
-  const tagArray = additionalTag ? `${baseTag}, ${additionalTag}` : baseTag
 
   return (
     <section className="flex justify-center">
@@ -160,7 +134,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={tagArray}
+          clientTag={`attachment-quiz-${userStyle}`}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

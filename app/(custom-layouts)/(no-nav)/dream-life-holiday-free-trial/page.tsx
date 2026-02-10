@@ -334,7 +334,6 @@ export default function DreamLifeHolidayFTPage() {
       <ThaisIntro />
 
       <CommunityTeaser
-        includeBgImage
         paymentOptionsConfigKey="dreamLifeHoliday"
         sectionHeading="Step Into the New Year with Us – Join Our Unstoppable Community!"
         teaserHeading="Step Into the Life You Deserve This New Year – Take Our 7-Day Free Trial"

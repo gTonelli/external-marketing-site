@@ -3,6 +3,7 @@
 // components
 import { Button } from '../Button/Button'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
+import { TDatingStage } from '../DatingQuiz/useDatingQuiz'
 import { IDefaultProps } from '..'
 import { gtag } from '../GoogleAdsTag'
 // libraries
@@ -11,6 +12,7 @@ import { Field, Form, Formik } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
 import { PhoneInput } from 'react-international-phone'
+import { TLoveLanguagesAssociation } from '../LoveLanguagesQuiz/config'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
@@ -35,6 +37,12 @@ interface IRegistrationFormProps extends IDefaultProps {
   submitButtonLabel?: string
   /** whether or not to show the phone number field */
   showPhoneField?: boolean
+  /** Dating stage to append to the user's profile*/
+  datingStage?: TDatingStage
+  /** Love language to append to the user's profile*/
+  loveLanguage?: TLoveLanguagesAssociation
+  /** Disclaimer text to display below the form */
+  disclaimer?: string
 }
 
 type TFieldConfig = {
@@ -69,35 +77,45 @@ export const RegistrationForm = ({
   clientTag,
   userInfo,
   userStyle,
+  datingStage,
+  loveLanguage,
   submitButtonLabel,
   showPhoneField = false,
+  disclaimer = "By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything.",
 }: IRegistrationFormProps) => {
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
-    const { email, firstName, lastName, phone } = values
+    const { firstName, lastName, phone } = values
+    const email = values.email.trim()
     setUserData({ email, firstName, lastName, phone, userStyle })
 
-    Mixpanel.setUser(values.email)
+    if (loveLanguage) Mixpanel.setUserWithBeacon(values.email)
+    else Mixpanel.setUser(values.email)
+
     Mixpanel.setPeople({ $email: email, $first_name: firstName, $last_Name: lastName })
     if (userInfo) Mixpanel.setPeopleOnce({ ...userInfo })
     if (userStyle) Mixpanel.setPeople({ 'Attachment Style': userStyle })
+    if (datingStage) Mixpanel.setPeople({ 'Dating Stage': datingStage })
+    if (loveLanguage) Mixpanel.setPeople({ 'Love Language': loveLanguage })
+    const eventId = crypto.randomUUID()
+    if (loveLanguage) {
+      Mixpanel.track.SignUpWithBeacon({
+        distinct_id: values.email,
+        $insert_id: eventId,
+      })
+    } else {
+      Mixpanel.track.SignUp({
+        distinct_id: values.email,
+        $insert_id: eventId,
+      })
+    }
 
-    const insertId = MD5(Date.now() + JSON.stringify(values)).toString()
-    Mixpanel.track.SignUp({
-      distinct_id: values.email,
-      $insert_id: insertId,
-    })
+    FBQ?.trackLead({ email, eventId })
 
-    FBQ?.trackLead({
-      email,
-    })
-
-    gtag('set', 'user_data', {
-      email: email.trim(),
-    })
+    gtag('set', 'user_data', { email })
 
     const requestBody = {
       tags: clientTag ? clientTag.split(',').map((tag) => tag.trim()) : [],
@@ -106,12 +124,14 @@ export const RegistrationForm = ({
       email,
       phone,
       listIds: [2],
-      insertId,
+      insertId: eventId,
       userInfo,
     }
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
+      credentials: 'include',
+      keepalive: true,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -183,11 +203,7 @@ export const RegistrationForm = ({
             </div>
           )}
 
-          <p className="text-left md:text-cente mt-4">
-            By clicking Submit, I agree to receive my attachment style report and other email
-            communication. If you haven&apos;t received your report, please be sure to check your
-            Spam/Junk folder, and also mark it as safe so you don't miss anything.
-          </p>
+          {disclaimer && <p className="text-left mt-4">{disclaimer}</p>}
 
           <div className="flex justify-center">
             <Button.Submit
@@ -222,8 +238,9 @@ export const RegistrationFormValidationSchema = yup
   })
   .defined()
 
-export interface IQuizRegistrationFormSchema
-  extends yup.InferType<typeof RegistrationFormValidationSchema> {}
+export interface IQuizRegistrationFormSchema extends yup.InferType<
+  typeof RegistrationFormValidationSchema
+> {}
 
 export const registrationFormInitialValues: IQuizRegistrationFormSchema =
   RegistrationFormValidationSchema.cast({})

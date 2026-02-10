@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { Expandable } from '../Expandable'
 import { List } from '../List'
 // libraries
+import cx from 'classnames'
 import { faChevronDown, faChevronsRight } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -15,6 +16,9 @@ interface IIATCurriculumCardProps {
   listItems: string[]
   textBottom?: string
   initialOpenState?: boolean
+  className?: string
+  classNameHeading?: string
+  classNameTrigger?: string
 }
 
 export const IATCurriculumCard = ({
@@ -23,17 +27,28 @@ export const IATCurriculumCard = ({
   listItems,
   textBottom = "Plus, you'll get the recorded Q&A session.",
   initialOpenState = false,
+  className,
+  classNameHeading,
+  classNameTrigger,
 }: IIATCurriculumCardProps) => {
   // ============State ===============
   const [isOpen, setIsOpen] = useState(initialOpenState)
 
   return (
     <div
-      className="text-left rounded-20 border-2 border-blue bg-white p-4 cursor-pointer pb-2 my-4 lg:my-8 lg:hover:bg-gray-50 lg:p-8 lg:pb-4"
+      className={cx(
+        'text-left rounded-20 border-2 border-blue bg-white p-4 cursor-pointer pb-2 my-4 lg:my-8 lg:hover:bg-gray-50 lg:p-8 lg:pb-4',
+        className
+      )}
       onClick={() => setIsOpen(!isOpen)}
       role="button">
-      <div className="w-full flex justify-between items-center pb-2 lg:pb-4">
-        <p className="font-semibold uppercase mb-0">{heading}</p>
+      <div
+        className={cx(
+          'w-full flex justify-between items-center pb-2 lg:pb-4',
+          classNameTrigger,
+          isOpen && '!pb-4'
+        )}>
+        <p className={cx('font-semibold uppercase mb-0', classNameHeading)}>{heading}</p>
 
         <FontAwesomeIcon
           className={`text-primary transition-all font-semibold text-xl ml-4 ${

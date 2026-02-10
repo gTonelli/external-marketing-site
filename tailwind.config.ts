@@ -44,6 +44,7 @@ const config: Config = {
         'blue-lightest-50': '#e3eded80',
         'blue-dashboard': '#F7F7FE',
         'blue-darkest': '#142BD5',
+        'blue-auxiliary': '#D7E7EA',
 
         brown: '#82737d',
         beige: '#e4d9d3',
@@ -106,6 +107,7 @@ const config: Config = {
         pink: '#D35592',
         'pink-secondary': '#E49FC2',
         'pink-tertiary': '#EDEAF3',
+        'pink-tertiary-60': '#E9CDED',
         'pink-auxiliary': '#FFF2FF',
         'pink-light': '#F4E9F0',
         'pink-dark': '#D35592',

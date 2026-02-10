@@ -164,7 +164,10 @@ export default function SegmentedResultsPage() {
         <ButtonCheckout label="START HEALING TODAY" />
       </Section>
 
-      <Itinerary listItems={config.sectionSix.weeksItems} />
+      <Itinerary
+        subheading={config.sectionSix.subheading}
+        listItems={config.sectionSix.weeksItems}
+      />
 
       <TextAndMedia
         heading="Discover The Personal Development School"

@@ -6,8 +6,9 @@ import { Page } from '@/components/Page'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { TestimonialSSP } from '@/components/Testimonial/variants/TestimonialSSP'
+import { List } from '@/components/List'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import {
   LIMITED_OFFER,
@@ -18,8 +19,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
 import { externalRoutes } from '@/utils/constants'
-import { List } from '@/components/List'
-import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export interface ILimitedOfferPageParams {
   params: Promise<{
@@ -43,7 +42,7 @@ export function generateStaticParams() {
   return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }]
 }
 
-export default async function LimitedOfferPage2({ params }: ILimitedOfferPageParams) {
+export default async function LimitedOfferVariantPage({ params }: ILimitedOfferPageParams) {
   const { style } = await params
   const pageCopy = LIMITED_OFFER[style]
   const pageVariant = LIMITED_OFFER_VARIANT[style]

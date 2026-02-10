@@ -143,6 +143,9 @@ export const AttachmentQuizForm = ({
     router.push(route)
   }
 
+  const tags = [`attachment-quiz-${userStyle}`]
+  if (isVariant) tags.push(`funnel-cro-${userStyle}`)
+
   return (
     <section className="flex justify-center">
       <div className="max-w-5xl w-full text-center rounded-2xl mt-6 mx-2 p-2 xxs:p-3 xs:p-4 xxs:shadow-centered md:mx-4 md:p-8 lg:px-12 xl:px-16">
@@ -152,7 +155,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={`attachment-quiz-${userStyle}`}
+          clientTag={tags.join(',')}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

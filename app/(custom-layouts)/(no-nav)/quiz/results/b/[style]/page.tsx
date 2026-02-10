@@ -29,7 +29,7 @@ export function generateStaticParams() {
 type TParams = { params: { style: TStyle } }
 
 export default async function VariantBResultsPage({ params }: TParams) {
-  const { style } = await params
+  const { style } = params
   const config = CONFIG[style]
   const common = CONFIG.common
   const checkoutUrl = externalRoutes.checkoutRegularSubscription.concat(
@@ -321,7 +321,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
       </Section>
 
       <Section className="bg-gradient-to-b from-white to-pink-tertiary">
-        <div className="gap-8 lg:grid lg:grid-cols-12">
+        <div className="gap-8 grid lg:grid-cols-12">
           <div className="flex justify-center items-center lg:col-span-5">
             <Image
               src="/images/AttachmentQuizResults/platform-mockup-2.png"

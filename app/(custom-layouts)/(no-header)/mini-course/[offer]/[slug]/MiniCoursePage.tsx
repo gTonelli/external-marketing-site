@@ -35,7 +35,7 @@ export const MiniCoursePage = ({ offer, slug, isIATOnly = false }: IMiniCoursePa
 
   const checkoutUrl = externalRoutes.checkout7DayTrial.concat(
     '-mec',
-    offer === 'offer' ? '-o' : '-wo',
+    isIATOnly ? '-iat' : offer === 'offer' ? '-o' : '-wo',
     `-${slug}`
   )
 

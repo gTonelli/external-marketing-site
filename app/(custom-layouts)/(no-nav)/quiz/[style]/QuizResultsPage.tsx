@@ -34,6 +34,7 @@ export interface IQuizResultsPageProps {
   ageVariant?: boolean
   melRobbinsVariant?: boolean
   youtubeVariant?: boolean
+  checkoutUrl?: string
 }
 
 export const QuizResultsPage = ({
@@ -41,6 +42,7 @@ export const QuizResultsPage = ({
   ageVariant = false,
   melRobbinsVariant = false,
   youtubeVariant = false,
+  checkoutUrl = externalRoutes.checkoutRegularSubscription,
 }: IQuizResultsPageProps) => {
   const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : melRobbinsVariant ? MR_CONFIG : CONFIG
 
@@ -115,7 +117,7 @@ export const QuizResultsPage = ({
                         </p>
 
                         <ButtonCheckout
-                          href={externalRoutes.checkoutRegularSubscription}
+                          href={checkoutUrl}
                           className="my-8 xxs:px-16"
                           label="GET STARTED NOW!"
                         />
@@ -176,7 +178,7 @@ export const QuizResultsPage = ({
 
                     <div className="text-center mb-4 lg:mb-0">
                       <ButtonCheckout
-                        href={externalRoutes.checkoutRegularSubscription}
+                        href={checkoutUrl}
                         className="xxs:px-16"
                         label="UNLOCK MY DISCOUNT"
                       />
@@ -189,6 +191,7 @@ export const QuizResultsPage = ({
 
           {youtubeVariant && (
             <RegisterNowSection
+              checkoutUrl={checkoutUrl}
               ageVariant={ageVariant}
               style={style}
               melRobbinsVariant={melRobbinsVariant}
@@ -240,7 +243,7 @@ export const QuizResultsPage = ({
             </div>
 
             <ButtonCheckout
-              href={externalRoutes.checkoutRegularSubscription}
+              href={checkoutUrl}
               className="mt-8 xxs:px-16 md:mt-10"
               label="UNLOCK MY DISCOUNT"
             />
@@ -319,7 +322,7 @@ export const QuizResultsPage = ({
               )}
 
               <ButtonCheckout
-                href={externalRoutes.checkoutRegularSubscription}
+                href={checkoutUrl}
                 className="mt-4 px-16 md:mt-10"
                 label="GET STARTED"
               />
@@ -372,11 +375,7 @@ export const QuizResultsPage = ({
               </p>
             )}
 
-            <ButtonCheckout
-              href={externalRoutes.checkoutRegularSubscription}
-              className="px-16"
-              label="GET STARTED"
-            />
+            <ButtonCheckout href={checkoutUrl} className="px-16" label="GET STARTED" />
           </div>
         </div>
       </section>
@@ -600,7 +599,7 @@ export const QuizResultsPage = ({
             </ul>
 
             <ButtonCheckout
-              href={externalRoutes.checkoutRegularSubscription}
+              href={checkoutUrl}
               className="mt-8 md:mt-10 px-16"
               label="SIGN UP NOW"
             />
@@ -693,10 +692,7 @@ export const QuizResultsPage = ({
                   ))}
 
                   <li className="mt-8 md:mt-10">
-                    <ButtonCheckout
-                      href={externalRoutes.checkoutRegularSubscription}
-                      label="ENROLL NOW"
-                    />
+                    <ButtonCheckout href={checkoutUrl} label="ENROLL NOW" />
                   </li>
                 </ul>
               </div>
@@ -754,13 +750,13 @@ export const QuizResultsPage = ({
             <CarouselTestimonialAlt />
 
             <ButtonCheckout
-              href={externalRoutes.checkoutRegularSubscription}
+              href={checkoutUrl}
               className="mt-4 md:hidden min-w-min xxs:min-w-max"
               label="START HEALING"
             />
 
             <ButtonCheckout
-              href={externalRoutes.checkoutRegularSubscription}
+              href={checkoutUrl}
               className="hidden mt-8 !px-16 md:mt-10 md:inline-block md:mx-auto min-w-max"
               label="START MY TRANSFORMATION"
             />
@@ -811,11 +807,7 @@ export const QuizResultsPage = ({
               </div>
             ))}
 
-            <ButtonCheckout
-              href={externalRoutes.checkoutRegularSubscription}
-              className="mt-2"
-              label="I WANT THIS"
-            />
+            <ButtonCheckout href={checkoutUrl} className="mt-2" label="I WANT THIS" />
           </div>
         </div>
       </section>
@@ -876,16 +868,13 @@ export const QuizResultsPage = ({
             </p>
           </div>
 
-          <ButtonCheckout
-            href={externalRoutes.checkoutRegularSubscription}
-            className="mt-6 md:mt-8"
-            label="SIGN ME UP"
-          />
+          <ButtonCheckout href={checkoutUrl} className="mt-6 md:mt-8" label="SIGN ME UP" />
         </div>
       </section>
       {/* REGISTER NOW SECTION */}
       {!youtubeVariant && (
         <RegisterNowSection
+          checkoutUrl={checkoutUrl}
           ageVariant={ageVariant}
           style={style}
           melRobbinsVariant={melRobbinsVariant}
@@ -910,7 +899,7 @@ export const QuizResultsPage = ({
           ))}
 
           <ButtonCheckout
-            href={externalRoutes.checkoutRegularSubscription}
+            href={checkoutUrl}
             className="mt-8 md:mt-10 md:px-20 min-w-min xxs:min-w-max"
             label="REWRITE MY STORY"
           />
@@ -933,6 +922,7 @@ export const RegisterNowSection = ({
   style,
   melRobbinsVariant,
   youtubeVariant,
+  checkoutUrl,
 }: IQuizResultsPageProps) => {
   const ROYAL_RUMBLE = ageVariant ? AGE_CONFIG : melRobbinsVariant ? MR_CONFIG : CONFIG
 
@@ -1045,11 +1035,7 @@ export const RegisterNowSection = ({
                   </li>
                 </ul>
 
-                <ButtonCheckout
-                  href={externalRoutes.checkoutRegularSubscription}
-                  className="mt-6 md:mt-10"
-                  label="REGISTER NOW"
-                />
+                <ButtonCheckout href={checkoutUrl} className="mt-6 md:mt-10" label="REGISTER NOW" />
 
                 <p className="font-effra font-bold md:text-lg mt-2">
                   {ageVariant

@@ -117,6 +117,20 @@ export const REPORT_COPY = {
       ),
       p2Member:
         'This is what I teach you how to do in the Fearful Avoidant to Securely Attached Program at The Personal Development School.',
+      p2Variant: (
+        <>
+          This is what I teach you how to do in{' '}
+          <u>
+            <Link
+              prefetch={false}
+              label="The Fearful Avoidant to Securely Attached Program"
+              url="/limited-offer/fa/b"
+              target="_blank"
+            />
+          </u>{' '}
+          at The Personal Development School.
+        </>
+      ),
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of
@@ -162,6 +176,7 @@ export const REPORT_COPY = {
       ),
       copy: 'ARE YOU READY TO START OVER AND START ENJOYING RELATIONSHIPS THAT MAKE YOU FEEL ALIVE, WORTHY, AND CERTAIN?',
       ctaLink: 'https://attachment.personaldevelopmentschool.com/limited-offer/fa',
+      ctaLinkVariant: '/limited-offer/fa/b',
       image: { name: 'footer-fa-couple.jpg', altText: 'A happy couple' },
     },
   },
@@ -285,6 +300,20 @@ export const REPORT_COPY = {
       ),
       p2Member:
         'This is what I teach you how to do in the Anxious Preoccupied to Securely Attached Program at The Personal Development School.',
+      p2Variant: (
+        <>
+          This is what I teach you how to do in{' '}
+          <u>
+            <Link
+              prefetch={false}
+              label="The Anxious Preoccupied to Securely Attached Program"
+              url="/limited-offer/ap/b"
+              target="_blank"
+            />
+          </u>{' '}
+          at The Personal Development School.
+        </>
+      ),
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of
@@ -328,6 +357,7 @@ export const REPORT_COPY = {
       ),
       copy: 'ARE YOU READY TO START OVER AND START ENJOYING RELATIONSHIPS THAT MAKE YOU FEEL ALIVE, WORTHY, AND CERTAIN?',
       ctaLink: 'https://attachment.personaldevelopmentschool.com/limited-offer/ap',
+      ctaLinkVariant: '/limited-offer/ap/b',
       image: { name: 'footer-ap.jpg', altText: 'Happy women' },
     },
   },
@@ -443,6 +473,20 @@ export const REPORT_COPY = {
       ),
       p2Member:
         'This is what I teach you how to do in the Dismissive Avoidant to Securely Attached Program at The Personal Development School.',
+      p2Variant: (
+        <>
+          This is what I teach you how to do in{' '}
+          <u>
+            <Link
+              prefetch={false}
+              label="The Dismissive Avoidant to Securely Attached Program"
+              url="/limited-offer/da/b"
+              target="_blank"
+            />
+          </u>{' '}
+          at The Personal Development School.
+        </>
+      ),
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of
@@ -486,6 +530,7 @@ export const REPORT_COPY = {
       ),
       copy: 'ARE YOU READY TO START OVER AND START OVER AND STOP PUSHING PEOPLE AWAY?',
       ctaLink: 'https://attachment.personaldevelopmentschool.com/limited-offer/da',
+      ctaLinkVariant: '/limited-offer/da/b',
       image: { name: 'footer-da-couple.jpg', altText: 'A happy couple' },
     },
   },
@@ -578,6 +623,7 @@ export const REPORT_COPY = {
       ),
       p2Member:
         'This is what I teach you how to do in the Emotional Healing Program at The Personal Development School.',
+      p2Variant: undefined,
       p3: (
         <>
           This online program is designed to bring you the breakthrough you need to rid yourself of
@@ -620,6 +666,7 @@ export const REPORT_COPY = {
       ),
       copy: 'ARE YOU READY TO TAKE YOUR COMMUNICATION SKILLS TO THE NEXT LEVEL AND START ENTERING BALANCED PARTNERSHIPS?',
       ctaLink: 'https://attachment.personaldevelopmentschool.com/limited-offer/sa',
+      ctaLinkVariant: '/limited-offer/sa',
       image: { name: 'footer-sa-couple.jpg', altText: 'A happy couple' },
     },
   },

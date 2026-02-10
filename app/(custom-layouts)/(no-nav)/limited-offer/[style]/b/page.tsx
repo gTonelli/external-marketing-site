@@ -6,25 +6,24 @@ import { Page } from '@/components/Page'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
-import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
 import { TestimonialSSP } from '@/components/Testimonial/variants/TestimonialSSP'
+import { List } from '@/components/List'
+import { faCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { LIMITED_OFFER, LIMITED_OFFER_SEO_CONFIG as SEO_CONFIG } from './config'
+import {
+  LIMITED_OFFER,
+  LIMITED_OFFER_VARIANT,
+  LIMITED_OFFER_SEO_CONFIG as SEO_CONFIG,
+} from '../config'
 // libraries
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
-import { TStyle } from '@/utils/types'
+import { externalRoutes } from '@/utils/constants'
 
 export interface ILimitedOfferPageParams {
   params: Promise<{
-    style: TStyle
+    style: 'ap' | 'da' | 'fa'
   }>
-}
-
-export const dynamicParams = false
-
-export function generateStaticParams() {
-  return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }, { style: 'sa' }]
 }
 
 export async function generateMetadata({ params }: ILimitedOfferPageParams): Promise<Metadata> {
@@ -37,12 +36,22 @@ export async function generateMetadata({ params }: ILimitedOfferPageParams): Pro
   }
 }
 
-export default async function LimitedOfferPage({ params }: ILimitedOfferPageParams) {
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }]
+}
+
+export default async function LimitedOfferVariantPage({ params }: ILimitedOfferPageParams) {
   const { style } = await params
   const pageCopy = LIMITED_OFFER[style]
+  const pageVariant = LIMITED_OFFER_VARIANT[style]
+  const checkoutUrl = externalRoutes.checkoutRegularSubscription.concat(
+    `&promo_label=vsl-funnel-variant`
+  )
 
   return (
-    <Page page_name={`Limited Offer - ${style}`}>
+    <Page page_name={`Limited Offer Variant B - ${style}`}>
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">
@@ -62,16 +71,19 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
         <div className="relative max-w-5xl flex flex-row justify-between items-center mx-auto py-16 px-4 md:px-8 lg:space-x-10">
           <div className="flex flex-col md:w-1/2">
             <p className="font-bold !text-4xl text-center md:text-left text-purple-dark px-4 md:px-0">
-              {pageCopy.HERO.headline}
+              {pageVariant.HERO.headline}
             </p>
 
-            <p className="font-bold mt-4">{pageCopy.HERO.copy}</p>
+            <p className="font-bold mt-4">{pageVariant.HERO.copy}</p>
 
             <div className="text-center mt-12 md:text-left">
               <ButtonCheckout
                 className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-                label="SIGN UP"
+                label="GET STARTED TODAY"
+                href={checkoutUrl}
               />
+
+              <p className="mt-4">Join Today and Save 30%</p>
             </div>
           </div>
 
@@ -99,7 +111,7 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
       <section className="hidden md:block w-full bg-[#F3F3F4]">
         <div className="py-8">
           <p className="font-xs font-semibold text-center uppercase tracking-[0.3em]">
-            {LIMITED_OFFER.LOGO_FEATURE.title}
+            {LIMITED_OFFER_VARIANT.LOGO_FEATURE.title}
           </p>
 
           <ul className="max-w-3xl flex flex-row flex-wrap justify-between items-center mx-auto px-4 mt-8">
@@ -119,8 +131,11 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
           </ul>
         </div>
       </section>
+
       {/* QUOTE SECTION */}
       <section className="w-full">
+        <h2 className="text-center mt-8">{LIMITED_OFFER_VARIANT.QUOTE.headline}</h2>
+
         <div className="max-w-4xl flex flex-col items-center md:flex-row md:justify-center mx-auto px-4 py-8">
           <div className="max-w-sm border-2 border-primary-light rounded-20">
             <div className="flex flex-col items-center px-4 py-8">
@@ -132,7 +147,9 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                 height={30}
               />
 
-              <p className="text-purple-dark tracking-33 text-center font-bold">{pageCopy.QUOTE.quote}</p>
+              <p className="text-purple-dark tracking-33 text-center font-bold">
+                {pageCopy.QUOTE.quote}
+              </p>
             </div>
           </div>
           <div className="max-w-sm md:pl-8">
@@ -189,7 +206,7 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
       <section className="w-full px-4 -mt-32 sm:-mt-28 md:-mt-24">
         <div className="max-w-4xl bg-purple-dark flex flex-col items-center rounded-20 mx-auto py-8 px-4">
           <div className="max-w-xl text-white mx-auto">
-            <p className="text-center mb-4">{pageCopy.CTA.copyOne}</p>
+            <p className="text-center mb-4">{LIMITED_OFFER_VARIANT.CTA.copyOne}</p>
 
             <p className="text-center">{pageCopy.CTA.copyTwo}</p>
           </div>
@@ -197,6 +214,7 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
             <ButtonCheckout
               className="!bg-blue !text-black !border-none drop-shadow-lg"
               label="SIGN UP"
+              href={checkoutUrl}
             />
           </div>
         </div>
@@ -217,7 +235,9 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                       icon={faCircleCheck}
                     />
 
-                    <p className="text-left"><strong>{point.text_bold}</strong> {point.text}</p>
+                    <p className="text-left">
+                      <strong>{point.text_bold}</strong> {point.text}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -240,7 +260,9 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                       icon={faCircleCheck}
                     />
 
-                    <p className="text-left"><strong>{point.text_bold}</strong> {point.text}</p>
+                    <p className="text-left">
+                      <strong>{point.text_bold}</strong> {point.text}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -260,7 +282,8 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                     />
 
                     <p className="text-left">
-                      <strong>{pageCopy.LEARN.bullet1.text_bold}</strong> {pageCopy.LEARN.bullet1.text}
+                      <strong>{pageCopy.LEARN.bullet1.text_bold}</strong>{' '}
+                      {pageCopy.LEARN.bullet1.text}
                     </p>
                   </div>
                 </li>
@@ -273,7 +296,8 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                     />
 
                     <p className="text-left">
-                      <strong>{pageCopy.LEARN.bullet2.text_bold}</strong> {pageCopy.LEARN.bullet2.text}
+                      <strong>{pageCopy.LEARN.bullet2.text_bold}</strong>{' '}
+                      {pageCopy.LEARN.bullet2.text}
                     </p>
                   </div>
                 </li>
@@ -286,7 +310,8 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                     />
 
                     <p className="text-left">
-                      <strong>{pageCopy.LEARN.bullet3.text_bold}</strong> {pageCopy.LEARN.bullet3.text}
+                      <strong>{pageCopy.LEARN.bullet3.text_bold}</strong>{' '}
+                      {pageCopy.LEARN.bullet3.text}
                     </p>
                   </div>
                 </li>
@@ -301,7 +326,8 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                     />
 
                     <p className="text-left">
-                      <strong>{pageCopy.LEARN.bullet4.text_bold}</strong> {pageCopy.LEARN.bullet4.text}
+                      <strong>{pageCopy.LEARN.bullet4.text_bold}</strong>{' '}
+                      {pageCopy.LEARN.bullet4.text}
                     </p>
                   </div>
                 </li>
@@ -314,7 +340,8 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                     />
 
                     <p className="text-left">
-                      <strong>{pageCopy.LEARN.bullet5.text_bold}</strong> {pageCopy.LEARN.bullet5.text}
+                      <strong>{pageCopy.LEARN.bullet5.text_bold}</strong>{' '}
+                      {pageCopy.LEARN.bullet5.text}
                     </p>
                   </div>
                 </li>
@@ -327,7 +354,8 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                     />
 
                     <p className="text-left">
-                      <strong>{pageCopy.LEARN.bullet6.text_bold}</strong> {pageCopy.LEARN.bullet6.text}
+                      <strong>{pageCopy.LEARN.bullet6.text_bold}</strong>{' '}
+                      {pageCopy.LEARN.bullet6.text}
                     </p>
                   </div>
                 </li>
@@ -346,7 +374,36 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
         </div>
       </section>
 
-      {/* THE FEARFUL AVOIDANT 7 DAY TRANSFORMATION SECTION */}
+      <section className="w-full my-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-center mb-8">{LIMITED_OFFER_VARIANT.ACCESS.headline}</h2>
+
+          {pageVariant.ACCESS.copy.map((copy, index) => (
+            <p key={`access_copy_${index}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <div className="mb-4">
+            <p>
+              <strong>{pageVariant.ACCESS.feature.title}</strong>
+            </p>
+
+            <p>{pageVariant.ACCESS.feature.copy}</p>
+          </div>
+
+          {LIMITED_OFFER_VARIANT.ACCESS.features.map((feature, index) => (
+            <div key={`access_feature_${index}`} className="mb-4">
+              <p>
+                <strong>{feature.title}</strong>
+              </p>
+
+              <p>{feature.copy}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="w-full my-16">
         <div className="max-w-5xl text-center px-4 mx-auto ">
           <h2 className="mb-4">{pageCopy.BEST_VALUE.intro.title}</h2>
@@ -362,219 +419,105 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
             <strong>{pageCopy.BEST_VALUE.intro.copy2}</strong>
           </p>
 
-          <ul className="font-bold">
+          <ul className="font-bold mb-8">
             {pageCopy.BEST_VALUE.intro.listItems.map((data, index) => (
               <li key={`offer_list_${index}`} className="font-bold">
                 {data}
               </li>
             ))}
           </ul>
-        </div>
-      </section>
 
-      {/* BEST VALUE */}
-      <section className="relative w-full my-16 lg:mb-28">
-        <div className="relative max-w-5xl px-4 md:mx-auto">
-          <div className="border-2 border-purple-dark rounded-20 text-center px-4 pt-16 pb-8 ">
-            <div className="absolute -mt-24 left-1/2 -translate-x-1/2 md:left-[7%] md:-translate-x-0">
-              <p className="w-[250px] text-center font-bold tracking-[0.4em] bg-yellow-secondary rounded-20 px-4 py-6">
-                BEST VALUE
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start md:flex-row md:justify-center md:px-8 md:items-center">
-              <div className="max-w-lg mx-auto md:max-w-sm text-left">
-                <p className="mb-4">
-                  <strong>{pageCopy.BEST_VALUE.course.copy1}</strong>
-                </p>
-
-                <p className="mb-4">{pageCopy.BEST_VALUE.course.copy2}</p>
-
-                <p className="mb-4">{pageCopy.BEST_VALUE.course.copy3}</p>
-
-                <p className="mb-4">{pageCopy.BEST_VALUE.course.copy4}</p>
-
-                <p className="inline">{pageCopy.BEST_VALUE.course.copy5}</p>
-
-                <p className="underline inline">limited time!</p>
-              </div>
-
-              <div className="w-full flex flex-col items-center justify-evenly mt-8 lg:mt-0 md:w-1/2 lg:pl-16">
-                <div className="mb-10">
-                  <CountdownTimer date={new Date(`2023-07-12T00:00:00`)} theme="light" />
-                </div>
-
-                <Image
-                  alt="a course mockup"
-                  className="max-w-md w-full mb-8"
-                  src="/images/LimitedOfferPage/course-mock-up.png"
-                  width={495}
-                  height={362}
-                />
-
-                <p className="tracking-33 text-primary font-bold mb-4 lg:my-6">
-                  {pageCopy.BEST_VALUE.cta_text}
-                </p>
-
-                <div className="mt-4 mb-8">
-                  <ButtonCheckout
-                    className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-                    label="SIGN UP"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full">
-        <div className="max-w-5xl flex flex-col mx-auto my-8 px-4 md:row md:items-center md:px-8">
-          {/* left col  */}
-          <div className="text-left mt-4 md:w-1/2 md:mt-0 md:pl-8">
-            {pageCopy.MONEY_BACK.copy.map((text, index) => (
-              <p key={index} className="mb-4 !text-lg">
-                {text}
-              </p>
-            ))}
-            <div className="flex justify-center my-16 md:hidden">
-              <ButtonCheckout
-                className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-                label="SIGN UP"
-              />
-            </div>
-          </div>
-
-          {/* right col */}
-          <div className="flex justify-center md:w-1/2 md:pr-8">
-            <Image
-              alt="Money back 7 day Guarantee"
-              className="w-3/4 max-w-xs"
-              src="/images/money-back-7-day.png"
-              width={335}
-              height={335}
-            />
-          </div>
-        </div>
-
-        <div className="hidden mt-16 md:flex md:justify-center">
           <ButtonCheckout
-            className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-            label="SIGN UP"
+            className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
+            label="GET STARTED TODAY"
+            href={checkoutUrl}
           />
         </div>
       </section>
 
-      {/* HOW DO I KNOW THAT THIS WORKS SO QUICKLY SECTION*/}
-      <section className="w-full flex justify-center">
-        <div className="max-w-5xl flex flex-col items-center mx-4 my-16">
-          <div className="flex flex-col items-center text-center">
-            <h2 className="mb-4">
-              {pageCopy.SPECIAL_BONUS.headline}
-            </h2>
+      <section className="w-full my-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-center mb-8">{pageVariant.PROGRAM.headline}</h2>
 
-            <p className="max-w-xl mb-4">{pageCopy.SPECIAL_BONUS.description}</p>
+          {pageVariant.PROGRAM.copy.map((copy, index) => (
+            <p key={`program_copy_${index}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
 
-            <p className="max-w-xl tracking-33 mb-4"><strong>AND AS A SPECIAL BONUS:</strong></p>
-          </div>
+          <List
+            icon={faCircle}
+            iconSize="2xs"
+            className="mb-8"
+            classNameListItems="mb-4"
+            classNameIcon="!text-black mt-1"
+            listItems={pageVariant.PROGRAM.listItems}
+          />
 
-          <div className="flex flex-col md:flex-row mt-8 md:px-8">
-            {/* left col  */}
-            <div className="md:w-1/2 md:flex md:flex-col md:justify-start md:px-8">
-              <div className="flex flex-col items-center text-left md:items-start">
-                {pageCopy.SPECIAL_BONUS.copy.map((text, index) => (
-                  <p key={`trial_special_bonus_copy_${index}`} className="mb-4">
-                    {text}
-                  </p>
-                ))}
-              </div>
-            </div>
-            {/* right col */}
-            <div className="flex flex-col items-center  md:items-end mt-8 md:mt-0 md:w-1/2 md:px-8">
-              <Image
-                alt="image of thais in a webinar"
-                className="mt-4 sm:mt-8"
-                src="/images/RoyalRumbleResultsPage/promo2.png"
-                width={1516}
-                height={804}
-              />
+          <div className="text-center">
+            <ButtonCheckout
+              className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
+              label="GET STARTED TODAY"
+              href={checkoutUrl}
+            />
 
-              <VideoThumbnail
-                playAuto
-                playInline
-                playButtonSize="none"
-                srcUrl="https://storage.googleapis.com/pds_videos/SSPDashboard.mp4"
-              />
-            </div>
+            <p className="mt-4">Join Today and Get This $595 Progam FREE</p>
           </div>
         </div>
       </section>
 
-      {/* LOGO FEATURE SECTION */}
-      <section className="w-full bg-[#F3F3F4] md:hidden">
-        <div className="py-8">
-          <p className="font-xs font-semibold text-center uppercase tracking-[0.3em] px-4">
-            {LIMITED_OFFER.LOGO_FEATURE.title}
+      <section className="w-full my-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-center mb-8">{LIMITED_OFFER_VARIANT.RISKFREE.headline1}</h2>
+
+          {LIMITED_OFFER_VARIANT.RISKFREE.copy1.map((copy, index) => (
+            <p key={`riskfree_copy1_${index}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <p>
+            <strong>If you're single:</strong>
           </p>
 
-          <ul className="grid grid-cols-3 gap-4 mt-8">
-            {LIMITED_OFFER.LOGO_FEATURE.image.map((img, index) => (
-              <li key={index}>
-                <div className="h-full flex justify-center items-center">
-                  <Image
-                    alt={img.alt}
-                    className="block w-[100px] h-[50px] max-w-full object-contain"
-                    src={`/images/Logo_Brand/${img.name}.png`}
-                    width={100}
-                    height={80}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+          <p className="mb-4">{pageVariant.SINGLE}</p>
 
-      {/* DISCOUNT OFFER + COUNT DOWN TIMER */}
-      <section className="w-full bg-purple-dark pt-8 pb-36">
-        <div className="max-w-5xl w-full mx-auto my-8">
-          <div className="flex flex-center flex-col justify-end md:flex-row md:px-8">
-            <div>
-              <VideoThumbnail
-                srcUrl={pageCopy.videoSrc}
-                thumbnailAlt={`Fearful Avoidant video ${style} thumbnail`}
-                thumbnailUrl="RoyalRumblePage/rr-video-thumbnail.png"
-                type="default"
-              />
-            </div>
-            <div className="flex flex-col text-center m-4 p-2 md:text-left md:w-1/2">
-              <h2 className="text-white text-2xl">Discount Offer Expires Soon.</h2>
+          <p>
+            <strong>If you're in a relationship:</strong>
+          </p>
 
-              <h2 className="text-white text-2xl">Claim Your Offer Now.</h2>
+          <p className="mb-8">{pageVariant.RELATIONSHIP}</p>
 
-              {/* <div className="text-center px-0 mt-2"> */}
-              <CountdownTimer date={new Date(`2023-07-12T00:00:00`)} theme="dark" />
-              {/* </div> */}
+          <h2 className="text-center mb-8">{LIMITED_OFFER_VARIANT.RISKFREE.headline2}</h2>
 
-              <div className="pt-4">
-                <ButtonCheckout
-                  className="bg-blue text-black border-none drop-shadow-lg"
-                  label="SIGN UP"
-                />
-              </div>
-            </div>
+          <p className="mb-8">{LIMITED_OFFER_VARIANT.RISKFREE.copy2}</p>
+
+          <div className="text-center">
+            <ButtonCheckout
+              className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
+              label="JOIN THE PERSONAL DEVELOPMENT SCHOOL"
+              href={checkoutUrl}
+            />
+
+            <h3 className="my-8">{LIMITED_OFFER_VARIANT.RISKFREE.headline3}</h3>
           </div>
+
+          {LIMITED_OFFER_VARIANT.RISKFREE.copy3.map((copy, index) => (
+            <p key={`riskfree_copy3_${index}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
+
+          <h3 className="text-center my-8">{LIMITED_OFFER_VARIANT.RISKFREE.headline4}</h3>
+
+          {LIMITED_OFFER_VARIANT.RISKFREE.copy4.map((copy, index) => (
+            <p key={`riskfree_copy4_${index}`} className="mb-4">
+              {copy}
+            </p>
+          ))}
         </div>
       </section>
 
-      {/* WAVE IMAGE BACKGROUND */}
-      <Image
-        alt="wave image background"
-        className="w-full -mt-36 md:-mt-24"
-        src="/images/LimitedOfferPage/background2.png"
-        width={1000}
-        height={140}
-      />
       {/* INSTRUCTOR INTRO | "WHO TEACHES THIS COURSES SECTION" */}
       <section className="w-full bg-blue-lightest flex flex-col justify-center">
         <div className="max-w-5xl flex flex-col items-center mx-auto mt-8">
@@ -592,6 +535,7 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
                 <ButtonCheckout
                   className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
                   label="SIGN UP"
+                  href={checkoutUrl}
                 />
               </div>
             </div>
@@ -660,6 +604,7 @@ export default async function LimitedOfferPage({ params }: ILimitedOfferPagePara
           <ButtonCheckout
             className="bg-blue text-black border-none drop-shadow-lg"
             label="SIGN UP"
+            href={checkoutUrl}
           />
         </div>
       </section>

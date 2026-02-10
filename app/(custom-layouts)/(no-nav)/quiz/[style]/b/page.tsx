@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fa1, fa2, fa3, faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // utils
 import { getAttachmentStyleText } from '@/utils/functions'
+import { externalRoutes } from '@/utils/constants'
 // styles
 import './style.css'
 
@@ -418,7 +419,10 @@ export default function QuizResultsB({ params }: TParams) {
         </p>
       </Section>
 
-      <PDSResultsOfferSection style={attachmentStyleShort} />
+      <PDSResultsOfferSection
+        style={attachmentStyleShort}
+        checkoutUrl={externalRoutes.checkoutRegularSubscription.concat('&promo_label=vsl-funnel')}
+      />
     </Page>
   )
 }

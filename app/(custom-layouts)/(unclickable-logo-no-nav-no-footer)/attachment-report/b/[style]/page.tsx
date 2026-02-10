@@ -2,9 +2,8 @@
 import { Metadata } from 'next'
 // components
 import { Page } from '@/components/Page'
-import { AttachmentReport } from '../../attachment-report/[style]/AttachmentReport'
+import { AttachmentReport } from '@/app/(custom-layouts)/(unclickable-logo-no-nav-no-footer)/attachment-report/[style]/AttachmentReport'
 // utils
-import { TStyle } from '@/utils/types'
 import { getAttachmentStyleText } from '@/utils/functions'
 
 export const dynamicParams = false
@@ -16,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ style: TStyle }>
+  params: Promise<{ style: 'fa' | 'ap' | 'da' }>
 }): Promise<Metadata> {
   const { style } = await params
   const attachmentStyleText = getAttachmentStyleText(style)
@@ -27,10 +26,14 @@ export async function generateMetadata({
   }
 }
 
-export default function AttachmentReportPage({ params }: { params: { style: TStyle } }) {
+export default function AttachmentReportVariantPage({
+  params,
+}: {
+  params: { style: 'fa' | 'ap' | 'da' }
+}) {
   return (
-    <Page page_name={`Attachment Style Bundle Report - ${params.style}`}>
-      <AttachmentReport memberVariant style={params.style} />
+    <Page page_name={`Attachment Style Report Variant B - ${params.style}`}>
+      <AttachmentReport funnelVariant style={params.style} />
     </Page>
   )
 }

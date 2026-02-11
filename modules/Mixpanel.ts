@@ -50,10 +50,12 @@ export type Pages =
   | `Attachment Style Quiz`
   | `Attachment Style Bundle Report - ${string}`
   | `Attachment Style Report Old - ${string}`
+  | `Attachment Style Report Variant B - ${string}`
   | `Attachment Style Quiz Questions`
   | `Attachment Style Results`
   | `Attachment Style Report - FA`
   | `Attachment Style Results - ${string}`
+  | `Attachment Style Results Variant B - ${string}`
   | `Attachment Styles Email Page - ${string} ${string}`
   | `Boxing Week Page`
   | `Black Friday`
@@ -108,6 +110,7 @@ export type Pages =
   | `Learn - 30% OFF`
   | `Lifetime`
   | `Limited Offer - ${string}`
+  | `Limited Offer Variant B - ${string}`
   | `Love Languages Quiz Page`
   | `New Year New You Page`
   | `Not Found Page`

@@ -1,4 +1,4 @@
-// Trial Page + Trial Variant Page + Testimonial Slider
+// Trial Page + Trial Variant Page + Testimonial Slider*<sup>*
 export const TRIAL_PAGE = {
   courses: [
     {
@@ -73,8 +73,7 @@ export const TRIAL_PAGE = {
       author: 'Jake',
       testimonial: `PDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, 
           impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others 
-          in all relationships. \\
-          \\
+          in all relationships. 
           It has honestly changed my life for the better and am on my path towards becoming a more secure person. 
           They have created such an amazing community that is extremely supportive and is full of wonderful people. PDS has grown into 
           something I am very proud to be a part of and look forward to seeing where this journey takes me.`,
@@ -83,8 +82,7 @@ export const TRIAL_PAGE = {
     {
       author: 'Tamara',
       testimonial: `PDS is an incredible resource. The work is powerful. It’s helped me to heal some hard wounds and change my life to 
-          one that is more balanced, more joyful and based in a deep sense of self-love and understanding. \\
-          \\
+          one that is more balanced, more joyful and based in a deep sense of self-love and understanding.
           You choose how and how fast to 
           heal and you get to do it in an environment steeped in compassion, connection, integrity and personal accountability.  For anyone 
           who is ready to really heal themselves, PDS is filled with practical insights and powerful tools. `,

@@ -18,7 +18,7 @@ interface ISimplifiedResultsPageProps {
 
 export const SimplifiedResultsPage = ({ configKey, config }: ISimplifiedResultsPageProps) => {
   const userFirstName = cookies().get('firstName')?.value
-  const checkoutUrl = config.ctaURL
+  const checkoutUrl = config.ctaURL.concat('&promo_label=vsl-funnel')
 
   return (
     <>

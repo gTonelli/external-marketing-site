@@ -16,9 +16,11 @@ interface IAttachmentReportProps {
   style: TStyle
   memberVariant?: boolean
   pdfVariant?: boolean
+  funnelVariant?: boolean
 }
 
 export const AttachmentReport = ({
+  funnelVariant = false,
   memberVariant = false,
   pdfVariant = false,
   style,
@@ -215,9 +217,13 @@ export const AttachmentReport = ({
           </div>
 
           <div className="text-left">
-            <p className="mb-4">{COPY.copy8.p1}</p>
-
-            <p>{memberVariant ? COPY.copy8.p2Member : COPY.copy8.p2}</p>
+            <p>
+              {memberVariant
+                ? COPY.copy8.p2Member
+                : style !== 'sa' && funnelVariant
+                ? COPY.copy8.p2Variant
+                : COPY.copy8.p2}
+            </p>
           </div>
         </div>
 
@@ -354,7 +360,9 @@ export const AttachmentReport = ({
               className="border-2 rounded-full tracking-10 px-4 py-2 transition-colors active:shadow-md !no-underline lg:hover:text-white lg:hover:shadow-md bg-primary border-primary text-white active:bg-opacity-50 lg:hover:bg-opacity-50 cursor-pointer"
               label="TRANSFORM MY LIFE"
               prefetch={false}
-              url={COPY.footer.ctaLink}
+              url={
+                style !== 'sa' && funnelVariant ? COPY.footer.ctaLinkVariant : COPY.footer.ctaLink
+              }
             />
           </>
         )}

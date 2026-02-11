@@ -1,79 +1,71 @@
-'use client'
-
 // core
-import { useCallback, useEffect, useState } from 'react'
+import { Metadata } from 'next'
+import Image from 'next/image'
 // components
-import { LIMITED_OFFER } from './config'
+import { Page } from '@/components/Page'
 import { ButtonCheckout } from '@/components/Button/variants/ButtonCheckout'
 import { CountdownTimer } from '@/components/CountDownTimer'
 import { Faq } from '@/components/Faq/Faq'
-import { Video } from '@/components/Video/Video'
 import { VideoThumbnail } from '@/components/Video/variants/VideoThumbnail'
-import { Image } from '@/components/Image'
-import { Text } from '@/components/Text/Text'
-import { Page } from '@/components/Page'
-import { Loader } from '@/components/Loader'
-// libraries
-import { Autoplay, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { TestimonialSSP } from '@/components/Testimonial/variants/TestimonialSSP'
 import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
-// modules
-import Mixpanel, { Pages } from '@/modules/Mixpanel'
+import { LIMITED_OFFER, LIMITED_OFFER_SEO_CONFIG as SEO_CONFIG } from './config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // utils
-import { externalRoutes } from '@/utils/constants'
-import { getOfferEndDate } from '@/utils/functions'
 import { TStyle } from '@/utils/types'
-import { TRIAL_PAGE } from '@/app/(custom-layouts)/(no-nav)/7-day-trial/config'
-
-import 'swiper/css'
-import 'swiper/css/pagination'
 
 export interface ILimitedOfferPageParams {
-  style: TStyle
+  params: Promise<{
+    style: TStyle
+  }>
 }
 
-export default function LimitedOfferPage({ params }: { params: { style: TStyle } }) {
-  const style = params.style
-  // ==================== Hook ====================
-  const page_name = `Limited Offer - ${style}` as Pages
+export const dynamicParams = false
 
-  // ==================== State ====================
+export function generateStaticParams() {
+  return [{ style: 'fa' }, { style: 'ap' }, { style: 'da' }, { style: 'sa' }]
+}
+
+export async function generateMetadata({ params }: ILimitedOfferPageParams): Promise<Metadata> {
+  const { style } = await params
+
+  return {
+    title: SEO_CONFIG[style].title,
+    description: SEO_CONFIG[style].description,
+    robots: 'noindex',
+  }
+}
+
+export default async function LimitedOfferPage({ params }: ILimitedOfferPageParams) {
+  const { style } = await params
   const pageCopy = LIMITED_OFFER[style]
-  const [offerEndDate, setOfferEndDate] = useState<Date | undefined>()
-
-  useEffect(() => {
-    setOfferEndDate(getOfferEndDate(new Date(`2023-07-12T00:00:00`), 1))
-  }, [page_name])
 
   return (
     <Page page_name={`Limited Offer - ${style}`}>
       {/* COUNT DOWN TIMER SECTION */}
       <section className="w-full bg-black">
         <div className="py-4">
-          {offerEndDate ? (
-            <CountdownTimer date={offerEndDate} theme="dark" />
-          ) : (
-            <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
-          )}
+          <CountdownTimer date={new Date(`2023-07-12T00:00:00`)} theme="dark" />
         </div>
       </section>
       {/* HERO SECTION */}
       <section className="relative w-full bg-blue-lightest md:bg-[#F3F3F4]">
         <Image
-          alt=""
-          className="hidden md:block absolute top-0 right-0 "
-          src="LimitedOfferPage/hero-vector.svg"
+          alt="a blue blob vector"
+          className="hidden md:block absolute top-0 right-0"
+          src="/images/LimitedOfferPage/hero-vector.svg"
+          width={500}
+          height={500}
         />
 
         <div className="relative max-w-5xl flex flex-row justify-between items-center mx-auto py-16 px-4 md:px-8 lg:space-x-10">
           <div className="flex flex-col md:w-1/2">
-            <Text
-              className="font-bold !text-4xl text-center md:text-left text-purple-dark px-4 md:px-0"
-              content={pageCopy.HERO.headline}
-            />
+            <p className="font-bold !text-4xl text-center md:text-left text-purple-dark px-4 md:px-0">
+              {pageCopy.HERO.headline}
+            </p>
 
-            <Text.Paragraph className="font-bold mt-4" content={pageCopy.HERO.copy} />
+            <p className="font-bold mt-4">{pageCopy.HERO.copy}</p>
 
             <div className="text-center mt-12 md:text-left">
               <ButtonCheckout
@@ -84,26 +76,31 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
           </div>
 
           <div className="hidden md:block md:w-1/2">
-            <Image alt="" src="LimitedOfferPage/hero.png" />
+            <Image
+              alt="mockups of PDS platform accessible on different devices"
+              src="/images/LimitedOfferPage/hero.png"
+              width={891}
+              height={411}
+            />
           </div>
         </div>
       </section>
 
       {/* MOBILE WAVE */}
       <Image
-        alt=""
+        alt="a wave vector"
+        width={643}
+        height={83}
         className="md:hidden w-full"
-        src="LimitedOfferPage/hero-background-mobile.png"
+        src="/images/LimitedOfferPage/hero-background-mobile.png"
       />
 
       {/* LOGO FEATURE SECTION */}
       <section className="hidden md:block w-full bg-[#F3F3F4]">
         <div className="py-8">
-          <Text.Paragraph
-            className="font-xs font-semibold text-center uppercase tracking-[0.3em]"
-            content={LIMITED_OFFER.LOGO_FEATURE.title}
-            spacing="tracking-0.325"
-          />
+          <p className="font-xs font-semibold text-center uppercase tracking-[0.3em]">
+            {LIMITED_OFFER.LOGO_FEATURE.title}
+          </p>
 
           <ul className="max-w-3xl flex flex-row flex-wrap justify-between items-center mx-auto px-4 mt-8">
             {LIMITED_OFFER.LOGO_FEATURE.image.map((img, index) => (
@@ -112,7 +109,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                   <Image
                     alt={img.alt}
                     className="block w-[100px] h-[80px] max-w-full object-contain"
-                    src={`Logo_Brand/${img.name}.png`}
+                    src={`/images/Logo_Brand/${img.name}.png`}
+                    width={100}
+                    height={80}
                   />
                 </div>
               </li>
@@ -125,30 +124,38 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         <div className="max-w-4xl flex flex-col items-center md:flex-row md:justify-center mx-auto px-4 py-8">
           <div className="max-w-sm border-2 border-primary-light rounded-20">
             <div className="flex flex-col items-center px-4 py-8">
-              <Image className="w-[30px] pb-2" src="/homepage_quote_left.png" />
-
-              <Text.Paragraph
-                className="text-purple-dark text-center font-bold"
-                content={pageCopy.QUOTE.quote}
-                spacing="tracking-0.325"
+              <Image
+                alt="a quote left icon"
+                className="w-[30px] pb-2"
+                src="/images/homepage_quote_left.png"
+                width={30}
+                height={30}
               />
+
+              <p className="text-purple-dark tracking-33 text-center font-bold">{pageCopy.QUOTE.quote}</p>
             </div>
           </div>
           <div className="max-w-sm md:pl-8">
-            <Text.Paragraph useMD className="mt-4" content={pageCopy.QUOTE.copy1} />
+            <p className="mt-4">{pageCopy.QUOTE.copy1}</p>
 
-            <Text.Paragraph className="mt-4" content={pageCopy.QUOTE.copy2} />
+            <p className="mt-4">{pageCopy.QUOTE.copy2}</p>
           </div>
         </div>
       </section>
 
       {/* LETS BE HONEST SECTION */}
-      <Image className="hidden md:block w-full" src="LimitedOfferPage/background1.png" />
+      <Image
+        alt="a wave vector"
+        className="hidden md:block w-full"
+        src="/images/LimitedOfferPage/background1.png"
+        width={1000}
+        height={392}
+      />
       <section className="w-full bg-[#EADBEB] pt-16 pb-40 md:pt-0">
         <div className="flex flex-col items-center text-center px-4">
-          <Text.Heading content={pageCopy.HONEST.headline} />
+          <h2>{pageCopy.HONEST.headline}</h2>
 
-          <Text.Paragraph className="max-w-sm mt-6" content={pageCopy.HONEST.subheadline} />
+          <p className="max-w-sm mt-6">{pageCopy.HONEST.subheadline}</p>
 
           <div className="max-w-5xl flex flex-col items-start lg:flex-row px-8">
             {pageCopy.HONEST.bullet.map((content, index) => (
@@ -159,23 +166,22 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                   <FontAwesomeIcon className="text-purple-dark" icon={content.icon} size="2x" />
                 </div>
 
-                <Text.Paragraph className="max-w-sm text-center mt-4" content={content.text} />
+                <p className="max-w-sm text-center mt-4">{content.text}</p>
               </div>
             ))}
           </div>
-          <Text useMD className="mt-8" content={`**${pageCopy.HONEST.copy1}**`} />
+          <p className="mt-8">
+            <strong>{pageCopy.HONEST.copy1}</strong>
+          </p>
 
-          <Text
-            useMD
-            className="mt-8"
-            content={`**${pageCopy.HONEST.copy2.text_bold1}** ${pageCopy.HONEST.copy2.text1}`}
-          />
+          <p className="mt-8">
+            <strong>{pageCopy.HONEST.copy2.text_bold1}</strong> {pageCopy.HONEST.copy2.text1}
+          </p>
 
-          <Text
-            useMD
-            className="max-w-lg"
-            content={`**${pageCopy.HONEST.copy2.text_bold2}** ${pageCopy.HONEST.copy2.text2} **${pageCopy.HONEST.copy2.text_bold3}**`}
-          />
+          <p className="max-w-lg">
+            <strong>{pageCopy.HONEST.copy2.text_bold2}</strong> {pageCopy.HONEST.copy2.text2}{' '}
+            <strong>{pageCopy.HONEST.copy2.text_bold3}</strong>
+          </p>
         </div>
       </section>
 
@@ -183,9 +189,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       <section className="w-full px-4 -mt-32 sm:-mt-28 md:-mt-24">
         <div className="max-w-4xl bg-purple-dark flex flex-col items-center rounded-20 mx-auto py-8 px-4">
           <div className="max-w-xl text-white mx-auto">
-            <Text.Paragraph className="text-center mb-4" content={pageCopy.CTA.copyOne} />
+            <p className="text-center mb-4">{pageCopy.CTA.copyOne}</p>
 
-            <Text.Paragraph className="text-center" content={pageCopy.CTA.copyTwo} />
+            <p className="text-center">{pageCopy.CTA.copyTwo}</p>
           </div>
           <div className="mt-8">
             <ButtonCheckout
@@ -199,7 +205,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       {/* YOU WILL LEARN + CHAT POP UP SECTION */}
       <section className="w-full  my-16">
         <div className="max-w-5xl flex flex-col items-center mx-auto px-4">
-          <Text.Heading className="mb-8" content="You Will Learn" />
+          <h2 className="mb-8">You Will Learn</h2>
           {/* mobile */}
           <div className="flex flex-col items-center md:hidden">
             <ul className="px-4">
@@ -211,17 +217,19 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       icon={faCircleCheck}
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${point.text_bold} ${point.text}`}
-                    />
+                    <p className="text-left"><strong>{point.text_bold}</strong> {point.text}</p>
                   </div>
                 </li>
               ))}
             </ul>
             <div className="-mt-16">
-              <Image src="LimitedOfferPage/you-will-learn.png" />
+              <Image
+                className="!w-auto"
+                alt="a lady lying in bed using her phone"
+                src="/images/LimitedOfferPage/you-will-learn.png"
+                width={1000}
+                height={1000}
+              />
             </div>
             <ul className="px-4 -mt-16">
               {pageCopy.LEARN.bullet.part2.map((point, index) => (
@@ -232,11 +240,7 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       icon={faCircleCheck}
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${point.text_bold} ${point.text} `}
-                    />
+                    <p className="text-left"><strong>{point.text_bold}</strong> {point.text}</p>
                   </div>
                 </li>
               ))}
@@ -255,11 +259,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       size="lg"
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${pageCopy.LEARN.bullet1.text_bold} ${pageCopy.LEARN.bullet1.text} `}
-                    />
+                    <p className="text-left">
+                      <strong>{pageCopy.LEARN.bullet1.text_bold}</strong> {pageCopy.LEARN.bullet1.text}
+                    </p>
                   </div>
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-8">
@@ -270,11 +272,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       size="lg"
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${pageCopy.LEARN.bullet2.text_bold} ${pageCopy.LEARN.bullet2.text}`}
-                    />
+                    <p className="text-left">
+                      <strong>{pageCopy.LEARN.bullet2.text_bold}</strong> {pageCopy.LEARN.bullet2.text}
+                    </p>
                   </div>
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-4 ml-12">
@@ -285,11 +285,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       size="lg"
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${pageCopy.LEARN.bullet3.text_bold} ${pageCopy.LEARN.bullet3.text}`}
-                    />
+                    <p className="text-left">
+                      <strong>{pageCopy.LEARN.bullet3.text_bold}</strong> {pageCopy.LEARN.bullet3.text}
+                    </p>
                   </div>
                 </li>
               </ul>
@@ -302,11 +300,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       size="lg"
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${pageCopy.LEARN.bullet4.text_bold} ${pageCopy.LEARN.bullet4.text}`}
-                    />
+                    <p className="text-left">
+                      <strong>{pageCopy.LEARN.bullet4.text_bold}</strong> {pageCopy.LEARN.bullet4.text}
+                    </p>
                   </div>
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-16 ml-32">
@@ -317,11 +313,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       size="lg"
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${pageCopy.LEARN.bullet5.text_bold} ${pageCopy.LEARN.bullet5.text}`}
-                    />
+                    <p className="text-left">
+                      <strong>{pageCopy.LEARN.bullet5.text_bold}</strong> {pageCopy.LEARN.bullet5.text}
+                    </p>
                   </div>
                 </li>
                 <li className="max-w-sm bg-white rounded-20 drop-shadow-2xl mb-4">
@@ -332,17 +326,21 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       size="lg"
                     />
 
-                    <Text.Paragraph
-                      useMD
-                      className="text-left"
-                      content={`${pageCopy.LEARN.bullet6.text_bold} ${pageCopy.LEARN.bullet6.text}`}
-                    />
+                    <p className="text-left">
+                      <strong>{pageCopy.LEARN.bullet6.text_bold}</strong> {pageCopy.LEARN.bullet6.text}
+                    </p>
                   </div>
                 </li>
               </ul>
             </div>
             <div className="absolute flex justify-center items-center inset-0 z-5">
-              <Image className="h-3/5" src="LimitedOfferPage/you-will-learn.png" />
+              <Image
+                alt="a lady lying in bed using her phone"
+                className="w-auto h-3/5"
+                src="/images/LimitedOfferPage/you-will-learn.png"
+                width={1000}
+                height={1000}
+              />
             </div>
           </div>
         </div>
@@ -351,24 +349,18 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       {/* THE FEARFUL AVOIDANT 7 DAY TRANSFORMATION SECTION */}
       <section className="w-full my-16">
         <div className="max-w-5xl text-center px-4 mx-auto ">
-          <Text.Heading className="mb-4" content={pageCopy.BEST_VALUE.intro.title} />
+          <h2 className="mb-4">{pageCopy.BEST_VALUE.intro.title}</h2>
 
-          <Text.Paragraph
-            className="uppercase text-primary font-bold mb-8"
-            content={pageCopy.BEST_VALUE.intro.subtitle}
-            spacing="tracking-0.325"
-          />
-          <Text.Paragraph
-            useMD
-            className="max-w-2xl mx-auto my-4"
-            content={`**${pageCopy.BEST_VALUE.intro.copy1}**`}
-          />
+          <p className="uppercase tracking-33 text-primary font-bold mb-8">
+            {pageCopy.BEST_VALUE.intro.subtitle}
+          </p>
+          <p className="max-w-2xl mx-auto my-4">
+            <strong>{pageCopy.BEST_VALUE.intro.copy1}</strong>
+          </p>
 
-          <Text.Paragraph
-            useMD
-            className="max-w-2xl mx-auto text-primary"
-            content={`**${pageCopy.BEST_VALUE.intro.copy2}**`}
-          />
+          <p className="max-w-2xl mx-auto text-primary">
+            <strong>{pageCopy.BEST_VALUE.intro.copy2}</strong>
+          </p>
 
           <ul className="font-bold">
             {pageCopy.BEST_VALUE.intro.listItems.map((data, index) => (
@@ -385,51 +377,44 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
         <div className="relative max-w-5xl px-4 md:mx-auto">
           <div className="border-2 border-purple-dark rounded-20 text-center px-4 pt-16 pb-8 ">
             <div className="absolute -mt-24 left-1/2 -translate-x-1/2 md:left-[7%] md:-translate-x-0">
-              <Text.Paragraph
-                className="w-[250px] text-center font-bold tracking-[0.4em] bg-yellow-secondary rounded-20 px-4 py-6"
-                content="BEST VALUE"
-              />
+              <p className="w-[250px] text-center font-bold tracking-[0.4em] bg-yellow-secondary rounded-20 px-4 py-6">
+                BEST VALUE
+              </p>
             </div>
 
             <div className="flex flex-col items-start md:flex-row md:justify-center md:px-8 md:items-center">
               <div className="max-w-lg mx-auto md:max-w-sm text-left">
-                <Text.Paragraph
-                  useMD
-                  className="mb-4"
-                  content={`**${pageCopy.BEST_VALUE.course.copy1}**`}
-                />
+                <p className="mb-4">
+                  <strong>{pageCopy.BEST_VALUE.course.copy1}</strong>
+                </p>
 
-                <Text.Paragraph useMD className="mb-4" content={pageCopy.BEST_VALUE.course.copy2} />
+                <p className="mb-4">{pageCopy.BEST_VALUE.course.copy2}</p>
 
-                <Text.Paragraph useMD className="mb-4" content={pageCopy.BEST_VALUE.course.copy3} />
+                <p className="mb-4">{pageCopy.BEST_VALUE.course.copy3}</p>
 
-                <Text.Paragraph useMD className="mb-4" content={pageCopy.BEST_VALUE.course.copy4} />
+                <p className="mb-4">{pageCopy.BEST_VALUE.course.copy4}</p>
 
-                <Text.Paragraph
-                  useMD
-                  className="inline"
-                  content={pageCopy.BEST_VALUE.course.copy5}
-                />
+                <p className="inline">{pageCopy.BEST_VALUE.course.copy5}</p>
 
-                <Text.Paragraph className="underline inline" content="limited time!" />
+                <p className="underline inline">limited time!</p>
               </div>
 
               <div className="w-full flex flex-col items-center justify-evenly mt-8 lg:mt-0 md:w-1/2 lg:pl-16">
                 <div className="mb-10">
-                  {offerEndDate ? (
-                    <CountdownTimer date={offerEndDate} theme="light" />
-                  ) : (
-                    <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
-                  )}
+                  <CountdownTimer date={new Date(`2023-07-12T00:00:00`)} theme="light" />
                 </div>
 
-                <Image className="max-w-md w-full mb-8" src="LimitedOfferPage/course-mock-up.png" />
-
-                <Text.Paragraph
-                  className="text-primary font-bold mb-4 lg:my-6"
-                  content={pageCopy.BEST_VALUE.cta_text}
-                  spacing="tracking-0.325"
+                <Image
+                  alt="a course mockup"
+                  className="max-w-md w-full mb-8"
+                  src="/images/LimitedOfferPage/course-mock-up.png"
+                  width={495}
+                  height={362}
                 />
+
+                <p className="tracking-33 text-primary font-bold mb-4 lg:my-6">
+                  {pageCopy.BEST_VALUE.cta_text}
+                </p>
 
                 <div className="mt-4 mb-8">
                   <ButtonCheckout
@@ -448,7 +433,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
           {/* left col  */}
           <div className="text-left mt-4 md:w-1/2 md:mt-0 md:pl-8">
             {pageCopy.MONEY_BACK.copy.map((text, index) => (
-              <Text.Paragraph key={index} useMD className="mb-4 !text-lg" content={text} />
+              <p key={index} className="mb-4 !text-lg">
+                {text}
+              </p>
             ))}
             <div className="flex justify-center my-16 md:hidden">
               <ButtonCheckout
@@ -463,7 +450,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
             <Image
               alt="Money back 7 day Guarantee"
               className="w-3/4 max-w-xs"
-              src="money-back-7-day.png"
+              src="/images/money-back-7-day.png"
+              width={335}
+              height={335}
             />
           </div>
         </div>
@@ -480,23 +469,13 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       <section className="w-full flex justify-center">
         <div className="max-w-5xl flex flex-col items-center mx-4 my-16">
           <div className="flex flex-col items-center text-center">
-            <Text.Heading
-              useMD
-              className="font-bold font-sspb leading-9 lg:leading-50 tracking-[2px] mb-4"
-              content={pageCopy.SPECIAL_BONUS.headline}
-              size={1}
-            />
+            <h2 className="mb-4">
+              {pageCopy.SPECIAL_BONUS.headline}
+            </h2>
 
-            <Text.Paragraph
-              className="max-w-xl mb-4"
-              content={pageCopy.SPECIAL_BONUS.description}
-            />
+            <p className="max-w-xl mb-4">{pageCopy.SPECIAL_BONUS.description}</p>
 
-            <Text.Paragraph
-              className="font-bold mt-5"
-              content="AND AS A SPECIAL BONUS:"
-              spacing="tracking-0.325"
-            />
+            <p className="max-w-xl tracking-33 mb-4"><strong>AND AS A SPECIAL BONUS:</strong></p>
           </div>
 
           <div className="flex flex-col md:flex-row mt-8 md:px-8">
@@ -504,20 +483,23 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
             <div className="md:w-1/2 md:flex md:flex-col md:justify-start md:px-8">
               <div className="flex flex-col items-center text-left md:items-start">
                 {pageCopy.SPECIAL_BONUS.copy.map((text, index) => (
-                  <Text.Paragraph
-                    key={`trial_special_bonus_copy_${index}`}
-                    useMD
-                    className="mb-4"
-                    content={text}
-                  />
+                  <p key={`trial_special_bonus_copy_${index}`} className="mb-4">
+                    {text}
+                  </p>
                 ))}
               </div>
             </div>
             {/* right col */}
             <div className="flex flex-col items-center  md:items-end mt-8 md:mt-0 md:w-1/2 md:px-8">
-              <Image alt="" className=" mt-4 sm:mt-8" src="RoyalRumbleResultsPage/promo2.png" />
+              <Image
+                alt="image of thais in a webinar"
+                className="mt-4 sm:mt-8"
+                src="/images/RoyalRumbleResultsPage/promo2.png"
+                width={1516}
+                height={804}
+              />
 
-              <Video
+              <VideoThumbnail
                 playAuto
                 playInline
                 playButtonSize="none"
@@ -531,10 +513,10 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       {/* LOGO FEATURE SECTION */}
       <section className="w-full bg-[#F3F3F4] md:hidden">
         <div className="py-8">
-          <Text.Paragraph
-            className="font-xs font-semibold text-center uppercase tracking-[0.3em] px-4"
-            content={LIMITED_OFFER.LOGO_FEATURE.title}
-          />
+          <p className="font-xs font-semibold text-center uppercase tracking-[0.3em] px-4">
+            {LIMITED_OFFER.LOGO_FEATURE.title}
+          </p>
+
           <ul className="grid grid-cols-3 gap-4 mt-8">
             {LIMITED_OFFER.LOGO_FEATURE.image.map((img, index) => (
               <li key={index}>
@@ -542,7 +524,9 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                   <Image
                     alt={img.alt}
                     className="block w-[100px] h-[50px] max-w-full object-contain"
-                    src={`Logo_Brand/${img.name}.png`}
+                    src={`/images/Logo_Brand/${img.name}.png`}
+                    width={100}
+                    height={80}
                   />
                 </div>
               </li>
@@ -564,19 +548,12 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
               />
             </div>
             <div className="flex flex-col text-center m-4 p-2 md:text-left md:w-1/2">
-              <Text.Heading
-                className="text-white text-2xl"
-                content="Discount Offer Expires Soon."
-              />
+              <h2 className="text-white text-2xl">Discount Offer Expires Soon.</h2>
 
-              <Text.Heading className="text-white text-2xl mt-2" content="Claim Your Offer Now." />
+              <h2 className="text-white text-2xl">Claim Your Offer Now.</h2>
 
               {/* <div className="text-center px-0 mt-2"> */}
-              {offerEndDate ? (
-                <CountdownTimer date={offerEndDate} theme="dark" />
-              ) : (
-                <Loader className="!py-8 lg:py-10" classNameSpinner="text-white" />
-              )}
+              <CountdownTimer date={new Date(`2023-07-12T00:00:00`)} theme="dark" />
               {/* </div> */}
 
               <div className="pt-4">
@@ -591,24 +568,24 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       </section>
 
       {/* WAVE IMAGE BACKGROUND */}
-      <Image alt="" className="w-full -mt-36 md:-mt-24" src="LimitedOfferPage/background2.png" />
+      <Image
+        alt="wave image background"
+        className="w-full -mt-36 md:-mt-24"
+        src="/images/LimitedOfferPage/background2.png"
+        width={1000}
+        height={140}
+      />
       {/* INSTRUCTOR INTRO | "WHO TEACHES THIS COURSES SECTION" */}
       <section className="w-full bg-blue-lightest flex flex-col justify-center">
         <div className="max-w-5xl flex flex-col items-center mx-auto mt-8">
           <div className="flex flex-col justify-between md:flex-row">
             <div className="flex flex-col items-center px-4 mt-8 md:items-start md:max-w-xl">
-              <Text.Heading
-                className="max-w-xl font-bold text-center"
-                content={pageCopy.INSTRUCTOR.title}
-                size={1}
-              />
+              <h2 className="max-w-xl font-bold text-center">{pageCopy.INSTRUCTOR.title}</h2>
 
               {pageCopy.INSTRUCTOR.copy.map((text: string, index: number) => (
-                <Text.Paragraph
-                  key={`trial_instructor_copy_${index}`}
-                  className="mt-8"
-                  content={text}
-                />
+                <p key={`trial_instructor_copy_${index}`} className="mt-8">
+                  {text}
+                </p>
               ))}
 
               <div className="flex flex-col justify-center my-8 md:mt-16">
@@ -621,13 +598,19 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
 
             <div className="w-full flex flex-col items-center md:items-end md:flex-row-reverse">
               <Image
+                alt="image of thais in a mobile"
                 className="max-w-sm w-full md:hidden"
-                src="LimitedOfferPage/thais-mobile.png"
+                src="/images/LimitedOfferPage/thais-mobile.png"
+                width={617}
+                height={695}
               />
 
               <Image
+                alt="image of thais in a desktop"
                 className="hidden max-w-sm md:block"
-                src="LimitedOfferPage/thais-desktop.png"
+                src="/images/LimitedOfferPage/thais-desktop.png"
+                width={701}
+                height={1053}
               />
             </div>
           </div>
@@ -637,12 +620,17 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       {/* MIRROR | "I WANT TO ASK YOU TO COURAGEOUSLY REFLECT SECTION" */}
       <section className="w-full flex justify-center bg-black pb-8  md:pb-60">
         <div className="max-w-5xl text-white flex flex-col items-center mx-4 my-12">
-          <Text.Heading className="text-center" content={pageCopy.REFLECT.title} />
+          <h2 className="text-center">{pageCopy.REFLECT.title}</h2>
 
           <div className="flex flex-col my-8  md:items-start md:px-8">
             <div className="flex flex-col items-center md:flex-row md:justify-around md:px-8 ">
               <div className="max-w-sm md:max-w-md px-8">
-                <Image alt="" src="LimitedOfferPage/reflect.png" />
+                <Image
+                  alt="vector illustration of a woman engaged in thought while looking at her laptop screen"
+                  src="/images/LimitedOfferPage/reflect.png"
+                  width={440}
+                  height={392}
+                />
               </div>
 
               <div className="mt-8">
@@ -652,22 +640,22 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
                       key={`promo4_list_${index}`}
                       className="flex flex-row items-start justify-start mb-4">
                       <div className="mx-4">
-                        <Text.Paragraph
-                          className="w-8 h-8 border-2 border-purple-dark rounded-full flex items-center justify-center"
-                          content={index + 1}
-                        />
+                        <p className="w-8 h-8 border-2 border-purple-dark rounded-full flex items-center justify-center">
+                          {index + 1}
+                        </p>
                       </div>
 
-                      <Text.Paragraph className="text-left" content={list} />
+                      <p className="text-left">{list}</p>
                     </li>
                   ))}
                 </ol>
               </div>
             </div>
           </div>
-          <Text.Paragraph className="max-w-3xl text-center mb-8" content={pageCopy.REFLECT.copy1} />
 
-          <Text.Paragraph className="max-w-3xl mb-8" content={pageCopy.REFLECT.copy2} />
+          <p className="max-w-3xl text-center mb-8">{pageCopy.REFLECT.copy1}</p>
+
+          <p className="max-w-3xl text-center mb-8">{pageCopy.REFLECT.copy2}</p>
 
           <ButtonCheckout
             className="bg-blue text-black border-none drop-shadow-lg"
@@ -677,54 +665,8 @@ export default function LimitedOfferPage({ params }: { params: { style: TStyle }
       </section>
 
       {/* TESTIMONIAL CAROUSEL SECTION */}
-      <div className="max-w-lg  mx-auto my-4 lg:max-w-screen-lg lg:px-10 md:-mt-60">
-        <div className="w-full flex relative" style={{ maxWidth: '100vw' }}>
-          <Swiper
-            autoplay={{
-              delay: 6000,
-              reverseDirection: true,
-            }}
-            className="!overflow-hidden !py-2 xxs:!py-3 xs:!py-6 !px-2 lg:!px-18"
-            modules={[Autoplay, Pagination]}
-            pagination={{
-              bulletActiveClass: '!bg-black',
-              bulletClass:
-                'inline-block w-4 h-4 mx-1 bg-white border-2 rounded-full border-black cursor-pointer',
-              clickable: true,
-              horizontalClass: '!bottom-16',
-            }}
-            slidesPerView={1}
-            spaceBetween={96}>
-            {TRIAL_PAGE.testimonials.map((testimonial, index) => (
-              <SwiperSlide
-                key={`testimonial_${index}`}
-                className="bg-white p-6 py-12 shadow-centered rounded-2xl lg:px-8">
-                <div className="flex mb-6">
-                  <Image className="mr-2" src="quote.svg" />
-                  <Image src="quote.svg" />
-                </div>
+      <TestimonialSSP />
 
-                <div className="pl-5 border-l-[12px] border-blue-lightest">
-                  <div className="flex items-center mb-6">
-                    <Image
-                      className="rounded-full overflow-hidden max-w-[40px]"
-                      src={testimonial.img}
-                    />
-                    <Text className="font-semibold ml-3" content={testimonial.author} />
-                  </div>
-
-                  <Text useMD content={testimonial.testimonial} />
-                </div>
-
-                <div className="flex mt-6">
-                  <Image className="ml-auto mr-2 -scale-x-100" src="quote.svg" />
-                  <Image className="-scale-x-100" src="quote.svg" />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
       {/* FAQ SECTION */}
       <Faq />
     </Page>

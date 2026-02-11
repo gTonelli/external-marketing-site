@@ -76,15 +76,15 @@ export default async function LimitedOfferVariantPage({ params }: ILimitedOfferP
 
             <p className="font-bold mt-4">{pageVariant.HERO.copy}</p>
 
-            <div className="mt-8">
+            <div className="flex justify-center mt-8 md:justify-start">
               <div className="w-fit">
-                <p className="text-center mb-2">Join Today and Save 30%</p>
-
                 <ButtonCheckout
                   className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
                   label="GET STARTED TODAY"
                   href={checkoutUrl}
                 />
+
+                <p className="text-center mb-2">Join Today and Save 30%</p>
               </div>
             </div>
           </div>

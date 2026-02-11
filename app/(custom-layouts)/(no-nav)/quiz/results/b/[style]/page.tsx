@@ -39,19 +39,6 @@ export default async function VariantBResultsPage({ params }: TParams) {
   return (
     <Page page_name={`Attachment Style Results Variant B - ${style}`}>
       <section className="relative">
-        {/* <div className="relative w-full h-[256px] lg:h-[360px] 2xl:h-[440px] 3xl:h-[540px]">
-          <Image
-            priority
-            className="w-full h-full object-cover object-right md:object-top"
-            src={config.hero.image}
-            alt={config.hero.imageAlt}
-            width={1920}
-            height={1080}
-            sizes="100vw"
-            quality={100}
-          />
-        </div> */}
-
         <div className="relative w-full h-[300px] lg:h-[396px] xl:h-[440px] 2xl:h-[512px] 3xl:h-[720px]">
           <Image
             priority

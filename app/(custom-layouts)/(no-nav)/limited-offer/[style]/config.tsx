@@ -1016,7 +1016,7 @@ export const LIMITED_OFFER_VARIANT = {
     },
     PROGRAM: {
       headline:
-        'Join The Personal Development School All Access PassToday and We’ll Set You Up For Success With Your Bonus Course: Get the Dismissive Avoidant to Securely Attached Program FREE ($595 Value)',
+        'Join The Personal Development School All-Access Pass Today and We’ll Set You Up For Success With Your Bonus Course: Get the Dismissive Avoidant to Securely Attached Program FREE ($595 Value)',
       copy: [
         <>
           <strong>This is the first transformation you’ll experience when you join.</strong>

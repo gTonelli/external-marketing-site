@@ -76,14 +76,16 @@ export default async function LimitedOfferVariantPage({ params }: ILimitedOfferP
 
             <p className="font-bold mt-4">{pageVariant.HERO.copy}</p>
 
-            <div className="text-center mt-12 md:text-left">
-              <ButtonCheckout
-                className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
-                label="GET STARTED TODAY"
-                href={checkoutUrl}
-              />
+            <div className="mt-8">
+              <div className="w-fit">
+                <p className="text-center mb-2">Join Today and Save 30%</p>
 
-              <p className="mt-4">Join Today and Save 30%</p>
+                <ButtonCheckout
+                  className="bg-gradient-to-b from-purple-medium to-purple-dark border-none drop-shadow-lg hover:!text-white"
+                  label="GET STARTED TODAY"
+                  href={checkoutUrl}
+                />
+              </div>
             </div>
           </div>
 
@@ -614,6 +616,14 @@ export default async function LimitedOfferVariantPage({ params }: ILimitedOfferP
 
       {/* FAQ SECTION */}
       <Faq />
+
+      <div className="text-center my-8">
+        <ButtonCheckout
+          className="bg-gradient-to-b from-purple-medium to-purple-dark hover:!text-white"
+          label="JOIN THE PERSONAL DEVELOPMENT SCHOOL"
+          href={checkoutUrl}
+        />
+      </div>
     </Page>
   )
 }

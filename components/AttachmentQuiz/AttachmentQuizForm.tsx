@@ -42,7 +42,7 @@ export const AttachmentQuizForm = ({
         getSplitTest({
           key: 'gm-2354-attachment-funnel-cro-test',
           experimentName: 'GM-2354-Attachment-Funnel-CRO-Test',
-          variantRatio: 0.5,
+          variantRatio: 0.2,
           useCookies: true,
         })
       )

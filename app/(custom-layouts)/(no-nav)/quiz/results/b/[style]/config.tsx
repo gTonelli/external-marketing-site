@@ -47,7 +47,7 @@ export const CONFIG = {
       ],
     },
     noRiskSection: {
-      title: 'A No Risk Way to Start',
+      title: 'A No-Risk Way to Start',
       copy1: [
         'You don’t need to decide how long you’ll stay before you join.',
         'You can cancel your pass at any time, and many people choose to stay only as long as the tools are useful to them.',
@@ -303,8 +303,8 @@ export const CONFIG = {
       ],
       copy2:
         'Again, this isn’t about becoming someone else. It’s about understanding what’s already happening and having tools to respond differently when you’re ready.',
-      image: '/images/AttachmentQuizResults/advanced-fearful-avoidant-course.png',
-      imageAlt: 'A thumbnail of the advanced fearful avoidant course',
+      image: '/images/course-fa-to-sa.jpg',
+      imageAlt: 'A thumbnail of the intro fearful avoidant to secure attachment course',
     },
     continuingBenefitsSection: {
       title: 'What Continuing Can Give You',
@@ -363,7 +363,7 @@ export const CONFIG = {
           </strong>
         </>,
         'For many people like you, “this” looks like the constant scanning for reassurance, the overthinking after interactions, or the anxiety that shows up when closeness feels uncertain. It’s the effort of trying to feel secure by figuring everything out in your head.',
-        'That’s exactly what Personal Development School was created to support.',
+        'That’s exactly what The Personal Development School was created to support.',
         'It’s designed to help you understand why anxiety around connection shows up, recognize what’s happening in real time, and learn ways to regulate those reactions before they spiral or take over your day.',
       ],
       image: '/attachment-style-ap.svg',
@@ -372,20 +372,20 @@ export const CONFIG = {
     soundsLikeYouSection: {
       title: 'Does Any Of This Sound Like You?',
       listItemsLeft: [
-        'Worrying about breaking up or being abandoned.',
-        'Jumping to conclusions about relationships, whether cheating or pulling away.',
-        "Keeping a score of how much your partner is, or isn't, loving you.",
+        'You worry about breaking up or being abandoned.',
+        'You jump to conclusions about relationships, whether you fear cheating or them pulling away.',
+        'You keep score of how much your partner is, or isn’t, loving you.',
         'You fear being alone "forever".',
-        'Being a "people-pleaser" and putting yourself last.',
+        'You are a “people-pleaser” and put yourself last.',
         'You find yourself extremely codependent on others.',
       ],
       listItemsRight: [
         'You desire to be seen and valued in a relationship.',
-        'Expect or would like a committed relationship.',
-        'Be prioritized and appreciated by your partner.',
-        'Feel excited when people chase and want you.',
-        'Ready to heal from a breakup and move past your ex.',
-        'Want to fix your rocky relationship.',
+        'You expect or would like a committed relationship.',
+        'You would like to be prioritized by a partner',
+        'You feel excited when people chase and want you.',
+        'You’re ready to heal from a breakup and move past your ex.',
+        'You want to fix your rocky relationship',
       ],
       copy: (
         <>
@@ -473,8 +473,8 @@ export const CONFIG = {
       ],
       copy2:
         'This isn’t about becoming less emotional or less connected. It’s about building internal safety so connection no longer feels so fragile or consuming.',
-      image: '/images/AttachmentQuizResults/advanced-anxious-preoccupied-course.png',
-      imageAlt: 'A thumbnail of the advanced anxious preoccupied course',
+      image: '/images/course-ap-to-sa.jpg',
+      imageAlt: 'A thumbnail of the intro anxious preoccupied to secure attachment course',
     },
     continuingBenefitsSection: {
       title: 'What Continuing Can Give You',
@@ -552,21 +552,21 @@ export const CONFIG = {
       title: 'Does Any Of This Sound Like You?',
       listItemsLeft: [
         'You fear being stuck in a painful relationship forever.',
-        'Have a sense of being "trapped" when committed.',
-        'Emotionally closed off and afraid to explore your feelings.',
-        'Confused about your status within relationships.',
+        'You have a sense of being “trapped” when committed.',
+        'You’re emotionally closed off and afraid to explore your feelings.',
+        'You’re confused about your status within relationships.',
         'You value your own freedom, space, and independence.',
         `You're more of a "thinker," not a feeler.`,
       ],
       listItemsRight: [
         'You value a deep connection, but you just feel wildly misunderstood.',
         'You desire a partner where you can be yourself.',
-        'That partner must accept and support you.',
-        'Strive to have an easy relationship with minimal issues.',
-        'Be respected and understood when it comes to your freedom.',
-        'Ready to heal and let your guard down to truly connect with someone.',
+        'You feel that a partner must accept and support you.',
+        'You strive to have an easy relationship with minimal issues.',
+        'You want to be respected and understood when it comes to your freedom.',
+        'You’re ready to heal and let your guard down to truly connect with someone.',
       ],
-      copy: 'If so, you’re not meant to sit with this insight on your own. There is a path forward.',
+      copy: 'If so, you’re not meant to sit with this insight on your own. There.',
     },
     whoIsThisForSection: {
       title: 'Who The Personal Development School Is For',
@@ -646,8 +646,8 @@ export const CONFIG = {
       copy2:
         'This work isn’t about taking away your independence. It’s about giving you more control and choice in how you relate.',
 
-      image: '/images/AttachmentQuizResults/advanced-dismissive-avoidant-course.png',
-      imageAlt: 'A thumbnail of the advanced dismissive avoidant course',
+      image: '/images/course-da-to-sa.jpg',
+      imageAlt: 'A thumbnail of the intro dismissive avoidant to secure attachment course',
     },
     continuingBenefitsSection: {
       title: 'What Continuing Can Give You',

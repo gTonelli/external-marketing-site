@@ -39,10 +39,23 @@ export default async function VariantBResultsPage({ params }: TParams) {
   return (
     <Page page_name={`Attachment Style Results Variant B - ${style}`}>
       <section className="relative">
-        <div className="relative w-full h-[300px] lg:h-auto">
+        {/* <div className="relative w-full h-[256px] lg:h-[360px] 2xl:h-[440px] 3xl:h-[540px]">
           <Image
             priority
-            className="w-full h-full object-cover object-right lg:h-auto lg:object-cover"
+            className="w-full h-full object-cover object-right md:object-top"
+            src={config.hero.image}
+            alt={config.hero.imageAlt}
+            width={1920}
+            height={1080}
+            sizes="100vw"
+            quality={100}
+          />
+        </div> */}
+
+        <div className="relative w-full h-[300px] lg:h-[396px] xl:h-[440px] 2xl:h-[512px] 3xl:h-[720px]">
+          <Image
+            priority
+            className="w-full h-full max-w-none object-cover object-right-top md:object-top"
             src={config.hero.image}
             alt={config.hero.imageAlt}
             width={1920}
@@ -52,11 +65,11 @@ export default async function VariantBResultsPage({ params }: TParams) {
           />
         </div>
 
-        <div className="hero-gradient-bridge lg:hidden" />
+        <div className="hero-gradient-bridge md:hidden" />
 
-        <div className="relative !max-w-4xl mx-auto z-5 px-4 pt-16 pb-8 lg:absolute lg:inset-0 lg:py-32 xl:py-40 2xl:py-64 3xl:py-80">
-          <div className="lg:grid lg:grid-cols-12">
-            <div className="text-left lg:col-span-7">
+        <div className="relative !max-w-6xl mx-auto z-5 px-4 pt-16 pb-8 md:absolute md:inset-0 md:py-24 xl:py-44">
+          <div className="md:grid md:grid-cols-12">
+            <div className="text-left md:col-span-7">
               <h1>
                 <span className="block !text-2xl">{config.hero.label}</span>
 
@@ -79,7 +92,9 @@ export default async function VariantBResultsPage({ params }: TParams) {
         ))}
       </Section>
 
-      <Section className="bg-blue-lightest" classNameInner="gap-8 lg:grid lg:grid-cols-12">
+      <Section
+        className="bg-blue-lightest"
+        classNameInner="!max-w-4xl grid gap-8 mx-auto lg:grid-cols-12">
         <div className="text-left lg:col-span-7">
           <h2>{config.resultSection.title}</h2>
 
@@ -87,7 +102,14 @@ export default async function VariantBResultsPage({ params }: TParams) {
             <p key={`result_copy1_${i}`}>{copy}</p>
           ))}
 
-          {config.resultSection.listItems && <List listItems={config.resultSection.listItems} />}
+          {config.resultSection.listItems && (
+            <List
+              icon={faCircle}
+              iconSize="2xs"
+              classNameIcon="!text-black mt-1"
+              listItems={config.resultSection.listItems}
+            />
+          )}
 
           {config.resultSection.copy2.map((copy, i) => (
             <p key={`result_copy2_${i}`}>{copy}</p>
@@ -100,6 +122,8 @@ export default async function VariantBResultsPage({ params }: TParams) {
             alt={config.resultSection.imageAlt}
             width={500}
             height={500}
+            quality={100}
+            sizes="100vw"
           />
         </div>
       </Section>
@@ -141,20 +165,24 @@ export default async function VariantBResultsPage({ params }: TParams) {
           <Image
             fill
             className="object-cover rounded-20"
-            src="/images/DreamLifeResultsPage/instructor-mockup.jpg"
+            src="/images/AttachmentQuizResults/instructor-mockup.webp"
             alt="Mockup of a course offering on a laptop"
+            quality={100}
+            sizes="100vw"
           />
         </div>
       </Section>
 
       <Section className="bg-pink-tertiary" classNameInner="relative !pb-0">
-        <div className="grid gap-8 mb-16 lg:grid-cols-12">
+        <div className="grid gap-8 mb-8 lg:grid-cols-12">
           <div className="relative h-80 lg:col-span-5 lg:h-auto">
             <Image
               fill
               className="object-cover rounded-20"
               src="/images/AttachmentQuizResults/upset-couple.webp"
               alt="A woman looking seemingly upset with her husband"
+              quality={100}
+              sizes="100vw"
             />
           </div>
 
@@ -199,7 +227,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
             ))}
           </div>
 
-          <h2 className="mt-16">{config.shiftSection.title}</h2>
+          <h2 className="mt-8">{config.shiftSection.title}</h2>
 
           {config.shiftSection.copy1.map((copy, i) => (
             <p key={`shift_copy1_${i}`}>{copy}</p>
@@ -220,11 +248,13 @@ export default async function VariantBResultsPage({ params }: TParams) {
         </div>
 
         <Image
-          className="hidden lg:block lg:!z-5 lg:absolute lg:-bottom-16 lg:-right-12 lg:!max-w-lg lg:h-auto xl:!max-w-xl 2xl:!max-w-2xl 3xl:!max-w-3xl"
+          className="hidden lg:block lg:!z-5 lg:absolute lg:-bottom-16 lg:-right-12 lg:!max-w-lg lg:h-auto xl:!max-w-xl 2xl:!max-w-2xl 3xl:!max-w-3xl 2xl:-right-32"
           src="/images/AttachmentQuizResults/thais-gibson-portrait-large.png"
           alt="Portrait of Thais Gibson"
           width={897}
           height={1117}
+          quality={100}
+          sizes="100vw"
         />
       </Section>
 
@@ -255,10 +285,13 @@ export default async function VariantBResultsPage({ params }: TParams) {
 
         <div className="order-1 lg:order-2 lg:col-span-5">
           <Image
+            className="rounded-20 shadow-lg"
             src={config.supportSection.image}
             alt={config.supportSection.imageAlt}
             width={500}
             height={500}
+            quality={100}
+            sizes="100vw"
           />
         </div>
       </Section>
@@ -270,6 +303,8 @@ export default async function VariantBResultsPage({ params }: TParams) {
             alt="A laptop mockup of the platform access on different devices"
             width={563}
             height={401}
+            quality={100}
+            sizes="100vw"
           />
         </div>
 
@@ -328,6 +363,8 @@ export default async function VariantBResultsPage({ params }: TParams) {
               alt="A laptop mockup of the platform access on different devices"
               width={636}
               height={498}
+              quality={100}
+              sizes="100vw"
             />
           </div>
 
@@ -415,8 +452,10 @@ export default async function VariantBResultsPage({ params }: TParams) {
           <Image
             width={927}
             height={497}
-            src="/images/AttachmentQuizResults/attachment-quiz-mockup.png"
-            alt="A laptop mockup of the attachment quiz"
+            src="/images/AttachmentQuizResults/platform-mockup-3.png"
+            alt="A laptop mockup of PDS dashboard after access"
+            quality={100}
+            sizes="100vw"
           />
         </div>
       </Section>
@@ -429,6 +468,8 @@ export default async function VariantBResultsPage({ params }: TParams) {
               className="object-top object-cover rounded-20"
               src="/images/AttachmentQuizResults/thais-gibson.png"
               alt="Thais sitting on a couch smiling with her head slightly tilted to the side."
+              quality={100}
+              sizes="100vw"
             />
           </div>
 
@@ -457,7 +498,7 @@ export default async function VariantBResultsPage({ params }: TParams) {
       </Section>
 
       <Section className="bg-black">
-        <div className="flex flex-col justify-center items-center gap-8 mb-16 sm:flex-row">
+        <div className="flex flex-col justify-center items-center gap-8 mb-8 sm:flex-row">
           {common.featuresSection.communityCards.map((card, i) => (
             <div
               key={`feature_card_${i}`}
@@ -496,12 +537,14 @@ export default async function VariantBResultsPage({ params }: TParams) {
               height={497}
               src="/images/AttachmentQuizResults/support-groups-mockup.png"
               alt="A phone mockup of the support groups feature"
+              quality={100}
+              sizes="100vw"
             />
           </div>
         </div>
       </Section>
 
-      <Section classNameInner="gap-8 lg:grid lg:grid-cols-12">
+      <Section classNameInner="gap-8 grid lg:grid-cols-12">
         <div className="text-left lg:col-span-7">
           <h2>{config.continuingBenefitsSection.title}</h2>
 
@@ -530,9 +573,11 @@ export default async function VariantBResultsPage({ params }: TParams) {
         <div className="relative h-80 lg:col-span-5 lg:h-auto">
           <Image
             fill
-            className="object-cover rounded-20"
+            className="object-top object-cover rounded-20"
             src="/images/AttachmentQuizResults/friends-happy-discussion.png"
             alt="Two friends engaged in a discussion looking visibly happy and smiling"
+            quality={100}
+            sizes="100vw"
           />
         </div>
       </Section>

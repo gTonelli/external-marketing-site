@@ -217,7 +217,7 @@ export const LIMITED_OFFER = {
 
         `This led me to embark on a journey of relentless research and education. I completed a Master’s Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more! I also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns. `,
 
-        `Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 200,000 subscribers.`,
+        `Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 500,000 subscribers.`,
 
         `After fine-tuning this magic formula to create massive breakthroughs in relationships, I created The Personal Development School  and in just the last 3 years alone, I’ve helped thousands of students on their journey to healthy, happy love using the techniques from the course that I’m sharing with you today. In fact, this course has received a 99.7% satisfaction rate from students due to them experiencing major breakthroughs faster than they ever imagined.`,
       ],
@@ -416,10 +416,10 @@ export const LIMITED_OFFER = {
     INSTRUCTOR: {
       title: 'Who Teaches This Course',
       copy: [
-        'I’ll be teaching the course and guiding you every step of the way! I have over a decade of experience as a relationship coach and counselor. I originally got into this field because I too, had an insecure attachment style, and was desperately seeking answers and healing.',
-        'This led me to embark on a journey of relentless research and education. I completed a Master’s Degree and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more! I also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.',
+        'I’ll be teaching the course and guiding you every step of the way! I have over a decade of experience as a relationship coach and counselor. I originally got into this field because I, too, had an insecure attachment style and was desperately seeking answers and healing.',
+        'This led me to embark on a journey of relentless research and education. I completed a Master’s Degree, a PhD, and more than 13 different certifications in a variety of psychology modalities including cognitive behavioral therapy, neuro linguistic programming, internal family systems, shadow work and many more! I also ran a private practice for most of the last decade, working with people using the techniques in this course to transform lifelong relationship patterns.',
         'Eventually, I transitioned into creating a school - originally because my waitlist to see clients was over 2 years long. I have also published a best-selling book on this very topic, and have a Youtube channel with almost 200,000 subscribers.',
-        'After fine-tuning this magic formula to create massive breakthroughs in relationships, I created The Personal Development School  and in just the last 3 years alone, I’ve helped thousands of students on their journey to healthy, happy love using the techniques from the course that I’m sharing with you today. In fact, this course has received a 99.7% satisfaction rate from students due to them experiencing major breakthroughs faster than they ever imagined.',
+        'After fine-tuning this framework to create massive breakthroughs in relationships, I created The Personal Development School and over the last 7 years, I’ve helped thousands of students on their journey to healthy, happy love using the techniques from the course that I’m sharing with you today. In fact, this course has received a 99.7% satisfaction rate from students due to them experiencing major breakthroughs faster than they ever imagined.',
       ],
     },
     REFLECT: {
@@ -752,7 +752,7 @@ export const LIMITED_OFFER = {
         ],
       },
       course: {
-        copy1: `Gathering results from over 20,000 of our students who completed this course in recent years, this is our guarantee to you:`,
+        copy1: `Gathering results from over 60,000 of our students who completed this course in recent years, this is our guarantee to you:`,
         copy2: (
           <>
             If you're single:
@@ -888,7 +888,7 @@ export const LIMITED_OFFER_VARIANT = {
     headline1: 'A Risk-Free Way to Start Working With Your Attachment Style',
     copy1: [
       <>
-        After supporting over 20,000 students inside The Personal Development School, we know one
+        After supporting over 60,000 students inside The Personal Development School, we know one
         thing to be true: lasting change doesn’t come from insight alone, it comes from learning how
         to respond differently in real moments.
       </>,
@@ -924,7 +924,7 @@ export const LIMITED_OFFER_VARIANT = {
           Self-Doubt
         </>
       ),
-      copy: 'Join The Personal Development School and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the Anxious Preoccupied to Secure Relationship Program as Your Personalized Starting Point',
+      copy: 'Join The Personal Development School All-Access Pass and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the Anxious Preoccupied to Secure Relationship Program as Your Personalized Starting Point',
     },
     ACCESS: {
       copy: [
@@ -937,15 +937,15 @@ export const LIMITED_OFFER_VARIANT = {
         title: 'The Anxious Preoccupied to Secure Relationship Program',
         copy: (
           <>
-            Your personalized starting point, designed for anxious preoccupied attachment{' '}
-            <em>(Included as a bonus)</em>
+            Your personalized starting point, designed for anxious preoccupied attachment styles{' '}
+            <em>(Included as a bonus, valued at $595)</em>
           </>
         ),
       },
     },
     PROGRAM: {
       headline:
-        'Join Today and We’ll Set You Up For Success With Your Anxious Preoccupied to Secure Relationship Program FREE ($595 Value)',
+        'Join The Personal Development School All-Access Pass Today and We’ll Set You Up For Success With Your Bonus Course: Get The Anxious Preoccupied to Secure Relationship Program FREE ($595 Value)',
       copy: [
         <>
           <strong>This is the first transformation you’ll experience when you join.</strong>
@@ -994,7 +994,7 @@ export const LIMITED_OFFER_VARIANT = {
     HERO: {
       headline:
         'Finally, Experience Relationships That Respect Your Need For Space While Still Feeling Solid And Uncomplicated',
-      copy: 'Join The Personal Development School and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the Dismissive Avoidant to Securely Attached Program as Your Personalized Starting Point',
+      copy: 'Join The Personal Development School All-Access Pass and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the Dismissive Avoidant to Securely Attached Program as Your Personalized Starting Point',
     },
     ACCESS: {
       copy: [
@@ -1008,15 +1008,15 @@ export const LIMITED_OFFER_VARIANT = {
         title: 'The Dismissive Avoidant to Securely Attached Program',
         copy: (
           <>
-            Your personalized starting point, designed for dismissive avoidant attachment
-            <em>(Included as a bonus)</em>
+            Your personalized starting point, designed for dismissive avoidant attachment styles
+            <em>(Included as a bonus, valued at $595)</em>
           </>
         ),
       },
     },
     PROGRAM: {
       headline:
-        'Join Today and We’ll Set You Up For Success With Your Dismissive Avoidant to Securely Attached Program FREE ($595 Value)',
+        'Join The Personal Development School All Access PassToday and We’ll Set You Up For Success With Your Bonus Course: Get the Dismissive Avoidant to Securely Attached Program FREE ($595 Value)',
       copy: [
         <>
           <strong>This is the first transformation you’ll experience when you join.</strong>
@@ -1056,7 +1056,7 @@ export const LIMITED_OFFER_VARIANT = {
     HERO: {
       headline:
         'Finally, Build Deeply Connected Relationships Without Losing Your Freedom Or Independence',
-      copy: 'Join The Personal Development School and Receive 30% Off For Life On Your Pass, Plus Get Instant Access to the The Fearful Avoidant 7 Day Transformation Course as Your Personalized Starting Point',
+      copy: 'Join The Personal Development School and Receive 30% Off For Life On Your All-Access Pass, Plus Get Instant Access to the The Fearful Avoidant 7 Day Transformation Course as Your Personalized Starting Point',
     },
     ACCESS: {
       copy: [
@@ -1069,15 +1069,15 @@ export const LIMITED_OFFER_VARIANT = {
         title: 'The Fearful Avoidant 7 Day Transformation Course',
         copy: (
           <>
-            Your personalized starting point, designed for fearful avoidant attachment
-            <em>(Included as a bonus)</em>
+            Your personalized starting point, designed for fearful avoidant attachment styles
+            <em>(Included as a bonus, valued at $595)</em>
           </>
         ),
       },
     },
     PROGRAM: {
       headline:
-        'Join Today and We’ll Set You Up For Success With Your Fearful Avoidant 7 Day Transformation Course FREE ($595 Value)',
+        'Join The Personal Development School All-Access Pass Today and We’ll Set You Up For Success With Your Bonus Course: Get the Fearful Avoidant 7 Day Transformation Course FREE ($595 Value)',
       copy: [
         <>
           <strong>This is the first transformation you’ll experience when you join.</strong>

@@ -6,7 +6,7 @@ export const COPY = {
       <>
         Discover, learn, and get an eye-opening account of what it’s like to be a Certified IAT™
         Coach with this FREE Masterclass hosted by me, Thais Gibson - on{' '}
-        <strong>March 09th at 5:00 PM ET.</strong>
+        <strong>March 9th at 5:00 PM ET.</strong>
       </>,
       <>
         Whether you are already an experienced coach, running your own practice, or just starting,

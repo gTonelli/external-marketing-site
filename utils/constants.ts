@@ -117,6 +117,7 @@ type TCheckoutRoutes = {
   checkoutOct2025PromoTrial: string
   checkoutNov2025PromoTrial: string
   checkoutFamilyDynamicsFlashsale: string
+  checkoutCoreWoundWebinarBundle: string
   checkoutQuarterlyPlan: string
   checkoutQuarterlyPlanGregVoisen: string
   checkoutQuarterly149: string
@@ -176,6 +177,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutOct2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=584963&promo_label=15d-codependency`,
     checkoutNov2025PromoTrial: `${checkoutUrl}/enroll/559833?price_id=590989&bci=1625876&promo_label=ftfc-somatic`,
     checkoutFamilyDynamicsFlashsale: `${checkoutUrl}/enroll/559833?price_id=590989&bci=1456024&promo_label=ftfc-family`,
+    checkoutCoreWoundWebinarBundle: `${checkoutUrl}/enroll/559833?price_id=590989&bci=3366299&promo_label=core-wound-bundle`,
     checkoutQuarterlyPlan: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=ipg50`,
     checkoutQuarterly149: `${checkoutUrl}/enroll/559833?price_id=616936&coupon=148off`,
@@ -234,6 +236,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutOct2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=1924765&promo_label=15d-codependency`,
     checkoutNov2025PromoTrial: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=3137617&promo_label=ftfc-somatic`,
     checkoutFamilyDynamicsFlashsale: `${checkoutUrl}/enroll/1934512?price_id=2638713&bci=2455599&promo_label=ftfc-family`,
+    checkoutCoreWoundWebinarBundle: `${checkoutUrl}/enroll/559833?price_id=590989&bci=3366299&promo_label=core-wound-bundle`,
     checkoutQuarterlyPlan: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=withyouquarterly`,
     checkoutQuarterlyPlanGregVoisen: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=ipg50`,
     checkoutQuarterly149: `${checkoutUrl}/enroll/1934512?price_id=2661437&coupon=148off`,

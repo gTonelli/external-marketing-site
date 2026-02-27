@@ -392,6 +392,32 @@ const allConfigs = {
       </>
     ),
   },
+  coreWoundBundle: {
+    offerLabel: 'Free Trial & Exclusive Bonus Offer',
+    title:
+      'Get the Core Wound Healing Course Bundle FREE Forever & Start Rewiring Emotional Triggers at the Source',
+    copy: (
+      <>
+        When you start your 7-Day Free Trial of the All-Access Pass, you’ll receive the Core Wound
+        Healing Course (a $250 value) FREE to keep for life. In just one week, you’ll uncover the
+        subconscious beliefs driving emotional reactions, relationship patterns, and self-doubt, and
+        learn how to begin rewiring them so change feels natural, not forced.
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE BUNDLE NOW',
+    checkoutUrl: externalRoutes.checkoutCoreWoundWebinarBundle,
+    disclaimer: (
+      <>
+        *
+        <em>
+          With your 7 day free trial, you’ll get to keep the Core Wound Healing Course Bundle for
+          free (and keep it for life, even after your trial ends!) After 7 days, you’ll become a
+          member of PDS and get access to every course and every live event for $67/month. You won’t
+          be charged before day 7 and can cancel anytime prior with no charge.
+        </em>
+      </>
+    ),
+  },
 } satisfies Record<string, Partial<TConfig>>
 
 export type TPaymentOptionsConfigKey = keyof typeof allConfigs

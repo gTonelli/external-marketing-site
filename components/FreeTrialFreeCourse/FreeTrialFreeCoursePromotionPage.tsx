@@ -210,6 +210,8 @@ export const FreeTrialFreeCoursePromotionPage = ({ config, pageName }: IPromotio
                   className="w-full rounded-xl mx-auto lg:max-h-48"
                   alt="PDS Journey Step"
                   src={item.image}
+                  quality={100}
+                  sizes="100vw"
                   width={360}
                   height={180}
                 />

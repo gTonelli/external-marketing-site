@@ -62,6 +62,7 @@ export type Pages =
   | `Black Friday Variant Page`
   | `Black Friday Variant Page B`
   | `Codependency Quiz`
+  | `Core Wound Bundle Page`
   | `Corporate Quiz Landing Page`
   | `Corporate Quiz Questions Page`
   | `Corporate Quiz Form Page`

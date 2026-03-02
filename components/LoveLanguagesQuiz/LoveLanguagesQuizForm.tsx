@@ -1,5 +1,7 @@
 'use client'
 
+// core
+import { useState, useEffect } from 'react'
 // components
 import { IDefaultProps } from '..'
 import { useLoveLanguagesQuiz } from './useLoveLanguagesQuiz'
@@ -10,7 +12,12 @@ import { TLoveLanguagesAssociation } from './config'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
-import { getLoveLanguageSlug, getLoveLanguageText } from '@/utils/functions'
+import {
+  getLoveLanguageSlug,
+  getLoveLanguageText,
+  getLoveLanuageVariantSlug,
+  getSplitTest,
+} from '@/utils/functions'
 
 type TLoveLanguagesQuizData = {
   wordsOfAffirmation: number
@@ -31,8 +38,19 @@ export const LoveLanguagesQuizForm = ({
   quizData,
   answerHistory,
 }: ILoveLanguagesQuizFormProps) => {
+  const [isVariant, setIsVariant] = useState(false)
   const { getPercentageResults, saveResult } = useLoveLanguagesQuiz()
   const FBQ = useFacebookPixel()
+
+  useEffect(() => {
+    setIsVariant(
+      getSplitTest({
+        key: 'gm-2425-llq-checkout-test',
+        experimentName: 'GM-2425-LLQ-Checkout-Test',
+        props: { loveLanguage: result },
+      })
+    )
+  }, [])
 
   const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     gtag({
@@ -78,9 +96,15 @@ export const LoveLanguagesQuizForm = ({
       })
     }
 
-    const loveLanguageSlug = getLoveLanguageSlug(result)
+    const loveLanguageSlug = isVariant
+      ? getLoveLanuageVariantSlug(result)
+      : getLoveLanguageSlug(result)
     window.location.href = `https://offer.personaldevelopmentschool.com/${loveLanguageSlug}`
   }
+
+  const tags = [`love-language-${result}`]
+
+  if (isVariant) tags.push(`llq-${result}-179`)
 
   return (
     <div className="max-w-5xl w-full text-center rounded-2xl mt-6 mx-2 p-2 xxs:p-3 xs:p-4 xxs:shadow-centered md:mx-4 md:p-8 lg:px-12 xl:px-16">
@@ -89,7 +113,7 @@ export const LoveLanguagesQuizForm = ({
       </h3>
 
       <RegistrationForm
-        clientTag={`love-language-${result}`}
+        clientTag={tags.join(',')}
         submitButtonLabel="SUBMIT"
         userInfo={undefined}
         loveLanguage={result}

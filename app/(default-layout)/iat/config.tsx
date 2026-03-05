@@ -29,7 +29,7 @@ export const IAT_COPY = {
       'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
       <>
         <strong>
-          *Sign up for the Live Training, starting December 1, 2025 to February 16, 2026. Spots are
+          *Sign up for the Live Training, starting March 18, 2026 to June 3, 2026. Spots are
           limited.
         </strong>
       </>,
@@ -101,25 +101,25 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on December 1st, 6 PM ET`,
+          `Attend 1-hour review session on March 18th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on December 8th, 6 PM ET`,
+          `Attend 1-hour review session on March 25th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on December 15th, 6 PM ET`,
+          `Attend 1-hour review session on April 1st, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on December 22nd, 6 PM ET`,
+          `Attend 1-hour review session on April 8th, 6 PM ET`,
         ],
       },
 
@@ -127,7 +127,7 @@ export const IAT_COPY = {
         heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
         copy1: [
-          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from December 29th - February 16th every Monday at 6 PM ET for 8 weeks.',
+          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from April 15th - June 3rd every Wednesday at 6 PM ET for 8 weeks.',
           'Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais.',
           <>
             <strong>These group sessions with Thais include:</strong>
@@ -379,6 +379,8 @@ export const IAT_COPY = {
         `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
+      variantListItem: 'Live Session Wednesday March 18, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `You'll begin your journey by learning:`,
@@ -393,6 +395,8 @@ export const IAT_COPY = {
         `Transforming Limiting Beliefs`,
         `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
+
+      variantListItem: 'Live Session Wednesday March 25, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -409,6 +413,8 @@ export const IAT_COPY = {
         `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
 
+      variantListItem: 'Live Session Wednesday April 1, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `You'll begin your journey by learning:`,
@@ -422,15 +428,17 @@ export const IAT_COPY = {
         `The impact of Personality Needs on your life`,
         `How To Express Your Needs and Build Connection`,
         `Healthy Habits to Get Your Needs Met`,
-        ` Q&A session with IAT™ Coaches (Live Program Only)`,
+        `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
+
+      variantListItem: 'Live Session Wednesday April 8, 2026, at 6PM ET',
 
       textBottom: ``,
 
       textTop: `You'll begin your journey by learning:`,
     },
     {
-      heading: `INTENSIVE WEEK 5: MASTERING THE BASICS`,
+      heading: `Intensive Week 5: Mastering the Basics`,
 
       listItems: [
         `How to set up a personalized client program so that your client can achieve maximum results in the shortest period of time (leading to more referrals and incredible business success!)`,
@@ -441,13 +449,15 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Wednesday April 15, 2026, at 6PM ET',
+
       textBottom: `Plus you’ll learn the basics of Integrated Attachment Theory™, including an overview of core wounds, needs, emotional patterns, behaviors, communication patterns & boundaries of each attachment style.`,
 
       textTop: `You'll begin your journey by learning:`,
     },
 
     {
-      heading: `INTENSIVE WEEK 6: GIBSON INTEGRATED ATTACHMENT THEORY™`,
+      heading: `Intensive Week 6: Gibson Integrated Attachment Theory™`,
 
       listItems: [
         `How to master the tools from Gibson Integrated Attachment Theory™ to create rapid transformation at the subconscious level (in order to get your clients to have lasting results)`,
@@ -458,13 +468,15 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Wednesday April 22, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s training, you’ll learn:`,
     },
 
     {
-      heading: `INTENSIVE WEEK 7: IDENTIFYING CORE WOUNDS & SECRETS OF THE SUBCONSCIOUS`,
+      heading: `Intensive Week 7: Identifying Core Wounds & Secrets of the Subconscious`,
 
       listItems: [
         `The key questions and tools to identify the wounds, fears and insecurities of your clients so you can help them recondition these wounds (and transform their relationships)`,
@@ -474,13 +486,15 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Wednesday April 29, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week's module, you'll learn:`,
     },
 
     {
-      heading: `INTENSIVE WEEK 8: REPROGRAMMING YOUR CLIENT'S ATTACHMENT STYLE`,
+      heading: `Intensive Week 8: Reprogramming Your Client's Attachment Style`,
 
       listItems: [
         `In-depth reprogramming tools that produce rapid results`,
@@ -490,13 +504,15 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Wednesday May 6, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s module, you’ll learn:`,
     },
 
     {
-      heading: `INTENSIVE WEEK 9: UNDERSTANDING SUBCONSCIOUS NEEDS & FORMING HEALTHY RELATIONSHIP HABITS`,
+      heading: `Intensive Week 9: Understanding Subconscious Needs & Forming Healthy Relationship Habits`,
 
       listItems: [
         `The subconscious reasons behind anxious and avoidant relationship patterns and how to prevent the anxious-avoidant trap from igniting`,
@@ -507,13 +523,15 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Wednesday May 13, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s module, you’ll learn:`,
     },
 
     {
-      heading: `INTENSIVE WEEK 10: ACTIVATING, DEACTIVATING & MASTERING CONFLICT RESOLUTION`,
+      heading: `Intensive Week 10: Activating, Deactivating & Mastering Conflict Resolution`,
 
       listItems: [
         `How to master communication, boundaries, and conflict resolution`,
@@ -523,13 +541,15 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Wednesday May 20, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s module, you’ll learn:`,
     },
 
     {
-      heading: `INTENSIVE WEEK 11: UNLOCKING DEEPER CONNECTION`,
+      heading: `Intensive Week 11: Unlocking Deeper Connection`,
 
       listItems: [
         `The pillars of successful relationships, including: how to identify your shadow self, how to teach shadow work to clients, and how to build long-lasting relationships`,
@@ -539,13 +559,15 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
+      variantListItem: 'Live Session Wednesday May 27, 2026, at 6PM ET',
+
       textBottom: ``,
 
       textTop: `In this week’s module, you’ll learn:`,
     },
 
     {
-      heading: `INTENSIVE WEEK 12: BUILD A THRIVING BUSINESS`,
+      heading: `Intensive Week 12: Build a Thriving Business`,
 
       listItems: [
         `How to set up your business from the ground up - developing a mission statement, vision statement and business plan`,
@@ -556,6 +578,8 @@ export const IAT_COPY = {
         `How to make a healthy career transition with steps for success`,
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
+
+      variantListItem: 'Live Session Wednesday June 3, 2026, at 6PM ET',
 
       textBottom: ``,
 

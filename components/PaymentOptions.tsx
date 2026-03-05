@@ -1,3 +1,5 @@
+'use client'
+
 // core
 import Link from 'next/link'
 // components
@@ -7,6 +9,8 @@ import { ButtonCheckout } from './Button/variants/ButtonCheckout'
 import { TRIAL_HEADSPACE as TH } from '@/app/(custom-layouts)/(no-nav)/dream-life/config'
 // libraries
 import cx from 'classnames'
+// modules
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
@@ -26,7 +30,15 @@ export const PaymentOptions = ({
 
   return (
     <div className="flex flex-col items-center space-y-4 lg:justify-between">
-      <Link href={config.checkoutUrl} className="hover:!no-underline">
+      <Link
+        href={config.checkoutUrl}
+        className="hover:!no-underline"
+        onClick={() => {
+          Mixpanel.track.ButtonClicked({
+            button_label: config.offerLabel,
+            page_name: 'Dreamlife Free Course Page',
+          })
+        }}>
         <div
           className={cx(
             'relative max-w-[474px] flex flex-row items-center space-x-5 text-white bg-primary rounded-[30px] p-6 lg:px-7 lg:pt-7 lg:pb-5',
@@ -98,6 +110,31 @@ const fourteendayFTConfig: TConfig = {
     '*$67.00/month after your free trial. Cancel any time before your trial ends to avoid being charged. This offer ends soon!*',
 }
 
+const pillarsConfig: TConfig = {
+  offerLabel: 'Free Trial & Exclusive Free Course!',
+  title: 'Get the Key Pillars Course For Free & Start Building Relationships With Confidence',
+  copy: (
+    <>
+      Sign up for a 7-day Free Trial to our All-Access Pass and KEEP the Key Pillars for a Secure
+      Relationship Course for LIFE. Learn how to heal deep wounds, break unhealthy patterns, and
+      feel secure in love!
+    </>
+  ),
+  ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
+  checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
+  disclaimer: (
+    <>
+      *
+      <strong>
+        With your 7 day free trial, you’ll get to keep the Key Pillars for a Secure Relationship
+        Course for free (and keep it for life, even after your trial ends!) After 7 days, you’ll
+        become a member of PDS and get access to every course and every live event for $67/month.
+        You won’t be charged before day 7 and can cancel anytime prior with no charge.
+      </strong>
+    </>
+  ),
+}
+
 const allConfigs = {
   dreamLife: baseConfig,
   blackFriday14day: { ...fourteendayFTConfig, offerLabel: 'BLACK FRIDAY OFFER' },
@@ -161,30 +198,7 @@ const allConfigs = {
       </>
     ),
   },
-  dreamLifePillarsCourse: {
-    offerLabel: 'Free Trial & Exclusive Free Course!',
-    title: 'Get the Key Pillars Course For Free & Start Building Relationships With Confidence',
-    copy: (
-      <>
-        Sign up for a 7-day Free Trial to our All-Access Pass and KEEP the Key Pillars for a Secure
-        Relationship Course for LIFE. Learn how to heal deep wounds, break unhealthy patterns, and
-        feel secure in love!
-      </>
-    ),
-    ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
-    checkoutUrl: externalRoutes.checkoutJune2025PromoTrial,
-    disclaimer: (
-      <>
-        *
-        <strong>
-          With your 7 day free trial, you’ll get to keep the Key Pillars for a Secure Relationship
-          Course for free (and keep it for life, even after your trial ends!) After 7 days, you’ll
-          become a member of PDS and get access to every course and every live event for $67/month.
-          You won’t be charged before day 7 and can cancel anytime prior with no charge.
-        </strong>
-      </>
-    ),
-  },
+  dreamLifePillarsCourse: pillarsConfig,
   dreamLifeSomatic: {
     offerLabel: 'One Powerful Course. Lifetime Results. Just $19.',
     title: 'Unlock the Powerful Tools to Start Healing & Reconnecting With Yourself',
@@ -197,6 +211,33 @@ const allConfigs = {
     ),
     checkoutUrl: externalRoutes.checkoutJuly2025PromoTrial,
     ctaLabel: 'GET THE COURSE NOW!',
+  },
+  dreamLifeFamilyDynamics: {
+    offerLabel: 'Free Trial & Exclusive Free Course',
+    title:
+      'Brand New Offer! For The First Time Ever, Get the Healing Family Dynamics Course Free For Life.',
+    copy: (
+      <>
+        For our Boxing Day flash sale, we’re giving you the opportunity to get a{' '}
+        <strong>brand new course</strong> for free when you start a 7-Day Free Trial of the
+        All-Access Pass! Claim your Healing Family Trauma and Challenging Family Dynamics course for
+        life and get the exact tools to have calmer conversations, navigate conflict with ease, and
+        learn how to set boundaries for the holiday season.
+      </>
+    ),
+    checkoutUrl: externalRoutes.checkoutFamilyDynamicsFlashsale,
+    ctaLabel: 'GET THE COURSE NOW!',
+    disclaimer: (
+      <>
+        *
+        <strong>
+          When you join now, you’ll sign up for our All-Access Pass Membership. At the end of the
+          trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you
+          don’t stay with us after 7 days, you still get to keep and access the Healing Family
+          Trauma and Challenging Family Dynamics course for life.
+        </strong>
+      </>
+    ),
   },
   dreamLifeUpsell: {
     offerLabel: 'Take Step 2 RISK-FREE',
@@ -271,17 +312,17 @@ const allConfigs = {
   },
   somaticAttachmentHealing: {
     offerLabel: 'Free Trial & Exclusive Free Course',
-    title: 'Black Friday Special: Get the Somatic Attachment Healing Course & Feel Calmer FAST',
+    title: 'Get the Somatic Attachment Healing Course & Feel Calmer FAST',
     copy: (
       <>
-        For the first time ever, we’re giving away the <em>Somatic Attachment Healing Course</em>
-        —our most transformative, body-based program—for free. Experience our biggest offer yet and
-        feel the difference in just one week. When you start your 7-Day Free Trial of the All-Access
-        Pass Membership, you’ll get the <strong>Somatic Attachment Healing Course</strong> (valued
-        at $250) completely <strong>FREE for LIFE</strong>. This course is designed to help you calm
-        your nervous system, process emotions safely, rebuild a sense of safety in your body, and
-        turn dysregulation into personal growth, and improve your relationship with yourself and
-        your loved ones while creating steady, secure connection.
+        We’re giving away the Somatic Attachment Healing Course—our most transformative, body-based
+        program—for free. Feel the difference in just one week. When you start your 7-Day Free Trial
+        of the All-Access Pass Membership, you’ll get the{' '}
+        <strong>Somatic Attachment Healing Course</strong> (valued at $250) completely{' '}
+        <strong>FREE for LIFE</strong>. This course is designed to help you calm your nervous
+        system, process emotions safely, rebuild a sense of safety in your body, and turn
+        dysregulation into personal growth, and improve your relationship with yourself and your
+        loved ones while creating steady, secure connection.
       </>
     ),
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
@@ -294,6 +335,85 @@ const allConfigs = {
           trial, you’ll automatically become a member of the $67.00/month plan. Plus, even if you
           don’t stay with us after 7 days, you still get to keep and access the{' '}
           <strong>Somatic Attachment Healing Course</strong> for life.
+        </em>
+      </>
+    ),
+  },
+  boxingWeek: {
+    offerLabel: 'Boxing Week Special: Free Course For Life + Free Trial',
+    title: 'Get Your Attachment Styles & Sex Course ($250 Value) - For Free!',
+    copy: (
+      <>
+        Start your <strong>7-Day Free Trial of the All-Access Pass</strong> today and get lifetime
+        access to the{' '}
+        <strong>Attachment Styles & Sex course (a $250 value) absolutely FREE.</strong>
+        For Boxing Week only, get the proven roadmap to help you navigate intimacy, build deeper
+        connections, embrace more enjoyable experiences, and learn how you and your partner approach
+        intimacy based on your attachment style. Even if you leave before the trial ends, you’ll
+        keep the course forever!
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE COURSE & TRIAL',
+    checkoutUrl: externalRoutes.checkoutMarch2025PromoTrial.concat('-boxing-week'),
+    disclaimer: (
+      <>
+        *
+        <em>
+          With your 7-day free trial, you’ll get to keep the{' '}
+          <strong>Attachment Styles & Sex Course for free</strong> (and keep it for life, even after
+          your trial ends!) After 7 days, you’ll become a member of PDS and get access to every
+          course and every live event for $67/month. You won’t be charged until day 7, and you can
+          cancel at any time with no additional charge.
+        </em>
+      </>
+    ),
+  },
+  newYearNewYou: {
+    ...pillarsConfig,
+    copy: (
+      <>
+        Set into the new you this new year! Sign up for a <strong>7-Day Free Trial</strong> to our
+        All-Access Pass and{' '}
+        <strong>KEEP the Key Pillars for a Secure Relationship Course for LIFE.</strong> Learn how
+        to heal deep wounds, break unhealthy patterns, and feel secure in love!
+      </>
+    ),
+    checkoutUrl: externalRoutes.checkoutJune2025PromoTrial.concat('-new-year'),
+    disclaimer: (
+      <>
+        *
+        <em>
+          With your 7-day free trial, you’ll get to keep the{' '}
+          <strong>Key Pillars for a Secure Relationship Course for free</strong> (and keep it for
+          life, even after your trial ends!) After 7 days, you’ll become a member of PDS and get
+          access to every course and every live event for $67/month. You won’t be charged before day
+          7 and can cancel at any time before day 7 with no charge.
+        </em>
+      </>
+    ),
+  },
+  coreWoundBundle: {
+    offerLabel: 'Free Trial & Exclusive Bonus Offer',
+    title:
+      'Get the Core Wound Healing Course Bundle FREE Forever & Start Rewiring Emotional Triggers at the Source',
+    copy: (
+      <>
+        When you start your 7-Day Free Trial of the All-Access Pass, you’ll receive the Core Wound
+        Healing Course (a $250 value) FREE to keep for life. In just one week, you’ll uncover the
+        subconscious beliefs driving emotional reactions, relationship patterns, and self-doubt, and
+        learn how to begin rewiring them so change feels natural, not forced.
+      </>
+    ),
+    ctaLabel: 'CLAIM YOUR FREE BUNDLE NOW',
+    checkoutUrl: externalRoutes.checkoutCoreWoundWebinarBundle,
+    disclaimer: (
+      <>
+        *
+        <em>
+          With your 7 day free trial, you’ll get to keep the Core Wound Healing Course Bundle for
+          free (and keep it for life, even after your trial ends!) After 7 days, you’ll become a
+          member of PDS and get access to every course and every live event for $67/month. You won’t
+          be charged before day 7 and can cancel anytime prior with no charge.
         </em>
       </>
     ),

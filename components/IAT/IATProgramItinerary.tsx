@@ -7,7 +7,7 @@ import { IATCurriculumCard } from './IATCurriculumCard'
 // config
 import { IAT_COPY as IAT } from '@/app/(default-layout)/iat/config'
 
-export const IATProgramItinerary = () => {
+export const IATProgramItinerary = ({ isVariant = false }: { isVariant?: boolean }) => {
   return (
     <>
       <Image
@@ -35,7 +35,7 @@ export const IATProgramItinerary = () => {
             key={`itinerary_${index}`}
             heading={week.heading}
             initialOpenState={index == 0 ? true : false}
-            listItems={week.listItems}
+            listItems={isVariant ? [...week.listItems, week.variantListItem] : week.listItems}
             textBottom={week.textBottom}
             textTop={week.textTop}
           />

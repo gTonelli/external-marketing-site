@@ -54,7 +54,9 @@ export const List = ({
   return (
     <ul className={className}>
       {listItems.map((data, index) => (
-        <li key={`list_item_${index}`} className={cx('flex items-start ', classNameListItems)}>
+        <li
+          key={`list_item_${index}`}
+          className={cx(icon ? 'flex items-start' : '', classNameListItems)}>
           {icon && (
             <FontAwesomeIcon
               className={cx('pt-[1px] mr-2 text-primary font-semibold ', classNameIcon)}

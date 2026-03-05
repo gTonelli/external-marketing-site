@@ -1,5 +1,5 @@
 import { IPodcast } from '@/app/(custom-layouts)/(no-nav)/podcast/page'
-import { TDict, TRole, TStyle, TUserData } from './types'
+import { TDict, TRole, TStyle, TStyleLong, TUserData, TDatingStageLong } from './types'
 import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 import { PhoneNumberUtil } from 'google-libphonenumber'
@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 import jwt from 'jsonwebtoken'
 import { pick } from 'lodash'
 import { TDatingStage } from '@/components/DatingQuiz/useDatingQuiz'
+import { TLoveLanguagesAssociation } from '@/components/LoveLanguagesQuiz/config'
 
 /**
  * Check if property is function
@@ -193,7 +194,7 @@ export const getUserRoles = (roles?: TUserData['roles']) => {
   return JSON.parse(roles) as TRole[]
 }
 
-export const getAttachmentStyleText = (style: TStyle) => {
+export const getAttachmentStyleText = (style: TStyle): TStyleLong => {
   switch (style) {
     case 'fa':
       return 'Fearful Avoidant'
@@ -206,7 +207,7 @@ export const getAttachmentStyleText = (style: TStyle) => {
   }
 }
 
-export const getDatingStageText = (stage: TDatingStage) => {
+export const getDatingStageText = (stage: TDatingStage): TDatingStageLong => {
   switch (stage) {
     case 'dating':
       return 'Dating'
@@ -229,5 +230,35 @@ export const getDatingStageSlug = (stage: TDatingStage) => {
       return 'rhythm'
     case 'devotion':
       return 'devotion'
+  }
+}
+
+export const getLoveLanguageText = (loveLanguage: TLoveLanguagesAssociation) => {
+  switch (loveLanguage) {
+    case 'wordsOfAffirmation':
+      return 'Words of Affirmation'
+    case 'qualityTime':
+      return 'Quality Time'
+    case 'actsOfService':
+      return 'Acts of Service'
+    case 'physicalTouch':
+      return 'Physical Touch'
+    case 'receivingGifts':
+      return 'Receiving Gifts'
+  }
+}
+
+export const getLoveLanguageSlug = (loveLanguage: TLoveLanguagesAssociation) => {
+  switch (loveLanguage) {
+    case 'wordsOfAffirmation':
+      return 'words-of-affirmation'
+    case 'qualityTime':
+      return 'quality-time'
+    case 'actsOfService':
+      return 'acts-of-service'
+    case 'physicalTouch':
+      return 'physical-touch'
+    case 'receivingGifts':
+      return 'receiving-gifts'
   }
 }

@@ -6,7 +6,7 @@ import { IAT_COPY as IAT } from '../../app/(default-layout)/iat/config'
 // utils
 import { externalRoutes } from '@/utils/constants'
 
-const iatRecordedPrices = [
+export const iatRecordedPrices = [
   {
     price: '$1,999.00',
     priceLabel: '',
@@ -33,7 +33,7 @@ const iatRecordedPrices = [
   },
 ]
 
-const iatLivePrices = [
+export const iatLivePrices = [
   {
     price: '$3,499.00',
     priceLabel: '',

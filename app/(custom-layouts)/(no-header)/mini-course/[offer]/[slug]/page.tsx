@@ -5,8 +5,10 @@ import { Page } from '@/components/Page'
 // config
 import {
   MINI_COURSE_PAGES_SEO as CONFIG,
+  MINI_COURSE_IAT_PAGES_SEO as IAT_CONFIG,
   TMiniCoursePageSlugs,
   TMiniCoursePageOffer,
+  TMiniCourseIATSlugs,
 } from './config'
 import { MiniCoursePage } from './MiniCoursePage'
 
@@ -15,15 +17,16 @@ export const dynamicParams = false
 interface IMiniCoursePageParams {
   params: Promise<{
     offer: TMiniCoursePageOffer
-    slug: TMiniCoursePageSlugs
+    slug: TMiniCoursePageSlugs | TMiniCourseIATSlugs
   }>
 }
 
 export function generateStaticParams(): {
   offer: TMiniCoursePageOffer
-  slug: TMiniCoursePageSlugs
+  slug: TMiniCoursePageSlugs | TMiniCourseIATSlugs
 }[] {
   return [
+    // Original pages with both offer and intro variants
     { offer: 'offer', slug: 'hard-relationships' },
     { offer: 'offer', slug: 'patterns' },
     { offer: 'offer', slug: 'past-wounds' },
@@ -38,25 +41,44 @@ export function generateStaticParams(): {
     { offer: 'intro', slug: 'nervous-system' },
     { offer: 'intro', slug: 'setting-boundaries' },
     { offer: 'intro', slug: 'self-sabotaging' },
+    { offer: 'iat', slug: 'hard-relationships' },
+    { offer: 'iat', slug: 'patterns' },
+    { offer: 'iat', slug: 'past-wounds' },
+    { offer: 'iat', slug: 'craving-relationships' },
+    { offer: 'iat', slug: 'nervous-system' },
+    { offer: 'iat', slug: 'setting-boundaries' },
+    { offer: 'iat', slug: 'self-sabotaging' },
   ]
 }
 
 export async function generateMetadata({ params }: IMiniCoursePageParams): Promise<Metadata> {
-  const { slug } = await params
+  const { offer, slug } = await params
 
-  return {
-    title: CONFIG[slug].seoTitle,
-    description: CONFIG[slug].seoDescription,
-    robots: 'noindex',
+  const isIATPage = offer === 'iat'
+
+  if (isIATPage) {
+    return {
+      title: IAT_CONFIG[slug as keyof typeof IAT_CONFIG].seoTitle,
+      description: IAT_CONFIG[slug as keyof typeof IAT_CONFIG].seoDescription,
+      robots: 'noindex',
+    }
+  } else {
+    return {
+      title: CONFIG[slug as keyof typeof CONFIG].seoTitle,
+      description: CONFIG[slug as keyof typeof CONFIG].seoDescription,
+      robots: 'noindex',
+    }
   }
 }
 
-export default async function APSinglePage({ params }: IMiniCoursePageParams) {
+export default async function EmailMiniCoursePages({ params }: IMiniCoursePageParams) {
   const { offer, slug } = await params
+
+  const isIATOnly = offer === 'iat'
 
   return (
     <Page page_name={`Mini Course Page - ${slug}`}>
-      <MiniCoursePage offer={offer} slug={slug} />
+      <MiniCoursePage offer={offer} slug={slug} isIATOnly={isIATOnly} />
     </Page>
   )
 }

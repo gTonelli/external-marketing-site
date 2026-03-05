@@ -4,6 +4,8 @@
 import { TAnswerHistory } from './DatingQuizQuestions'
 // libraries
 import { indexOf, orderBy } from 'lodash'
+// utils
+import { TDatingStageLong } from '@/utils/types'
 
 export type TDatingStage = 'dating' | 'powerStruggle' | 'rhythm' | 'devotion'
 
@@ -22,10 +24,12 @@ export interface IGetDatingPercentagesArgs {
 }
 
 export interface ISaveDatingResultArgs extends IDatingPercentages {
+  eventId: string
   firstName: string
   lastName: string
   email: string
   relationshipStatus?: string
+  dominantStage: TDatingStageLong
   answerHistory: TAnswerHistory[]
 }
 
@@ -64,7 +68,9 @@ export const useDatingQuiz = () => {
     firstName,
     lastName,
     email,
+    eventId,
     relationshipStatus,
+    dominantStage,
     datingPercentage,
     powerStrugglePercentage,
     rhythmPercentage,
@@ -78,6 +84,8 @@ export const useDatingQuiz = () => {
         firstName,
         lastName,
         email,
+        eventId,
+        datingStage: dominantStage,
         relationshipStatus,
         datingPercentage,
         powerStrugglePercentage,

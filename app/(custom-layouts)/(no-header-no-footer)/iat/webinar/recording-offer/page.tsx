@@ -34,7 +34,8 @@ const trustbarSlides = [
 ]
 
 export default function IATMasterclassRecordingPage() {
-  const liveCohortDate = 'Monday, December 1st, 2025'
+  const liveCohortDate = 'Wednesday, March 18th, 2026'
+
   return (
     <Page page_name="IAT Webinar Recording Page">
       <Section>
@@ -49,7 +50,7 @@ export default function IATMasterclassRecordingPage() {
           <VideoYoutube
             playInline
             classNameThumbnail="w-full"
-            videoId="EbrN_nCy-VU"
+            videoId="Lv4xw3VbzF0"
             thumbnail="/images/IATWebinar/iat-webinar-thumbnail.jpg"
             thumbnailAlt="Thais Gibson Masterclass Video Thumbnail"
           />
@@ -71,7 +72,7 @@ export default function IATMasterclassRecordingPage() {
         <CountdownTimer
           className="mb-8"
           theme="light"
-          date={getOfferEndDate(new Date('2025-11-29T23:59:59-05:00'), 1)}
+          date={getOfferEndDate(new Date('2026-02-22T17:30:00-05:00'), 1)}
         />
       </Section>
 

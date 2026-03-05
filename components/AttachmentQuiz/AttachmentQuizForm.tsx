@@ -1,15 +1,18 @@
 'use client'
 
 //core
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
+import { gtag } from '../GoogleAdsTag'
+// modules
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
 import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
-import { gtag } from '../GoogleAdsTag'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -30,6 +33,21 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
+  const [isVariant, setIsVariant] = useState(false)
+  const FBQ = useFacebookPixel()
+
+  useEffect(() => {
+    if (userStyle !== 'sa' && quiz_traffic_source === 'paidGoogle') {
+      setIsVariant(
+        getSplitTest({
+          key: 'gm-2354-attachment-funnel-cro-test',
+          experimentName: 'GM-2354-Attachment-Funnel-CRO-Test',
+          variantRatio: 0.2,
+          useCookies: true,
+        })
+      )
+    }
+  }, [quiz_traffic_source, userStyle])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -38,6 +56,9 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
+        if (isVariant) {
+          return `/quiz/results/b/${userStyle}`
+        }
         if (userStyle === 'fa') {
           return '/quiz/results/fearful-avoidant'
         }
@@ -84,23 +105,33 @@ export const AttachmentQuizForm = ({
       intent,
     } = quizData
 
-    const { faPercentage, apPercentage, daPercentage, saPercentage } = getPercentageResults({
-      fa,
-      da,
-      ap,
-      sa,
-    })
+    const { faPercentage, apPercentage, daPercentage, saPercentage, dominantStyle } =
+      getPercentageResults({
+        fa,
+        da,
+        ap,
+        sa,
+      })
 
     if (firstName && lastName && email) {
+      const eventId = crypto.randomUUID()
+
+      FBQ?.trackAttachmentQuizResult({
+        attachmentStyle: getAttachmentStyleText(userStyle),
+        eventId,
+      })
+
       saveResult({
         firstName,
         lastName,
         email,
+        eventId,
         attachmentFamiliarity,
         gender,
         intent,
         relationship,
         relationshipSatisfaction,
+        dominantStyle: getAttachmentStyleText(dominantStyle),
         faPercentage,
         apPercentage,
         daPercentage,
@@ -112,6 +143,9 @@ export const AttachmentQuizForm = ({
     router.push(route)
   }
 
+  const tags = [`attachment-quiz-${userStyle}`]
+  if (isVariant) tags.push(`funnel-cro-${userStyle}`)
+
   return (
     <section className="flex justify-center">
       <div className="max-w-5xl w-full text-center rounded-2xl mt-6 mx-2 p-2 xxs:p-3 xs:p-4 xxs:shadow-centered md:mx-4 md:p-8 lg:px-12 xl:px-16">
@@ -121,7 +155,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
-          clientTag={`attachment-quiz-${userStyle}`}
+          clientTag={tags.join(',')}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
           userStyle={userStyle}

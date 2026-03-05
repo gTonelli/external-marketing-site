@@ -132,7 +132,7 @@ const parseVariantCookie = (variantCookie: string) => {
 }
 
 export const config = {
-  matcher: ['/iat/info', '/iat/webinar'],
+  matcher: ['/iat/info', '/iat/webinar', '/six-dating-stages', '/iat'],
 }
 
 interface IConfigWithRegex {
@@ -151,6 +151,14 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
     {
       config: splitTestConfigs.iatMasterclassTest,
       regex: /^\/iat\/webinar/,
+    },
+    {
+      config: splitTestConfigs.iatSalesPageTest,
+      regex: /^\/iat(?:$|\?)/,
+    },
+    {
+      config: splitTestConfigs.datingQuizLPTest,
+      regex: /^\/six-dating-stages/,
     },
   ]
 
@@ -258,6 +266,27 @@ export const splitTestConfigs: TSplitTestConfigs = {
       path: '/iat/webinar/b',
     },
     variantRatio: 0.25,
+    forceControlOnNewUser: false,
+  },
+  iatSalesPageTest: {
+    cookieKey: 'ip-1599',
+    pageName: 'External IAT Page',
+    experimentName: 'IP-1599-IAT-Sales-Page-Test',
+    variantUrl: {
+      path: '/iat/b',
+    },
+    variantRatio: 0.5,
+    forceControlOnNewUser: false,
+  },
+  datingQuizLPTest: {
+    cookieKey: 'gm-2272-dating-quiz-test',
+    pageName: 'Dating Quiz Landing Page',
+    experimentName: 'GM-2272-Dating-Quiz-LP-Test',
+    variantUrl: {
+      path: 'https://offer.personaldevelopmentschool.com/6-stages-quiz',
+    },
+    domain: '.personaldevelopmentschool.com',
+    variantRatio: 0.5,
     forceControlOnNewUser: false,
   },
 }

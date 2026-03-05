@@ -33,8 +33,10 @@ import { EmailShareButton, FacebookShareButton, TwitterShareButton } from 'react
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faFacebook, faTwitter } from '@awesome.me/kit-545b942488/icons/classic/brands'
+// modules
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
-import { getInitials } from '@/utils/functions'
+import { getAttachmentStyleText, getInitials } from '@/utils/functions'
 // styles
 import '../../styles.css'
 
@@ -52,6 +54,9 @@ interface IChartData {
 type TQuizResultsPageParams = [string, string, string, string, string, string]
 
 export default function QuizResultsPage({ params }: { params: { data: TQuizResultsPageParams } }) {
+  // ==================== Hooks ====================
+  const FBQ = useFacebookPixel()
+
   // ==================== Params ====================
   const [quizId, style, fa, da, ap, sa] = params.data
 
@@ -66,20 +71,24 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
   const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
     Storage.set('canViewResults', '1')
     if (firstName && lastName && email) {
-      const { faPercentage, daPercentage, apPercentage, saPercentage } = getPercentageResults({
-        fa: Number(fa),
-        da: Number(da),
-        ap: Number(ap),
-        sa: Number(sa),
-      })
+      const eventId = crypto.randomUUID()
+      const { faPercentage, daPercentage, apPercentage, saPercentage, dominantStyle } =
+        getPercentageResults({
+          fa: Number(fa),
+          da: Number(da),
+          ap: Number(ap),
+          sa: Number(sa),
+        })
       saveResult({
         firstName,
         lastName,
         email,
+        eventId,
         faPercentage,
         daPercentage,
         apPercentage,
         saPercentage,
+        dominantStyle: getAttachmentStyleText(dominantStyle),
       })
     }
     setCanViewResults(true)

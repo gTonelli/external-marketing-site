@@ -37,12 +37,12 @@ export const AttachmentQuizForm = ({
   const FBQ = useFacebookPixel()
 
   useEffect(() => {
-    if (userStyle !== 'sa' && quiz_traffic_source === 'paidGoogle') {
+    if (userStyle !== 'sa' && userStyle !== 'ap' && quiz_traffic_source === 'paidGoogle') {
       setIsVariant(
         getSplitTest({
           key: 'gm-2354-attachment-funnel-cro-test',
           experimentName: 'GM-2354-Attachment-Funnel-CRO-Test',
-          variantRatio: 0.2,
+          variantRatio: 0.5,
           useCookies: true,
         })
       )

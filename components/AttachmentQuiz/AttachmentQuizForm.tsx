@@ -44,6 +44,9 @@ export const AttachmentQuizForm = ({
           experimentName: 'GM-2354-Attachment-Funnel-CRO-Test',
           variantRatio: 0.5,
           useCookies: true,
+          props: {
+            attachmentStyle: userStyle,
+          },
         })
       )
     }

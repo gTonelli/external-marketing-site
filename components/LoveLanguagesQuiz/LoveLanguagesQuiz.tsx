@@ -13,12 +13,14 @@ interface ILoveLanguagesQuizProps extends IDefaultProps {
   quizName?: string
   buttonLabel?: string
   showStartButton?: boolean
+  videoVariant?: boolean
 }
 
 export const LoveLanguagesQuiz = ({
   className,
   quizName = 'Love Languages Quiz',
   buttonLabel = 'START QUIZ',
+  videoVariant = false,
   showStartButton = true,
 }: ILoveLanguagesQuizProps) => {
   const [viewQuiz, setViewQuiz] = useState(!showStartButton)
@@ -28,7 +30,13 @@ export const LoveLanguagesQuiz = ({
   }, [quizName, showStartButton])
 
   if (viewQuiz) {
-    return <LoveLanguagesQuizQuestions className={className} quizName={quizName} />
+    return (
+      <LoveLanguagesQuizQuestions
+        videoVariant={videoVariant}
+        className={className}
+        quizName={quizName}
+      />
+    )
   } else {
     return (
       <div className={cx('text-center', className)}>

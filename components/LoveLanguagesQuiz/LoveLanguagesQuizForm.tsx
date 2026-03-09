@@ -15,6 +15,8 @@ import { useFacebookPixel } from '@/modules/FacebookPixel'
 import {
   getLoveLanguageSlug,
   getLoveLanguageText,
+  getLoveLanguageVideoSlug,
+  getLoveLanguageVideoVariantSlug,
   getLoveLanuageVariantSlug,
   getSplitTest,
 } from '@/utils/functions'
@@ -31,25 +33,38 @@ interface ILoveLanguagesQuizFormProps extends IDefaultProps {
   result: TLoveLanguagesAssociation
   quizData: TLoveLanguagesQuizData
   answerHistory: TAnswerHistory[]
+  videoVariant?: boolean
 }
 
 export const LoveLanguagesQuizForm = ({
   result,
   quizData,
+  videoVariant,
   answerHistory,
 }: ILoveLanguagesQuizFormProps) => {
   const [isVariant, setIsVariant] = useState(false)
+  const [isVideoVariant, setIsVideoVariant] = useState(false)
   const { getPercentageResults, saveResult } = useLoveLanguagesQuiz()
   const FBQ = useFacebookPixel()
 
   useEffect(() => {
-    setIsVariant(
-      getSplitTest({
-        key: 'gm-2425-llq-checkout-test',
-        experimentName: 'GM-2425-LLQ-Checkout-Test',
-        props: { loveLanguage: result },
-      })
-    )
+    if (videoVariant) {
+      setIsVideoVariant(
+        getSplitTest({
+          key: 'gm-2485-llqv-checkout-test',
+          experimentName: 'GM-2485-LLQV-Checkout-Test',
+          props: { loveLanguage: result },
+        })
+      )
+    } else {
+      setIsVariant(
+        getSplitTest({
+          key: 'gm-2425-llq-checkout-test',
+          experimentName: 'GM-2425-LLQ-Checkout-Test',
+          props: { loveLanguage: result },
+        })
+      )
+    }
   }, [])
 
   const onAfterSubmit = ({ firstName, lastName, email }: TOnAfterSubmitArgs) => {
@@ -96,15 +111,25 @@ export const LoveLanguagesQuizForm = ({
       })
     }
 
-    const loveLanguageSlug = isVariant
-      ? getLoveLanuageVariantSlug(result)
-      : getLoveLanguageSlug(result)
+    const loveLanguageSlug = videoVariant
+      ? isVideoVariant
+        ? getLoveLanguageVideoVariantSlug(result)
+        : getLoveLanguageVideoSlug(result)
+      : isVariant
+        ? getLoveLanuageVariantSlug(result)
+        : getLoveLanguageSlug(result)
     window.location.href = `https://offer.personaldevelopmentschool.com/${loveLanguageSlug}`
   }
 
   const tags = [`love-language-${result}`]
 
-  if (isVariant) tags.push(`llq-${result}-179`)
+  if (videoVariant && isVideoVariant) {
+    tags.push(`llq-v-${result}-179`)
+  } else if (videoVariant) {
+    tags.push(`llq-v-${result}`)
+  } else if (isVariant) {
+    tags.push(`llq-${result}-179`)
+  }
 
   return (
     <div className="max-w-5xl w-full text-center rounded-2xl mt-6 mx-2 p-2 xxs:p-3 xs:p-4 xxs:shadow-centered md:mx-4 md:p-8 lg:px-12 xl:px-16">

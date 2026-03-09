@@ -113,6 +113,7 @@ export type Pages =
   | `Limited Offer - ${string}`
   | `Limited Offer Variant B - ${string}`
   | `Love Languages Quiz Page`
+  | `Love Languages With Video Quiz Page`
   | `New Year New You Page`
   | `Not Found Page`
   | `Main Funnel Quiz`

@@ -26,6 +26,7 @@ import Mixpanel from '@/modules/Mixpanel'
 
 export interface ILoveLanguagesQuizQuestionsProps extends IDefaultProps {
   quizName: string
+  videoVariant?: boolean
   onQuizFinished?: () => void
 }
 
@@ -41,6 +42,7 @@ let modifiedQuestions = [...LOVE_LANGUAGES_QUIZ_QUESTIONS]
 
 export const LoveLanguagesQuizQuestions = ({
   className,
+  videoVariant,
   quizName,
 }: ILoveLanguagesQuizQuestionsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -281,6 +283,7 @@ export const LoveLanguagesQuizQuestions = ({
       ) : (
         <>
           <LoveLanguagesQuizForm
+            videoVariant={videoVariant}
             result={result as TLoveLanguagesAssociation}
             answerHistory={answerHistory}
             quizData={{

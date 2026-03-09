@@ -277,3 +277,33 @@ export const getLoveLanuageVariantSlug = (loveLanguage: TLoveLanguagesAssociatio
       return 'rg-result'
   }
 }
+
+export const getLoveLanguageVideoSlug = (loveLanguage: TLoveLanguagesAssociation) => {
+  switch (loveLanguage) {
+    case 'wordsOfAffirmation':
+      return 'woa-result-wv'
+    case 'qualityTime':
+      return 'qt-result-wv'
+    case 'actsOfService':
+      return 'aos-result-wv'
+    case 'physicalTouch':
+      return 'pt-result-wv'
+    case 'receivingGifts':
+      return 'rg-result-wv'
+  }
+}
+
+export const getLoveLanguageVideoVariantSlug = (loveLanguage: TLoveLanguagesAssociation) => {
+  switch (loveLanguage) {
+    case 'wordsOfAffirmation':
+      return 'woa-result-wv-s'
+    case 'qualityTime':
+      return 'qt-result-wv-s'
+    case 'actsOfService':
+      return 'aos-result-wv-s'
+    case 'physicalTouch':
+      return 'pt-result-wv-s'
+    case 'receivingGifts':
+      return 'rg-result-wv-s'
+  }
+}

@@ -262,3 +262,18 @@ export const getLoveLanguageSlug = (loveLanguage: TLoveLanguagesAssociation) => 
       return 'receiving-gifts'
   }
 }
+
+export const getLoveLanuageVariantSlug = (loveLanguage: TLoveLanguagesAssociation) => {
+  switch (loveLanguage) {
+    case 'wordsOfAffirmation':
+      return 'woa-result'
+    case 'qualityTime':
+      return 'qt-result'
+    case 'actsOfService':
+      return 'aos-result'
+    case 'physicalTouch':
+      return 'pt-result'
+    case 'receivingGifts':
+      return 'rg-result'
+  }
+}

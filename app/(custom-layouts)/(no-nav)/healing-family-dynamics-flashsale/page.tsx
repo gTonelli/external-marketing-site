@@ -6,9 +6,9 @@ import { FreeTrialFreeCoursePromotionPage } from '@/components/FreeTrialFreeCour
 import { CONFIG } from './config'
 
 export const metadata: Metadata = {
-  title: 'Heal Family Dynamics and Set Boundaries This Holiday',
+  title: 'Heal Family Dynamics and Set Healthy Boundaries',
   description:
-    'Boxing Day only. Heal family dynamics, set boundaries without guilt, and navigate difficult conversations with clarity.',
+    'Spring Flash sale. Heal family dynamics, set boundaries without guilt, and navigate difficult conversations with clarity.',
   robots: 'noindex',
 }
 

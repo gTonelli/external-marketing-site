@@ -222,7 +222,7 @@ const allConfigs = {
         <strong>brand new course</strong> for free when you start a 7-Day Free Trial of the
         All-Access Pass! Claim your Healing Family Trauma and Challenging Family Dynamics course for
         life and get the exact tools to have calmer conversations, navigate conflict with ease, and
-        learn how to set boundaries for the holiday season.
+        learn how to set boundaries for the summer season.
       </>
     ),
     checkoutUrl: externalRoutes.checkoutFamilyDynamicsFlashsale,

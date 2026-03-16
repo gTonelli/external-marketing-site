@@ -15,7 +15,7 @@ export const CONFIG: TPromotionPageConfig = {
   },
   courseOutcome: {
     title:
-      'Understand the Family Patterns That Shape Your Relationships. This Special Offer Won’t Be Available For Long',
+      'Understand Why Family Conflict Still Triggers You, Learn the Tools to Heal It, and Start Building Healthier Relationships With This Free Course.',
     copy: (
       <>
         <p>
@@ -69,7 +69,7 @@ export const CONFIG: TPromotionPageConfig = {
     imageAlt: 'A desktop screen showcasing the Release Emotions with Somatic Processing Course',
     offer: [
       <>
-        Get the exact tools and support you need to have a smoother holiday season with less
+        Get the exact tools and support you need to have a smoother family interactions with less
         conflict. This free course and your 7-Day Free Trial of the All-Access Pass work together to
         offer you the most effective blueprint for healing difficult family dynamics and stepping
         into empowered adult relationships with your loved ones.{' '}
@@ -88,7 +88,8 @@ export const CONFIG: TPromotionPageConfig = {
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
   },
   howItHelps: {
-    title: ' Here’s How This Brand New Offer Will Help You Have a Better Holiday Season',
+    title:
+      ' Here’s How This Brand New Offer Will Help You Have Calmer, and Less Stressful Family Interactions',
     leftList: [
       <>
         <strong>
@@ -143,7 +144,7 @@ export const CONFIG: TPromotionPageConfig = {
       <>
         Navigate family gatherings with more clarity and self-trust. Learn how to prepare for
         difficult conversations, set boundaries without guilt, and respond calmly in triggering
-        moments, so you can move through the holidays without falling back into old patterns.
+        moments, so you can move through the seasons without falling back into old patterns.
       </>
     ),
     stepTwo: {

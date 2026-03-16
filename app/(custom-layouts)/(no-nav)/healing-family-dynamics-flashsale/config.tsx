@@ -9,13 +9,12 @@ export const CONFIG: TPromotionPageConfig = {
       'LIMITED TIME NEW OFFER: Claim Your FREE Healing Family Dynamics Course For Life + Your Bonus 7-Day Free Trial to the All-Access Pass',
   },
   banner: {
-    title:
-      'Spring Flash Sale: Break Free From Old Family Patterns And Create Healthier Relationships',
+    title: 'Spring Flash Sale: Are you Ready to Heal Your Emotional Wounds from Your Family?',
     theme: 'dark',
   },
   courseOutcome: {
     title:
-      'Understand Why Family Conflict Still Triggers You, Learn the Tools to Heal It, and Start Building Healthier Relationships With This Free Course.',
+      'Heal Family Patterns, Communicate Better, and Finally Feel Understood. The First Step to Healthier Relationships Starts With This Free Course.',
     copy: (
       <>
         <p>

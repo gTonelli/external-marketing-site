@@ -10,11 +10,12 @@ export const CONFIG: TPromotionPageConfig = {
   },
   banner: {
     title:
-      'Boxing Day Flash Sale: Heal Challenging Family Dynamics So the Holidays Feel Peaceful and Enjoyable, Not Stressful',
+      'Spring Flash Sale: Break Free From Old Family Patterns And Create Healthier Relationships',
     theme: 'dark',
   },
   courseOutcome: {
-    title: 'We’ve Never Offered This Before, And We Don’t Know If This Offer Will Come Back!',
+    title:
+      'Understand the Family Patterns That Shape Your Relationships. This Special Offer Won’t Be Available For Long',
     copy: (
       <>
         <p>

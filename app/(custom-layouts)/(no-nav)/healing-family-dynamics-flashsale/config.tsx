@@ -9,12 +9,12 @@ export const CONFIG: TPromotionPageConfig = {
       'LIMITED TIME NEW OFFER: Claim Your FREE Healing Family Dynamics Course For Life + Your Bonus 7-Day Free Trial to the All-Access Pass',
   },
   banner: {
-    title:
-      'Boxing Day Flash Sale: Heal Challenging Family Dynamics So the Holidays Feel Peaceful and Enjoyable, Not Stressful',
+    title: 'Spring Flash Sale: Are you Ready to Heal Your Emotional Wounds from Your Family?',
     theme: 'dark',
   },
   courseOutcome: {
-    title: 'We’ve Never Offered This Before, And We Don’t Know If This Offer Will Come Back!',
+    title:
+      'Heal Family Patterns, Communicate Better, and Finally Feel Understood. The First Step to Healthier Relationships Starts With This Free Course.',
     copy: (
       <>
         <p>
@@ -33,7 +33,7 @@ export const CONFIG: TPromotionPageConfig = {
           {' '}
           The <strong>Healing Family Dynamics</strong> course helps you identify the family patterns
           that matter most and begin repairing them at the root so you can have a healthier family
-          dynamic in the New Year.
+          dynamic this year.
         </p>
       </>
     ),
@@ -68,7 +68,7 @@ export const CONFIG: TPromotionPageConfig = {
     imageAlt: 'A desktop screen showcasing the Release Emotions with Somatic Processing Course',
     offer: [
       <>
-        Get the exact tools and support you need to have a smoother holiday season with less
+        Get the exact tools and support you need to have a smoother family interactions with less
         conflict. This free course and your 7-Day Free Trial of the All-Access Pass work together to
         offer you the most effective blueprint for healing difficult family dynamics and stepping
         into empowered adult relationships with your loved ones.{' '}
@@ -87,7 +87,8 @@ export const CONFIG: TPromotionPageConfig = {
     ctaLabel: 'CLAIM YOUR FREE COURSE NOW',
   },
   howItHelps: {
-    title: ' Here’s How This Brand New Offer Will Help You Have a Better Holiday Season',
+    title:
+      ' Here’s How This Brand New Offer Will Help You Have Calmer, and Less Stressful Family Interactions',
     leftList: [
       <>
         <strong>
@@ -142,7 +143,7 @@ export const CONFIG: TPromotionPageConfig = {
       <>
         Navigate family gatherings with more clarity and self-trust. Learn how to prepare for
         difficult conversations, set boundaries without guilt, and respond calmly in triggering
-        moments, so you can move through the holidays without falling back into old patterns.
+        moments, so you can move through the seasons without falling back into old patterns.
       </>
     ),
     stepTwo: {

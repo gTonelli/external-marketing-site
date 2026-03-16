@@ -33,7 +33,7 @@ export const CONFIG: TPromotionPageConfig = {
           {' '}
           The <strong>Healing Family Dynamics</strong> course helps you identify the family patterns
           that matter most and begin repairing them at the root so you can have a healthier family
-          dynamic in the year.
+          dynamic this year.
         </p>
       </>
     ),

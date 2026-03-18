@@ -4,11 +4,16 @@ import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
+import FloatingNavigation from '@/components/Masterclass/FloatingNavigation'
 // config
 import { SEO_CONFIG, TMasterclassTitle, MasterclassTitleSlugs } from '../config'
+import { CONFIG } from './config'
+// libraries
+import cx from 'classnames'
 // styles
 import '@/styles/default-styles.css'
 import '../style.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const dynamicParams = false
 
@@ -39,8 +44,10 @@ export async function generateMetadata({ params }: IMasterclassPageParams): Prom
 
 export default async function MasterclassRegistrationPage({ params }: IMasterclassPageParams) {
   const { title } = await params
+  const config = CONFIG[title]
+
   return (
-    <Page page_name={`Masterclass Registration Page - ${title}`}>
+    <Page page_name={`Masterclass Registration Page - ${title}`} className="!overflow-visible">
       <Section
         className="relative min-h-fit !p-0"
         classNameInner="relative !min-w-full min-h-screen min-h-fit !p-0 !m-0">
@@ -51,10 +58,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
             loop
             playsInline
             className="absolute bottom-0 w-full h-full object-cover object-center max-w-none">
-            <source
-              src="https://assets.mindvalley.com/api/v1/assets/3170a825-0d41-40d7-bbe8-a7e2403383ed.mp4"
-              type="video/mp4"
-            />
+            <source src={config.hero.bgVideoSrc} type="video/mp4" />
           </video>
 
           <div className="masterclass-header-bg-overlay"></div>
@@ -62,34 +66,71 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
 
         <div className="relative section-inner-wrapper min-h-screen flex flex-col justify-end items-start gap-7 py-24 mx-auto md:py-48">
           <div className="w-full min-h-fit flex flex-col text-left text-white ml-0 md:w-4/5">
-            <div className="min-h-fit">
-              <h3 className="!text-base !font-effra uppercase tracking-33">
-                Tired of Repeating the Same Emotional Cycles?
-              </h3>
-            </div>
+            <h3 className="!text-base !font-effra uppercase tracking-33">{config.hero.h3}</h3>
 
-            <div className="min-h-fit">
-              <h1 className="!text-5xl">
-                Discover the Hidden Needs Shaping Your Relationships, Motivation, and Happiness to
-                Find Lasting Fulfillment
-              </h1>
-            </div>
+            <h1 className="!text-4xl lg:!text-6xl">{config.hero.h1}</h1>
 
-            <div className="min-h-fit">
-              <h2 className="!text-lg !font-effra">
-                Thousands have used the framework in this Discover, Embrace & Fulfill Your Personal
-                Needs Masterclass to identify unmet emotional needs, break painful patterns, and
-                build secure attachment from the inside out.
-              </h2>
-            </div>
+            <h2 className="!text-lg !font-effra hidden md:block">{config.hero.h2}</h2>
           </div>
 
           <div className="flex flex-row gap-4">
             <Button className="masterclass-primary-cta" label="RESERVE MY SPOT NOW" />
 
-            <Button className="masterclass-secondary-cta" label="WATCH TRAILER" />
+            <Button className="masterclass-secondary-cta hidden md:block" label="WATCH TRAILER" />
           </div>
         </div>
+      </Section>
+
+      <FloatingNavigation links={config.floatingNavLinks} />
+
+      <Section className="min-h-screen">
+        <div className="gap-6 lg:grid lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <div className="gap-6 md:grid md:grid-cols-3">
+              {config.whatYouLearn.stats.map((stat, index) => (
+                <div
+                  key={`masterclass_stats_${index}`}
+                  className={cx(
+                    'flex justify-center items-center gap-2 text-left p-4 md:flex-col md:justify-start md:items-start',
+                    `bg-[${stat.backgroundColor}]`
+                  )}>
+                  <div>
+                    <FontAwesomeIcon icon={stat.icon} className="" />
+                  </div>
+
+                  <p className="!text-3xl text-blue-darkest">
+                    <strong>{stat.label}</strong>
+                  </p>
+
+                  <p className="text-blue-darkest">{stat.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="lg:col-span-5"></div>
+        </div>
+
+        <h2>What You&apos;ll Learn</h2>
+      </Section>
+
+      <Section className="min-h-screen">
+        <p>Student Stories</p>
+      </Section>
+
+      <Section className="min-h-screen">
+        <p>Meet Thais Gibson</p>
+      </Section>
+
+      <Section className="min-h-screen">
+        <p>Your Learning Journey</p>
+      </Section>
+
+      <Section className="min-h-screen">
+        <p>FAQs</p>
+      </Section>
+
+      <Section className="min-h-screen">
+        <p>Reserve My Spot</p>
       </Section>
     </Page>
   )

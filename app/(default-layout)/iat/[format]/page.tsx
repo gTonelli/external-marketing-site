@@ -1,6 +1,5 @@
 // core
 import { Metadata } from 'next'
-import Link from 'next/link'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
@@ -21,7 +20,6 @@ import { faCheckCircle } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import './style.css'
 // utils
 import { getOfferEndDate } from '@/utils/functions'
-import { externalRoutes } from '@/utils/constants'
 
 export const dynamicParams = false
 

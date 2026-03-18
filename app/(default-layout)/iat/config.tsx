@@ -29,8 +29,7 @@ export const IAT_COPY = {
       'This certification program spans over 12 weeks, available in both Live Training and On-Demand formats.',
       <>
         <strong>
-          *Sign up for the Live Training, starting March 18, 2026 to June 3, 2026. Spots are
-          limited.
+          *Sign up for the Live Training, starting May 7, 2026 to July 23, 2026. Spots are limited.
         </strong>
       </>,
     ],
@@ -101,25 +100,25 @@ export const IAT_COPY = {
         week1: [
           `Complete course: The Handbook for a Better Life`,
 
-          `Attend 1-hour review session on March 18th, 6 PM ET`,
+          `Attend 1-hour review session on May 7th, 6 PM ET`,
         ],
 
         week2: [
           `Complete course: Emotional Mastery Course Part 1`,
 
-          `Attend 1-hour review session on March 25th, 6 PM ET`,
+          `Attend 1-hour review session on May 14th, 6 PM ET`,
         ],
 
         week3: [
           `Complete course: Emotional Mastery Course Part 2`,
 
-          `Attend 1-hour review session on April 1st, 6 PM ET`,
+          `Attend 1-hour review session on May 21st, 6 PM ET`,
         ],
 
         week4: [
           `Complete course: Discover, Embrace and Fulfil Your Personal Needs`,
 
-          `Attend 1-hour review session on April 8th, 6 PM ET`,
+          `Attend 1-hour review session on May 28th, 6 PM ET`,
         ],
       },
 
@@ -127,7 +126,7 @@ export const IAT_COPY = {
         heading: [`Complete Your Intensive IAT™ Training With Thais`],
 
         copy1: [
-          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from April 15th - June 3rd every Wednesday at 6 PM ET for 8 weeks.',
+          'After completing your prerequisites and content course webinars, you’ll start your live training with Thais from June 4th - July 23rd every Thursday at 6 PM ET for 8 weeks.',
           'Here, you’ll get 1.5 hours of practice sessions with other students, supervised by Thais.',
           <>
             <strong>These group sessions with Thais include:</strong>
@@ -379,7 +378,7 @@ export const IAT_COPY = {
         `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
-      variantListItem: 'Live Session Wednesday March 18, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday May 7, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -396,7 +395,7 @@ export const IAT_COPY = {
         `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
 
-      variantListItem: 'Live Session Wednesday March 25, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday May 14, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -413,7 +412,7 @@ export const IAT_COPY = {
         `Q&A Session with IAT™ Coaches (Live Program Only)`,
       ],
 
-      variantListItem: 'Live Session Wednesday April 1, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday May 14, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -431,7 +430,7 @@ export const IAT_COPY = {
         `Q&A session with IAT™ Coaches (Live Program Only)`,
       ],
 
-      variantListItem: 'Live Session Wednesday April 8, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday May 28, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -449,7 +448,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday April 15, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday June 4, 2026, at 6PM ET',
 
       textBottom: `Plus you’ll learn the basics of Integrated Attachment Theory™, including an overview of core wounds, needs, emotional patterns, behaviors, communication patterns & boundaries of each attachment style.`,
 
@@ -468,7 +467,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday April 22, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday June 11, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -486,7 +485,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday April 29, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday June 18, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -504,7 +503,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday May 6, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday June 25, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -523,7 +522,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday May 13, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday July 2, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -541,7 +540,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday May 20, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday July 9, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -559,7 +558,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday May 27, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday July 16, 2026, at 6PM ET',
 
       textBottom: ``,
 
@@ -579,7 +578,7 @@ export const IAT_COPY = {
         `The live version includes 1.5 hours each week of group practice time and Q&A with Thais’ feedback and supervision.`,
       ],
 
-      variantListItem: 'Live Session Wednesday June 3, 2026, at 6PM ET',
+      variantListItem: 'Live Session Thursday July 23, 2026, at 6PM ET',
 
       textBottom: ``,
 

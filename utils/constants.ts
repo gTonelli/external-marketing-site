@@ -191,7 +191,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258846&coupon=iatbundle6morecorded&promo_label=iat-recorded`,
     checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258849&coupon=iatbundle12morecorded&promo_label=iat-recorded`,
     // IAT May 2026
-    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3600235?price_id=4536679&coupon-upfrontLive&promo_label=iat-live`,
+    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3600235?price_id=4536679&coupon=upfrontLive&promo_label=iat-live`,
     checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536701&coupon=3monthLive&promo_label=iat-live`,
     checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536702&coupon=6monthLive&promo_label=iat-live`,
     checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536703&coupon=12monthLive&promo_label=iat-live`,
@@ -250,7 +250,7 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutIATRecorded6MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919118&coupon=iatbundle6morecorded&promo_label=iat-recorded`,
     checkoutIATRecorded12MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919117&coupon=iatbundle12morecorded&promo_label=iat-recorded`,
     // IAT May 2026
-    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3600235?price_id=4536679&coupon-upfrontLive&promo_label=iat-live`,
+    checkoutIATLiveUpfront: `${checkoutUrl}/enroll/3600235?price_id=4536679&coupon=upfrontLive&promo_label=iat-live`,
     checkoutIATLive3MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536701&coupon=3monthLive&promo_label=iat-live`,
     checkoutIATLive6MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536702&coupon=6monthLive&promo_label=iat-live`,
     checkoutIATLive12MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536703&coupon=12monthLive&promo_label=iat-live`,

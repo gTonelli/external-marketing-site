@@ -3,8 +3,6 @@
 import Link from 'next/link'
 import ScrollProgress from '../ScrollProgress'
 import { Section } from '../Section'
-import { useEffect } from 'react'
-
 interface IFloatingNavigationProps {
   links: {
     label: string
@@ -12,10 +10,10 @@ interface IFloatingNavigationProps {
   }[]
 }
 
-export default function FloatingNavigation({ links }: IFloatingNavigationProps) {
+export const FloatingNavigation = ({ links }: IFloatingNavigationProps) => {
   return (
     <Section
-      className="sticky top-0 min-h-fit !p-0"
+      className="sticky top-0 min-h-fit bg-white !p-0 z-[9999]"
       classNameInner="!min-w-full border-t border-b border-slate-300 border-1 !p-0 !m-0">
       <ScrollProgress />
 

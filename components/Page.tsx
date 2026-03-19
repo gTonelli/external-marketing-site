@@ -7,8 +7,6 @@ import { IDefaultWrapperProps } from '.'
 import { Intercom } from './Intercom'
 // modules
 import Mixpanel, { Pages } from '@/modules/Mixpanel'
-// libraries
-import cx from 'classnames'
 // utils
 import {
   PageContext,
@@ -59,7 +57,7 @@ export const Page = ({
         <PageContext.Provider value={{ page_name }}>
           <SplitTestContext.Provider value={splitTestData}>
             <UserDataContext.Provider value={userData}>
-              <main ref={scrollRef} className={cx('overflow-x-hidden', className)}>
+              <main ref={scrollRef} className={className}>
                 {children}
 
                 {withIntercom && <Intercom />}

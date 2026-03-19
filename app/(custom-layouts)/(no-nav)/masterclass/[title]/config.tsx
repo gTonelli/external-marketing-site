@@ -20,22 +20,49 @@ export const CONFIG = {
     whatYouLearn: {
       stats: [
         {
-          backgroundColor: '#a0ddff66',
+          backgroundColor: 'bg-[#a0ddff66]',
           icon: faUserGroup,
           label: 'Rated 4.94',
           text: 'BY 1.6 MILLION PARTICIPANTS',
         },
         {
-          backgroundColor: '',
+          backgroundColor: 'bg-[#caecff66]',
           icon: faClock,
           label: '81 Minutes',
           text: 'MASTERCLASS',
         },
         {
-          backgroundColor: '',
+          backgroundColor: 'bg-[#dff4ff66]',
           icon: faAwardSimple,
           label: '24,574',
           text: 'SUCCESS STORIES',
+        },
+      ],
+      learnings: [
+        {
+          title: 'Unlock Instant Transformations in Every Area of Life',
+          description:
+            'Achieve a harmonious balance between your physical and spiritual worlds to dramatically enhance your health, wealth, love, and happiness—starting today.',
+        },
+        {
+          title: 'Harness Four Transformative Energy Tools',
+          description:
+            'Discover Jeffrey Allen’s most effective energy techniques you can implement immediately to attract greater abundance, love, vitality, and joy into your life.',
+        },
+        {
+          title: 'Gain Clear Direction Through Intuition',
+          description:
+            'Quickly master a simple intuition-boosting exercise to get accurate answers to any question, empowering you to make wiser decisions and experience inner peace.',
+        },
+        {
+          title: 'Break Free From Energy Blocks in Just 7 Minutes',
+          description:
+            'Release your biggest energy block with a precise 7-minute technique. Witness instant positive changes and synchronicities that elevate your life.',
+        },
+        {
+          title: 'Discover Your Next Best Move',
+          description:
+            'Whether in business, relationships, or personal growth, Jeffrey’s energy methods provide crystal-clear guidance to help you choose your most aligned path forward.',
         },
       ],
     },

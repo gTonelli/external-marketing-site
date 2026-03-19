@@ -4,16 +4,17 @@ import { Metadata } from 'next'
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
-import FloatingNavigation from '@/components/Masterclass/FloatingNavigation'
+import { FloatingNavigation } from '@/components/Masterclass/FloatingNavigation'
+import { faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { SEO_CONFIG, TMasterclassTitle, MasterclassTitleSlugs } from '../config'
 import { CONFIG } from './config'
 // libraries
 import cx from 'classnames'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // styles
 import '@/styles/default-styles.css'
 import '../style.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const dynamicParams = false
 
@@ -47,7 +48,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
   const config = CONFIG[title]
 
   return (
-    <Page page_name={`Masterclass Registration Page - ${title}`} className="!overflow-visible">
+    <Page page_name={`Masterclass Registration Page - ${title}`}>
       <Section
         className="relative min-h-fit !p-0"
         classNameInner="relative !min-w-full min-h-screen min-h-fit !p-0 !m-0">
@@ -83,34 +84,64 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
 
       <FloatingNavigation links={config.floatingNavLinks} />
 
-      <Section className="min-h-screen">
-        <div className="gap-6 lg:grid lg:grid-cols-12">
+      <Section>
+        <div className="!overflow-visible min-h-fit gap-6 lg:grid lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <div className="gap-6 md:grid md:grid-cols-3">
+            <div className="gap-6 pb-18 md:grid md:grid-cols-3">
               {config.whatYouLearn.stats.map((stat, index) => (
                 <div
                   key={`masterclass_stats_${index}`}
                   className={cx(
-                    'flex justify-center items-center gap-2 text-left p-4 md:flex-col md:justify-start md:items-start',
-                    `bg-[${stat.backgroundColor}]`
+                    'flex items-center gap-2 rounded-2xl text-left p-6 md:flex-col md:items-start',
+                    stat.backgroundColor
                   )}>
                   <div>
-                    <FontAwesomeIcon icon={stat.icon} className="" />
+                    <FontAwesomeIcon
+                      icon={stat.icon}
+                      className="text-xl text-blue-tertiary opacity-80"
+                      width={24}
+                      height={24}
+                    />
                   </div>
 
-                  <p className="!text-3xl text-blue-darkest">
+                  <p className="!text-3xl text-[#12268A] mb-0">
                     <strong>{stat.label}</strong>
                   </p>
 
-                  <p className="text-blue-darkest">{stat.text}</p>
+                  <p className="!text-sm text-[#1832B4] mt-2 mb-0 md:mt-0">
+                    <strong>{stat.text}</strong>
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-left min-h-screen">
+              <h2 className="mb-8">What You&apos;ll Learn</h2>
+
+              {config.whatYouLearn.learnings.map((item, index) => (
+                <div key={`learning_item_${index}`} className="flex gap-4 mb-8">
+                  <div>
+                    <FontAwesomeIcon icon={faCheck} className="text-xl text-primary mt-1" />
+                  </div>
+
+                  <div>
+                    <p className="text-xl mb-0">
+                      <strong>{item.title}</strong>
+                    </p>
+
+                    <p className="text-lg">{item.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="lg:col-span-5"></div>
-        </div>
 
-        <h2>What You&apos;ll Learn</h2>
+          <div className="relative lg:col-span-5">
+            <div className="sticky top-0 grid w-full min-h-fit z-20 pt-24">
+              <div>FORM</div>
+            </div>
+          </div>
+        </div>
       </Section>
 
       <Section className="min-h-screen">

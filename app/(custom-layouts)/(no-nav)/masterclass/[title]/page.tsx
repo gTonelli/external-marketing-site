@@ -5,7 +5,8 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { FloatingNavigation } from '@/components/Masterclass/FloatingNavigation'
-import { faCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { CarouselCard } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { faCheck, faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { SEO_CONFIG, TMasterclassTitle, MasterclassTitleSlugs } from '../config'
 import { CONFIG } from './config'
@@ -15,6 +16,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // styles
 import '@/styles/default-styles.css'
 import '../style.css'
+import dynamic from 'next/dynamic'
+
+const MasterclassRegistrationForm = dynamic(
+  () => import('@/components/Forms/MasterclassRegistrationForm'),
+  { ssr: false }
+)
 
 export const dynamicParams = false
 
@@ -85,7 +92,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
       <FloatingNavigation links={config.floatingNavLinks} />
 
       <Section>
-        <div className="!overflow-visible min-h-fit gap-6 lg:grid lg:grid-cols-12">
+        <div className="min-h-fit gap-6 lg:grid lg:grid-cols-12">
           <div className="lg:col-span-7">
             <div className="gap-6 pb-18 md:grid md:grid-cols-3">
               {config.whatYouLearn.stats.map((stat, index) => (
@@ -115,7 +122,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
               ))}
             </div>
 
-            <div className="text-left min-h-screen">
+            <div className="text-left">
               <h2 className="mb-8">What You&apos;ll Learn</h2>
 
               {config.whatYouLearn.learnings.map((item, index) => (
@@ -133,35 +140,98 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                   </div>
                 </div>
               ))}
+
+              <h2 className="my-8">Student Stories</h2>
+
+              {config.testimonials.map((review, idx) => (
+                <CarouselCard
+                  key={`carousel_card_${idx}`}
+                  review={review}
+                  classNameCard="!bg-none !bg-white !text-lg !shadow-xl border border-[#dfe1e5] mb-8"
+                />
+              ))}
+
+              <h2 className="mt-16 mb-8">Meet Thais Gibson, PhD</h2>
+
+              <div className="bg-slate-200 min-h-96 mb-8">Image</div>
+
+              <div className="text-lg">
+                {config.thais.copy.map((item, idx) => (
+                  <p key={`thais_gibson_copy_${idx}`}>{item}</p>
+                ))}
+
+                {config.thais.credentials.map((item, idx) => (
+                  <div key={`credentials_copy_${idx}`} className="flex gap-4">
+                    <div>
+                      <FontAwesomeIcon icon={faSparkles} className="text-lg text-primary mt-1" />
+                    </div>
+
+                    <div>
+                      <p className="text-lg">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <h2 className="my-8">Your Learning Journey</h2>
+
+              {config.learningJourney.map((item, idx) => (
+                <div key={`learning_journey_${idx}`} className="mb-12">
+                  <div className="min-h-80 bg-slate-200 mb-4">Image</div>
+
+                  <div className="flex gap-4">
+                    <div>
+                      <p className="text-5xl font-ssp text-primary mt-1">
+                        <strong>{idx + 1}</strong>
+                      </p>
+                    </div>
+
+                    <div className="text-lg">
+                      <p>
+                        <strong>{item.title}</strong>
+                      </p>
+
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="relative lg:col-span-5">
-            <div className="sticky top-0 grid w-full min-h-fit z-20 pt-24">
-              <div>FORM</div>
+          <div className="w-full col-span-5 ml-auto pl-6">
+            <div className="sticky top-0 w-full max-w-96 min-h-fit z-20 pt-24">
+              <MasterclassRegistrationForm />
             </div>
           </div>
         </div>
       </Section>
 
-      <Section className="min-h-screen">
-        <p>Student Stories</p>
+      <Section className="bg-white-secondary" classNameInner="gap-6 lg:grid lg:grid-cols-5">
+        <div className="text-left lg:col-span-2">
+          <h2>Frequently Asked Questions</h2>
+
+          <p>
+            Get your questions answered before the Discover, Embrace & Fulfill Your Personal Needs
+            Masterclass begins.
+          </p>
+        </div>
+
+        <div className="min-h-96 lg:col-span-3">FAQs will show here</div>
       </Section>
 
-      <Section className="min-h-screen">
-        <p>Meet Thais Gibson</p>
-      </Section>
+      <Section>
+        <h2 className="mb-8">Join Your Free Masterclass Today to Rewire What’s Holding You Back</h2>
 
-      <Section className="min-h-screen">
-        <p>Your Learning Journey</p>
-      </Section>
+        <div className="w-full min-h-96 gap-6 items-stretch lg:grid lg:grid-cols-12">
+          <div className="lg:col-span-8 h-full bg-slate-200">Image</div>
 
-      <Section className="min-h-screen">
-        <p>FAQs</p>
-      </Section>
-
-      <Section className="min-h-screen">
-        <p>Reserve My Spot</p>
+          <div className="lg:col-span-4">
+            <div className="w-full max-w-96 min-h-fit z-20">
+              <MasterclassRegistrationForm />
+            </div>
+          </div>
+        </div>
       </Section>
     </Page>
   )

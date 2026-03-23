@@ -129,6 +129,7 @@ export type Pages =
   | `Members Quiz Results`
   | `Masterclass Quiz`
   | `Masterclass Registration Page - ${string}`
+  | `Masterclass Thank You Page - ${string}`
   | `Mini Course Page - ${string}`
   | `Order Complete`
   | `mha-month`

@@ -15,6 +15,7 @@ type TSEODetails = {
 type TSEOConfig = {
   [K in TMasterclassTitle]: {
     registrationPage: TSEODetails
+    thankYouPage: TSEODetails
   }
 }
 
@@ -24,6 +25,11 @@ export const SEO_CONFIG: TSEOConfig = {
       title: '',
       description: '',
       robots: 'index, follow, max-snippet:-1',
+    },
+    thankYouPage: {
+      title: '',
+      description: '',
+      robots: 'noindex',
     },
   },
 }

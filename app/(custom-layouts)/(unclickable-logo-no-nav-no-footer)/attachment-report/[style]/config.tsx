@@ -536,7 +536,7 @@ export const REPORT_COPY = {
   },
   sa: {
     banner: {
-      style: 'Secure Attached',
+      style: 'Securely Attached',
       video: 'https://storage.googleapis.com/pds_videos/SA_pdf_50.mp4',
       vector: 'couple-vector-sa.svg',
     },

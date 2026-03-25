@@ -17,30 +17,19 @@ import { PhoneInput } from 'react-international-phone'
 import { Button } from '../Button/Button'
 // styles
 import 'react-international-phone/style.css'
+import dayjs from 'dayjs'
 
 interface IMasterclassRegistrationFormProps {
   id?: string
   className?: string
   classNameFields?: string
+  masterclassTitle: string
 }
-
-const timeSlotInit = Array.from({ length: 16 }, (_, i) => {
-  const h = 16 + i
-  const label = new Date(0, 0, 0, h).toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true,
-  })
-  return (
-    <option key={h} value={h}>
-      {label}
-    </option>
-  )
-})
 
 export default function MasterclassRegistrationForm({
   id,
   className,
+  masterclassTitle,
 }: IMasterclassRegistrationFormProps) {
   const [loading, setLoading] = useState(true)
 
@@ -48,9 +37,54 @@ export default function MasterclassRegistrationForm({
     setLoading(false)
   }, [])
 
-  useEffect(() => {}, [])
+  function getScheduleTagDateTime(booked_time: Date) {
+    let gap = dayjs(booked_time).diff(dayjs(), 'hours')
+    // console.log(`[TAG] ${masterclassTitle}-masterclass-in-${gap}h`)
+    if (gap >= 48) {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-in-48h`)
+      return dayjs(booked_time).subtract(48, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+    } else if (gap >= 24) {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-in-24h`)
+      return dayjs(booked_time).subtract(24, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+    } else if (gap >= 12) {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-in-12h`)
+      return dayjs(booked_time).subtract(12, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+    } else if (gap >= 6) {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-in-6h`)
+      return dayjs(booked_time).subtract(6, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+    } else if (gap >= 1) {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-in-1h`)
+      return dayjs(booked_time).subtract(1, 'hour').format('MMM DD, YYYY [at] hh:mm:ss A')
+    }
+  }
 
-  const onSubmit = useCallback(() => {}, [])
+  function mergeDateAndHour(date: string, hour: number) {
+    let mergedDate = new Date(date)
+    mergedDate.setHours(hour, 0, 0, 0)
+    return mergedDate
+  }
+
+  const onSubmit = (
+    values: IMasterclassRegistrationFormSchema,
+    formikHelpers: FormikHelpers<IMasterclassRegistrationFormSchema>
+  ) => {
+    const { date, time } = values
+
+    if (date === 'watch-now') {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-watch-now`)
+    } else if (date === 'later-today') {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-watch-later`)
+      console.log(
+        '[SCHEDULED FOR] ',
+        getScheduleTagDateTime(mergeDateAndHour(new Date().toDateString(), +time))
+      )
+    } else {
+      console.log(`[TAG] ${masterclassTitle}-masterclass-watch-later`)
+      console.log('[SCHEDULED FOR] ', getScheduleTagDateTime(mergeDateAndHour(date, +time)))
+    }
+
+    formikHelpers.setSubmitting(false)
+  }
 
   if (loading) return <Loader />
 
@@ -103,7 +137,11 @@ export default function MasterclassRegistrationForm({
                   className={`w-full rounded-lg p-4 border border-grey-border !outline-none ${
                     touched.date && errors.date && 'border-danger'
                   }`}
-                  onChange={(e) => setFieldValue('date', e.target.value.toString())}>
+                  onChange={(e) => {
+                    let val = e.target.value.toString()
+                    setFieldValue('date', val)
+                    if (val === 'watch-now' || val === 'later-today') setFieldValue('time', '')
+                  }}>
                   <option disabled value="">
                     Select Date
                   </option>
@@ -276,15 +314,18 @@ export default function MasterclassRegistrationForm({
 const MasterclassRegistrationFormValidationSchema = yup
   .object()
   .shape({
-    name: yup.string().defined().ensure().required('First name required'),
+    name: yup.string().defined().ensure(),
+    // .required('First name required'),
     email: yup
       .string()
       .defined()
       .ensure()
-      .matches(Regexes.email, 'Please enter a valid email')
+      // .matches(Regexes.email, 'Please enter a valid email')
       .required('Email required'),
-    date: yup.string().defined().ensure().required('Please select a value'),
-    time: yup.string().defined().ensure().required('Please select a value'),
+    date: yup.string().defined().ensure(),
+    // .required('Please select a value'),
+    time: yup.string().defined().ensure(),
+    // .required('Please select a value'),
     phone: yup
       .string()
       .transform((value) => (value === '' ? null : value))

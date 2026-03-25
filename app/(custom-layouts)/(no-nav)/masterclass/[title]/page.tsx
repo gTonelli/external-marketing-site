@@ -201,7 +201,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
 
           <div className="w-full col-span-5 ml-auto pl-6">
             <div className="sticky top-0 w-full max-w-96 min-h-fit z-20 pt-24">
-              <MasterclassRegistrationForm />
+              <MasterclassRegistrationForm masterclassTitle={title} />
             </div>
           </div>
         </div>
@@ -228,7 +228,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
 
           <div className="lg:col-span-4">
             <div className="w-full max-w-96 min-h-fit z-20">
-              <MasterclassRegistrationForm />
+              <MasterclassRegistrationForm masterclassTitle={title} />
             </div>
           </div>
         </div>

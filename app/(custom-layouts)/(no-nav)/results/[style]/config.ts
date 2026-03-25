@@ -140,7 +140,7 @@ export const RESULTS_COPY = {
     result: {
       header: 'Securely Attached',
       body: [
-        `Thank you for taking our Attachment Style Quiz. You have a secure attached attachment style. You're open and invested in romance, but sometimes, you end up in relationships that feel wildly out of balance, struggling to understand your partner's needs and how to support them. `,
+        `Thank you for taking our Attachment Style Quiz. You have a securely attached attachment style. You're open and invested in romance, but sometimes, you end up in relationships that feel wildly out of balance, struggling to understand your partner's needs and how to support them. `,
 
         `Don’t worry; I’ll help explain where this style originated from, your patterns, and how you can overcome it to become securely attached.`,
       ],

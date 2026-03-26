@@ -182,7 +182,7 @@ export function buildDeferredElementsOptions(
   const currency = price.currency.toLowerCase()
   const appearance = buildCheckoutElementsAppearance(assetsOrigin)
   const fonts: StripeElementsOptionsMode['fonts'] | undefined = assetsOrigin
-    ? [{ cssSrc: `${assetsOrigin}/fonts/checkout/effra.css` }]
+    ? [{ cssSrc: `${assetsOrigin}/fonts/effra.css` }]
     : undefined
   const trialActive = price.trialPeriodDays != null && price.trialPeriodDays > 0
   const base: StripeElementsOptionsMode = { ...(fonts ? { fonts } : {}), appearance }

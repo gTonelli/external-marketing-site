@@ -1,3 +1,4 @@
+// modules
 import type { CheckoutPrice } from '@/modules/checkout/types'
 
 /**

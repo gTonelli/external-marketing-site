@@ -1,3 +1,4 @@
+// modules
 import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
 
 export type FetchCheckoutPriceDataResult =
@@ -33,12 +34,6 @@ export async function fetchCheckoutPriceData(params: {
     const res = await fetch(url.toString(), { cache: 'no-store' })
     status = res.status
     payload = await res.json()
-    console.log('[checkout] GET /api/checkout', {
-      url: url.toString(),
-      status: res.status,
-      lookupKey,
-      body: payload,
-    })
   } catch (err) {
     fetchError = err instanceof Error ? err.message : 'Request failed'
     console.error('[checkout] GET /api/checkout failed', { url: url.toString(), err })

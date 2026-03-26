@@ -1,21 +1,26 @@
 'use client'
 
+// core
 import { useContext, useEffect, useMemo, useState } from 'react'
-import { loadStripe } from '@stripe/stripe-js'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSquareCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
-import { faSquare } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
+// components
+import { Page } from '@/components/Page'
+import { OrderSummary } from '@/modules/checkout/components/OrderSummary'
+import { PayPalPaymentForm } from '@/modules/checkout/components/PayPalPaymentForm'
 import {
   StripePaymentForm,
   buildDeferredElementsOptions,
 } from '@/modules/checkout/components/StripePaymentForm'
-import { PayPalPaymentForm } from '@/modules/checkout/components/PayPalPaymentForm'
-import { OrderSummary } from '@/modules/checkout/components/OrderSummary'
 import { TrustBlock } from '@/modules/checkout/components/TrustBlock'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSquareCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faSquare } from '@awesome.me/kit-545b942488/icons/classic/regular'
+import { loadStripe } from '@stripe/stripe-js'
+// modules
 import { deriveSessionIdentity } from '@/modules/checkout/lib/identity'
 import { thankYouProductIdFromStrapi } from '@/modules/checkout/lib/thankYou'
-import { Page } from '@/components/Page'
+import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
+// utils
 import { UserDataContext } from '@/utils/contexts'
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''

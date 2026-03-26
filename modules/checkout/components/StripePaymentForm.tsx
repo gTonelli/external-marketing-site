@@ -1,20 +1,28 @@
 'use client'
 
+// core
 import { useEffect, useMemo, useRef, useState } from 'react'
+// components
+import { CheckoutIdentityFields } from '@/modules/checkout/components/CheckoutIdentityFields'
+import { CheckoutPanelLoadingOverlay } from '@/modules/checkout/components/CheckoutPanelLoadingOverlay'
+// libraries
 import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import type { StripeElementsOptionsMode } from '@stripe/stripe-js'
 import type { Stripe } from '@stripe/stripe-js'
-import type { CheckoutPrice, CheckoutProduct, CheckoutSessionIdentity } from '@/modules/checkout/types'
-import { CheckoutIdentityFields } from '@/modules/checkout/components/CheckoutIdentityFields'
-import { CheckoutPanelLoadingOverlay } from '@/modules/checkout/components/CheckoutPanelLoadingOverlay'
+// modules
 import { startStripeCheckoutSession } from '@/modules/checkout/api/stripeSession'
+import { isValidEmail } from '@/modules/checkout/lib/identity'
 import {
   applyStickyNewUser,
   buildDeferredElementsOptions,
   buildPaymentElementOptions,
 } from '@/modules/checkout/lib/stripe'
-import { isValidEmail } from '@/modules/checkout/lib/identity'
 import { buildThankYouUrl } from '@/modules/checkout/lib/thankYou'
+import type {
+  CheckoutPrice,
+  CheckoutProduct,
+  CheckoutSessionIdentity,
+} from '@/modules/checkout/types'
 
 type StripePaymentFormProps = {
   stripePromise: Promise<Stripe | null>

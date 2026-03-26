@@ -1,3 +1,4 @@
+// modules
 import type { CheckoutPrice } from '@/modules/checkout/types'
 
 export function formatMoney(cents: number, currency: string) {

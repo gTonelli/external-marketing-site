@@ -1,3 +1,4 @@
+// modules
 import type { CheckoutProduct } from '@/modules/checkout/types'
 
 const THINKIFIC_BASE =

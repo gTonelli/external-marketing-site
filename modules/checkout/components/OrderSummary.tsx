@@ -1,8 +1,10 @@
 'use client'
 
+// core
 import Image from 'next/image'
-import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
+// modules
 import { priceLineLabel, totalLabel } from '@/modules/checkout/lib/money'
+import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
 
 export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
   const { product, price } = data
@@ -31,7 +33,7 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
           ) : (
             <Image
               src="/images/pds-icon.png"
-              alt=""
+              alt="PDS Icon"
               fill
               className="object-contain p-4"
               sizes="104px"

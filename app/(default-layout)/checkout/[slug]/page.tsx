@@ -1,7 +1,10 @@
+// core
 import type { Metadata } from 'next'
-import { CheckoutClient } from '@/modules/checkout/components/CheckoutClient'
-import { fetchCheckoutPriceData } from '@/modules/checkout/api/fetchCheckoutPriceData'
+// components
 import { Page } from '@/components/Page'
+// modules
+import { fetchCheckoutPriceData } from '@/modules/checkout/api/fetchCheckoutPriceData'
+import { CheckoutClient } from '@/modules/checkout/components/CheckoutClient'
 
 /** Staging API host from OpenAPI; override with NEXT_PUBLIC_STRAPI_URL (e.g. ngrok). */
 const STRAPI_ORIGIN =
@@ -10,6 +13,12 @@ const STRAPI_ORIGIN =
 export const metadata: Metadata = {
   title: 'Checkout',
   robots: 'noindex',
+  description: 'Checkout page for the Personal Development School',
+  openGraph: {
+    title: 'Checkout',
+    description: 'Checkout page for the Personal Development School',
+    images: [{ url: 'https://www.personaldevelopmentschool.com/images/pds-icon.png' }],
+  },
 }
 
 type PageProps = {

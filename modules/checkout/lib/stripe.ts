@@ -1,5 +1,7 @@
+// core
 import type { MutableRefObject } from 'react'
 import type { StripeElementsOptionsMode, StripePaymentElementOptions } from '@stripe/stripe-js'
+// modules
 import type { CheckoutPrice, CheckoutProduct } from '@/modules/checkout/types'
 
 const THINKIFIC_BASE =

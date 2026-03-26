@@ -1,10 +1,13 @@
 'use client'
 
+// core
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
-import type { CheckoutPrice, CheckoutSessionIdentity } from '@/modules/checkout/types'
+// components
 import { CheckoutIdentityFields } from '@/modules/checkout/components/CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from '@/modules/checkout/components/CheckoutPanelLoadingOverlay'
+// libraries
+import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
+// modules
 import {
   payPalModeForPrice,
   strapiPayPalCaptureOrder,
@@ -15,6 +18,7 @@ import {
 } from '@/modules/checkout/api/paypal'
 import { isValidEmail } from '@/modules/checkout/lib/identity'
 import { buildThankYouUrl } from '@/modules/checkout/lib/thankYou'
+import type { CheckoutPrice, CheckoutSessionIdentity } from '@/modules/checkout/types'
 
 const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? ''
 

@@ -1,3 +1,4 @@
+// modules
 import type { CheckoutSessionResponse } from '@/modules/checkout/types'
 
 type StartStripeCheckoutSessionParams = {

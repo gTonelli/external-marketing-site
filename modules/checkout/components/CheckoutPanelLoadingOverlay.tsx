@@ -4,7 +4,7 @@ type CheckoutPanelLoadingOverlayProps = {
   /** When true, a centered spinner covers the panel (e.g. until Stripe / PayPal is ready). */
   show: boolean
   children: React.ReactNode
-  /** Minimum height so the overlay has room before content paints */
+  /** Minimum height so the overlay has room before content paints. */
   minHeightClassName?: string
 }
 

@@ -2,12 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
-import type {
-  CheckoutPrice,
-  CheckoutSessionIdentity,
-} from '../../app/(default-layout)/checkout/types'
-import { CheckoutIdentityFields } from './CheckoutIdentityFields'
-import { CheckoutPanelLoadingOverlay } from './CheckoutPanelLoadingOverlay'
+import type { CheckoutPrice, CheckoutSessionIdentity } from '@/modules/checkout/types'
+import { CheckoutIdentityFields } from '@/modules/checkout/components/CheckoutIdentityFields'
+import { CheckoutPanelLoadingOverlay } from '@/modules/checkout/components/CheckoutPanelLoadingOverlay'
 import {
   payPalModeForPrice,
   strapiPayPalCaptureOrder,
@@ -15,21 +12,11 @@ import {
   strapiPayPalCreateSubscription,
   strapiPayPalCreateOrder,
   strapiPayPalOrderApproved,
-} from '../../app/(default-layout)/checkout/[slug]/paypalStrapi'
+} from '@/modules/checkout/api/paypal'
+import { isValidEmail } from '@/modules/checkout/lib/identity'
+import { buildThankYouUrl } from '@/modules/checkout/lib/thankYou'
 
 const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? ''
-
-const thinkificBase =
-  process.env.NEXT_PUBLIC_THINKIFIC_URL ?? 'https://university.personaldevelopmentschool.com'
-
-function thankYouUrl(email: string, productId: string | null) {
-  const e = email.trim()
-  const u = new URL('/pages/checkout-v2-thank-you', thinkificBase)
-  u.searchParams.set('newUser', e)
-  u.searchParams.set('email', e)
-  if (productId != null && productId !== '') u.searchParams.set('product_id', productId)
-  return u.toString()
-}
 
 export type PayPalPaymentFormProps = {
   strapiOrigin: string
@@ -67,21 +54,21 @@ export function PayPalPaymentForm({
     paypalActionsRef.current = null
   }, [mode, currency, price.payPalPriceApiId])
 
-  const scriptOptions = useMemo(() => {
-    const base = {
+  const scriptOptions = useMemo(
+    () => ({
       clientId: paypalClientId,
       currency,
       intent: mode === 'subscription' ? ('subscription' as const) : ('capture' as const),
       vault: mode === 'subscription',
-    }
-    return base
-  }, [currency, mode])
+    }),
+    [currency, mode]
+  )
 
   const identityIsValid = useMemo(() => {
     const e = email.trim()
     const fn = firstName.trim()
     const ln = lastName.trim()
-    return Boolean(e && fn && ln && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))
+    return Boolean(e && fn && ln && isValidEmail(e))
   }, [email, firstName, lastName])
 
   const validateIdentity = useCallback(() => {
@@ -92,7 +79,7 @@ export function PayPalPaymentForm({
       setErrorMessage('Please enter your first name, last name, and email.')
       return null
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) {
+    if (!isValidEmail(e)) {
       setErrorMessage('Please enter a valid email address.')
       return null
     }
@@ -143,7 +130,7 @@ export function PayPalPaymentForm({
         window.location.href =
           typeof res.destination === 'string' && res.destination
             ? res.destination
-            : thankYouUrl(identity.email, productId)
+            : buildThankYouUrl({ email: identity.email, productId, newUser: true })
       } catch (err) {
         setPaypalProcessing(false)
         setErrorMessage(
@@ -208,7 +195,7 @@ export function PayPalPaymentForm({
         window.location.href =
           typeof res.destination === 'string' && res.destination
             ? res.destination
-            : thankYouUrl(identity.email, productId)
+            : buildThankYouUrl({ email: identity.email, productId, newUser: true })
       } catch (err) {
         setPaypalProcessing(false)
         setErrorMessage(err instanceof Error ? err.message : 'Could not capture PayPal payment.')
@@ -272,7 +259,7 @@ export function PayPalPaymentForm({
                   const identity = validateIdentity()
                   return identity ? actions.resolve() : actions.reject()
                 }}
-                createSubscription={async (_data, actions) => {
+                createSubscription={async () => {
                   const identity = validateIdentity()
                   if (!identity) throw new Error('Invalid details')
                   if (!productId) throw new Error('Missing product id for PayPal fulfillment.')
@@ -280,7 +267,6 @@ export function PayPalPaymentForm({
                   if (thinkificProductId == null) {
                     throw new Error('Missing Thinkific product id for subscription create.')
                   }
-                  // Custom backend controller creates subscription + links to order.
                   return await strapiPayPalCreateSubscription(
                     strapiOrigin,
                     { lookupKey },

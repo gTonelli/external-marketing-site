@@ -1,8 +1,8 @@
-import type { CheckoutPrice } from '../types'
+import type { CheckoutPrice } from '@/modules/checkout/types'
 
 /**
  * Strapi PayPal endpoints — align names/payloads with your backend OpenAPI.
- * Adjust `PAYPAL_API` paths if your routes differ.
+ * Adjust paths if your routes differ.
  */
 const paths = {
   createOrder: '/api/paypal-order',
@@ -32,7 +32,7 @@ export type PayPalCreateOrderBody = {
   promoLabel?: string | null
 }
 
-/** One-time / payment: server creates PayPal order and returns orderID */
+/** One-time / payment: server creates PayPal order and returns orderID. */
 export async function strapiPayPalCreateOrder(
   strapiOrigin: string,
   params: { lookupKey: string; coupon?: string },
@@ -56,10 +56,7 @@ export async function strapiPayPalCreateOrder(
   return parseOrderId(data)
 }
 
-export async function strapiPayPalCaptureOrder(
-  strapiOrigin: string,
-  orderID: string
-): Promise<void> {
+export async function strapiPayPalCaptureOrder(strapiOrigin: string, orderID: string): Promise<void> {
   const res = await fetch(`${strapiOrigin}${paths.captureOrder}/${orderID}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -123,7 +120,7 @@ function parseSubscriptionId(body: Record<string, unknown>): string {
   return id
 }
 
-/** Subscription: server creates subscription + links it to order */
+/** Subscription: server creates subscription + links it to order. */
 export async function strapiPayPalCreateSubscription(
   strapiOrigin: string,
   params: { lookupKey: string; coupon?: string },

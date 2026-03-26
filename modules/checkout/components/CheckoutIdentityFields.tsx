@@ -12,9 +12,9 @@ export type CheckoutIdentityFieldsProps = {
   onEmailChange: (value: string) => void
   onFirstNameChange: (value: string) => void
   onLastNameChange: (value: string) => void
-  /** Extra wrapper classes around the field group */
+  /** Extra wrapper classes around the field group. */
   className?: string
-  /** When true (e.g. logged-in session), fields are read-only and styled muted */
+  /** When true (e.g. logged-in session), fields are read-only and styled muted. */
   disabled?: boolean
 }
 

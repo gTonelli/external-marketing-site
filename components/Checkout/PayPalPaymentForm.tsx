@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
-import type { CheckoutPrice, CheckoutSessionIdentity } from '../types'
+import type {
+  CheckoutPrice,
+  CheckoutSessionIdentity,
+} from '../../app/(default-layout)/checkout/types'
 import { CheckoutIdentityFields } from './CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from './CheckoutPanelLoadingOverlay'
 import {
@@ -12,7 +15,7 @@ import {
   strapiPayPalCreateSubscription,
   strapiPayPalCreateOrder,
   strapiPayPalOrderApproved,
-} from './paypalStrapi'
+} from '../../app/(default-layout)/checkout/[slug]/paypalStrapi'
 
 const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? ''
 
@@ -28,7 +31,7 @@ function thankYouUrl(email: string, productId: string | null) {
   return u.toString()
 }
 
-export type PayPalCheckoutSectionProps = {
+export type PayPalPaymentFormProps = {
   strapiOrigin: string
   lookupKey: string
   price: CheckoutPrice
@@ -38,7 +41,7 @@ export type PayPalCheckoutSectionProps = {
   identityFieldsLocked?: boolean
 }
 
-export function PayPalCheckoutSection({
+export function PayPalPaymentForm({
   strapiOrigin,
   lookupKey,
   price,
@@ -46,7 +49,7 @@ export function PayPalCheckoutSection({
   thinkificProductId,
   sessionIdentity,
   identityFieldsLocked = false,
-}: PayPalCheckoutSectionProps) {
+}: PayPalPaymentFormProps) {
   const [email, setEmail] = useState(() => sessionIdentity?.email ?? '')
   const [firstName, setFirstName] = useState(() => sessionIdentity?.firstName ?? '')
   const [lastName, setLastName] = useState(() => sessionIdentity?.lastName ?? '')

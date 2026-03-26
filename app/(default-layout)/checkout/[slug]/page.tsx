@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CheckoutClient } from './CheckoutClient'
+import { CheckoutClient } from '../../../../components/Checkout/CheckoutClient'
 import type { CheckoutPriceDataResponse } from '../types'
 import { Page } from '@/components/Page'
 

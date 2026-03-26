@@ -16,11 +16,12 @@ import type {
   CheckoutPriceDataResponse,
   CheckoutProduct,
   CheckoutSessionIdentity,
-} from '../types'
-import { PayPalCheckoutSection } from './PayPalCheckoutSection'
+} from '../../app/(default-layout)/checkout/types'
+
 import { StripePaymentForm, buildDeferredElementsOptions } from './StripePaymentForm'
 import { Page } from '@/components/Page'
 import { UserDataContext } from '@/utils/contexts'
+import { PayPalPaymentForm } from './PayPalPaymentForm'
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
 
@@ -234,91 +235,91 @@ function CheckoutClientInner({ priceData, strapiOrigin }: CheckoutClientProps) {
     <div
       className={`mx-auto flex w-full max-w-[1200px] flex-col
         lg:min-h-0 lg:flex-1 lg:flex-row lg:items-stretch`}>
-        <div
-          className={`flex w-full flex-col justify-center bg-[#f9f9fb] px-5 pb-10 pt-4
+      <div
+        className={`flex w-full flex-col justify-center bg-[#f9f9fb] px-5 pb-10 pt-4
           lg:min-h-0 lg:w-1/2 lg:min-w-0 lg:flex-1 lg:px-10 lg:py-12 lg:pr-8`}>
-          <h2 className="mb-4 text-xl font-bold leading-7 text-black-2 lg:hidden">
-            Review order details
-          </h2>
+        <h2 className="mb-4 text-xl font-bold leading-7 text-black-2 lg:hidden">
+          Review order details
+        </h2>
 
-          <div className="lg:pt-0">
-            <OrderSummary data={priceData} />
-          </div>
-
-          <TrustBlock className="mt-10 hidden lg:flex" />
+        <div className="lg:pt-0">
+          <OrderSummary data={priceData} />
         </div>
 
-        <div
-          className={`flex w-full flex-col justify-center bg-white px-5 pb-10 pt-4
-          lg:min-h-0 lg:w-1/2 lg:min-w-0 lg:flex-1 lg:px-8 lg:py-12`}>
-          <div className="overflow-hidden rounded-none border border-[#dddee4] lg:rounded-2xl">
-            <div className="flex flex-col lg:grid lg:grid-cols-2">
-              <button
-                type="button"
-                onClick={() => setPaymentTab('paypal')}
-                className={`order-1 flex items-center gap-2 border-b border-[#dddee4] px-4 py-2 text-left lg:order-2 lg:border-b-0 ${
-                  paymentTab === 'paypal' ? 'bg-white' : 'bg-[#f9f9fb]'
-                }`}>
-                <FontAwesomeIcon
-                  icon={paymentTab === 'paypal' ? faSquareCheck : faSquare}
-                  className="h-8 w-8 text-primary"
-                />
-
-                <span className="text-lg font-bold tracking-tight text-[#003087]">PayPal</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setPaymentTab('card')}
-                className={`order-2 flex items-center gap-2 border-b border-[#dddee4] px-4 py-2 text-left lg:order-1 lg:border-b-0 lg:border-r lg:border-[#dddee4] lg:pr-4 ${
-                  paymentTab === 'card' ? 'bg-white' : 'bg-[#f9f9fb]'
-                }`}>
-                <FontAwesomeIcon
-                  icon={paymentTab === 'card' ? faSquareCheck : faSquare}
-                  className="h-8 w-8 text-primary"
-                />
-
-                <span className="text-base font-bold leading-[22px] text-black-2">
-                  Payment Options
-                </span>
-              </button>
-            </div>
-
-            <div className="px-4 py-4 lg:px-5 lg:py-4">
-              {paymentTab === 'paypal' ? (
-                <PayPalCheckoutSection
-                  strapiOrigin={strapiOrigin}
-                  lookupKey={priceData.price.lookupKey}
-                  price={priceData.price}
-                  productId={thankYouProductId}
-                  thinkificProductId={thinkificProductId}
-                  sessionIdentity={sessionIdentity}
-                  identityFieldsLocked={identityFieldsLocked}
-                />
-              ) : !publishableKey || !stripePromise ? (
-                <p className="text-center text-sm text-red-600">
-                  Stripe is not configured (missing publishable key).
-                </p>
-              ) : (
-                <StripePaymentForm
-                  key={elementsAssetsOrigin ?? 'stripe-elements-pending'}
-                  stripePromise={stripePromise}
-                  elementsOptions={deferredElementsOptions}
-                  strapiOrigin={strapiOrigin}
-                  lookupKey={priceData.price.lookupKey}
-                  productId={thankYouProductId}
-                  product={priceData.product}
-                  price={priceData.price}
-                  sessionIdentity={sessionIdentity}
-                  identityFieldsLocked={identityFieldsLocked}
-                />
-              )}
-            </div>
-          </div>
-
-          <TrustBlock className="mt-10 lg:hidden" />
-        </div>
+        <TrustBlock className="mt-10 hidden lg:flex" />
       </div>
+
+      <div
+        className={`flex w-full flex-col justify-center bg-white px-5 pb-10 pt-4
+          lg:min-h-0 lg:w-1/2 lg:min-w-0 lg:flex-1 lg:px-8 lg:py-12`}>
+        <div className="overflow-hidden rounded-none border border-[#dddee4] lg:rounded-2xl">
+          <div className="flex flex-col lg:grid lg:grid-cols-2">
+            <button
+              type="button"
+              onClick={() => setPaymentTab('paypal')}
+              className={`order-1 flex items-center gap-2 border-b border-[#dddee4] px-4 py-2 text-left lg:order-2 lg:border-b-0 ${
+                paymentTab === 'paypal' ? 'bg-white' : 'bg-[#f9f9fb]'
+              }`}>
+              <FontAwesomeIcon
+                icon={paymentTab === 'paypal' ? faSquareCheck : faSquare}
+                className="h-8 w-8 text-primary"
+              />
+
+              <span className="text-lg font-bold tracking-tight text-[#003087]">PayPal</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setPaymentTab('card')}
+              className={`order-2 flex items-center gap-2 border-b border-[#dddee4] px-4 py-2 text-left lg:order-1 lg:border-b-0 lg:border-r lg:border-[#dddee4] lg:pr-4 ${
+                paymentTab === 'card' ? 'bg-white' : 'bg-[#f9f9fb]'
+              }`}>
+              <FontAwesomeIcon
+                icon={paymentTab === 'card' ? faSquareCheck : faSquare}
+                className="h-8 w-8 text-primary"
+              />
+
+              <span className="text-base font-bold leading-[22px] text-black-2">
+                Payment Options
+              </span>
+            </button>
+          </div>
+
+          <div className="px-4 py-4 lg:px-5 lg:py-4">
+            {paymentTab === 'paypal' ? (
+              <PayPalPaymentForm
+                strapiOrigin={strapiOrigin}
+                lookupKey={priceData.price.lookupKey}
+                price={priceData.price}
+                productId={thankYouProductId}
+                thinkificProductId={thinkificProductId}
+                sessionIdentity={sessionIdentity}
+                identityFieldsLocked={identityFieldsLocked}
+              />
+            ) : !publishableKey || !stripePromise ? (
+              <p className="text-center text-sm text-red-600">
+                Stripe is not configured (missing publishable key).
+              </p>
+            ) : (
+              <StripePaymentForm
+                key={elementsAssetsOrigin ?? 'stripe-elements-pending'}
+                stripePromise={stripePromise}
+                elementsOptions={deferredElementsOptions}
+                strapiOrigin={strapiOrigin}
+                lookupKey={priceData.price.lookupKey}
+                productId={thankYouProductId}
+                product={priceData.product}
+                price={priceData.price}
+                sessionIdentity={sessionIdentity}
+                identityFieldsLocked={identityFieldsLocked}
+              />
+            )}
+          </div>
+        </div>
+
+        <TrustBlock className="mt-10 lg:hidden" />
+      </div>
+    </div>
   )
 }
 

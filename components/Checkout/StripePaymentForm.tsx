@@ -6,8 +6,12 @@ import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-
 import type { StripeElementsOptionsMode, StripePaymentElementOptions } from '@stripe/stripe-js'
 import type { Stripe } from '@stripe/stripe-js'
 import { Regexes } from '@/utils/constants'
-import type { CheckoutPrice, CheckoutProduct, CheckoutSessionIdentity } from '../types'
-import type { CheckoutSessionResponse } from '../types'
+import type {
+  CheckoutPrice,
+  CheckoutProduct,
+  CheckoutSessionIdentity,
+} from '../../app/(default-layout)/checkout/types'
+import type { CheckoutSessionResponse } from '../../app/(default-layout)/checkout/types'
 import { CheckoutIdentityFields } from './CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from './CheckoutPanelLoadingOverlay'
 
@@ -116,11 +120,7 @@ export function buildPaymentElementOptions(
   return applePay != null ? { ...base, applePay } : base
 }
 
-function buildThankYouUrl(params: {
-  email: string
-  productId: string | null
-  newUser: boolean
-}) {
+function buildThankYouUrl(params: { email: string; productId: string | null; newUser: boolean }) {
   const email = params.email.trim()
   const u = new URL('/pages/checkout-v2-thank-you', thinkificBase)
   u.searchParams.set('newUser', params.newUser ? 'true' : 'false')
@@ -424,8 +424,9 @@ function DeferredCheckoutFormInner({
 
           <p className="mt-4 text-xs leading-4 text-[#888a95]">
             By confirming, you allow The Personal Development School to charge your card now and at
-            each renewal, per your plan&apos;s terms. Your subscription will renew automatically at the
-            current rate each billing period. Cancel anytime before renewal to avoid future charges.
+            each renewal, per your plan&apos;s terms. Your subscription will renew automatically at
+            the current rate each billing period. Cancel anytime before renewal to avoid future
+            charges.
           </p>
         </div>
       </CheckoutPanelLoadingOverlay>

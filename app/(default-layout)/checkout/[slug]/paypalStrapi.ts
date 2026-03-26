@@ -13,7 +13,12 @@ const paths = {
 } as const
 
 function parseOrderId(body: Record<string, unknown>): string {
+  const order =
+    typeof body.order === 'object' && body.order !== null
+      ? (body.order as Record<string, unknown>)
+      : null
   const id =
+    (order && typeof order.id === 'string' && order.id) ||
     (typeof body.orderID === 'string' && body.orderID) ||
     (typeof body.orderId === 'string' && body.orderId) ||
     (typeof body.id === 'string' && body.id)
@@ -22,20 +27,23 @@ function parseOrderId(body: Record<string, unknown>): string {
 }
 
 export type PayPalCreateOrderBody = {
-  lookupKey: string
-  email: string
-  firstName: string
-  lastName: string
+  email?: string
+  currency?: 'USD' | 'CAD'
+  promoLabel?: string | null
 }
 
 /** One-time / payment: server creates PayPal order and returns orderID */
 export async function strapiPayPalCreateOrder(
   strapiOrigin: string,
+  params: { lookupKey: string; coupon?: string },
   body: PayPalCreateOrderBody
 ): Promise<string> {
-  const res = await fetch(`${strapiOrigin}${paths.createOrder}`, {
+  const u = new URL(`${strapiOrigin}${paths.createOrder}`)
+  u.searchParams.set('lookup_key', params.lookupKey)
+  if (params.coupon) u.searchParams.set('coupon', params.coupon)
+
+  const res = await fetch(u.toString(), {
     method: 'POST',
-    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   })
@@ -54,7 +62,6 @@ export async function strapiPayPalCaptureOrder(
 ): Promise<void> {
   const res = await fetch(`${strapiOrigin}${paths.captureOrder}/${orderID}`, {
     method: 'POST',
-    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
   })
   const data = (await res.json()) as Record<string, unknown>
@@ -66,6 +73,9 @@ export async function strapiPayPalCaptureOrder(
 }
 
 export type PayPalOrderApprovedBody = {
+  email: string
+  firstName: string
+  lastName: string
   paypalOrderId: string
   productId: string
   lookupKey: string
@@ -87,7 +97,9 @@ export async function strapiPayPalOrderApproved(
   const data = (await res.json()) as Record<string, unknown>
   if (!res.ok) {
     throw new Error(
-      typeof data.message === 'string' ? data.message : `PayPal order approved failed (${res.status})`
+      typeof data.message === 'string'
+        ? data.message
+        : `PayPal order approved failed (${res.status})`
     )
   }
   return typeof data.destination === 'string' ? { destination: data.destination } : {}
@@ -123,7 +135,6 @@ export async function strapiPayPalCreateSubscription(
 
   const res = await fetch(u.toString(), {
     method: 'POST',
-    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   })
@@ -146,6 +157,8 @@ export type PayPalConfirmSubscriptionBody = {
   productId: string
   orderId: string
   paypalPlanId: string
+  bonusCourseId?: string | null
+  bonusBundleId?: string | null
 }
 
 export async function strapiPayPalConfirmSubscription(

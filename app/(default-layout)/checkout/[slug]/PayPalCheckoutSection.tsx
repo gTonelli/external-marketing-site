@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
-import type { CheckoutPrice } from '../types'
+import type { CheckoutPrice, CheckoutSessionIdentity } from '../types'
 import { CheckoutIdentityFields } from './CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from './CheckoutPanelLoadingOverlay'
 import {
@@ -34,6 +34,8 @@ export type PayPalCheckoutSectionProps = {
   price: CheckoutPrice
   productId: string | null
   thinkificProductId: number | null
+  sessionIdentity?: CheckoutSessionIdentity | null
+  identityFieldsLocked?: boolean
 }
 
 export function PayPalCheckoutSection({
@@ -42,10 +44,12 @@ export function PayPalCheckoutSection({
   price,
   productId,
   thinkificProductId,
+  sessionIdentity,
+  identityFieldsLocked = false,
 }: PayPalCheckoutSectionProps) {
-  const [email, setEmail] = useState('')
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState(() => sessionIdentity?.email ?? '')
+  const [firstName, setFirstName] = useState(() => sessionIdentity?.firstName ?? '')
+  const [lastName, setLastName] = useState(() => sessionIdentity?.lastName ?? '')
   const [paypalButtonsReady, setPaypalButtonsReady] = useState(false)
   const [paypalProcessing, setPaypalProcessing] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
@@ -150,8 +154,16 @@ export function PayPalCheckoutSection({
   const createOrder = useCallback(async () => {
     const identity = validateIdentity()
     if (!identity) throw new Error('Invalid details')
-    return strapiPayPalCreateOrder(strapiOrigin, { lookupKey, ...identity })
-  }, [lookupKey, strapiOrigin, validateIdentity])
+    return strapiPayPalCreateOrder(
+      strapiOrigin,
+      { lookupKey },
+      {
+        email: identity.email,
+        currency: price.currency.toUpperCase() as 'USD' | 'CAD',
+        promoLabel: null,
+      }
+    )
+  }, [lookupKey, price.currency, strapiOrigin, validateIdentity])
 
   const handlePayPalButtonsError = useCallback((err: unknown) => {
     setPaypalButtonsReady(true)
@@ -184,6 +196,7 @@ export function PayPalCheckoutSection({
       try {
         await strapiPayPalCaptureOrder(strapiOrigin, orderID)
         const res = await strapiPayPalOrderApproved(strapiOrigin, {
+          ...identity,
           paypalOrderId: orderID,
           productId,
           lookupKey,
@@ -235,6 +248,7 @@ export function PayPalCheckoutSection({
             onEmailChange={setEmail}
             onFirstNameChange={setFirstName}
             onLastNameChange={setLastName}
+            disabled={identityFieldsLocked}
           />
 
           {errorMessage && <p className="text-sm text-red-600">{errorMessage}</p>}

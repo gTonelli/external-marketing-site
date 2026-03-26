@@ -1,11 +1,12 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { MutableRefObject } from 'react'
 import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import type { StripeElementsOptionsMode, StripePaymentElementOptions } from '@stripe/stripe-js'
 import type { Stripe } from '@stripe/stripe-js'
 import { Regexes } from '@/utils/constants'
-import type { CheckoutPrice, CheckoutProduct } from '../types'
+import type { CheckoutPrice, CheckoutProduct, CheckoutSessionIdentity } from '../types'
 import type { CheckoutSessionResponse } from '../types'
 import { CheckoutIdentityFields } from './CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from './CheckoutPanelLoadingOverlay'
@@ -115,15 +116,34 @@ export function buildPaymentElementOptions(
   return applePay != null ? { ...base, applePay } : base
 }
 
-function buildThankYouUrl(params: { email: string; productId: string | null }) {
+function buildThankYouUrl(params: {
+  email: string
+  productId: string | null
+  newUser: boolean
+}) {
   const email = params.email.trim()
   const u = new URL('/pages/checkout-v2-thank-you', thinkificBase)
-  u.searchParams.set('newUser', email)
+  u.searchParams.set('newUser', params.newUser ? 'true' : 'false')
   u.searchParams.set('email', email)
   if (params.productId != null && params.productId !== '') {
     u.searchParams.set('product_id', params.productId)
   }
   return u.toString()
+}
+
+/** Once POST /api/checkout returns newUser: true, never downgrade to false on later POSTs (e.g. after confirm fails). */
+function applyStickyNewUser(
+  ref: MutableRefObject<boolean | undefined>,
+  fromResponse: boolean | undefined
+) {
+  if (fromResponse === true) {
+    ref.current = true
+    return
+  }
+  if (ref.current === true) return
+  if (typeof fromResponse === 'boolean') {
+    ref.current = fromResponse
+  }
 }
 
 const SANS_FALLBACK =
@@ -152,10 +172,11 @@ export function buildCheckoutElementsAppearance(
     },
     rules: {
       '.Input': {
-        borderRadius: '9999px',
+        // Match `CheckoutIdentityFields` (`rounded-lg` ≈ 8px)
+        borderRadius: '8px',
         border: CHECKOUT_INPUT_BORDER,
         boxShadow: 'none',
-        padding: '14px 20px',
+        padding: '19px 20px',
       },
       '.Input:focus': {
         border: CHECKOUT_INPUT_BORDER,
@@ -192,7 +213,6 @@ export function buildDeferredElementsOptions(
   const trialActive = price.trialPeriodDays != null && price.trialPeriodDays > 0
 
   const base: StripeElementsOptionsMode = {
-    ...(connectAccountId ? { onBehalfOf: connectAccountId } : {}),
     ...(fonts ? { fonts } : {}),
     appearance,
   }
@@ -224,6 +244,8 @@ type StripePaymentFormProps = {
   productId: string | null
   product: CheckoutProduct
   price: CheckoutPrice
+  sessionIdentity?: CheckoutSessionIdentity | null
+  identityFieldsLocked?: boolean
 }
 
 function DeferredCheckoutFormInner({
@@ -232,21 +254,26 @@ function DeferredCheckoutFormInner({
   productId,
   product,
   price,
+  sessionIdentity,
+  identityFieldsLocked = false,
 }: {
   strapiOrigin: string
   lookupKey: string
   productId: string | null
   product: CheckoutProduct
   price: CheckoutPrice
+  sessionIdentity?: CheckoutSessionIdentity | null
+  identityFieldsLocked?: boolean
 }) {
   const stripe = useStripe()
   const elements = useElements()
-  const [email, setEmail] = useState('')
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState(() => sessionIdentity?.email ?? '')
+  const [firstName, setFirstName] = useState(() => sessionIdentity?.firstName ?? '')
+  const [lastName, setLastName] = useState(() => sessionIdentity?.lastName ?? '')
   const [paymentElementReady, setPaymentElementReady] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
+  const stickyNewUserRef = useRef<boolean | undefined>(undefined)
 
   useEffect(() => {
     setPaymentElementReady(false)
@@ -307,7 +334,14 @@ function DeferredCheckoutFormInner({
         return
       }
 
-      const returnUrl = buildThankYouUrl({ email: billingEmail, productId })
+      applyStickyNewUser(stickyNewUserRef, data.newUser)
+      const newUserForThankYou = stickyNewUserRef.current ?? false
+
+      const returnUrl = buildThankYouUrl({
+        email: billingEmail,
+        productId,
+        newUser: newUserForThankYou,
+      })
       const billing_details = {
         email: billingEmail,
         name: billingName,
@@ -362,6 +396,7 @@ function DeferredCheckoutFormInner({
             onEmailChange={setEmail}
             onFirstNameChange={setFirstName}
             onLastNameChange={setLastName}
+            disabled={identityFieldsLocked}
           />
 
           <PaymentElement
@@ -406,6 +441,8 @@ export function StripePaymentForm({
   productId,
   product,
   price,
+  sessionIdentity,
+  identityFieldsLocked,
 }: StripePaymentFormProps) {
   return (
     <Elements stripe={stripePromise} options={elementsOptions}>
@@ -415,6 +452,8 @@ export function StripePaymentForm({
         productId={productId}
         product={product}
         price={price}
+        sessionIdentity={sessionIdentity}
+        identityFieldsLocked={identityFieldsLocked}
       />
     </Elements>
   )

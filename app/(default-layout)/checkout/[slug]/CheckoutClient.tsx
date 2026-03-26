@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import { loadStripe } from '@stripe/stripe-js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,9 +11,16 @@ import {
   faSquareCheck,
 } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faSquare } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import type { CheckoutPrice, CheckoutPriceDataResponse, CheckoutProduct } from '../types'
+import type {
+  CheckoutPrice,
+  CheckoutPriceDataResponse,
+  CheckoutProduct,
+  CheckoutSessionIdentity,
+} from '../types'
 import { PayPalCheckoutSection } from './PayPalCheckoutSection'
 import { StripePaymentForm, buildDeferredElementsOptions } from './StripePaymentForm'
+import { Page } from '@/components/Page'
+import { UserDataContext } from '@/utils/contexts'
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
 
@@ -185,7 +192,20 @@ type CheckoutClientProps = {
   strapiOrigin: string
 }
 
-export function CheckoutClient({ priceData, strapiOrigin }: CheckoutClientProps) {
+function CheckoutClientInner({ priceData, strapiOrigin }: CheckoutClientProps) {
+  const userData = useContext(UserDataContext)
+
+  const sessionIdentity = useMemo((): CheckoutSessionIdentity | null => {
+    if (!userData) return null
+    const e = userData.email?.trim()
+    const fn = userData.firstName?.trim()
+    const ln = userData.lastName?.trim()
+    if (!e || !fn || !ln) return null
+    return { email: e, firstName: fn, lastName: ln }
+  }, [userData])
+
+  const identityFieldsLocked = sessionIdentity != null
+
   const [paymentTab, setPaymentTab] = useState<'card' | 'paypal'>('card')
   /** Stripe iframes need absolute font URLs; set after mount so SSR/hydration match. */
   const [elementsAssetsOrigin, setElementsAssetsOrigin] = useState<string | null>(null)
@@ -212,11 +232,7 @@ export function CheckoutClient({ priceData, strapiOrigin }: CheckoutClientProps)
 
   return (
     <div
-      className={`checkout-page min-h-screen w-full bg-[#f9f9fb] font-effra text-black-2 antialiased
-      lg:min-h-0 lg:flex-1 lg:flex lg:flex-col lg:py-12
-      lg:bg-[linear-gradient(90deg,#f9f9fb_0%,#f9f9fb_50%,#ffffff_50%,#ffffff_100%)]`}>
-      <div
-        className={`mx-auto flex w-full max-w-[1200px] flex-col
+      className={`mx-auto flex w-full max-w-[1200px] flex-col
         lg:min-h-0 lg:flex-1 lg:flex-row lg:items-stretch`}>
         <div
           className={`flex w-full flex-col justify-center bg-[#f9f9fb] px-5 pb-10 pt-4
@@ -276,6 +292,8 @@ export function CheckoutClient({ priceData, strapiOrigin }: CheckoutClientProps)
                   price={priceData.price}
                   productId={thankYouProductId}
                   thinkificProductId={thinkificProductId}
+                  sessionIdentity={sessionIdentity}
+                  identityFieldsLocked={identityFieldsLocked}
                 />
               ) : !publishableKey || !stripePromise ? (
                 <p className="text-center text-sm text-red-600">
@@ -291,6 +309,8 @@ export function CheckoutClient({ priceData, strapiOrigin }: CheckoutClientProps)
                   productId={thankYouProductId}
                   product={priceData.product}
                   price={priceData.price}
+                  sessionIdentity={sessionIdentity}
+                  identityFieldsLocked={identityFieldsLocked}
                 />
               )}
             </div>
@@ -299,6 +319,17 @@ export function CheckoutClient({ priceData, strapiOrigin }: CheckoutClientProps)
           <TrustBlock className="mt-10 lg:hidden" />
         </div>
       </div>
-    </div>
+  )
+}
+
+export function CheckoutClient(props: CheckoutClientProps) {
+  return (
+    <Page
+      page_name="Checkout Page"
+      className={`checkout-page min-h-screen w-full bg-[#f9f9fb] font-effra text-black-2 antialiased
+      lg:min-h-0 lg:flex-1 lg:flex lg:flex-col lg:py-12
+      lg:bg-[linear-gradient(90deg,#f9f9fb_0%,#f9f9fb_50%,#ffffff_50%,#ffffff_100%)]`}>
+      <CheckoutClientInner {...props} />
+    </Page>
   )
 }

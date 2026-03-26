@@ -1,7 +1,7 @@
 'use client'
 
 export const checkoutIdentityInputClassName =
-  'font-effra w-full rounded-lg border border-black-2 px-5 py-4 text-base text-black-2 placeholder:text-black-2/50 outline-none focus:ring-2 focus:ring-primary/30'
+  'font-effra w-full rounded-lg border border-black-2 px-5 py-4 text-base text-black-2 placeholder:text-black-2/60 outline-none focus:ring-2 focus:ring-primary/30 disabled:cursor-not-allowed disabled:bg-[#f4f4f6] disabled:text-black-2/50'
 
 export type CheckoutIdentityFieldsProps = {
   /** Unique prefix for `id` / `htmlFor` (e.g. `stripe`, `paypal`). */
@@ -14,6 +14,8 @@ export type CheckoutIdentityFieldsProps = {
   onLastNameChange: (value: string) => void
   /** Extra wrapper classes around the field group */
   className?: string
+  /** When true (e.g. logged-in session), fields are read-only and styled muted */
+  disabled?: boolean
 }
 
 export function CheckoutIdentityFields({
@@ -25,6 +27,7 @@ export function CheckoutIdentityFields({
   onFirstNameChange,
   onLastNameChange,
   className = '',
+  disabled = false,
 }: CheckoutIdentityFieldsProps) {
   const emailId = `${idPrefix}-checkout-email`
 
@@ -42,6 +45,7 @@ export function CheckoutIdentityFields({
         value={email}
         onChange={(e) => onEmailChange(e.target.value)}
         placeholder="Email"
+        disabled={disabled}
         className={checkoutIdentityInputClassName}
       />
 
@@ -53,6 +57,7 @@ export function CheckoutIdentityFields({
           value={firstName}
           onChange={(e) => onFirstNameChange(e.target.value)}
           placeholder="First name"
+          disabled={disabled}
           className={checkoutIdentityInputClassName}
         />
 
@@ -63,6 +68,7 @@ export function CheckoutIdentityFields({
           value={lastName}
           onChange={(e) => onLastNameChange(e.target.value)}
           placeholder="Last name"
+          disabled={disabled}
           className={checkoutIdentityInputClassName}
         />
       </div>

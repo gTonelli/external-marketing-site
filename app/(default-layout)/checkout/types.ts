@@ -41,6 +41,13 @@ export type CheckoutPriceDataResponse = {
   discount?: Record<string, unknown> | null
 }
 
+/** Logged-in user identity from session (prefill checkout fields). */
+export type CheckoutSessionIdentity = {
+  email: string
+  firstName: string
+  lastName: string
+}
+
 export type CheckoutIntentType = 'payment' | 'setup' | 'subscription'
 
 export type CheckoutSessionResponse = {

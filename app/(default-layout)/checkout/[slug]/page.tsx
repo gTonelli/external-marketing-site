@@ -36,6 +36,7 @@ export default async function CheckoutPage({ params }: PageProps) {
     return (
       <Page page_name="Checkout Page" className="mx-auto max-w-lg px-6 py-16 text-center">
         <h1 className="text-xl font-bold text-black-2">Checkout unavailable</h1>
+
         <p className="mt-2 text-black-2/80">{checkoutResult.message}</p>
       </Page>
     )
@@ -45,11 +46,13 @@ export default async function CheckoutPage({ params }: PageProps) {
     return (
       <Page page_name="Checkout Page" className="mx-auto max-w-lg px-6 py-16 text-center">
         <h1 className="text-xl font-bold text-black-2">Checkout</h1>
+
         <p className="mt-2 text-black-2/80">
           Could not load this plan
           {checkoutResult.status ? ` (HTTP ${checkoutResult.status})` : ''}. Check the link or try
           again later.
         </p>
+
         {checkoutResult.message && (
           <p className="mt-2 text-sm text-red-600">{checkoutResult.message}</p>
         )}

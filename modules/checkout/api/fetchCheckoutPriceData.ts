@@ -8,13 +8,13 @@ export type FetchCheckoutPriceDataResult =
 
 function isCheckoutPriceData(data: unknown): data is CheckoutPriceDataResponse {
   if (!data || typeof data !== 'object') return false
-  const d = data as Record<string, unknown>
+  const response = data as Record<string, unknown>
   return (
-    d.success === true &&
-    typeof d.product === 'object' &&
-    d.product !== null &&
-    typeof d.price === 'object' &&
-    d.price !== null
+    response.success === true &&
+    typeof response.product === 'object' &&
+    response.product !== null &&
+    typeof response.price === 'object' &&
+    response.price !== null
   )
 }
 

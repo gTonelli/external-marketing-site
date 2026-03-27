@@ -1,10 +1,6 @@
 // modules
 import type { CheckoutPrice } from '@/modules/checkout/types'
 
-/**
- * Strapi PayPal endpoints — align names/payloads with your backend OpenAPI.
- * Adjust paths if your routes differ.
- */
 const paths = {
   createOrder: '/api/paypal-order',
   captureOrder: '/api/capture-paypal-order',
@@ -39,11 +35,11 @@ export async function strapiPayPalCreateOrder(
   params: { lookupKey: string; coupon?: string },
   body: PayPalCreateOrderBody
 ): Promise<string> {
-  const u = new URL(`${strapiOrigin}${paths.createOrder}`)
-  u.searchParams.set('lookup_key', params.lookupKey)
-  if (params.coupon) u.searchParams.set('coupon', params.coupon)
+  const url = new URL(`${strapiOrigin}${paths.createOrder}`)
+  url.searchParams.set('lookup_key', params.lookupKey)
+  if (params.coupon) url.searchParams.set('coupon', params.coupon)
 
-  const res = await fetch(u.toString(), {
+  const res = await fetch(url.toString(), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
@@ -57,7 +53,10 @@ export async function strapiPayPalCreateOrder(
   return parseOrderId(data)
 }
 
-export async function strapiPayPalCaptureOrder(strapiOrigin: string, orderID: string): Promise<void> {
+export async function strapiPayPalCaptureOrder(
+  strapiOrigin: string,
+  orderID: string
+): Promise<void> {
   const res = await fetch(`${strapiOrigin}${paths.captureOrder}/${orderID}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -127,11 +126,11 @@ export async function strapiPayPalCreateSubscription(
   params: { lookupKey: string; coupon?: string },
   body: PayPalCreateSubscriptionBody
 ): Promise<string> {
-  const u = new URL(`${strapiOrigin}${paths.createSubscription}`)
-  u.searchParams.set('lookup_key', params.lookupKey)
-  if (params.coupon) u.searchParams.set('coupon', params.coupon)
+  const url = new URL(`${strapiOrigin}${paths.createSubscription}`)
+  url.searchParams.set('lookup_key', params.lookupKey)
+  if (params.coupon) url.searchParams.set('coupon', params.coupon)
 
-  const res = await fetch(u.toString(), {
+  const res = await fetch(url.toString(), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),

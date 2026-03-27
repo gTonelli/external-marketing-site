@@ -3,11 +3,14 @@
 // core
 import Image from 'next/image'
 // modules
-import { priceLineLabel, totalLabel } from '@/modules/checkout/lib/money'
+import { formatMoney, priceLineLabel, totalLabel } from '@/modules/checkout/lib/money'
 import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
 
 export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
   const { product, price } = data
+  const discountAmount = Math.abs(price.originalPrice - price.currentPrice)
+  const showDiscountLine = price.originalPrice !== price.currentPrice
+  const discountSign = price.originalPrice > price.currentPrice ? '-' : '+'
   const imageUrl =
     product.image && typeof product.image === 'object' && 'url' in product.image
       ? (product.image as { url?: string }).url
@@ -63,6 +66,22 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
         </span>
         <span className="text-right">{priceLineLabel(price)}</span>
       </div>
+
+      {showDiscountLine && (
+        <>
+          <div className="h-px w-full bg-[#dddee4]" />
+
+          <div className="flex items-center justify-between text-base leading-[22px] text-black-2">
+            <span>Discounts</span>
+
+            <span className="text-right">
+              {discountSign}
+
+              {formatMoney(discountAmount, price.currency)}
+            </span>
+          </div>
+        </>
+      )}
 
       <div className="h-px w-full bg-[#dddee4]" />
 

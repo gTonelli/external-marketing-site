@@ -23,6 +23,10 @@ type Events =
   | 'Masterclass Results Quiz Submit'
   | 'Membership Ended'
   | 'Membership Started'
+  | 'Payment Failed'
+  | 'Payment Fields Loaded'
+  | 'Payment Initiated'
+  | 'Payment Method Selected'
   | 'Page Scrolled'
   | 'Page Viewed'
   | 'Quiz Finished'
@@ -302,6 +306,56 @@ class Mixpanel {
 
     PageViewed: (props: { page_name?: Pages }) => {
       this.event('Page Viewed', { page_name: props.page_name || window.location.pathname })
+    },
+
+    PaymentInitiated: (props: {
+      provider: 'PayPal' | 'Stripe' | string
+      'Product Name': string
+      'Plan Type': string
+      'Payment Method': string
+      page_name?: Pages
+    }) => {
+      this.event('Payment Initiated', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    PaymentMethodSelected: (props: {
+      provider: 'PayPal' | 'Stripe' | string
+      'Product Name': string
+      'Plan Type': string
+      'Payment Method': string
+      page_name?: Pages
+    }) => {
+      this.event('Payment Method Selected', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    PaymentFailed: (props: {
+      Message: string
+      Code?: string
+      Type?: string
+      'Order ID'?: string
+      Error?: unknown
+      page_name?: Pages
+    }) => {
+      this.event('Payment Failed', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
+    PaymentFieldsLoaded: (props: {
+      provider: 'PayPal' | 'Stripe' | string
+      page_name?: Pages
+    }) => {
+      this.event('Payment Fields Loaded', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
     },
 
     QuizFinished: (props: {

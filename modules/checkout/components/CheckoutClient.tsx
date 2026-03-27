@@ -1,8 +1,9 @@
 'use client'
 
 // core
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { useContext, useEffect, useMemo, useRef, useState } from 'react'
 // components
+import { gtag } from '@/components/GoogleAdsTag'
 import { Page } from '@/components/Page'
 import { OrderSummary } from '@/modules/checkout/components/OrderSummary'
 import { PayPalPaymentForm } from '@/modules/checkout/components/PayPalPaymentForm'
@@ -17,9 +18,12 @@ import { faSquareCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { faSquare } from '@awesome.me/kit-545b942488/icons/classic/regular'
 import { loadStripe } from '@stripe/stripe-js'
 // modules
+import { payPalModeForPrice } from '@/modules/checkout/api/paypal'
+import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { deriveSessionIdentity } from '@/modules/checkout/lib/identity'
 import { thankYouProductIdFromStrapi } from '@/modules/checkout/lib/thankYou'
 import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { UserDataContext } from '@/utils/contexts'
 
@@ -31,10 +35,13 @@ type CheckoutClientProps = {
 }
 
 function CheckoutClientInner({ priceData, strapiOrigin }: CheckoutClientProps) {
+  const FBQ = useFacebookPixel()
   const userData = useContext(UserDataContext)
   const sessionIdentity = useMemo(() => deriveSessionIdentity(userData), [userData])
   const identityFieldsLocked = sessionIdentity != null
   const [paymentTab, setPaymentTab] = useState<'card' | 'paypal'>('card')
+  const fbInitiateCheckoutTrackedRef = useRef(false)
+  const googleInitiateCheckoutTrackedRef = useRef(false)
   /** Stripe iframes need absolute font URLs; set after mount so SSR/hydration match. */
   const [elementsAssetsOrigin, setElementsAssetsOrigin] = useState<string | null>(null)
 
@@ -58,6 +65,44 @@ function CheckoutClientInner({ priceData, strapiOrigin }: CheckoutClientProps) {
   const thankYouProductId = thankYouProductIdFromStrapi(priceData.product)
   const thinkificProductId =
     typeof priceData.product.thinkificId === 'number' ? priceData.product.thinkificId : null
+  const payPalMode = payPalModeForPrice(priceData.price)
+  const finalAmount = priceData.price.currentPrice / 100
+  const priceCurrency = priceData.price.currency.toUpperCase()
+  const contentName = priceData.product.description ?? priceData.product.name
+
+  useEffect(() => {
+    if (!FBQ || fbInitiateCheckoutTrackedRef.current) return
+    FBQ.event('InitiateCheckout', {
+      value: finalAmount,
+      currency: priceCurrency,
+      content_name: contentName,
+      content_type: 'product',
+    })
+    fbInitiateCheckoutTrackedRef.current = true
+  }, [FBQ, contentName, finalAmount, priceCurrency])
+
+  useEffect(() => {
+    if (googleInitiateCheckoutTrackedRef.current) return
+    gtag('event', 'conversion', { send_to: 'AW-696431615/zVOvCLSuk9oCEP_niswC' })
+    const userEmail = sessionIdentity?.email?.trim()
+    if (userEmail) {
+      gtag('set', 'user_data', { email: userEmail })
+    }
+    googleInitiateCheckoutTrackedRef.current = true
+  }, [sessionIdentity?.email])
+
+  const handleSelectPayPal = () => {
+    if (paymentTab === 'paypal') return
+    setPaymentTab('paypal')
+
+    Mixpanel.track.PaymentMethodSelected({
+      provider: 'PayPal',
+      'Product Name': priceData.product.name,
+      'Plan Type': priceData.price.type,
+      'Payment Method': payPalMode === 'subscription' ? 'PayPal Subscription' : 'PayPal',
+      page_name: 'Checkout Page',
+    })
+  }
 
   return (
     <div
@@ -84,7 +129,7 @@ function CheckoutClientInner({ priceData, strapiOrigin }: CheckoutClientProps) {
           <div className="flex flex-col lg:grid lg:grid-cols-2">
             <button
               type="button"
-              onClick={() => setPaymentTab('paypal')}
+              onClick={handleSelectPayPal}
               className={`order-1 flex items-center gap-2 border-b border-[#dddee4] px-4 py-2 text-left lg:order-2 lg:border-b-0 ${
                 paymentTab === 'paypal' ? 'bg-white' : 'bg-[#f9f9fb]'
               }`}>
@@ -117,6 +162,7 @@ function CheckoutClientInner({ priceData, strapiOrigin }: CheckoutClientProps) {
                 strapiOrigin={strapiOrigin}
                 lookupKey={priceData.price.lookupKey}
                 price={priceData.price}
+                productName={priceData.product.name}
                 productId={thankYouProductId}
                 thinkificProductId={thinkificProductId}
                 sessionIdentity={sessionIdentity}

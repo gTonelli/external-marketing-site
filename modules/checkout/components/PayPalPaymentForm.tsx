@@ -16,9 +16,13 @@ import {
   strapiPayPalCreateOrder,
   strapiPayPalOrderApproved,
 } from '@/modules/checkout/api/paypal'
-import { isValidEmail } from '@/modules/checkout/lib/identity'
+import {
+  isValidEmail,
+  validateUserIdentity as validateCheckoutUserIdentity,
+} from '@/modules/checkout/lib/identity'
 import { buildThankYouUrl } from '@/modules/checkout/lib/thankYou'
 import type { CheckoutPrice, CheckoutSessionIdentity } from '@/modules/checkout/types'
+import Mixpanel from '@/modules/Mixpanel'
 
 const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? ''
 
@@ -26,6 +30,7 @@ export type PayPalPaymentFormProps = {
   strapiOrigin: string
   lookupKey: string
   price: CheckoutPrice
+  productName: string
   productId: string | null
   thinkificProductId: number | null
   sessionIdentity?: CheckoutSessionIdentity | null
@@ -36,6 +41,7 @@ export function PayPalPaymentForm({
   strapiOrigin,
   lookupKey,
   price,
+  productName,
   productId,
   thinkificProductId,
   sessionIdentity,
@@ -48,6 +54,7 @@ export function PayPalPaymentForm({
   const [paypalProcessing, setPaypalProcessing] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const paypalActionsRef = useRef<{ enable?: () => void; disable?: () => void } | null>(null)
+  const payPalFieldsLoadedTrackedRef = useRef(false)
 
   const mode = payPalModeForPrice(price)
   const currency = price.currency.toUpperCase()
@@ -56,7 +63,17 @@ export function PayPalPaymentForm({
     setPaypalButtonsReady(false)
     setPaypalProcessing(false)
     paypalActionsRef.current = null
+    payPalFieldsLoadedTrackedRef.current = false
   }, [mode, currency, price.payPalPriceApiId])
+
+  useEffect(() => {
+    if (!paypalButtonsReady || payPalFieldsLoadedTrackedRef.current) return
+    payPalFieldsLoadedTrackedRef.current = true
+    Mixpanel.track.PaymentFieldsLoaded({
+      provider: 'PayPal',
+      page_name: 'Checkout Page',
+    })
+  }, [paypalButtonsReady])
 
   const scriptOptions = useMemo(
     () => ({
@@ -75,20 +92,20 @@ export function PayPalPaymentForm({
     return Boolean(e && fn && ln && isValidEmail(e))
   }, [email, firstName, lastName])
 
-  const validateIdentity = useCallback(() => {
-    const e = email.trim()
-    const fn = firstName.trim()
-    const ln = lastName.trim()
-    if (!e || !fn || !ln) {
-      setErrorMessage('Please enter your first name, last name, and email.')
+  const validateUserIdentity = useCallback(() => {
+    const result = validateCheckoutUserIdentity({
+      email,
+      firstName,
+      lastName,
+    })
+    if (!result.identity) {
+      setErrorMessage(result.errorMessage)
       return null
     }
-    if (!isValidEmail(e)) {
-      setErrorMessage('Please enter a valid email address.')
-      return null
-    }
+
+    Mixpanel.setUser(result.identity.email)
     setErrorMessage(null)
-    return { email: e, firstName: fn, lastName: ln }
+    return result.identity
   }, [email, firstName, lastName])
 
   useEffect(() => {
@@ -110,7 +127,7 @@ export function PayPalPaymentForm({
         setErrorMessage('PayPal did not return an order id.')
         return
       }
-      const identity = validateIdentity()
+      const identity = validateUserIdentity()
       if (!identity) return
       if (!productId) {
         setErrorMessage('Missing product id for PayPal fulfillment.')
@@ -142,12 +159,19 @@ export function PayPalPaymentForm({
         )
       }
     },
-    [price.payPalPriceApiId, productId, strapiOrigin, validateIdentity]
+    [price.payPalPriceApiId, productId, strapiOrigin, validateUserIdentity]
   )
 
   const createOrder = useCallback(async () => {
-    const identity = validateIdentity()
+    const identity = validateUserIdentity()
     if (!identity) throw new Error('Invalid details')
+    Mixpanel.track.PaymentInitiated({
+      provider: 'PayPal',
+      'Product Name': productName,
+      'Plan Type': price.type,
+      'Payment Method': 'PayPal',
+      page_name: 'Checkout Page',
+    })
     return strapiPayPalCreateOrder(
       strapiOrigin,
       { lookupKey },
@@ -157,11 +181,16 @@ export function PayPalPaymentForm({
         promoLabel: null,
       }
     )
-  }, [lookupKey, price.currency, strapiOrigin, validateIdentity])
+  }, [lookupKey, price.currency, price.type, productName, strapiOrigin, validateUserIdentity])
 
   const handlePayPalButtonsError = useCallback((err: unknown) => {
     setPaypalButtonsReady(true)
     setPaypalProcessing(false)
+    Mixpanel.track.PaymentFailed({
+      Message: 'An error occurred with PayPal buttons',
+      Error: err,
+      page_name: 'Checkout Page',
+    })
     const msg =
       typeof err === 'object' &&
       err !== null &&
@@ -172,6 +201,19 @@ export function PayPalPaymentForm({
     setErrorMessage(msg)
   }, [])
 
+  const handlePayPalButtonsCancel = useCallback(
+    async (data: { orderID?: string | null }) => {
+      setPaypalProcessing(false)
+      Mixpanel.track.PaymentFailed({
+        Message: 'Payment cancelled by user',
+        Code: 'incomplete',
+        'Order ID': data.orderID ?? undefined,
+        page_name: 'Checkout Page',
+      })
+    },
+    []
+  )
+
   const onApproveOrder = useCallback(
     async (data: { orderID?: string }) => {
       const orderID = data.orderID
@@ -179,7 +221,7 @@ export function PayPalPaymentForm({
         setErrorMessage('PayPal did not return an order id.')
         return
       }
-      const identity = validateIdentity()
+      const identity = validateUserIdentity()
       if (!identity) return
       if (!productId) {
         setErrorMessage('Missing product id for PayPal fulfillment.')
@@ -205,7 +247,7 @@ export function PayPalPaymentForm({
         setErrorMessage(err instanceof Error ? err.message : 'Could not capture PayPal payment.')
       }
     },
-    [lookupKey, productId, strapiOrigin, validateIdentity]
+    [lookupKey, productId, strapiOrigin, validateUserIdentity]
   )
 
   if (!paypalClientId) {
@@ -260,17 +302,24 @@ export function PayPalPaymentForm({
                   setPaypalButtonsReady(true)
                 }}
                 onClick={(_data, actions) => {
-                  const identity = validateIdentity()
+                  const identity = validateUserIdentity()
                   return identity ? actions.resolve() : actions.reject()
                 }}
                 createSubscription={async () => {
-                  const identity = validateIdentity()
+                  const identity = validateUserIdentity()
                   if (!identity) throw new Error('Invalid details')
                   if (!productId) throw new Error('Missing product id for PayPal fulfillment.')
                   if (!price.payPalPriceApiId) throw new Error('Missing PayPal plan id.')
                   if (thinkificProductId == null) {
                     throw new Error('Missing Thinkific product id for subscription create.')
                   }
+                  Mixpanel.track.PaymentInitiated({
+                    provider: 'PayPal',
+                    'Product Name': productName,
+                    'Plan Type': price.type,
+                    'Payment Method': 'PayPal Subscription',
+                    page_name: 'Checkout Page',
+                  })
                   return await strapiPayPalCreateSubscription(
                     strapiOrigin,
                     { lookupKey },
@@ -289,6 +338,7 @@ export function PayPalPaymentForm({
                     orderID: (data as { orderID?: string | null }).orderID,
                   })
                 }}
+                onCancel={handlePayPalButtonsCancel}
                 onError={handlePayPalButtonsError}
               />
             ) : (
@@ -302,10 +352,11 @@ export function PayPalPaymentForm({
                   setPaypalButtonsReady(true)
                 }}
                 onClick={(_data, actions) => {
-                  const identity = validateIdentity()
+                  const identity = validateUserIdentity()
                   return identity ? actions.resolve() : actions.reject()
                 }}
                 onApprove={onApproveOrder}
+                onCancel={handlePayPalButtonsCancel}
                 onError={handlePayPalButtonsError}
               />
             )}

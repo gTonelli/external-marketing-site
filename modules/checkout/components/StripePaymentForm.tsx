@@ -1,17 +1,18 @@
 'use client'
 
 // core
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 // components
 import { CheckoutIdentityFields } from '@/modules/checkout/components/CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from '@/modules/checkout/components/CheckoutPanelLoadingOverlay'
 // libraries
 import { Elements, PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import type { StripePaymentElementChangeEvent } from '@stripe/stripe-js'
 import type { StripeElementsOptionsMode } from '@stripe/stripe-js'
 import type { Stripe } from '@stripe/stripe-js'
 // modules
 import { startStripeCheckoutSession } from '@/modules/checkout/api/stripeSession'
-import { isValidEmail } from '@/modules/checkout/lib/identity'
+import { validateUserIdentity as validateCheckoutUserIdentity } from '@/modules/checkout/lib/identity'
 import {
   applyStickyNewUser,
   buildDeferredElementsOptions,
@@ -23,6 +24,7 @@ import type {
   CheckoutProduct,
   CheckoutSessionIdentity,
 } from '@/modules/checkout/types'
+import Mixpanel from '@/modules/Mixpanel'
 
 type StripePaymentFormProps = {
   stripePromise: Promise<Stripe | null>
@@ -62,9 +64,12 @@ function DeferredCheckoutFormInner({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
   const stickyNewUserRef = useRef<boolean | undefined>(undefined)
+  const stripeFieldsLoadedTrackedRef = useRef(false)
+  const selectedPaymentMethodRef = useRef('card')
 
   useEffect(() => {
     setPaymentElementReady(false)
+    stripeFieldsLoadedTrackedRef.current = false
   }, [lookupKey, price.id])
 
   const billingName = `${firstName.trim()} ${lastName.trim()}`.trim()
@@ -73,25 +78,79 @@ function DeferredCheckoutFormInner({
     () => buildPaymentElementOptions(product, price),
     [product, price]
   )
+  const validateUserIdentity = useCallback(() => {
+    const result = validateCheckoutUserIdentity({
+      email,
+      firstName,
+      lastName,
+    })
+    if (!result.identity) {
+      setErrorMessage(result.errorMessage)
+      return false
+    }
+    Mixpanel.setUser(result.identity.email)
+    return true
+  }, [email, firstName, lastName])
+
+  const handlePaymentElementChange = useCallback(
+    (event: StripePaymentElementChangeEvent) => {
+      if (!stripeFieldsLoadedTrackedRef.current) {
+        stripeFieldsLoadedTrackedRef.current = true
+        Mixpanel.track.PaymentFieldsLoaded({
+          provider: 'Stripe',
+          page_name: 'Checkout Page',
+        })
+      }
+
+      const lastSelectedPaymentMethod = selectedPaymentMethodRef.current
+      let selectedPaymentMethod = 'card'
+      try {
+        selectedPaymentMethod = event?.value?.type || 'card'
+      } catch {
+        selectedPaymentMethod = 'card'
+      }
+
+      selectedPaymentMethodRef.current = selectedPaymentMethod
+      if (lastSelectedPaymentMethod !== selectedPaymentMethod) {
+        Mixpanel.track.PaymentMethodSelected({
+          provider: 'Stripe',
+          'Product Name': product.name,
+          'Plan Type': price.type,
+          'Payment Method': selectedPaymentMethod,
+          page_name: 'Checkout Page',
+        })
+      }
+    },
+    [price.type, product.name]
+  )
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setErrorMessage(null)
 
     if (!stripe || !elements) return
-    if (!billingEmail || !firstName.trim() || !lastName.trim()) {
-      setErrorMessage('Please enter your first name, last name, and email.')
-      return
-    }
-    if (!isValidEmail(billingEmail)) {
-      setErrorMessage('Please enter a valid email address.')
+    if (!validateUserIdentity()) {
       return
     }
 
     setSubmitting(true)
     try {
       const { error: submitError } = await elements.submit()
+      Mixpanel.track.PaymentInitiated({
+        provider: 'Stripe',
+        'Product Name': product.name,
+        'Plan Type': price.type,
+        'Payment Method': selectedPaymentMethodRef.current,
+        page_name: 'Checkout Page',
+      })
+
       if (submitError) {
+        Mixpanel.track.PaymentFailed({
+          Message: submitError.message ?? 'Stripe payment fields submission failed.',
+          Code: submitError.code,
+          Type: submitError.type,
+          page_name: 'Checkout Page',
+        })
         setErrorMessage(submitError.message ?? 'Check your payment details.')
         return
       }
@@ -145,6 +204,12 @@ function DeferredCheckoutFormInner({
           })
 
       if (confirmError) {
+        Mixpanel.track.PaymentFailed({
+          Message: confirmError.message ?? 'Stripe confirm intent failed.',
+          Code: confirmError.code,
+          Type: confirmError.type,
+          page_name: 'Checkout Page',
+        })
         setErrorMessage(
           confirmError.message ??
             (isSetup ? 'Setup could not be completed.' : 'Payment could not be completed.')
@@ -189,7 +254,17 @@ function DeferredCheckoutFormInner({
                 },
               },
             }}
-            onReady={() => setPaymentElementReady(true)}
+            onReady={() => {
+              setPaymentElementReady(true)
+              if (!stripeFieldsLoadedTrackedRef.current) {
+                stripeFieldsLoadedTrackedRef.current = true
+                Mixpanel.track.PaymentFieldsLoaded({
+                  provider: 'Stripe',
+                  page_name: 'Checkout Page',
+                })
+              }
+            }}
+            onChange={handlePaymentElementChange}
             onLoadError={() => setPaymentElementReady(true)}
           />
 

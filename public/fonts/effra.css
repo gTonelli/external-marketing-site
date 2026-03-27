@@ -1,0 +1,16 @@
+/* Served from site origin so Stripe Elements iframes can load Effra via appearance.fonts cssSrc */
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('Effra-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('Effra-Bold.ttf') format('truetype');
+}

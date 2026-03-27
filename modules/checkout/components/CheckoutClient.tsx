@@ -106,7 +106,7 @@ function CheckoutClientInner({ priceData, strapiOrigin }: CheckoutClientProps) {
 
   return (
     <div
-      className={`mx-auto flex w-full max-w-[1200px] flex-col
+      className={`mx-auto flex w-full max-w-screen-xl flex-col
         lg:min-h-0 lg:grid lg:grid-cols-2 lg:items-stretch`}>
       <div
         className={`flex w-full flex-col justify-center bg-[#f9f9fb] px-5 pb-10 pt-4

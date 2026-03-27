@@ -31,8 +31,13 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
       <div className="flex gap-6">
         <div className="relative h-[104px] w-[104px] shrink-0 overflow-hidden rounded-lg bg-neutral-200">
           {imageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element -- remote Strapi URLs vary
-            <img src={imageUrl} alt="" className="h-full w-full object-cover" />
+            <Image
+              src={imageUrl}
+              alt="Product Image"
+              className="h-full w-full object-cover"
+              width={104}
+              height={104}
+            />
           ) : (
             <Image
               src="/images/pds-icon.png"

@@ -153,6 +153,7 @@ export function buildCheckoutElementsAppearance(
         border: CHECKOUT_INPUT_BORDER,
         boxShadow: 'none',
         padding: '19px 20px',
+        colorText: '#2c2e35',
       },
       '.Input:focus': {
         border: CHECKOUT_INPUT_BORDER,

@@ -24,7 +24,7 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="hidden text-lg font-bold leading-7 text-black-2 lg:block">
+      <h2 className="hidden text-lg font-bold leading-7 text-black-2 mb-10 lg:block">
         Review order details
       </h2>
 
@@ -51,14 +51,19 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
 
         <div className="flex min-w-0 flex-1 flex-col gap-2 text-black-2">
           <p className="text-base font-bold leading-[22px]">{product.name}</p>
-          {product.description && (
-            <p className="text-base font-normal leading-[22px]">{product.description}</p>
+
+          {(price.description || product.description) && (
+            <p className="text-base font-normal leading-[22px]">
+              {price.description || product.description}
+            </p>
           )}
         </div>
       </div>
 
       <div className="h-px w-full bg-[#dddee4]" />
+
       <p className="text-base leading-[22px] text-black-2">Starting membership on {startLabel}</p>
+
       <div className="h-px w-full bg-[#dddee4]" />
 
       <div className="flex items-center justify-between text-base leading-[22px] text-black-2">
@@ -69,6 +74,7 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
             ? 'Monthly'
             : price.title}
         </span>
+
         <span className="text-right">{priceLineLabel(price)}</span>
       </div>
 
@@ -92,6 +98,7 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
 
       <div className="flex items-center justify-between text-xl font-bold leading-7 text-black-2">
         <span>Total</span>
+
         <span className="text-right">{totalLabel(price)}</span>
       </div>
     </div>

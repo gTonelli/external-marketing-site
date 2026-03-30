@@ -6,7 +6,7 @@ import {
   faArrowRotateLeft,
   faHeadset,
   faShieldCheck,
-} from '@awesome.me/kit-545b942488/icons/classic/solid'
+} from '@awesome.me/kit-545b942488/icons/classic/regular'
 
 export function TrustBlock({ className = '' }: { className?: string }) {
   return (
@@ -17,11 +17,12 @@ export function TrustBlock({ className = '' }: { className?: string }) {
         <FontAwesomeIcon
           icon={faArrowRotateLeft}
           className="mt-0.5 h-10 w-10 shrink-0 text-primary"
-          size="lg"
+          size="2xl"
         />
 
         <div className="flex flex-col gap-2 text-black-2">
           <p className="text-base font-normal leading-[22px]">Refund / Cancellation Policy</p>
+
           <p className="text-sm leading-[18px]">
             Feel safe. 15 days for a Full refund, where applicable.
           </p>
@@ -32,11 +33,12 @@ export function TrustBlock({ className = '' }: { className?: string }) {
         <FontAwesomeIcon
           icon={faShieldCheck}
           className="mt-0.5 h-10 w-10 shrink-0 text-primary"
-          size="lg"
+          size="2xl"
         />
 
         <div className="flex flex-col gap-2 text-black-2">
           <p className="text-base font-normal leading-[22px]">Privacy and Security</p>
+
           <p className="text-sm leading-[18px]">
             All Personal information you submit is Encrypted and Secure
           </p>
@@ -47,11 +49,12 @@ export function TrustBlock({ className = '' }: { className?: string }) {
         <FontAwesomeIcon
           icon={faHeadset}
           className="mt-0.5 h-10 w-10 shrink-0 text-primary"
-          size="lg"
+          size="2xl"
         />
 
         <div className="flex flex-col gap-2 text-black-2">
           <p className="text-base font-normal leading-[22px]">Easy Support & Help</p>
+
           <p className="text-sm leading-[18px]">
             Need help? Our support team is available at any time. Please visit{' '}
             <a

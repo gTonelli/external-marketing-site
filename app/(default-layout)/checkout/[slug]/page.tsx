@@ -6,7 +6,6 @@ import { Page } from '@/components/Page'
 import { fetchCheckoutPriceData } from '@/modules/checkout/api/fetchCheckoutPriceData'
 import { CheckoutClient } from '@/modules/checkout/components/CheckoutClient'
 
-/** Staging API host from OpenAPI; override with NEXT_PUBLIC_STRAPI_URL (e.g. ngrok). */
 const STRAPI_ORIGIN =
   process.env.NEXT_PUBLIC_STRAPI_URL ?? 'https://staging.strapi.personaldevelopmentschool.com'
 

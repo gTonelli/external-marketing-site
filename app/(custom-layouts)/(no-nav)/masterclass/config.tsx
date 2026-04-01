@@ -25,28 +25,33 @@ type TSEOConfig = {
 export const SEO_CONFIG: TSEOConfig = {
   needs: {
     registrationPage: {
-      title: '',
-      description: '',
+      title: 'Uncover Your Needs & Find True Connection Masterclass | Free Masterclass',
+      description:
+        'Feel disconnected or stuck in relationship patterns? Discover your emotional needs and learn how to create deeper, more fulfilling connections in this free masterclass with Thais Gibson.',
       robots: 'index, follow, max-snippet:-1',
     },
     thankYouPage: {
-      title: '',
-      description: '',
+      title: 'You’re Now Registered for The Uncover Your Needs & Find True Connection Masterclass',
+      description:
+        'You’re registered! Access your Uncover Your Needs & Find True Connection masterclass and learn how to identify emotional needs, improve communication, and create deeper, more fulfilling relationships.',
       robots: 'noindex',
     },
     secondarySalesPage: {
-      title: '',
-      description: '',
+      title: 'Build Secure, Fulfilling Relationships That Last | Join PDS Today',
+      description:
+        'Join The Personal Development School to understand your emotional needs, improve communication, and build deeply fulfilling relationships with courses, tools, and live coaching.',
       robots: 'noindex',
     },
     livePage: {
-      title: '',
-      description: '',
+      title: 'Uncover Your Needs & Find True Connection Masterclass by Thais Gibson',
+      description:
+        'Watch the free masterclass and learn how to identify your emotional needs, improve communication, and create deeper, more fulfilling relationships with Thais Gibson.',
       robots: 'noindex',
     },
     replayPage: {
-      title: '',
-      description: '',
+      title: 'Uncover Your Needs & Find True Connection Masterclass by Thais Gibson',
+      description:
+        'Watch the free masterclass and learn how to identify your emotional needs, improve communication, and create deeper, more fulfilling relationships with Thais Gibson.',
       robots: 'noindex',
     },
   },

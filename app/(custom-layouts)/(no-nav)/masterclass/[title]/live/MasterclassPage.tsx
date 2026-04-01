@@ -477,6 +477,14 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
         </>
       )}
 
+      <Section classNameInner="!text-left">
+        <h2>{config.timestamps.title}</h2>
+
+        {config.timestamps.items.map((item, index) => (
+          <p key={`timestamp_${index}`}>{item}</p>
+        ))}
+      </Section>
+
       <Section classNameInner="grid gap-4 lg:grid-cols-2">
         <div className="text-left">
           <h2>{config.thais.title}</h2>

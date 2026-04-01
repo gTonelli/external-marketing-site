@@ -306,5 +306,57 @@ export const CONFIG = {
           'Yes. The membership includes a 7-day money-back guarantee, so you can explore the courses and resources risk-free. If you decide it’s not the right fit within the first 7 days, you can request a refund.',
       },
     ],
+    timestamps: {
+      title: 'Video Timestamps, Table of Contents',
+      items: [
+        <>
+          <strong>[00:00]</strong> - The Consequences of Having Unfulfilled Needs
+        </>,
+        <>
+          <strong>[00:49]</strong> - Learning What Your True Emotional Needs Are
+        </>,
+        <>
+          <strong>[03:24]</strong> - Intro To The Personal Development School
+        </>,
+        <>
+          <strong>[04:18]</strong> - Why Understanding Your Emotional Needs Is Important
+        </>,
+        <>
+          <strong>[06:56]</strong> - Your Subconscious Needs Drive Your Behavior
+        </>,
+        <>
+          <strong>[09:43]</strong> - Myth 1: My Subsconscious Mind Isn't Accessible
+        </>,
+        <>
+          <strong>[11:21]</strong> - Myth 2: If Someone Loves Me, They Should Know What I Need
+        </>,
+        <>
+          <strong>[12:03]</strong> - Myth 3: I've Outgrown My Childhood So It Doesn't Affect Me
+          Anymore
+        </>,
+        <>
+          <strong>[14:10]</strong> - What You Will Learn In This Masterclass
+        </>,
+        <>
+          <strong>[15:24]</strong> - Lesson 1: Identifying Your Unmet Needs
+        </>,
+        <>
+          <strong>[18:08]</strong> - Lesson 2: How Well Do You Currently Meet Your Needs?
+        </>,
+        <>
+          <strong>[19:27]</strong> - Lesson 3: Create Daily Strategies and Learn To Communicate Them
+        </>,
+        <>
+          <strong>[24:06]</strong> - Write Down Your Insights
+        </>,
+        <>
+          <strong>[24:54]</strong> - How Understanding My Needs Changed My Life
+        </>,
+        <>
+          <strong>[27:47]</strong> - What's Inside The Discover, Embrace and Fulfill Your Needs
+          Course
+        </>,
+      ],
+    },
   },
 }

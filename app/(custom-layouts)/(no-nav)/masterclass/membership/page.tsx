@@ -20,8 +20,9 @@ import '@/styles/default-styles.css'
 import '../style.css'
 
 export const metadata: Metadata = {
-  title: '',
-  description: '',
+  title: 'The Personal Development School Membership | Build Deeper, Healthier Relationships',
+  description:
+    'Join 60,000+ students improving communication, emotional health, and relationships with proven tools, live coaching, and guided courses by Thais Gibson.',
   robots: 'noindex',
 }
 

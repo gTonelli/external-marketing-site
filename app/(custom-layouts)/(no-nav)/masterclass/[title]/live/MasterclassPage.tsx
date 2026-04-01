@@ -2,6 +2,7 @@
 // core
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
 import { Section } from '@/components/Section'
@@ -21,7 +22,6 @@ import { Storage } from '@/modules/Storage'
 // styles
 import '@/styles/default-styles.css'
 import '../../style.css'
-import { useState } from 'react'
 
 interface IMasterclassPageProps {
   title: TMasterclassTitle
@@ -32,15 +32,20 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
   const config = CONFIG[title]
   const searchParams = useSearchParams()
   const userEmail = Storage.get('lastUserEmail') || searchParams.get('email')
-  const [pageRevealed, setPageRevealed] = useState(Storage.get(`${title}-mcvp`) || false)
+  const [pageRevealed, setPageRevealed] = useState(Storage.get(`${title}-mcvp`) !== null)
 
   const onVideoStarted = () => {
     if (isLive) {
-      const eventTracked = Storage.get(`${title}-mcvs`)
+      const eventTracked = Storage.get(`${title}-mcvs`) !== null
       if (!eventTracked && userEmail) {
         Storage.set(`${title}-mcvs`, true)
         fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/activecampaign-user-tag`, {
           method: 'POST',
+          credentials: 'include',
+          keepalive: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify({
             email: userEmail,
             userTag: `${title}-masterclass-video-watched`,
@@ -51,8 +56,8 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
   }
 
   const onVideoProgress = (progress: number) => {
-    if (progress === 25 && !pageRevealed) {
-      const eventTracked = Storage.get(`${title}-mcvp`)
+    if (progress === 25) {
+      const eventTracked = Storage.get(`${title}-mcvp`) !== null
       if (!eventTracked) {
         Storage.set(`${title}-mcvp`, true)
         setPageRevealed(true)
@@ -235,8 +240,8 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             <h2>{config.studentStories.title}</h2>
 
             <div className="block lg:hidden">
-              <CarouselDefault
-                children={commonConfig.studentStories.map((item, index) => (
+              <CarouselDefault>
+                {commonConfig.studentStories.map((item, index) => (
                   <div
                     key={`testimonial_${index}`}
                     className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
@@ -245,7 +250,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
                     <p className="font-bold text-sm mb-0">{item.author}</p>
                   </div>
                 ))}
-              />
+              </CarouselDefault>
             </div>
 
             <div className="hidden lg:grid gap-6 lg:grid-cols-3">

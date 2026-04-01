@@ -168,8 +168,8 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
               </h2>
 
               <div className="block lg:hidden">
-                <CarouselDefault
-                  children={commonConfig.studentStories.slice(0, 3).map((item, index) => (
+                <CarouselDefault>
+                  {commonConfig.studentStories.slice(0, 3).map((item, index) => (
                     <div
                       key={`testimonial_${index}`}
                       className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
@@ -178,7 +178,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                       <p className="font-bold text-sm mb-0">{item.author}</p>
                     </div>
                   ))}
-                />
+                </CarouselDefault>
               </div>
 
               <div className="hidden lg:block">

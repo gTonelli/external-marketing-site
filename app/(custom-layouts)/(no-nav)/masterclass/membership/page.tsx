@@ -90,8 +90,8 @@ export default function MasterclassMembershipPage() {
         <h2>{config.testimonials.title}</h2>
 
         <div className="block lg:hidden">
-          <CarouselDefault
-            children={commonConfig.studentStories.map((item, index) => (
+          <CarouselDefault>
+            {commonConfig.studentStories.map((item, index) => (
               <div
                 key={`testimonial_${index}`}
                 className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
@@ -100,7 +100,7 @@ export default function MasterclassMembershipPage() {
                 <p className="font-bold text-sm mb-0">{item.author}</p>
               </div>
             ))}
-          />
+          </CarouselDefault>
         </div>
 
         <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6">

@@ -267,8 +267,8 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         <h2 className="text-left">{config.schedule.title}</h2>
 
         <div className="block lg:hidden">
-          <CarouselDefault
-            children={config.schedule.items.map((item, index) => (
+          <CarouselDefault>
+            {config.schedule.items.map((item, index) => (
               <div key={`schedule_item_${index}`} className="h-full text-left">
                 <h3 className="!text-xl mb-3">{item.title}</h3>
 
@@ -289,7 +289,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 </div>
               </div>
             ))}
-          />
+          </CarouselDefault>
         </div>
 
         <div className="hidden flex-col gap-8 text-left lg:flex">
@@ -325,8 +325,8 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         <h2>{config.bonuses.title}</h2>
 
         <div className="block lg:hidden">
-          <CarouselDefault
-            children={config.bonuses.items.map((item, index) => (
+          <CarouselDefault>
+            {config.bonuses.items.map((item, index) => (
               <div
                 key={`bonuses_item_${index}`}
                 className="h-full flex flex-col gap-6 bg-white border border-gray-200 rounded-2xl p-6 mb-8">
@@ -349,7 +349,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 </div>
               </div>
             ))}
-          />
+          </CarouselDefault>
         </div>
 
         <div className="hidden lg:block">
@@ -455,8 +455,8 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
 
       <Section>
         <div className="block lg:hidden">
-          <CarouselDefault
-            children={commonConfig.studentStories.slice(0, 3).map((item, index) => (
+          <CarouselDefault>
+            {commonConfig.studentStories.slice(0, 3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
                 className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
@@ -465,7 +465,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 <p className="font-bold text-sm mb-0">{item.author}</p>
               </div>
             ))}
-          />
+          </CarouselDefault>
         </div>
 
         <div className="hidden lg:grid gap-6 lg:grid-cols-3">
@@ -881,8 +881,8 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
 
       <Section>
         <div className="block lg:hidden">
-          <CarouselDefault
-            children={commonConfig.studentStories.slice(3).map((item, index) => (
+          <CarouselDefault>
+            {commonConfig.studentStories.slice(3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
                 className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
@@ -891,7 +891,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 <p className="font-bold text-sm mb-0">{item.author}</p>
               </div>
             ))}
-          />
+          </CarouselDefault>
         </div>
 
         <div className="hidden lg:grid gap-6 lg:grid-cols-3">

@@ -5,7 +5,7 @@ export const CONFIG = {
     hero: {
       title: (
         <>
-          You’re Registered for the <em>Uncover Your Needs & Find True Connection Masterclass</em>
+          You’re Registered for the <em>Uncover Your Needs & Find True Connection Masterclass</em>{' '}
           Masterclass!
         </>
       ),

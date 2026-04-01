@@ -8,17 +8,19 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.87) 0%, rgba(0, 0, 0, 0.33) 50%);
 }
 
-.masterclass-yellow-cta {
+.masterclass-yellow-cta,
+.addeventatc {
   border-radius: 999px !important;
-  background: linear-gradient(180deg, #ffbf73 0%, #ffa000 100%);
+  background: linear-gradient(180deg, #ffbf73 0%, #ffa000 100%) !important;
   font-weight: bold !important;
   color: #252334 !important;
   border: none !important;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16) !important;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem !important;
 }
 
-.masterclass-yellow-cta:hover {
+.masterclass-yellow-cta:hover,
+.addeventatc:hover {
   background: #ffa000 !important;
 }
 
@@ -37,14 +39,14 @@
 
 .masterclass-purple-cta {
   border-radius: 999px !important;
-  background: linear-gradient(180deg, #9b37f2, #7a12d4);
+  background: linear-gradient(180deg, #9b37f2, #7a12d4) !important;
   font-weight: bold !important;
   color: white !important;
   border: none !important;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16) !important;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem !important;
 }
 
 .masterclass-purple-cta:hover {
-  background: #7a12d4;
+  background: #7a12d4 !important;
 }

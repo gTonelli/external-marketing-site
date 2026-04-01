@@ -1,11 +1,18 @@
+// core
 import { Metadata } from 'next'
-import { MasterclassTitleSlugs, SEO_CONFIG, TMasterclassTitle } from '../../config'
+import Link from 'next/link'
+import Image from 'next/image'
+// components
 import { Page } from '@/components/Page'
-import { CONFIG } from './config'
 import { Section } from '@/components/Section'
 import { VideoStream } from '@/components/Video/variants/VideoStream'
 import { Button } from '@/components/Button/Button'
-import Link from 'next/link'
+// config
+import { CONFIG } from './config'
+import { MasterclassTitleSlugs, SEO_CONFIG, TMasterclassTitle } from '../../config'
+// styles
+import '@/styles/default-styles.css'
+import '../../style.css'
 
 export const dynamicParams = false
 
@@ -67,9 +74,21 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
       <Section>
         <h2 className="!text-4xl mb-8">{config.access.title}</h2>
 
+        <p className="text-lg">{config.access.copy}</p>
+
         {config.access.steps.map((step, idx) => (
           <div key={`access_step_${idx}`} className="flex flex-col shadow-md mb-8 lg:flex-row">
-            <div className="w-full min-h-72 bg-slate-400 lg:max-w-96">Image</div>
+            <div className="w-full lg:max-w-96">
+              <Image
+                src={step.image}
+                alt={step.imageAlt}
+                className="w-full h-auto"
+                width={600}
+                height={300}
+                quality={100}
+                sizes="100vw"
+              />
+            </div>
 
             <div className="w-full text-left flex-1 flex flex-col gap-2 items-center my-auto lg:py-6 lg:px-10">
               <h3 className="w-full text-3xl">{step.title}</h3>
@@ -80,18 +99,67 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
         ))}
       </Section>
 
-      <Section classNameInner="gap-6 lg:grid lg:grid-cols-3">
-        <div className="text-left lg:col-span-1">
+      <Section classNameInner="gap-6 lg:grid lg:grid-cols-2">
+        <div className="text-left">
           <h2 className="!text-4xl">{config.membership.title}</h2>
 
-          <p className="text-lg">{config.membership.text}</p>
+          <div className="text-lg">
+            {config.membership.copy.map((item, idx) => (
+              <p key={`membership_copy_${idx}`}>{item}</p>
+            ))}
+          </div>
 
-          {/* <Link> */}
-          <Button className="mt-4" label={config.membership.ctaLabel} />
-          {/* </Link> */}
+          <Link href={config.membership.ctaLink}>
+            <Button className="masterclass-purple-cta mt-4" label={config.membership.ctaLabel} />
+          </Link>
         </div>
 
-        <div className="min-h-96 bg-slate-400 lg:col-span-2">Image</div>
+        <div className="flex justify-center items-center">
+          <Image
+            src={config.membership.imageSrc}
+            alt={config.membership.imageAlt}
+            width={600}
+            height={300}
+            quality={100}
+            sizes="100vw"
+          />
+        </div>
+      </Section>
+
+      <Section classNameInner="!max-w-2xl mx-auto">
+        <h2>{config.connect.support.title}</h2>
+
+        <div className="mb-8">
+          <Link
+            href={config.connect.support.linkHref}
+            className="text-primary hover:text-primary-light">
+            {config.connect.support.linkText}
+          </Link>
+        </div>
+
+        <h2>{config.connect.social.title}</h2>
+
+        <div className="w-fit flex flex-col gap-4 mx-auto">
+          {config.connect.social.links.map((link, idx) => (
+            <div key={`social_link_${idx}`} className="flex gap-4">
+              <Image
+                src={link.image}
+                alt={link.imageAlt}
+                className="w-16 h-16"
+                width={48}
+                height={48}
+              />
+
+              <div className="flex flex-col text-left">
+                <p className="text-lg mb-0">{link.copy}</p>
+
+                <Link href={link.linkHref} className="text-primary mb-8">
+                  {link.linkText}
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </Section>
     </Page>
   )

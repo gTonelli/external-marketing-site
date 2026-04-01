@@ -1,14 +1,24 @@
 // core
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
 // components
 import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { Button } from '@/components/Button/Button'
 import { FloatingNavigation } from '@/components/Masterclass/FloatingNavigation'
-import { CarouselCard } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
+import { TrailerButton } from '@/components/Masterclass/TrailerButton'
+import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
+import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
+import { Faq } from '@/components/Faq/Faq'
 import { faCheck, faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
-import { SEO_CONFIG, TMasterclassTitle, MasterclassTitleSlugs } from '../config'
+import {
+  SEO_CONFIG,
+  COMMON_CONFIG as commonConfig,
+  TMasterclassTitle,
+  MasterclassTitleSlugs,
+} from '../config'
 import { CONFIG } from './config'
 // libraries
 import cx from 'classnames'
@@ -16,7 +26,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // styles
 import '@/styles/default-styles.css'
 import '../style.css'
-import dynamic from 'next/dynamic'
 
 const MasterclassRegistrationForm = dynamic(
   () => import('@/components/Forms/MasterclassRegistrationForm'),
@@ -72,8 +81,8 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
           <div className="masterclass-header-bg-overlay"></div>
         </div>
 
-        <div className="relative section-inner-wrapper min-h-screen flex flex-col justify-end items-start gap-7 py-24 mx-auto md:py-48">
-          <div className="w-full min-h-fit flex flex-col text-left text-white ml-0 md:w-4/5">
+        <div className="relative section-inner-wrapper min-h-screen flex flex-col justify-end items-start gap-7 py-24 mx-auto lg:py-48">
+          <div className="w-full min-h-fit flex flex-col text-left text-white ml-0 p-4 lg:w-4/5">
             <h3 className="!text-base !font-effra uppercase tracking-33">{config.hero.h3}</h3>
 
             <h1 className="!text-4xl lg:!text-6xl">{config.hero.h1}</h1>
@@ -82,19 +91,28 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
           </div>
 
           <div className="flex flex-row gap-4">
-            <Button className="masterclass-primary-cta" label="RESERVE MY SPOT NOW" />
+            <Button className="masterclass-yellow-cta" label="RESERVE MY SPOT NOW" />
 
-            <Button className="masterclass-secondary-cta hidden md:block" label="WATCH TRAILER" />
+            <TrailerButton
+              videoId={config.hero.trailerVideoId}
+              thumbnailSrc={config.hero.trailerThumbnailSrc}
+            />
           </div>
         </div>
       </Section>
 
       <FloatingNavigation links={config.floatingNavLinks} />
 
-      <Section>
+      <Section id="what-you-will-learn">
         <div className="min-h-fit gap-6 lg:grid lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <div className="gap-6 pb-18 md:grid md:grid-cols-3">
+          <div className="w-full order-1 lg:col-span-5 lg:order-2 lg:pl-6 lg:ml-auto">
+            <div className="w-full min-h-fit z-20 pt-4 pb-8 lg:max-w-96 lg:sticky lg:top-0 lg:pt-24 ">
+              <MasterclassRegistrationForm masterclassTitle={title} />
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            <div className="grid gap-6 pb-18 md:grid-cols-3">
               {config.whatYouLearn.stats.map((stat, index) => (
                 <div
                   key={`masterclass_stats_${index}`}
@@ -123,7 +141,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
             </div>
 
             <div className="text-left">
-              <h2 className="mb-8">What You&apos;ll Learn</h2>
+              <h2 className="mb-8">{config.whatYouLearn.title}</h2>
 
               {config.whatYouLearn.learnings.map((item, index) => (
                 <div key={`learning_item_${index}`} className="flex gap-4 mb-8">
@@ -136,31 +154,71 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                       <strong>{item.title}</strong>
                     </p>
 
-                    <p className="text-lg">{item.description}</p>
+                    {item.description.map((copy, idx) => (
+                      <p key={`learning_item_description_${idx}`} className="text-lg">
+                        {copy}
+                      </p>
+                    ))}
                   </div>
                 </div>
               ))}
 
-              <h2 className="my-8">Student Stories</h2>
+              <h2 className="my-8" id="student-stories">
+                {config.studentStories.title}
+              </h2>
 
-              {config.testimonials.map((review, idx) => (
-                <CarouselCard
-                  key={`carousel_card_${idx}`}
-                  review={review}
-                  classNameCard="!bg-none !bg-white !text-lg !shadow-xl border border-[#dfe1e5] mb-8"
+              <div className="block lg:hidden">
+                <CarouselDefault
+                  children={commonConfig.studentStories.slice(0, 3).map((item, index) => (
+                    <div
+                      key={`testimonial_${index}`}
+                      className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                      <p className="text-lg mb-4">{item.quote}</p>
+
+                      <p className="font-bold text-sm mb-0">{item.author}</p>
+                    </div>
+                  ))}
                 />
-              ))}
+              </div>
 
-              <h2 className="mt-16 mb-8">Meet Thais Gibson, PhD</h2>
+              <div className="hidden lg:block">
+                {commonConfig.studentStories.slice(0, 3).map((item, index) => (
+                  <div
+                    key={`testimonial_${index}`}
+                    className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between mb-8">
+                    <p className="text-lg mb-4">{item.quote}</p>
 
-              <div className="bg-slate-200 min-h-96 mb-8">Image</div>
+                    <p className="font-bold text-sm mb-0">{item.author}</p>
+                  </div>
+                ))}
+              </div>
+
+              <h2 className="mt-16 mb-8" id="meet-thais-gibson">
+                {commonConfig.thais.title}
+              </h2>
+
+              <div className="mb-8">
+                <Image
+                  src={config.thais.imageSrc}
+                  alt={config.thais.imageAlt}
+                  className="w-full h-auto"
+                  width={600}
+                  height={300}
+                  quality={100}
+                  sizes="100vw"
+                />
+              </div>
 
               <div className="text-lg">
-                {config.thais.copy.map((item, idx) => (
+                {commonConfig.thais.copy.map((item, idx) => (
                   <p key={`thais_gibson_copy_${idx}`}>{item}</p>
                 ))}
 
-                {config.thais.credentials.map((item, idx) => (
+                <p className="text-xl">
+                  <strong>{commonConfig.thais.credentials.title}</strong>
+                </p>
+
+                {commonConfig.thais.credentials.list.map((item, idx) => (
                   <div key={`credentials_copy_${idx}`} className="flex gap-4">
                     <div>
                       <FontAwesomeIcon icon={faSparkles} className="text-lg text-primary mt-1" />
@@ -171,13 +229,31 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                     </div>
                   </div>
                 ))}
+
+                <p className="text-xl mt-8">
+                  <strong>{commonConfig.asSeenOn.title}</strong>
+                </p>
+
+                <TrustbarMasterclass />
               </div>
 
-              <h2 className="my-8">Your Learning Journey</h2>
+              <h2 className="my-8" id="your-learning-journey">
+                {config.learningJourney.title}
+              </h2>
 
-              {config.learningJourney.map((item, idx) => (
+              {config.learningJourney.steps.map((item, idx) => (
                 <div key={`learning_journey_${idx}`} className="mb-12">
-                  <div className="min-h-80 bg-slate-200 mb-4">Image</div>
+                  <div className="mb-4">
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.imageAlt}
+                      className="w-full h-auto"
+                      width={600}
+                      height={300}
+                      quality={100}
+                      sizes="100vw"
+                    />
+                  </div>
 
                   <div className="flex gap-4">
                     <div>
@@ -198,36 +274,66 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
               ))}
             </div>
           </div>
+        </div>
+      </Section>
 
-          <div className="w-full col-span-5 ml-auto pl-6">
-            <div className="sticky top-0 w-full max-w-96 min-h-fit z-20 pt-24">
-              <MasterclassRegistrationForm masterclassTitle={title} />
-            </div>
+      <Section>
+        <h2>{config.host.title}</h2>
+
+        <div className="flex flex-col gap-8 lg:flex-row">
+          <div className="text-left">
+            {config.host.copy.map((item, idx) => (
+              <p key={`host_copy_${idx}`}>{item}</p>
+            ))}
+          </div>
+
+          <div className="w-full flex justify-center items-center">
+            <Image
+              src={config.host.imageSrc}
+              alt={config.host.imageAlt}
+              className="w-full h-auto"
+              width={600}
+              height={300}
+              quality={100}
+              sizes="100vw"
+            />
           </div>
         </div>
       </Section>
 
-      <Section className="bg-white-secondary" classNameInner="gap-6 lg:grid lg:grid-cols-5">
+      <Section
+        id="faq"
+        className="bg-white-secondary"
+        classNameInner="gap-6 lg:grid lg:grid-cols-5">
         <div className="text-left lg:col-span-2">
-          <h2>Frequently Asked Questions</h2>
+          <h2>{config.faqs.title}</h2>
 
-          <p>
-            Get your questions answered before the Discover, Embrace & Fulfill Your Personal Needs
-            Masterclass begins.
-          </p>
+          <p>{config.faqs.copy}</p>
         </div>
 
-        <div className="min-h-96 lg:col-span-3">FAQs will show here</div>
+        <div className="min-h-96 lg:col-span-3">
+          <Faq faq={commonConfig.faqs} includeHeading={false} className="!my-0" />
+        </div>
       </Section>
 
-      <Section>
-        <h2 className="mb-8">Join Your Free Masterclass Today to Rewire What’s Holding You Back</h2>
+      <Section id="reserve-my-spot">
+        <h2 className="mb-8">{config.reserveMySpot.title}</h2>
 
         <div className="w-full min-h-96 gap-6 items-stretch lg:grid lg:grid-cols-12">
-          <div className="lg:col-span-8 h-full bg-slate-200">Image</div>
+          <div className="lg:col-span-8 mb-8">
+            <Image
+              src={config.reserveMySpot.imageSrc}
+              alt={config.reserveMySpot.imageAlt}
+              className="w-full h-auto"
+              width={600}
+              height={300}
+              quality={100}
+              sizes="100vw"
+            />
+          </div>
 
           <div className="lg:col-span-4">
-            <div className="w-full max-w-96 min-h-fit z-20">
+            <div className="w-full min-h-fit z-20">
               <MasterclassRegistrationForm masterclassTitle={title} />
             </div>
           </div>

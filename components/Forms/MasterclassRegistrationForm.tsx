@@ -1,23 +1,30 @@
 'use client'
 // core
 import Link from 'next/link'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 // components
 import { Loader } from '../Loader'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilm } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { Input } from '../Input/Input'
-import { Form, Formik, FormikHelpers, useFormikContext } from 'formik'
+import { gtag } from '../GoogleAdsTag'
+import { Button } from '../Button/Button'
+import { faFilm } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// libraries
 import cx from 'classnames'
 import * as yup from 'yup'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Form, Formik } from 'formik'
+import { PhoneInput } from 'react-international-phone'
+import dayjs from 'dayjs'
+// modules
+import { useFacebookPixel } from '@/modules/FacebookPixel'
+import { useGamAnalytics } from '@/modules/GAM'
+import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { Regexes } from '@/utils/constants'
 import { isPhoneValid } from '@/utils/functions'
-import { PhoneInput } from 'react-international-phone'
-import { Button } from '../Button/Button'
 // styles
 import 'react-international-phone/style.css'
-import dayjs from 'dayjs'
 
 interface IMasterclassRegistrationFormProps {
   id?: string
@@ -31,31 +38,52 @@ export default function MasterclassRegistrationForm({
   className,
   masterclassTitle,
 }: IMasterclassRegistrationFormProps) {
+  const router = useRouter()
+  // =========== State =========
   const [loading, setLoading] = useState(true)
+
+  // =========== Hooks =========
+  const FBQ = useFacebookPixel()
+  const { setUserData } = useGamAnalytics()
 
   useEffect(() => {
     setLoading(false)
   }, [])
 
-  function getScheduleTagDateTime(booked_time: Date) {
+  function scheduleTagAndDateTime(email: string, booked_time: Date) {
     let gap = dayjs(booked_time).diff(dayjs(), 'hours')
-    // console.log(`[TAG] ${masterclassTitle}-masterclass-in-${gap}h`)
+    let tagSuffix = `-masterclass-in-1h`
+    let scheduled_time = dayjs(booked_time).subtract(1, 'hour').format()
     if (gap >= 48) {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-in-48h`)
-      return dayjs(booked_time).subtract(48, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+      tagSuffix = `-masterclass-in-48h`
+      scheduled_time = dayjs(booked_time).subtract(48, 'hours').format()
     } else if (gap >= 24) {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-in-24h`)
-      return dayjs(booked_time).subtract(24, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+      tagSuffix = `-masterclass-in-24h`
+      scheduled_time = dayjs(booked_time).subtract(24, 'hours').format()
     } else if (gap >= 12) {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-in-12h`)
-      return dayjs(booked_time).subtract(12, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+      tagSuffix = `-masterclass-in-12h`
+      scheduled_time = dayjs(booked_time).subtract(12, 'hours').format()
     } else if (gap >= 6) {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-in-6h`)
-      return dayjs(booked_time).subtract(6, 'hours').format('MMM DD, YYYY [at] hh:mm:ss A')
+      tagSuffix = `-masterclass-in-6h`
+      scheduled_time = dayjs(booked_time).subtract(6, 'hours').format()
     } else if (gap >= 1) {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-in-1h`)
-      return dayjs(booked_time).subtract(1, 'hour').format('MMM DD, YYYY [at] hh:mm:ss A')
+      tagSuffix = `-masterclass-in-1h`
+      scheduled_time = dayjs(booked_time).subtract(1, 'hour').format()
     }
+
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/contact-us/schedule-registration`, {
+      method: 'POST',
+      credentials: 'include',
+      keepalive: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        date: scheduled_time,
+        tags: [`${masterclassTitle}${tagSuffix}`],
+      }),
+    })
   }
 
   function mergeDateAndHour(date: string, hour: number) {
@@ -64,26 +92,64 @@ export default function MasterclassRegistrationForm({
     return mergedDate
   }
 
-  const onSubmit = (
-    values: IMasterclassRegistrationFormSchema,
-    formikHelpers: FormikHelpers<IMasterclassRegistrationFormSchema>
-  ) => {
-    const { date, time } = values
+  const onSubmit = (values: IMasterclassRegistrationFormSchema) => {
+    const { name, email, date, time, phone } = values
+    const webinarBookingDateTime =
+      date === 'watch-now'
+        ? new Date()
+        : date === 'later-today'
+          ? mergeDateAndHour(new Date().toDateString(), +time)
+          : mergeDateAndHour(date, +time)
 
-    if (date === 'watch-now') {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-watch-now`)
-    } else if (date === 'later-today') {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-watch-later`)
-      console.log(
-        '[SCHEDULED FOR] ',
-        getScheduleTagDateTime(mergeDateAndHour(new Date().toDateString(), +time))
-      )
-    } else {
-      console.log(`[TAG] ${masterclassTitle}-masterclass-watch-later`)
-      console.log('[SCHEDULED FOR] ', getScheduleTagDateTime(mergeDateAndHour(date, +time)))
+    setUserData({ email, firstName: name, phone })
+    Mixpanel.setUser(email)
+    Mixpanel.setPeople({
+      $email: email,
+      $first_name: name,
+      [`${masterclassTitle} Masterclass Booking Date`]: webinarBookingDateTime,
+    })
+    gtag({
+      event: 'form_tracking',
+      eventCategory: 'Masterclass Registration Form - ' + masterclassTitle,
+      eventAction: 'Form',
+      eventLabel: 'Submit',
+    })
+
+    const eventId = crypto.randomUUID()
+    Mixpanel.track.SignUp({
+      distinct_id: email,
+      $insert_id: eventId,
+    })
+    FBQ?.trackLead({ email, eventId })
+    gtag('set', 'user_data', { email })
+
+    const requestBody = {
+      tags: [
+        date === 'watch-now'
+          ? `${masterclassTitle}-masterclass-watch-now`
+          : `${masterclassTitle}-masterclass-watch-later`,
+      ],
+      firstName: name,
+      email,
+      phone,
+      listIds: [40],
+      insertId: eventId,
     }
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
+      method: 'POST',
+      credentials: 'include',
+      keepalive: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    }).catch((error) => {
+      console.error(error)
+    })
+    if (date !== 'watch-now') scheduleTagAndDateTime(email, webinarBookingDateTime)
 
-    formikHelpers.setSubmitting(false)
+    if (date === 'watch-now') router.push(`/masterclass/${masterclassTitle}/live`)
+    else router.push(`/masterclass/${masterclassTitle}/thank-you`)
   }
 
   if (loading) return <Loader />
@@ -140,7 +206,8 @@ export default function MasterclassRegistrationForm({
                   onChange={(e) => {
                     let val = e.target.value.toString()
                     setFieldValue('date', val)
-                    if (val === 'watch-now' || val === 'later-today') setFieldValue('time', '')
+                    if (val === 'watch-now') setFieldValue('time', 'start-now')
+                    else if (val === 'later-today') setFieldValue('time', '')
                   }}>
                   <option disabled value="">
                     Select Date
@@ -189,12 +256,14 @@ export default function MasterclassRegistrationForm({
                   }`}
                   onChange={(e) => setFieldValue('time', e.target.value.toString())}>
                   <option disabled value="">
-                    {values.date === 'watch-now' ? 'Start Now' : 'Select Time'}
+                    Select Time
                   </option>
 
                   <option disabled value="Select Time" className="text-gray-500">
                     Select Time
                   </option>
+
+                  {values.date === 'watch-now' && <option value="start-now">Start Now</option>}
 
                   {Array.from(
                     {
@@ -254,7 +323,7 @@ export default function MasterclassRegistrationForm({
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="masterclass-primary-cta"
+                className="masterclass-yellow-cta"
                 label={'RESERVE MY SPOT NOW'}
               />
             </Form>
@@ -284,48 +353,18 @@ export default function MasterclassRegistrationForm({
   )
 }
 
-// function TimeSelect() {
-//   const { values } = useFormikContext<IMasterclassRegistrationFormSchema>()
-
-//   const selectedDate = values.date
-
-//   const startHour =
-//     selectedDate === 'watch-later' ? (new Date().getHours() > 8 ? new Date().getHours() + 2 : 8) : 8
-
-//   return (
-//     <select name="time">
-//       {Array.from({ length: 24 - startHour }, (_, i) => {
-//         const h = startHour + i
-//         const label = new Date(0, 0, 0, h).toLocaleTimeString('en-US', {
-//           hour: '2-digit',
-//           minute: '2-digit',
-//           hour12: true,
-//         })
-//         return (
-//           <option key={h} value={h}>
-//             {label}
-//           </option>
-//         )
-//       })}
-//     </select>
-//   )
-// }
-
 const MasterclassRegistrationFormValidationSchema = yup
   .object()
   .shape({
-    name: yup.string().defined().ensure(),
-    // .required('First name required'),
+    name: yup.string().defined().ensure().required('First name required'),
     email: yup
       .string()
       .defined()
       .ensure()
-      // .matches(Regexes.email, 'Please enter a valid email')
+      .matches(Regexes.email, 'Please enter a valid email')
       .required('Email required'),
-    date: yup.string().defined().ensure(),
-    // .required('Please select a value'),
-    time: yup.string().defined().ensure(),
-    // .required('Please select a value'),
+    date: yup.string().defined().ensure().required('Please select a value'),
+    time: yup.string().defined().ensure().required('Please select a value'),
     phone: yup
       .string()
       .transform((value) => (value === '' ? null : value))

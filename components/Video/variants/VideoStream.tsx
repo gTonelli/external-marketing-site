@@ -1,7 +1,7 @@
 'use client'
 
 // core
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { useCallback, useContext, useRef, useState } from 'react'
 // libraries
 import { Stream, StreamPlayerApi } from '@cloudflare/stream-react'
 import cx from 'classnames'
@@ -74,10 +74,6 @@ export const VideoStream = ({
     }
   }, [currentThreshold, page_name, type, onVideoProgress])
 
-  useEffect(() => {
-    videoRef.current?.addEventListener('timeupdate', onTimeUpdate)
-  }, [currentThreshold, onTimeUpdate])
-
   const onToggleVideo = useCallback(() => {
     if (!startedOnce.current) {
       Mixpanel.track.VideoStarted({
@@ -99,6 +95,7 @@ export const VideoStream = ({
         className={cx('w-full h-full bg-white', classNameVideo)}
         letterboxColor="transparent"
         onPlay={onToggleVideo}
+        onTimeUpdate={onTimeUpdate}
         poster={thumbnailSrc}
         streamRef={videoRef}
         src={videoId}

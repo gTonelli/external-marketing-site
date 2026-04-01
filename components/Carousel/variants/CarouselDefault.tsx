@@ -5,12 +5,16 @@ import { useContext } from 'react'
 // components
 import { IDefaultWrapperProps } from '@/components'
 // libraries
-import { Pagination } from 'swiper/modules'
+import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import cx from 'classnames'
 // utils
 import { EWindowWidth } from '@/utils/constants'
 import { ViewportContext } from '@/utils/contexts'
+// styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 export interface ICarouselDefaultProps extends IDefaultWrapperProps {
   /** Slides to render. Should be an array of components. */
@@ -40,19 +44,24 @@ export const CarouselDefault = ({
   return (
     <Swiper
       loop
-      className={cx('!overflow-hidden', className)}
-      modules={[Pagination]}
+      className={cx('!overflow-hidden !pb-12', className)}
+      modules={[Autoplay, Pagination]}
       pagination={{
         clickable: true,
-        renderBullet: (_, className) =>
-          '<div class="w-4 h-4 bg-primary rounded-full ' + className + '"/></div>',
+        bulletActiveClass: '!opacity-100',
+        bulletClass:
+          'inline-block w-2 h-2 mx-1 my-1 bg-primary rounded-full opacity-50 cursor-pointer lg:hover:opacity-100',
       }}
-      slidesPerView={
-        windowWidth <= EWindowWidth.md ? 1 : windowWidth <= EWindowWidth['2xl'] ? 2 : 3
-      }
+      autoplay={{
+        delay: 6000,
+        disableOnInteraction: true,
+      }}
+      slidesPerView={1}
       spaceBetween={spaceBetween}>
       {children.map((child, index) => (
-        <SwiperSlide key={`review_${index}`} className="flex justify-evenly">
+        <SwiperSlide
+          key={`review_${index}`}
+          className="!w-full !h-auto overflow-hidden flex justify-evenly">
           {child}
         </SwiperSlide>
       ))}

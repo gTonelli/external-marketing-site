@@ -1,7 +1,6 @@
 'use client'
 
 // core
-import Image from 'next/image'
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 // libraries
 import { Stream, StreamPlayerApi } from '@cloudflare/stream-react'
@@ -22,9 +21,18 @@ interface IVideoStreamProps {
   classNameVideo?: string
   /** If provided, will let us separate events based on the video that has been played given that there are more than 1 videos */
   type?: string
+  /** Whether to autoplay the video */
+  autoplay?: boolean
+  /** Callback for video started */
+  onVideoStarted?: () => void
+  /** Callback for video progress */
+  onVideoProgress?: (progress: number) => void
 }
 
 export const VideoStream = ({
+  autoplay = false,
+  onVideoStarted,
+  onVideoProgress,
   className,
   classNameVideo,
   videoId,
@@ -41,7 +49,7 @@ export const VideoStream = ({
   // ==================== State ====================
   const [currentThreshold, setCurrentThreshold] = useState(0)
 
-  const onVideoProgress = useCallback(() => {
+  const onTimeUpdate = useCallback(() => {
     const video = videoRef.current
     if (!video) return
 
@@ -61,13 +69,14 @@ export const VideoStream = ({
           video_type: `${type} - ${page_name}`,
         })
         setCurrentThreshold(nextThreshold)
+        onVideoProgress?.(nextThreshold)
       }
     }
-  }, [currentThreshold, page_name, type])
+  }, [currentThreshold, page_name, type, onVideoProgress])
 
   useEffect(() => {
-    videoRef.current?.addEventListener('timeupdate', onVideoProgress)
-  }, [currentThreshold, onVideoProgress])
+    videoRef.current?.addEventListener('timeupdate', onTimeUpdate)
+  }, [currentThreshold, onTimeUpdate])
 
   const onToggleVideo = useCallback(() => {
     if (!startedOnce.current) {
@@ -76,12 +85,14 @@ export const VideoStream = ({
         video_type: `${type} - ${page_name}`,
       })
       startedOnce.current = true
+      onVideoStarted?.()
     }
-  }, [page_name, type])
+  }, [page_name, type, onVideoStarted])
 
   return (
     <div className={cx('aspect-video', className)}>
       <Stream
+        autoplay={autoplay}
         controls
         responsive
         preload="auto"

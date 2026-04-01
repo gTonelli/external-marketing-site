@@ -1,5 +1,6 @@
 'use client'
 
+import { TMasterclassTitle } from '@/app/(custom-layouts)/(no-nav)/masterclass/config'
 import { TSplitTestKey } from '@/utils/functions'
 
 /* Collection of all keys used to store data in localStorage */
@@ -13,6 +14,8 @@ export type TStorageKeys =
   | 'canViewResults'
   | 'userTag'
   | 'gam_user_tracking'
+  | `${TMasterclassTitle}-mcvs`
+  | `${TMasterclassTitle}-mcvp`
   | TSplitTestKey
 
 export const Storage = {

@@ -7,6 +7,7 @@ import { Page } from '@/components/Page'
 import { Section } from '@/components/Section'
 import { VideoStream } from '@/components/Video/variants/VideoStream'
 import { Button } from '@/components/Button/Button'
+import { AddToCalendar } from '@/components/Masterclass/AddToCalendar'
 // config
 import { CONFIG } from './config'
 import { MasterclassTitleSlugs, SEO_CONFIG, TMasterclassTitle } from '../../config'
@@ -90,16 +91,18 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
               />
             </div>
 
-            <div className="w-full text-left flex-1 flex flex-col gap-2 items-center my-auto lg:py-6 lg:px-10">
+            <div className="w-full text-left flex-1 flex flex-col justify-start my-auto p-4 lg:py-6 lg:px-10">
               <h3 className="w-full text-3xl">{step.title}</h3>
 
               <p className="w-full text-lg">{step.text}</p>
+
+              {idx === 0 && <AddToCalendar masterclassTitle={title} />}
             </div>
           </div>
         ))}
       </Section>
 
-      <Section classNameInner="gap-6 lg:grid lg:grid-cols-2">
+      <Section classNameInner="gap-6 grid lg:grid-cols-2">
         <div className="text-left">
           <h2 className="!text-4xl">{config.membership.title}</h2>
 
@@ -150,10 +153,10 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
                 height={48}
               />
 
-              <div className="flex flex-col text-left">
+              <div className="flex flex-col text-left mb-8">
                 <p className="text-lg mb-0">{link.copy}</p>
 
-                <Link href={link.linkHref} className="text-primary mb-8">
+                <Link href={link.linkHref} className="text-primary">
                   {link.linkText}
                 </Link>
               </div>

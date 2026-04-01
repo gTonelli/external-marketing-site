@@ -16,6 +16,7 @@ export type TStorageKeys =
   | 'gam_user_tracking'
   | `${TMasterclassTitle}-mcvs`
   | `${TMasterclassTitle}-mcvp`
+  | `${TMasterclassTitle}-mcst`
   | TSplitTestKey
 
 export const Storage = {

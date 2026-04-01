@@ -9,6 +9,8 @@ import { Input } from '../Input/Input'
 import { gtag } from '../GoogleAdsTag'
 import { Button } from '../Button/Button'
 import { faFilm } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// config
+import { TMasterclassTitle } from '@/app/(custom-layouts)/(no-nav)/masterclass/config'
 // libraries
 import cx from 'classnames'
 import * as yup from 'yup'
@@ -25,12 +27,13 @@ import { Regexes } from '@/utils/constants'
 import { isPhoneValid } from '@/utils/functions'
 // styles
 import 'react-international-phone/style.css'
+import { Storage } from '@/modules/Storage'
 
 interface IMasterclassRegistrationFormProps {
   id?: string
   className?: string
   classNameFields?: string
-  masterclassTitle: string
+  masterclassTitle: TMasterclassTitle
 }
 
 export default function MasterclassRegistrationForm({
@@ -52,6 +55,7 @@ export default function MasterclassRegistrationForm({
 
   function scheduleTagAndDateTime(email: string, booked_time: Date) {
     let gap = dayjs(booked_time).diff(dayjs(), 'hours')
+    Storage.set(`${masterclassTitle}-mcst`, booked_time.toISOString())
     let tagSuffix = `-masterclass-in-1h`
     let scheduled_time = dayjs(booked_time).subtract(1, 'hour').format()
     if (gap >= 48) {

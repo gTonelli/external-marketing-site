@@ -1,7 +1,7 @@
 'use client'
 // core
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { Loader } from '../Loader'
@@ -28,6 +28,7 @@ import { Regexes } from '@/utils/constants'
 import { isPhoneValid } from '@/utils/functions'
 // styles
 import 'react-international-phone/style.css'
+import { PageContext } from '@/utils/contexts'
 
 interface IMasterclassRegistrationFormProps {
   id?: string
@@ -42,10 +43,9 @@ export default function MasterclassRegistrationForm({
   masterclassTitle,
 }: IMasterclassRegistrationFormProps) {
   const router = useRouter()
-  // =========== State =========
   const [loading, setLoading] = useState(true)
+  const { page_name } = useContext(PageContext)
 
-  // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
 
@@ -110,7 +110,11 @@ export default function MasterclassRegistrationForm({
     Mixpanel.setPeople({
       $email: email,
       $first_name: name,
-      [`${masterclassTitle} Masterclass Booking Date`]: webinarBookingDateTime,
+    })
+    Mixpanel.track.MasterclassBooked({
+      masterclass_title: masterclassTitle,
+      booked_time: webinarBookingDateTime,
+      page_name,
     })
     gtag({
       event: 'form_tracking',

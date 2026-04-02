@@ -1,7 +1,8 @@
 'use client'
-
+// core
 import { useState } from 'react'
 import Image from 'next/image'
+// libraries
 import cx from 'classnames'
 
 interface ICourse {
@@ -30,20 +31,22 @@ export const CourseLibrary = ({ title, subtitle, categories }: ICourseLibraryPro
 
       <p className="text-gray-600 mb-8">{subtitle}</p>
 
-      <div className="flex flex-wrap justify-center gap-3 mb-10">
-        {categories.map((category, index) => (
-          <button
-            key={`course_pill_${index}`}
-            onClick={() => setActiveIndex(index)}
-            className={cx(
-              'rounded-full px-5 py-2 text-sm font-semibold transition-colors cursor-pointer border',
-              index === activeIndex
-                ? 'bg-primary text-white border-primary'
-                : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
-            )}>
-            {category.label}
-          </button>
-        ))}
+      <div className="w-full overflow-x-hidden">
+        <div className="w-full flex overflow-x-auto gap-3 mb-10 sm:flex-wrap sm:justify-center">
+          {categories.map((category, index) => (
+            <button
+              key={`course_pill_${index}`}
+              onClick={() => setActiveIndex(index)}
+              className={cx(
+                'w-full whitespace-nowrap rounded-full px-5 py-2 text-sm font-semibold transition-colors cursor-pointer border sm:w-fit',
+                index === activeIndex
+                  ? 'bg-primary text-white border-primary'
+                  : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
+              )}>
+              {category.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -63,7 +66,7 @@ export const CourseLibrary = ({ title, subtitle, categories }: ICourseLibraryPro
               )}
             </div>
 
-            <div className="text-left">
+            <div className="text-left p-1">
               <p className="font-semibold mb-1 text-sm lg:text-base">{course.title}</p>
 
               <p className="text-gray-500 text-sm mb-0">Thais Gibson</p>

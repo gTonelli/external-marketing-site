@@ -557,32 +557,20 @@ export const CONFIG = {
           label: 'Relationships',
           courses: [
             {
-              title: 'How to Repair Any Relationship',
-              thumbnail: '/images/course-how-to-repair-relationship.jpg',
-            },
-            {
-              title: 'Skyrocket Your Self-Esteem',
-              thumbnail: '/images/course-skyrocket-your-self-esteem.jpg',
-            },
-            {
-              title: 'Emotional Mastery & Belief Reprogramming',
-              thumbnail: '/images/course-emotional-mastery-alt.png',
-            },
-            {
               title: 'How to Heal From a Breakup',
               thumbnail: '/images/course-heal-from-breakup.jpg',
-            },
-            {
-              title: 'Healing from Narcissistic Relationships & Abuse',
-              thumbnail: '/images/course-healing-from-narcissistic-relationships.png',
             },
             {
               title: 'Ending Relationship Codependency & Enmeshment',
               thumbnail: '/images/course-codependency-enmeshment.jpg',
             },
             {
-              title: 'Overcoming Betrayal, Heal Trust Wounds & Move Past Jealousy',
-              thumbnail: '/images/course-heal-trust-wounds.png',
+              title: 'How to Repair Any Relationship',
+              thumbnail: '/images/course-how-to-repair-relationship.jpg',
+            },
+            {
+              title: 'How to Master the Dating Stage of Relationships',
+              thumbnail: '/images/course-master-dating-stage.jpg',
             },
             {
               title: 'The Key Pillars to Create a Secure Relationship',
@@ -591,23 +579,27 @@ export const CONFIG = {
           ],
         },
         {
-          label: 'Career',
+          label: 'Confidence',
           courses: [
-            {
-              title: 'Goal Setting for Success',
-              thumbnail: '/images/course-setting-goals.jpg',
-            },
-            {
-              title: 'The Handbook for a Better Life',
-              thumbnail: '/images/course-handbook-for-a-better-life-alt.png',
-            },
-            {
-              title: 'Discover, Embrace & Fulfill Your Personal Needs',
-              thumbnail: '/images/course-personal-needs-alt.jpg',
-            },
             {
               title: 'Skyrocket Your Self-Esteem',
               thumbnail: '/images/course-skyrocket-your-self-esteem.jpg',
+            },
+            {
+              title: 'Overcoming Social Anxiety & The Fear of Rejection',
+              thumbnail: '/images/course-overcoming-social-anxiety.jpg',
+            },
+            {
+              title: 'Reparenting Your Inner Child',
+              thumbnail: '/images/course-reparenting-your-inner-child.jpg',
+            },
+            {
+              title: 'Learning to Love Yourself',
+              thumbnail: '/images/course-learning-to-love-yourself.jpg',
+            },
+            {
+              title: 'Goal Setting for Success',
+              thumbnail: '/images/course-setting-goals.jpg',
             },
           ],
         },
@@ -615,10 +607,6 @@ export const CONFIG = {
           label: 'Emotional Healing',
           courses: [
             {
-              title: 'Overcoming Anxiety for Peace of Mind',
-              thumbnail: '/images/course-overcoming-anxiety.jpg',
-            },
-            {
               title: 'The Handbook for a Better Life',
               thumbnail: '/images/course-handbook-for-a-better-life-alt.png',
             },
@@ -627,8 +615,16 @@ export const CONFIG = {
               thumbnail: '/images/course-personal-needs-alt.jpg',
             },
             {
-              title: 'Emotional Mastery & Belief Reprogramming',
-              thumbnail: '/images/course-emotional-mastery-alt.png',
+              title: 'Overcoming Unworthiness & Accepting Your Shadow',
+              thumbnail: '/images/course-overcoming-unworthiness.jpg',
+            },
+            {
+              title: 'Healthy Habits for Life Mastery',
+              thumbnail: '/images/course-healthy-habits-for-life-mastery.jpg',
+            },
+            {
+              title: 'Release Emotions with Somatic Processing',
+              thumbnail: '/images/course-somatic-processing.jpg',
             },
           ],
         },
@@ -636,20 +632,24 @@ export const CONFIG = {
           label: 'Reprogramming Tools',
           courses: [
             {
-              title: '21 Tools to Reprogram the Subconscious Mind',
-              thumbnail: '/images/course-21-tools-reprogramming.jpg',
-            },
-            {
-              title: 'Release Emotions with Somatic Processing',
-              thumbnail: '/images/course-somatic-processing.jpg',
-            },
-            {
               title: 'Emotional Mastery & Belief Reprogramming',
               thumbnail: '/images/course-emotional-mastery-alt.png',
             },
             {
-              title: 'Goal Setting for Success',
-              thumbnail: '/images/course-setting-goals.jpg',
+              title: '21 Tools to Reprogram the Subconscious Mind',
+              thumbnail: '/images/course-21-tools-reprogramming.jpg',
+            },
+            {
+              title: 'Reprogramming Core Wounds Guided Audio',
+              thumbnail: '/images/course-reprogramming-core-wounds-audio.jpg',
+            },
+            {
+              title: 'Reprogramming Attachment Styles Guided Audio',
+              thumbnail: '/images/course-reprogramming-attachment-styles-audio.jpg',
+            },
+            {
+              title: 'Reparenting & Self-Soothing Guided Audio',
+              thumbnail: '/images/course-reparenting-audio.jpg',
             },
           ],
         },

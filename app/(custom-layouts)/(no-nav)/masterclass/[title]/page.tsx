@@ -97,6 +97,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
             </Link>
 
             <TrailerButton
+              title={title}
               videoId={config.hero.trailerVideoId}
               thumbnailSrc={config.hero.trailerThumbnailSrc}
             />
@@ -175,7 +176,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                   {commonConfig.studentStories.slice(0, 3).map((item, index) => (
                     <div
                       key={`testimonial_${index}`}
-                      className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                      className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
                       <p className="text-lg mb-4">{item.quote}</p>
 
                       <p className="font-bold text-sm mb-0">{item.author}</p>

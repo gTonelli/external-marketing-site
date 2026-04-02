@@ -19,6 +19,7 @@ type Events =
   | 'Lesson Started'
   | 'Logs In'
   | 'Log Out'
+  | 'Masterclass Booked'
   | 'Masterclass Quiz Submit'
   | 'Masterclass Results Quiz Submit'
   | 'Membership Ended'
@@ -303,6 +304,17 @@ class Mixpanel {
       this.event('Masterclass Results Quiz Submit', props)
     },
 
+    MasterclassBooked: (props: {
+      masterclass_title: string
+      booked_time: Date
+      page_name?: Pages
+    }) => {
+      this.event('Masterclass Booked', {
+        ...props,
+        page_name: props.page_name || window.location.pathname,
+      })
+    },
+
     PageScrolled: (props: { page_name?: Pages; scroll_depth: number }) => {
       this.event('Page Scrolled', {
         ...props,
@@ -413,5 +425,4 @@ class Mixpanel {
     },
   }
 }
-
 export default new Mixpanel()

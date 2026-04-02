@@ -1,11 +1,14 @@
 'use client'
 
+// core
 import Link from 'next/link'
+// components
 import ScrollProgress from '../ScrollProgress'
 import { Section } from '../Section'
 import { Button } from '../Button/Button'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface IFloatingNavigationProps {
   links: {

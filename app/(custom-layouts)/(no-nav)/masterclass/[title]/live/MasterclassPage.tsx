@@ -2,7 +2,7 @@
 // core
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
 import { Section } from '@/components/Section'
@@ -17,8 +17,9 @@ import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
 // config
 import { CONFIG } from './config'
 import { TMasterclassTitle, COMMON_CONFIG as commonConfig } from '../../config'
-// utils
+// modules
 import { Storage } from '@/modules/Storage'
+import Mixpanel from '@/modules/Mixpanel'
 // styles
 import '@/styles/default-styles.css'
 import '../../style.css'
@@ -33,6 +34,13 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
   const searchParams = useSearchParams()
   const userEmail = Storage.get('lastUserEmail') || searchParams.get('email')
   const [pageRevealed, setPageRevealed] = useState(Storage.get(`${title}-mcvp`) !== null)
+
+  useEffect(() => {
+    if (Storage.get('lastUserEmail') === null && searchParams.get('email')) {
+      Mixpanel.setUser(searchParams.get('email'))
+      Storage.set('lastUserEmail', searchParams.get('email'))
+    }
+  }, [searchParams])
 
   const onVideoStarted = () => {
     if (isLive) {
@@ -72,6 +80,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
 
         <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-4">
           <VideoStream
+            type={`${title} masterclass`}
             videoId={config.hero.videoId}
             thumbnailSrc={config.hero.thumbnailSrc}
             onVideoStarted={onVideoStarted}
@@ -162,8 +171,8 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
                 ))}
               </div>
 
-              <div className="w-full col-span-5 ml-auto lg:pl-6">
-                <div className="w-full max-w-96 min-h-fit">
+              <div className="w-full lg:col-span-5 lg:ml-auto lg:pl-6">
+                <div className="w-full min-h-fit flex flex-col items-center lg:max-w-96">
                   {config.socialProof.map((item, index) => (
                     <div
                       key={`social_proof_${index}`}
@@ -236,6 +245,60 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
           </Section>
 
+          <Section className="!mx-0 !px-0" classNameInner="!max-w-full !p-0 !m-0">
+            <div className="flex justify-center p-4 lg:hidden">
+              <Image
+                src="/images/Masterclass/media-collab.png"
+                alt="Thais Gibson collaborating with other experts"
+                width={314}
+                height={495}
+                quality={100}
+              />
+            </div>
+
+            <div className="hidden items-center justify-evenly p-4 lg:flex">
+              <Image
+                src="/images/Masterclass/media-1.png"
+                alt="Thais Gibson on a podcast"
+                width={230}
+                height={230}
+                quality={100}
+              />
+
+              <Image
+                src="/images/Masterclass/media-2.png"
+                alt="Thais Gibson on a podcast"
+                width={230}
+                height={295}
+                quality={100}
+              />
+
+              <Image
+                src="/images/Masterclass/media-3.png"
+                alt="Thais Gibson portrait"
+                width={344}
+                height={475}
+                quality={100}
+              />
+
+              <Image
+                src="/images/Masterclass/media-4.png"
+                alt="Thais Gibson portrait"
+                width={230}
+                height={295}
+                quality={100}
+              />
+
+              <Image
+                src="/images/Masterclass/media-5.png"
+                alt="Thais Gibson with Jay Shetty"
+                width={230}
+                height={230}
+                quality={100}
+              />
+            </div>
+          </Section>
+
           <Section id="student-stories" classNameInner="!text-left">
             <h2>{config.studentStories.title}</h2>
 
@@ -244,7 +307,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
                 {commonConfig.studentStories.map((item, index) => (
                   <div
                     key={`testimonial_${index}`}
-                    className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                    className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
                     <p className="text-lg mb-4">{item.quote}</p>
 
                     <p className="font-bold text-sm mb-0">{item.author}</p>
@@ -300,7 +363,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
               />
             </div>
 
-            <div className="w-fit">
+            <div className="w-full lg:w-fit">
               <MasterclassPricing classNameFooter="!text-gray-800" />
             </div>
           </Section>
@@ -390,6 +453,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
 
             <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-8">
               <VideoStream
+                type={`${title} masterclass media pr`}
                 videoId={config.media.videoId}
                 thumbnailSrc={config.media.videoThumbnail}
               />

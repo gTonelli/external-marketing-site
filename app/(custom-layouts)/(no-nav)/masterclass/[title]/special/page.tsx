@@ -11,10 +11,11 @@ import { FloatingNavigation } from '@/components/Masterclass/FloatingNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@/components/Button/Button'
 import { Faq } from '@/components/Faq/Faq'
-import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { CourseLibrary } from '@/components/Masterclass/CourseLibrary'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { MasterclassPricing } from '@/components/Masterclass/MasterclassPricing'
+import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
+import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
 import { List } from '@/components/List'
 import {
   faCalendarAlt,
@@ -34,8 +35,6 @@ import {
 // styles
 import '@/styles/default-styles.css'
 import '../../style.css'
-import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
-import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
 
 export const dynamicParams = false
 
@@ -95,7 +94,11 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           <p>{config.hero.copy}</p>
 
           <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-4">
-            <VideoStream videoId={config.hero.videoId} thumbnailSrc={config.hero.thumbnailSrc} />
+            <VideoStream
+              type={`${title} masterclass ssp hero`}
+              videoId={config.hero.videoId}
+              thumbnailSrc={config.hero.thumbnailSrc}
+            />
           </div>
 
           <p className="text-sm mb-8">{config.hero.videoLabel}</p>
@@ -459,7 +462,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(0, 3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
                 <p className="text-lg mb-4">{item.quote}</p>
 
                 <p className="font-bold text-sm mb-0">{item.author}</p>
@@ -526,7 +529,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
       <Section id="about-membership">
         <h2>{config.features.title}</h2>
 
-        <div className="grid grid-cols-2 gap-4 text-left lg:grid-cols-4 lg:gap-6">
+        <div className="grid grid-cols-1 gap-4 text-left xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {config.features.list.map((item, idx) => (
             <div
               key={`masterclass_membership_features_${idx}`}
@@ -560,7 +563,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
               <div key={`growth_text_${index}`} className="text-center">
                 <p className="text-lg font-bold mb-2">{step.label}</p>
 
-                <p className="">
+                <p>
                   <strong>{step.course}</strong> {step.description}
                 </p>
               </div>
@@ -575,6 +578,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <span className="block w-6 h-6 rounded-full bg-[#f7fafd]" />
                 </span>
+
                 <FontAwesomeIcon
                   icon={faCircleArrowRight}
                   className="text-2xl text-black px-1 relative z-10"
@@ -607,7 +611,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 <strong>{step.course}</strong> {step.description}
               </p>
 
-              <div className="rounded-2xl overflow-hidden">
+              <div className="max-w-96 rounded-2xl overflow-hidden mx-auto">
                 <Image
                   src={step.image}
                   alt={step.imageAlt}
@@ -783,7 +787,11 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         ))}
 
         <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-4 mx-auto mb-8">
-          <VideoStream videoId={config.media.videoId} thumbnailSrc={config.media.thumbnailSrc} />
+          <VideoStream
+            type={`${title} masterclass media pr`}
+            videoId={config.media.videoId}
+            thumbnailSrc={config.media.thumbnailSrc}
+          />
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">
@@ -888,7 +896,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
                 <p className="text-lg mb-4">{item.quote}</p>
 
                 <p className="font-bold text-sm mb-0">{item.author}</p>

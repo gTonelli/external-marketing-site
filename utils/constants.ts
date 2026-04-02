@@ -187,8 +187,8 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutAttachmentBootcamp: `${checkoutUrl}/enroll/2996140?price_id=3853225&coupon=148off`,
     checkoutSimplifiedFa: `${checkoutUrl}/enroll/559833?price_id=1285773&bci=2178659`,
     checkout1MonthFree: `${checkoutUrl}/enroll/559833?price_id=1285773&coupon=1monthoff`,
-    checkoutMasterclassMonthly: '/checkout/monthly',
-    checkoutMasterclassYearly: '/checkout/yearly',
+    checkoutMasterclassMonthly: '/checkout/monthly?promo_label=masterclass-monthly',
+    checkoutMasterclassYearly: '/checkout/yearly?promo_label=masterclass-yearly',
     // IAT Recorded
     checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2463967?price_id=3258840&coupon=iatbundleupfrontrecorded&promo_label=iat-recorded`,
     checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3258844&coupon=iatbundle3morecorded&promo_label=iat-recorded`,
@@ -248,8 +248,8 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutAttachmentBootcamp: `${checkoutUrl}/enroll/3014795?price_id=3874590&coupon=148off`,
     checkoutSimplifiedFa: `${checkoutUrl}/enroll/1934512?price_id=2638738&bci=2178659`,
     checkout1MonthFree: `${checkoutUrl}/enroll/1934512?price_id=2638738&coupon=1monthoff`,
-    checkoutMasterclassMonthly: '/checkout/monthly',
-    checkoutMasterclassYearly: '/checkout/yearly',
+    checkoutMasterclassMonthly: '/checkout/monthly?promo_label=masterclass-monthly',
+    checkoutMasterclassYearly: '/checkout/yearly?promo_label=masterclass-yearly',
     // IAT Recorded
     checkoutIATRecordedUpfront: `${checkoutUrl}/enroll/2751990?price_id=3577378&coupon=iatbundleupfrontrecorded&promo_label=iat-recorded`,
     checkoutIATRecorded3MonthPlan: `${checkoutUrl}/enroll/2751990?price_id=3919119&coupon=iatbundle3morecorded&promo_label=iat-recorded`,

@@ -459,7 +459,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(0, 3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
                 <p className="text-lg mb-4">{item.quote}</p>
 
                 <p className="font-bold text-sm mb-0">{item.author}</p>
@@ -526,7 +526,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
       <Section id="about-membership">
         <h2>{config.features.title}</h2>
 
-        <div className="grid grid-cols-2 gap-4 text-left lg:grid-cols-4 lg:gap-6">
+        <div className="grid grid-cols-1 gap-4 text-left xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {config.features.list.map((item, idx) => (
             <div
               key={`masterclass_membership_features_${idx}`}
@@ -560,7 +560,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
               <div key={`growth_text_${index}`} className="text-center">
                 <p className="text-lg font-bold mb-2">{step.label}</p>
 
-                <p className="">
+                <p>
                   <strong>{step.course}</strong> {step.description}
                 </p>
               </div>
@@ -575,6 +575,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <span className="block w-6 h-6 rounded-full bg-[#f7fafd]" />
                 </span>
+
                 <FontAwesomeIcon
                   icon={faCircleArrowRight}
                   className="text-2xl text-black px-1 relative z-10"
@@ -607,7 +608,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                 <strong>{step.course}</strong> {step.description}
               </p>
 
-              <div className="rounded-2xl overflow-hidden">
+              <div className="max-w-96 rounded-2xl overflow-hidden mx-auto">
                 <Image
                   src={step.image}
                   alt={step.imageAlt}
@@ -888,7 +889,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
                 <p className="text-lg mb-4">{item.quote}</p>
 
                 <p className="font-bold text-sm mb-0">{item.author}</p>

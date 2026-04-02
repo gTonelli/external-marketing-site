@@ -72,7 +72,7 @@ export default function MasterclassMembershipPage() {
       <Section>
         <h2>{config.features.title}</h2>
 
-        <div className="grid grid-cols-2 gap-4 text-left lg:grid-cols-4 lg:gap-6">
+        <div className="grid grid-cols-1 gap-4 text-left xs:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {config.features.list.map((item, idx) => (
             <div
               key={`masterclass_membership_features_${idx}`}
@@ -95,7 +95,7 @@ export default function MasterclassMembershipPage() {
             {commonConfig.studentStories.map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between">
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
                 <p className="text-lg mb-4">{item.quote}</p>
 
                 <p className="font-bold text-sm mb-0">{item.author}</p>
@@ -153,7 +153,7 @@ export default function MasterclassMembershipPage() {
           />
         </div>
 
-        <div className="w-fit">
+        <div className="w-full lg:w-fit">
           <MasterclassPricing />
         </div>
       </Section>

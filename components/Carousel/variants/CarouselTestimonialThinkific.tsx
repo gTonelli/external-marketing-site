@@ -82,38 +82,7 @@ export const CarouselTestimonialThinkific = forwardRef(
             <SwiperSlide
               key={`review_${index}`}
               className={cx('!w-full !h-auto overflow-hidden md:!w-1/2', classNameSlide)}>
-              <div
-                className={cx(
-                  'h-full bg-gradient-to-tl from-blue-lightest-50 to-primary-light-50 rounded-3xl text-left p-9',
-                  classNameCard
-                )}>
-                <div>
-                  <FontAwesomeIcon icon={faQuoteLeft} size="3x" className="!text-primary mb-4" />
-                </div>
-
-                <p className="mb-4">{review.content}</p>
-
-                <div className="w-fit flex items-center">
-                  {review.author.picture && (
-                    <Image
-                      className="!w-12 !h-12 rounded-full mr-4"
-                      src={review.author.picture}
-                      alt={`An image of ${review.author.name}`}
-                    />
-                  )}
-
-                  <div>
-                    <p>
-                      <strong>{review.author.name}</strong>
-                    </p>
-                    {review.author.country && (
-                      <p>
-                        {review.author.state}, {review.author.country}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <CarouselCard review={review} classNameCard={classNameCard} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -121,3 +90,45 @@ export const CarouselTestimonialThinkific = forwardRef(
     )
   }
 )
+
+interface ICarouselCardProps {
+  review: TTestimonial
+  classNameCard?: string
+}
+
+export const CarouselCard = ({ review, classNameCard }: ICarouselCardProps) => {
+  return (
+    <div
+      className={cx(
+        'h-full bg-gradient-to-tl from-blue-lightest-50 to-primary-light-50 rounded-3xl text-left p-9',
+        classNameCard
+      )}>
+      <div>
+        <FontAwesomeIcon icon={faQuoteLeft} size="3x" className="!text-primary mb-4" />
+      </div>
+
+      <p className="mb-4">{review.content}</p>
+
+      <div className="w-fit flex items-center">
+        {review.author.picture && (
+          <Image
+            className="!w-12 !h-12 rounded-full mr-4"
+            src={review.author.picture}
+            alt={`An image of ${review.author.name}`}
+          />
+        )}
+
+        <div>
+          <p>
+            <strong>{review.author.name}</strong>
+          </p>
+          {review.author.country && (
+            <p>
+              {review.author.state}, {review.author.country}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}

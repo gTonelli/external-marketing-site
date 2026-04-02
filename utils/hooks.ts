@@ -149,3 +149,29 @@ export function useAttachmentQuizSplitTest(showingVariant: boolean) {
     })
   })
 }
+
+export function useScrollState() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    let scrolling = false
+
+    const update = () => {
+      setScrollY(window.scrollY)
+      scrolling = false
+    }
+
+    const onScroll = () => {
+      if (!scrolling) {
+        requestAnimationFrame(update)
+        scrolling = true
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return scrollY
+}

@@ -17,7 +17,7 @@ export const CONFIG = {
     hero: {
       title: 'Discover What it Feels Like to Be Seen, Understood, and Deeply Connected',
       copy: 'Join The Personal Development School and access a full library of courses, tools, and live group coaching sessions designed to help you understand your emotional needs so you can finally overcome loneliness, reignite the spark in your relationships and experience the kind of love from others that you deserve.',
-      videoId: '0ebd3ca075a678790f95500b71a1fb1a',
+      videoId: '546da06755eb846463a99dd3b4e9f493',
       thumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
       videoLabel:
@@ -956,9 +956,9 @@ export const CONFIG = {
         'Through her teachings and the Personal Development School, Thais Gibson, PhD has helped 60,000+ people in over 145 countries better understand their emotional patterns and build healthier relationships.',
         'Her work combines psychological insight with practical tools designed to help people create meaningful and lasting personal change.',
       ],
-      videoId: '0ebd3ca075a678790f95500b71a1fb1a',
+      videoId: 'ce68139aa9a0eaab7a36522a37fc237e',
       thumbnailSrc:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
       articles: [
         {
           logo: '/images/Logo_Brand/science-times-logo.png',

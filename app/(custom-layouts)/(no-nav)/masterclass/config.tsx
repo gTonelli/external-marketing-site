@@ -85,8 +85,8 @@ export const COMMON_CONFIG = {
     },
     {
       quote:
-        '\u201cI\u2019ve researched relationships most of my life, but I could never find anything that actually explained my dynamics. Thais explained exactly what I was experiencing \u2014 it felt like she was reading my mind. I\u2019m usually a bit of a skeptic, but I was hooked. I finally understood what was going on and how to fix it.\u201d',
-      author: 'Melissa A',
+        '\u201cPDS has changed my life… My security has increased substantially and is now by far my primary attachment style. I stopped drinking, have zero drama in my life, and even gained the confidence to open my own business.\u201d',
+      author: 'Sam P',
     },
   ],
   thais: {

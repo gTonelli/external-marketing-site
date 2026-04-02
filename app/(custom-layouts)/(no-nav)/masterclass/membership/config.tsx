@@ -7,7 +7,7 @@ export const CONFIG = {
     title: 'Your Only Chance To Get The Personal Development School Membership for $49 per month',
     subtitle:
       'This special discount is yours for as long as you choose to stay a member of The Personal Development School',
-    videoId: '0ebd3ca075a678790f95500b71a1fb1a',
+    videoId: '546da06755eb846463a99dd3b4e9f493',
     thumbnailSrc:
       'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
     videoLabel: 'The lifechanging tools you can use in all areas of life, now yours.',

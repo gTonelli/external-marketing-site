@@ -1,5 +1,6 @@
 // core
 import { Metadata } from 'next'
+import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 // components
@@ -91,7 +92,9 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
           </div>
 
           <div className="flex flex-row gap-4">
-            <Button className="masterclass-yellow-cta" label="RESERVE MY SPOT NOW" />
+            <Link href="#reserve-my-spot">
+              <Button className="masterclass-yellow-cta" label="RESERVE MY SPOT NOW" />
+            </Link>
 
             <TrailerButton
               videoId={config.hero.trailerVideoId}

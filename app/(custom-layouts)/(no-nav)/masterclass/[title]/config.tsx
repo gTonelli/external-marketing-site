@@ -1,9 +1,4 @@
-import {
-  faUserGroup,
-  faClock,
-  faAwardSimple,
-  faSmile,
-} from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faUserGroup, faClock, faSmile } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export const CONFIG = {
   needs: {

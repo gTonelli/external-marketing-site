@@ -306,7 +306,7 @@ class Mixpanel {
 
     MasterclassBooked: (props: {
       masterclass_title: string
-      booked_time: Date
+      booked_time: string
       page_name?: Pages
     }) => {
       this.event('Masterclass Booked', {

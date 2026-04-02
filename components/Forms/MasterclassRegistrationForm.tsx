@@ -110,11 +110,11 @@ export default function MasterclassRegistrationForm({
     Mixpanel.setPeople({
       $email: email,
       $first_name: name,
-      [`${masterclassTitle} Masterclass Booking`]: webinarBookingDateTime.toISOString(),
+      [`${masterclassTitle}_masterclass_booking`]: webinarBookingDateTime.toISOString(),
     })
     Mixpanel.track.MasterclassBooked({
       masterclass_title: masterclassTitle,
-      booked_time: webinarBookingDateTime.toISOString(),
+      masterclass_time: webinarBookingDateTime.toISOString(),
       page_name,
     })
     gtag({

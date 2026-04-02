@@ -20,6 +20,8 @@ import { TMasterclassTitle, COMMON_CONFIG as commonConfig } from '../../config'
 // modules
 import { Storage } from '@/modules/Storage'
 import Mixpanel from '@/modules/Mixpanel'
+// utils
+import { Regexes } from '@/utils/constants'
 // styles
 import '@/styles/default-styles.css'
 import '../../style.css'
@@ -36,9 +38,10 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
   const [pageRevealed, setPageRevealed] = useState(Storage.get(`${title}-mcvp`) !== null)
 
   useEffect(() => {
-    if (Storage.get('lastUserEmail') === null && searchParams.get('email')) {
-      Mixpanel.setUser(searchParams.get('email'))
-      Storage.set('lastUserEmail', searchParams.get('email'))
+    const email = searchParams.get('email')
+    if (email && Regexes.email.test(email) && Storage.get('lastUserEmail') === null) {
+      Mixpanel.setUser(email)
+      Storage.set('lastUserEmail', email)
     }
   }, [searchParams])
 

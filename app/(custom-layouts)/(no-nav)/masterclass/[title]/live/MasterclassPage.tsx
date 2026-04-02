@@ -36,7 +36,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
   const [pageRevealed, setPageRevealed] = useState(Storage.get(`${title}-mcvp`) !== null)
 
   useEffect(() => {
-    if (searchParams.get('email')) {
+    if (Storage.get('lastUserEmail') === null && searchParams.get('email')) {
       Mixpanel.setUser(searchParams.get('email'))
       Storage.set('lastUserEmail', searchParams.get('email'))
     }
@@ -80,6 +80,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
 
         <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-4">
           <VideoStream
+            type={`${title} masterclass`}
             videoId={config.hero.videoId}
             thumbnailSrc={config.hero.thumbnailSrc}
             onVideoStarted={onVideoStarted}
@@ -452,6 +453,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
 
             <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-8">
               <VideoStream
+                type={`${title} masterclass media pr`}
                 videoId={config.media.videoId}
                 thumbnailSrc={config.media.videoThumbnail}
               />

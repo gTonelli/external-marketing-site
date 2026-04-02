@@ -53,7 +53,11 @@ export default function MasterclassMembershipPage() {
         <p className="text-xl lg:text-3xl">{config.hero.subtitle}</p>
 
         <div className="max-w-3xl bg-white rounded-lg shadow-lg p-4 mb-4 mx-auto">
-          <VideoStream videoId={config.hero.videoId} thumbnailSrc={config.hero.thumbnailSrc} />
+          <VideoStream
+            type="masterclass membership hero"
+            videoId={config.hero.videoId}
+            thumbnailSrc={config.hero.thumbnailSrc}
+          />
         </div>
 
         <p className="text-sm text-gray-700 mb-8">{config.hero.videoLabel}</p>

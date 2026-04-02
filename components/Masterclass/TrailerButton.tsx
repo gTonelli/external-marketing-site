@@ -1,18 +1,24 @@
 'use client'
 
+// core
 import { useState } from 'react'
+// components
 import { Button } from '@/components/Button/Button'
 import { Dialog } from '@/components/Dialog/Dialog'
 import { VideoStream } from '@/components/Video/variants/VideoStream'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@awesome.me/kit-545b942488/icons/classic/solid'
+// config
+import { TMasterclassTitle } from '@/app/(custom-layouts)/(no-nav)/masterclass/config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface ITrailerButtonProps {
+  title: TMasterclassTitle
   videoId: string
-  thumbnailSrc?: string
+  thumbnailSrc: string
 }
 
-export const TrailerButton = ({ videoId, thumbnailSrc = '' }: ITrailerButtonProps) => {
+export const TrailerButton = ({ title, videoId, thumbnailSrc }: ITrailerButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -33,7 +39,12 @@ export const TrailerButton = ({ videoId, thumbnailSrc = '' }: ITrailerButtonProp
           </button>
 
           <div className="w-full rounded-xl overflow-hidden bg-black shadow-2xl">
-            <VideoStream autoplay videoId={videoId} thumbnailSrc={thumbnailSrc} />
+            <VideoStream
+              autoplay
+              type={`${title} masterclass trailer`}
+              videoId={videoId}
+              thumbnailSrc={thumbnailSrc}
+            />
           </div>
         </div>
       </Dialog>

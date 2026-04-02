@@ -56,7 +56,11 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
         <p className="text-2xl">{config.hero.subtitle}</p>
 
         <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
-          <VideoStream videoId={config.hero.videoId} thumbnailSrc={config.hero.thumbnailSrc} />
+          <VideoStream
+            type={`${title} masterclass thank you hero`}
+            videoId={config.hero.videoId}
+            thumbnailSrc={config.hero.thumbnailSrc}
+          />
         </div>
 
         <p className="text-sm text-gray-500 mb-8">{config.hero.videoLabel}</p>

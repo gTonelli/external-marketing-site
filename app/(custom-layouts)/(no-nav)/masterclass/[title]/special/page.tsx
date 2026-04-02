@@ -11,10 +11,11 @@ import { FloatingNavigation } from '@/components/Masterclass/FloatingNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@/components/Button/Button'
 import { Faq } from '@/components/Faq/Faq'
-import { Trustbar } from '@/components/Trustbar/Trustbar'
 import { CourseLibrary } from '@/components/Masterclass/CourseLibrary'
 import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/CarouselTestimonialThinkific'
 import { MasterclassPricing } from '@/components/Masterclass/MasterclassPricing'
+import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
+import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
 import { List } from '@/components/List'
 import {
   faCalendarAlt,
@@ -34,8 +35,6 @@ import {
 // styles
 import '@/styles/default-styles.css'
 import '../../style.css'
-import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
-import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
 
 export const dynamicParams = false
 
@@ -95,7 +94,11 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           <p>{config.hero.copy}</p>
 
           <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-4">
-            <VideoStream videoId={config.hero.videoId} thumbnailSrc={config.hero.thumbnailSrc} />
+            <VideoStream
+              type={`${title} masterclass ssp hero`}
+              videoId={config.hero.videoId}
+              thumbnailSrc={config.hero.thumbnailSrc}
+            />
           </div>
 
           <p className="text-sm mb-8">{config.hero.videoLabel}</p>
@@ -784,7 +787,11 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         ))}
 
         <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-4 mx-auto mb-8">
-          <VideoStream videoId={config.media.videoId} thumbnailSrc={config.media.thumbnailSrc} />
+          <VideoStream
+            type={`${title} masterclass media pr`}
+            videoId={config.media.videoId}
+            thumbnailSrc={config.media.thumbnailSrc}
+          />
         </div>
 
         <div className="grid gap-4 lg:grid-cols-3">

@@ -97,6 +97,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
             </Link>
 
             <TrailerButton
+              title={title}
               videoId={config.hero.trailerVideoId}
               thumbnailSrc={config.hero.trailerThumbnailSrc}
             />

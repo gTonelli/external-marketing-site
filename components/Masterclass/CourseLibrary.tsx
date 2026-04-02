@@ -1,7 +1,8 @@
 'use client'
-
+// core
 import { useState } from 'react'
 import Image from 'next/image'
+// libraries
 import cx from 'classnames'
 
 interface ICourse {

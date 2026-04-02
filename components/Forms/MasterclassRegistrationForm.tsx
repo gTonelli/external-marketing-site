@@ -22,12 +22,12 @@ import dayjs from 'dayjs'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 import { useGamAnalytics } from '@/modules/GAM'
 import Mixpanel from '@/modules/Mixpanel'
+import { Storage } from '@/modules/Storage'
 // utils
 import { Regexes } from '@/utils/constants'
 import { isPhoneValid } from '@/utils/functions'
 // styles
 import 'react-international-phone/style.css'
-import { Storage } from '@/modules/Storage'
 
 interface IMasterclassRegistrationFormProps {
   id?: string
@@ -177,7 +177,7 @@ export default function MasterclassRegistrationForm({
           validateOnBlur={false}
           validationSchema={MasterclassRegistrationFormValidationSchema}
           onSubmit={onSubmit}>
-          {({ values, errors, touched, handleChange, setFieldValue, isSubmitting }) => (
+          {({ values, errors, touched, setFieldValue, isSubmitting }) => (
             <Form className={cx('w-full flex-col', className)} id={id}>
               <div className="mb-4">
                 <Input.Field

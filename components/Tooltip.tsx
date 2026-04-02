@@ -94,7 +94,7 @@ export const Tooltip = ({
           )}
 
           {/* BODY MESSAGE */}
-          <p>{message}</p>
+          <p className="mb-0">{message}</p>
         </div>
       </div>
     </div>

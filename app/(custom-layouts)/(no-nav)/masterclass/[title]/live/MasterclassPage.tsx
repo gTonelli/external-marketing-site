@@ -140,7 +140,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             ctaHref="#pricing"
           />
 
-          <Section classNameInner="!text-left">
+          <Section id="about-this-program" classNameInner="!text-left">
             <h2>{config.aboutThisProgram.title}</h2>
 
             <div className="rounded-xl overflow-hidden mb-4">
@@ -188,7 +188,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
           </Section>
 
-          <Section classNameInner="!text-left">
+          <Section id="what-you-will-learn" classNameInner="!text-left">
             <h2>{config.whatYouWillLearn.title}</h2>
 
             <List
@@ -198,7 +198,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             />
           </Section>
 
-          <Section classNameInner="grid gap-4 lg:grid-cols-2">
+          <Section id="meet-thais-gibson" classNameInner="grid gap-4 lg:grid-cols-2">
             <div>
               <Image
                 src={config.thais.image}
@@ -236,7 +236,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
           </Section>
 
-          <Section classNameInner="!text-left">
+          <Section id="student-stories" classNameInner="!text-left">
             <h2>{config.studentStories.title}</h2>
 
             <div className="block lg:hidden">
@@ -286,6 +286,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
           </Section>
 
           <Section
+            id="membership"
             className="bg-gradient-to-br from-slate-500 via-cyan-900 to-slate-500"
             classNameInner="flex flex-col items-center bg-white shadow-xl rounded-20 gap-8 p-6 lg:flex-row lg:p-16">
             <div className="text-left lg:flex-1">

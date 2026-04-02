@@ -4,7 +4,7 @@ export const CONFIG = {
   needs: {
     hero: {
       title: 'Discover Your Emotional Needs And Finally Feel, Seen Connected, and Understood',
-      videoId: '0ebd3ca075a678790f95500b71a1fb1a',
+      videoId: '916691c3f1cd3c89baaebc0110afaca9',
       thumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
     },
@@ -237,9 +237,9 @@ export const CONFIG = {
       title:
         'The membership helping thousands heal, grow, and build secure, fulfilling relationships',
       copy: 'Through Thais Gibson’s work and The Personal Development School, people around the world are learning how to break free from unhealthy patterns, reprogram core beliefs, and step into a more empowered, connected version of themselves.',
-      videoId: '0ebd3ca075a678790f95500b71a1fb1a',
+      videoId: 'ce68139aa9a0eaab7a36522a37fc237e',
       videoThumbnail:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/media_masterclass_video_thumbnail_6451203075.jpg',
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
       articles: [
         {
           logo: '/images/Logo_Brand/us-insider-logo.jpg',
@@ -258,7 +258,7 @@ export const CONFIG = {
             "Thais Gibson's PDS: Where Science-Backed Strategies Lead to Tangible Breakthroughs",
           copy: "In a world where toxic relationship patterns can erode happiness and fulfillment, Thais Gibson's PDS stands as a beacon of hope. By embracing science-backed strategies and personalized approaches, PDS empowers individuals to break free from their past and pave the way to a future filled with love, and understanding breakthroughs...",
           linkUrl:
-            'https://www.ibtimes.com/thais-gibson-pds-science-backed-strategies-lead-tangible-breakthroughs-1707325',
+            'https://www.ibtimes.sg/thais-gibsons-pds-where-science-backed-strategies-lead-tangible-breakthroughs-72150',
           link: 'Read on International Business Times',
         },
       ],

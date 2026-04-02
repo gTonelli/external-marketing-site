@@ -138,7 +138,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
 
       <FloatingNavigation links={config.navigation} />
 
-      <Section>
+      <Section id="why-this-membership">
         <div className="min-h-fit gap-6 lg:grid lg:grid-cols-12">
           <div className="w-full order-1 lg:col-span-5 lg:order-2 lg:pl-6 lg:ml-auto">
             <div className="w-full min-h-fit flex flex-col items-center lg:max-w-96">
@@ -227,7 +227,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
       </Section>
 
-      <Section>
+      <Section id="the-curriculum">
         <h2>{config.curriculum.title}</h2>
 
         <p className="text-xl">
@@ -379,7 +379,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
       </Section>
 
-      <Section>
+      <Section id="meet-thais-gibson">
         <h2>{config.thais.title}</h2>
 
         <div className="grid gap-6 lg:grid-cols-2 mb-8">
@@ -523,7 +523,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
       </Section>
 
-      <Section>
+      <Section id="about-membership">
         <h2>{config.features.title}</h2>
 
         <div className="grid grid-cols-2 gap-4 text-left lg:grid-cols-4 lg:gap-6">
@@ -739,7 +739,10 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
       </Section>
 
-      <Section className="max-w-full p-4 lg:!p-0" classNameInner="!max-w-full !m-0 !p-0">
+      <Section
+        id="what-students-say"
+        className="max-w-full p-4 lg:!p-0"
+        classNameInner="!max-w-full !m-0 !p-0">
         <h2 className="mb-4">Here’s What Members Say About Their Transformation</h2>
 
         <CarouselTestimonialThinkific

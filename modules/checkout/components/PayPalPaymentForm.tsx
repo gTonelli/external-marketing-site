@@ -161,7 +161,7 @@ export function PayPalPaymentForm({
         )
       }
     },
-    [price.payPalPriceApiId, productId, strapiOrigin, validateUserIdentity]
+    [price.payPalPriceApiId, productId, searchParams, strapiOrigin, validateUserIdentity]
   )
 
   const createOrder = useCallback(async () => {
@@ -183,7 +183,15 @@ export function PayPalPaymentForm({
         promoLabel: searchParams.get('promo_label'),
       }
     )
-  }, [lookupKey, price.currency, price.type, productName, strapiOrigin, validateUserIdentity])
+  }, [
+    lookupKey,
+    price.currency,
+    price.type,
+    productName,
+    searchParams,
+    strapiOrigin,
+    validateUserIdentity,
+  ])
 
   const handlePayPalButtonsError = useCallback((err: unknown) => {
     setPaypalButtonsReady(true)

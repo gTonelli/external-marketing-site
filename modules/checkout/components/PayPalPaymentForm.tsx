@@ -2,6 +2,7 @@
 
 // core
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 // components
 import { CheckoutIdentityFields } from '@/modules/checkout/components/CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from '@/modules/checkout/components/CheckoutPanelLoadingOverlay'
@@ -55,7 +56,7 @@ export function PayPalPaymentForm({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const paypalActionsRef = useRef<{ enable?: () => void; disable?: () => void } | null>(null)
   const payPalFieldsLoadedTrackedRef = useRef(false)
-
+  const searchParams = useSearchParams()
   const mode = payPalModeForPrice(price)
   const currency = price.currency.toUpperCase()
 
@@ -146,6 +147,7 @@ export function PayPalPaymentForm({
           productId,
           orderId,
           paypalPlanId: price.payPalPriceApiId,
+          promoLabel: searchParams.get('promo_label'),
         })
 
         window.location.href =
@@ -178,7 +180,7 @@ export function PayPalPaymentForm({
       {
         email: identity.email,
         currency: price.currency.toUpperCase() as 'USD' | 'CAD',
-        promoLabel: null,
+        promoLabel: searchParams.get('promo_label'),
       }
     )
   }, [lookupKey, price.currency, price.type, productName, strapiOrigin, validateUserIdentity])
@@ -201,18 +203,15 @@ export function PayPalPaymentForm({
     setErrorMessage(msg)
   }, [])
 
-  const handlePayPalButtonsCancel = useCallback(
-    async (data: { orderID?: string | null }) => {
-      setPaypalProcessing(false)
-      Mixpanel.track.PaymentFailed({
-        Message: 'Payment cancelled by user',
-        Code: 'incomplete',
-        'Order ID': data.orderID ?? undefined,
-        page_name: 'Checkout Page',
-      })
-    },
-    []
-  )
+  const handlePayPalButtonsCancel = useCallback(async (data: { orderID?: string | null }) => {
+    setPaypalProcessing(false)
+    Mixpanel.track.PaymentFailed({
+      Message: 'Payment cancelled by user',
+      Code: 'incomplete',
+      'Order ID': data.orderID ?? undefined,
+      page_name: 'Checkout Page',
+    })
+  }, [])
 
   const onApproveOrder = useCallback(
     async (data: { orderID?: string }) => {
@@ -236,6 +235,7 @@ export function PayPalPaymentForm({
           paypalOrderId: orderID,
           productId,
           lookupKey,
+          promoLabel: searchParams.get('promo_label'),
         })
 
         window.location.href =
@@ -247,7 +247,7 @@ export function PayPalPaymentForm({
         setErrorMessage(err instanceof Error ? err.message : 'Could not capture PayPal payment.')
       }
     },
-    [lookupKey, productId, strapiOrigin, validateUserIdentity]
+    [lookupKey, productId, strapiOrigin, searchParams, validateUserIdentity]
   )
 
   if (!paypalClientId) {
@@ -328,7 +328,7 @@ export function PayPalPaymentForm({
                       productId,
                       thinkificProductId,
                       email: identity.email,
-                      promoLabel: null,
+                      promoLabel: searchParams.get('promo_label'),
                     }
                   )
                 }}

@@ -78,6 +78,7 @@ export type PayPalOrderApprovedBody = {
   lookupKey: string
   bonusCourseId?: string | null
   bonusBundleId?: string | null
+  promoLabel?: string | null
 }
 
 /** One-time: fulfill after PayPal capture (enroll, mark paid, return destination URL). */
@@ -156,6 +157,7 @@ export type PayPalConfirmSubscriptionBody = {
   paypalPlanId: string
   bonusCourseId?: string | null
   bonusBundleId?: string | null
+  promoLabel?: string | null
 }
 
 export async function strapiPayPalConfirmSubscription(

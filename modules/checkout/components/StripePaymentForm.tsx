@@ -2,6 +2,7 @@
 
 // core
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 // components
 import { CheckoutIdentityFields } from '@/modules/checkout/components/CheckoutIdentityFields'
 import { CheckoutPanelLoadingOverlay } from '@/modules/checkout/components/CheckoutPanelLoadingOverlay'
@@ -66,6 +67,7 @@ function DeferredCheckoutFormInner({
   const stickyNewUserRef = useRef<boolean | undefined>(undefined)
   const stripeFieldsLoadedTrackedRef = useRef(false)
   const selectedPaymentMethodRef = useRef('card')
+  const searchParams = useSearchParams()
 
   useEffect(() => {
     setPaymentElementReady(false)
@@ -161,6 +163,7 @@ function DeferredCheckoutFormInner({
         email: billingEmail,
         firstName: firstName.trim(),
         lastName: lastName.trim(),
+        promoLabel: searchParams.get('promo_label'),
       })
 
       if (!ok) {

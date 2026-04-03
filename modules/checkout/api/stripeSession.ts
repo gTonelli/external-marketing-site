@@ -7,6 +7,7 @@ type StartStripeCheckoutSessionParams = {
   email: string
   firstName: string
   lastName: string
+  promoLabel?: string | null
 }
 
 export async function startStripeCheckoutSession({
@@ -15,6 +16,7 @@ export async function startStripeCheckoutSession({
   email,
   firstName,
   lastName,
+  promoLabel,
 }: StartStripeCheckoutSessionParams): Promise<{
   ok: boolean
   status: number
@@ -29,6 +31,7 @@ export async function startStripeCheckoutSession({
       email,
       firstName,
       lastName,
+      promoLabel,
     }),
   })
   const data: CheckoutSessionResponse = await res.json()

@@ -127,7 +127,7 @@ export const AttachmentQuizForm = ({
 
   const tags = [`attachment-quiz-${userStyle}`]
   if (quiz_traffic_source === 'paidGoogle' && (userStyle === 'fa' || userStyle === 'da')) {
-    tags.push(`funnel-cro-${userStyle}`)
+    tags.push(`attachment-quiz-${userStyle}-google`)
   }
 
   return (

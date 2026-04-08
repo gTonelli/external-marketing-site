@@ -31,8 +31,8 @@ export const LayoutWrapper = ({ children }: IDefaultWrapperProps) => {
           `}
       </Script>
 
-      <body>
-        <div className="flex flex-col min-h-screen relative bg-white base-typography overflow-x-hidden">
+      <body className="overflow-x-hidden">
+        <div className="flex flex-col min-h-screen relative bg-white base-typography">
           {children}
         </div>
       </body>

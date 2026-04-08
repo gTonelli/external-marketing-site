@@ -12,8 +12,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 export interface IFAQs {
-  question: string
-  answer: string | string[]
+  question: string | React.ReactNode
+  answer: string | string[] | React.ReactNode
 }
 
 export interface IFAQsProps extends IDefaultProps {
@@ -122,8 +122,8 @@ export const FaqDefault = ({
 }
 
 export interface IFAQProps extends IDefaultProps {
-  question: string
-  answer: string | string[]
+  question: string | React.ReactNode
+  answer: string | string[] | React.ReactNode
   classNameAnswer?: string
   classNameExpandable?: string
   classNameIcon?: string
@@ -152,15 +152,25 @@ const FAQ = ({
       trigger={
         <div
           className={`flex ${
-            reverseIcon ? 'justify-start items-center' : 'justify-between'
+            reverseIcon ? 'justify-start items-center' : 'justify-between items-center'
           } p-4 transition-all !bg-opacity-20`}>
-          <Text.Paragraph
-            className={cx(
-              `font-bold text-left md:text-lg mb-0 ${reverseIcon ? 'order-2' : ''}`,
-              classNameQuestion
-            )}
-            content={question}
-          />
+          {typeof question === 'string' ? (
+            <Text.Paragraph
+              className={cx(
+                `font-bold text-left md:text-lg mb-0 ${reverseIcon ? 'order-2' : ''}`,
+                classNameQuestion
+              )}
+              content={question}
+            />
+          ) : (
+            <div
+              className={cx(
+                `font-bold text-left md:text-lg mb-0 ${reverseIcon ? 'order-2' : ''}`,
+                classNameQuestion
+              )}>
+              {question}
+            </div>
+          )}
 
           <FontAwesomeIcon
             className={cx('text-primary ml-5', reverseIcon ? 'order-1 mr-4' : '', classNameIcon)}
@@ -177,14 +187,16 @@ const FAQ = ({
             className={cx('text-left', classNameAnswer)}
             content={answer}
           />
-        ) : (
-          answer.map((data) => (
+        ) : Array.isArray(answer) ? (
+          answer.map((data, idx) => (
             <Text.Paragraph
-              key={data}
+              key={`faq_answer_${idx}`}
               className={cx('text-left mb-4', classNameAnswer)}
               content={data}
             />
           ))
+        ) : (
+          <div className={cx('text-left', classNameAnswer)}>{answer}</div>
         )}
       </div>
     </Expandable>

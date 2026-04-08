@@ -1078,7 +1078,7 @@ export const ROYAL_RUMBLE = {
       headlineYT: 'Your quiz results are on the way! Watch this video while you wait.',
       subheadline: `The First Step Is Watching This Short – And Shockingly Accurate – Video About Being A Securely Attached Person!`,
       videoURL: 'https://storage.googleapis.com/pds_videos/RoyalRumbleSAshortvideo.mp4',
-      title: 'Who Is The Securely Attached?',
+      title: 'The Secure Attachment Profile',
       titleYT: 'This is the Securely Attached',
       copy: 'While we email your personalized report, watch this video and read on to discover your secure attachment style, how it impacts your relationships and patterns, and how to use it to find, nurture, and maintain a long-lasting and loving relationship.',
     },

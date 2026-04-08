@@ -159,7 +159,11 @@ const FAQ = ({
               'flex justify-between items-center text-black transition-all bg-white rounded-lg  p-4',
               classNameQuestion
             )}>
-            <Text.Paragraph className="font-bold mb-0 md:text-lg" content={question} />
+            {typeof question === 'string' ? (
+              <Text.Paragraph className="font-bold mb-0 md:text-lg" content={question} />
+            ) : (
+              <div className="font-bold mb-0 md:text-lg">{question}</div>
+            )}
 
             <FontAwesomeIcon
               className={cx(`ml-5 text-xl transition-all ${isOpen && 'rotate-180'}`, classNameIcon)}
@@ -176,10 +180,12 @@ const FAQ = ({
           )}>
           {typeof answer === 'string' ? (
             <Text.Paragraph useMD className="text-left" content={answer} />
-          ) : (
+          ) : Array.isArray(answer) ? (
             answer.map((data) => (
               <Text.Paragraph key={data} className="text-left mb-4" content={data} />
             ))
+          ) : (
+            <div className="text-left">{answer}</div>
           )}
         </div>
       </Expandable>

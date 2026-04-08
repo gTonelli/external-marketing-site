@@ -60,6 +60,14 @@
       font-size: 28px;
     }
   }
+
+  /* Checkout: global h2–h4 use serif; this page should match Effra + Payment Element */
+  .checkout-page h1,
+  .checkout-page h2,
+  .checkout-page h3,
+  .checkout-page h4 {
+    @apply font-effra font-bold;
+  }
 }
 
 a {

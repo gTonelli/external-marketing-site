@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# cursor
+.cursor
+
 # dependencies
 /node_modules
 /.pnp
@@ -18,6 +21,7 @@
 # misc
 .DS_Store
 *.pem
+/docs
 
 # debug
 npm-debug.log*

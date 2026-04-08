@@ -21,6 +21,12 @@ interface ICountdownTimerProps {
   date?: Date
   theme?: 'dark' | 'light' | 'transparent'
   includeDays?: boolean
+  /**
+   * days, hours, minutes and second labels
+   * @default: ["Days", "Hours", "Minutes", "Seconds"]
+   * maintain the same order
+   */
+  labels?: string[]
 }
 
 interface ICountdownRendererProps {
@@ -41,6 +47,7 @@ export const CountdownTimer = forwardRef(
       date,
       theme = 'dark',
       includeDays = true,
+      labels = ['Days', 'Hours', 'Minutes', 'Seconds'],
     }: ICountdownTimerProps,
     ref: React.LegacyRef<Countdown>
   ) => {
@@ -113,8 +120,8 @@ export const CountdownTimer = forwardRef(
                             theme === 'dark'
                               ? 'text-white'
                               : theme === 'transparent'
-                              ? 'text-primary'
-                              : 'text-black',
+                                ? 'text-primary'
+                                : 'text-black',
                             classNameLabel
                           )}>
                           {number.label}
@@ -129,8 +136,8 @@ export const CountdownTimer = forwardRef(
                             theme === 'dark'
                               ? 'text-white'
                               : theme === 'transparent'
-                              ? 'text-primary'
-                              : 'text-black'
+                                ? 'text-primary'
+                                : 'text-black'
                           } -mt-8 mx-1`,
                           classNameDateSeperator
                         )}>

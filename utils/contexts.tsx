@@ -34,7 +34,7 @@ export const PageContext = createContext<IPage>({ page_name: undefined })
 
 // ==================== UserData context ====================
 export const UserDataContext = createContext<
-  Pick<TUserData, 'firstName' | 'lastName' | 'avatar_url' | 'createdAt'> | undefined
+  Pick<TUserData, 'firstName' | 'lastName' | 'email' | 'avatar_url' | 'createdAt'> | undefined
 >(undefined)
 
 export const SplitTestContext = createContext<Maybe<ISplitTest>>(undefined)

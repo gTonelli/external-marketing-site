@@ -4,7 +4,7 @@ export const CONFIG = {
   needs: {
     hero: {
       bgVideoSrc: '/videos/Masterclass/Needs/bgv.mp4',
-      trailerVideoId: '0ebd3ca075a678790f95500b71a1fb1a',
+      trailerVideoId: '44b97433cb8cc0eded54c5ccd8c44867',
       trailerThumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
       h3: 'Tired of Repeating the Same Emotional Cycles?',
@@ -126,37 +126,30 @@ export const CONFIG = {
       title: 'Your Learning Journey',
       steps: [
         {
-          imageSrc: '/images/Masterclass/woman-thinking-writing.jpg',
+          imageSrc: '/images/Masterclass/needs-learning-journey-1.png',
           imageAlt: 'A woman thinking and writing',
           title: 'The Hidden Needs Driving Your Patterns',
-          description:
+          description: [
             'Uncover the unmet emotional needs that have been shaping your reactions, relationship dynamics, and self-sabotaging behaviors. Through a guided exercise, you’ll identify what was missing and see how those unmet needs still influence your decisions today. Clarity replaces confusion.',
+          ],
         },
         {
-          imageSrc: '/images/Masterclass/woman-with-coffee-in-bed.jpg',
-          imageAlt: 'A woman with coffee in bed',
+          imageSrc: '/images/Masterclass/needs-learning-journey-2.png',
+          imageAlt: 'A woman texting on her phone',
           title: 'The Fulfillment Reset',
-          description:
+          description: [
             'Learn how to begin meeting your needs in practical, grounded ways, instead of unconsciously depending on others to fill that space. You’ll discover simple daily strategies to create emotional safety, validation, reassurance, and stability from within, so you feel secure regardless of external circumstances.',
+          ],
         },
         {
-          imageSrc: '/images/Masterclass/woman-smiling-writing.jpg',
-          imageAlt: 'A woman smiling and writing',
+          imageSrc: '/images/Masterclass/needs-learning-journey-3.png',
+          imageAlt: 'Two friends hugging each other',
           title: 'The Shift Into Secure Communication',
-          description:
+          description: [
             'Move from resentment, shutdown, or overgiving into clear, confident expression. You’ll learn how to communicate your needs without guilt or blame, creating healthier dynamics, deeper connection, and relationships that feel steady instead of triggering. Secure attachment becomes something you practice.',
+          ],
         },
       ],
-    },
-    host: {
-      title: 'This Masterclass is Hosted by Thais Gibson',
-      copy: [
-        'Thais is the founder of The Personal Development School and a globally recognized expert in attachment theory, subconscious reprogramming, and emotional healing. She holds a Ph.D. and has over a decade of experience helping individuals rewire core beliefs, heal attachment wounds, and create healthier, more fulfilling relationships.',
-        'Through her work, Thais has supported tens of thousands of students worldwide in transforming patterns related to anxious, avoidant, and fearful-avoidant attachment styles. She is known for translating complex psychological concepts into practical, actionable tools that create lasting change.',
-        'Thais has developed in-depth programs focused on emotional regulation, reprogramming core wounds, boundaries, and communication. As a host, Thais brings a unique blend of clinical insight, structured learning design, and compassionate guidance to help you deeply understand yourself and create meaningful transformation.',
-      ],
-      imageSrc: '/images/Masterclass/thais-portrait-1.jpg',
-      imageAlt: "Thais Gibson's portrait image",
     },
     faqs: {
       title: 'Frequently Asked Questions',
@@ -165,7 +158,202 @@ export const CONFIG = {
     reserveMySpot: {
       title: 'Join Your Free Masterclass Today',
       imageSrc: '/images/Masterclass/thais-portrait-2.jpg',
-      imageAlt: 'Thais Gibson smiling and taking notes',
+      imageAlt: 'Thais Gibson smiling',
+    },
+  },
+  'learn-to-trust': {
+    hero: {
+      bgVideoSrc: '/videos/Masterclass/Needs/bgv.mp4',
+      trailerVideoId: '44b97433cb8cc0eded54c5ccd8c44867',
+      trailerThumbnailSrc:
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
+      h3: 'Feeling Broken, Anxious, or Unable to Trust Again?',
+      h1: 'Discover Why Cheating Changed You And How to Heal the Trust Wounds at the Root',
+      h2: 'Thousands have used these tools to rebuild self-trust, and finally feel safe, grounded, and open to love again.',
+    },
+    floatingNavLinks: [
+      { label: "What You'll Learn", href: '#what-you-will-learn' },
+      { label: 'Student Stories', href: '#student-stories' },
+      { label: 'Meet Thais Gibson', href: '#meet-thais-gibson' },
+      { label: 'Your Learning Journey', href: '#your-learning-journey' },
+      { label: 'FAQs', href: '#faq' },
+      { label: 'Reserve My Spot', href: '#reserve-my-spot' },
+    ],
+    whatYouLearn: {
+      title: "What You'll Learn",
+      stats: [
+        {
+          backgroundColor: 'bg-[#a0ddff66]',
+          icon: faUserGroup,
+          label: '60,000+',
+          text: 'SUCCESS STORIES',
+        },
+        {
+          backgroundColor: 'bg-[#caecff66]',
+          icon: faClock,
+          label: '30 Minutes',
+          text: 'MASTERCLASS',
+        },
+        {
+          backgroundColor: 'bg-[#dff4ff66]',
+          icon: faSmile,
+          label: '99.7%',
+          text: 'SATISFACTION RATING',
+        },
+      ],
+      learnings: [
+        {
+          title: 'Why Cheating Happened (Without Blaming Yourself)',
+          description: [
+            <>
+              Being cheated on is deeply personal, and it's easy to fall into the trap of blaming
+              yourself or feeling like you weren't good enough.
+            </>,
+            <>That is not the case.</>,
+            <>
+              But the wounds that cheating leaves behind can be extremely painful and damaging
+              long-term if they're left unhealed.
+            </>,
+            <>
+              In this Masterclass,{' '}
+              <strong>
+                you'll be guided through a process and exercise to help you uncover the specific
+                trust wound cheating created
+              </strong>
+              , so you can stop carrying the blame and start seeing what happened for what it really
+              was.
+            </>,
+          ],
+        },
+        {
+          title: 'Why You Still Feel Anxious, Hypervigilant, or Stuck',
+          description: [
+            <>
+              Even if it happened years ago, your body may still be reacting — overthinking, pulling
+              away, looking for signs that it's about to happen again.
+            </>,
+            <>
+              You'll discover why betrayal affects your nervous system, why time alone doesn't heal
+              this, and how everyday triggers like suspicion, withdrawal, or emotional shutdown are
+              signals of a deeper unhealed wound.
+            </>,
+          ],
+        },
+        {
+          title: 'How to Identify the Trust Wound Cheating Created',
+          description: [
+            <>
+              Being cheated on doesn't just hurt — it creates deeper beliefs like "I'm not enough,"
+              "I can't trust anyone," or "I'll never feel safe with someone."
+            </>,
+            <>
+              You'll uncover the specific trust wound that's been underneath your reactions so you
+              can begin healing it at the root.
+            </>,
+          ],
+        },
+        {
+          title: 'How to Stop Carrying Fear Into New Relationships',
+          description: [
+            <>
+              You know logically that this is a different person. But your body doesn't. You still
+              check their phone, read into late replies, and lie awake wondering if they're telling
+              you the truth.
+            </>,
+            <>
+              You'll learn how to identify what's actually driving these patterns so you can shift
+              them at the root — instead of falling into cycles of suspicion, conflict, or emotional
+              withdrawal.
+            </>,
+          ],
+        },
+        {
+          title: 'How to Rebuild Trust in Yourself and Your Judgment',
+          description: [
+            <>
+              After being cheated on, one of the hardest things to get back is confidence in your
+              own instincts.
+            </>,
+            <>
+              You'll learn how to rebuild that so you stop questioning every feeling, every
+              decision, and every person who gets close to you — and start creating relationships
+              where you feel safe, clear, and emotionally secure.
+            </>,
+          ],
+        },
+      ],
+    },
+    studentStories: {
+      title: 'Student Stories',
+    },
+    thais: {
+      imageSrc: '/images/Masterclass/thais-on-podcasts.jpg',
+      imageAlt: 'Thais Gibson on interviews and podcasts',
+    },
+    learningJourney: {
+      title: 'Your Learning Journey',
+      steps: [
+        {
+          imageSrc: '/images/Masterclass/trust-learning-journey-1.png',
+          imageAlt: 'A woman lost in thought',
+          title: 'Identify the Trust Wounds That Are Still Living Within You',
+          description: [
+            <>
+              This Masterclass walks you through a guided exercise to help you uncover the
+              subconscious belief that was created the moment you were cheated on — something like
+              "I'm not good enough," "I will be betrayed again," "I'm unlovable," or "I will be
+              abandoned."
+            </>,
+            <>
+              It's the thing you don't say out loud but feel every time someone gets close. You'll
+              finally see it clearly, understand why it has so much power over you, and begin the
+              process of healing it.
+            </>,
+          ],
+        },
+        {
+          imageSrc: '/images/Masterclass/trust-learning-journey-2.png',
+          imageAlt: 'A woman writing in her journal',
+          title: 'See How That Wound Has Been Affecting You Ever Since',
+          description: [
+            <>
+              You'll walk through a second exercise that shows you exactly how this belief has been
+              shaping your life — why you pull away when things start to feel good, why you test
+              people before you trust them, why you overthink things that shouldn't be complicated.
+            </>,
+            <>
+              This is the moment where it clicks. You stop wondering what's wrong with you and start
+              seeing what's really been going on.
+            </>,
+          ],
+        },
+        {
+          imageSrc: '/images/Masterclass/trust-learning-journey-3.png',
+          imageAlt: 'A happy couple',
+          title: 'Begin Healing the Trust Wound and Create a Clear Path Forward',
+          description: [
+            <>
+              You'll be guided through a reprogramming exercise designed to start separating what
+              happened to you from what you believe about yourself because of it.
+            </>,
+            <>
+              You won't just leave with a better understanding of what happened. You'll leave
+              knowing exactly what you need to heal, how to heal it, and what your life and
+              relationships can look like on the other side. No more guessing. No more going in
+              circles. Just a clear next step.
+            </>,
+          ],
+        },
+      ],
+    },
+    faqs: {
+      title: 'Frequently Asked Questions',
+      copy: 'Get your questions answered before the Heal From Cheating & Learn to Trust Again Masterclass begins.',
+    },
+    reserveMySpot: {
+      title: 'Join Your Free Masterclass Today',
+      imageSrc: '/images/Masterclass/thais-portrait-2.jpg',
+      imageAlt: 'Thais Gibson smiling',
     },
   },
 }

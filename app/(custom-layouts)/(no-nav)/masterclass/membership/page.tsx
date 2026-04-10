@@ -99,10 +99,23 @@ export default function MasterclassMembershipPage() {
             {commonConfig.studentStories.map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
-                <p className="text-lg mb-4">{item.quote}</p>
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 flex flex-col items-center">
+                <div className="min-w-72 max-w-72 w-full mb-4">
+                  <Image
+                    src={item.authorPicture}
+                    alt={item.author}
+                    width={288}
+                    height={288}
+                    className="w-72 h-72 rounded-2xl"
+                    quality={100}
+                  />
+                </div>
 
-                <p className="font-bold text-sm mb-0">{item.author}</p>
+                <div className="text-left">
+                  <p className="text-lg mb-4">{item.quote}</p>
+
+                  <p className="font-bold text-sm mb-0">{item.author}</p>
+                </div>
               </div>
             ))}
           </CarouselDefault>
@@ -112,10 +125,23 @@ export default function MasterclassMembershipPage() {
           {commonConfig.studentStories.map((item, index) => (
             <div
               key={`testimonial_${index}`}
-              className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between mb-8">
-              <p className="text-lg mb-4">{item.quote}</p>
+              className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 flex flex-col items-center mb-8">
+              <div className="min-w-72 max-w-72 w-full mb-4">
+                <Image
+                  src={item.authorPicture}
+                  alt={item.author}
+                  width={288}
+                  height={288}
+                  className="w-72 h-72 rounded-2xl"
+                  quality={100}
+                />
+              </div>
 
-              <p className="font-bold text-sm mb-0">{item.author}</p>
+              <div className="text-left">
+                <p className="text-lg mb-4">{item.quote}</p>
+
+                <p className="font-bold text-sm mb-0">{item.author}</p>
+              </div>
             </div>
           ))}
         </div>

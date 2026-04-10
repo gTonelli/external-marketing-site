@@ -16,7 +16,6 @@ import cx from 'classnames'
 import * as yup from 'yup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Form, Formik } from 'formik'
-import { PhoneInput } from 'react-international-phone'
 import dayjs from 'dayjs'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
@@ -25,9 +24,6 @@ import Mixpanel from '@/modules/Mixpanel'
 import { Storage } from '@/modules/Storage'
 // utils
 import { Regexes } from '@/utils/constants'
-import { isPhoneValid } from '@/utils/functions'
-// styles
-import 'react-international-phone/style.css'
 import { PageContext } from '@/utils/contexts'
 
 interface IMasterclassRegistrationFormProps {
@@ -97,7 +93,7 @@ export default function MasterclassRegistrationForm({
   }
 
   const onSubmit = (values: IMasterclassRegistrationFormSchema) => {
-    const { name, email, date, time, phone } = values
+    const { name, email, date, time } = values
     const webinarBookingDateTime =
       date === 'watch-now'
         ? new Date()
@@ -105,7 +101,7 @@ export default function MasterclassRegistrationForm({
           ? mergeDateAndHour(new Date().toDateString(), +time)
           : mergeDateAndHour(date, +time)
 
-    setUserData({ email, firstName: name, phone })
+    setUserData({ email, firstName: name })
     Mixpanel.setUser(email)
     Mixpanel.setPeople({
       $email: email,
@@ -140,7 +136,6 @@ export default function MasterclassRegistrationForm({
       ],
       firstName: name,
       email,
-      phone,
       listIds: [40],
       insertId: eventId,
     }
@@ -165,7 +160,7 @@ export default function MasterclassRegistrationForm({
 
   return (
     <div className="w-full min-h-fit !rounded-b-lg shadow-xl">
-      <div className="bg-primary text-white rounded-t-lg px-6 py-4">
+      <div className="bg-[#8645EC] text-white rounded-t-lg px-6 py-4">
         <span>
           <FontAwesomeIcon icon={faFilm} className="text-base mr-2" />
         </span>{' '}
@@ -306,29 +301,6 @@ export default function MasterclassRegistrationForm({
                 )}
               </div>
 
-              <div className="mb-4">
-                <PhoneInput
-                  disableDialCodePrefill
-                  value={values.phone}
-                  className={`!rounded-xl bg-white !border items-center py-2 ${
-                    errors.phone ? 'border-danger' : 'border-[#6b7280]'
-                  }`}
-                  inputClassName="w-[80%] !text-base !border-none !ml-2"
-                  countrySelectorStyleProps={{ buttonClassName: '!border-none !ml-4' }}
-                  name="phone"
-                  placeholder="Phone Number (Optional)"
-                  onChange={(val) => {
-                    setFieldValue('phone', val)
-                  }}
-                />
-
-                {errors['phone'] && (
-                  <p className="text-danger">
-                    <em>*{errors.phone}</em>
-                  </p>
-                )}
-              </div>
-
               <Button
                 type="submit"
                 disabled={isSubmitting}
@@ -374,12 +346,6 @@ const MasterclassRegistrationFormValidationSchema = yup
       .required('Email required'),
     date: yup.string().defined().ensure().required('Please select a value'),
     time: yup.string().defined().ensure().required('Please select a value'),
-    phone: yup
-      .string()
-      .transform((value) => (value === '' ? null : value))
-      .test('isPhoneValid', 'Please enter a valid phone number', (value) =>
-        value ? isPhoneValid(value) : true
-      ),
   })
   .defined()
 

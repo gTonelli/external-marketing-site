@@ -1,4 +1,6 @@
-const titleSlugs = ['needs'] as const
+import { externalRoutes } from '@/utils/constants'
+
+const titleSlugs = ['needs', 'learn-to-trust'] as const
 
 export type TMasterclassTitle = (typeof titleSlugs)[number]
 
@@ -55,38 +57,77 @@ export const SEO_CONFIG: TSEOConfig = {
       robots: 'noindex',
     },
   },
+  'learn-to-trust': {
+    registrationPage: {
+      title: 'Heal From Cheating & Learn to Trust Again Masterclass | Free Masterclass',
+      description:
+        'Struggling to trust after betrayal? Discover how to heal cheating-related wounds, stop overthinking, and build safe, secure relationships in this free masterclass with Thais Gibson.',
+      robots: 'index, follow, max-snippet:-1',
+    },
+    thankYouPage: {
+      title: 'You’re Now Registered for The Heal From Cheating & Learn to Trust Again Masterclass',
+      description:
+        "You're registered! Check your email for your masterclass access link and learn how to heal from cheating, rebuild trust, and create healthier relationships.",
+      robots: 'noindex',
+    },
+    secondarySalesPage: {
+      title: 'Heal Trust After Cheating & Feel Safe in Love Again | Join PDS Today',
+      description:
+        'Join The Personal Development School to heal trust wounds from cheating, stop overthinking, and rebuild self-trust. Access courses, tools, and coaching to create safe, secure relationships.',
+      robots: 'noindex',
+    },
+    livePage: {
+      title: 'Heal From Cheating & Learn to Trust Again Masterclass by Thais Gibson',
+      description:
+        'Watch the masterclass and learn how to heal trust wounds, stop overthinking, and rebuild confidence in love after betrayal with Thais Gibson.',
+      robots: 'noindex',
+    },
+    replayPage: {
+      title: 'Heal From Cheating & Learn to Trust Again Masterclass by Thais Gibson',
+      description:
+        'Watch the masterclass and learn how to heal trust wounds, stop overthinking, and rebuild confidence in love after betrayal with Thais Gibson.',
+      robots: 'noindex',
+    },
+  },
 }
 
 export const COMMON_CONFIG = {
   studentStories: [
     {
       quote:
-        '\u201cI learned more about myself from this course than 1.5 years of therapy \u2013 this is what I was trying to dig into with my therapist, but I didn\u2019t know what I was digging for. This course showed me. Thank you.\u201d',
-      author: 'Dawn Neenan',
-    },
-    {
-      quote: '\u201cHands down the most life changing content I\u2019ve ever come across.\u201d',
-      author: 'Shannon S',
+        '\u201cPDS replaced therapy for me. I was a Fearful Avoidant, and I could not explain why I struggled in relationships. The constant need for connection and the fear of having one was very draining. I am so grateful to PDS that finally I realize that my worth is not related to anything I achieve but to the person that I am. Also learning about other attachment styles helped me to become more compassionate to people around me.\u201d',
+      author: 'Athira D.',
+      authorPicture: '/images/avatar_athira.jpg',
     },
     {
       quote:
-        '\u201cI\u2019ve researched relationships most of my life, but I could never find anything that actually explained my dynamics. Thais explained exactly what I was experiencing \u2014 it felt like she was reading my mind. I\u2019m usually a bit of a skeptic, but I was hooked. I finally understood what was going on and how to fix it.\u201d',
-      author: 'Melissa A',
+        '\u201cI’ve been a member since June, 2020. This experience has been a life changer for me. I have always been a seeker and self-improvement fan, but the courses and webinars with Thais as well as the zoom meetings with the community led by Mike, have given me actionable tools and a supportive safe space to discuss and practice them.  I am so fortunate to have found this school and so many friendly folks to share this journey!\u201d',
+      author: 'Carrie L.',
+      authorPicture: '/images/avatar_carrie.jpeg',
     },
     {
       quote:
-        '\u201c I am blown away by the content. So inspiring to know that I am not alone. Going in circles. This journey can end better than how I started. Time to go deeper to reprogram and become a better version of myself.\u201d',
-      author: 'Karen Bellamy',
+        '\u201cPDS has impacted my life immensely. From creating a healthy relationship to self, improving my family dynamics, impacting my awareness of my subconscious programming, to providing the skills/tools for improving my communication with others in all relationships. It has honestly changed my life for the better and am on my path towards becoming a more secure person.\u201d',
+      author: 'Jake J.',
+      authorPicture: '/images/avatar_jake.jpg',
     },
     {
       quote:
-        '\u201cJust WOW, how much is this helpful, and I am so grateful to be part of this course. Thank You, Thank You, Thank You. Great content.\u201d',
-      author: 'Zuzana Van Haverbeke',
+        '\u201cJoining PDS was the single best decision I made last year as it opened my eyes to the possibility that I could dramatically improve the quality of my relationships and that my past did not have to define my future. The PDS community is a truly supportive environment, my only regret is that I did not find all this out sooner as it has been truly life changing for me!\u201d',
+      author: 'Leona D.',
+      authorPicture: '/images/avatar_leona.jpg',
     },
     {
       quote:
-        '\u201cPDS has changed my life… My security has increased substantially and is now by far my primary attachment style. I stopped drinking, have zero drama in my life, and even gained the confidence to open my own business.\u201d',
-      author: 'Sam P',
+        '\u201cI’ve researched relationships most of my life. However, I couldn’t find anything that explained my dynamic in them. I thought about therapy until I stumbled upon Thais’s YouTube channel. She explained EXACTLY what I was experiencing. She literally read my mind! I’m usually a bit of a skeptic but I was hooked! I finally figured out my problem and how to solve it!\u201d',
+      author: 'Melissa K.',
+      authorPicture: '/images/avatar_melissa.jpg',
+    },
+    {
+      quote:
+        '\u201cPDS is an incredible resource. The work is powerful. It’s helped me to heal some hard wounds and change my life to one that is more balanced, more joyful and based in a deep sense of self-love and understanding. You choose how to heal and you get to do it in an environment steeped in compassion, connection, integrity and personal accountability.\u201d',
+      author: 'Tamara G.',
+      authorPicture: '/images/avatar_tamara.jpg',
     },
   ],
   thais: {
@@ -109,14 +150,14 @@ export const COMMON_CONFIG = {
         </>,
         <>
           PhD with 13+ certifications in CBT, NLP, Somatic Experiencing, Internal Family Systems
-          (IFS), trauma-informed therapy, and advanced subconscious reprogramming modalities
+          (IFS), and advanced subconscious reprogramming modalities
         </>,
         <>
           Creator of Integrated Attachment Theory<sup>TM</sup>, a proprietary framework for
           reprogramming attachment patterns at the subconscious level
         </>,
         <>
-          Best-selling author of <em>Learning Love</em>
+          Best-selling author of <em>The New Attachment Theory</em>
         </>,
       ],
     },
@@ -151,4 +192,233 @@ export const COMMON_CONFIG = {
         'Yes. The membership includes a 7-day money-back guarantee, so you can explore the courses and resources risk-free. If you decide it’s not the right fit within the first 7 days, you can request a refund.',
     },
   ],
+  host: {
+    title: 'This Masterclass is Hosted by Thais Gibson',
+    copy: [
+      'Thais is the founder of The Personal Development School and a globally recognized expert in attachment theory, subconscious reprogramming, and emotional healing. She holds a Ph.D. and has over a decade of experience helping individuals rewire core beliefs, heal attachment wounds, and create healthier, more fulfilling relationships.',
+      'Through her work, Thais has supported tens of thousands of students worldwide in transforming patterns related to anxious, avoidant, and fearful-avoidant attachment styles. She is known for translating complex psychological concepts into practical, actionable tools that create lasting change.',
+      'Thais has developed in-depth programs focused on emotional regulation, reprogramming core wounds, boundaries, and communication. As a host, Thais brings a unique blend of clinical insight, structured learning design, and compassionate guidance to help you deeply understand yourself and create meaningful transformation.',
+    ],
+    imageSrc: '/images/Masterclass/thais-portrait-1.jpg',
+    imageAlt: "Thais Gibson's portrait image",
+  },
+  preWatchSteps: {
+    title: 'Before You Watch…',
+    copy: 'To get the most out of this experience:',
+    steps: [
+      {
+        image: '/images/Masterclass/thank-you-1.jpg',
+        imageAlt: 'Blocking time in calendar',
+        title: '1. Add to Your Calendar and Block Out the Time',
+        text: 'Block out a full hour where you won’t be interrupted. You’ll be guided through an exercise to help you identify the emotional needs that shape relationships.',
+      },
+      {
+        image: '/images/Masterclass/thank-you-2.jpg',
+        imageAlt: 'Taking notes',
+        title: '2. Have Something to Write With',
+        text: 'You’ll be reflecting on your experiences and identifying key insights about your needs and relationship patterns. Writing things down helps you get the most out of the exercise.',
+      },
+      {
+        image: '/images/Masterclass/thank-you-3.jpg',
+        imageAlt: 'Two heart objects touching each other',
+        title: '3. Invite Someone You Care About!',
+        text: 'This Masterclass can be especially powerful when shared. If someone you know has ever felt misunderstood or disconnected in relationships, invite them to watch it with you.',
+      },
+    ],
+  },
+  connect: {
+    support: {
+      title: 'Need Support or Help?',
+      linkText: 'Visit Our Support Center',
+      linkHref: 'https://support.personaldevelopmentschool.com/en/',
+    },
+    social: {
+      title: 'Let’s Connect on Social Media',
+      links: [
+        {
+          image: '/images/pds-icon.png',
+          imageAlt: 'PDS Icon',
+          copy: 'Your daily inspiration',
+          linkText: 'YouTube',
+          linkHref: externalRoutes.youTube,
+        },
+        {
+          image: '/images/thais_headshot.png',
+          imageAlt: 'Thais Gibson',
+          copy: 'Your host and founder of PDS',
+          linkText: 'Instagram',
+          linkHref: externalRoutes.instagram,
+        },
+      ],
+    },
+  },
+  app: {
+    title: 'The Personal Development School app, now available on Apple and Android',
+    copy: 'Take your healing journey anywhere with The Personal Development School app. Now available across Apple and Android devices. Access 70+ in-depth courses, personalized guidance, and proven tools to help you rewire patterns, build secure relationships, and create meaningful, lasting transformation.',
+    image: '/images/Masterclass/pds-app.png',
+    imageAlt: 'PDS App available on Apple and Android',
+  },
+  media: {
+    title:
+      'The Membership Helping Thousands Heal, Grow, and Build Secure, Fulfilling Relationships',
+    copy: 'Through Thais Gibson’s work and The Personal Development School, people around the world are learning how to break free from unhealthy patterns, reprogram core beliefs, and step into a more empowered, connected version of themselves.',
+    videoId: 'ce68139aa9a0eaab7a36522a37fc237e',
+    videoThumbnail:
+      'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
+    articles: [
+      {
+        logo: '/images/Logo_Brand/us-insider-logo.jpg',
+        logoAlt: 'US Insider logo',
+        title:
+          'Discover the Secrets to Thriving Relationships with Relationship Expert, Thais Gibson',
+        copy: 'Thais Gibson’s work has earned the trust of tens of thousands globally, with a staggering 94% satisfaction rate among PDS members. From profound changes in relationships to enhanced emotional well-being and productivity, PDS subscribers experience tangible and intangible benefits that positively impact their lives....',
+        linkUrl:
+          'https://www.usinsider.com/discover-the-secrets-to-thriving-relationships-with-relationship-expert-thais-gibson/',
+        link: 'Read on US Insider',
+      },
+      {
+        logo: '/images/Logo_Brand/international-business-times-logo.png',
+        logoAlt: 'International Business Times logo',
+        title: "Thais Gibson's PDS: Where Science-Backed Strategies Lead to Tangible Breakthroughs",
+        copy: "In a world where toxic relationship patterns can erode happiness and fulfillment, Thais Gibson's PDS stands as a beacon of hope. By embracing science-backed strategies and personalized approaches, PDS empowers individuals to break free from their past and pave the way to a future filled with love, and understanding breakthroughs...",
+        linkUrl:
+          'https://www.ibtimes.sg/thais-gibsons-pds-where-science-backed-strategies-lead-tangible-breakthroughs-72150',
+        link: 'Read on International Business Times',
+      },
+    ],
+  },
+  courseCarousel: {
+    title: '70+ Transformational Programs for Every Area of Your Life',
+    copy: [
+      'Inside the All-Access Pass, you’ll also find a full bonus library of programs designed to support every area of your life.',
+      'From healing relationship patterns to building confidence, improving communication, regulating emotions, and creating lasting behavioral change — everything is structured to help you move forward in a clear, supported way.',
+    ],
+  },
+  courseLibrary: {
+    title: 'A Complete Library for Personal Growth and Relationship Transformation',
+    subtitle:
+      'Explore the courses that will support your journey and begin creating stronger relationships, greater emotional balance, and lasting fulfillment in your life.',
+    categories: [
+      {
+        label: 'Relationships',
+        courses: [
+          {
+            title: 'How to Heal From a Breakup',
+            thumbnail: '/images/course-heal-from-breakup.jpg',
+          },
+          {
+            title: 'Ending Relationship Codependency & Enmeshment',
+            thumbnail: '/images/course-codependency-enmeshment.jpg',
+          },
+          {
+            title: 'How to Repair Any Relationship',
+            thumbnail: '/images/course-how-to-repair-relationship.jpg',
+          },
+          {
+            title: 'How to Master the Dating Stage of Relationships',
+            thumbnail: '/images/course-master-dating-stage.jpg',
+          },
+          {
+            title: 'The Key Pillars to Create a Secure Relationship',
+            thumbnail: '/images/course-pillars-to-secure-relationships.jpg',
+          },
+        ],
+      },
+      {
+        label: 'Confidence',
+        courses: [
+          {
+            title: 'Skyrocket Your Self-Esteem',
+            thumbnail: '/images/course-skyrocket-your-self-esteem.jpg',
+          },
+          {
+            title: 'Overcoming Social Anxiety & The Fear of Rejection',
+            thumbnail: '/images/course-overcoming-social-anxiety.jpg',
+          },
+          {
+            title: 'Reparenting Your Inner Child',
+            thumbnail: '/images/course-reparenting-your-inner-child.jpg',
+          },
+          {
+            title: 'Learning to Love Yourself',
+            thumbnail: '/images/course-learning-to-love-yourself.jpg',
+          },
+          {
+            title: 'Goal Setting for Success',
+            thumbnail: '/images/course-setting-goals.jpg',
+          },
+        ],
+      },
+      {
+        label: 'Emotional Healing',
+        courses: [
+          {
+            title: 'The Handbook for a Better Life',
+            thumbnail: '/images/course-handbook-for-a-better-life-alt.png',
+          },
+          {
+            title: 'Discover, Embrace & Fulfill Your Personal Needs',
+            thumbnail: '/images/course-personal-needs-alt.jpg',
+          },
+          {
+            title: 'Overcoming Unworthiness & Accepting Your Shadow',
+            thumbnail: '/images/course-overcoming-unworthiness.jpg',
+          },
+          {
+            title: 'Healthy Habits for Life Mastery',
+            thumbnail: '/images/course-healthy-habits-for-life-mastery.jpg',
+          },
+          {
+            title: 'Release Emotions with Somatic Processing',
+            thumbnail: '/images/course-somatic-processing.jpg',
+          },
+        ],
+      },
+      {
+        label: 'Reprogramming Tools',
+        courses: [
+          {
+            title: 'Emotional Mastery & Belief Reprogramming',
+            thumbnail: '/images/course-emotional-mastery-alt.png',
+          },
+          {
+            title: '21 Tools to Reprogram the Subconscious Mind',
+            thumbnail: '/images/course-21-tools-reprogramming.jpg',
+          },
+          {
+            title: 'Reprogramming Core Wounds Guided Audio',
+            thumbnail: '/images/course-reprogramming-core-wounds-audio.jpg',
+          },
+          {
+            title: 'Reprogramming Attachment Styles Guided Audio',
+            thumbnail: '/images/course-reprogramming-attachment-styles-audio.jpg',
+          },
+          {
+            title: 'Reparenting & Self-Soothing Guided Audio',
+            thumbnail: '/images/course-reparenting-audio.jpg',
+          },
+        ],
+      },
+      {
+        label: 'Attachment Styles',
+        courses: [
+          { title: 'Fearful Avoidant Intro Course', thumbnail: '/images/course-fa-to-sa.jpg' },
+          { title: 'Anxious Preoccupied Intro Course', thumbnail: '/images/course-ap-to-sa.jpg' },
+          { title: 'Dismissive Avoidant Intro Course', thumbnail: '/images/course-da-to-sa.jpg' },
+          {
+            title: 'Fearful Avoidant Advanced Course',
+            thumbnail: '/images/course-fa-advance.jpg',
+          },
+          {
+            title: 'Anxious Preoccupied Advanced Course',
+            thumbnail: '/images/course-ap-advance.jpg',
+          },
+          {
+            title: 'Dismissive Avoidant Advanced Course',
+            thumbnail: '/images/course-da-advance.jpg',
+          },
+        ],
+      },
+    ],
+  },
 }

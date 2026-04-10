@@ -20,7 +20,7 @@ import { List } from '@/components/List'
 import {
   faCalendarAlt,
   faClock,
-  faSparkles,
+  faCircleStar,
   faCircleArrowRight,
   faCheck,
 } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -313,7 +313,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                       </div>
 
                       <div className="bg-white px-4 py-4">
-                        <p className="text-sm mb-0">{lesson.copy}</p>
+                        <p className="text-sm mb-0 md:text-base">{lesson.copy}</p>
                       </div>
                     </div>
                   ))}
@@ -411,7 +411,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           {config.credentials.list.map((item, idx) => (
             <div key={`thais_credentials_copy_${idx}`} className="flex gap-4">
               <div>
-                <FontAwesomeIcon icon={faSparkles} className="text-lg text-primary mt-1" />
+                <FontAwesomeIcon icon={faCircleStar} className="text-lg text-primary mt-1" />
               </div>
 
               <div>
@@ -462,10 +462,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(0, 3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
-                <p className="text-lg mb-4">{item.quote}</p>
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col items-center">
+                <div className="min-w-72 max-w-72 w-full mb-4">
+                  <Image
+                    src={item.authorPicture}
+                    alt={item.author}
+                    width={288}
+                    height={288}
+                    className="w-72 h-72 rounded-2xl"
+                    quality={100}
+                  />
+                </div>
 
-                <p className="font-bold text-sm mb-0">{item.author}</p>
+                <div className="text-left">
+                  <p className="text-lg mb-4">{item.quote}</p>
+
+                  <p className="font-bold text-sm mb-0">{item.author}</p>
+                </div>
               </div>
             ))}
           </CarouselDefault>
@@ -475,10 +488,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           {commonConfig.studentStories.slice(0, 3).map((item, index) => (
             <div
               key={`testimonial_${index}`}
-              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col justify-between">
-              <p className="text-lg mb-4">{item.quote}</p>
+              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col items-center">
+              <div className="min-w-72 max-w-72 w-full mb-4">
+                <Image
+                  src={item.authorPicture}
+                  alt={item.author}
+                  width={288}
+                  height={288}
+                  className="w-72 h-72 rounded-2xl"
+                  quality={100}
+                />
+              </div>
 
-              <p className="font-bold text-sm mb-0">{item.author}</p>
+              <div className="text-left">
+                <p className="text-lg mb-4">{item.quote}</p>
+
+                <p className="font-bold text-sm mb-0">{item.author}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -546,9 +572,9 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
 
       <Section>
         <CourseLibrary
-          title={config.courseLibrary.title}
-          subtitle={config.courseLibrary.subtitle}
-          categories={config.courseLibrary.categories}
+          title={commonConfig.courseLibrary.title}
+          subtitle={commonConfig.courseLibrary.subtitle}
+          categories={commonConfig.courseLibrary.categories}
         />
       </Section>
 
@@ -858,7 +884,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
 
         <div className="w-fit">
-          <MasterclassPricing />
+          <MasterclassPricing masterclassTitle={title} />
         </div>
       </Section>
 
@@ -896,8 +922,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
-                <p className="text-lg mb-4">{item.quote}</p>
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col items-center">
+                <div className="min-w-72 max-w-72 w-full mb-4">
+                  <Image
+                    src={item.authorPicture}
+                    alt={item.author}
+                    width={288}
+                    height={288}
+                    className="w-72 h-72 rounded-2xl"
+                    quality={100}
+                  />
+                </div>
+
+                <div className="text-left">
+                  <p className="text-lg mb-4">{item.quote}</p>
+
+                  <p className="font-bold text-sm mb-0">{item.author}</p>
+                </div>
 
                 <p className="font-bold text-sm mb-0">{item.author}</p>
               </div>
@@ -909,10 +950,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           {commonConfig.studentStories.slice(3).map((item, index) => (
             <div
               key={`testimonial_${index}`}
-              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col justify-between">
-              <p className="text-lg mb-4">{item.quote}</p>
+              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col items-center">
+              <div className="min-w-72 max-w-72 w-full mb-4">
+                <Image
+                  src={item.authorPicture}
+                  alt={item.author}
+                  width={288}
+                  height={288}
+                  className="w-72 h-72 rounded-2xl"
+                  quality={100}
+                />
+              </div>
 
-              <p className="font-bold text-sm mb-0">{item.author}</p>
+              <div className="text-left">
+                <p className="text-lg mb-4">{item.quote}</p>
+
+                <p className="font-bold text-sm mb-0">{item.author}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -935,7 +989,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
 
         <div className="w-fit">
-          <MasterclassPricing />
+          <MasterclassPricing masterclassTitle={title} />
         </div>
       </Section>
     </Page>

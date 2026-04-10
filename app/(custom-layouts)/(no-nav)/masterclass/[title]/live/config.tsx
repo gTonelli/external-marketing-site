@@ -4,7 +4,7 @@ export const CONFIG = {
   needs: {
     hero: {
       title: 'Discover Your Emotional Needs And Finally Feel, Seen Connected, and Understood',
-      videoId: '916691c3f1cd3c89baaebc0110afaca9',
+      videoId: 'a3e53798e6cb6fdcc948b07b4ac93526',
       thumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
     },
@@ -91,38 +91,8 @@ export const CONFIG = {
       ],
     },
     thais: {
-      title: 'Thais Gibson, PhD, Founder of The Personal Development School',
-      copy: [
-        'Thais Gibson, PhD, is the founder of The Personal Development School and a leading expert in emotional needs, relationship dynamics, and personal transformation.',
-        'Through her teaching and training programs, she has helped over 60,000 students across 145+ countries better understand their emotional patterns, improve communication, and build stronger, more fulfilling relationships.',
-        'Earlier in her own life, she experienced the same relationship frustrations many people struggle with: feeling misunderstood, repeating the same conflicts, and wondering why connection sometimes fades over time.',
-        'This led her to explore a deeper question: why do so many relationships drift into frustration, loneliness, or resentment, even when people genuinely care about each other?',
-        'Through years of research, training, and working with clients, she discovered that many of these challenges stem from unrecognized emotional needs that people were never taught how to identify or communicate.',
-        'Today, she teaches the tools that help people uncover those needs, find healthy connection with partners, and create relationships where people feel seen, heard, appreciated, and deeply loved.',
-        'In this Discover, Embrace & Fulfill Your Personal Needs Course, she’ll share the insights that have helped thousands of people create deeper connection and more fulfilling relationships.',
-      ],
       image: '/images/Masterclass/thais-portrait-3.jpg',
       imageAlt: 'Thais Gibson portrait',
-    },
-    credentials: {
-      title: 'Credentials',
-      list: [
-        <>
-          PhD with 13+ certifications in CBT, NLP, Somatic Experiencing, Internal Family Systems
-          (IFS), trauma-informed therapy, and advanced subconscious reprogramming modalities
-        </>,
-        <>
-          Creator of Integrated Attachment Theory<sup>TM</sup>, a proprietary framework for
-          reprogramming attachment patterns at the subconscious level
-        </>,
-        <>
-          Founder of The Personal Development School, one of the largest attachment-focused personal
-          growth platforms serving students in 145+ countries
-        </>,
-        <>
-          Best-selling author of <em>Learning Love</em>
-        </>,
-      ],
     },
     studentStories: {
       title: 'Results You Can Expect',
@@ -155,22 +125,15 @@ export const CONFIG = {
         </>,
       ],
     },
-    app: {
-      title: 'The Personal Development School app, now available on Apple and Android',
-      copy: 'Take your healing journey anywhere with The Personal Development School app. Now available across Apple and Android devices. Access 70+ in-depth courses, personalized guidance, and proven tools to help you rewire patterns, build secure relationships, and create meaningful, lasting transformation.',
-      image: '/images/Masterclass/pds-app.png',
-      imageAlt: 'PDS App available on Apple and Android',
-    },
     insidePDS: {
       title: 'What’s Inside The Personal Development School',
       copy: [
         'This is more than just a course — it’s a complete ecosystem for personal transformation.',
         'As your needs become clearer, your behaviors shift, your communication improves, and your relationships become more aligned, stable, and fulfilling.',
       ],
-      image: '/images/DatingQuiz/various-devices-mockup.png',
+      image: '/images/Masterclass/various-devices-mockup.png',
       imageAlt: 'Access to the Personal Development School on various devices',
     },
-
     features: [
       {
         title: 'Get Live Support Through Weekly Q&A with Thais Gibson',
@@ -219,50 +182,20 @@ export const CONFIG = {
         ],
         images: [
           {
-            src: '/images/Masterclass/transformation-1.png',
+            src: '/images/Masterclass/needs-transformation-1.png',
             alt: 'Transformation 1',
           },
           {
-            src: '/images/Masterclass/transformation-2.png',
+            src: '/images/Masterclass/needs-transformation-2.png',
             alt: 'Transformation 2',
           },
           {
-            src: '/images/Masterclass/transformation-3.png',
+            src: '/images/Masterclass/needs-transformation-3.png',
             alt: 'Transformation 3',
           },
         ],
       },
     ],
-    media: {
-      title:
-        'The membership helping thousands heal, grow, and build secure, fulfilling relationships',
-      copy: 'Through Thais Gibson’s work and The Personal Development School, people around the world are learning how to break free from unhealthy patterns, reprogram core beliefs, and step into a more empowered, connected version of themselves.',
-      videoId: 'ce68139aa9a0eaab7a36522a37fc237e',
-      videoThumbnail:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
-      articles: [
-        {
-          logo: '/images/Logo_Brand/us-insider-logo.jpg',
-          logoAlt: 'US Insider logo',
-          title:
-            'Discover the Secrets to Thriving Relationships with Relationship Expert, Thais Gibson',
-          copy: 'Thais Gibson’s work has earned the trust of tens of thousands globally, with a staggering 94% satisfaction rate among PDS members. From profound changes in relationships to enhanced emotional well-being and productivity, PDS subscribers experience tangible and intangible benefits that positively impact their lives....',
-          linkUrl:
-            'https://www.usinsider.com/discover-the-secrets-to-thriving-relationships-with-relationship-expert-thais-gibson/',
-          link: 'Read on US Insider',
-        },
-        {
-          logo: '/images/Logo_Brand/international-business-times-logo.png',
-          logoAlt: 'International Business Times logo',
-          title:
-            "Thais Gibson's PDS: Where Science-Backed Strategies Lead to Tangible Breakthroughs",
-          copy: "In a world where toxic relationship patterns can erode happiness and fulfillment, Thais Gibson's PDS stands as a beacon of hope. By embracing science-backed strategies and personalized approaches, PDS empowers individuals to break free from their past and pave the way to a future filled with love, and understanding breakthroughs...",
-          linkUrl:
-            'https://www.ibtimes.sg/thais-gibsons-pds-where-science-backed-strategies-lead-tangible-breakthroughs-72150',
-          link: 'Read on International Business Times',
-        },
-      ],
-    },
     membership: {
       title: 'Discover What Becomes Possible When Your Needs Are Finally Understood and Met',
       copy: [
@@ -279,33 +212,278 @@ export const CONFIG = {
         'Practical tools to stop self-sabotage, reignite the spark, and finally choose yourself',
       ],
     },
-    faqs: [
+    faqs: {
+      title: 'Frequently Asked Questions',
+      copy: 'Get your questions answered before the Discover, Embrace & Fulfill Your Personal Needs Masterclass begins.',
+    },
+    timestamps: {
+      title: 'Video Timestamps, Table of Contents',
+      items: [
+        <>
+          <strong>[00:00]</strong> - The Consequences of Having Unfulfilled Needs
+        </>,
+        <>
+          <strong>[00:49]</strong> - Learning What Your True Emotional Needs Are
+        </>,
+        <>
+          <strong>[03:24]</strong> - Intro To The Personal Development School
+        </>,
+        <>
+          <strong>[04:18]</strong> - Why Understanding Your Emotional Needs Is Important
+        </>,
+        <>
+          <strong>[06:56]</strong> - Your Subconscious Needs Drive Your Behavior
+        </>,
+        <>
+          <strong>[09:43]</strong> - Myth 1: My Subsconscious Mind Isn't Accessible
+        </>,
+        <>
+          <strong>[11:21]</strong> - Myth 2: If Someone Loves Me, They Should Know What I Need
+        </>,
+        <>
+          <strong>[12:03]</strong> - Myth 3: I've Outgrown My Childhood So It Doesn't Affect Me
+          Anymore
+        </>,
+        <>
+          <strong>[14:10]</strong> - What You Will Learn In This Masterclass
+        </>,
+        <>
+          <strong>[15:24]</strong> - Lesson 1: Identifying Your Unmet Needs
+        </>,
+        <>
+          <strong>[18:08]</strong> - Lesson 2: How Well Do You Currently Meet Your Needs?
+        </>,
+        <>
+          <strong>[19:27]</strong> - Lesson 3: Create Daily Strategies and Learn To Communicate Them
+        </>,
+        <>
+          <strong>[24:06]</strong> - Write Down Your Insights
+        </>,
+        <>
+          <strong>[24:54]</strong> - How Understanding My Needs Changed My Life
+        </>,
+        <>
+          <strong>[27:47]</strong> - What's Inside The Discover, Embrace and Fulfill Your Needs
+          Course
+        </>,
+      ],
+    },
+  },
+  'learn-to-trust': {
+    hero: {
+      title:
+        'Heal From Being Cheated On and Finally Let Go of the Trust Wounds It Created With Thais Gibson',
+      videoId: 'a3e53798e6cb6fdcc948b07b4ac93526',
+      thumbnailSrc:
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg',
+    },
+    pageWarning: {
+      title: 'Please do not close this page — this exclusive offer is only available here.',
+      copy: 'As a gift for watching this masterclass, you’ve unlocked a limited-time All-Access Pass to The Personal Development School. Heal the trust wounds that are holding you back, rebuild confidence in yourself and your judgment, and finally let someone in again without the fear of being betrayed.',
+    },
+    offer: {
+      label: 'JOIN 60,000+ STUDENTS IN 145+ COUNTRIES',
+      title: 'Heal From Cheating and Learn to Trust Again',
+      copy: 'Join thousands of students who were stuck in the same cycle of overthinking, checking, and questioning everything — and learned how to actually move past it.',
+      imageDesktop: '/images/Masterclass/trust-masterclass-banner-desktop.png',
+      imageMobile: '/images/Masterclass/trust-masterclass-banner-mobile.png',
+      imageDesktopAlt: 'Trust Masterclass Live Page Desktop Image',
+      imageMobileAlt: 'Trust Masterclass Live Page Mobile Image',
+    },
+    floatingNavLinks: [
       {
-        question: 'Can I access the courses without becoming a member?',
-        answer:
-          'The courses, tools, and webinars are part of The Personal Development School. When you join, you gain access to the full course library and all included resources for as long as your membership remains active.',
+        label: 'About This Program',
+        href: '#about-this-program',
       },
       {
-        question: 'How do I know where to start inside the membership?',
-        answer:
-          'Many members begin with courses related to their attachment style, emotional patterns, or relationship challenges. Inside the membership, you’ll find structured courses and resources organized by topic so you can focus on the areas most relevant to your personal growth.',
+        label: "What You'll Learn",
+        href: '#what-you-will-learn',
       },
       {
-        question: 'Will I have access to live sessions with Thais Gibson?',
-        answer:
-          'Yes! Membership includes weekly live webinars with Thais, where she teaches, answers questions, and helps members apply the tools from Integrated Attachment Theory™ to real-life situations.',
+        label: 'Meet Thais Gibson',
+        href: '#meet-thais-gibson',
       },
       {
-        question: 'Can I cancel my membership?',
-        answer:
-          'Yes. You can cancel your membership at any time through your account settings. Your access will remain active until the end of your current billing period.',
+        label: 'Student Stories',
+        href: '#student-stories',
       },
       {
-        question: 'Is there a money-back guarantee?',
-        answer:
-          'Yes. The membership includes a 7-day money-back guarantee, so you can explore the courses and resources risk-free. If you decide it’s not the right fit within the first 7 days, you can request a refund.',
+        label: 'Membership',
+        href: '#membership',
       },
     ],
+    aboutThisProgram: {
+      title: 'About This Program',
+      image: '/images/course-heal-trust-wounds.png',
+      imageAlt: 'Discover, Embrace and Fulfill Your Personal Needs Course',
+      copy: [
+        "When you've been cheated on, it changes something in you. Your judgment, your instincts, your ability to trust what's right in front of you. And no amount of time or distance from what happened makes that go away on its own.",
+        "It's why you still overthink. It's why you still feel anxious when someone gets close. It's why trusting someone new feels like a risk you're not sure you can take.",
+        `The Personal Development School Membership — The All-Access Pass helps you understand what the experience actually did to you so you can heal it at the root instead of just managing the symptoms. This isn't about pretending it didn't happen or rushing yourself into being "ready." It's about doing the real work so that when you are ready, you can actually be present for it.`,
+        'As you heal, the shift happens naturally. The overthinking begins to quiet down and the anxiety loosens its grip.',
+        "Soon enough, being close to someone starts to feel like something you want again, not something you're constantly second-guessing.",
+      ],
+    },
+    socialProof: [
+      {
+        icon: faUsers,
+        iconCircleBg: 'bg-[#F8DDFF]',
+        iconColor: 'text-primary',
+        title: '60,000+',
+        subtitle: 'Students Enrolled',
+      },
+      {
+        icon: faGlobe,
+        iconCircleBg: 'bg-[#D9E0FE]',
+        iconColor: 'text-[#142BD5]',
+        title: '145+',
+        subtitle: 'Countries Worldwide',
+      },
+      {
+        icon: faFaceSmile,
+        iconCircleBg: 'bg-[#FEE9D5]',
+        iconColor: 'text-[#FFA000]',
+        title: '99.7%',
+        subtitle: 'User Satisfaction Rate',
+      },
+    ],
+    whatYouWillLearn: {
+      title: "What You'll Learn",
+      learnings: [
+        "You'll learn why the cheating actually happened. Not so you can excuse it, but so you can stop blaming yourself for it.",
+        "You'll see how the experience created beliefs about yourself and about love that you've been carrying ever since — and why those beliefs keep showing up every time you try to get close to someone new.",
+        "You'll learn how to rebuild trust in yourself so you stop questioning your own judgment. How to calm the anxiety so it stops running the show every time someone gets close. And how to finally be in a relationship without your past sitting in the middle of it.",
+        "This isn't about forgetting what happened, or trying to move through it blindly. It's about making sure it stops deciding what happens next.",
+      ],
+    },
+    thais: {
+      image: '/images/Masterclass/thais-portrait-3.jpg',
+      imageAlt: 'Thais Gibson portrait',
+    },
+    studentStories: {
+      title: 'Results You Can Expect',
+    },
+    noRiskMembership: {
+      title: '15-Day Risk-Free Guarantee',
+      copy: [
+        'Try everything risk-free.',
+        'If it’s not the right fit, you can cancel within 15 days — no questions asked.',
+      ],
+      image: '/images/Masterclass/15-days-risk-free.svg',
+      imageAlt: '15-days-risk-free badge',
+    },
+    pricing: {
+      title: 'Unlock The Personal Development School Membership – The All-Access Pass',
+      items: [
+        <>
+          When you join, you’ll gain access to a complete system designed to help you understand,
+          meet, and communicate your emotional needs so you can create lasting fulfillment.
+        </>,
+        <>
+          Inside, you’ll find the{' '}
+          <strong>Overcome Betrayal, Heal Trust Wounds and Move Past Jealousy Course</strong>, along
+          with a full library of 70+ programs covering emotional mastery, attachment styles,
+          communication, and relationship dynamics.
+        </>,
+        <>
+          You’ll also gain access to optional group coaching, guided exercises, and a global
+          community for support and accountability.
+        </>,
+      ],
+    },
+    insidePDS: {
+      title: 'What’s Inside The Personal Development School',
+      copy: [
+        'This isn’t just a single course — it’s a complete ecosystem for moving through a painful experience that doesn’t need to define your future.',
+        `As you continue, you'll start to notice the change. You'll understand yourself better, communicate what you need without fear, and actually feel safe letting someone in again.`,
+      ],
+      image: '/images/Masterclass/various-devices-mockup.png',
+      imageAlt: 'Access to the Personal Development School on various devices',
+    },
+    features: [
+      {
+        title: 'Get Live Support Through Weekly Q&A with Thais Gibson',
+        copy: [
+          'You won’t have to navigate this alone.',
+          'Through optional live group coaching sessions, you’ll be able to ask questions, get clarity on your specific situation, and apply what you’re learning in real time.',
+          'This level of support helps you move faster, stay accountable, and feel guided throughout the process.',
+        ],
+        images: [
+          {
+            src: '/images/Masterclass/support-1.png',
+            alt: 'Support 1',
+          },
+          {
+            src: '/images/Masterclass/support-2.png',
+            alt: 'Support 2',
+          },
+          {
+            src: '/images/Masterclass/support-3.png',
+            alt: 'Support 3',
+          },
+        ],
+      },
+      {
+        title: 'Become Part of a Global Community',
+        copy: [
+          'You’ll also be surrounded by a community of people who understand what you’re going through.',
+          'This creates a space where you can feel supported, share experiences, and grow alongside others who are committed to healing and building better relationships.',
+        ],
+        images: [
+          {
+            src: '/images/Masterclass/community-1.png',
+            alt: 'Community 1',
+          },
+          {
+            src: '/images/Masterclass/community-2.png',
+            alt: 'Community 2',
+          },
+          {
+            src: '/images/Masterclass/community-3.png',
+            alt: 'Community 3',
+          },
+        ],
+      },
+      {
+        title: 'Transformation in Just Few Minutes a Day',
+        copy: [
+          'You don’t need hours of time to see results.',
+          'With structured lessons and practical tools, you can begin creating meaningful change in just a few minutes a day.',
+        ],
+        images: [
+          {
+            src: '/images/Masterclass/trust-transformation-1.png',
+            alt: 'Transformation 1',
+          },
+          {
+            src: '/images/Masterclass/trust-transformation-2.png',
+            alt: 'Transformation 2',
+          },
+          {
+            src: '/images/Masterclass/trust-transformation-3.png',
+            alt: 'Transformation 3',
+          },
+        ],
+      },
+    ],
+    membership: {
+      title: 'Discover What’s Possible for You Inside the Personal Development School',
+      copy: [
+        'As you begin this journey, you’ll start to experience what it feels like to feel calm instead of anxious, clear instead of confused, and confident instead of uncertain.',
+        'You’ll rebuild trust in yourself, understand your relationships at a deeper level, and move forward with a sense of peace.',
+      ],
+      perks: [
+        'Full access to the Overcome Betrayal, Heal Trust Wounds and Move Past Jealousy Course',
+        '70+ expert-led programs covering relationships, attachment styles, communication, and emotional mastery',
+        'Weekly optional group coaching with Thais Gibson',
+        'Practical tools to heal trust wounds, rebuild trust in your partner, and get clarity on what comes next',
+        'A global community of people navigating the same thing you are',
+      ],
+    },
+    faqs: {
+      title: 'Frequently Asked Questions',
+      copy: 'Get your questions answered before the Heal From Cheating & Learn to Trust Again Masterclass begins.',
+    },
     timestamps: {
       title: 'Video Timestamps, Table of Contents',
       items: [

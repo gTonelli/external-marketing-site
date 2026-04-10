@@ -1,20 +1,27 @@
 'use client'
-
+// core
 import { useState } from 'react'
-import { faShieldCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faCcAmex,
-  faCcApplePay,
-  faCcMastercard,
-  faCcVisa,
-} from '@awesome.me/kit-545b942488/icons/classic/brands'
-import cx from 'classnames'
+import Image from 'next/image'
+// components
 import { ButtonCheckout } from '../Button/variants/ButtonCheckout'
+import { faShieldCheck } from '@awesome.me/kit-545b942488/icons/classic/regular'
+// config
+import { TMasterclassTitle } from '@/app/(custom-layouts)/(no-nav)/masterclass/config'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import cx from 'classnames'
+// utils
 import { externalRoutes } from '@/utils/constants'
 
-export const MasterclassPricing = ({ classNameFooter }: { classNameFooter?: string }) => {
-  const [monthlyActive, setMonthlyActive] = useState(true)
+export const MasterclassPricing = ({
+  classNameFooter,
+  masterclassTitle,
+}: {
+  classNameFooter?: string
+  masterclassTitle?: TMasterclassTitle
+}) => {
+  const [monthlyActive, setMonthlyActive] = useState(false)
+
   return (
     <div className="min-h-fit max-w-96 w-full sm:min-w-96">
       <div className="bg-white rounded-2xl shadow-[0px_0px_40px_0px_rgba(0,0,0,0.20)] p-4 mb-4 lg:p-6">
@@ -59,7 +66,9 @@ export const MasterclassPricing = ({ classNameFooter }: { classNameFooter?: stri
               <ButtonCheckout
                 className="masterclass-yellow-cta w-full"
                 label="BECOME A MEMBER"
-                href={externalRoutes.checkoutMasterclassMonthly}
+                href={externalRoutes.checkoutMasterclassMonthly.concat(
+                  masterclassTitle ? `-${masterclassTitle}` : ''
+                )}
               />
             </>
           ) : (
@@ -78,7 +87,9 @@ export const MasterclassPricing = ({ classNameFooter }: { classNameFooter?: stri
               <ButtonCheckout
                 className="masterclass-yellow-cta w-full"
                 label="BECOME A MEMBER"
-                href={externalRoutes.checkoutMasterclassYearly}
+                href={externalRoutes.checkoutMasterclassYearly.concat(
+                  masterclassTitle ? `-${masterclassTitle}` : ''
+                )}
               />
             </>
           )}
@@ -94,11 +105,13 @@ export const MasterclassPricing = ({ classNameFooter }: { classNameFooter?: stri
       </div>
 
       <div className={cx('text-white', classNameFooter)}>
-        <div className="flex justify-center items-center gap-2 text-5xl mb-4">
-          <FontAwesomeIcon icon={faCcVisa} />
-          <FontAwesomeIcon icon={faCcMastercard} />
-          <FontAwesomeIcon icon={faCcAmex} />
-          <FontAwesomeIcon icon={faCcApplePay} />
+        <div className="flex justify-center items-center mb-4">
+          <Image
+            src="/images/Masterclass/payment-options.png"
+            alt="Payment Options"
+            width={280}
+            height={48}
+          />
         </div>
 
         <p>

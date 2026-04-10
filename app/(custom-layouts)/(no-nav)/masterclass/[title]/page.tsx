@@ -12,7 +12,7 @@ import { TrailerButton } from '@/components/Masterclass/TrailerButton'
 import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
 import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
 import { Faq } from '@/components/Faq/Faq'
-import { faCheck, faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheck, faCircleStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import {
   SEO_CONFIG,
@@ -176,10 +176,22 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                   {commonConfig.studentStories.slice(0, 3).map((item, index) => (
                     <div
                       key={`testimonial_${index}`}
-                      className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
-                      <p className="text-lg mb-4">{item.quote}</p>
+                      className="h-full bg-white rounded-2xl border border-gray-200 p-6 flex items-center flex-col">
+                      <div className="min-w-72 max-w-72 w-full mb-6">
+                        <Image
+                          src={item.authorPicture}
+                          alt={item.author}
+                          width={288}
+                          height={288}
+                          className="w-72 h-72 rounded-2xl"
+                        />
+                      </div>
 
-                      <p className="font-bold text-sm mb-0">{item.author}</p>
+                      <div className="text-left">
+                        <p className="text-lg mb-4">{item.quote}</p>
+
+                        <p className="font-bold text-sm mb-0">{item.author}</p>
+                      </div>
                     </div>
                   ))}
                 </CarouselDefault>
@@ -189,10 +201,21 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                 {commonConfig.studentStories.slice(0, 3).map((item, index) => (
                   <div
                     key={`testimonial_${index}`}
-                    className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex flex-col justify-between mb-8">
-                    <p className="text-lg mb-4">{item.quote}</p>
+                    className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 text-left flex mb-8">
+                    <div className="min-w-64 max-w-64 w-full">
+                      <Image
+                        src={item.authorPicture}
+                        alt={item.author}
+                        width={256}
+                        height={256}
+                        className="w-60 h-64 object-center rounded-2xl"
+                      />
+                    </div>
+                    <div className="text-left pl-4">
+                      <p className="text-lg mb-4">{item.quote}</p>
 
-                    <p className="font-bold text-sm mb-0">{item.author}</p>
+                      <p className="font-bold text-sm mb-0">{item.author}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -225,7 +248,7 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
                 {commonConfig.thais.credentials.list.map((item, idx) => (
                   <div key={`credentials_copy_${idx}`} className="flex gap-4">
                     <div>
-                      <FontAwesomeIcon icon={faSparkles} className="text-lg text-primary mt-1" />
+                      <FontAwesomeIcon icon={faCircleStar} className="text-lg text-primary mt-1" />
                     </div>
 
                     <div>
@@ -261,17 +284,19 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
 
                   <div className="flex gap-4">
                     <div>
-                      <p className="text-5xl font-ssp text-primary mt-1">
+                      <p className="text-4xl font-ssp text-primary mt-1">
                         <strong>{idx + 1}</strong>
                       </p>
                     </div>
 
                     <div className="text-lg">
-                      <p>
+                      <p className="!text-2xl">
                         <strong>{item.title}</strong>
                       </p>
 
-                      <p>{item.description}</p>
+                      {item.description.map((copy, idx) => (
+                        <p key={`learning_journey_description_${idx}`}>{copy}</p>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -282,20 +307,20 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
       </Section>
 
       <Section>
-        <h2>{config.host.title}</h2>
+        <h2>{commonConfig.host.title}</h2>
 
         <div className="flex flex-col gap-8 lg:flex-row">
           <div className="text-left">
-            {config.host.copy.map((item, idx) => (
+            {commonConfig.host.copy.map((item, idx) => (
               <p key={`host_copy_${idx}`}>{item}</p>
             ))}
           </div>
 
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex justify-center">
             <Image
-              src={config.host.imageSrc}
-              alt={config.host.imageAlt}
-              className="w-full h-auto"
+              src={commonConfig.host.imageSrc}
+              alt={commonConfig.host.imageAlt}
+              className="object-cover object-center rounded-2xl"
               width={600}
               height={300}
               quality={100}

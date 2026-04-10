@@ -150,7 +150,7 @@ export const COMMON_CONFIG = {
         </>,
         <>
           PhD with 13+ certifications in CBT, NLP, Somatic Experiencing, Internal Family Systems
-          (IFS), trauma-informed therapy, and advanced subconscious reprogramming modalities
+          (IFS), and advanced subconscious reprogramming modalities
         </>,
         <>
           Creator of Integrated Attachment Theory<sup>TM</sup>, a proprietary framework for

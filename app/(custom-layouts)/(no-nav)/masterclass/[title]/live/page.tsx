@@ -5,9 +5,6 @@ import { Page } from '@/components/Page'
 // config
 import { MasterclassTitleSlugs, SEO_CONFIG, TMasterclassTitle } from '../../config'
 import { MasterclassPage } from './MasterclassPage'
-// styles
-import '@/styles/default-styles.css'
-import '../../style.css'
 
 export const dynamicParams = false
 

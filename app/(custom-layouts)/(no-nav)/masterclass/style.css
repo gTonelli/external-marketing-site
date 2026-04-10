@@ -1,3 +1,8 @@
+p,
+li {
+  font-size: 18px;
+}
+
 .masterclass-header-bg-overlay {
   position: absolute;
   top: 0;

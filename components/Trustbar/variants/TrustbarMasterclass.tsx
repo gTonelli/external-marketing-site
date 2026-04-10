@@ -12,11 +12,11 @@ import 'swiper/css'
 
 const TRUSTBAR = [
   'mel-robbins-logo.png',
-  'psychology-today-logo.png',
-  'forbes-logo.png',
+  'forbes-logo-alt.png',
   'ceo-weekly-logo.png',
-  'yahoo-logo.png',
-  'cosmopolitan-logo.png',
+  'huffpost-logo-alt.png',
+  'psychology-today-logo-alt.png',
+  'cosmopolitan-logo-alt.png',
 ]
 
 interface ITrustbarMasterclassProps extends ITrustbarDefaultProps {

@@ -548,133 +548,6 @@ export const CONFIG = {
       image: '/images/Masterclass/thais-portrait-3.jpg',
       imageAlt: 'Thais Gibson portrait',
     },
-    courseLibrary: {
-      title: 'A Complete Library for Personal Growth and Relationship Transformation',
-      subtitle:
-        'Explore the courses that will support your journey and begin creating stronger relationships, greater emotional balance, and lasting fulfillment in your life.',
-      categories: [
-        {
-          label: 'Relationships',
-          courses: [
-            {
-              title: 'How to Heal From a Breakup',
-              thumbnail: '/images/course-heal-from-breakup.jpg',
-            },
-            {
-              title: 'Ending Relationship Codependency & Enmeshment',
-              thumbnail: '/images/course-codependency-enmeshment.jpg',
-            },
-            {
-              title: 'How to Repair Any Relationship',
-              thumbnail: '/images/course-how-to-repair-relationship.jpg',
-            },
-            {
-              title: 'How to Master the Dating Stage of Relationships',
-              thumbnail: '/images/course-master-dating-stage.jpg',
-            },
-            {
-              title: 'The Key Pillars to Create a Secure Relationship',
-              thumbnail: '/images/course-pillars-to-secure-relationships.jpg',
-            },
-          ],
-        },
-        {
-          label: 'Confidence',
-          courses: [
-            {
-              title: 'Skyrocket Your Self-Esteem',
-              thumbnail: '/images/course-skyrocket-your-self-esteem.jpg',
-            },
-            {
-              title: 'Overcoming Social Anxiety & The Fear of Rejection',
-              thumbnail: '/images/course-overcoming-social-anxiety.jpg',
-            },
-            {
-              title: 'Reparenting Your Inner Child',
-              thumbnail: '/images/course-reparenting-your-inner-child.jpg',
-            },
-            {
-              title: 'Learning to Love Yourself',
-              thumbnail: '/images/course-learning-to-love-yourself.jpg',
-            },
-            {
-              title: 'Goal Setting for Success',
-              thumbnail: '/images/course-setting-goals.jpg',
-            },
-          ],
-        },
-        {
-          label: 'Emotional Healing',
-          courses: [
-            {
-              title: 'The Handbook for a Better Life',
-              thumbnail: '/images/course-handbook-for-a-better-life-alt.png',
-            },
-            {
-              title: 'Discover, Embrace & Fulfill Your Personal Needs',
-              thumbnail: '/images/course-personal-needs-alt.jpg',
-            },
-            {
-              title: 'Overcoming Unworthiness & Accepting Your Shadow',
-              thumbnail: '/images/course-overcoming-unworthiness.jpg',
-            },
-            {
-              title: 'Healthy Habits for Life Mastery',
-              thumbnail: '/images/course-healthy-habits-for-life-mastery.jpg',
-            },
-            {
-              title: 'Release Emotions with Somatic Processing',
-              thumbnail: '/images/course-somatic-processing.jpg',
-            },
-          ],
-        },
-        {
-          label: 'Reprogramming Tools',
-          courses: [
-            {
-              title: 'Emotional Mastery & Belief Reprogramming',
-              thumbnail: '/images/course-emotional-mastery-alt.png',
-            },
-            {
-              title: '21 Tools to Reprogram the Subconscious Mind',
-              thumbnail: '/images/course-21-tools-reprogramming.jpg',
-            },
-            {
-              title: 'Reprogramming Core Wounds Guided Audio',
-              thumbnail: '/images/course-reprogramming-core-wounds-audio.jpg',
-            },
-            {
-              title: 'Reprogramming Attachment Styles Guided Audio',
-              thumbnail: '/images/course-reprogramming-attachment-styles-audio.jpg',
-            },
-            {
-              title: 'Reparenting & Self-Soothing Guided Audio',
-              thumbnail: '/images/course-reparenting-audio.jpg',
-            },
-          ],
-        },
-        {
-          label: 'Attachment Styles',
-          courses: [
-            { title: 'Fearful Avoidant Intro Course', thumbnail: '/images/course-fa-to-sa.jpg' },
-            { title: 'Anxious Preoccupied Intro Course', thumbnail: '/images/course-ap-to-sa.jpg' },
-            { title: 'Dismissive Avoidant Intro Course', thumbnail: '/images/course-da-to-sa.jpg' },
-            {
-              title: 'Fearful Avoidant Advanced Course',
-              thumbnail: '/images/course-fa-advance.jpg',
-            },
-            {
-              title: 'Anxious Preoccupied Advanced Course',
-              thumbnail: '/images/course-ap-advance.jpg',
-            },
-            {
-              title: 'Dismissive Avoidant Advanced Course',
-              thumbnail: '/images/course-da-advance.jpg',
-            },
-          ],
-        },
-      ],
-    },
     credentials: {
       title: 'Credentials',
       list: [
@@ -786,7 +659,7 @@ export const CONFIG = {
         'Each program includes practical lessons and exercises that help you apply what you learn directly to your daily life.',
         'You’ll also join a global community of people committed to growth, self-awareness, and building healthier relationships.',
       ],
-      image: '/images/DatingQuiz/various-devices-mockup.png',
+      image: '/images/Masterclass/various-devices-mockup.png',
       imageAlt: 'Access to the Personal Development School on various devices',
     },
     features: {

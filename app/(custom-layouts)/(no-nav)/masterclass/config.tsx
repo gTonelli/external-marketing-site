@@ -267,23 +267,29 @@ export const COMMON_CONFIG = {
       'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
     articles: [
       {
-        logo: '/images/Logo_Brand/us-insider-logo.jpg',
-        logoAlt: 'US Insider logo',
-        title:
-          'Discover the Secrets to Thriving Relationships with Relationship Expert, Thais Gibson',
-        copy: 'Thais Gibson’s work has earned the trust of tens of thousands globally, with a staggering 94% satisfaction rate among PDS members. From profound changes in relationships to enhanced emotional well-being and productivity, PDS subscribers experience tangible and intangible benefits that positively impact their lives....',
-        linkUrl:
-          'https://www.usinsider.com/discover-the-secrets-to-thriving-relationships-with-relationship-expert-thais-gibson/',
-        link: 'Read on US Insider',
+        videoSrc: '787e691d6e4f86d82841e57850b126be',
+        thumbnail:
+          'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/fox26_interview_thumbnail_498104036d.png',
+        thumbnailAlt: 'Fox 26 interview thumbnail',
+        logo: '/images/Logo_Brand/fox26-logo.png',
+        logoAlt: 'Fox 26 logo',
+        title: 'No More Games: How Singles Get Real About Intentional Dating',
+        copy: [
+          'Featured on FOX26, this powerful segment dives into the reality of modern dating—where swiping is easy, but meaningful connection feels harder than ever. Singles open up about what they truly want, what they refuse to tolerate, and why situationships and mixed signals are no longer acceptable.',
+          'Attachment style expert Thais Gibson joins the conversation to break down the psychology behind dating patterns, offering practical tools to help individuals stop playing games, set clear standards, and build genuine, lasting relationships.',
+        ],
       },
       {
-        logo: '/images/Logo_Brand/international-business-times-logo.png',
-        logoAlt: 'International Business Times logo',
-        title: "Thais Gibson's PDS: Where Science-Backed Strategies Lead to Tangible Breakthroughs",
-        copy: "In a world where toxic relationship patterns can erode happiness and fulfillment, Thais Gibson's PDS stands as a beacon of hope. By embracing science-backed strategies and personalized approaches, PDS empowers individuals to break free from their past and pave the way to a future filled with love, and understanding breakthroughs...",
-        linkUrl:
-          'https://www.ibtimes.sg/thais-gibsons-pds-where-science-backed-strategies-lead-tangible-breakthroughs-72150',
-        link: 'Read on International Business Times',
+        videoSrc: 'aaeImJJVY0g',
+        thumbnail: '/images/Masterclass/kvue-interview-thumbnail.png',
+        thumbnailAlt: 'KVUE interview thumbnail',
+        logo: '/images/Logo_Brand/kvue-logo.png',
+        logoAlt: 'KVUE logo',
+        title: 'How to Overcome Modern Dating Burnout',
+        copy: [
+          'Featured on KVUE Midday, Thais Gibson shares how to navigate the emotional exhaustion that comes with modern dating. From endless swiping to short-lived connections, many singles are feeling discouraged, but it doesn’t have to stay that way.',
+          'As a relationship expert and co-founder of The Personal Development School, Thais breaks down why dating burnout happens and how to reset your approach. With practical tools and mindset shifts, she helps individuals move from frustration to clarity, so dating can feel intentional, energizing, and aligned again.',
+        ],
       },
     ],
   },

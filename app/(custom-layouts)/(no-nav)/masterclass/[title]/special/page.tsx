@@ -16,6 +16,7 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { MasterclassPricing } from '@/components/Masterclass/MasterclassPricing'
 import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
 import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
+import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { List } from '@/components/List'
 import {
   faCalendarAlt,
@@ -888,38 +889,66 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           <p key={`media_copy_${index}`}>{copy}</p>
         ))}
 
-        <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-4 mx-auto mb-8">
+        <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-4 mx-auto mb-8">
           <VideoStream
             type={`${title} masterclass media pr`}
-            videoId={config.media.videoId}
-            thumbnailSrc={config.media.thumbnailSrc}
+            videoId={commonConfig.media.videoId}
+            thumbnailSrc={commonConfig.media.videoThumbnail}
           />
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
-          {config.media.articles.map((article, index) => (
-            <div
-              key={`media_article_${index}`}
-              className="bg-white text-left rounded-lg shadow-lg p-4">
+        <div className="max-w-4xl grid gap-4 mx-auto lg:grid-cols-2">
+          <div className="bg-white text-left rounded-lg shadow-lg p-2">
+            <VideoStream
+              type="fox26-interview"
+              videoId={commonConfig.media.articles[0].videoSrc}
+              thumbnailSrc={commonConfig.media.articles[0].thumbnail}
+            />
+
+            <div className="my-4">
               <Image
-                src={article.logo}
-                alt={article.logoAlt}
-                width={64}
-                height={64}
-                className="w-fit h-12 mb-4"
+                src={commonConfig.media.articles[0].logo}
+                alt={commonConfig.media.articles[0].logoAlt}
+                width={120}
+                height={50}
               />
-
-              <p className="text-xl">
-                <strong>{article.title}</strong>
-              </p>
-
-              <p>{article.copy}</p>
-
-              <a href={article.linkUrl} target="_blank" className="text-blue-darkest">
-                {article.link}
-              </a>
             </div>
-          ))}
+
+            <p className="text-lg">
+              <strong>{commonConfig.media.articles[0].title}</strong>
+            </p>
+
+            {commonConfig.media.articles[0].copy.map((copy, idx) => (
+              <p key={`media_article1_copy_${idx}`}>{copy}</p>
+            ))}
+          </div>
+
+          <div className="bg-white text-left rounded-lg shadow-lg p-2">
+            <VideoYoutube
+              playInline
+              type="kvue-interview"
+              videoId={commonConfig.media.articles[1].videoSrc}
+              thumbnail={commonConfig.media.articles[1].thumbnail}
+              thumbnailAlt={commonConfig.media.articles[1].thumbnailAlt}
+            />
+
+            <div className="my-4">
+              <Image
+                src={commonConfig.media.articles[1].logo}
+                alt={commonConfig.media.articles[1].logoAlt}
+                width={120}
+                height={50}
+              />
+            </div>
+
+            <p className="text-lg">
+              <strong>{commonConfig.media.articles[1].title}</strong>
+            </p>
+
+            {commonConfig.media.articles[1].copy.map((copy, idx) => (
+              <p key={`media_article2_copy_${idx}`}>{copy}</p>
+            ))}
+          </div>
         </div>
       </Section>
 

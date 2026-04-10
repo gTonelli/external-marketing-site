@@ -19,7 +19,7 @@ export const CONFIG = {
       copy: 'Join The Personal Development School and access a full library of courses, tools, and live group coaching sessions designed to help you understand your emotional needs so you can finally overcome loneliness, reignite the spark in your relationships and experience the kind of love from others that you deserve.',
       videoId: '546da06755eb846463a99dd3b4e9f493',
       thumbnailSrc:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
       videoLabel:
         'Discover how to feel more understood, recognize the triggers behind your reactions, express yourself more clearly, and create relationships where connection feels natural, stable, and deeply fulfilling.',
     },
@@ -918,7 +918,7 @@ export const CONFIG = {
       copy: 'Join The Personal Development School and access a full library of courses, tools, and live group coaching sessions. Understand why the cheating happened and heal the trust wounds it created — so you can finally experience love with certainty and clarity.',
       videoId: '546da06755eb846463a99dd3b4e9f493',
       thumbnailSrc:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg',
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
       videoLabel:
         'Discover how to stop overthinking, calm anxiety, rebuild trust in yourself and others, and create relationships that feel safe, stable, and aligned.',
     },

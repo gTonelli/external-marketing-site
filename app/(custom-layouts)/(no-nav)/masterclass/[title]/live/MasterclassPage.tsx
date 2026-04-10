@@ -1,7 +1,6 @@
 'use client'
 // core
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
@@ -14,6 +13,7 @@ import { List } from '@/components/List'
 import { faCheck, faCircleStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { Faq } from '@/components/Faq/Faq'
 import { CarouselMasterclass } from '@/components/Carousel/variants/CarouselMasterclass'
+import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
 // config
 import { CONFIG } from './config'
@@ -499,29 +499,57 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
 
             <div className="grid gap-4 lg:grid-cols-2">
-              {commonConfig.media.articles.map((article, index) => (
-                <div
-                  key={`media_article_${index}`}
-                  className="bg-white text-left rounded-lg shadow-lg p-4">
+              <div className="bg-white text-left rounded-lg shadow-lg p-2">
+                <VideoStream
+                  type="fox26-interview"
+                  videoId={commonConfig.media.articles[0].videoSrc}
+                  thumbnailSrc={commonConfig.media.articles[0].thumbnail}
+                />
+
+                <div className="my-4">
                   <Image
-                    src={article.logo}
-                    alt={article.logoAlt}
-                    width={64}
-                    height={64}
-                    className="w-fit h-12 mb-4"
+                    src={commonConfig.media.articles[0].logo}
+                    alt={commonConfig.media.articles[0].logoAlt}
+                    width={120}
+                    height={50}
                   />
-
-                  <p className="text-xl">
-                    <strong>{article.title}</strong>
-                  </p>
-
-                  <p>{article.copy}</p>
-
-                  <Link href={article.linkUrl} target="_blank" className="text-blue-darkest">
-                    {article.link}
-                  </Link>
                 </div>
-              ))}
+
+                <p className="text-lg">
+                  <strong>{commonConfig.media.articles[0].title}</strong>
+                </p>
+
+                {commonConfig.media.articles[0].copy.map((copy, idx) => (
+                  <p key={`media_article1_copy_${idx}`}>{copy}</p>
+                ))}
+              </div>
+
+              <div className="bg-white text-left rounded-lg shadow-lg p-2">
+                <VideoYoutube
+                  playInline
+                  type="kvue-interview"
+                  videoId={commonConfig.media.articles[1].videoSrc}
+                  thumbnail={commonConfig.media.articles[1].thumbnail}
+                  thumbnailAlt={commonConfig.media.articles[1].thumbnailAlt}
+                />
+
+                <div className="my-4">
+                  <Image
+                    src={commonConfig.media.articles[1].logo}
+                    alt={commonConfig.media.articles[1].logoAlt}
+                    width={120}
+                    height={50}
+                  />
+                </div>
+
+                <p className="text-lg">
+                  <strong>{commonConfig.media.articles[1].title}</strong>
+                </p>
+
+                {commonConfig.media.articles[1].copy.map((copy, idx) => (
+                  <p key={`media_article2_copy_${idx}`}>{copy}</p>
+                ))}
+              </div>
             </div>
           </Section>
 

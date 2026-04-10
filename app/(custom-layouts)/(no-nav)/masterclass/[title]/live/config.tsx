@@ -273,7 +273,7 @@ export const CONFIG = {
     hero: {
       title:
         'Heal From Being Cheated On and Finally Let Go of the Trust Wounds It Created With Thais Gibson',
-      videoId: 'a3e53798e6cb6fdcc948b07b4ac93526',
+      videoId: '376ad34a04973d3b7975ad54c60d6558',
       thumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg',
     },
@@ -488,51 +488,49 @@ export const CONFIG = {
       title: 'Video Timestamps, Table of Contents',
       items: [
         <>
-          <strong>[00:00]</strong> - The Consequences of Having Unfulfilled Needs
+          <strong>[00:00]</strong> - Welcome To The Heal From Cheating & Learn to Trust Again
+          Masterclass
         </>,
         <>
-          <strong>[00:49]</strong> - Learning What Your True Emotional Needs Are
+          <strong>[00:14]</strong> - The Consequences of Betrayal
         </>,
         <>
-          <strong>[03:24]</strong> - Intro To The Personal Development School
+          <strong>[03:37]</strong> - What You'll Learn In This Masterclass
         </>,
         <>
-          <strong>[04:18]</strong> - Why Understanding Your Emotional Needs Is Important
+          <strong>[05:12]</strong> - Betrayal Doesn't End When A Relationship Ends
         </>,
         <>
-          <strong>[06:56]</strong> - Your Subconscious Needs Drive Your Behavior
+          <strong>[07:35]</strong> - Why You Still Feel On High Alert
         </>,
         <>
-          <strong>[09:43]</strong> - Myth 1: My Subsconscious Mind Isn't Accessible
+          <strong>[09:20]</strong> - Myth 1: Time Will Make Me Trust Again
         </>,
         <>
-          <strong>[11:21]</strong> - Myth 2: If Someone Loves Me, They Should Know What I Need
+          <strong>[09:48]</strong> - Myth 2: If I'm Triggered In New Relationships, It Means
+          Something Is Wrong With Me
         </>,
         <>
-          <strong>[12:03]</strong> - Myth 3: I've Outgrown My Childhood So It Doesn't Affect Me
-          Anymore
+          <strong>[10:08]</strong> - Myth 3: If Somebody Cheated On Me, It Means I'm Not Enough
         </>,
         <>
-          <strong>[14:10]</strong> - What You Will Learn In This Masterclass
+          <strong>[11:15]</strong> - Lesson 1: Identifying The Wound That Was Created
         </>,
         <>
-          <strong>[15:24]</strong> - Lesson 1: Identifying Your Unmet Needs
+          <strong>[12:32]</strong> - Lesson 2: What Are The Costs Of Continuing To Carry This?
         </>,
         <>
-          <strong>[18:08]</strong> - Lesson 2: How Well Do You Currently Meet Your Needs?
+          <strong>[14:01]</strong> - Lesson 3: The First Step To Healing Your Wounds
         </>,
         <>
-          <strong>[19:27]</strong> - Lesson 3: Create Daily Strategies and Learn To Communicate Them
+          <strong>[19:43]</strong> - Write Down Your Insights
         </>,
         <>
-          <strong>[24:06]</strong> - Write Down Your Insights
+          <strong>[20:13]</strong> - How I Learned To Trust Again
         </>,
         <>
-          <strong>[24:54]</strong> - How Understanding My Needs Changed My Life
-        </>,
-        <>
-          <strong>[27:47]</strong> - What's Inside The Discover, Embrace and Fulfill Your Needs
-          Course
+          <strong>[21:42]</strong> - What's Inside The Overcoming Betrayal, Healing Trust Wounds and
+          Moving Beyond Jealousy Course
         </>,
       ],
     },

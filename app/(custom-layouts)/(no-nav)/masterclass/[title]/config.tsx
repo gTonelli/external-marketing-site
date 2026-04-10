@@ -163,13 +163,13 @@ export const CONFIG = {
   },
   'learn-to-trust': {
     hero: {
-      bgVideoSrc: '/videos/Masterclass/Needs/bgv.mp4',
-      trailerVideoId: '44b97433cb8cc0eded54c5ccd8c44867',
+      bgVideoSrc: '/videos/Masterclass/Trust/bgv.mp4',
+      trailerVideoId: '266ffda0f207eec49141a63a42952cf3',
       trailerThumbnailSrc:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
-      h3: 'Feeling Broken, Anxious, or Unable to Trust Again?',
-      h1: 'Discover Why Cheating Changed You And How to Heal the Trust Wounds at the Root',
-      h2: 'Thousands have used these tools to rebuild self-trust, and finally feel safe, grounded, and open to love again.',
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg',
+      h3: '',
+      h1: 'You Were Cheated On and Left Feeling Broken, Anxious, and Unable to Trust Again',
+      h2: 'Finally, Understand Why Cheating Happened and How to Heal the Trust Wounds It Created',
     },
     floatingNavLinks: [
       { label: "What You'll Learn", href: '#what-you-will-learn' },

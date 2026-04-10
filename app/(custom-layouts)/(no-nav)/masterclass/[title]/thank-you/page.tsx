@@ -10,7 +10,12 @@ import { Button } from '@/components/Button/Button'
 import { AddToCalendar } from '@/components/Masterclass/AddToCalendar'
 // config
 import { CONFIG } from './config'
-import { MasterclassTitleSlugs, SEO_CONFIG, TMasterclassTitle } from '../../config'
+import {
+  MasterclassTitleSlugs,
+  SEO_CONFIG,
+  TMasterclassTitle,
+  COMMON_CONFIG as commonConfig,
+} from '../../config'
 // styles
 import '@/styles/default-styles.css'
 import '../../style.css'
@@ -77,11 +82,11 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
       </Section>
 
       <Section>
-        <h2 className="!text-4xl mb-8">{config.access.title}</h2>
+        <h2 className="!text-4xl mb-8">{commonConfig.preWatchSteps.title}</h2>
 
-        <p className="text-lg">{config.access.copy}</p>
+        <p className="text-lg">{commonConfig.preWatchSteps.copy}</p>
 
-        {config.access.steps.map((step, idx) => (
+        {commonConfig.preWatchSteps.steps.map((step, idx) => (
           <div key={`access_step_${idx}`} className="flex flex-col shadow-md mb-8 lg:flex-row">
             <div className="w-full lg:max-w-96">
               <Image
@@ -128,26 +133,23 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
             width={600}
             height={300}
             quality={100}
-            sizes="100vw"
           />
         </div>
       </Section>
 
       <Section classNameInner="!max-w-2xl mx-auto">
-        <h2>{config.connect.support.title}</h2>
+        <h2>{commonConfig.connect.support.title}</h2>
 
         <div className="mb-8">
-          <Link
-            href={config.connect.support.linkHref}
-            className="text-primary hover:text-primary-light">
-            {config.connect.support.linkText}
+          <Link href={commonConfig.connect.support.linkHref} className="text-primary">
+            <strong>{commonConfig.connect.support.linkText}</strong>
           </Link>
         </div>
 
-        <h2>{config.connect.social.title}</h2>
+        <h2>{commonConfig.connect.social.title}</h2>
 
         <div className="w-fit flex flex-col gap-4 mx-auto">
-          {config.connect.social.links.map((link, idx) => (
+          {commonConfig.connect.social.links.map((link, idx) => (
             <div key={`social_link_${idx}`} className="flex gap-4">
               <Image
                 src={link.image}
@@ -161,7 +163,7 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
                 <p className="text-lg mb-0">{link.copy}</p>
 
                 <Link href={link.linkHref} className="text-primary">
-                  {link.linkText}
+                  <strong>{link.linkText}</strong>
                 </Link>
               </div>
             </div>

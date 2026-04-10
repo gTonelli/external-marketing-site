@@ -16,11 +16,12 @@ import { CarouselTestimonialThinkific } from '@/components/Carousel/variants/Car
 import { MasterclassPricing } from '@/components/Masterclass/MasterclassPricing'
 import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
 import { TrustbarMasterclass } from '@/components/Trustbar/variants/TrustbarMasterclass'
+import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { List } from '@/components/List'
 import {
   faCalendarAlt,
   faClock,
-  faSparkles,
+  faCircleStar,
   faCircleArrowRight,
   faCheck,
 } from '@awesome.me/kit-545b942488/icons/classic/solid'
@@ -101,7 +102,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             />
           </div>
 
-          <p className="text-sm mb-8">{config.hero.videoLabel}</p>
+          <p className="mb-8">{config.hero.videoLabel}</p>
         </div>
       </Section>
 
@@ -173,7 +174,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
               <p key={`patterns_copy1_${index}`}>{copy}</p>
             ))}
 
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc pl-4 mb-4">
               {config.patterns.listItems1.map((item, index) => (
                 <li key={`patterns_listItems1_${index}`}>{item}</li>
               ))}
@@ -183,7 +184,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
               <p key={`patterns_copy2_${index}`}>{copy}</p>
             ))}
 
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc pl-4 mb-4">
               {config.patterns.listItems2.map((item, index) => (
                 <li key={`patterns_listItems2_${index}`}>{item}</li>
               ))}
@@ -192,18 +193,31 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {config.patterns.copy3.map((copy, index) => (
               <p key={`patterns_copy3_${index}`}>{copy}</p>
             ))}
+
+            {config.patterns.listItems3.length > 0 && (
+              <ul className="list-disc pl-4 mb-4">
+                {config.patterns.listItems3.map((item, index) => (
+                  <li key={`patterns_listItems3_${index}`}>{item}</li>
+                ))}
+              </ul>
+            )}
+
+            {config.patterns.copy4.length > 0 &&
+              config.patterns.copy4.map((copy, index) => (
+                <p key={`patterns_copy4_${index}`}>{copy}</p>
+              ))}
           </div>
         </div>
       </Section>
 
       <Section>
-        <h2>{config.aboutMasterclass.title}</h2>
+        <h2>{config.aboutMasterclass.title1}</h2>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-6 mb-8 lg:grid-cols-2">
           <div>
             <Image
-              src={config.aboutMasterclass.image}
-              alt={config.aboutMasterclass.imageAlt}
+              src={config.aboutMasterclass.image1}
+              alt={config.aboutMasterclass.image1Alt}
               className="w-full h-auto"
               width={300}
               height={500}
@@ -217,7 +231,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
               <p key={`about_masterclass_copy1_${index}`}>{copy}</p>
             ))}
 
-            <ul className="list-disc list-inside mb-4">
+            <ul className="list-disc pl-4 mb-4">
               {config.aboutMasterclass.listItems1.map((item, index) => (
                 <li key={`about_masterclass_listItems1_${index}`}>{item}</li>
               ))}
@@ -228,6 +242,42 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             ))}
           </div>
         </div>
+
+        {config.aboutMasterclass.title2 && (
+          <>
+            <h2>{config.aboutMasterclass.title2}</h2>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="text-left">
+                {config.aboutMasterclass.copy3.map((copy, index) => (
+                  <p key={`about_masterclass_copy3_${index}`}>{copy}</p>
+                ))}
+
+                <ul className="list-disc pl-4 mb-4">
+                  {config.aboutMasterclass.listItems2.map((item, index) => (
+                    <li key={`about_masterclass_listItems2_${index}`}>{item}</li>
+                  ))}
+                </ul>
+
+                {config.aboutMasterclass.copy4.map((copy, index) => (
+                  <p key={`about_masterclass_copy4_${index}`}>{copy}</p>
+                ))}
+              </div>
+
+              <div>
+                <Image
+                  src={config.aboutMasterclass.image2}
+                  alt={config.aboutMasterclass.image2Alt}
+                  className="w-full h-auto"
+                  width={300}
+                  height={500}
+                  quality={100}
+                  sizes="100vw"
+                />
+              </div>
+            </div>
+          </>
+        )}
       </Section>
 
       <Section id="the-curriculum">
@@ -301,7 +351,14 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
               <h3 className="!text-xl mb-3">{item.title}</h3>
 
               <div className="border border-gray-300 rounded-xl overflow-hidden shadow-sm">
-                <div className="grid grid-cols-3">
+                <div
+                  className={`grid ${
+                    item.lessons.length === 1
+                      ? 'grid-cols-1'
+                      : item.lessons.length === 2
+                        ? 'grid-cols-2'
+                        : 'grid-cols-3'
+                  }`}>
                   {item.lessons.map((lesson, lessonIndex) => (
                     <div
                       key={`schedule_lesson_${index}_${lessonIndex}`}
@@ -311,11 +368,14 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
                       <div className="bg-[#F0E0F7] px-4 py-3 text-center border-b border-gray-300">
                         <p className="text-primary font-semibold mb-0">{lesson.title}</p>
                       </div>
-
                       <div className="bg-white px-4 py-4">
-                        <p className="text-sm mb-0">{lesson.copy}</p>
+                        <p className="text-sm mb-0 md:text-base">{lesson.copy}</p>
                       </div>
                     </div>
+                  ))}
+                  {/* Fill empty columns if less than 3 lessons to keep rounded border appearance */}
+                  {Array.from({ length: 3 - item.lessons.length }).map((_, idx) => (
+                    <div key={`empty_schedule_lesson_${index}_${idx}`}></div>
                   ))}
                 </div>
               </div>
@@ -399,19 +459,19 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           </div>
 
           <div className="text-left order-2 lg:order-1">
-            {config.thais.copy.map((copy, index) => (
+            {commonConfig.thais.copy.map((copy, index) => (
               <p key={`thais_copy_${index}`}>{copy}</p>
             ))}
           </div>
         </div>
 
         <div className="!max-w-5xl text-left bg-white border border-gray-200 shadow-xl rounded-2xl mx-auto p-6">
-          <h3>{config.credentials.title}</h3>
+          <h3>{commonConfig.thais.credentials.title}</h3>
 
-          {config.credentials.list.map((item, idx) => (
+          {commonConfig.thais.credentials.list.map((item, idx) => (
             <div key={`thais_credentials_copy_${idx}`} className="flex gap-4">
               <div>
-                <FontAwesomeIcon icon={faSparkles} className="text-lg text-primary mt-1" />
+                <FontAwesomeIcon icon={faCircleStar} className="text-lg text-primary mt-1" />
               </div>
 
               <div>
@@ -462,10 +522,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(0, 3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
-                <p className="text-lg mb-4">{item.quote}</p>
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col items-center">
+                <div className="min-w-72 max-w-72 w-full mb-4">
+                  <Image
+                    src={item.authorPicture}
+                    alt={item.author}
+                    width={288}
+                    height={288}
+                    className="w-72 h-72 rounded-2xl"
+                    quality={100}
+                  />
+                </div>
 
-                <p className="font-bold text-sm mb-0">{item.author}</p>
+                <div className="text-left">
+                  <p className="text-lg mb-4">{item.quote}</p>
+
+                  <p className="font-bold text-sm mb-0">{item.author}</p>
+                </div>
               </div>
             ))}
           </CarouselDefault>
@@ -475,10 +548,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           {commonConfig.studentStories.slice(0, 3).map((item, index) => (
             <div
               key={`testimonial_${index}`}
-              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col justify-between">
-              <p className="text-lg mb-4">{item.quote}</p>
+              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col items-center">
+              <div className="min-w-72 max-w-72 w-full mb-4">
+                <Image
+                  src={item.authorPicture}
+                  alt={item.author}
+                  width={288}
+                  height={288}
+                  className="w-72 h-72 rounded-2xl"
+                  quality={100}
+                />
+              </div>
 
-              <p className="font-bold text-sm mb-0">{item.author}</p>
+              <div className="text-left">
+                <p className="text-lg mb-4">{item.quote}</p>
+
+                <p className="font-bold text-sm mb-0">{item.author}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -500,9 +586,24 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         <div className="bg-white shadow-xl rounded-2xl border border-gray-200 p-6 mb-8">
           <h2>{config.healing.title}</h2>
 
-          {config.healing.copy.map((copy, index) => (
-            <p key={`healing_copy_${index}`}>{copy}</p>
-          ))}
+          <div className="text-left">
+            {config.healing.copy.map((copy, index) => (
+              <p key={`healing_copy_${index}`}>{copy}</p>
+            ))}
+
+            {config.healing.listItems.length > 0 && (
+              <ul className="list-disc list-outside pl-4 mb-4">
+                {config.healing.listItems.map((item, index) => (
+                  <li key={`healing_list_item_${index}`}>{item}</li>
+                ))}
+              </ul>
+            )}
+
+            {config.healing.copy2.length > 0 &&
+              config.healing.copy2.map((copy, index) => (
+                <p key={`healing_copy2_${index}`}>{copy}</p>
+              ))}
+          </div>
         </div>
 
         <h2>{config.transformation.title}</h2>
@@ -546,9 +647,9 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
 
       <Section>
         <CourseLibrary
-          title={config.courseLibrary.title}
-          subtitle={config.courseLibrary.subtitle}
-          categories={config.courseLibrary.categories}
+          title={commonConfig.courseLibrary.title}
+          subtitle={commonConfig.courseLibrary.subtitle}
+          categories={commonConfig.courseLibrary.categories}
         />
       </Section>
 
@@ -756,9 +857,9 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
       </Section>
 
       <Section classNameInner="!max-w-4xl mx-auto">
-        <h2>{config.whyJoin.title}</h2>
+        <h2>{commonConfig.whyJoin.title}</h2>
 
-        {config.whyJoin.items.map((item, index) => (
+        {commonConfig.whyJoin.items.map((item, index) => (
           <div key={`why_join_item_${index}`} className="flex gap-4">
             <div>
               <p className="!text-3xl font-ssp text-primary mt-1">
@@ -769,7 +870,9 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             <div className="text-left">
               <h3>{item.title}</h3>
 
-              <p>{item.copy}</p>
+              {item.copy.map((copy, index) => (
+                <p key={`why_join_item_copy_${index}`}>{copy}</p>
+              ))}
             </div>
           </div>
         ))}
@@ -786,38 +889,66 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           <p key={`media_copy_${index}`}>{copy}</p>
         ))}
 
-        <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-4 mx-auto mb-8">
+        <div className="w-full max-w-4xl bg-white rounded-lg shadow-lg p-4 mx-auto mb-8">
           <VideoStream
             type={`${title} masterclass media pr`}
-            videoId={config.media.videoId}
-            thumbnailSrc={config.media.thumbnailSrc}
+            videoId={commonConfig.media.videoId}
+            thumbnailSrc={commonConfig.media.videoThumbnail}
           />
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
-          {config.media.articles.map((article, index) => (
-            <div
-              key={`media_article_${index}`}
-              className="bg-white text-left rounded-lg shadow-lg p-4">
+        <div className="max-w-4xl grid gap-4 mx-auto lg:grid-cols-2">
+          <div className="bg-white text-left rounded-lg shadow-lg p-2">
+            <VideoStream
+              type="fox26-interview"
+              videoId={commonConfig.media.articles[0].videoSrc}
+              thumbnailSrc={commonConfig.media.articles[0].thumbnail}
+            />
+
+            <div className="my-4">
               <Image
-                src={article.logo}
-                alt={article.logoAlt}
-                width={64}
-                height={64}
-                className="w-fit h-12 mb-4"
+                src={commonConfig.media.articles[0].logo}
+                alt={commonConfig.media.articles[0].logoAlt}
+                width={120}
+                height={50}
               />
-
-              <p className="text-xl">
-                <strong>{article.title}</strong>
-              </p>
-
-              <p>{article.copy}</p>
-
-              <a href={article.linkUrl} target="_blank" className="text-blue-darkest">
-                {article.link}
-              </a>
             </div>
-          ))}
+
+            <p className="text-lg">
+              <strong>{commonConfig.media.articles[0].title}</strong>
+            </p>
+
+            {commonConfig.media.articles[0].copy.map((copy, idx) => (
+              <p key={`media_article1_copy_${idx}`}>{copy}</p>
+            ))}
+          </div>
+
+          <div className="bg-white text-left rounded-lg shadow-lg p-2">
+            <VideoYoutube
+              playInline
+              type="kvue-interview"
+              videoId={commonConfig.media.articles[1].videoSrc}
+              thumbnail={commonConfig.media.articles[1].thumbnail}
+              thumbnailAlt={commonConfig.media.articles[1].thumbnailAlt}
+            />
+
+            <div className="my-4">
+              <Image
+                src={commonConfig.media.articles[1].logo}
+                alt={commonConfig.media.articles[1].logoAlt}
+                width={120}
+                height={50}
+              />
+            </div>
+
+            <p className="text-lg">
+              <strong>{commonConfig.media.articles[1].title}</strong>
+            </p>
+
+            {commonConfig.media.articles[1].copy.map((copy, idx) => (
+              <p key={`media_article2_copy_${idx}`}>{copy}</p>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -858,7 +989,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
 
         <div className="w-fit">
-          <MasterclassPricing />
+          <MasterclassPricing masterclassTitle={title} />
         </div>
       </Section>
 
@@ -887,7 +1018,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
       </Section>
 
       <Section className="!py-0">
-        <Faq faq={config.faqs} className="!mb-0" />
+        <Faq faq={commonConfig.faqs} className="!mb-0" />
       </Section>
 
       <Section>
@@ -896,8 +1027,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
             {commonConfig.studentStories.slice(3).map((item, index) => (
               <div
                 key={`testimonial_${index}`}
-                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
-                <p className="text-lg mb-4">{item.quote}</p>
+                className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col items-center">
+                <div className="min-w-72 max-w-72 w-full mb-4">
+                  <Image
+                    src={item.authorPicture}
+                    alt={item.author}
+                    width={288}
+                    height={288}
+                    className="w-72 h-72 rounded-2xl"
+                    quality={100}
+                  />
+                </div>
+
+                <div className="text-left">
+                  <p className="text-lg mb-4">{item.quote}</p>
+
+                  <p className="font-bold text-sm mb-0">{item.author}</p>
+                </div>
 
                 <p className="font-bold text-sm mb-0">{item.author}</p>
               </div>
@@ -909,10 +1055,23 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
           {commonConfig.studentStories.slice(3).map((item, index) => (
             <div
               key={`testimonial_${index}`}
-              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col justify-between">
-              <p className="text-lg mb-4">{item.quote}</p>
+              className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col items-center">
+              <div className="min-w-72 max-w-72 w-full mb-4">
+                <Image
+                  src={item.authorPicture}
+                  alt={item.author}
+                  width={288}
+                  height={288}
+                  className="w-72 h-72 rounded-2xl"
+                  quality={100}
+                />
+              </div>
 
-              <p className="font-bold text-sm mb-0">{item.author}</p>
+              <div className="text-left">
+                <p className="text-lg mb-4">{item.quote}</p>
+
+                <p className="font-bold text-sm mb-0">{item.author}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -935,7 +1094,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
 
         <div className="w-fit">
-          <MasterclassPricing />
+          <MasterclassPricing masterclassTitle={title} />
         </div>
       </Section>
     </Page>

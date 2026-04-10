@@ -1,7 +1,6 @@
 'use client'
 // core
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // components
@@ -11,8 +10,10 @@ import { MasterclassPricing } from '@/components/Masterclass/MasterclassPricing'
 import { FloatingNavigation } from '@/components/Masterclass/FloatingNavigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { List } from '@/components/List'
-import { faCheck, faSparkles } from '@awesome.me/kit-545b942488/icons/classic/solid'
+import { faCheck, faCircleStar } from '@awesome.me/kit-545b942488/icons/classic/solid'
 import { Faq } from '@/components/Faq/Faq'
+import { CarouselMasterclass } from '@/components/Carousel/variants/CarouselMasterclass'
+import { VideoYoutube } from '@/components/Video/variants/VideoYoutube'
 import { CarouselDefault } from '@/components/Carousel/variants/CarouselDefault'
 // config
 import { CONFIG } from './config'
@@ -81,15 +82,13 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
       <Section>
         <h1>{config.hero.title}</h1>
 
-        <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-4">
-          <VideoStream
-            type={`${title} masterclass`}
-            videoId={config.hero.videoId}
-            thumbnailSrc={config.hero.thumbnailSrc}
-            onVideoStarted={onVideoStarted}
-            onVideoProgress={onVideoProgress}
-          />
-        </div>
+        <VideoStream
+          type={`${title} masterclass`}
+          videoId={config.hero.videoId}
+          thumbnailSrc={config.hero.thumbnailSrc}
+          onVideoStarted={onVideoStarted}
+          onVideoProgress={onVideoProgress}
+        />
       </Section>
 
       {pageRevealed && (
@@ -125,12 +124,13 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
               />
 
               <div className="w-full flex justify-center items-center -mt-24 z-10">
-                <MasterclassPricing classNameFooter="!text-gray-800" />
+                <MasterclassPricing classNameFooter="!text-gray-800" masterclassTitle={title} />
               </div>
             </div>
 
             <div className="hidden relative w-full lg:block">
               <Image
+                priority
                 className="w-full h-auto"
                 src={config.offer.imageDesktop}
                 alt={config.offer.imageDesktopAlt}
@@ -141,7 +141,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
               />
 
               <div className="absolute max-w-96 left-[60%] bottom-0 z-10">
-                <MasterclassPricing classNameFooter="!text-gray-800" />
+                <MasterclassPricing classNameFooter="!text-gray-800" masterclassTitle={title} />
               </div>
             </div>
           </Section>
@@ -224,20 +224,20 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
 
             <div className="text-left">
-              <h2>{config.thais.title}</h2>
+              <h2>{commonConfig.thais.title}</h2>
 
-              {config.thais.copy.map((copy, index) => (
+              {commonConfig.thais.copy.map((copy, index) => (
                 <p key={`thais_copy_${index}`}>{copy}</p>
               ))}
 
               <p className="text-xl">
-                <strong>{config.credentials.title}</strong>
+                <strong>{commonConfig.thais.credentials.title}</strong>
               </p>
 
-              {config.credentials.list.map((item, idx) => (
+              {commonConfig.thais.credentials.list.map((item, idx) => (
                 <div key={`thais_credentials_copy_${idx}`} className="flex gap-4">
                   <div>
-                    <FontAwesomeIcon icon={faSparkles} className="text-lg text-primary mt-1" />
+                    <FontAwesomeIcon icon={faCircleStar} className="text-lg text-primary mt-1" />
                   </div>
 
                   <div>
@@ -278,7 +278,7 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
 
               <Image
                 src="/images/Masterclass/media-3.png"
-                alt="Thais Gibson portrait"
+                alt="Thais Gibson with Mel Robbins"
                 width={344}
                 height={475}
                 quality={100}
@@ -310,10 +310,22 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
                 {commonConfig.studentStories.map((item, index) => (
                   <div
                     key={`testimonial_${index}`}
-                    className="h-full bg-white rounded-2xl border border-gray-200 p-6 text-left flex flex-col justify-between">
-                    <p className="text-lg mb-4">{item.quote}</p>
+                    className="h-full bg-white rounded-2xl border border-gray-200 p-6 flex flex-col items-center">
+                    <div className="min-w-72 max-w-72 w-full mb-4">
+                      <Image
+                        src={item.authorPicture}
+                        alt={item.author}
+                        width={288}
+                        height={288}
+                        className="w-72 h-72 rounded-2xl"
+                      />
+                    </div>
 
-                    <p className="font-bold text-sm mb-0">{item.author}</p>
+                    <div className="text-left">
+                      <p className="text-lg mb-4">{item.quote}</p>
+
+                      <p className="font-bold text-sm mb-0">{item.author}</p>
+                    </div>
                   </div>
                 ))}
               </CarouselDefault>
@@ -323,10 +335,22 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
               {commonConfig.studentStories.map((item, index) => (
                 <div
                   key={`testimonial_${index}`}
-                  className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col justify-between">
-                  <p className="text-lg mb-4">{item.quote}</p>
+                  className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col items-center">
+                  <div className="min-w-72 max-w-72 w-full mb-4">
+                    <Image
+                      src={item.authorPicture}
+                      alt={item.author}
+                      width={288}
+                      height={288}
+                      className="w-72 h-72 rounded-2xl"
+                    />
+                  </div>
 
-                  <p className="font-bold text-sm mb-0">{item.author}</p>
+                  <div className="text-left">
+                    <p className="text-lg mb-4">{item.quote}</p>
+
+                    <p className="font-bold text-sm mb-0">{item.author}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -367,19 +391,19 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
 
             <div className="w-full lg:w-fit">
-              <MasterclassPricing classNameFooter="!text-gray-800" />
+              <MasterclassPricing classNameFooter="!text-gray-800" masterclassTitle={title} />
             </div>
           </Section>
 
           <Section>
-            <h2>{config.app.title}</h2>
+            <h2>{commonConfig.app.title}</h2>
 
-            <p>{config.app.copy}</p>
+            <p>{commonConfig.app.copy}</p>
 
             <div className="rounded-xl overflow-hidden mb-4">
               <Image
-                src={config.app.image}
-                alt={config.app.imageAlt}
+                src={commonConfig.app.image}
+                alt={commonConfig.app.imageAlt}
                 className="w-full h-auto"
                 width={1000}
                 height={460}
@@ -409,10 +433,22 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
           </Section>
 
+          <Section className="!p-0" classNameInner="!max-w-full !p-0 !m-0">
+            <div className="!max-w-5xl mx-auto mb-8">
+              <h2>{commonConfig.courseCarousel.title}</h2>
+
+              {commonConfig.courseCarousel.copy.map((copy, index) => (
+                <p key={`course_carousel_copy_${index}`}>{copy}</p>
+              ))}
+            </div>
+
+            <CarouselMasterclass />
+          </Section>
+
           <Section>
             {config.features.map((item, index) => (
-              <div key={`feature_${index}`} className="mb-8">
-                <h3>{item.title}</h3>
+              <div key={`feature_${index}`} className="mb-12">
+                <h2>{item.title}</h2>
 
                 {item.copy.map((copy, idx) => (
                   <p key={`feature_copy_${idx}`}>{copy}</p>
@@ -450,56 +486,122 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
           </Section>
 
           <Section className="bg-blue-lightest-50" classNameInner="!max-w-4xl !text-left mx-auto">
-            <h2>{config.media.title}</h2>
+            <h2>{commonConfig.media.title}</h2>
 
-            <p>{config.media.copy}</p>
+            <p>{commonConfig.media.copy}</p>
 
             <div className="w-full bg-white rounded-lg shadow-lg p-4 mb-8">
               <VideoStream
                 type={`${title} masterclass media pr`}
-                videoId={config.media.videoId}
-                thumbnailSrc={config.media.videoThumbnail}
+                videoId={commonConfig.media.videoId}
+                thumbnailSrc={commonConfig.media.videoThumbnail}
               />
             </div>
 
             <div className="grid gap-4 lg:grid-cols-2">
-              {config.media.articles.map((article, index) => (
-                <div
-                  key={`media_article_${index}`}
-                  className="bg-white text-left rounded-lg shadow-lg p-4">
+              <div className="bg-white text-left rounded-lg shadow-lg p-2">
+                <VideoStream
+                  type="fox26-interview"
+                  videoId={commonConfig.media.articles[0].videoSrc}
+                  thumbnailSrc={commonConfig.media.articles[0].thumbnail}
+                />
+
+                <div className="my-4">
                   <Image
-                    src={article.logo}
-                    alt={article.logoAlt}
-                    width={64}
-                    height={64}
-                    className="w-fit h-12 mb-4"
+                    src={commonConfig.media.articles[0].logo}
+                    alt={commonConfig.media.articles[0].logoAlt}
+                    width={120}
+                    height={50}
                   />
-
-                  <p className="text-xl">
-                    <strong>{article.title}</strong>
-                  </p>
-
-                  <p>{article.copy}</p>
-
-                  <Link href={article.linkUrl} target="_blank" className="text-blue-darkest">
-                    {article.link}
-                  </Link>
                 </div>
-              ))}
+
+                <p className="text-lg">
+                  <strong>{commonConfig.media.articles[0].title}</strong>
+                </p>
+
+                {commonConfig.media.articles[0].copy.map((copy, idx) => (
+                  <p key={`media_article1_copy_${idx}`}>{copy}</p>
+                ))}
+              </div>
+
+              <div className="bg-white text-left rounded-lg shadow-lg p-2">
+                <VideoYoutube
+                  playInline
+                  type="kvue-interview"
+                  videoId={commonConfig.media.articles[1].videoSrc}
+                  thumbnail={commonConfig.media.articles[1].thumbnail}
+                  thumbnailAlt={commonConfig.media.articles[1].thumbnailAlt}
+                />
+
+                <div className="my-4">
+                  <Image
+                    src={commonConfig.media.articles[1].logo}
+                    alt={commonConfig.media.articles[1].logoAlt}
+                    width={120}
+                    height={50}
+                  />
+                </div>
+
+                <p className="text-lg">
+                  <strong>{commonConfig.media.articles[1].title}</strong>
+                </p>
+
+                {commonConfig.media.articles[1].copy.map((copy, idx) => (
+                  <p key={`media_article2_copy_${idx}`}>{copy}</p>
+                ))}
+              </div>
             </div>
           </Section>
 
           <Section classNameInner="!text-left">
-            <h2>What our members say about The Personal Development School</h2>
+            <h2>What Our Members Say About The Personal Development School</h2>
 
-            <div className="grid gap-6 lg:grid-cols-3">
-              {commonConfig.studentStories.map((item, index) => (
+            <div className="block lg:hidden">
+              <CarouselDefault>
+                {commonConfig.studentStories.slice(3).map((item, index) => (
+                  <div
+                    key={`testimonial_${index}`}
+                    className="h-full bg-white rounded-2xl border border-gray-200 p-6 flex flex-col items-center">
+                    <div className="min-w-72 max-w-72 w-full mb-4">
+                      <Image
+                        src={item.authorPicture}
+                        alt={item.author}
+                        width={288}
+                        height={288}
+                        className="w-72 h-72 rounded-2xl"
+                      />
+                    </div>
+
+                    <div className="text-left">
+                      <p className="text-lg mb-4">{item.quote}</p>
+
+                      <p className="font-bold text-sm mb-0">{item.author}</p>
+                    </div>
+                  </div>
+                ))}
+              </CarouselDefault>
+            </div>
+
+            <div className="hidden lg:grid gap-6 lg:grid-cols-3">
+              {commonConfig.studentStories.slice(3).map((item, index) => (
                 <div
                   key={`testimonial_${index}`}
-                  className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left flex flex-col justify-between">
-                  <p className="text-lg mb-4">{item.quote}</p>
+                  className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 flex flex-col items-center">
+                  <div className="min-w-72 max-w-72 w-full mb-4">
+                    <Image
+                      src={item.authorPicture}
+                      alt={item.author}
+                      width={288}
+                      height={288}
+                      className="w-72 h-72 rounded-2xl"
+                    />
+                  </div>
 
-                  <p className="font-bold text-sm mb-0">{item.author}</p>
+                  <div className="text-left">
+                    <p className="text-lg mb-4">{item.quote}</p>
+
+                    <p className="font-bold text-sm mb-0">{item.author}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -524,22 +626,19 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
             </div>
 
             <div className="w-fit">
-              <MasterclassPricing classNameFooter="!text-gray-800" />
+              <MasterclassPricing classNameFooter="!text-gray-800" masterclassTitle={title} />
             </div>
           </Section>
 
           <Section className="bg-white-secondary" classNameInner="flex flex-col gap-8 lg:flex-row">
             <div className="text-left lg:flex-1">
-              <h2>Frequently Asked Questions</h2>
+              <h2>{config.faqs.title}</h2>
 
-              <p>
-                Get your questions answered before the Discover, Embrace & Fulfill Your Personal
-                Needs Masterclass begins.
-              </p>
+              <p>{config.faqs.copy}</p>
             </div>
 
             <div className="text-left lg:flex-2">
-              <Faq faq={config.faqs} includeHeading={false} className="!my-0" />
+              <Faq faq={commonConfig.faqs} includeHeading={false} className="!my-0" />
             </div>
           </Section>
         </>
@@ -549,15 +648,20 @@ export const MasterclassPage = ({ title, isLive = true }: IMasterclassPageProps)
         <h2>{config.timestamps.title}</h2>
 
         {config.timestamps.items.map((item, index) => (
-          <p key={`timestamp_${index}`}>{item}</p>
+          <p key={`timestamp_${index}`}>
+            <span>
+              <FontAwesomeIcon icon={faCheck} className="text-primary mr-2" />
+            </span>
+            {item}
+          </p>
         ))}
       </Section>
 
       <Section classNameInner="grid gap-4 lg:grid-cols-2">
         <div className="text-left">
-          <h2>{config.thais.title}</h2>
+          <h2>{commonConfig.thais.title}</h2>
 
-          {config.thais.copy.map((copy, index) => (
+          {commonConfig.thais.copy.map((copy, index) => (
             <p key={`thais_copy_${index}`}>{copy}</p>
           ))}
         </div>

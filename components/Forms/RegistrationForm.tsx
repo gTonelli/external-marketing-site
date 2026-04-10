@@ -1,7 +1,10 @@
 'use client'
 
+// core
+import { useCallback, useState } from 'react'
 // components
 import { Button } from '../Button/Button'
+import { Captcha } from '../Captcha'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
 import { TDatingStage } from '../DatingQuiz/useDatingQuiz'
 import { IDefaultProps } from '..'
@@ -86,9 +89,19 @@ export const RegistrationForm = ({
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
+  const [captchaToken, setCaptchaToken] = useState<string>('')
+
+  // =========== Captcha =========
+  const onCaptchaSuccess = useCallback((token: string) => {
+    setCaptchaToken(token)
+  }, [])
+
+  const onCaptchaClear = useCallback(() => {
+    setCaptchaToken('')
+  }, [])
 
   const onSubmit = (values: IQuizRegistrationFormSchema) => {
-    const { firstName, lastName, phone } = values
+    const { firstName, lastName, phone, website } = values
     const email = values.email.trim()
     setUserData({ email, firstName, lastName, phone, userStyle })
 
@@ -126,6 +139,8 @@ export const RegistrationForm = ({
       listIds: [2],
       insertId: eventId,
       userInfo,
+      website,
+      'g-recaptcha-response': captchaToken,
     }
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
@@ -150,7 +165,7 @@ export const RegistrationForm = ({
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
       {({ values, setFieldValue, isSubmitting, errors }) => (
-        <Form className={cx('w-full mx-auto text-left', className)}>
+        <Form className={cx('w-full mx-auto text-left  overflow-hidden', className)}>
           {fields.map((field) => (
             <div key={`field_${field.key}`}>
               <label className="font-bold" htmlFor={field.key}>
@@ -173,6 +188,26 @@ export const RegistrationForm = ({
               )}
             </div>
           ))}
+
+          <div aria-hidden="true" className="absolute left-[-9999px] h-0">
+            <label htmlFor="website">Website</label>
+
+            <Field
+              autoComplete="off"
+              className={`w-full outline-none focus:ring-transparent py-2 px-4 rounded-md ${
+                errors['website'] ? 'mb-0 border-danger' : 'mb-2 border-black'
+              }`}
+              name="website"
+              placeholder="Website"
+              tabIndex={-1}
+            />
+
+            {errors['website'] && (
+              <p className="text-danger">
+                <em>*{errors['website']}</em>
+              </p>
+            )}
+          </div>
 
           {showPhoneField && (
             <div>
@@ -205,10 +240,18 @@ export const RegistrationForm = ({
 
           {disclaimer && <p className="text-left mt-4">{disclaimer}</p>}
 
+          <div className="flex justify-center mt-4">
+            <Captcha
+              onSuccess={onCaptchaSuccess}
+              onError={onCaptchaClear}
+              onExpired={onCaptchaClear}
+            />
+          </div>
+
           <div className="flex justify-center">
             <Button.Submit
               className="font-bold text-base self-start text-center rounded-full bg-primary-old tracking-widest mt-4 py-4 px-12 lg:text-xl"
-              disabled={isSubmitting}
+              disabled={isSubmitting || !captchaToken}
               label={submitButtonLabel || 'SUBMIT'}
             />
           </div>
@@ -235,6 +278,7 @@ export const RegistrationFormValidationSchema = yup
       .test('isPhoneValid', 'Please enter a valid phone number', (value) =>
         value ? isPhoneValid(value) : true
       ),
+    website: yup.string().optional(),
   })
   .defined()
 

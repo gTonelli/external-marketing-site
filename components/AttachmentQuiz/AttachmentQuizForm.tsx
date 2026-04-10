@@ -1,7 +1,6 @@
 'use client'
 
 //core
-import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 // components
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
@@ -12,7 +11,7 @@ import { gtag } from '../GoogleAdsTag'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
+import { getAttachmentStyleText } from '@/utils/functions'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -33,24 +32,7 @@ export const AttachmentQuizForm = ({
 }: IAttachmentQuizFormProps) => {
   const router = useRouter()
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
-  const [isVariant, setIsVariant] = useState(false)
   const FBQ = useFacebookPixel()
-
-  useEffect(() => {
-    if (userStyle !== 'sa' && userStyle !== 'ap' && quiz_traffic_source === 'paidGoogle') {
-      setIsVariant(
-        getSplitTest({
-          key: 'gm-2354-attachment-funnel-cro-test',
-          experimentName: 'GM-2354-Attachment-Funnel-CRO-Test',
-          variantRatio: 0.5,
-          useCookies: true,
-          props: {
-            attachmentStyle: userStyle,
-          },
-        })
-      )
-    }
-  }, [quiz_traffic_source, userStyle])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -59,11 +41,8 @@ export const AttachmentQuizForm = ({
         return `/results/${userStyle}`
 
       case 'paidGoogle':
-        if (isVariant) {
+        if (userStyle === 'fa' || userStyle === 'da') {
           return `/quiz/results/b/${userStyle}`
-        }
-        if (userStyle === 'fa') {
-          return '/quiz/results/fearful-avoidant'
         }
 
         return `/quiz/${userStyle}`
@@ -147,7 +126,9 @@ export const AttachmentQuizForm = ({
   }
 
   const tags = [`attachment-quiz-${userStyle}`]
-  if (isVariant) tags.push(`funnel-cro-${userStyle}`)
+  if (quiz_traffic_source === 'paidGoogle' && (userStyle === 'fa' || userStyle === 'da')) {
+    tags.push(`attachment-quiz-${userStyle}-google`)
+  }
 
   return (
     <section className="flex justify-center">

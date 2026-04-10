@@ -9,7 +9,7 @@ export const CONFIG = {
       'This special discount is yours for as long as you choose to stay a member of The Personal Development School',
     videoId: '546da06755eb846463a99dd3b4e9f493',
     thumbnailSrc:
-      'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
+      'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/thais_writing_video_thumbnail_a5e6bc6f9e.jpg',
     videoLabel: 'The lifechanging tools you can use in all areas of life, now yours.',
     ctaLabel: 'CLAIM YOUR DISCOUNT NOW',
   },

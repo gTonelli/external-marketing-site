@@ -572,9 +572,9 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
 
       <Section>
         <CourseLibrary
-          title={config.courseLibrary.title}
-          subtitle={config.courseLibrary.subtitle}
-          categories={config.courseLibrary.categories}
+          title={commonConfig.courseLibrary.title}
+          subtitle={commonConfig.courseLibrary.subtitle}
+          categories={commonConfig.courseLibrary.categories}
         />
       </Section>
 

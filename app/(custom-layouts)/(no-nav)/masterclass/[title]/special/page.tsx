@@ -754,16 +754,16 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
       </Section>
 
       <Section>
-        <h2>{commonConfig.buildingRelationships.title}</h2>
+        <h2>{config.buildingRelationships.title}</h2>
 
-        {commonConfig.buildingRelationships.copy.map((copy, index) => (
+        {config.buildingRelationships.copy.map((copy, index) => (
           <p key={`building_relationships_copy_${index}`}>{copy}</p>
         ))}
 
         <div className="max-w-xl rounded-2xl overflow-hidden mx-auto mb-8">
           <Image
-            src={commonConfig.buildingRelationships.image}
-            alt={commonConfig.buildingRelationships.imageAlt}
+            src={config.buildingRelationships.image}
+            alt={config.buildingRelationships.imageAlt}
             className="w-full h-auto"
             width={600}
             height={400}
@@ -773,7 +773,7 @@ export default async function MasterclassSecondarySalesPage({ params }: IMasterc
         </div>
 
         <div className="flex flex-col gap-8">
-          {commonConfig.buildingRelationships.items.map((item, index) => {
+          {config.buildingRelationships.items.map((item, index) => {
             const textBlock = (
               <div key={`br_text_${index}`} className="flex flex-col justify-center text-left">
                 <h3 className="text-2xl font-bold">{item.title}</h3>

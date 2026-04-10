@@ -15,7 +15,7 @@ export const CONFIG = {
       emailInstructions: [
         {
           title: 'Your custom link to watch:',
-          text: 'Check your email for the subject “Congratulations - You’re confirmed for the Masterclass”.',
+          text: 'Check your email for the subject “You’re now registered for our Masterclass with Thais Gibson, PhD.”.',
         },
         {
           title: "Important: Didn't see the email?",
@@ -52,7 +52,7 @@ export const CONFIG = {
       emailInstructions: [
         {
           title: 'Your custom link to watch:',
-          text: 'Check your email for the subject “Congratulations - You’re confirmed for the Masterclass”.',
+          text: 'Check your email for the subject “You’re now registered for our Masterclass with Thais Gibson, PhD.”.',
         },
         {
           title: "Important: Didn't see the email?",

@@ -91,12 +91,9 @@ export const CONFIG = {
     copy: "What's included:",
     items: [
       <>
-        <strong>
-          Full Access to the Course Library including the Discover, Embrace & Fulfill Your Personal
-          Needs Course:
-        </strong>{' '}
-        Explore in-depth programs designed to help you improve communication, strengthen
-        relationships, and create healthier emotional patterns.
+        <strong>Full Access to the Course Library including 70+ Unique Courses:</strong> Explore
+        in-depth programs designed to help you improve communication, strengthen relationships, and
+        create healthier emotional patterns.
       </>,
       <>
         <strong>Weekly Live Group Coaching with Thais Gibson:</strong> Join live group coaching

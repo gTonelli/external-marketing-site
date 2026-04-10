@@ -719,7 +719,7 @@ export const CONFIG = {
           copy: [
             'Lessons inside the membership are practical and easy to apply, helping you understand why frustration or distance can show up in relationships, and what to do to bring back connection, appreciation, and excitement.',
           ],
-          image: '/images/Masterclass/features-1.png',
+          image: '/images/Masterclass/needs-features-1.png',
           imageAlt: 'Build Stronger Relationships Through Small, Effective and Practical Steps',
         },
         {
@@ -729,7 +729,7 @@ export const CONFIG = {
             'Some members want to improve communication in relationships. Others want to build stronger boundaries, regulate emotions, or feel more confident navigating life’s challenges.',
             'The curriculum allows you to focus on the areas that matter most to you while moving forward with a clear path for growth.',
           ],
-          image: '/images/Masterclass/features-2.png',
+          image: '/images/Masterclass/needs-features-2.png',
           imageAlt: 'A learning path focused on what matters most to you',
         },
         {
@@ -1453,7 +1453,7 @@ export const CONFIG = {
     transformation: {
       title: 'Begin Your Transformational Journey with The Personal Development School',
       copy: [
-        'As a member, you’ll gain access to the Overcome Betrayal & Heal Trust Wounds Course along with a full library of advanced programs designed to help you strengthen communication, improve emotional resilience, and create more fulfilling relationships.',
+        'As a member, you’ll gain access to the Overcome Betrayal, Heal Trust Wounds & Move Past Jealousy Course along with a full library of advanced programs designed to help you strengthen communication, improve emotional resilience, and create more fulfilling relationships.',
         'Each program includes practical lessons and exercises that help you apply what you learn directly to your daily life.',
         'You’ll also join a global community of people committed to growth, self-awareness, and building healthier relationships.',
       ],
@@ -1548,6 +1548,54 @@ export const CONFIG = {
         },
       ],
     },
+    buildingRelationships: {
+      title: 'Finally Understand How To Build Lasting And Thriving Relationships',
+      copy: [
+        'The Personal Development School gives you practical tools to improve the way you connect and communicate in your relationships. Through in-depth courses, live group coaching sessions with Thais Gibson, and guided exercises, you’ll learn how to understand what’s actually missing when relationships feel frustrating, distant, or disconnected, and how to bring connection back.',
+        'Inside the membership, you’ll learn how to recognize what’s driving your reactions in difficult moments, communicate in ways that reduce conflict, and create relationships where both people feel understood, appreciated, and emotionally supported.',
+      ],
+      image: '/images/Masterclass/masterclass-membership-mockup.png',
+      imageAlt:
+        'Membership can be purchased on masterclass pages and be watched on various devices',
+      items: [
+        {
+          title: 'Build Stronger Relationships Through Small, Effective and Practical Steps',
+          copy: [
+            'Lessons inside the membership are practical and easy to apply, helping you understand why frustration or distance can show up in relationships, and what to do to bring back connection, appreciation, and excitement.',
+          ],
+          image: '/images/Masterclass/trust-features-1.png',
+          imageAlt: 'Build Stronger Relationships Through Small, Effective and Practical Steps',
+        },
+        {
+          title: 'A Learning Path Focused on What Matters Most to You',
+          copy: [
+            "Everyone's growth journey looks different.",
+            'Some members want to improve communication in relationships. Others want to build stronger boundaries, regulate emotions, or feel more confident navigating life’s challenges.',
+            'The curriculum allows you to focus on the areas that matter most to you while moving forward with a clear path for growth.',
+          ],
+          image: '/images/Masterclass/trust-features-2.png',
+          imageAlt: 'A learning path focused on what matters most to you',
+        },
+        {
+          title: 'Learn Directly From Thais Gibson, PhD',
+          copy: [
+            'Inside the membership, you’ll learn from Thais Gibson, founder of The Personal Development School.',
+            'Her teachings combine psychological insight with practical tools designed to help people better understand their emotional patterns and create meaningful change in their lives and relationships.',
+          ],
+          image: '/images/Masterclass/features-3.png',
+          imageAlt: 'Learn directly from Thais Gibson, PhD',
+        },
+        {
+          title: 'A Global Community Walking the Same Path',
+          copy: [
+            'Inside the community, you’ll connect with people from around the world who are also committed to healing, growth, and building more fulfilling relationships.',
+            'Through shared learning and supportive conversations, you’ll be part of a community where personal transformation is encouraged and supported.',
+          ],
+          image: '/images/Masterclass/features-4.png',
+          imageAlt: 'A global community walking the same path',
+        },
+      ],
+    },
     media: {
       label: 'THE MEDIA IS RAVING ABOUT THAIS GIBSON',
       title: 'A Leading Voice in Relationships and Emotional Growth',
@@ -1607,8 +1655,8 @@ export const CONFIG = {
       items: [
         <>
           <strong>
-            Full Access to the Course Library including the Overcome Betrayal & Heal Trust Wounds
-            Course:
+            Full Access to the Course Library including the Overcome Betrayal, Heal Trust Wounds &
+            Move Past Jealousy Course:
           </strong>{' '}
           Explore in-depth programs designed to help you improve communication, strengthen
           relationships, and create healthier emotional patterns.

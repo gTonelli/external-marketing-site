@@ -1,14 +1,15 @@
 'use client'
 
 // core
-import { useState } from 'react'
-// comoponents
+import { useCallback, useState } from 'react'
+// components
 import { ButtonSubmit } from '../Button/variants/ButtonSubmit'
+import { Captcha } from '../Captcha'
 import { Input } from '../Input/Input'
 // libraries
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FormikHelpers, Formik, Form } from 'formik'
+import { FormikHelpers, Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
@@ -17,11 +18,13 @@ const RegistrationFormValidationSchema = Yup.object()
   .shape({
     firstName: Yup.string().defined().ensure().required('First name required'),
     email: Yup.string().defined().ensure().required('Email required'),
+    website: Yup.string().optional(),
   })
   .defined()
 
-export interface IRegistrationFormSchema
-  extends Yup.InferType<typeof RegistrationFormValidationSchema> {}
+export interface IRegistrationFormSchema extends Yup.InferType<
+  typeof RegistrationFormValidationSchema
+> {}
 
 const registrationFormInitialValues: IRegistrationFormSchema =
   RegistrationFormValidationSchema.cast({})
@@ -29,6 +32,15 @@ const registrationFormInitialValues: IRegistrationFormSchema =
 export const IATRegistrationForm = () => {
   const [formSubmissionSuccess, setFormSubmissionSuccess] = useState(false)
   const [formSubmissionError, setFormSubmissionError] = useState('')
+  const [captchaToken, setCaptchaToken] = useState<string>('')
+
+  const onCaptchaSuccess = useCallback((token: string) => {
+    setCaptchaToken(token)
+  }, [])
+
+  const onCaptchaClear = useCallback(() => {
+    setCaptchaToken('')
+  }, [])
 
   const onSubmit = async (values: IRegistrationFormSchema, formikHelpers: FormikHelpers<any>) => {
     setFormSubmissionError('')
@@ -39,6 +51,8 @@ export const IATRegistrationForm = () => {
         firstName: values.firstName,
         tags: ['iat-tips-ebook'],
         listIds: [54],
+        website: values.website,
+        'g-recaptcha-response': captchaToken,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -79,12 +93,32 @@ export const IATRegistrationForm = () => {
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ isSubmitting }) => (
-        <Form className="w-full max-w-xl mx-auto">
+      {({ isSubmitting, errors }) => (
+        <Form className="w-full max-w-xl mx-auto overflow-hidden">
           <div className="flex">
-            <Input.Field className="mx-0 mr-4 flex-1" label="Your First name" name="firstName" />
+            <Input.Field
+              autocomplete="given-name"
+              className="mx-0 mr-4 flex-1"
+              label="Your First name"
+              name="firstName"
+            />
 
-            <Input.Field className="mx-0 flex-1" label="Email Address" name="email" />
+            <Input.Field
+              autocomplete="email"
+              className="mx-0 flex-1"
+              label="Email Address"
+              name="email"
+            />
+          </div>
+
+          <div aria-hidden="true" className="absolute left-[-9999px] h-0">
+            <Input.Field
+              autocomplete="off"
+              className="!mt-0 !mx-0 mb-2 xxs:!mb-0 w-full"
+              label="Website"
+              name="website"
+              tabIndex={-1}
+            />
           </div>
 
           {formSubmissionError && (
@@ -94,9 +128,17 @@ export const IATRegistrationForm = () => {
             </div>
           )}
 
+          <div className="flex justify-center mt-4">
+            <Captcha
+              onSuccess={onCaptchaSuccess}
+              onError={onCaptchaClear}
+              onExpired={onCaptchaClear}
+            />
+          </div>
+
           <ButtonSubmit
             className="block w-full font-bold text-base self-start text-center rounded-full tracking-widest mt-4"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !captchaToken}
             label={'SUBMIT'}
           />
         </Form>

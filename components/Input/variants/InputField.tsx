@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExclamationCircle } from '@awesome.me/kit-545b942488/icons/classic/solid'
 
 interface IInputFieldMUIProps extends IInputDefaultProps {
+  tabIndex?: number
   className?: string
   name: string
   autocomplete?: TAutocompleteValues
@@ -30,6 +31,7 @@ export const InputField = ({
   className,
   label,
   name,
+  tabIndex,
   tooltip,
   tooltipSide,
   type = 'text',
@@ -47,13 +49,15 @@ export const InputField = ({
             className="w-full outline-none border-none focus:ring-transparent peer py-2 px-4 rounded-xl"
             placeholder=" "
             type={type}
+            tabIndex={tabIndex}
           />
 
           <label
             className={`absolute left-[17px] top-px text-sm text-primary transition-all duration-300 px-1 transform -translate-y-1/2 pointer-events-none 
                         peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-grey-secondary peer-placeholder-shown:text-lg 
                         group-focus-within:!top-px group-focus-within:!text-sm group-focus-within:!text-primary 
-                        ${error && '!text-danger group-focus-within:!text-danger'}`}>
+                        ${error && '!text-danger group-focus-within:!text-danger'}`}
+            tabIndex={tabIndex}>
             {label}
           </label>
 
@@ -62,8 +66,11 @@ export const InputField = ({
             className={`inset-0 absolute border border-primary rounded-xl pointer-events-none mt-[-9px] invisible 
                         peer-placeholder-shown:visible peer-placeholder-shown:border-grey-secondary
                       group-focus-within:!border-primary group-hover:border-primary 
-                      ${error && '!border-danger group-focus-within:!border-danger'}`}>
-            <legend className=" ml-4 px-0 text-sm transition-all duration-300 invisible max-w-[0.001px] group-focus-within:max-w-full group-focus-within:px-1 whitespace-nowrap">
+                      ${error && '!border-danger group-focus-within:!border-danger'}`}
+            tabIndex={tabIndex}>
+            <legend
+              className=" ml-4 px-0 text-sm transition-all duration-300 invisible max-w-[0.001px] group-focus-within:max-w-full group-focus-within:px-1 whitespace-nowrap"
+              tabIndex={tabIndex}>
               {label}
             </legend>
           </fieldset>
@@ -73,8 +80,11 @@ export const InputField = ({
             className={`inset-0 absolute border border-primary rounded-xl pointer-events-none mt-[-9px] visible 
                         peer-placeholder-shown:invisible peer-placeholder-shown:border-grey-secondary
                        group-focus-within:!border-primary group-hover:border-primary 
-                       ${error && '!border-danger group-focus-within:!border-danger'}`}>
-            <legend className=" ml-4 text-sm invisible px-1 max-w-full whitespace-nowrap">
+                       ${error && '!border-danger group-focus-within:!border-danger'}`}
+            tabIndex={tabIndex}>
+            <legend
+              className=" ml-4 text-sm invisible px-1 max-w-full whitespace-nowrap"
+              tabIndex={tabIndex}>
               {label}
             </legend>
           </fieldset>
@@ -85,7 +95,8 @@ export const InputField = ({
               className={cx(
                 'p-1 absolute inset-y-0 flex items-center',
                 tooltip ? 'right-12' : 'right-5'
-              )}>
+              )}
+              tabIndex={tabIndex}>
               <Tooltip
                 className="flex"
                 color="danger"

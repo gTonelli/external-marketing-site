@@ -16,7 +16,7 @@ import { TMasterclassTitle } from '@/app/(custom-layouts)/(no-nav)/masterclass/c
 import cx from 'classnames'
 import * as yup from 'yup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Field, Form, Formik } from 'formik'
+import { Form, Formik } from 'formik'
 import dayjs from 'dayjs'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'

@@ -9,7 +9,7 @@ import { Input } from '../Input/Input'
 // libraries
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FormikHelpers, Formik, Form, Field } from 'formik'
+import { FormikHelpers, Formik, Form } from 'formik'
 import * as Yup from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
@@ -93,7 +93,7 @@ export const IATRegistrationForm = () => {
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ isSubmitting, errors }) => (
+      {({ isSubmitting }) => (
         <Form className="w-full max-w-xl mx-auto overflow-hidden">
           <div className="flex">
             <Input.Field

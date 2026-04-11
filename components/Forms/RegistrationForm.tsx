@@ -165,7 +165,7 @@ export const RegistrationForm = ({
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
       {({ values, setFieldValue, isSubmitting, errors }) => (
-        <Form className={cx('w-full mx-auto text-left  overflow-hidden', className)}>
+        <Form className={cx('w-full mx-auto text-left overflow-hidden', className)}>
           {fields.map((field) => (
             <div key={`field_${field.key}`}>
               <label className="font-bold" htmlFor={field.key}>

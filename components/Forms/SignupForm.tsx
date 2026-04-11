@@ -15,7 +15,7 @@ import { gtag } from '../GoogleAdsTag'
 // libraries
 import * as yup from 'yup'
 import cx from 'classnames'
-import { Field, Form, Formik, FormikHelpers } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
 import { MD5 } from 'crypto-js'
 // utils

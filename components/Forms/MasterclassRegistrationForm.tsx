@@ -1,9 +1,10 @@
 'use client'
 // core
 import Link from 'next/link'
-import { useState, useEffect, useContext } from 'react'
+import { useCallback, useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/navigation'
 // components
+import { Captcha } from '../Captcha'
 import { Loader } from '../Loader'
 import { Input } from '../Input/Input'
 import { gtag } from '../GoogleAdsTag'
@@ -15,7 +16,7 @@ import { TMasterclassTitle } from '@/app/(custom-layouts)/(no-nav)/masterclass/c
 import cx from 'classnames'
 import * as yup from 'yup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Form, Formik } from 'formik'
+import { Field, Form, Formik } from 'formik'
 import dayjs from 'dayjs'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
@@ -44,6 +45,15 @@ export default function MasterclassRegistrationForm({
 
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
+  const [captchaToken, setCaptchaToken] = useState<string>('')
+
+  const onCaptchaSuccess = useCallback((token: string) => {
+    setCaptchaToken(token)
+  }, [])
+
+  const onCaptchaClear = useCallback(() => {
+    setCaptchaToken('')
+  }, [])
 
   useEffect(() => {
     setLoading(false)
@@ -138,6 +148,8 @@ export default function MasterclassRegistrationForm({
       email,
       listIds: [40],
       insertId: eventId,
+      website: values.website,
+      'g-recaptcha-response': captchaToken,
     }
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
       method: 'POST',
@@ -178,7 +190,7 @@ export default function MasterclassRegistrationForm({
           validationSchema={MasterclassRegistrationFormValidationSchema}
           onSubmit={onSubmit}>
           {({ values, errors, touched, setFieldValue, isSubmitting }) => (
-            <Form className={cx('w-full flex-col', className)} id={id}>
+            <Form className={cx('w-full flex-col overflow-hidden', className)} id={id}>
               <div className="mb-4">
                 <Input.Field
                   value={values.name}
@@ -301,9 +313,28 @@ export default function MasterclassRegistrationForm({
                 )}
               </div>
 
+              <div aria-hidden="true" className="absolute left-[-9999px] h-0">
+                <Input.Field
+                  value={values.website}
+                  autocomplete="off"
+                  className="!p-2 !m-0 w-full"
+                  label="Website"
+                  name="website"
+                  tabIndex={-1}
+                />
+              </div>
+
+              <div className="flex justify-center my-4">
+                <Captcha
+                  onSuccess={onCaptchaSuccess}
+                  onError={onCaptchaClear}
+                  onExpired={onCaptchaClear}
+                />
+              </div>
+
               <Button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !captchaToken}
                 className="masterclass-yellow-cta"
                 label={'RESERVE MY SPOT NOW'}
               />
@@ -346,6 +377,7 @@ const MasterclassRegistrationFormValidationSchema = yup
       .required('Email required'),
     date: yup.string().defined().ensure().required('Please select a value'),
     time: yup.string().defined().ensure().required('Please select a value'),
+    website: yup.string().optional(),
   })
   .defined()
 

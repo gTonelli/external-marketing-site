@@ -5,16 +5,17 @@
  */
 
 // core
-import { useContext, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 // components
 import { Button } from '../Button/Button'
+import { Captcha } from '../Captcha'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
 import { gtag } from '../GoogleAdsTag'
 // libraries
 import * as yup from 'yup'
 import cx from 'classnames'
-import { Form, Formik, FormikHelpers } from 'formik'
+import { Field, Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
 import { MD5 } from 'crypto-js'
 // utils
@@ -76,6 +77,16 @@ export const SignupForm = ({
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
+  const [captchaToken, setCaptchaToken] = useState<string>('')
+
+  // =========== Captcha =========
+  const onCaptchaSuccess = useCallback((token: string) => {
+    setCaptchaToken(token)
+  }, [])
+
+  const onCaptchaClear = useCallback(() => {
+    setCaptchaToken('')
+  }, [])
 
   const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
     setSubmitting?.(true)
@@ -107,6 +118,8 @@ export const SignupForm = ({
       phone,
       listIds,
       insertId: eventId,
+      website: values.website,
+      'g-recaptcha-response': captchaToken,
     }
 
     fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/register`, {
@@ -148,7 +161,7 @@ export const SignupForm = ({
       validationSchema={SignupFormValidationSchema}
       onSubmit={onSubmit}>
       {({ isSubmitting, setFieldValue, values, touched, errors }) => (
-        <Form className={cx('w-full flex-col', className)} id={id}>
+        <Form className={cx('w-full flex-col overflow-hidden', className)} id={id}>
           <div className={cx('flex flex-col xxs:flex-row gap-x-4 mb-4 max-w-2xl', classNameFields)}>
             <Input.Field
               autocomplete="given-name"
@@ -162,6 +175,17 @@ export const SignupForm = ({
               className="!m-0 w-full"
               label="Your Email"
               name="email"
+            />
+          </div>
+
+          <div aria-hidden="true" className="absolute left-[-9999px] h-0">
+            <Input.Field
+              value={values.website}
+              autocomplete="off"
+              className="!mt-0 !mx-0 mb-2 xxs:!mb-0 w-full"
+              label="Website"
+              name="website"
+              tabIndex={-1}
             />
           </div>
 
@@ -188,9 +212,17 @@ export const SignupForm = ({
             </div>
           )}
 
+          <div className="flex justify-center mt-4">
+            <Captcha
+              onSuccess={onCaptchaSuccess}
+              onError={onCaptchaClear}
+              onExpired={onCaptchaClear}
+            />
+          </div>
+
           <Button.Submit
             className="mt-4"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !captchaToken}
             label={submitButtonLabel || 'SUBMIT'}
             mpProps={submitButtonMpProps}
           />
@@ -211,6 +243,7 @@ const SignupFormValidationSchema = yup.object().shape({
     .test('isPhoneValid', 'Please enter a valid phone number', (value) =>
       value ? isPhoneValid(value) : true
     ),
+  website: yup.string().optional(),
 })
 
 export interface ISignupFormSchema extends yup.InferType<typeof SignupFormValidationSchema> {}

@@ -7,6 +7,7 @@ import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { useAttachmentQuiz } from '../AttachmentQuizV2/useAttachmentQuiz'
 import { gtag } from '../GoogleAdsTag'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
@@ -139,6 +140,7 @@ export const AttachmentQuizForm = ({
 
         {/* QUIZ COMPLETION FORM */}
         <RegistrationForm
+          showRecaptchaNotice={false}
           clientTag={tags.join(',')}
           submitButtonLabel="SEE MY RESULTS"
           userInfo={userInfo}
@@ -147,6 +149,8 @@ export const AttachmentQuizForm = ({
         />
 
         <p className="font-effra mt-4">AND also get a free emailed report.</p>
+
+        <RecaptchaNotice className="text-center" />
       </div>
     </section>
   )

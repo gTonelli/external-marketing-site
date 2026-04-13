@@ -1,20 +1,19 @@
 'use client'
 
-// core
-import { useCallback, useState } from 'react'
 // components
 import { Button } from '../Button/Button'
-import { Captcha } from '../Captcha'
 import { IUserInfo } from '../AttachmentQuiz/AttachmentQuiz'
 import { TDatingStage } from '../DatingQuiz/useDatingQuiz'
 import { IDefaultProps } from '..'
 import { gtag } from '../GoogleAdsTag'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 // libraries
 import { MD5 } from 'crypto-js'
 import { Field, Form, Formik } from 'formik'
 import * as yup from 'yup'
 import cx from 'classnames'
 import { PhoneInput } from 'react-international-phone'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { TLoveLanguagesAssociation } from '../LoveLanguagesQuiz/config'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
@@ -46,6 +45,8 @@ interface IRegistrationFormProps extends IDefaultProps {
   loveLanguage?: TLoveLanguagesAssociation
   /** Disclaimer text to display below the form */
   disclaimer?: string
+  /** whether or not to show the recaptcha notice */
+  showRecaptchaNotice?: boolean
 }
 
 type TFieldConfig = {
@@ -84,23 +85,18 @@ export const RegistrationForm = ({
   loveLanguage,
   submitButtonLabel,
   showPhoneField = false,
+  showRecaptchaNotice = true,
   disclaimer = "By clicking Submit, I agree to receive my attachment style report and other email communication. If you haven't received your report, please be sure to check your Spam/Junk folder, and also mark it as safe so you don't miss anything.",
 }: IRegistrationFormProps) => {
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
-  const [captchaToken, setCaptchaToken] = useState<string>('')
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
-  // =========== Captcha =========
-  const onCaptchaSuccess = useCallback((token: string) => {
-    setCaptchaToken(token)
-  }, [])
+  const onSubmit = async (values: IQuizRegistrationFormSchema) => {
+    if (!executeRecaptcha) return
+    const captchaToken = await executeRecaptcha('register')
 
-  const onCaptchaClear = useCallback(() => {
-    setCaptchaToken('')
-  }, [])
-
-  const onSubmit = (values: IQuizRegistrationFormSchema) => {
     const { firstName, lastName, phone, website } = values
     const email = values.email.trim()
     setUserData({ email, firstName, lastName, phone, userStyle })
@@ -240,21 +236,15 @@ export const RegistrationForm = ({
 
           {disclaimer && <p className="text-left mt-4">{disclaimer}</p>}
 
-          <div className="flex justify-center mt-4">
-            <Captcha
-              onSuccess={onCaptchaSuccess}
-              onError={onCaptchaClear}
-              onExpired={onCaptchaClear}
-            />
-          </div>
-
           <div className="flex justify-center">
             <Button.Submit
               className="font-bold text-base self-start text-center rounded-full bg-primary-old tracking-widest mt-4 py-4 px-12 lg:text-xl"
-              disabled={isSubmitting || !captchaToken}
+              disabled={isSubmitting}
               label={submitButtonLabel || 'SUBMIT'}
             />
           </div>
+
+          {showRecaptchaNotice && <RecaptchaNotice className="text-center" />}
         </Form>
       )}
     </Formik>

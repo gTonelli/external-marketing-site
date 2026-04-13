@@ -1,15 +1,16 @@
 'use client'
 
 // core
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 // components
 import { ButtonSubmit } from '../Button/variants/ButtonSubmit'
-import { Captcha } from '../Captcha'
 import { Input } from '../Input/Input'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 // libraries
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FormikHelpers, Formik, Form, Field } from 'formik'
+import { FormikHelpers, Formik, Form } from 'formik'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import * as Yup from 'yup'
 // modules
 import Mixpanel from '@/modules/Mixpanel'
@@ -32,17 +33,12 @@ const registrationFormInitialValues: IRegistrationFormSchema =
 export const IATRegistrationForm = () => {
   const [formSubmissionSuccess, setFormSubmissionSuccess] = useState(false)
   const [formSubmissionError, setFormSubmissionError] = useState('')
-  const [captchaToken, setCaptchaToken] = useState<string>('')
-
-  const onCaptchaSuccess = useCallback((token: string) => {
-    setCaptchaToken(token)
-  }, [])
-
-  const onCaptchaClear = useCallback(() => {
-    setCaptchaToken('')
-  }, [])
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const onSubmit = async (values: IRegistrationFormSchema, formikHelpers: FormikHelpers<any>) => {
+    if (!executeRecaptcha) return
+    const captchaToken = await executeRecaptcha('iat_ebook_register')
+
     setFormSubmissionError('')
     await fetch(process.env.NEXT_PUBLIC_STRAPI_URL + '/api/register', {
       method: 'POST',
@@ -93,7 +89,7 @@ export const IATRegistrationForm = () => {
       validateOnBlur={false}
       validationSchema={RegistrationFormValidationSchema}
       onSubmit={onSubmit}>
-      {({ isSubmitting, errors }) => (
+      {({ isSubmitting }) => (
         <Form className="w-full max-w-xl mx-auto overflow-hidden">
           <div className="flex">
             <Input.Field
@@ -128,19 +124,13 @@ export const IATRegistrationForm = () => {
             </div>
           )}
 
-          <div className="flex justify-center mt-4">
-            <Captcha
-              onSuccess={onCaptchaSuccess}
-              onError={onCaptchaClear}
-              onExpired={onCaptchaClear}
-            />
-          </div>
-
           <ButtonSubmit
             className="block w-full font-bold text-base self-start text-center rounded-full tracking-widest mt-4"
-            disabled={isSubmitting || !captchaToken}
+            disabled={isSubmitting}
             label={'SUBMIT'}
           />
+
+          <RecaptchaNotice className="text-center" />
         </Form>
       )}
     </Formik>

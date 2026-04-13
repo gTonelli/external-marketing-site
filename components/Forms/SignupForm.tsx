@@ -5,18 +5,19 @@
  */
 
 // core
-import { useCallback, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 // components
 import { Button } from '../Button/Button'
-import { Captcha } from '../Captcha'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
 import { gtag } from '../GoogleAdsTag'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 // libraries
 import * as yup from 'yup'
 import cx from 'classnames'
-import { Field, Form, Formik, FormikHelpers } from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
 import { PhoneInput } from 'react-international-phone'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { MD5 } from 'crypto-js'
 // utils
 import { isPhoneValid } from '@/utils/functions'
@@ -77,18 +78,15 @@ export const SignupForm = ({
   // =========== Hooks =========
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
-  const [captchaToken, setCaptchaToken] = useState<string>('')
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
-  // =========== Captcha =========
-  const onCaptchaSuccess = useCallback((token: string) => {
-    setCaptchaToken(token)
-  }, [])
+  const onSubmit = async (
+    values: ISignupFormSchema,
+    formikHelpers: FormikHelpers<ISignupFormSchema>
+  ) => {
+    if (!executeRecaptcha) return
+    const captchaToken = await executeRecaptcha('signup')
 
-  const onCaptchaClear = useCallback(() => {
-    setCaptchaToken('')
-  }, [])
-
-  const onSubmit = (values: ISignupFormSchema, formikHelpers: FormikHelpers<ISignupFormSchema>) => {
     setSubmitting?.(true)
 
     const { email, firstName, phone } = values
@@ -212,20 +210,14 @@ export const SignupForm = ({
             </div>
           )}
 
-          <div className="flex justify-center mt-4">
-            <Captcha
-              onSuccess={onCaptchaSuccess}
-              onError={onCaptchaClear}
-              onExpired={onCaptchaClear}
-            />
-          </div>
-
           <Button.Submit
             className="mt-4"
-            disabled={isSubmitting || !captchaToken}
+            disabled={isSubmitting}
             label={submitButtonLabel || 'SUBMIT'}
             mpProps={submitButtonMpProps}
           />
+
+          <RecaptchaNotice />
 
           {errorMessage && <p className="font-bold text-danger">{errorMessage}</p>}
         </Form>

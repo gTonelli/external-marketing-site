@@ -9,6 +9,7 @@ import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
 import { gtag } from '../GoogleAdsTag'
 import { TAnswerHistory } from './LoveLanguagesQuizQuestions'
 import { TLoveLanguagesAssociation } from './config'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
@@ -138,6 +139,7 @@ export const LoveLanguagesQuizForm = ({
       </h3>
 
       <RegistrationForm
+        showRecaptchaNotice={false}
         clientTag={tags.join(',')}
         submitButtonLabel="SUBMIT"
         userInfo={undefined}
@@ -147,6 +149,8 @@ export const LoveLanguagesQuizForm = ({
       />
 
       <p className="font-effra mt-4">AND also get a free emailed report.</p>
+
+      <RecaptchaNotice className="text-center" />
     </div>
   )
 }

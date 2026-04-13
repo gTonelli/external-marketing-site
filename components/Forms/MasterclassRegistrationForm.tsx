@@ -1,10 +1,9 @@
 'use client'
 // core
 import Link from 'next/link'
-import { useCallback, useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/navigation'
 // components
-import { Captcha } from '../Captcha'
 import { Loader } from '../Loader'
 import { Input } from '../Input/Input'
 import { gtag } from '../GoogleAdsTag'
@@ -17,6 +16,7 @@ import cx from 'classnames'
 import * as yup from 'yup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Form, Formik } from 'formik'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import dayjs from 'dayjs'
 // modules
 import { useFacebookPixel } from '@/modules/FacebookPixel'
@@ -45,15 +45,7 @@ export default function MasterclassRegistrationForm({
 
   const FBQ = useFacebookPixel()
   const { setUserData } = useGamAnalytics()
-  const [captchaToken, setCaptchaToken] = useState<string>('')
-
-  const onCaptchaSuccess = useCallback((token: string) => {
-    setCaptchaToken(token)
-  }, [])
-
-  const onCaptchaClear = useCallback(() => {
-    setCaptchaToken('')
-  }, [])
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   useEffect(() => {
     setLoading(false)
@@ -102,7 +94,10 @@ export default function MasterclassRegistrationForm({
     return mergedDate
   }
 
-  const onSubmit = (values: IMasterclassRegistrationFormSchema) => {
+  const onSubmit = async (values: IMasterclassRegistrationFormSchema) => {
+    if (!executeRecaptcha) return
+    const captchaToken = await executeRecaptcha('masterclass_register')
+
     const { name, email, date, time } = values
     const webinarBookingDateTime =
       date === 'watch-now'
@@ -324,17 +319,9 @@ export default function MasterclassRegistrationForm({
                 />
               </div>
 
-              <div className="flex justify-center my-4">
-                <Captcha
-                  onSuccess={onCaptchaSuccess}
-                  onError={onCaptchaClear}
-                  onExpired={onCaptchaClear}
-                />
-              </div>
-
               <Button
                 type="submit"
-                disabled={isSubmitting || !captchaToken}
+                disabled={isSubmitting}
                 className="masterclass-yellow-cta"
                 label={'RESERVE MY SPOT NOW'}
               />

@@ -19,6 +19,7 @@ import { usePageScrolledEvent, useScrollPercentage, useWindowWidth } from '@/uti
 import { useGamAnalytics } from '@/modules/GAM'
 import { ISplitTest } from '@/utils/interfaces'
 import { getUserData } from '@/utils/functions'
+import { RecaptchaProvider } from '@/components/Providers/RecaptchaProvider'
 
 interface IPageProps extends IDefaultWrapperProps {
   page_name: Pages
@@ -53,19 +54,21 @@ export const Page = ({
 
   return (
     <ViewportContext.Provider value={viewportValues}>
-      <ScrollContext.Provider value={{ scrollPercentage }}>
-        <PageContext.Provider value={{ page_name }}>
-          <SplitTestContext.Provider value={splitTestData}>
-            <UserDataContext.Provider value={userData}>
-              <main ref={scrollRef} className={className}>
-                {children}
+      <RecaptchaProvider>
+        <ScrollContext.Provider value={{ scrollPercentage }}>
+          <PageContext.Provider value={{ page_name }}>
+            <SplitTestContext.Provider value={splitTestData}>
+              <UserDataContext.Provider value={userData}>
+                <main ref={scrollRef} className={className}>
+                  {children}
 
-                {withIntercom && <Intercom />}
-              </main>
-            </UserDataContext.Provider>
-          </SplitTestContext.Provider>
-        </PageContext.Provider>
-      </ScrollContext.Provider>
+                  {withIntercom && <Intercom />}
+                </main>
+              </UserDataContext.Provider>
+            </SplitTestContext.Provider>
+          </PageContext.Provider>
+        </ScrollContext.Provider>
+      </RecaptchaProvider>
     </ViewportContext.Provider>
   )
 }

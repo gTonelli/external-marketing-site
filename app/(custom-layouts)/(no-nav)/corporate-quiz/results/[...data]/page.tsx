@@ -7,7 +7,7 @@ import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
 // libraries
-import ReCAPTCHA from 'react-google-recaptcha'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 // utils
 import { RESULTS } from '../../config'
 import { Page } from '@/components/Page'
@@ -23,22 +23,21 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
   const [firstName, setFirstName] = useState<string>('')
   const [lastName, setLastName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
-  const [captchaResponse, setCaptchaResponse] = useState<string>('')
   const [canViewResults, setCanViewResults] = useState<boolean>(false)
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   useEffect(() => {
     document.title = 'The Attachment Style Quiz'
     setCanViewResults(Boolean(JSON.parse(localStorage.getItem('canViewResults') || '0')))
   }, [])
 
-  const onCaptchaChange = (val: string) => {
-    setCaptchaResponse(val)
-  }
-
-  const onSubmitForm = useCallback(() => {
+  const onSubmitForm = useCallback(async () => {
     if (!firstName || !lastName || !email) {
       // todo
     } else {
+      if (!executeRecaptcha) return
+      const captchaToken = await executeRecaptcha('corporate_quiz_register')
+
       const userTag = localStorage.getItem('userTag') || ''
 
       const data = {
@@ -46,7 +45,7 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
         first_name: firstName,
         lastName: lastName,
         email: email,
-        'g-recaptcha-response': captchaResponse,
+        'g-recaptcha-response': captchaToken,
       }
 
       const options = {
@@ -75,7 +74,7 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
       localStorage.setItem('canViewResults', '1')
       setCanViewResults(true)
     }
-  }, [firstName, lastName, email, captchaResponse])
+  }, [firstName, lastName, email, executeRecaptcha])
 
   return canViewResults ? (
     <Page className="results-page" page_name={'Corporate Quiz Results Page'}>
@@ -235,12 +234,6 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
             placeholder="Email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
-          />
-
-          {/* @ts-ignore */}
-          <ReCAPTCHA
-            sitekey="6Lee-ywhAAAAAHeIRUIe9Czbhc1Geykay8UPKylA"
-            onChange={(val) => onCaptchaChange(val || '')}
           />
 
           <Button

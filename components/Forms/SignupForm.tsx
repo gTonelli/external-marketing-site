@@ -11,6 +11,7 @@ import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { IDefaultProps } from '..'
 import { gtag } from '../GoogleAdsTag'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 // libraries
 import * as yup from 'yup'
 import cx from 'classnames'
@@ -215,6 +216,8 @@ export const SignupForm = ({
             label={submitButtonLabel || 'SUBMIT'}
             mpProps={submitButtonMpProps}
           />
+
+          <RecaptchaNotice />
 
           {errorMessage && <p className="font-bold text-danger">{errorMessage}</p>}
         </Form>

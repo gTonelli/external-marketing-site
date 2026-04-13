@@ -407,3 +407,8 @@ option {
   max-width: 18.75rem;
   padding-top: 3.25rem;
 }
+
+/* Hide the reCAPTCHA v3 badge - replaced by inline <RecaptchaNotice /> on each form per Google TOS */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}

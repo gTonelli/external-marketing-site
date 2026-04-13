@@ -8,6 +8,7 @@ import { Loader } from '../Loader'
 import { Input } from '../Input/Input'
 import { gtag } from '../GoogleAdsTag'
 import { Button } from '../Button/Button'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 import { faFilm } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // config
 import { TMasterclassTitle } from '@/app/(custom-layouts)/(no-nav)/masterclass/config'
@@ -325,6 +326,8 @@ export default function MasterclassRegistrationForm({
                 className="masterclass-yellow-cta"
                 label={'RESERVE MY SPOT NOW'}
               />
+
+              <RecaptchaNotice />
             </Form>
           )}
         </Formik>

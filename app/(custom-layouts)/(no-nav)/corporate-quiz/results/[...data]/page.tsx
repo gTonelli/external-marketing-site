@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Image } from '@/components/Image'
 import { Text } from '@/components/Text/Text'
 import { Button } from '@/components/Button/Button'
+import { RecaptchaNotice } from '@/components/RecaptchaNotice'
 // libraries
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 // utils
@@ -242,6 +243,8 @@ export default function CorporateQuizResultsPage({ params }: ICorporateQuizResul
             type="submit"
             onClick={onSubmitForm}
           />
+
+          <RecaptchaNotice />
         </form>
       </div>
 

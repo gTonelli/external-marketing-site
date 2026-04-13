@@ -5,6 +5,7 @@ import { useState } from 'react'
 // components
 import { ButtonSubmit } from '../Button/variants/ButtonSubmit'
 import { Input } from '../Input/Input'
+import { RecaptchaNotice } from '../RecaptchaNotice'
 // libraries
 import { faXmarkCircle } from '@awesome.me/kit-545b942488/icons/classic/light'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -128,6 +129,8 @@ export const IATRegistrationForm = () => {
             disabled={isSubmitting}
             label={'SUBMIT'}
           />
+
+          <RecaptchaNotice className="text-center" />
         </Form>
       )}
     </Formik>

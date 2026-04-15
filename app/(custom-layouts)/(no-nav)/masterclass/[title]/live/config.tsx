@@ -539,9 +539,9 @@ export const CONFIG = {
     hero: {
       title:
         'Heal From Being Cheated On, Rebuild the Trust That Was Broken, and Find Clarity on What Comes Next With Thais Gibson',
-      videoId: '376ad34a04973d3b7975ad54c60d6558', // TODO
+      videoId: '96323e322edcf4ee9a633ec8d9cbe523',
       thumbnailSrc:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg', // TODO
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/navigate_betrayal_and_rebuild_trust_masterclass_thumbnail_f1133eaf05.jpg',
     },
     pageWarning: {
       title: 'Please do not close this page — this exclusive offer is only available here.',

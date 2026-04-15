@@ -91,33 +91,35 @@ export const SEO_CONFIG: TSEOConfig = {
   },
   'rebuild-trust': {
     registrationPage: {
-      title: 'Heal From Cheating & Learn to Trust Again Masterclass | Free Masterclass',
+      title:
+        'The Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass | Free Masterclass',
       description:
-        'Struggling to trust after betrayal? Discover how to heal cheating-related wounds, stop overthinking, and build safe, secure relationships in this free masterclass with Thais Gibson.',
+        'Feeling stuck after betrayal? Discover how to heal trust wounds, stop overthinking, and gain clarity on your relationship in this free masterclass with Thais Gibson.',
       robots: 'index, follow, max-snippet:-1',
     },
     thankYouPage: {
-      title: 'You’re Now Registered for The Heal From Cheating & Learn to Trust Again Masterclass',
+      title:
+        'You’re Now Registered for The Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass',
       description:
-        "You're registered! Check your email for your masterclass access link and learn how to heal from cheating, rebuild trust, and create healthier relationships.",
+        "You're registered! Your masterclass link is on the way. Learn how to understand cheating, heal trust wounds, and rebuild your relationship step by step.",
       robots: 'noindex',
     },
     secondarySalesPage: {
-      title: 'Heal Trust After Cheating & Feel Safe in Love Again | Join PDS Today',
+      title: 'Rebuild Trust After Cheating or Decide to Move On | Join PDS Today',
       description:
-        'Join The Personal Development School to heal trust wounds from cheating, stop overthinking, and rebuild self-trust. Access courses, tools, and coaching to create safe, secure relationships.',
+        'Join The Personal Development School to heal trust wounds after infidelity, stop overthinking, and decide whether to stay or leave. Learn how to rebuild trust and feel secure again.',
       robots: 'noindex',
     },
     livePage: {
-      title: 'Heal From Cheating & Learn to Trust Again Masterclass by Thais Gibson',
+      title: 'Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass by Thais Gibson',
       description:
-        'Watch the masterclass and learn how to heal trust wounds, stop overthinking, and rebuild confidence in love after betrayal with Thais Gibson.',
+        'Watch the masterclass and learn how to heal trust wounds, rebuild your relationship, and confidently decide whether to stay or move forward.',
       robots: 'noindex',
     },
     replayPage: {
-      title: 'Heal From Cheating & Learn to Trust Again Masterclass by Thais Gibson',
+      title: 'Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass by Thais Gibson',
       description:
-        'Watch the masterclass and learn how to heal trust wounds, stop overthinking, and rebuild confidence in love after betrayal with Thais Gibson.',
+        'Watch the masterclass and learn how to heal trust wounds, rebuild your relationship, and confidently decide whether to stay or move forward.',
       robots: 'noindex',
     },
   },

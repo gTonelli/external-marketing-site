@@ -135,9 +135,9 @@ export const CONFIG = {
         </>
       ),
       subtitle: 'Your private access link has been sent to your email.',
-      videoId: '266ffda0f207eec49141a63a42952cf3', // TODO
+      videoId: '5310a97976f7efc65804c0d371df1c78',
       thumbnailSrc:
-        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg', // TODO
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/navigate_betrayal_and_rebuild_trust_masterclass_thumbnail_f1133eaf05.jpg',
       videoLabel: 'Watch this video to learn more about your Masterclass',
       emailInstructions: [
         {

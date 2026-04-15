@@ -113,6 +113,7 @@ export default function QuizQuestionsPage({ params }: { params: { id: string | T
             eventId,
           })
           saveResult({
+            userStyle: dominantStyle,
             dominantStyle: getAttachmentStyleText(dominantStyle),
             firstName: userData.firstName,
             lastName: userData.lastName,

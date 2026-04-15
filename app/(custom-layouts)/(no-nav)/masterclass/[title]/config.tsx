@@ -356,4 +356,199 @@ export const CONFIG = {
       imageAlt: 'Thais Gibson smiling',
     },
   },
+  'rebuild-trust': {
+    hero: {
+      bgVideoSrc: '/videos/Masterclass/Trust/bgv.mp4', // TODO
+      trailerVideoId: '266ffda0f207eec49141a63a42952cf3', // TODO
+      trailerThumbnailSrc:
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg', // TODO
+      h3: 'Ever Felt Unseen Or Disconnected In Your Relationship?',
+      h1: 'Understand Why Cheating Happened — and How to Navigate What Comes Next',
+      h2: 'Over 60 thousand students have used these tools to create relationships where they feel seen, heard, and truly valued.',
+    },
+    floatingNavLinks: [
+      { label: "What You'll Learn", href: '#what-you-will-learn' },
+      { label: 'Student Stories', href: '#student-stories' },
+      { label: 'Meet Thais Gibson', href: '#meet-thais-gibson' },
+      { label: 'Your Learning Journey', href: '#your-learning-journey' },
+      { label: 'FAQs', href: '#faq' },
+      { label: 'Reserve My Spot', href: '#reserve-my-spot' },
+    ],
+    whatYouLearn: {
+      title: "What You'll Learn",
+      stats: [
+        {
+          backgroundColor: 'bg-[#a0ddff66]',
+          icon: faUserGroup,
+          label: '60,000+',
+          text: 'SUCCESS STORIES',
+        },
+        {
+          backgroundColor: 'bg-[#caecff66]',
+          icon: faClock,
+          label: '30 Minutes',
+          text: 'MASTERCLASS',
+        },
+        {
+          backgroundColor: 'bg-[#dff4ff66]',
+          icon: faSmile,
+          label: '99.7%',
+          text: 'SATISFACTION RATING',
+        },
+      ],
+      learnings: [
+        {
+          title: 'Why Cheating Happened (Without Blaming Yourself)',
+          description: [
+            <>
+              Being cheated on is deeply personal, and it's easy to fall into the trap of blaming
+              yourself or feeling like you weren't good enough.
+            </>,
+            <>That is not the case.</>,
+            <>
+              But the wounds that cheating leaves behind can be extremely painful and damaging
+              long-term if they're left unhealed.
+            </>,
+            <>
+              In this masterclass, you'll learn what actually drives betrayal at a psychological and
+              emotional level, so you can stop carrying the blame and start seeing what happened for
+              what it really was.
+            </>,
+          ],
+        },
+        {
+          title:
+            'Why You Still Feel Anxious, Hypervigilant, or Unable to Feel Safe With Your Partner',
+          description: [
+            <>
+              Even if your partner is doing everything right, your body may still be reacting —
+              checking their phone, reading into every silence, lying awake at night wondering if
+              it's happening again. You'll learn how betrayal affects your nervous system, and why
+              time and reassurance alone aren't enough — but also what actually is.
+            </>,
+          ],
+        },
+        {
+          title: 'How to Identify the Trust Wounds Cheating Created',
+          description: [
+            <>
+              Being cheated on doesn't just hurt — it creates deeper beliefs like "I'm not enough,"
+              "I can't trust anyone," or "I'll never feel safe with someone." You'll uncover the
+              specific trust wound that's been underneath your reactions so you can begin healing it
+              at the root.
+            </>,
+          ],
+        },
+        {
+          title: 'How to Know If You Can Trust Them Again – And If You Should Stay or Leave',
+          description: [
+            <>
+              You love this person. But you don't know if you can ever fully trust them again. And
+              you're stuck between wanting to make it work and wondering if staying just means
+              waiting for it to happen again.
+            </>,
+            <>
+              You'll learn how to evaluate your relationship clearly, understand what real repair
+              requires from both of you, and make a decision you can stand behind — from a place of
+              clarity, not fear.
+            </>,
+          ],
+        },
+        {
+          title: 'How to Rebuild Trust in Yourself and Your Judgment',
+          description: [
+            <>
+              After being cheated on, you stop trusting yourself just as much as you stop trusting
+              your partner. You question your instincts, wonder how you missed the signs, and lose
+              confidence in your ability to know what's real. You'll learn how to rebuild that trust
+              in yourself so you can make clear decisions about your relationship and your future
+              without second-guessing everything.
+            </>,
+          ],
+        },
+      ],
+    },
+    studentStories: {
+      title: 'Student Stories',
+    },
+    thais: {
+      imageSrc: '/images/Masterclass/thais-on-podcasts.jpg',
+      imageAlt: 'Thais Gibson on interviews and podcasts',
+    },
+    learningJourney: {
+      title: 'Your Learning Journey',
+      steps: [
+        {
+          imageSrc: '/images/Masterclass/rebuild-trust-learning-journey-1.png',
+          imageAlt: 'An upset couple',
+          title: 'Identify the Trust Wounds That Are Still Living Within You',
+          description: [
+            <>
+              Cheating creates deep subconscious beliefs that quietly shape how we see ourselves,
+              other people, and every relationship we walk into.
+            </>,
+            <>
+              Through a guided exercise, you'll uncover the belief that was created the moment you
+              were cheated on — something like "I'm not good enough," "I will be betrayed again,"
+              "I'm unlovable," or "I will be abandoned." It's the thing you don't say out loud but
+              feel every time someone gets close. You'll finally see it clearly, understand why it
+              has so much power over you, and begin the process of healing it.
+            </>,
+          ],
+        },
+        {
+          imageSrc: '/images/Masterclass/rebuild-trust-learning-journey-2.png',
+          imageAlt: 'An upset couple',
+          title: 'See How That Wound Has Been Affecting Your Relationship Ever Since',
+          description: [
+            <>
+              You'll walk through a second exercise that shows you exactly how this wound has been
+              shaping your relationship — the jealousy, the need to monitor, the inability to let a
+              good day just be a good day without wondering what's happening behind your back.
+            </>,
+            <>
+              You'll see what's actually driving these feelings, learn how to release them, and
+              start building a clear path forward — whether that means repairing your relationship
+              or walking away knowing you made the right decision.
+            </>,
+          ],
+        },
+        {
+          imageSrc: '/images/Masterclass/rebuild-trust-learning-journey-3.png',
+          imageAlt: 'A woman writing in her diary',
+          title: 'Begin Healing the Trust Wound',
+          description: [
+            <>
+              You'll be guided through a reprogramming exercise designed to start separating what
+              happened to you from what you believe about yourself because of it. This is where the
+              healing actually begins — not by talking about it more, but by changing the beliefs
+              that have been sitting underneath everything since it happened.
+            </>,
+          ],
+        },
+        {
+          imageSrc: '/images/Masterclass/rebuild-trust-learning-journey-4.png',
+          imageAlt: 'A woman looking happy with her work',
+          title: 'Walk Away From This Masterclass With a Clear Path Forward',
+          description: [
+            <>
+              You won't just leave with a better understanding of what happened. You'll leave
+              knowing exactly what you need to heal, how to heal it, and what your life and
+              relationships can look like on the other side. No more guessing. No more going in
+              circles. Just a clear next step.
+            </>,
+          ],
+        },
+      ],
+    },
+    faqs: {
+      title: 'Frequently Asked Questions',
+      copy: 'Get your questions answered before The Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass begins.',
+    },
+    reserveMySpot: {
+      title: 'Join Your Free Masterclass Today',
+      imageSrc: '/images/Masterclass/thais-portrait-2.jpg',
+      imageAlt: 'Thais Gibson smiling',
+    },
+  },
 }

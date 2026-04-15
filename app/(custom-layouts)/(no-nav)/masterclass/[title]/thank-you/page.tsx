@@ -82,11 +82,11 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
       </Section>
 
       <Section>
-        <h2 className="!text-4xl mb-8">{commonConfig.preWatchSteps.title}</h2>
+        <h2 className="!text-4xl mb-8">{config.preWatchSteps.title}</h2>
 
-        <p className="text-lg">{commonConfig.preWatchSteps.copy}</p>
+        <p className="text-lg">{config.preWatchSteps.copy}</p>
 
-        {commonConfig.preWatchSteps.steps.map((step, idx) => (
+        {config.preWatchSteps.steps.map((step, idx) => (
           <div key={`access_step_${idx}`} className="flex flex-col shadow-md mb-8 lg:flex-row">
             <div className="w-full lg:max-w-96">
               <Image
@@ -116,9 +116,22 @@ export default async function MasterclassThankYouPage({ params }: IMasterclassPa
           <h2 className="!text-4xl">{config.membership.title}</h2>
 
           <div className="text-lg">
-            {config.membership.copy.map((item, idx) => (
-              <p key={`membership_copy_${idx}`}>{item}</p>
+            {config.membership.copy1.map((item, idx) => (
+              <p key={`membership_copy1_${idx}`}>{item}</p>
             ))}
+
+            {config.membership.listItems.length > 0 && (
+              <ul className="list-disc list-outside pl-4 mb-4">
+                {config.membership.listItems.map((item, idx) => (
+                  <li key={`membership_list_copy_${idx}`}>{item}</li>
+                ))}
+              </ul>
+            )}
+
+            {config.membership.copy2.length > 0 &&
+              config.membership.copy2.map((item, idx) => (
+                <p key={`membership_copy2_${idx}`}>{item}</p>
+              ))}
           </div>
 
           <Link href={config.membership.ctaLink}>

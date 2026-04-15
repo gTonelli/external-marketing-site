@@ -1,6 +1,6 @@
 import { externalRoutes } from '@/utils/constants'
 
-const titleSlugs = ['needs', 'learn-to-trust'] as const
+const titleSlugs = ['needs', 'learn-to-trust', 'rebuild-trust'] as const
 
 export type TMasterclassTitle = (typeof titleSlugs)[number]
 
@@ -58,6 +58,38 @@ export const SEO_CONFIG: TSEOConfig = {
     },
   },
   'learn-to-trust': {
+    registrationPage: {
+      title: 'Heal From Cheating & Learn to Trust Again Masterclass | Free Masterclass',
+      description:
+        'Struggling to trust after betrayal? Discover how to heal cheating-related wounds, stop overthinking, and build safe, secure relationships in this free masterclass with Thais Gibson.',
+      robots: 'index, follow, max-snippet:-1',
+    },
+    thankYouPage: {
+      title: 'You’re Now Registered for The Heal From Cheating & Learn to Trust Again Masterclass',
+      description:
+        "You're registered! Check your email for your masterclass access link and learn how to heal from cheating, rebuild trust, and create healthier relationships.",
+      robots: 'noindex',
+    },
+    secondarySalesPage: {
+      title: 'Heal Trust After Cheating & Feel Safe in Love Again | Join PDS Today',
+      description:
+        'Join The Personal Development School to heal trust wounds from cheating, stop overthinking, and rebuild self-trust. Access courses, tools, and coaching to create safe, secure relationships.',
+      robots: 'noindex',
+    },
+    livePage: {
+      title: 'Heal From Cheating & Learn to Trust Again Masterclass by Thais Gibson',
+      description:
+        'Watch the masterclass and learn how to heal trust wounds, stop overthinking, and rebuild confidence in love after betrayal with Thais Gibson.',
+      robots: 'noindex',
+    },
+    replayPage: {
+      title: 'Heal From Cheating & Learn to Trust Again Masterclass by Thais Gibson',
+      description:
+        'Watch the masterclass and learn how to heal trust wounds, stop overthinking, and rebuild confidence in love after betrayal with Thais Gibson.',
+      robots: 'noindex',
+    },
+  },
+  'rebuild-trust': {
     registrationPage: {
       title: 'Heal From Cheating & Learn to Trust Again Masterclass | Free Masterclass',
       description:
@@ -201,30 +233,6 @@ export const COMMON_CONFIG = {
     ],
     imageSrc: '/images/Masterclass/thais-portrait-1.jpg',
     imageAlt: "Thais Gibson's portrait image",
-  },
-  preWatchSteps: {
-    title: 'Before You Watch…',
-    copy: 'To get the most out of this experience:',
-    steps: [
-      {
-        image: '/images/Masterclass/thank-you-1.jpg',
-        imageAlt: 'Blocking time in calendar',
-        title: '1. Add to Your Calendar and Block Out the Time',
-        text: 'Block out a full hour where you won’t be interrupted. You’ll be guided through an exercise to help you identify the emotional needs that shape relationships.',
-      },
-      {
-        image: '/images/Masterclass/thank-you-2.jpg',
-        imageAlt: 'Taking notes',
-        title: '2. Have Something to Write With',
-        text: 'You’ll be reflecting on your experiences and identifying key insights about your needs and relationship patterns. Writing things down helps you get the most out of the exercise.',
-      },
-      {
-        image: '/images/Masterclass/thank-you-3.jpg',
-        imageAlt: 'Two heart objects touching each other',
-        title: '3. Invite Someone You Care About!',
-        text: 'This Masterclass can be especially powerful when shared. If someone you know has ever felt misunderstood or disconnected in relationships, invite them to watch it with you.',
-      },
-    ],
   },
   connect: {
     support: {

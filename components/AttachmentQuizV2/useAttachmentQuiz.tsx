@@ -38,6 +38,7 @@ export interface ISaveResultArgs {
   firstName: string
   lastName: string
   email: string
+  userStyle: TStyle
   eventId: string
   attachmentFamiliarity?: string
   gender?: string
@@ -90,10 +91,10 @@ export type TQuizQuestionType =
 export type TQuizQuestion<T = TQuizQuestionType> = T extends 'FormInput'
   ? IQuizQuestionFormInput
   : T extends 'OptionSelect'
-  ? IQuizQuestionOptionSelect
-  : T extends 'AttachmentStyleQuestion'
-  ? IQuizQuestionAttachmentStyle
-  : IQuizQuestionPillSelect
+    ? IQuizQuestionOptionSelect
+    : T extends 'AttachmentStyleQuestion'
+      ? IQuizQuestionAttachmentStyle
+      : IQuizQuestionPillSelect
 
 interface IQuizQuestionFormInput extends IQuestionRequiredProps {
   readonly formInputData: TFormInputData
@@ -136,7 +137,7 @@ export interface IAttachmentStyleQuestionGroup {
     TQuizQuestion<'AttachmentStyleQuestion'>,
     TQuizQuestion<'AttachmentStyleQuestion'>,
     TQuizQuestion<'AttachmentStyleQuestion'>,
-    TQuizQuestion<'AttachmentStyleQuestion'>
+    TQuizQuestion<'AttachmentStyleQuestion'>,
   ]
 }
 
@@ -151,7 +152,7 @@ interface IUserDataGroup {
     TQuizQuestion<'OptionSelect'>,
     TQuizQuestion<'PillSelect'>,
     TQuizQuestion<'FormInput'>,
-    TQuizQuestion<'FormInput'>
+    TQuizQuestion<'FormInput'>,
   ]
 }
 
@@ -160,7 +161,7 @@ export type TQuizQuestions = [
   IAttachmentStyleQuestionGroup,
   IAttachmentStyleQuestionGroup,
   IAttachmentStyleQuestionGroup,
-  IUserDataGroup
+  IUserDataGroup,
 ]
 
 export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
@@ -343,6 +344,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
     firstName,
     lastName,
     email,
+    userStyle,
     eventId,
     attachmentFamiliarity,
     gender,
@@ -366,6 +368,7 @@ export const useAttachmentQuiz = (questionGroups = defaultQuestionGroups) => {
         firstName,
         lastName,
         email,
+        userStyle,
         eventId,
         'attachment-familiarity': attachmentFamiliarity,
         gender,

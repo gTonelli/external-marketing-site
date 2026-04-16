@@ -28,6 +28,7 @@ export interface ISaveLoveLanguagesResultArgs extends ILoveLanguagesPercentages 
   firstName: string
   lastName: string
   email: string
+  userLoveLanguage: TLoveLanguagesAssociation
   relationshipStatus?: string
   loveLanguage: string
   answerHistory: TAnswerHistory[]
@@ -77,6 +78,7 @@ export const useLoveLanguagesQuiz = () => {
     lastName,
     email,
     eventId,
+    userLoveLanguage,
     loveLanguage,
     wordsOfAffirmationPercentage,
     qualityTimePercentage,
@@ -94,6 +96,7 @@ export const useLoveLanguagesQuiz = () => {
         lastName,
         email,
         eventId,
+        userLoveLanguage,
         loveLanguage,
         wordsOfAffirmationPercentage,
         qualityTimePercentage,

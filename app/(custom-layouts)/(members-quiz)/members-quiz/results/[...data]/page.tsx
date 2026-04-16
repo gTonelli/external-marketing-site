@@ -83,6 +83,7 @@ export default function QuizResultsPage({ params }: { params: { data: TQuizResul
         firstName,
         lastName,
         email,
+        userStyle: dominantStyle,
         eventId,
         faPercentage,
         daPercentage,

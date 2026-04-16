@@ -27,6 +27,7 @@ export interface ISaveDatingResultArgs extends IDatingPercentages {
   eventId: string
   firstName: string
   lastName: string
+  userDatingStage: TDatingStage
   email: string
   relationshipStatus?: string
   dominantStage: TDatingStageLong
@@ -68,6 +69,7 @@ export const useDatingQuiz = () => {
     firstName,
     lastName,
     email,
+    userDatingStage,
     eventId,
     relationshipStatus,
     dominantStage,
@@ -84,6 +86,7 @@ export const useDatingQuiz = () => {
         firstName,
         lastName,
         email,
+        userDatingStage,
         eventId,
         datingStage: dominantStage,
         relationshipStatus,

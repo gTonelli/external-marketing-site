@@ -12,6 +12,7 @@ import { TDatingStage, TAnswerHistory } from './DatingQuizQuestions'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { getDatingStageText, getDatingStageSlug } from '@/utils/functions'
+import { googleAdsConversion } from '@/utils/constants'
 
 interface IUserInfo {
   relationshipStatus: string
@@ -50,7 +51,7 @@ export const DatingQuizForm = ({
     })
 
     gtag('event', 'conversion', {
-      send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
+      send_to: googleAdsConversion.lead,
       dating_stage: getDatingStageText(datingStage),
     })
 

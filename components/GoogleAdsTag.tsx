@@ -8,7 +8,7 @@ export const GoogleAdsTag = () => {
 
   useEffect(() => {
     if (!googleAdsConfigSet.current) {
-      gtag('config', 'AW-696431615')
+      gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || 'AW-696431615')
     }
     googleAdsConfigSet.current = true
   })

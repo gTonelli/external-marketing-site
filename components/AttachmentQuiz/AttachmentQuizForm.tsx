@@ -45,7 +45,7 @@ export const AttachmentQuizForm = ({
           useCookies: true,
           key: 'gm-2535-21-day-reset-test',
           experimentName: 'GM-2535-21-Day-Reset-Test',
-          variantRatio: 0.2,
+          variantRatio: 0.5,
         })
       )
     }

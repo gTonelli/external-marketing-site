@@ -1,6 +1,6 @@
 import { externalRoutes } from '@/utils/constants'
 
-const titleSlugs = ['needs', 'learn-to-trust'] as const
+const titleSlugs = ['needs', 'learn-to-trust', 'rebuild-trust'] as const
 
 export type TMasterclassTitle = (typeof titleSlugs)[number]
 
@@ -86,6 +86,40 @@ export const SEO_CONFIG: TSEOConfig = {
       title: 'Heal From Cheating & Learn to Trust Again Masterclass by Thais Gibson',
       description:
         'Watch the masterclass and learn how to heal trust wounds, stop overthinking, and rebuild confidence in love after betrayal with Thais Gibson.',
+      robots: 'noindex',
+    },
+  },
+  'rebuild-trust': {
+    registrationPage: {
+      title:
+        'The Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass | Free Masterclass',
+      description:
+        'Feeling stuck after betrayal? Discover how to heal trust wounds, stop overthinking, and gain clarity on your relationship in this free masterclass with Thais Gibson.',
+      robots: 'index, follow, max-snippet:-1',
+    },
+    thankYouPage: {
+      title:
+        'You’re Now Registered for The Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass',
+      description:
+        "You're registered! Your masterclass link is on the way. Learn how to understand cheating, heal trust wounds, and rebuild your relationship step by step.",
+      robots: 'noindex',
+    },
+    secondarySalesPage: {
+      title: 'Rebuild Trust After Cheating or Decide to Move On | Join PDS Today',
+      description:
+        'Join The Personal Development School to heal trust wounds after infidelity, stop overthinking, and decide whether to stay or leave. Learn how to rebuild trust and feel secure again.',
+      robots: 'noindex',
+    },
+    livePage: {
+      title: 'Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass by Thais Gibson',
+      description:
+        'Watch the masterclass and learn how to heal trust wounds, rebuild your relationship, and confidently decide whether to stay or move forward.',
+      robots: 'noindex',
+    },
+    replayPage: {
+      title: 'Navigate Betrayal & Rebuild Trust in Your Relationship Masterclass by Thais Gibson',
+      description:
+        'Watch the masterclass and learn how to heal trust wounds, rebuild your relationship, and confidently decide whether to stay or move forward.',
       robots: 'noindex',
     },
   },
@@ -201,30 +235,6 @@ export const COMMON_CONFIG = {
     ],
     imageSrc: '/images/Masterclass/thais-portrait-1.jpg',
     imageAlt: "Thais Gibson's portrait image",
-  },
-  preWatchSteps: {
-    title: 'Before You Watch…',
-    copy: 'To get the most out of this experience:',
-    steps: [
-      {
-        image: '/images/Masterclass/thank-you-1.jpg',
-        imageAlt: 'Blocking time in calendar',
-        title: '1. Add to Your Calendar and Block Out the Time',
-        text: 'Block out a full hour where you won’t be interrupted. You’ll be guided through an exercise to help you identify the emotional needs that shape relationships.',
-      },
-      {
-        image: '/images/Masterclass/thank-you-2.jpg',
-        imageAlt: 'Taking notes',
-        title: '2. Have Something to Write With',
-        text: 'You’ll be reflecting on your experiences and identifying key insights about your needs and relationship patterns. Writing things down helps you get the most out of the exercise.',
-      },
-      {
-        image: '/images/Masterclass/thank-you-3.jpg',
-        imageAlt: 'Two heart objects touching each other',
-        title: '3. Invite Someone You Care About!',
-        text: 'This Masterclass can be especially powerful when shared. If someone you know has ever felt misunderstood or disconnected in relationships, invite them to watch it with you.',
-      },
-    ],
   },
   connect: {
     support: {

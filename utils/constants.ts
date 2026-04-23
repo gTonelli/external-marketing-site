@@ -158,6 +158,23 @@ const thinkificUrl =
 const checkoutUrl =
   process.env.NEXT_PUBLIC_CHECKOUT_URL || 'https://checkout.personaldevelopmentschool.com'
 
+type TGoogleAdsConversion = {
+  lead: string
+  initiateCheckout: string
+}
+
+// Use with the send_to parameter in the gtag function
+const googleAdsConversions: Record<TCheckoutEnv, TGoogleAdsConversion> = {
+  production: {
+    lead: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
+    initiateCheckout: 'AW-696431615/zVOvCLSuk9oCEP_niswC',
+  },
+  staging: {
+    lead: 'AW-18114450616/nl17CPLjoqEcELip0r1D',
+    initiateCheckout: 'AW-18114450616/Yvx-CPHOuaEcELip0r1D',
+  },
+}
+
 const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
   production: {
     // Single-Step Checkout
@@ -204,11 +221,11 @@ const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
     checkoutIATRecordedWebinar3MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951356&coupon=iatwebinar3mnthondemandMC&promo_label=iat-webinar-recorded`,
     checkoutIATRecordedWebinar6MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951358&coupon=iatwebinar6mnthondemandMC&promo_label=iat-webinar-recorded`,
     checkoutIATRecordedWebinar12MonthPlan: `${checkoutUrl}/enroll/2463967?price_id=3951360&coupon=iatwebinar12mnthondemandMC&promo_label=iat-webinar-recorded`,
-    // IAT March 2026 With Webinar Discount
-    checkoutIATWebinarUpfront: `${checkoutUrl}/enroll/3600203?price_id=4536642&coupon=upfrontWebinarLive&promo_label=iat-webinar-live`,
-    checkoutIATWebinar3MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536644&coupon=3monthWebinarLive&promo_label=iat-webinar-live`,
-    checkoutIATWebinar6MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536645&coupon=6monthWebinarLive&promo_label=iat-webinar-live`,
-    checkoutIATWebinar12MonthPlan: `${checkoutUrl}/enroll/3600203?price_id=4536646&coupon=12monthWebinarLive&promo_label=iat-webinar-live`,
+    // IAT May 2026 With Webinar Discount
+    checkoutIATWebinarUpfront: `${checkoutUrl}/enroll/3600235?price_id=4536704&coupon=upfrontWebinarLive&promo_label=iat-webinar-live`,
+    checkoutIATWebinar3MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536705&coupon=3monthWebinarLive&promo_label=iat-webinar-live`,
+    checkoutIATWebinar6MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536706&coupon=6monthWebinarLive&promo_label=iat-webinar-live`,
+    checkoutIATWebinar12MonthPlan: `${checkoutUrl}/enroll/3600235?price_id=4536708&coupon=12monthWebinarLive&promo_label=iat-webinar-live`,
     // Lifetime All-Access Pass
     checkoutLifetimeUpfront: `${checkoutUrl}/enroll/559833?price_id=1053866&coupon=lifetimesale`,
     checkoutLifetime6MonthPlan: `${checkoutUrl}/enroll/559833?price_id=1053856&coupon=lifetimesale6mo`,
@@ -286,6 +303,8 @@ let env: TCheckoutEnv = 'production'
 if (thinkificUrl === 'https://staging.university.personaldevelopmentschool.com') {
   env = 'staging'
 }
+
+export const googleAdsConversion = googleAdsConversions[env]
 
 export const externalRoutes = {
   // External

@@ -21,6 +21,7 @@ import {
   getLoveLanuageVariantSlug,
   getSplitTest,
 } from '@/utils/functions'
+import { googleAdsConversion } from '@/utils/constants'
 
 type TLoveLanguagesQuizData = {
   wordsOfAffirmation: number
@@ -77,7 +78,7 @@ export const LoveLanguagesQuizForm = ({
     })
 
     gtag('event', 'conversion', {
-      send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
+      send_to: googleAdsConversion.lead,
       love_language: getLoveLanguageText(result),
     })
 
@@ -101,6 +102,7 @@ export const LoveLanguagesQuizForm = ({
         firstName,
         lastName,
         email,
+        userLoveLanguage: result,
         eventId,
         loveLanguage: getLoveLanguageText(result),
         wordsOfAffirmationPercentage,

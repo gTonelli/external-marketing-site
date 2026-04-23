@@ -26,6 +26,7 @@ import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
 import Mixpanel from '@/modules/Mixpanel'
 // utils
 import { UserDataContext } from '@/utils/contexts'
+import { googleAdsConversion } from '@/utils/constants'
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
 
@@ -83,7 +84,7 @@ export function CheckoutClient({ priceData, strapiOrigin }: CheckoutClientProps)
 
   useEffect(() => {
     if (googleInitiateCheckoutTrackedRef.current) return
-    gtag('event', 'conversion', { send_to: 'AW-696431615/zVOvCLSuk9oCEP_niswC' })
+    gtag('event', 'conversion', { send_to: googleAdsConversion.initiateCheckout })
     const userEmail = sessionIdentity?.email?.trim()
     if (userEmail) {
       gtag('set', 'user_data', { email: userEmail })

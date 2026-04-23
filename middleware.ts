@@ -132,7 +132,7 @@ const parseVariantCookie = (variantCookie: string) => {
 }
 
 export const config = {
-  matcher: ['/iat/info', '/iat/webinar', '/six-dating-stages', '/iat'],
+  matcher: ['/iat/info', '/six-dating-stages', '/iat'],
 }
 
 interface IConfigWithRegex {
@@ -148,10 +148,6 @@ const getPageData = (request: NextRequest): TSplitTestConfig | undefined => {
   const utmSource = searchParams.get('utm_source')
 
   const configs: Array<IConfigWithRegex> = [
-    {
-      config: splitTestConfigs.iatMasterclassTest,
-      regex: /^\/iat\/webinar/,
-    },
     {
       config: splitTestConfigs.iatSalesPageTest,
       regex: /^\/iat(?:$|\?)/,
@@ -254,16 +250,6 @@ export const splitTestConfigs: TSplitTestConfigs = {
     experimentName: 'IP-1248-IAT-Ebook-Banner-Test',
     variantUrl: {
       path: '/iat/info-ebook',
-    },
-    variantRatio: 0.25,
-    forceControlOnNewUser: false,
-  },
-  iatMasterclassTest: {
-    cookieKey: 'ip-1477-masterclass-test',
-    pageName: 'IAT Webinar Page',
-    experimentName: 'IP-1477-IAT-Masterclass-Test',
-    variantUrl: {
-      path: '/iat/webinar/b',
     },
     variantRatio: 0.25,
     forceControlOnNewUser: false,

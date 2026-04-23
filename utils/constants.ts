@@ -158,6 +158,23 @@ const thinkificUrl =
 const checkoutUrl =
   process.env.NEXT_PUBLIC_CHECKOUT_URL || 'https://checkout.personaldevelopmentschool.com'
 
+type TGoogleAdsConversion = {
+  lead: string
+  initiateCheckout: string
+}
+
+// Use with the send_to parameter in the gtag function
+const googleAdsConversions: Record<TCheckoutEnv, TGoogleAdsConversion> = {
+  production: {
+    lead: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
+    initiateCheckout: 'AW-696431615/zVOvCLSuk9oCEP_niswC',
+  },
+  staging: {
+    lead: 'AW-18114450616/nl17CPLjoqEcELip0r1D',
+    initiateCheckout: 'AW-18114450616/Yvx-CPHOuaEcELip0r1D',
+  },
+}
+
 const checkoutRoutes: Record<TCheckoutEnv, TCheckoutRoutes> = {
   production: {
     // Single-Step Checkout
@@ -286,6 +303,8 @@ let env: TCheckoutEnv = 'production'
 if (thinkificUrl === 'https://staging.university.personaldevelopmentschool.com') {
   env = 'staging'
 }
+
+export const googleAdsConversion = googleAdsConversions[env]
 
 export const externalRoutes = {
   // External

@@ -535,4 +535,266 @@ export const CONFIG = {
       ],
     },
   },
+  'rebuild-trust': {
+    hero: {
+      title:
+        'Heal From Being Cheated On, Rebuild the Trust That Was Broken, and Find Clarity on What Comes Next With Thais Gibson',
+      videoId: '96323e322edcf4ee9a633ec8d9cbe523',
+      thumbnailSrc:
+        'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/navigate_betrayal_and_rebuild_trust_masterclass_thumbnail_f1133eaf05.jpg',
+    },
+    pageWarning: {
+      title: 'Please do not close this page — this exclusive offer is only available here.',
+      copy: "As a gift for watching this masterclass, you've unlocked a limited-time All-Access Pass to The Personal Development School. Heal the trust wounds that are sitting between you and your partner, get clarity on whether to stay or leave, and if you choose to stay — learn how to actually rebuild what was broken.",
+    },
+    offer: {
+      label: 'JOIN 60,000+ STUDENTS IN 145+ COUNTRIES',
+      title: 'Heal From What Happened and Learn to Trust Again',
+      copy: 'Join thousands of students who were stuck in the same cycle of overthinking, checking, and questioning everything — and learned how to actually move past it.',
+      imageDesktop: '/images/Masterclass/trust-masterclass-banner-desktop.png',
+      imageMobile: '/images/Masterclass/trust-masterclass-banner-mobile.png',
+      imageDesktopAlt: 'Trust Masterclass Live Page Desktop Image',
+      imageMobileAlt: 'Trust Masterclass Live Page Mobile Image',
+    },
+    floatingNavLinks: [
+      {
+        label: 'About This Program',
+        href: '#about-this-program',
+      },
+      {
+        label: "What You'll Learn",
+        href: '#what-you-will-learn',
+      },
+      {
+        label: 'Meet Thais Gibson',
+        href: '#meet-thais-gibson',
+      },
+      {
+        label: 'Student Stories',
+        href: '#student-stories',
+      },
+      {
+        label: 'Membership',
+        href: '#membership',
+      },
+    ],
+    aboutThisProgram: {
+      title: 'About This Program',
+      image: '/images/course-heal-trust-wounds.png',
+      imageAlt: 'Discover, Embrace and Fulfill Your Personal Needs Course',
+      copy: [
+        "When you've been cheated on, everything feels different. Your relationship, your sense of safety, the way you see the person you're with. And no matter how hard you try to move past it, something still doesn't feel right.",
+        "It's why you check their phone. It's why a late reply makes your stomach drop. It's why even on a good day… part of you is still waiting for it to happen again.",
+        "The Personal Development School Membership — The All-Access Pass helps you understand what the experience actually did to you and to your relationship so you can start making decisions from clarity instead of fear. This isn't about forcing yourself to forgive or pretending everything is fine. It's about understanding what happened deeply enough to know what you actually want to do next — and how to do it.",
+        'As you heal, the constant questioning starts to quiet down and the weight of what happened starts to lift. You stop just getting through each day together and start figuring out what your relationship can actually become from here.',
+      ],
+    },
+    socialProof: [
+      {
+        icon: faUsers,
+        iconCircleBg: 'bg-[#F8DDFF]',
+        iconColor: 'text-primary',
+        title: '60,000+',
+        subtitle: 'Students Enrolled',
+      },
+      {
+        icon: faGlobe,
+        iconCircleBg: 'bg-[#D9E0FE]',
+        iconColor: 'text-[#142BD5]',
+        title: '145+',
+        subtitle: 'Countries Worldwide',
+      },
+      {
+        icon: faFaceSmile,
+        iconCircleBg: 'bg-[#FEE9D5]',
+        iconColor: 'text-[#FFA000]',
+        title: '99.7%',
+        subtitle: 'User Satisfaction Rate',
+      },
+    ],
+    whatYouWillLearn: {
+      title: "What You'll Learn",
+      learnings: [
+        "You'll learn why the cheating actually happened. Not so you can excuse it, but so you can understand it clearly enough to decide what comes next.",
+        "You'll see how the experience created wounds that are affecting how you show up in your relationship right now — the anxiety, the need to check, the difficulty being present even when nothing is wrong.",
+        "You’ll be able to decide if the relationship should be saved, learn how to set boundaries that won't be violated again, and understand what you need to feel safe in your relationship again.",
+        "This isn't about forcing yourself to forgive before you're ready. It's about understanding what happened, knowing what you want, and having the tools to get there.",
+      ],
+    },
+    thais: {
+      image: '/images/Masterclass/thais-portrait-3.jpg',
+      imageAlt: 'Thais Gibson portrait',
+    },
+    studentStories: {
+      title: 'Results You Can Expect',
+    },
+    noRiskMembership: {
+      title: '15-Day Risk-Free Guarantee',
+      copy: [
+        'Try everything risk-free.',
+        'If it’s not the right fit, you can cancel within 15 days — no questions asked.',
+      ],
+      image: '/images/Masterclass/15-days-risk-free.svg',
+      imageAlt: '15-days-risk-free badge',
+    },
+    pricing: {
+      title: 'Unlock The Personal Development School Membership – The All-Access Pass',
+      items: [
+        <>
+          When you join, you’ll gain access to a complete system designed to help you understand,
+          meet, and communicate your emotional needs so you can create lasting fulfillment.
+        </>,
+        <>
+          Inside, you’ll find the{' '}
+          <strong>Overcome Betrayal, Heal Trust Wounds and Move Past Jealousy Course</strong>, along
+          with a full library of 70+ programs covering emotional mastery, attachment styles,
+          communication, and relationship dynamics.
+        </>,
+        <>
+          You’ll also gain access to optional group coaching, guided exercises, and a global
+          community for support and accountability.
+        </>,
+      ],
+    },
+    insidePDS: {
+      title: 'What’s Inside The Personal Development School',
+      copy: [
+        'This isn’t just a single course — it’s a complete ecosystem for moving through a painful experience that doesn’t need to define your future.',
+        `As you continue, you'll start to notice the change. You'll understand yourself better, communicate what you need without fear, and actually feel safe letting someone in again.`,
+      ],
+      image: '/images/Masterclass/various-devices-mockup.png',
+      imageAlt: 'Access to the Personal Development School on various devices',
+    },
+    features: [
+      {
+        title: 'Get Live Support Through Weekly Q&A with Thais Gibson',
+        copy: [
+          'You won’t have to navigate this alone.',
+          'Through optional live group coaching sessions, you’ll be able to ask questions, get clarity on your specific situation, and apply what you’re learning in real time.',
+          'This level of support helps you move faster, stay accountable, and feel guided throughout the process.',
+        ],
+        images: [
+          {
+            src: '/images/Masterclass/support-1.png',
+            alt: 'Support 1',
+          },
+          {
+            src: '/images/Masterclass/support-2.png',
+            alt: 'Support 2',
+          },
+          {
+            src: '/images/Masterclass/support-3.png',
+            alt: 'Support 3',
+          },
+        ],
+      },
+      {
+        title: 'Become Part of a Global Community',
+        copy: [
+          'You’ll also be surrounded by a community of people who understand what you’re going through.',
+          'This creates a space where you can feel supported, share experiences, and grow alongside others who are committed to healing and building better relationships.',
+        ],
+        images: [
+          {
+            src: '/images/Masterclass/community-1.png',
+            alt: 'Community 1',
+          },
+          {
+            src: '/images/Masterclass/community-2.png',
+            alt: 'Community 2',
+          },
+          {
+            src: '/images/Masterclass/community-3.png',
+            alt: 'Community 3',
+          },
+        ],
+      },
+      {
+        title: 'Transformation in Just Few Minutes a Day',
+        copy: [
+          'You don’t need hours of time to see results.',
+          'With structured lessons and practical tools, you can begin creating meaningful change in just a few minutes a day.',
+        ],
+        images: [
+          {
+            src: '/images/Masterclass/trust-transformation-1.png',
+            alt: 'Transformation 1',
+          },
+          {
+            src: '/images/Masterclass/trust-transformation-2.png',
+            alt: 'Transformation 2',
+          },
+          {
+            src: '/images/Masterclass/trust-transformation-3.png',
+            alt: 'Transformation 3',
+          },
+        ],
+      },
+    ],
+    membership: {
+      title: 'Discover What’s Possible for You Inside the Personal Development School',
+      copy: [
+        'As you begin this journey, you’ll start to experience what it feels like to feel calm instead of anxious, clear instead of confused, and confident instead of uncertain.',
+        'You’ll rebuild trust in yourself, understand your relationships at a deeper level, and move forward with a sense of peace.',
+      ],
+      perks: [
+        'Full access to the Overcome Betrayal, Heal Trust Wounds and Move Past Jealousy Course',
+        '70+ expert-led programs covering relationships, attachment styles, communication, and emotional mastery',
+        'Weekly optional group coaching with Thais Gibson',
+        'Practical tools to heal trust wounds, rebuild trust in your partner, and get clarity on what comes next',
+        'A global community of people navigating the same thing you are',
+      ],
+    },
+    faqs: {
+      title: 'Frequently Asked Questions',
+      copy: 'Get your questions answered before the Heal From Cheating & Learn to Trust Again Masterclass begins.',
+    },
+    timestamps: {
+      title: 'Video Timestamps, Table of Contents',
+      items: [
+        <>
+          <strong>[00:00]</strong> - Welcome To The Navigate Betrayal & Rebuild Trust in Your
+          Relationship Masterclass
+        </>,
+        <>
+          <strong>[00:15]</strong> - The Consequences of Betrayal & Is Repair Possible?
+        </>,
+        <>
+          <strong>[02:27]</strong> - What You'll Learn In This Masterclass
+        </>,
+        <>
+          <strong>[05:57]</strong> - Why You Still Feel On High Alert
+        </>,
+        <>
+          <strong>[07:20]</strong> - Myth 1: If I Forgive Them, Trust Should Come Back Immediately
+        </>,
+        <>
+          <strong>[07:45]</strong> - Myth 2: If I'm Still Triggered, The Relationship Will Never
+          Work
+        </>,
+        <>
+          <strong>[07:58]</strong> - Myth 3: If I Choose To Stay, I Have To Get Over It Immediately
+        </>,
+        <>
+          <strong>[08:51]</strong> - Lesson 1: Identifying The Wound That Was Created
+        </>,
+        <>
+          <strong>[09:47]</strong> - Lesson 2: What Are The Costs Of Continuing To Carry This?
+        </>,
+        <>
+          <strong>[11:36]</strong> - Lesson 3: The First Step To Healing Your Wounds
+        </>,
+        <>
+          <strong>[19:26]</strong> - Write Down Your Insights
+        </>,
+        <>
+          <strong>[19:55]</strong> - How I Learned To Trust Again
+        </>,
+        <>
+          <strong>[21:02]</strong> - What's Inside The Overcoming Betrayal, Heal Trust Wounds And
+          Move Beyond Relationships Ruptures Course
+        </>,
+      ],
+    },
+  },
 }

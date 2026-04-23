@@ -70,6 +70,7 @@ export const DatingQuizForm = ({
         firstName,
         lastName,
         email,
+        userDatingStage: datingStage,
         eventId,
         relationshipStatus: userInfo.relationshipStatus,
         dominantStage: getDatingStageText(datingStage),

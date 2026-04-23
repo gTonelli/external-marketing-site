@@ -2,6 +2,7 @@
 
 //core
 import { useRouter } from 'next/navigation'
+import { useState, useEffect } from 'react'
 // components
 import { IResultProps, IUserInfo, TQuizTrafficSources } from './AttachmentQuiz'
 import { RegistrationForm, TOnAfterSubmitArgs } from '../Forms/RegistrationForm'
@@ -12,7 +13,7 @@ import { RecaptchaNotice } from '../RecaptchaNotice'
 import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
-import { getAttachmentStyleText } from '@/utils/functions'
+import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
 import { googleAdsConversion } from '@/utils/constants'
 
 interface IAttachmentQuizFormProps {
@@ -35,6 +36,20 @@ export const AttachmentQuizForm = ({
   const router = useRouter()
   const { getPercentageResults, saveResult } = useAttachmentQuiz()
   const FBQ = useFacebookPixel()
+  const [is21DayVariant, setIs21DayVariant] = useState(false)
+
+  useEffect(() => {
+    if (quiz_traffic_source === 'paidGoogle' && userStyle === 'fa') {
+      setIs21DayVariant(
+        getSplitTest({
+          useCookies: true,
+          key: 'gm-2535-21-day-reset-test',
+          experimentName: 'GM-2535-21-Day-Reset-Test',
+          variantRatio: 0.2,
+        })
+      )
+    }
+  }, [])
 
   // ==================== Events ====================
   const determineRoute = () => {
@@ -109,6 +124,7 @@ export const AttachmentQuizForm = ({
         firstName,
         lastName,
         email,
+        userStyle,
         eventId,
         attachmentFamiliarity,
         gender,
@@ -123,14 +139,24 @@ export const AttachmentQuizForm = ({
       })
     }
 
-    const route = determineRoute()
-    router.push(route)
+    if (is21DayVariant && userStyle === 'fa') {
+      setTimeout(
+        () =>
+          (window.location.href = 'https://offer.personaldevelopmentschool.com/fa-21-day-reset'),
+        2000
+      )
+    } else {
+      const route = determineRoute()
+      router.push(route)
+    }
   }
 
   const tags = [`attachment-quiz-${userStyle}`]
   if (quiz_traffic_source === 'paidGoogle' && (userStyle === 'fa' || userStyle === 'da')) {
     tags.push(`attachment-quiz-${userStyle}-google`)
   }
+
+  if (is21DayVariant) tags.push(`fa-21-reset`)
 
   return (
     <section className="flex justify-center">

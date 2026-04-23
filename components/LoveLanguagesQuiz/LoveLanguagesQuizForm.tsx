@@ -102,6 +102,7 @@ export const LoveLanguagesQuizForm = ({
         firstName,
         lastName,
         email,
+        userLoveLanguage: result,
         eventId,
         loveLanguage: getLoveLanguageText(result),
         wordsOfAffirmationPercentage,

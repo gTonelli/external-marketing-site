@@ -4,12 +4,13 @@ export const CONFIG = {
   needs: {
     hero: {
       bgVideoSrc: '/videos/Masterclass/Needs/bgv.mp4',
+      bgImageSrc: '/images/Masterclass/needs-hero-bg-mobile.png',
       trailerVideoId: '44b97433cb8cc0eded54c5ccd8c44867',
       trailerThumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
-      h3: 'Tired of Repeating the Same Emotional Cycles?',
-      h1: 'Discover the Hidden Needs Shaping Your Relationships, Motivation, and Happiness to Find Lasting Fulfillment',
-      h2: 'Thousands have used the framework in this Discover, Embrace & Fulfill Your Personal Needs Masterclass to identify unmet emotional needs, break painful patterns, and build secure attachment from the inside out.',
+      h3: "WHY YOU FEEL UNSEEN, OVERLOOKED, OR EASILY TRIGGERED IN RELATIONSHIPS… AND CAN'T SEEM TO CHANGE IT",
+      h1: "Finally Understand Why You Can Feel Completely Alone… Even When You're in a Relationship",
+      h2: 'Discover the real reason your emotional needs keep going unmet — and what to do about it in this free 30-minute masterclass',
     },
     floatingNavLinks: [
       { label: "What You'll Learn", href: '#what-you-will-learn' },
@@ -43,7 +44,7 @@ export const CONFIG = {
       ],
       learnings: [
         {
-          title: 'How to Identify the Needs That Are Shaping Your Relationships',
+          title: 'Why You React, Shut Down, or Overgive — and the Unmet Need Behind It',
           description: [
             <>
               Most people don’t realize that their emotional needs are influencing how they show up
@@ -62,7 +63,7 @@ export const CONFIG = {
           ],
         },
         {
-          title: 'Why You Feel Lonely Even When You’re Not Alone',
+          title: 'Why You Can Feel Completely Alone Even Inside a Relationship',
           description: [
             <>Loneliness isn’t just about being single.</>,
             <>
@@ -76,7 +77,7 @@ export const CONFIG = {
           ],
         },
         {
-          title: 'Why the Spark Fades….And How to Bring It Back',
+          title: 'Why the Spark Fades Into Distance and Resentment — and How to Reverse It',
           description: [
             <>Many people believe the spark naturally fades over time.</>,
             <>But more often, it fades when emotional needs go unrecognized or unmet.</>,
@@ -87,7 +88,7 @@ export const CONFIG = {
           ],
         },
         {
-          title: 'How to Break Cycles of Frustration, Conflict, and Resentment',
+          title: 'How to Finally Break the Cycle Instead of Just Surviving It',
           description: [
             <>When needs go unmet, patterns begin to form.</>,
             <>
@@ -101,7 +102,7 @@ export const CONFIG = {
           ],
         },
         {
-          title: 'How to Create Relationships Where You Feel Truly Seen and Valued',
+          title: 'What It Actually Takes to Feel Truly Seen, Heard, and Valued by Your Partner',
           description: [
             <>
               When emotional needs are understood and consistently met, relationships feel
@@ -164,6 +165,7 @@ export const CONFIG = {
   'learn-to-trust': {
     hero: {
       bgVideoSrc: '/videos/Masterclass/Trust/bgv.mp4',
+      bgImageSrc: '/images/Masterclass/trust-hero-bg-mobile.png',
       trailerVideoId: '266ffda0f207eec49141a63a42952cf3',
       trailerThumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg',
@@ -359,6 +361,7 @@ export const CONFIG = {
   'rebuild-trust': {
     hero: {
       bgVideoSrc: '/videos/Masterclass/RebuildTrust/bgv.mp4',
+      bgImageSrc: '/images/Masterclass/trust-hero-bg-mobile.png',
       trailerVideoId: '5310a97976f7efc65804c0d371df1c78',
       trailerThumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/navigate_betrayal_and_rebuild_trust_masterclass_thumbnail_f1133eaf05.jpg',

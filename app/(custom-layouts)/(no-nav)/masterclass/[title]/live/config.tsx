@@ -4,7 +4,7 @@ export const CONFIG = {
   needs: {
     hero: {
       title: 'Discover Your Emotional Needs And Finally Feel, Seen Connected, and Understood',
-      videoId: 'a3e53798e6cb6fdcc948b07b4ac93526',
+      videoId: 'bd7993552a17c7626384c31722952fc3',
       thumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
     },
@@ -273,7 +273,7 @@ export const CONFIG = {
     hero: {
       title:
         'Heal From Being Cheated On and Finally Let Go of the Trust Wounds It Created With Thais Gibson',
-      videoId: '376ad34a04973d3b7975ad54c60d6558',
+      videoId: 'bf3b3d95b23d93cda23935e4a8d155c0',
       thumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg',
     },
@@ -539,7 +539,7 @@ export const CONFIG = {
     hero: {
       title:
         'Heal From Being Cheated On, Rebuild the Trust That Was Broken, and Find Clarity on What Comes Next With Thais Gibson',
-      videoId: '96323e322edcf4ee9a633ec8d9cbe523',
+      videoId: 'ba95ece1ac858b7e73760eef117b504f',
       thumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/navigate_betrayal_and_rebuild_trust_masterclass_thumbnail_f1133eaf05.jpg',
     },

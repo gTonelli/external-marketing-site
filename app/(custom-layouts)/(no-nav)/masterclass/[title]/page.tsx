@@ -68,30 +68,41 @@ export default async function MasterclassRegistrationPage({ params }: IMastercla
     <Page page_name={`Masterclass Registration Page - ${title}`}>
       <Section
         className="relative min-h-fit !p-0"
-        classNameInner="relative !min-w-full min-h-screen min-h-fit !p-0 !m-0">
+        classNameInner="relative !min-w-full min-h-fit !p-0 !m-0 lg:min-h-screen">
         <div>
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="absolute bottom-0 w-full h-full object-cover object-center max-w-none">
+            className="hidden absolute bottom-0 w-full h-full object-cover object-center max-w-none sm:block">
             <source src={config.hero.bgVideoSrc} type="video/mp4" />
           </video>
+
+          <Image
+            priority
+            className="sm:hidden absolute bottom-0 w-full h-full object-cover object-top"
+            src={config.hero.bgImageSrc}
+            alt="hero image of masterclass"
+            width={375}
+            height={600}
+            sizes="100vw"
+            quality={100}
+          />
 
           <div className="masterclass-header-bg-overlay"></div>
         </div>
 
-        <div className="relative section-inner-wrapper min-h-screen flex flex-col justify-end items-start gap-7 py-24 mx-auto lg:py-48">
+        <div className="relative section-inner-wrapper min-h-fit flex flex-col justify-start items-start gap-7 py-24 mx-auto lg:min-h-screen lg:justify-end lg:py-48">
           <div className="w-full min-h-fit flex flex-col text-left text-white ml-0 p-4 lg:w-4/5">
             <h3 className="!text-base !font-effra uppercase tracking-33">{config.hero.h3}</h3>
 
             <h1 className="!text-4xl lg:!text-6xl">{config.hero.h1}</h1>
 
-            <h2 className="!text-lg !font-effra hidden md:block">{config.hero.h2}</h2>
+            <h2 className="!text-lg !font-effra">{config.hero.h2}</h2>
           </div>
 
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-4 px-4">
             <Link href="#reserve-my-spot">
               <Button className="masterclass-yellow-cta" label="RESERVE MY SPOT NOW" />
             </Link>

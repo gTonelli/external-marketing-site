@@ -14,6 +14,7 @@ import { useFacebookPixel } from '@/modules/FacebookPixel'
 // utils
 import { TStyle } from '@/utils/types'
 import { getAttachmentStyleText, getSplitTest } from '@/utils/functions'
+import { googleAdsConversion } from '@/utils/constants'
 
 interface IAttachmentQuizFormProps {
   userStyle: TStyle
@@ -87,7 +88,7 @@ export const AttachmentQuizForm = ({
     })
 
     gtag('event', 'conversion', {
-      send_to: 'AW-696431615/_Wk5CMPg-8YCEP_niswC',
+      send_to: googleAdsConversion.lead,
       attachment_style: getAttachmentStyleText(userStyle),
     })
 

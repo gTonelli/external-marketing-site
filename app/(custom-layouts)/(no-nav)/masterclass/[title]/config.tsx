@@ -9,8 +9,8 @@ export const CONFIG = {
       trailerThumbnailSrc:
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/needs_masterclass_video_thumbnail_640554cd7f.jpg',
       h3: "WHY YOU FEEL UNSEEN, OVERLOOKED, OR EASILY TRIGGERED IN RELATIONSHIPS… AND CAN'T SEEM TO CHANGE IT",
-      h1: "Finally Understand Why You Can Feel Completely Alone… Even When You're in a Relationship",
-      h2: 'Discover the real reason your emotional needs keep going unmet — and what to do about it in this free 30-minute masterclass',
+      h1: "Finally Understand Why You Feel So Alone... Even When You're in a Relationship",
+      h2: 'Discover the real reason your emotional needs keep going unmet — and what to do about it in this free 30-minute masterclass.',
     },
     floatingNavLinks: [
       { label: "What You'll Learn", href: '#what-you-will-learn' },
@@ -171,7 +171,7 @@ export const CONFIG = {
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/heal_from_cheating_learn_to_trust_again_masterclass_video_thumbnail_ca0ce7c225.jpg',
       h3: '',
       h1: 'You Were Cheated On and Left Feeling Broken, Anxious, and Unable to Trust Again',
-      h2: 'Finally, Understand Why Cheating Happened and How to Heal the Trust Wounds It Created',
+      h2: 'Finally, Understand Why Cheating Happened and How to Heal the Trust Wounds It Created With This Free Masterclass.',
     },
     floatingNavLinks: [
       { label: "What You'll Learn", href: '#what-you-will-learn' },
@@ -367,7 +367,7 @@ export const CONFIG = {
         'https://pds-strapi-bucket.s3.ca-central-1.amazonaws.com/navigate_betrayal_and_rebuild_trust_masterclass_thumbnail_f1133eaf05.jpg',
       h3: 'Ever Felt Unseen Or Disconnected In Your Relationship?',
       h1: 'Understand Why Cheating Happened — and How to Navigate What Comes Next',
-      h2: 'Over 60 thousand students have used these tools to create relationships where they feel seen, heard, and truly valued.',
+      h2: 'Over 60 thousand students have used these tools to create relationships where they feel seen, heard, and truly valued. Join The Free Masterclass.',
     },
     floatingNavLinks: [
       { label: "What You'll Learn", href: '#what-you-will-learn' },

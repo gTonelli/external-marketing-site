@@ -11,8 +11,6 @@ import {
 export function TrustBlock({ className = '' }: { className?: string }) {
   return (
     <section className={`flex flex-col gap-6 ${className}`}>
-      <h2 className="text-lg font-bold leading-7 text-black-2">Purchase with confidence</h2>
-
       <div className="flex gap-5">
         <FontAwesomeIcon
           icon={faArrowRotateLeft}
@@ -21,10 +19,10 @@ export function TrustBlock({ className = '' }: { className?: string }) {
         />
 
         <div className="flex flex-col gap-2 text-black-2">
-          <p className="text-base font-normal leading-[22px]">Refund / Cancellation Policy</p>
+          <p className="text-base font-bold leading-[22px]">Refund / Cancellation Policy</p>
 
           <p className="text-sm leading-[18px]">
-            Feel safe. 15 days for a Full refund, where applicable.
+            Feel safe. 7 days for a Full refund, where applicable.
           </p>
         </div>
       </div>
@@ -37,7 +35,7 @@ export function TrustBlock({ className = '' }: { className?: string }) {
         />
 
         <div className="flex flex-col gap-2 text-black-2">
-          <p className="text-base font-normal leading-[22px]">Privacy and Security</p>
+          <p className="text-base font-bold leading-[22px]">Privacy and Security</p>
 
           <p className="text-sm leading-[18px]">
             All Personal information you submit is Encrypted and Secure
@@ -53,7 +51,7 @@ export function TrustBlock({ className = '' }: { className?: string }) {
         />
 
         <div className="flex flex-col gap-2 text-black-2">
-          <p className="text-base font-normal leading-[22px]">Easy Support & Help</p>
+          <p className="text-base font-bold leading-[22px]">Easy Support & Help</p>
 
           <p className="text-sm leading-[18px]">
             Need help? Our support team is available at any time. Please visit{' '}

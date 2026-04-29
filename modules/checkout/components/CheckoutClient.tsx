@@ -109,7 +109,7 @@ export function CheckoutClient({ priceData, strapiOrigin }: CheckoutClientProps)
     <Page
       page_name="Checkout Page"
       className={`checkout-page min-h-screen w-full bg-[#f9f9fb] font-effra text-black-2 antialiased
-    lg:min-h-0 lg:flex-1 lg:flex lg:flex-col lg:py-12
+    lg:min-h-0 lg:flex-1 lg:flex lg:flex-col
     lg:bg-[linear-gradient(90deg,#f9f9fb_0%,#f9f9fb_50%,#ffffff_50%,#ffffff_100%)]`}>
       <div
         className={`mx-auto flex w-full max-w-screen-xl flex-col

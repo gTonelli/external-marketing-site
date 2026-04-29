@@ -280,11 +280,14 @@ function DeferredCheckoutFormInner({
             {submitting ? 'Processing…' : 'Subscribe & Pay'}
           </button>
 
-          <p className="mt-4 text-xs leading-4 text-[#888a95]">
+          <p className="mt-4 text-xs leading-4 text-center text-[#888a95]">
+            {price.recurring && price.recurring.intervalCount > 0
+              ? `
             By confirming, you allow The Personal Development School to charge your card now and at
             each renewal, per your plan&apos;s terms. Your subscription will renew automatically at
             the current rate each billing period. Cancel anytime before renewal to avoid future
-            charges.
+            charges.`
+              : `7-Day Money Back Guarantee. No Questions Asked!`}
           </p>
         </div>
       </CheckoutPanelLoadingOverlay>

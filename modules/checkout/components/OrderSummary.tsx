@@ -2,9 +2,19 @@
 
 // core
 import Image from 'next/image'
+// libraries
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleCheck } from '@awesome.me/kit-545b942488/icons/classic/solid'
 // modules
 import { formatMoney, priceLineLabel, totalLabel } from '@/modules/checkout/lib/money'
 import type { CheckoutPriceDataResponse } from '@/modules/checkout/types'
+
+const NEEDS_KIT_CHECKLIST = [
+  'The Relationship Needs Clarity Kit',
+  'Free Bonus: 7-day Trial of The All-Access Pass',
+  'Free Bonus: The Conflict Decoder',
+  'Free Bonus: Love Languages Guided Audio',
+]
 
 export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
   const { product, price } = data
@@ -60,9 +70,31 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
         </div>
       </div>
 
-      <div className="h-px w-full bg-[#dddee4]" />
+      {price.type !== 'one_time' && (
+        <>
+          <div className="h-px w-full bg-[#dddee4]" />
 
-      <p className="text-base leading-[22px] text-black-2">Starting membership on {startLabel}</p>
+          <p className="text-base leading-[22px] text-black-2">
+            Starting membership on {startLabel}
+          </p>
+        </>
+      )}
+
+      {price.lookupKey === 'needs-kit' && (
+        <>
+          <div className="h-px w-full bg-[#dddee4]" />
+
+          <ul className="flex flex-col gap-1.5 text-base leading-[30px] text-black-2">
+            {NEEDS_KIT_CHECKLIST.map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <FontAwesomeIcon icon={faCircleCheck} className="text-green-check" />
+
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
       <div className="h-px w-full bg-[#dddee4]" />
 
@@ -75,7 +107,9 @@ export function OrderSummary({ data }: { data: CheckoutPriceDataResponse }) {
             : price.title}
         </span>
 
-        <span className="text-right">{priceLineLabel(price)}</span>
+        <span className="text-right">
+          {showDiscountLine ? <s>{priceLineLabel(price, false)}</s> : priceLineLabel(price)}
+        </span>
       </div>
 
       {showDiscountLine && (
